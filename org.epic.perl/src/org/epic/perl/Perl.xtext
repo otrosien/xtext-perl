@@ -1,0 +1,9 @@
+grammar org.epic.perl.Perl with org.eclipse.xtext.common.Terminals
+
+generate perl "http://www.epic.org/perl/Perl"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';

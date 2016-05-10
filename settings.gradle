@@ -1,0 +1,3 @@
+include 'org.epic.perl'
+include 'org.epic.perl.ide'
+include 'org.epic.perl.tests'
