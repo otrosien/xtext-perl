@@ -9,3 +9,6 @@ Require-Bundle: org.epic.perl,
  org.eclipse.xtext.ide,
  org.eclipse.xtext.xbase.ide
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.epic.perl.ide.contentassist.antlr,
+ org.epic.perl.ide.contentassist.antlr.internal
+
