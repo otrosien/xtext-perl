@@ -58,42 +58,301 @@ public interface PerlPackage extends EPackage
   PerlPackage eINSTANCE = org.epic.perl.perl.impl.PerlPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.ModelImpl <em>Model</em>}' class.
+   * The meta object id for the '{@link org.epic.perl.perl.impl.PExpressionImpl <em>PExpression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.ModelImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getModel()
+   * @see org.epic.perl.perl.impl.PExpressionImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPExpression()
    * @generated
    */
-  int MODEL = 0;
+  int PEXPRESSION = 0;
 
   /**
-   * The feature id for the '<em><b>Greetings</b></em>' containment reference list.
+   * The number of structural features of the '<em>PExpression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__GREETINGS = 0;
+  int PEXPRESSION_FEATURE_COUNT = 0;
 
   /**
-   * The number of structural features of the '<em>Model</em>' class.
+   * The meta object id for the '{@link org.epic.perl.perl.impl.PAssignmentImpl <em>PAssignment</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.PAssignmentImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPAssignment()
+   * @generated
+   */
+  int PASSIGNMENT = 1;
+
+  /**
+   * The feature id for the '<em><b>Feature</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 1;
+  int PASSIGNMENT__FEATURE = PEXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.GreetingImpl <em>Greeting</em>}' class.
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.GreetingImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getGreeting()
+   * @generated
+   * @ordered
+   */
+  int PASSIGNMENT__VALUE = PEXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Assignable</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PASSIGNMENT__ASSIGNABLE = PEXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>PAssignment</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PASSIGNMENT_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.PBinaryOperationImpl <em>PBinary Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.PBinaryOperationImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPBinaryOperation()
    * @generated
    */
-  int GREETING = 1;
+  int PBINARY_OPERATION = 2;
+
+  /**
+   * The feature id for the '<em><b>Left Operand</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PBINARY_OPERATION__LEFT_OPERAND = PEXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Feature</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PBINARY_OPERATION__FEATURE = PEXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Right Operand</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PBINARY_OPERATION__RIGHT_OPERAND = PEXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>PBinary Operation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PBINARY_OPERATION_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.PUnaryOperationImpl <em>PUnary Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.PUnaryOperationImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPUnaryOperation()
+   * @generated
+   */
+  int PUNARY_OPERATION = 3;
+
+  /**
+   * The feature id for the '<em><b>Feature</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PUNARY_OPERATION__FEATURE = PEXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Operand</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PUNARY_OPERATION__OPERAND = PEXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>PUnary Operation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PUNARY_OPERATION_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.PPostfixOperationImpl <em>PPostfix Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.PPostfixOperationImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPPostfixOperation()
+   * @generated
+   */
+  int PPOSTFIX_OPERATION = 4;
+
+  /**
+   * The feature id for the '<em><b>Operand</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PPOSTFIX_OPERATION__OPERAND = PEXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Feature</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PPOSTFIX_OPERATION__FEATURE = PEXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>PPostfix Operation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PPOSTFIX_OPERATION_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.PClosureImpl <em>PClosure</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.PClosureImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPClosure()
+   * @generated
+   */
+  int PCLOSURE = 5;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PCLOSURE__EXPRESSION = PEXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>PClosure</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PCLOSURE_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.PBlockExpressionImpl <em>PBlock Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.PBlockExpressionImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPBlockExpression()
+   * @generated
+   */
+  int PBLOCK_EXPRESSION = 6;
+
+  /**
+   * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PBLOCK_EXPRESSION__EXPRESSIONS = PEXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>PBlock Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PBLOCK_EXPRESSION_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.PIfExpressionImpl <em>PIf Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.PIfExpressionImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPIfExpression()
+   * @generated
+   */
+  int PIF_EXPRESSION = 7;
+
+  /**
+   * The feature id for the '<em><b>If</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PIF_EXPRESSION__IF = PEXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Then</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PIF_EXPRESSION__THEN = PEXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Else</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PIF_EXPRESSION__ELSE = PEXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>PIf Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PIF_EXPRESSION_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.PVariableDeclarationImpl <em>PVariable Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.PVariableDeclarationImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPVariableDeclaration()
+   * @generated
+   */
+  int PVARIABLE_DECLARATION = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -102,59 +361,637 @@ public interface PerlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GREETING__NAME = 0;
+  int PVARIABLE_DECLARATION__NAME = PEXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Greeting</em>' class.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GREETING_FEATURE_COUNT = 1;
-
+  int PVARIABLE_DECLARATION__RIGHT = PEXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.Model <em>Model</em>}'.
+   * The number of structural features of the '<em>PVariable Declaration</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Model</em>'.
-   * @see org.epic.perl.perl.Model
    * @generated
+   * @ordered
    */
-  EClass getModel();
+  int PVARIABLE_DECLARATION_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.epic.perl.perl.Model#getGreetings <em>Greetings</em>}'.
+   * The meta object id for the '{@link org.epic.perl.perl.impl.PFeatureCallImpl <em>PFeature Call</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Greetings</em>'.
-   * @see org.epic.perl.perl.Model#getGreetings()
-   * @see #getModel()
+   * @see org.epic.perl.perl.impl.PFeatureCallImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPFeatureCall()
    * @generated
    */
-  EReference getModel_Greetings();
+  int PFEATURE_CALL = 9;
 
   /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.Greeting <em>Greeting</em>}'.
+   * The feature id for the '<em><b>Feature</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Greeting</em>'.
-   * @see org.epic.perl.perl.Greeting
    * @generated
+   * @ordered
    */
-  EClass getGreeting();
+  int PFEATURE_CALL__FEATURE = PEXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * Returns the meta object for the attribute '{@link org.epic.perl.perl.Greeting#getName <em>Name</em>}'.
+   * The feature id for the '<em><b>Feature Call Arguments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PFEATURE_CALL__FEATURE_CALL_ARGUMENTS = PEXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>PFeature Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PFEATURE_CALL_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.PConstructorCallImpl <em>PConstructor Call</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.PConstructorCallImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPConstructorCall()
+   * @generated
+   */
+  int PCONSTRUCTOR_CALL = 10;
+
+  /**
+   * The feature id for the '<em><b>Constructor</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PCONSTRUCTOR_CALL__CONSTRUCTOR = PEXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Explicit Constructor Call</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PCONSTRUCTOR_CALL__EXPLICIT_CONSTRUCTOR_CALL = PEXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PCONSTRUCTOR_CALL__ARGUMENTS = PEXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>PConstructor Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PCONSTRUCTOR_CALL_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.PNumberLiteralImpl <em>PNumber Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.PNumberLiteralImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPNumberLiteral()
+   * @generated
+   */
+  int PNUMBER_LITERAL = 11;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PNUMBER_LITERAL__VALUE = PEXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>PNumber Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PNUMBER_LITERAL_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.PNullLiteralImpl <em>PNull Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.PNullLiteralImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPNullLiteral()
+   * @generated
+   */
+  int PNULL_LITERAL = 12;
+
+  /**
+   * The number of structural features of the '<em>PNull Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PNULL_LITERAL_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.PReturnExpressionImpl <em>PReturn Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.PReturnExpressionImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPReturnExpression()
+   * @generated
+   */
+  int PRETURN_EXPRESSION = 13;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRETURN_EXPRESSION__EXPRESSION = PEXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>PReturn Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRETURN_EXPRESSION_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.PStringLiteralImpl <em>PString Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.PStringLiteralImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPStringLiteral()
+   * @generated
+   */
+  int PSTRING_LITERAL = 14;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PSTRING_LITERAL__VALUE = PEXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>PString Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PSTRING_LITERAL_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 1;
+
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.PExpression <em>PExpression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>PExpression</em>'.
+   * @see org.epic.perl.perl.PExpression
+   * @generated
+   */
+  EClass getPExpression();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.PAssignment <em>PAssignment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>PAssignment</em>'.
+   * @see org.epic.perl.perl.PAssignment
+   * @generated
+   */
+  EClass getPAssignment();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.epic.perl.perl.PAssignment#getFeature <em>Feature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Feature</em>'.
+   * @see org.epic.perl.perl.PAssignment#getFeature()
+   * @see #getPAssignment()
+   * @generated
+   */
+  EAttribute getPAssignment_Feature();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.PAssignment#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see org.epic.perl.perl.PAssignment#getValue()
+   * @see #getPAssignment()
+   * @generated
+   */
+  EReference getPAssignment_Value();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.PAssignment#getAssignable <em>Assignable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Assignable</em>'.
+   * @see org.epic.perl.perl.PAssignment#getAssignable()
+   * @see #getPAssignment()
+   * @generated
+   */
+  EReference getPAssignment_Assignable();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.PBinaryOperation <em>PBinary Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>PBinary Operation</em>'.
+   * @see org.epic.perl.perl.PBinaryOperation
+   * @generated
+   */
+  EClass getPBinaryOperation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.PBinaryOperation#getLeftOperand <em>Left Operand</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left Operand</em>'.
+   * @see org.epic.perl.perl.PBinaryOperation#getLeftOperand()
+   * @see #getPBinaryOperation()
+   * @generated
+   */
+  EReference getPBinaryOperation_LeftOperand();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.epic.perl.perl.PBinaryOperation#getFeature <em>Feature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Feature</em>'.
+   * @see org.epic.perl.perl.PBinaryOperation#getFeature()
+   * @see #getPBinaryOperation()
+   * @generated
+   */
+  EAttribute getPBinaryOperation_Feature();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.PBinaryOperation#getRightOperand <em>Right Operand</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right Operand</em>'.
+   * @see org.epic.perl.perl.PBinaryOperation#getRightOperand()
+   * @see #getPBinaryOperation()
+   * @generated
+   */
+  EReference getPBinaryOperation_RightOperand();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.PUnaryOperation <em>PUnary Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>PUnary Operation</em>'.
+   * @see org.epic.perl.perl.PUnaryOperation
+   * @generated
+   */
+  EClass getPUnaryOperation();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.epic.perl.perl.PUnaryOperation#getFeature <em>Feature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Feature</em>'.
+   * @see org.epic.perl.perl.PUnaryOperation#getFeature()
+   * @see #getPUnaryOperation()
+   * @generated
+   */
+  EAttribute getPUnaryOperation_Feature();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.PUnaryOperation#getOperand <em>Operand</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Operand</em>'.
+   * @see org.epic.perl.perl.PUnaryOperation#getOperand()
+   * @see #getPUnaryOperation()
+   * @generated
+   */
+  EReference getPUnaryOperation_Operand();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.PPostfixOperation <em>PPostfix Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>PPostfix Operation</em>'.
+   * @see org.epic.perl.perl.PPostfixOperation
+   * @generated
+   */
+  EClass getPPostfixOperation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.PPostfixOperation#getOperand <em>Operand</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Operand</em>'.
+   * @see org.epic.perl.perl.PPostfixOperation#getOperand()
+   * @see #getPPostfixOperation()
+   * @generated
+   */
+  EReference getPPostfixOperation_Operand();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.epic.perl.perl.PPostfixOperation#getFeature <em>Feature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Feature</em>'.
+   * @see org.epic.perl.perl.PPostfixOperation#getFeature()
+   * @see #getPPostfixOperation()
+   * @generated
+   */
+  EAttribute getPPostfixOperation_Feature();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.PClosure <em>PClosure</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>PClosure</em>'.
+   * @see org.epic.perl.perl.PClosure
+   * @generated
+   */
+  EClass getPClosure();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.PClosure#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see org.epic.perl.perl.PClosure#getExpression()
+   * @see #getPClosure()
+   * @generated
+   */
+  EReference getPClosure_Expression();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.PBlockExpression <em>PBlock Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>PBlock Expression</em>'.
+   * @see org.epic.perl.perl.PBlockExpression
+   * @generated
+   */
+  EClass getPBlockExpression();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.epic.perl.perl.PBlockExpression#getExpressions <em>Expressions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Expressions</em>'.
+   * @see org.epic.perl.perl.PBlockExpression#getExpressions()
+   * @see #getPBlockExpression()
+   * @generated
+   */
+  EReference getPBlockExpression_Expressions();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.PIfExpression <em>PIf Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>PIf Expression</em>'.
+   * @see org.epic.perl.perl.PIfExpression
+   * @generated
+   */
+  EClass getPIfExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.PIfExpression#getIf <em>If</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>If</em>'.
+   * @see org.epic.perl.perl.PIfExpression#getIf()
+   * @see #getPIfExpression()
+   * @generated
+   */
+  EReference getPIfExpression_If();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.PIfExpression#getThen <em>Then</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Then</em>'.
+   * @see org.epic.perl.perl.PIfExpression#getThen()
+   * @see #getPIfExpression()
+   * @generated
+   */
+  EReference getPIfExpression_Then();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.PIfExpression#getElse <em>Else</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Else</em>'.
+   * @see org.epic.perl.perl.PIfExpression#getElse()
+   * @see #getPIfExpression()
+   * @generated
+   */
+  EReference getPIfExpression_Else();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.PVariableDeclaration <em>PVariable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>PVariable Declaration</em>'.
+   * @see org.epic.perl.perl.PVariableDeclaration
+   * @generated
+   */
+  EClass getPVariableDeclaration();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.epic.perl.perl.PVariableDeclaration#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.epic.perl.perl.Greeting#getName()
-   * @see #getGreeting()
+   * @see org.epic.perl.perl.PVariableDeclaration#getName()
+   * @see #getPVariableDeclaration()
    * @generated
    */
-  EAttribute getGreeting_Name();
+  EAttribute getPVariableDeclaration_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.PVariableDeclaration#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.epic.perl.perl.PVariableDeclaration#getRight()
+   * @see #getPVariableDeclaration()
+   * @generated
+   */
+  EReference getPVariableDeclaration_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.PFeatureCall <em>PFeature Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>PFeature Call</em>'.
+   * @see org.epic.perl.perl.PFeatureCall
+   * @generated
+   */
+  EClass getPFeatureCall();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.epic.perl.perl.PFeatureCall#getFeature <em>Feature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Feature</em>'.
+   * @see org.epic.perl.perl.PFeatureCall#getFeature()
+   * @see #getPFeatureCall()
+   * @generated
+   */
+  EAttribute getPFeatureCall_Feature();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.epic.perl.perl.PFeatureCall#getFeatureCallArguments <em>Feature Call Arguments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Feature Call Arguments</em>'.
+   * @see org.epic.perl.perl.PFeatureCall#getFeatureCallArguments()
+   * @see #getPFeatureCall()
+   * @generated
+   */
+  EReference getPFeatureCall_FeatureCallArguments();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.PConstructorCall <em>PConstructor Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>PConstructor Call</em>'.
+   * @see org.epic.perl.perl.PConstructorCall
+   * @generated
+   */
+  EClass getPConstructorCall();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.epic.perl.perl.PConstructorCall#getConstructor <em>Constructor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Constructor</em>'.
+   * @see org.epic.perl.perl.PConstructorCall#getConstructor()
+   * @see #getPConstructorCall()
+   * @generated
+   */
+  EAttribute getPConstructorCall_Constructor();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.epic.perl.perl.PConstructorCall#isExplicitConstructorCall <em>Explicit Constructor Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Explicit Constructor Call</em>'.
+   * @see org.epic.perl.perl.PConstructorCall#isExplicitConstructorCall()
+   * @see #getPConstructorCall()
+   * @generated
+   */
+  EAttribute getPConstructorCall_ExplicitConstructorCall();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.epic.perl.perl.PConstructorCall#getArguments <em>Arguments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Arguments</em>'.
+   * @see org.epic.perl.perl.PConstructorCall#getArguments()
+   * @see #getPConstructorCall()
+   * @generated
+   */
+  EReference getPConstructorCall_Arguments();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.PNumberLiteral <em>PNumber Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>PNumber Literal</em>'.
+   * @see org.epic.perl.perl.PNumberLiteral
+   * @generated
+   */
+  EClass getPNumberLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.epic.perl.perl.PNumberLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.epic.perl.perl.PNumberLiteral#getValue()
+   * @see #getPNumberLiteral()
+   * @generated
+   */
+  EAttribute getPNumberLiteral_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.PNullLiteral <em>PNull Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>PNull Literal</em>'.
+   * @see org.epic.perl.perl.PNullLiteral
+   * @generated
+   */
+  EClass getPNullLiteral();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.PReturnExpression <em>PReturn Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>PReturn Expression</em>'.
+   * @see org.epic.perl.perl.PReturnExpression
+   * @generated
+   */
+  EClass getPReturnExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.PReturnExpression#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see org.epic.perl.perl.PReturnExpression#getExpression()
+   * @see #getPReturnExpression()
+   * @generated
+   */
+  EReference getPReturnExpression_Expression();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.PStringLiteral <em>PString Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>PString Literal</em>'.
+   * @see org.epic.perl.perl.PStringLiteral
+   * @generated
+   */
+  EClass getPStringLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.epic.perl.perl.PStringLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.epic.perl.perl.PStringLiteral#getValue()
+   * @see #getPStringLiteral()
+   * @generated
+   */
+  EAttribute getPStringLiteral_Value();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -180,32 +1017,214 @@ public interface PerlPackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.ModelImpl <em>Model</em>}' class.
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.PExpressionImpl <em>PExpression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.ModelImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getModel()
+     * @see org.epic.perl.perl.impl.PExpressionImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPExpression()
      * @generated
      */
-    EClass MODEL = eINSTANCE.getModel();
+    EClass PEXPRESSION = eINSTANCE.getPExpression();
 
     /**
-     * The meta object literal for the '<em><b>Greetings</b></em>' containment reference list feature.
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.PAssignmentImpl <em>PAssignment</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.PAssignmentImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPAssignment()
      * @generated
      */
-    EReference MODEL__GREETINGS = eINSTANCE.getModel_Greetings();
+    EClass PASSIGNMENT = eINSTANCE.getPAssignment();
 
     /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.GreetingImpl <em>Greeting</em>}' class.
+     * The meta object literal for the '<em><b>Feature</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.GreetingImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getGreeting()
      * @generated
      */
-    EClass GREETING = eINSTANCE.getGreeting();
+    EAttribute PASSIGNMENT__FEATURE = eINSTANCE.getPAssignment_Feature();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PASSIGNMENT__VALUE = eINSTANCE.getPAssignment_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Assignable</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PASSIGNMENT__ASSIGNABLE = eINSTANCE.getPAssignment_Assignable();
+
+    /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.PBinaryOperationImpl <em>PBinary Operation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.PBinaryOperationImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPBinaryOperation()
+     * @generated
+     */
+    EClass PBINARY_OPERATION = eINSTANCE.getPBinaryOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Left Operand</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PBINARY_OPERATION__LEFT_OPERAND = eINSTANCE.getPBinaryOperation_LeftOperand();
+
+    /**
+     * The meta object literal for the '<em><b>Feature</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PBINARY_OPERATION__FEATURE = eINSTANCE.getPBinaryOperation_Feature();
+
+    /**
+     * The meta object literal for the '<em><b>Right Operand</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PBINARY_OPERATION__RIGHT_OPERAND = eINSTANCE.getPBinaryOperation_RightOperand();
+
+    /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.PUnaryOperationImpl <em>PUnary Operation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.PUnaryOperationImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPUnaryOperation()
+     * @generated
+     */
+    EClass PUNARY_OPERATION = eINSTANCE.getPUnaryOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Feature</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PUNARY_OPERATION__FEATURE = eINSTANCE.getPUnaryOperation_Feature();
+
+    /**
+     * The meta object literal for the '<em><b>Operand</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PUNARY_OPERATION__OPERAND = eINSTANCE.getPUnaryOperation_Operand();
+
+    /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.PPostfixOperationImpl <em>PPostfix Operation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.PPostfixOperationImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPPostfixOperation()
+     * @generated
+     */
+    EClass PPOSTFIX_OPERATION = eINSTANCE.getPPostfixOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Operand</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PPOSTFIX_OPERATION__OPERAND = eINSTANCE.getPPostfixOperation_Operand();
+
+    /**
+     * The meta object literal for the '<em><b>Feature</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PPOSTFIX_OPERATION__FEATURE = eINSTANCE.getPPostfixOperation_Feature();
+
+    /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.PClosureImpl <em>PClosure</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.PClosureImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPClosure()
+     * @generated
+     */
+    EClass PCLOSURE = eINSTANCE.getPClosure();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PCLOSURE__EXPRESSION = eINSTANCE.getPClosure_Expression();
+
+    /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.PBlockExpressionImpl <em>PBlock Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.PBlockExpressionImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPBlockExpression()
+     * @generated
+     */
+    EClass PBLOCK_EXPRESSION = eINSTANCE.getPBlockExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Expressions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PBLOCK_EXPRESSION__EXPRESSIONS = eINSTANCE.getPBlockExpression_Expressions();
+
+    /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.PIfExpressionImpl <em>PIf Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.PIfExpressionImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPIfExpression()
+     * @generated
+     */
+    EClass PIF_EXPRESSION = eINSTANCE.getPIfExpression();
+
+    /**
+     * The meta object literal for the '<em><b>If</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PIF_EXPRESSION__IF = eINSTANCE.getPIfExpression_If();
+
+    /**
+     * The meta object literal for the '<em><b>Then</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PIF_EXPRESSION__THEN = eINSTANCE.getPIfExpression_Then();
+
+    /**
+     * The meta object literal for the '<em><b>Else</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PIF_EXPRESSION__ELSE = eINSTANCE.getPIfExpression_Else();
+
+    /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.PVariableDeclarationImpl <em>PVariable Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.PVariableDeclarationImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPVariableDeclaration()
+     * @generated
+     */
+    EClass PVARIABLE_DECLARATION = eINSTANCE.getPVariableDeclaration();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -213,7 +1232,139 @@ public interface PerlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GREETING__NAME = eINSTANCE.getGreeting_Name();
+    EAttribute PVARIABLE_DECLARATION__NAME = eINSTANCE.getPVariableDeclaration_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PVARIABLE_DECLARATION__RIGHT = eINSTANCE.getPVariableDeclaration_Right();
+
+    /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.PFeatureCallImpl <em>PFeature Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.PFeatureCallImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPFeatureCall()
+     * @generated
+     */
+    EClass PFEATURE_CALL = eINSTANCE.getPFeatureCall();
+
+    /**
+     * The meta object literal for the '<em><b>Feature</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PFEATURE_CALL__FEATURE = eINSTANCE.getPFeatureCall_Feature();
+
+    /**
+     * The meta object literal for the '<em><b>Feature Call Arguments</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PFEATURE_CALL__FEATURE_CALL_ARGUMENTS = eINSTANCE.getPFeatureCall_FeatureCallArguments();
+
+    /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.PConstructorCallImpl <em>PConstructor Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.PConstructorCallImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPConstructorCall()
+     * @generated
+     */
+    EClass PCONSTRUCTOR_CALL = eINSTANCE.getPConstructorCall();
+
+    /**
+     * The meta object literal for the '<em><b>Constructor</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PCONSTRUCTOR_CALL__CONSTRUCTOR = eINSTANCE.getPConstructorCall_Constructor();
+
+    /**
+     * The meta object literal for the '<em><b>Explicit Constructor Call</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PCONSTRUCTOR_CALL__EXPLICIT_CONSTRUCTOR_CALL = eINSTANCE.getPConstructorCall_ExplicitConstructorCall();
+
+    /**
+     * The meta object literal for the '<em><b>Arguments</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PCONSTRUCTOR_CALL__ARGUMENTS = eINSTANCE.getPConstructorCall_Arguments();
+
+    /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.PNumberLiteralImpl <em>PNumber Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.PNumberLiteralImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPNumberLiteral()
+     * @generated
+     */
+    EClass PNUMBER_LITERAL = eINSTANCE.getPNumberLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PNUMBER_LITERAL__VALUE = eINSTANCE.getPNumberLiteral_Value();
+
+    /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.PNullLiteralImpl <em>PNull Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.PNullLiteralImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPNullLiteral()
+     * @generated
+     */
+    EClass PNULL_LITERAL = eINSTANCE.getPNullLiteral();
+
+    /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.PReturnExpressionImpl <em>PReturn Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.PReturnExpressionImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPReturnExpression()
+     * @generated
+     */
+    EClass PRETURN_EXPRESSION = eINSTANCE.getPReturnExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRETURN_EXPRESSION__EXPRESSION = eINSTANCE.getPReturnExpression_Expression();
+
+    /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.PStringLiteralImpl <em>PString Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.PStringLiteralImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPStringLiteral()
+     * @generated
+     */
+    EClass PSTRING_LITERAL = eINSTANCE.getPStringLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PSTRING_LITERAL__VALUE = eINSTANCE.getPStringLiteral_Value();
 
   }
 

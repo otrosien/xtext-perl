@@ -12,46 +12,44 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.epic.perl.perl.Greeting;
-import org.epic.perl.perl.Model;
+import org.epic.perl.perl.PBlockExpression;
+import org.epic.perl.perl.PExpression;
 import org.epic.perl.perl.PerlPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>PBlock Expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.epic.perl.perl.impl.ModelImpl#getGreetings <em>Greetings</em>}</li>
+ *   <li>{@link org.epic.perl.perl.impl.PBlockExpressionImpl#getExpressions <em>Expressions</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model
+public class PBlockExpressionImpl extends PExpressionImpl implements PBlockExpression
 {
   /**
-   * The cached value of the '{@link #getGreetings() <em>Greetings</em>}' containment reference list.
+   * The cached value of the '{@link #getExpressions() <em>Expressions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGreetings()
+   * @see #getExpressions()
    * @generated
    * @ordered
    */
-  protected EList<Greeting> greetings;
+  protected EList<PExpression> expressions;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModelImpl()
+  protected PBlockExpressionImpl()
   {
     super();
   }
@@ -64,7 +62,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   @Override
   protected EClass eStaticClass()
   {
-    return PerlPackage.Literals.MODEL;
+    return PerlPackage.Literals.PBLOCK_EXPRESSION;
   }
 
   /**
@@ -72,13 +70,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Greeting> getGreetings()
+  public EList<PExpression> getExpressions()
   {
-    if (greetings == null)
+    if (expressions == null)
     {
-      greetings = new EObjectContainmentEList<Greeting>(Greeting.class, this, PerlPackage.MODEL__GREETINGS);
+      expressions = new EObjectContainmentEList<PExpression>(PExpression.class, this, PerlPackage.PBLOCK_EXPRESSION__EXPRESSIONS);
     }
-    return greetings;
+    return expressions;
   }
 
   /**
@@ -91,8 +89,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case PerlPackage.MODEL__GREETINGS:
-        return ((InternalEList<?>)getGreetings()).basicRemove(otherEnd, msgs);
+      case PerlPackage.PBLOCK_EXPRESSION__EXPRESSIONS:
+        return ((InternalEList<?>)getExpressions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +105,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case PerlPackage.MODEL__GREETINGS:
-        return getGreetings();
+      case PerlPackage.PBLOCK_EXPRESSION__EXPRESSIONS:
+        return getExpressions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +122,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case PerlPackage.MODEL__GREETINGS:
-        getGreetings().clear();
-        getGreetings().addAll((Collection<? extends Greeting>)newValue);
+      case PerlPackage.PBLOCK_EXPRESSION__EXPRESSIONS:
+        getExpressions().clear();
+        getExpressions().addAll((Collection<? extends PExpression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +140,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case PerlPackage.MODEL__GREETINGS:
-        getGreetings().clear();
+      case PerlPackage.PBLOCK_EXPRESSION__EXPRESSIONS:
+        getExpressions().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,10 +157,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case PerlPackage.MODEL__GREETINGS:
-        return greetings != null && !greetings.isEmpty();
+      case PerlPackage.PBLOCK_EXPRESSION__EXPRESSIONS:
+        return expressions != null && !expressions.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //ModelImpl
+} //PBlockExpressionImpl

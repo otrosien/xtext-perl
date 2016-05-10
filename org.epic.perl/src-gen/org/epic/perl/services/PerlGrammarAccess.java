@@ -6,6 +6,8 @@ package org.epic.perl.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Action;
+import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
@@ -14,71 +16,1666 @@ import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
-import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
 @Singleton
 public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class ModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Model");
-		private final Assignment cGreetingsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cGreetingsGreetingParserRuleCall_0 = (RuleCall)cGreetingsAssignment.eContents().get(0);
+	public class PExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PExpression");
+		private final RuleCall cPAssignmentParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//Model:
-		//	greetings+=Greeting*;
+		//PExpression:
+		//	PAssignment;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//greetings+=Greeting*
-		public Assignment getGreetingsAssignment() { return cGreetingsAssignment; }
-		
-		//Greeting
-		public RuleCall getGreetingsGreetingParserRuleCall_0() { return cGreetingsGreetingParserRuleCall_0; }
+		//PAssignment
+		public RuleCall getPAssignmentParserRuleCall() { return cPAssignmentParserRuleCall; }
 	}
-	public class GreetingElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Greeting");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cHelloKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cExclamationMarkKeyword_2 = (Keyword)cGroup.eContents().get(2);
+	public class PAssignmentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PAssignment");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cPAssignmentAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cFeatureAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cFeatureFeatureCallIDParserRuleCall_0_1_0 = (RuleCall)cFeatureAssignment_0_1.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_0_2 = (RuleCall)cGroup_0.eContents().get(2);
+		private final Assignment cValueAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cValuePAssignmentParserRuleCall_0_3_0 = (RuleCall)cValueAssignment_0_3.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final RuleCall cPOrExpressionParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Group cGroup_1_1_0 = (Group)cGroup_1_1.eContents().get(0);
+		private final Group cGroup_1_1_0_0 = (Group)cGroup_1_1_0.eContents().get(0);
+		private final Action cPBinaryOperationLeftOperandAction_1_1_0_0_0 = (Action)cGroup_1_1_0_0.eContents().get(0);
+		private final Assignment cFeatureAssignment_1_1_0_0_1 = (Assignment)cGroup_1_1_0_0.eContents().get(1);
+		private final RuleCall cFeatureOpMultiAssignParserRuleCall_1_1_0_0_1_0 = (RuleCall)cFeatureAssignment_1_1_0_0_1.eContents().get(0);
+		private final Assignment cRightOperandAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cRightOperandPAssignmentParserRuleCall_1_1_1_0 = (RuleCall)cRightOperandAssignment_1_1_1.eContents().get(0);
 		
-		//Greeting:
-		//	'Hello' name=ID '!';
+		//PAssignment PExpression:
+		//	{PAssignment} feature=FeatureCallID OpSingleAssign value=PAssignment | POrExpression (=>
+		//	({PBinaryOperation.leftOperand=current} feature=OpMultiAssign) rightOperand=PAssignment)?
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Hello' name=ID '!'
+		//{PAssignment} feature=FeatureCallID OpSingleAssign value=PAssignment | POrExpression (=>
+		//({PBinaryOperation.leftOperand=current} feature=OpMultiAssign) rightOperand=PAssignment)?
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//{PAssignment} feature=FeatureCallID OpSingleAssign value=PAssignment
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//{PAssignment}
+		public Action getPAssignmentAction_0_0() { return cPAssignmentAction_0_0; }
+		
+		//feature=FeatureCallID
+		public Assignment getFeatureAssignment_0_1() { return cFeatureAssignment_0_1; }
+		
+		//FeatureCallID
+		public RuleCall getFeatureFeatureCallIDParserRuleCall_0_1_0() { return cFeatureFeatureCallIDParserRuleCall_0_1_0; }
+		
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_0_2() { return cOpSingleAssignParserRuleCall_0_2; }
+		
+		//value=PAssignment
+		public Assignment getValueAssignment_0_3() { return cValueAssignment_0_3; }
+		
+		//PAssignment
+		public RuleCall getValuePAssignmentParserRuleCall_0_3_0() { return cValuePAssignmentParserRuleCall_0_3_0; }
+		
+		//POrExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpMultiAssign) rightOperand=PAssignment)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//POrExpression
+		public RuleCall getPOrExpressionParserRuleCall_1_0() { return cPOrExpressionParserRuleCall_1_0; }
+		
+		//(=> ({PBinaryOperation.leftOperand=current} feature=OpMultiAssign) rightOperand=PAssignment)?
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//=> ({PBinaryOperation.leftOperand=current} feature=OpMultiAssign)
+		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
+		
+		//({PBinaryOperation.leftOperand=current} feature=OpMultiAssign)
+		public Group getGroup_1_1_0_0() { return cGroup_1_1_0_0; }
+		
+		//{PBinaryOperation.leftOperand=current}
+		public Action getPBinaryOperationLeftOperandAction_1_1_0_0_0() { return cPBinaryOperationLeftOperandAction_1_1_0_0_0; }
+		
+		//feature=OpMultiAssign
+		public Assignment getFeatureAssignment_1_1_0_0_1() { return cFeatureAssignment_1_1_0_0_1; }
+		
+		//OpMultiAssign
+		public RuleCall getFeatureOpMultiAssignParserRuleCall_1_1_0_0_1_0() { return cFeatureOpMultiAssignParserRuleCall_1_1_0_0_1_0; }
+		
+		//rightOperand=PAssignment
+		public Assignment getRightOperandAssignment_1_1_1() { return cRightOperandAssignment_1_1_1; }
+		
+		//PAssignment
+		public RuleCall getRightOperandPAssignmentParserRuleCall_1_1_1_0() { return cRightOperandPAssignmentParserRuleCall_1_1_1_0; }
+	}
+	public class OpSingleAssignElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpSingleAssign");
+		private final Keyword cEqualsSignKeyword = (Keyword)rule.eContents().get(1);
+		
+		//OpSingleAssign:
+		//	'=';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword() { return cEqualsSignKeyword; }
+	}
+	public class OpMultiAssignElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpMultiAssign");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cPlusSignEqualsSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cHyphenMinusEqualsSignKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cAsteriskEqualsSignKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cSolidusEqualsSignKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cPercentSignEqualsSignKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cAsteriskAsteriskEqualsSignKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
+		private final Keyword cLessThanSignKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cLessThanSignKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Keyword cEqualsSignKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
+		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
+		private final Keyword cGreaterThanSignKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Keyword cGreaterThanSignEqualsSignKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
+		
+		//OpMultiAssign:
+		//	'+=' | '-=' | '*=' | '/=' | '%=' | '**=' |
+		//	'<' '<' '=' |
+		//	'>' '>'? '>=';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'+=' | '-=' | '*=' | '/=' | '%=' | '**=' | '<' '<' '=' | '>' '>'? '>='
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'+='
+		public Keyword getPlusSignEqualsSignKeyword_0() { return cPlusSignEqualsSignKeyword_0; }
+		
+		//'-='
+		public Keyword getHyphenMinusEqualsSignKeyword_1() { return cHyphenMinusEqualsSignKeyword_1; }
+		
+		//'*='
+		public Keyword getAsteriskEqualsSignKeyword_2() { return cAsteriskEqualsSignKeyword_2; }
+		
+		//'/='
+		public Keyword getSolidusEqualsSignKeyword_3() { return cSolidusEqualsSignKeyword_3; }
+		
+		//'%='
+		public Keyword getPercentSignEqualsSignKeyword_4() { return cPercentSignEqualsSignKeyword_4; }
+		
+		//'**='
+		public Keyword getAsteriskAsteriskEqualsSignKeyword_5() { return cAsteriskAsteriskEqualsSignKeyword_5; }
+		
+		//'<' '<' '='
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'<'
+		public Keyword getLessThanSignKeyword_6_0() { return cLessThanSignKeyword_6_0; }
+		
+		//'<'
+		public Keyword getLessThanSignKeyword_6_1() { return cLessThanSignKeyword_6_1; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_6_2() { return cEqualsSignKeyword_6_2; }
+		
+		//'>' '>'? '>='
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'>'
+		public Keyword getGreaterThanSignKeyword_7_0() { return cGreaterThanSignKeyword_7_0; }
+		
+		//'>'?
+		public Keyword getGreaterThanSignKeyword_7_1() { return cGreaterThanSignKeyword_7_1; }
+		
+		//'>='
+		public Keyword getGreaterThanSignEqualsSignKeyword_7_2() { return cGreaterThanSignEqualsSignKeyword_7_2; }
+	}
+	public class POrExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.POrExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cPAndExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
+		private final Action cPBinaryOperationLeftOperandAction_1_0_0_0 = (Action)cGroup_1_0_0.eContents().get(0);
+		private final Assignment cFeatureAssignment_1_0_0_1 = (Assignment)cGroup_1_0_0.eContents().get(1);
+		private final RuleCall cFeatureOpOrParserRuleCall_1_0_0_1_0 = (RuleCall)cFeatureAssignment_1_0_0_1.eContents().get(0);
+		private final Assignment cRightOperandAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cRightOperandPAndExpressionParserRuleCall_1_1_0 = (RuleCall)cRightOperandAssignment_1_1.eContents().get(0);
+		
+		//POrExpression PExpression:
+		//	PAndExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpOr) rightOperand=PAndExpression)*
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PAndExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpOr) rightOperand=PAndExpression)*
 		public Group getGroup() { return cGroup; }
 		
-		//'Hello'
-		public Keyword getHelloKeyword_0() { return cHelloKeyword_0; }
+		//PAndExpression
+		public RuleCall getPAndExpressionParserRuleCall_0() { return cPAndExpressionParserRuleCall_0; }
+		
+		//(=> ({PBinaryOperation.leftOperand=current} feature=OpOr) rightOperand=PAndExpression)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//=> ({PBinaryOperation.leftOperand=current} feature=OpOr)
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//({PBinaryOperation.leftOperand=current} feature=OpOr)
+		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
+		
+		//{PBinaryOperation.leftOperand=current}
+		public Action getPBinaryOperationLeftOperandAction_1_0_0_0() { return cPBinaryOperationLeftOperandAction_1_0_0_0; }
+		
+		//feature=OpOr
+		public Assignment getFeatureAssignment_1_0_0_1() { return cFeatureAssignment_1_0_0_1; }
+		
+		//OpOr
+		public RuleCall getFeatureOpOrParserRuleCall_1_0_0_1_0() { return cFeatureOpOrParserRuleCall_1_0_0_1_0; }
+		
+		//rightOperand=PAndExpression
+		public Assignment getRightOperandAssignment_1_1() { return cRightOperandAssignment_1_1; }
+		
+		//PAndExpression
+		public RuleCall getRightOperandPAndExpressionParserRuleCall_1_1_0() { return cRightOperandPAndExpressionParserRuleCall_1_1_0; }
+	}
+	public class OpOrElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpOr");
+		private final Keyword cVerticalLineVerticalLineKeyword = (Keyword)rule.eContents().get(1);
+		
+		//OpOr:
+		//	'||';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'||'
+		public Keyword getVerticalLineVerticalLineKeyword() { return cVerticalLineVerticalLineKeyword; }
+	}
+	public class PAndExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PAndExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cPEqualityExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
+		private final Action cPBinaryOperationLeftOperandAction_1_0_0_0 = (Action)cGroup_1_0_0.eContents().get(0);
+		private final Assignment cFeatureAssignment_1_0_0_1 = (Assignment)cGroup_1_0_0.eContents().get(1);
+		private final RuleCall cFeatureOpAndParserRuleCall_1_0_0_1_0 = (RuleCall)cFeatureAssignment_1_0_0_1.eContents().get(0);
+		private final Assignment cRightOperandAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cRightOperandPEqualityExpressionParserRuleCall_1_1_0 = (RuleCall)cRightOperandAssignment_1_1.eContents().get(0);
+		
+		//PAndExpression PExpression:
+		//	PEqualityExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpAnd) rightOperand=PEqualityExpression)*
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PEqualityExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpAnd) rightOperand=PEqualityExpression)*
+		public Group getGroup() { return cGroup; }
+		
+		//PEqualityExpression
+		public RuleCall getPEqualityExpressionParserRuleCall_0() { return cPEqualityExpressionParserRuleCall_0; }
+		
+		//(=> ({PBinaryOperation.leftOperand=current} feature=OpAnd) rightOperand=PEqualityExpression)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//=> ({PBinaryOperation.leftOperand=current} feature=OpAnd)
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//({PBinaryOperation.leftOperand=current} feature=OpAnd)
+		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
+		
+		//{PBinaryOperation.leftOperand=current}
+		public Action getPBinaryOperationLeftOperandAction_1_0_0_0() { return cPBinaryOperationLeftOperandAction_1_0_0_0; }
+		
+		//feature=OpAnd
+		public Assignment getFeatureAssignment_1_0_0_1() { return cFeatureAssignment_1_0_0_1; }
+		
+		//OpAnd
+		public RuleCall getFeatureOpAndParserRuleCall_1_0_0_1_0() { return cFeatureOpAndParserRuleCall_1_0_0_1_0; }
+		
+		//rightOperand=PEqualityExpression
+		public Assignment getRightOperandAssignment_1_1() { return cRightOperandAssignment_1_1; }
+		
+		//PEqualityExpression
+		public RuleCall getRightOperandPEqualityExpressionParserRuleCall_1_1_0() { return cRightOperandPEqualityExpressionParserRuleCall_1_1_0; }
+	}
+	public class OpAndElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpAnd");
+		private final Keyword cAmpersandAmpersandKeyword = (Keyword)rule.eContents().get(1);
+		
+		//OpAnd:
+		//	'&&';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'&&'
+		public Keyword getAmpersandAmpersandKeyword() { return cAmpersandAmpersandKeyword; }
+	}
+	public class PEqualityExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PEqualityExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cPRelationalExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
+		private final Action cPBinaryOperationLeftOperandAction_1_0_0_0 = (Action)cGroup_1_0_0.eContents().get(0);
+		private final Assignment cFeatureAssignment_1_0_0_1 = (Assignment)cGroup_1_0_0.eContents().get(1);
+		private final RuleCall cFeatureOpEqualityParserRuleCall_1_0_0_1_0 = (RuleCall)cFeatureAssignment_1_0_0_1.eContents().get(0);
+		private final Assignment cRightOperandAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cRightOperandPRelationalExpressionParserRuleCall_1_1_0 = (RuleCall)cRightOperandAssignment_1_1.eContents().get(0);
+		
+		//PEqualityExpression PExpression:
+		//	PRelationalExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpEquality)
+		//	rightOperand=PRelationalExpression)*
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PRelationalExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpEquality)
+		//rightOperand=PRelationalExpression)*
+		public Group getGroup() { return cGroup; }
+		
+		//PRelationalExpression
+		public RuleCall getPRelationalExpressionParserRuleCall_0() { return cPRelationalExpressionParserRuleCall_0; }
+		
+		//(=> ({PBinaryOperation.leftOperand=current} feature=OpEquality) rightOperand=PRelationalExpression)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//=> ({PBinaryOperation.leftOperand=current} feature=OpEquality)
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//({PBinaryOperation.leftOperand=current} feature=OpEquality)
+		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
+		
+		//{PBinaryOperation.leftOperand=current}
+		public Action getPBinaryOperationLeftOperandAction_1_0_0_0() { return cPBinaryOperationLeftOperandAction_1_0_0_0; }
+		
+		//feature=OpEquality
+		public Assignment getFeatureAssignment_1_0_0_1() { return cFeatureAssignment_1_0_0_1; }
+		
+		//OpEquality
+		public RuleCall getFeatureOpEqualityParserRuleCall_1_0_0_1_0() { return cFeatureOpEqualityParserRuleCall_1_0_0_1_0; }
+		
+		//rightOperand=PRelationalExpression
+		public Assignment getRightOperandAssignment_1_1() { return cRightOperandAssignment_1_1; }
+		
+		//PRelationalExpression
+		public RuleCall getRightOperandPRelationalExpressionParserRuleCall_1_1_0() { return cRightOperandPRelationalExpressionParserRuleCall_1_1_0; }
+	}
+	public class OpEqualityElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpEquality");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cEqualsSignEqualsSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cExclamationMarkEqualsSignKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cEqKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cNeKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		
+		//OpEquality:
+		//	'==' | '!=' | 'eq' | 'ne';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'==' | '!=' | 'eq' | 'ne'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'=='
+		public Keyword getEqualsSignEqualsSignKeyword_0() { return cEqualsSignEqualsSignKeyword_0; }
+		
+		//'!='
+		public Keyword getExclamationMarkEqualsSignKeyword_1() { return cExclamationMarkEqualsSignKeyword_1; }
+		
+		//'eq'
+		public Keyword getEqKeyword_2() { return cEqKeyword_2; }
+		
+		//'ne'
+		public Keyword getNeKeyword_3() { return cNeKeyword_3; }
+	}
+	public class PRelationalExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PRelationalExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cPOtherOperatorExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
+		private final Action cPBinaryOperationLeftOperandAction_1_0_0_0 = (Action)cGroup_1_0_0.eContents().get(0);
+		private final Assignment cFeatureAssignment_1_0_0_1 = (Assignment)cGroup_1_0_0.eContents().get(1);
+		private final RuleCall cFeatureOpCompareParserRuleCall_1_0_0_1_0 = (RuleCall)cFeatureAssignment_1_0_0_1.eContents().get(0);
+		private final Assignment cRightOperandAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cRightOperandPOtherOperatorExpressionParserRuleCall_1_1_0 = (RuleCall)cRightOperandAssignment_1_1.eContents().get(0);
+		
+		//PRelationalExpression PExpression:
+		//	POtherOperatorExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpCompare)
+		//	rightOperand=POtherOperatorExpression)*
+		@Override public ParserRule getRule() { return rule; }
+		
+		//POtherOperatorExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpCompare)
+		//rightOperand=POtherOperatorExpression)*
+		public Group getGroup() { return cGroup; }
+		
+		//POtherOperatorExpression
+		public RuleCall getPOtherOperatorExpressionParserRuleCall_0() { return cPOtherOperatorExpressionParserRuleCall_0; }
+		
+		//(=> ({PBinaryOperation.leftOperand=current} feature=OpCompare) rightOperand=POtherOperatorExpression)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//=> ({PBinaryOperation.leftOperand=current} feature=OpCompare)
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//({PBinaryOperation.leftOperand=current} feature=OpCompare)
+		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
+		
+		//{PBinaryOperation.leftOperand=current}
+		public Action getPBinaryOperationLeftOperandAction_1_0_0_0() { return cPBinaryOperationLeftOperandAction_1_0_0_0; }
+		
+		//feature=OpCompare
+		public Assignment getFeatureAssignment_1_0_0_1() { return cFeatureAssignment_1_0_0_1; }
+		
+		//OpCompare
+		public RuleCall getFeatureOpCompareParserRuleCall_1_0_0_1_0() { return cFeatureOpCompareParserRuleCall_1_0_0_1_0; }
+		
+		//rightOperand=POtherOperatorExpression
+		public Assignment getRightOperandAssignment_1_1() { return cRightOperandAssignment_1_1; }
+		
+		//POtherOperatorExpression
+		public RuleCall getRightOperandPOtherOperatorExpressionParserRuleCall_1_1_0() { return cRightOperandPOtherOperatorExpressionParserRuleCall_1_1_0; }
+	}
+	public class OpCompareElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpCompare");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cGreaterThanSignEqualsSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cLessThanSignKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Keyword cGreaterThanSignKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cLessThanSignKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		
+		//OpCompare:
+		//	'>=' | '<' '=' | '>' | '<';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'>=' | '<' '=' | '>' | '<'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'>='
+		public Keyword getGreaterThanSignEqualsSignKeyword_0() { return cGreaterThanSignEqualsSignKeyword_0; }
+		
+		//'<' '='
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'<'
+		public Keyword getLessThanSignKeyword_1_0() { return cLessThanSignKeyword_1_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_1_1() { return cEqualsSignKeyword_1_1; }
+		
+		//'>'
+		public Keyword getGreaterThanSignKeyword_2() { return cGreaterThanSignKeyword_2; }
+		
+		//'<'
+		public Keyword getLessThanSignKeyword_3() { return cLessThanSignKeyword_3; }
+	}
+	public class POtherOperatorExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.POtherOperatorExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cPAdditiveExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
+		private final Action cPBinaryOperationLeftOperandAction_1_0_0_0 = (Action)cGroup_1_0_0.eContents().get(0);
+		private final Assignment cFeatureAssignment_1_0_0_1 = (Assignment)cGroup_1_0_0.eContents().get(1);
+		private final RuleCall cFeatureOpOtherParserRuleCall_1_0_0_1_0 = (RuleCall)cFeatureAssignment_1_0_0_1.eContents().get(0);
+		private final Assignment cRightOperandAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cRightOperandPAdditiveExpressionParserRuleCall_1_1_0 = (RuleCall)cRightOperandAssignment_1_1.eContents().get(0);
+		
+		//POtherOperatorExpression PExpression:
+		//	PAdditiveExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpOther) rightOperand=PAdditiveExpression)*
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PAdditiveExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpOther) rightOperand=PAdditiveExpression)*
+		public Group getGroup() { return cGroup; }
+		
+		//PAdditiveExpression
+		public RuleCall getPAdditiveExpressionParserRuleCall_0() { return cPAdditiveExpressionParserRuleCall_0; }
+		
+		//(=> ({PBinaryOperation.leftOperand=current} feature=OpOther) rightOperand=PAdditiveExpression)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//=> ({PBinaryOperation.leftOperand=current} feature=OpOther)
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//({PBinaryOperation.leftOperand=current} feature=OpOther)
+		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
+		
+		//{PBinaryOperation.leftOperand=current}
+		public Action getPBinaryOperationLeftOperandAction_1_0_0_0() { return cPBinaryOperationLeftOperandAction_1_0_0_0; }
+		
+		//feature=OpOther
+		public Assignment getFeatureAssignment_1_0_0_1() { return cFeatureAssignment_1_0_0_1; }
+		
+		//OpOther
+		public RuleCall getFeatureOpOtherParserRuleCall_1_0_0_1_0() { return cFeatureOpOtherParserRuleCall_1_0_0_1_0; }
+		
+		//rightOperand=PAdditiveExpression
+		public Assignment getRightOperandAssignment_1_1() { return cRightOperandAssignment_1_1; }
+		
+		//PAdditiveExpression
+		public RuleCall getRightOperandPAdditiveExpressionParserRuleCall_1_1_0() { return cRightOperandPAdditiveExpressionParserRuleCall_1_1_0; }
+	}
+	public class OpOtherElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpOther");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cFullStopFullStopLessThanSignKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Keyword cGreaterThanSignKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cFullStopFullStopKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Keyword cFullStopFullStopKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
+		private final Keyword cGreaterThanSignKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Alternatives cAlternatives_5_1 = (Alternatives)cGroup_5.eContents().get(1);
+		private final Group cGroup_5_1_0 = (Group)cAlternatives_5_1.eContents().get(0);
+		private final Group cGroup_5_1_0_0 = (Group)cGroup_5_1_0.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_5_1_0_0_0 = (Keyword)cGroup_5_1_0_0.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_5_1_0_0_1 = (Keyword)cGroup_5_1_0_0.eContents().get(1);
+		private final Keyword cGreaterThanSignKeyword_5_1_1 = (Keyword)cAlternatives_5_1.eContents().get(1);
+		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
+		private final Keyword cLessThanSignKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Alternatives cAlternatives_6_1 = (Alternatives)cGroup_6.eContents().get(1);
+		private final Group cGroup_6_1_0 = (Group)cAlternatives_6_1.eContents().get(0);
+		private final Group cGroup_6_1_0_0 = (Group)cGroup_6_1_0.eContents().get(0);
+		private final Keyword cLessThanSignKeyword_6_1_0_0_0 = (Keyword)cGroup_6_1_0_0.eContents().get(0);
+		private final Keyword cLessThanSignKeyword_6_1_0_0_1 = (Keyword)cGroup_6_1_0_0.eContents().get(1);
+		private final Keyword cLessThanSignKeyword_6_1_1 = (Keyword)cAlternatives_6_1.eContents().get(1);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_6_1_2 = (Keyword)cAlternatives_6_1.eContents().get(2);
+		private final Keyword cLessThanSignGreaterThanSignKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		private final Keyword cQuestionMarkColonKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		
+		//OpOther:
+		//	'->'
+		//	| '..<'
+		//	| '>' '..'
+		//	| '..'
+		//	| '=>'
+		//	| '>' (=> ('>' '>') | '>') | '<' (=> ('<' '<') | '<' | '=>') | '<>'
+		//	| '?:';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'->' | '..<' | '>' '..' | '..' | '=>' | '>' (=> ('>' '>') | '>') | '<' (=> ('<' '<') | '<' | '=>') | '<>' | '?:'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_0() { return cHyphenMinusGreaterThanSignKeyword_0; }
+		
+		//'..<'
+		public Keyword getFullStopFullStopLessThanSignKeyword_1() { return cFullStopFullStopLessThanSignKeyword_1; }
+		
+		//'>' '..'
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'>'
+		public Keyword getGreaterThanSignKeyword_2_0() { return cGreaterThanSignKeyword_2_0; }
+		
+		//'..'
+		public Keyword getFullStopFullStopKeyword_2_1() { return cFullStopFullStopKeyword_2_1; }
+		
+		//'..'
+		public Keyword getFullStopFullStopKeyword_3() { return cFullStopFullStopKeyword_3; }
+		
+		//'=>'
+		public Keyword getEqualsSignGreaterThanSignKeyword_4() { return cEqualsSignGreaterThanSignKeyword_4; }
+		
+		//'>' (=> ('>' '>') | '>')
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'>'
+		public Keyword getGreaterThanSignKeyword_5_0() { return cGreaterThanSignKeyword_5_0; }
+		
+		//(=> ('>' '>') | '>')
+		public Alternatives getAlternatives_5_1() { return cAlternatives_5_1; }
+		
+		//=> ('>' '>')
+		public Group getGroup_5_1_0() { return cGroup_5_1_0; }
+		
+		//('>' '>')
+		public Group getGroup_5_1_0_0() { return cGroup_5_1_0_0; }
+		
+		//'>'
+		public Keyword getGreaterThanSignKeyword_5_1_0_0_0() { return cGreaterThanSignKeyword_5_1_0_0_0; }
+		
+		//'>'
+		public Keyword getGreaterThanSignKeyword_5_1_0_0_1() { return cGreaterThanSignKeyword_5_1_0_0_1; }
+		
+		//'>'
+		public Keyword getGreaterThanSignKeyword_5_1_1() { return cGreaterThanSignKeyword_5_1_1; }
+		
+		//'<' (=> ('<' '<') | '<' | '=>')
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'<'
+		public Keyword getLessThanSignKeyword_6_0() { return cLessThanSignKeyword_6_0; }
+		
+		//(=> ('<' '<') | '<' | '=>')
+		public Alternatives getAlternatives_6_1() { return cAlternatives_6_1; }
+		
+		//=> ('<' '<')
+		public Group getGroup_6_1_0() { return cGroup_6_1_0; }
+		
+		//('<' '<')
+		public Group getGroup_6_1_0_0() { return cGroup_6_1_0_0; }
+		
+		//'<'
+		public Keyword getLessThanSignKeyword_6_1_0_0_0() { return cLessThanSignKeyword_6_1_0_0_0; }
+		
+		//'<'
+		public Keyword getLessThanSignKeyword_6_1_0_0_1() { return cLessThanSignKeyword_6_1_0_0_1; }
+		
+		//'<'
+		public Keyword getLessThanSignKeyword_6_1_1() { return cLessThanSignKeyword_6_1_1; }
+		
+		//'=>'
+		public Keyword getEqualsSignGreaterThanSignKeyword_6_1_2() { return cEqualsSignGreaterThanSignKeyword_6_1_2; }
+		
+		//'<>'
+		public Keyword getLessThanSignGreaterThanSignKeyword_7() { return cLessThanSignGreaterThanSignKeyword_7; }
+		
+		//'?:'
+		public Keyword getQuestionMarkColonKeyword_8() { return cQuestionMarkColonKeyword_8; }
+	}
+	public class PAdditiveExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PAdditiveExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cPMultiplicativeExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
+		private final Action cPBinaryOperationLeftOperandAction_1_0_0_0 = (Action)cGroup_1_0_0.eContents().get(0);
+		private final Assignment cFeatureAssignment_1_0_0_1 = (Assignment)cGroup_1_0_0.eContents().get(1);
+		private final RuleCall cFeatureOpAddParserRuleCall_1_0_0_1_0 = (RuleCall)cFeatureAssignment_1_0_0_1.eContents().get(0);
+		private final Assignment cRightOperandAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cRightOperandPMultiplicativeExpressionParserRuleCall_1_1_0 = (RuleCall)cRightOperandAssignment_1_1.eContents().get(0);
+		
+		//PAdditiveExpression PExpression:
+		//	PMultiplicativeExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpAdd)
+		//	rightOperand=PMultiplicativeExpression)*
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PMultiplicativeExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpAdd)
+		//rightOperand=PMultiplicativeExpression)*
+		public Group getGroup() { return cGroup; }
+		
+		//PMultiplicativeExpression
+		public RuleCall getPMultiplicativeExpressionParserRuleCall_0() { return cPMultiplicativeExpressionParserRuleCall_0; }
+		
+		//(=> ({PBinaryOperation.leftOperand=current} feature=OpAdd) rightOperand=PMultiplicativeExpression)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//=> ({PBinaryOperation.leftOperand=current} feature=OpAdd)
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//({PBinaryOperation.leftOperand=current} feature=OpAdd)
+		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
+		
+		//{PBinaryOperation.leftOperand=current}
+		public Action getPBinaryOperationLeftOperandAction_1_0_0_0() { return cPBinaryOperationLeftOperandAction_1_0_0_0; }
+		
+		//feature=OpAdd
+		public Assignment getFeatureAssignment_1_0_0_1() { return cFeatureAssignment_1_0_0_1; }
+		
+		//OpAdd
+		public RuleCall getFeatureOpAddParserRuleCall_1_0_0_1_0() { return cFeatureOpAddParserRuleCall_1_0_0_1_0; }
+		
+		//rightOperand=PMultiplicativeExpression
+		public Assignment getRightOperandAssignment_1_1() { return cRightOperandAssignment_1_1; }
+		
+		//PMultiplicativeExpression
+		public RuleCall getRightOperandPMultiplicativeExpressionParserRuleCall_1_1_0() { return cRightOperandPMultiplicativeExpressionParserRuleCall_1_1_0; }
+	}
+	public class OpAddElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpAdd");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cPlusSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//OpAdd:
+		//	'+' | '-';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'+' | '-'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'+'
+		public Keyword getPlusSignKeyword_0() { return cPlusSignKeyword_0; }
+		
+		//'-'
+		public Keyword getHyphenMinusKeyword_1() { return cHyphenMinusKeyword_1; }
+	}
+	public class PMultiplicativeExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PMultiplicativeExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cPUnaryOperationParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
+		private final Action cPBinaryOperationLeftOperandAction_1_0_0_0 = (Action)cGroup_1_0_0.eContents().get(0);
+		private final Assignment cFeatureAssignment_1_0_0_1 = (Assignment)cGroup_1_0_0.eContents().get(1);
+		private final RuleCall cFeatureOpMultiParserRuleCall_1_0_0_1_0 = (RuleCall)cFeatureAssignment_1_0_0_1.eContents().get(0);
+		private final Assignment cRightOperandAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cRightOperandPUnaryOperationParserRuleCall_1_1_0 = (RuleCall)cRightOperandAssignment_1_1.eContents().get(0);
+		
+		//PMultiplicativeExpression PExpression:
+		//	PUnaryOperation (=> ({PBinaryOperation.leftOperand=current} feature=OpMulti) rightOperand=PUnaryOperation)*
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PUnaryOperation (=> ({PBinaryOperation.leftOperand=current} feature=OpMulti) rightOperand=PUnaryOperation)*
+		public Group getGroup() { return cGroup; }
+		
+		//PUnaryOperation
+		public RuleCall getPUnaryOperationParserRuleCall_0() { return cPUnaryOperationParserRuleCall_0; }
+		
+		//(=> ({PBinaryOperation.leftOperand=current} feature=OpMulti) rightOperand=PUnaryOperation)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//=> ({PBinaryOperation.leftOperand=current} feature=OpMulti)
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//({PBinaryOperation.leftOperand=current} feature=OpMulti)
+		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
+		
+		//{PBinaryOperation.leftOperand=current}
+		public Action getPBinaryOperationLeftOperandAction_1_0_0_0() { return cPBinaryOperationLeftOperandAction_1_0_0_0; }
+		
+		//feature=OpMulti
+		public Assignment getFeatureAssignment_1_0_0_1() { return cFeatureAssignment_1_0_0_1; }
+		
+		//OpMulti
+		public RuleCall getFeatureOpMultiParserRuleCall_1_0_0_1_0() { return cFeatureOpMultiParserRuleCall_1_0_0_1_0; }
+		
+		//rightOperand=PUnaryOperation
+		public Assignment getRightOperandAssignment_1_1() { return cRightOperandAssignment_1_1; }
+		
+		//PUnaryOperation
+		public RuleCall getRightOperandPUnaryOperationParserRuleCall_1_1_0() { return cRightOperandPUnaryOperationParserRuleCall_1_1_0; }
+	}
+	public class OpMultiElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpMulti");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cAsteriskKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cAsteriskAsteriskKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cSolidusKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cPercentSignKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		
+		//OpMulti:
+		//	'*' | '**' | '/' | '%';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'*' | '**' | '/' | '%'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'*'
+		public Keyword getAsteriskKeyword_0() { return cAsteriskKeyword_0; }
+		
+		//'**'
+		public Keyword getAsteriskAsteriskKeyword_1() { return cAsteriskAsteriskKeyword_1; }
+		
+		//'/'
+		public Keyword getSolidusKeyword_2() { return cSolidusKeyword_2; }
+		
+		//'%'
+		public Keyword getPercentSignKeyword_3() { return cPercentSignKeyword_3; }
+	}
+	public class PUnaryOperationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PUnaryOperation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPUnaryOperationAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cFeatureAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFeatureOpUnaryParserRuleCall_1_0 = (RuleCall)cFeatureAssignment_1.eContents().get(0);
+		private final Assignment cOperandAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cOperandPUnaryOperationParserRuleCall_2_0 = (RuleCall)cOperandAssignment_2.eContents().get(0);
+		
+		//PUnaryOperation PExpression:
+		//	{PUnaryOperation} feature=OpUnary operand=PUnaryOperation
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{PUnaryOperation} feature=OpUnary operand=PUnaryOperation
+		public Group getGroup() { return cGroup; }
+		
+		//{PUnaryOperation}
+		public Action getPUnaryOperationAction_0() { return cPUnaryOperationAction_0; }
+		
+		//feature=OpUnary
+		public Assignment getFeatureAssignment_1() { return cFeatureAssignment_1; }
+		
+		//OpUnary
+		public RuleCall getFeatureOpUnaryParserRuleCall_1_0() { return cFeatureOpUnaryParserRuleCall_1_0; }
+		
+		//operand=PUnaryOperation
+		public Assignment getOperandAssignment_2() { return cOperandAssignment_2; }
+		
+		//PUnaryOperation
+		public RuleCall getOperandPUnaryOperationParserRuleCall_2_0() { return cOperandPUnaryOperationParserRuleCall_2_0; }
+	}
+	public class OpUnaryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpUnary");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cExclamationMarkKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cPlusSignKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		
+		//OpUnary:
+		//	"!" | "-" | "+";
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"!" | "-" | "+"
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//"!"
+		public Keyword getExclamationMarkKeyword_0() { return cExclamationMarkKeyword_0; }
+		
+		//"-"
+		public Keyword getHyphenMinusKeyword_1() { return cHyphenMinusKeyword_1; }
+		
+		//"+"
+		public Keyword getPlusSignKeyword_2() { return cPlusSignKeyword_2; }
+	}
+	public class PPostfixOperationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PPostfixOperation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cPMemberFeatureCallParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final Action cPPostfixOperationOperandAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
+		private final Assignment cFeatureAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
+		private final RuleCall cFeatureOpPostfixParserRuleCall_1_0_1_0 = (RuleCall)cFeatureAssignment_1_0_1.eContents().get(0);
+		
+		//PPostfixOperation PExpression:
+		//	PMemberFeatureCall => ({PPostfixOperation.operand=current} feature=OpPostfix)?
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PMemberFeatureCall => ({PPostfixOperation.operand=current} feature=OpPostfix)?
+		public Group getGroup() { return cGroup; }
+		
+		//PMemberFeatureCall
+		public RuleCall getPMemberFeatureCallParserRuleCall_0() { return cPMemberFeatureCallParserRuleCall_0; }
+		
+		//=> ({PPostfixOperation.operand=current} feature=OpPostfix)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//({PPostfixOperation.operand=current} feature=OpPostfix)
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//{PPostfixOperation.operand=current}
+		public Action getPPostfixOperationOperandAction_1_0_0() { return cPPostfixOperationOperandAction_1_0_0; }
+		
+		//feature=OpPostfix
+		public Assignment getFeatureAssignment_1_0_1() { return cFeatureAssignment_1_0_1; }
+		
+		//OpPostfix
+		public RuleCall getFeatureOpPostfixParserRuleCall_1_0_1_0() { return cFeatureOpPostfixParserRuleCall_1_0_1_0; }
+	}
+	public class OpPostfixElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpPostfix");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cPlusSignPlusSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cHyphenMinusHyphenMinusKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//OpPostfix:
+		//	"++" | "--";
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"++" | "--"
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//"++"
+		public Keyword getPlusSignPlusSignKeyword_0() { return cPlusSignPlusSignKeyword_0; }
+		
+		//"--"
+		public Keyword getHyphenMinusHyphenMinusKeyword_1() { return cHyphenMinusHyphenMinusKeyword_1; }
+	}
+	public class PMemberFeatureCallElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PMemberFeatureCall");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cPPrimaryExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
+		private final Action cPAssignmentAssignableAction_1_0_0_0 = (Action)cGroup_1_0_0.eContents().get(0);
+		private final Assignment cFeatureAssignment_1_0_0_1 = (Assignment)cGroup_1_0_0.eContents().get(1);
+		private final RuleCall cFeatureFeatureCallIDParserRuleCall_1_0_0_1_0 = (RuleCall)cFeatureAssignment_1_0_0_1.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_1_0_0_2 = (RuleCall)cGroup_1_0_0.eContents().get(2);
+		private final Assignment cValueAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cValuePAssignmentParserRuleCall_1_1_0 = (RuleCall)cValueAssignment_1_1.eContents().get(0);
+		
+		//PMemberFeatureCall PExpression:
+		//	PPrimaryExpression (=> ({PAssignment.assignable=current} feature=FeatureCallID OpSingleAssign) value=PAssignment)
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PPrimaryExpression (=> ({PAssignment.assignable=current} feature=FeatureCallID OpSingleAssign) value=PAssignment)
+		public Group getGroup() { return cGroup; }
+		
+		//PPrimaryExpression
+		public RuleCall getPPrimaryExpressionParserRuleCall_0() { return cPPrimaryExpressionParserRuleCall_0; }
+		
+		//(=> ({PAssignment.assignable=current} feature=FeatureCallID OpSingleAssign) value=PAssignment)
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//=> ({PAssignment.assignable=current} feature=FeatureCallID OpSingleAssign)
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//({PAssignment.assignable=current} feature=FeatureCallID OpSingleAssign)
+		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
+		
+		//{PAssignment.assignable=current}
+		public Action getPAssignmentAssignableAction_1_0_0_0() { return cPAssignmentAssignableAction_1_0_0_0; }
+		
+		//feature=FeatureCallID
+		public Assignment getFeatureAssignment_1_0_0_1() { return cFeatureAssignment_1_0_0_1; }
+		
+		//FeatureCallID
+		public RuleCall getFeatureFeatureCallIDParserRuleCall_1_0_0_1_0() { return cFeatureFeatureCallIDParserRuleCall_1_0_0_1_0; }
+		
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_1_0_0_2() { return cOpSingleAssignParserRuleCall_1_0_0_2; }
+		
+		//value=PAssignment
+		public Assignment getValueAssignment_1_1() { return cValueAssignment_1_1; }
+		
+		//PAssignment
+		public RuleCall getValuePAssignmentParserRuleCall_1_1_0() { return cValuePAssignmentParserRuleCall_1_1_0; }
+	}
+	public class PPrimaryExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PPrimaryExpression");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cPBlockExpressionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cPLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cPIfExpressionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cPReturnExpressionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cPParenthesizedExpressionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		
+		//PPrimaryExpression PExpression:
+		//	PBlockExpression | PLiteral | PIfExpression | PReturnExpression | PParenthesizedExpression
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PBlockExpression | PLiteral | PIfExpression | PReturnExpression | PParenthesizedExpression
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//PBlockExpression
+		public RuleCall getPBlockExpressionParserRuleCall_0() { return cPBlockExpressionParserRuleCall_0; }
+		
+		//PLiteral
+		public RuleCall getPLiteralParserRuleCall_1() { return cPLiteralParserRuleCall_1; }
+		
+		//PIfExpression
+		public RuleCall getPIfExpressionParserRuleCall_2() { return cPIfExpressionParserRuleCall_2; }
+		
+		//PReturnExpression
+		public RuleCall getPReturnExpressionParserRuleCall_3() { return cPReturnExpressionParserRuleCall_3; }
+		
+		//PParenthesizedExpression
+		public RuleCall getPParenthesizedExpressionParserRuleCall_4() { return cPParenthesizedExpressionParserRuleCall_4; }
+	}
+	public class PLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PLiteral");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cPClosureParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cPNumberLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cPNullLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cPStringLiteralParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		
+		//PLiteral PExpression:
+		//	PClosure | PNumberLiteral | PNullLiteral | PStringLiteral
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PClosure | PNumberLiteral | PNullLiteral | PStringLiteral
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//PClosure
+		public RuleCall getPClosureParserRuleCall_0() { return cPClosureParserRuleCall_0; }
+		
+		//PNumberLiteral
+		public RuleCall getPNumberLiteralParserRuleCall_1() { return cPNumberLiteralParserRuleCall_1; }
+		
+		//PNullLiteral
+		public RuleCall getPNullLiteralParserRuleCall_2() { return cPNullLiteralParserRuleCall_2; }
+		
+		//PStringLiteral
+		public RuleCall getPStringLiteralParserRuleCall_3() { return cPStringLiteralParserRuleCall_3; }
+	}
+	public class PClosureElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PClosure");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Group cGroup_0_0 = (Group)cGroup_0.eContents().get(0);
+		private final Action cPClosureAction_0_0_0 = (Action)cGroup_0_0.eContents().get(0);
+		private final Keyword cSubKeyword_0_0_1 = (Keyword)cGroup_0_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_0_0_2 = (Keyword)cGroup_0_0.eContents().get(2);
+		private final Assignment cExpressionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cExpressionPExpressionInClosureParserRuleCall_1_0 = (RuleCall)cExpressionAssignment_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//PClosure PExpression:
+		//	=> ({PClosure}
+		//	'sub' '{') expression=PExpressionInClosure
+		//	'}'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//=> ({PClosure} 'sub' '{') expression=PExpressionInClosure '}'
+		public Group getGroup() { return cGroup; }
+		
+		//=> ({PClosure} 'sub' '{')
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//({PClosure} 'sub' '{')
+		public Group getGroup_0_0() { return cGroup_0_0; }
+		
+		//{PClosure}
+		public Action getPClosureAction_0_0_0() { return cPClosureAction_0_0_0; }
+		
+		//'sub'
+		public Keyword getSubKeyword_0_0_1() { return cSubKeyword_0_0_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_0_0_2() { return cLeftCurlyBracketKeyword_0_0_2; }
+		
+		//expression=PExpressionInClosure
+		public Assignment getExpressionAssignment_1() { return cExpressionAssignment_1; }
+		
+		//PExpressionInClosure
+		public RuleCall getExpressionPExpressionInClosureParserRuleCall_1_0() { return cExpressionPExpressionInClosureParserRuleCall_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
+	}
+	public class PExpressionInClosureElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PExpressionInClosure");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPBlockExpressionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cExpressionsAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cExpressionsPExpressionOrVarDeclarationParserRuleCall_1_0_0 = (RuleCall)cExpressionsAssignment_1_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		
+		//PExpressionInClosure PExpression:
+		//	{PBlockExpression} (expressions+=PExpressionOrVarDeclaration ';'?)*
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{PBlockExpression} (expressions+=PExpressionOrVarDeclaration ';'?)*
+		public Group getGroup() { return cGroup; }
+		
+		//{PBlockExpression}
+		public Action getPBlockExpressionAction_0() { return cPBlockExpressionAction_0; }
+		
+		//(expressions+=PExpressionOrVarDeclaration ';'?)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//expressions+=PExpressionOrVarDeclaration
+		public Assignment getExpressionsAssignment_1_0() { return cExpressionsAssignment_1_0; }
+		
+		//PExpressionOrVarDeclaration
+		public RuleCall getExpressionsPExpressionOrVarDeclarationParserRuleCall_1_0_0() { return cExpressionsPExpressionOrVarDeclarationParserRuleCall_1_0_0; }
+		
+		//';'?
+		public Keyword getSemicolonKeyword_1_1() { return cSemicolonKeyword_1_1; }
+	}
+	public class PParenthesizedExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PParenthesizedExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cPExpressionParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//PParenthesizedExpression PExpression:
+		//	'(' PExpression ')'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'(' PExpression ')'
+		public Group getGroup() { return cGroup; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+		
+		//PExpression
+		public RuleCall getPExpressionParserRuleCall_1() { return cPExpressionParserRuleCall_1; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
+	}
+	public class PIfExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PIfExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPIfExpressionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cIfKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cIfAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cIfPExpressionParserRuleCall_3_0 = (RuleCall)cIfAssignment_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cThenAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cThenPExpressionParserRuleCall_5_0 = (RuleCall)cThenAssignment_5.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cElseKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cElseAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cElsePExpressionParserRuleCall_6_1_0 = (RuleCall)cElseAssignment_6_1.eContents().get(0);
+		
+		//PIfExpression PExpression:
+		//	{PIfExpression}
+		//	'if' '(' if=PExpression ')'
+		//	then=PExpression (=> 'else' else=PExpression)?
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{PIfExpression} 'if' '(' if=PExpression ')' then=PExpression (=> 'else' else=PExpression)?
+		public Group getGroup() { return cGroup; }
+		
+		//{PIfExpression}
+		public Action getPIfExpressionAction_0() { return cPIfExpressionAction_0; }
+		
+		//'if'
+		public Keyword getIfKeyword_1() { return cIfKeyword_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+		
+		//if=PExpression
+		public Assignment getIfAssignment_3() { return cIfAssignment_3; }
+		
+		//PExpression
+		public RuleCall getIfPExpressionParserRuleCall_3_0() { return cIfPExpressionParserRuleCall_3_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		
+		//then=PExpression
+		public Assignment getThenAssignment_5() { return cThenAssignment_5; }
+		
+		//PExpression
+		public RuleCall getThenPExpressionParserRuleCall_5_0() { return cThenPExpressionParserRuleCall_5_0; }
+		
+		//(=> 'else' else=PExpression)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//=> 'else'
+		public Keyword getElseKeyword_6_0() { return cElseKeyword_6_0; }
+		
+		//else=PExpression
+		public Assignment getElseAssignment_6_1() { return cElseAssignment_6_1; }
+		
+		//PExpression
+		public RuleCall getElsePExpressionParserRuleCall_6_1_0() { return cElsePExpressionParserRuleCall_6_1_0; }
+	}
+	public class PBlockExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PBlockExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPBlockExpressionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cExpressionsAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cExpressionsPExpressionOrVarDeclarationParserRuleCall_2_0_0 = (RuleCall)cExpressionsAssignment_2_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//PBlockExpression PExpression:
+		//	{PBlockExpression}
+		//	'{' (expressions+=PExpressionOrVarDeclaration ';'?)*
+		//	'}'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{PBlockExpression} '{' (expressions+=PExpressionOrVarDeclaration ';'?)* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{PBlockExpression}
+		public Action getPBlockExpressionAction_0() { return cPBlockExpressionAction_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//(expressions+=PExpressionOrVarDeclaration ';'?)*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//expressions+=PExpressionOrVarDeclaration
+		public Assignment getExpressionsAssignment_2_0() { return cExpressionsAssignment_2_0; }
+		
+		//PExpressionOrVarDeclaration
+		public RuleCall getExpressionsPExpressionOrVarDeclarationParserRuleCall_2_0_0() { return cExpressionsPExpressionOrVarDeclarationParserRuleCall_2_0_0; }
+		
+		//';'?
+		public Keyword getSemicolonKeyword_2_1() { return cSemicolonKeyword_2_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+	}
+	public class PExpressionOrVarDeclarationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PExpressionOrVarDeclaration");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cPVariableDeclarationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cPExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//PExpressionOrVarDeclaration PExpression:
+		//	PVariableDeclaration | PExpression
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PVariableDeclaration | PExpression
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//PVariableDeclaration
+		public RuleCall getPVariableDeclarationParserRuleCall_0() { return cPVariableDeclarationParserRuleCall_0; }
+		
+		//PExpression
+		public RuleCall getPExpressionParserRuleCall_1() { return cPExpressionParserRuleCall_1; }
+	}
+	public class PVariableDeclarationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PVariableDeclaration");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPVariableDeclarationAction_0 = (Action)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Keyword cMyKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
+		private final Keyword cOurKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
+		private final Keyword cLocalKeyword_1_2 = (Keyword)cAlternatives_1.eContents().get(2);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Keyword cDollarSignKeyword_2_0 = (Keyword)cAlternatives_2.eContents().get(0);
+		private final Keyword cPercentSignKeyword_2_1 = (Keyword)cAlternatives_2.eContents().get(1);
+		private final Keyword cCommercialAtKeyword_2_2 = (Keyword)cAlternatives_2.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cNameAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_3_0_0 = (RuleCall)cNameAssignment_3_0.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cEqualsSignKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cRightAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cRightPExpressionParserRuleCall_4_1_0 = (RuleCall)cRightAssignment_4_1.eContents().get(0);
+		
+		//PVariableDeclaration PExpression:
+		//	{PVariableDeclaration} ('my' | 'our' | 'local') ('$' | '%' | '@') => (name=ID) ('=' right=PExpression)?
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{PVariableDeclaration} ('my' | 'our' | 'local') ('$' | '%' | '@') => (name=ID) ('=' right=PExpression)?
+		public Group getGroup() { return cGroup; }
+		
+		//{PVariableDeclaration}
+		public Action getPVariableDeclarationAction_0() { return cPVariableDeclarationAction_0; }
+		
+		//('my' | 'our' | 'local')
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//'my'
+		public Keyword getMyKeyword_1_0() { return cMyKeyword_1_0; }
+		
+		//'our'
+		public Keyword getOurKeyword_1_1() { return cOurKeyword_1_1; }
+		
+		//'local'
+		public Keyword getLocalKeyword_1_2() { return cLocalKeyword_1_2; }
+		
+		//('$' | '%' | '@')
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		
+		//'$'
+		public Keyword getDollarSignKeyword_2_0() { return cDollarSignKeyword_2_0; }
+		
+		//'%'
+		public Keyword getPercentSignKeyword_2_1() { return cPercentSignKeyword_2_1; }
+		
+		//'@'
+		public Keyword getCommercialAtKeyword_2_2() { return cCommercialAtKeyword_2_2; }
+		
+		//=> (name=ID)
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_3_0() { return cNameAssignment_3_0; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_3_0_0() { return cNameIDTerminalRuleCall_3_0_0; }
 		
-		//'!'
-		public Keyword getExclamationMarkKeyword_2() { return cExclamationMarkKeyword_2; }
+		//('=' right=PExpression)?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_4_0() { return cEqualsSignKeyword_4_0; }
+		
+		//right=PExpression
+		public Assignment getRightAssignment_4_1() { return cRightAssignment_4_1; }
+		
+		//PExpression
+		public RuleCall getRightPExpressionParserRuleCall_4_1_0() { return cRightPExpressionParserRuleCall_4_1_0; }
+	}
+	public class PFeatureCallElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PFeatureCall");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPFeatureCallAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cFeatureAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFeatureFeatureCallIDParserRuleCall_1_0 = (RuleCall)cFeatureAssignment_1.eContents().get(0);
+		private final Assignment cFeatureCallArgumentsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cFeatureCallArgumentsPClosureParserRuleCall_2_0 = (RuleCall)cFeatureCallArgumentsAssignment_2.eContents().get(0);
+		
+		//PFeatureCall PExpression:
+		//	{PFeatureCall} feature=FeatureCallID
+		//	featureCallArguments+=PClosure?
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{PFeatureCall} feature=FeatureCallID featureCallArguments+=PClosure?
+		public Group getGroup() { return cGroup; }
+		
+		//{PFeatureCall}
+		public Action getPFeatureCallAction_0() { return cPFeatureCallAction_0; }
+		
+		//feature=FeatureCallID
+		public Assignment getFeatureAssignment_1() { return cFeatureAssignment_1; }
+		
+		//FeatureCallID
+		public RuleCall getFeatureFeatureCallIDParserRuleCall_1_0() { return cFeatureFeatureCallIDParserRuleCall_1_0; }
+		
+		//featureCallArguments+=PClosure?
+		public Assignment getFeatureCallArgumentsAssignment_2() { return cFeatureCallArgumentsAssignment_2; }
+		
+		//PClosure
+		public RuleCall getFeatureCallArgumentsPClosureParserRuleCall_2_0() { return cFeatureCallArgumentsPClosureParserRuleCall_2_0; }
+	}
+	public class FeatureCallIDElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.FeatureCallID");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cDollarSignKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cPercentSignKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Keyword cCommercialAtKeyword_0_2 = (Keyword)cAlternatives_0.eContents().get(2);
+		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		
+		//FeatureCallID:
+		//	('$' | '%' | '@') ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//('$' | '%' | '@') ID
+		public Group getGroup() { return cGroup; }
+		
+		//('$' | '%' | '@')
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//'$'
+		public Keyword getDollarSignKeyword_0_0() { return cDollarSignKeyword_0_0; }
+		
+		//'%'
+		public Keyword getPercentSignKeyword_0_1() { return cPercentSignKeyword_0_1; }
+		
+		//'@'
+		public Keyword getCommercialAtKeyword_0_2() { return cCommercialAtKeyword_0_2; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
+	}
+	public class PConstructorCallElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PConstructorCall");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPConstructorCallAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cNewKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cConstructorAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cConstructorQualifiedNameParserRuleCall_2_0 = (RuleCall)cConstructorAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cExplicitConstructorCallAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final Keyword cExplicitConstructorCallLeftParenthesisKeyword_3_0_0 = (Keyword)cExplicitConstructorCallAssignment_3_0.eContents().get(0);
+		private final Assignment cArgumentsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cArgumentsPExpressionParserRuleCall_3_1_0 = (RuleCall)cArgumentsAssignment_3_1.eContents().get(0);
+		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
+		private final Keyword cCommaKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
+		private final Assignment cArgumentsAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
+		private final RuleCall cArgumentsPExpressionParserRuleCall_3_2_1_0 = (RuleCall)cArgumentsAssignment_3_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
+		
+		//PConstructorCall PExpression:
+		//	{PConstructorCall}
+		//	'new' constructor=QualifiedName (=> explicitConstructorCall?='('
+		//	arguments+=PExpression (',' arguments+=PExpression)*
+		//	')')?
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{PConstructorCall} 'new' constructor=QualifiedName (=> explicitConstructorCall?='(' arguments+=PExpression (','
+		//arguments+=PExpression)* ')')?
+		public Group getGroup() { return cGroup; }
+		
+		//{PConstructorCall}
+		public Action getPConstructorCallAction_0() { return cPConstructorCallAction_0; }
+		
+		//'new'
+		public Keyword getNewKeyword_1() { return cNewKeyword_1; }
+		
+		//constructor=QualifiedName
+		public Assignment getConstructorAssignment_2() { return cConstructorAssignment_2; }
+		
+		//QualifiedName
+		public RuleCall getConstructorQualifiedNameParserRuleCall_2_0() { return cConstructorQualifiedNameParserRuleCall_2_0; }
+		
+		//(=> explicitConstructorCall?='(' arguments+=PExpression (',' arguments+=PExpression)* ')')?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//=> explicitConstructorCall?='('
+		public Assignment getExplicitConstructorCallAssignment_3_0() { return cExplicitConstructorCallAssignment_3_0; }
+		
+		//'('
+		public Keyword getExplicitConstructorCallLeftParenthesisKeyword_3_0_0() { return cExplicitConstructorCallLeftParenthesisKeyword_3_0_0; }
+		
+		//arguments+=PExpression
+		public Assignment getArgumentsAssignment_3_1() { return cArgumentsAssignment_3_1; }
+		
+		//PExpression
+		public RuleCall getArgumentsPExpressionParserRuleCall_3_1_0() { return cArgumentsPExpressionParserRuleCall_3_1_0; }
+		
+		//(',' arguments+=PExpression)*
+		public Group getGroup_3_2() { return cGroup_3_2; }
+		
+		//','
+		public Keyword getCommaKeyword_3_2_0() { return cCommaKeyword_3_2_0; }
+		
+		//arguments+=PExpression
+		public Assignment getArgumentsAssignment_3_2_1() { return cArgumentsAssignment_3_2_1; }
+		
+		//PExpression
+		public RuleCall getArgumentsPExpressionParserRuleCall_3_2_1_0() { return cArgumentsPExpressionParserRuleCall_3_2_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_3_3() { return cRightParenthesisKeyword_3_3; }
+	}
+	public class PNumberLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PNumberLiteral");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPNumberLiteralAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueNumberParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		
+		//PNumberLiteral PExpression:
+		//	{PNumberLiteral} value=Number
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{PNumberLiteral} value=Number
+		public Group getGroup() { return cGroup; }
+		
+		//{PNumberLiteral}
+		public Action getPNumberLiteralAction_0() { return cPNumberLiteralAction_0; }
+		
+		//value=Number
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		
+		//Number
+		public RuleCall getValueNumberParserRuleCall_1_0() { return cValueNumberParserRuleCall_1_0; }
+	}
+	public class PNullLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PNullLiteral");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPNullLiteralAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cUndefKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//PNullLiteral PExpression:
+		//	{PNullLiteral} 'undef'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{PNullLiteral} 'undef'
+		public Group getGroup() { return cGroup; }
+		
+		//{PNullLiteral}
+		public Action getPNullLiteralAction_0() { return cPNullLiteralAction_0; }
+		
+		//'undef'
+		public Keyword getUndefKeyword_1() { return cUndefKeyword_1; }
+	}
+	public class PReturnExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PReturnExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPReturnExpressionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cReturnKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cExpressionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cExpressionPExpressionParserRuleCall_2_0 = (RuleCall)cExpressionAssignment_2.eContents().get(0);
+		
+		//PReturnExpression PExpression:
+		//	{PReturnExpression} 'return' -> expression=PExpression?
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{PReturnExpression} 'return' -> expression=PExpression?
+		public Group getGroup() { return cGroup; }
+		
+		//{PReturnExpression}
+		public Action getPReturnExpressionAction_0() { return cPReturnExpressionAction_0; }
+		
+		//'return'
+		public Keyword getReturnKeyword_1() { return cReturnKeyword_1; }
+		
+		//-> expression=PExpression?
+		public Assignment getExpressionAssignment_2() { return cExpressionAssignment_2; }
+		
+		//PExpression
+		public RuleCall getExpressionPExpressionParserRuleCall_2_0() { return cExpressionPExpressionParserRuleCall_2_0; }
+	}
+	public class PStringLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PStringLiteral");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPStringLiteralAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		
+		//PStringLiteral PExpression:
+		//	{PStringLiteral} value=STRING
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{PStringLiteral} value=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//{PStringLiteral}
+		public Action getPStringLiteralAction_0() { return cPStringLiteralAction_0; }
+		
+		//value=STRING
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_1_0() { return cValueSTRINGTerminalRuleCall_1_0; }
+	}
+	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.QualifiedName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cColonColonKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//QualifiedName:
+		//	ID (=> '::' ID)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ID (=> '::' ID)*
+		public Group getGroup() { return cGroup; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		
+		//(=> '::' ID)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//=> '::'
+		public Keyword getColonColonKeyword_1_0() { return cColonColonKeyword_1_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
+	}
+	public class NumberElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Number");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cHEXTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cBINTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//Number hidden():
+		//	HEX
+		//	| BIN
+		//	| INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//HEX | BIN | INT
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//HEX
+		public RuleCall getHEXTerminalRuleCall_0() { return cHEXTerminalRuleCall_0; }
+		
+		//BIN
+		public RuleCall getBINTerminalRuleCall_1() { return cBINTerminalRuleCall_1; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_2() { return cINTTerminalRuleCall_2; }
 	}
 	
 	
-	private final ModelElements pModel;
-	private final GreetingElements pGreeting;
+	private final PExpressionElements pPExpression;
+	private final PAssignmentElements pPAssignment;
+	private final OpSingleAssignElements pOpSingleAssign;
+	private final OpMultiAssignElements pOpMultiAssign;
+	private final POrExpressionElements pPOrExpression;
+	private final OpOrElements pOpOr;
+	private final PAndExpressionElements pPAndExpression;
+	private final OpAndElements pOpAnd;
+	private final PEqualityExpressionElements pPEqualityExpression;
+	private final OpEqualityElements pOpEquality;
+	private final PRelationalExpressionElements pPRelationalExpression;
+	private final OpCompareElements pOpCompare;
+	private final POtherOperatorExpressionElements pPOtherOperatorExpression;
+	private final OpOtherElements pOpOther;
+	private final PAdditiveExpressionElements pPAdditiveExpression;
+	private final OpAddElements pOpAdd;
+	private final PMultiplicativeExpressionElements pPMultiplicativeExpression;
+	private final OpMultiElements pOpMulti;
+	private final PUnaryOperationElements pPUnaryOperation;
+	private final OpUnaryElements pOpUnary;
+	private final PPostfixOperationElements pPPostfixOperation;
+	private final OpPostfixElements pOpPostfix;
+	private final PMemberFeatureCallElements pPMemberFeatureCall;
+	private final PPrimaryExpressionElements pPPrimaryExpression;
+	private final PLiteralElements pPLiteral;
+	private final PClosureElements pPClosure;
+	private final PExpressionInClosureElements pPExpressionInClosure;
+	private final PParenthesizedExpressionElements pPParenthesizedExpression;
+	private final PIfExpressionElements pPIfExpression;
+	private final PBlockExpressionElements pPBlockExpression;
+	private final PExpressionOrVarDeclarationElements pPExpressionOrVarDeclaration;
+	private final PVariableDeclarationElements pPVariableDeclaration;
+	private final PFeatureCallElements pPFeatureCall;
+	private final FeatureCallIDElements pFeatureCallID;
+	private final PConstructorCallElements pPConstructorCall;
+	private final PNumberLiteralElements pPNumberLiteral;
+	private final PNullLiteralElements pPNullLiteral;
+	private final PReturnExpressionElements pPReturnExpression;
+	private final PStringLiteralElements pPStringLiteral;
+	private final QualifiedNameElements pQualifiedName;
+	private final NumberElements pNumber;
+	private final TerminalRule tID;
+	private final TerminalRule tINT;
+	private final TerminalRule tHEX;
+	private final TerminalRule tBIN;
+	private final TerminalRule tSTRING;
+	private final TerminalRule tSL_COMMENT;
+	private final TerminalRule tWS;
+	private final TerminalRule tANY_OTHER;
 	
 	private final Grammar grammar;
-	
-	private final TerminalsGrammarAccess gaTerminals;
 
 	@Inject
-	public PerlGrammarAccess(GrammarProvider grammarProvider,
-			TerminalsGrammarAccess gaTerminals) {
+	public PerlGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
-		this.gaTerminals = gaTerminals;
-		this.pModel = new ModelElements();
-		this.pGreeting = new GreetingElements();
+		this.pPExpression = new PExpressionElements();
+		this.pPAssignment = new PAssignmentElements();
+		this.pOpSingleAssign = new OpSingleAssignElements();
+		this.pOpMultiAssign = new OpMultiAssignElements();
+		this.pPOrExpression = new POrExpressionElements();
+		this.pOpOr = new OpOrElements();
+		this.pPAndExpression = new PAndExpressionElements();
+		this.pOpAnd = new OpAndElements();
+		this.pPEqualityExpression = new PEqualityExpressionElements();
+		this.pOpEquality = new OpEqualityElements();
+		this.pPRelationalExpression = new PRelationalExpressionElements();
+		this.pOpCompare = new OpCompareElements();
+		this.pPOtherOperatorExpression = new POtherOperatorExpressionElements();
+		this.pOpOther = new OpOtherElements();
+		this.pPAdditiveExpression = new PAdditiveExpressionElements();
+		this.pOpAdd = new OpAddElements();
+		this.pPMultiplicativeExpression = new PMultiplicativeExpressionElements();
+		this.pOpMulti = new OpMultiElements();
+		this.pPUnaryOperation = new PUnaryOperationElements();
+		this.pOpUnary = new OpUnaryElements();
+		this.pPPostfixOperation = new PPostfixOperationElements();
+		this.pOpPostfix = new OpPostfixElements();
+		this.pPMemberFeatureCall = new PMemberFeatureCallElements();
+		this.pPPrimaryExpression = new PPrimaryExpressionElements();
+		this.pPLiteral = new PLiteralElements();
+		this.pPClosure = new PClosureElements();
+		this.pPExpressionInClosure = new PExpressionInClosureElements();
+		this.pPParenthesizedExpression = new PParenthesizedExpressionElements();
+		this.pPIfExpression = new PIfExpressionElements();
+		this.pPBlockExpression = new PBlockExpressionElements();
+		this.pPExpressionOrVarDeclaration = new PExpressionOrVarDeclarationElements();
+		this.pPVariableDeclaration = new PVariableDeclarationElements();
+		this.pPFeatureCall = new PFeatureCallElements();
+		this.pFeatureCallID = new FeatureCallIDElements();
+		this.pPConstructorCall = new PConstructorCallElements();
+		this.pPNumberLiteral = new PNumberLiteralElements();
+		this.pPNullLiteral = new PNullLiteralElements();
+		this.pPReturnExpression = new PReturnExpressionElements();
+		this.pPStringLiteral = new PStringLiteralElements();
+		this.pQualifiedName = new QualifiedNameElements();
+		this.pNumber = new NumberElements();
+		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.ID");
+		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.INT");
+		this.tHEX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.HEX");
+		this.tBIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.BIN");
+		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.STRING");
+		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.SL_COMMENT");
+		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.WS");
+		this.tANY_OTHER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.ANY_OTHER");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -102,72 +1699,488 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		return grammar;
 	}
 	
-	
-	public TerminalsGrammarAccess getTerminalsGrammarAccess() {
-		return gaTerminals;
-	}
 
 	
-	//Model:
-	//	greetings+=Greeting*;
-	public ModelElements getModelAccess() {
-		return pModel;
+	//PExpression:
+	//	PAssignment;
+	public PExpressionElements getPExpressionAccess() {
+		return pPExpression;
 	}
 	
-	public ParserRule getModelRule() {
-		return getModelAccess().getRule();
+	public ParserRule getPExpressionRule() {
+		return getPExpressionAccess().getRule();
 	}
 	
-	//Greeting:
-	//	'Hello' name=ID '!';
-	public GreetingElements getGreetingAccess() {
-		return pGreeting;
+	//PAssignment PExpression:
+	//	{PAssignment} feature=FeatureCallID OpSingleAssign value=PAssignment | POrExpression (=>
+	//	({PBinaryOperation.leftOperand=current} feature=OpMultiAssign) rightOperand=PAssignment)?
+	public PAssignmentElements getPAssignmentAccess() {
+		return pPAssignment;
 	}
 	
-	public ParserRule getGreetingRule() {
-		return getGreetingAccess().getRule();
+	public ParserRule getPAssignmentRule() {
+		return getPAssignmentAccess().getRule();
+	}
+	
+	//OpSingleAssign:
+	//	'=';
+	public OpSingleAssignElements getOpSingleAssignAccess() {
+		return pOpSingleAssign;
+	}
+	
+	public ParserRule getOpSingleAssignRule() {
+		return getOpSingleAssignAccess().getRule();
+	}
+	
+	//OpMultiAssign:
+	//	'+=' | '-=' | '*=' | '/=' | '%=' | '**=' |
+	//	'<' '<' '=' |
+	//	'>' '>'? '>=';
+	public OpMultiAssignElements getOpMultiAssignAccess() {
+		return pOpMultiAssign;
+	}
+	
+	public ParserRule getOpMultiAssignRule() {
+		return getOpMultiAssignAccess().getRule();
+	}
+	
+	//POrExpression PExpression:
+	//	PAndExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpOr) rightOperand=PAndExpression)*
+	public POrExpressionElements getPOrExpressionAccess() {
+		return pPOrExpression;
+	}
+	
+	public ParserRule getPOrExpressionRule() {
+		return getPOrExpressionAccess().getRule();
+	}
+	
+	//OpOr:
+	//	'||';
+	public OpOrElements getOpOrAccess() {
+		return pOpOr;
+	}
+	
+	public ParserRule getOpOrRule() {
+		return getOpOrAccess().getRule();
+	}
+	
+	//PAndExpression PExpression:
+	//	PEqualityExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpAnd) rightOperand=PEqualityExpression)*
+	public PAndExpressionElements getPAndExpressionAccess() {
+		return pPAndExpression;
+	}
+	
+	public ParserRule getPAndExpressionRule() {
+		return getPAndExpressionAccess().getRule();
+	}
+	
+	//OpAnd:
+	//	'&&';
+	public OpAndElements getOpAndAccess() {
+		return pOpAnd;
+	}
+	
+	public ParserRule getOpAndRule() {
+		return getOpAndAccess().getRule();
+	}
+	
+	//PEqualityExpression PExpression:
+	//	PRelationalExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpEquality)
+	//	rightOperand=PRelationalExpression)*
+	public PEqualityExpressionElements getPEqualityExpressionAccess() {
+		return pPEqualityExpression;
+	}
+	
+	public ParserRule getPEqualityExpressionRule() {
+		return getPEqualityExpressionAccess().getRule();
+	}
+	
+	//OpEquality:
+	//	'==' | '!=' | 'eq' | 'ne';
+	public OpEqualityElements getOpEqualityAccess() {
+		return pOpEquality;
+	}
+	
+	public ParserRule getOpEqualityRule() {
+		return getOpEqualityAccess().getRule();
+	}
+	
+	//PRelationalExpression PExpression:
+	//	POtherOperatorExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpCompare)
+	//	rightOperand=POtherOperatorExpression)*
+	public PRelationalExpressionElements getPRelationalExpressionAccess() {
+		return pPRelationalExpression;
+	}
+	
+	public ParserRule getPRelationalExpressionRule() {
+		return getPRelationalExpressionAccess().getRule();
+	}
+	
+	//OpCompare:
+	//	'>=' | '<' '=' | '>' | '<';
+	public OpCompareElements getOpCompareAccess() {
+		return pOpCompare;
+	}
+	
+	public ParserRule getOpCompareRule() {
+		return getOpCompareAccess().getRule();
+	}
+	
+	//POtherOperatorExpression PExpression:
+	//	PAdditiveExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpOther) rightOperand=PAdditiveExpression)*
+	public POtherOperatorExpressionElements getPOtherOperatorExpressionAccess() {
+		return pPOtherOperatorExpression;
+	}
+	
+	public ParserRule getPOtherOperatorExpressionRule() {
+		return getPOtherOperatorExpressionAccess().getRule();
+	}
+	
+	//OpOther:
+	//	'->'
+	//	| '..<'
+	//	| '>' '..'
+	//	| '..'
+	//	| '=>'
+	//	| '>' (=> ('>' '>') | '>') | '<' (=> ('<' '<') | '<' | '=>') | '<>'
+	//	| '?:';
+	public OpOtherElements getOpOtherAccess() {
+		return pOpOther;
+	}
+	
+	public ParserRule getOpOtherRule() {
+		return getOpOtherAccess().getRule();
+	}
+	
+	//PAdditiveExpression PExpression:
+	//	PMultiplicativeExpression (=> ({PBinaryOperation.leftOperand=current} feature=OpAdd)
+	//	rightOperand=PMultiplicativeExpression)*
+	public PAdditiveExpressionElements getPAdditiveExpressionAccess() {
+		return pPAdditiveExpression;
+	}
+	
+	public ParserRule getPAdditiveExpressionRule() {
+		return getPAdditiveExpressionAccess().getRule();
+	}
+	
+	//OpAdd:
+	//	'+' | '-';
+	public OpAddElements getOpAddAccess() {
+		return pOpAdd;
+	}
+	
+	public ParserRule getOpAddRule() {
+		return getOpAddAccess().getRule();
+	}
+	
+	//PMultiplicativeExpression PExpression:
+	//	PUnaryOperation (=> ({PBinaryOperation.leftOperand=current} feature=OpMulti) rightOperand=PUnaryOperation)*
+	public PMultiplicativeExpressionElements getPMultiplicativeExpressionAccess() {
+		return pPMultiplicativeExpression;
+	}
+	
+	public ParserRule getPMultiplicativeExpressionRule() {
+		return getPMultiplicativeExpressionAccess().getRule();
+	}
+	
+	//OpMulti:
+	//	'*' | '**' | '/' | '%';
+	public OpMultiElements getOpMultiAccess() {
+		return pOpMulti;
+	}
+	
+	public ParserRule getOpMultiRule() {
+		return getOpMultiAccess().getRule();
+	}
+	
+	//PUnaryOperation PExpression:
+	//	{PUnaryOperation} feature=OpUnary operand=PUnaryOperation
+	public PUnaryOperationElements getPUnaryOperationAccess() {
+		return pPUnaryOperation;
+	}
+	
+	public ParserRule getPUnaryOperationRule() {
+		return getPUnaryOperationAccess().getRule();
+	}
+	
+	//OpUnary:
+	//	"!" | "-" | "+";
+	public OpUnaryElements getOpUnaryAccess() {
+		return pOpUnary;
+	}
+	
+	public ParserRule getOpUnaryRule() {
+		return getOpUnaryAccess().getRule();
+	}
+	
+	//PPostfixOperation PExpression:
+	//	PMemberFeatureCall => ({PPostfixOperation.operand=current} feature=OpPostfix)?
+	public PPostfixOperationElements getPPostfixOperationAccess() {
+		return pPPostfixOperation;
+	}
+	
+	public ParserRule getPPostfixOperationRule() {
+		return getPPostfixOperationAccess().getRule();
+	}
+	
+	//OpPostfix:
+	//	"++" | "--";
+	public OpPostfixElements getOpPostfixAccess() {
+		return pOpPostfix;
+	}
+	
+	public ParserRule getOpPostfixRule() {
+		return getOpPostfixAccess().getRule();
+	}
+	
+	//PMemberFeatureCall PExpression:
+	//	PPrimaryExpression (=> ({PAssignment.assignable=current} feature=FeatureCallID OpSingleAssign) value=PAssignment)
+	public PMemberFeatureCallElements getPMemberFeatureCallAccess() {
+		return pPMemberFeatureCall;
+	}
+	
+	public ParserRule getPMemberFeatureCallRule() {
+		return getPMemberFeatureCallAccess().getRule();
+	}
+	
+	//PPrimaryExpression PExpression:
+	//	PBlockExpression | PLiteral | PIfExpression | PReturnExpression | PParenthesizedExpression
+	public PPrimaryExpressionElements getPPrimaryExpressionAccess() {
+		return pPPrimaryExpression;
+	}
+	
+	public ParserRule getPPrimaryExpressionRule() {
+		return getPPrimaryExpressionAccess().getRule();
+	}
+	
+	//PLiteral PExpression:
+	//	PClosure | PNumberLiteral | PNullLiteral | PStringLiteral
+	public PLiteralElements getPLiteralAccess() {
+		return pPLiteral;
+	}
+	
+	public ParserRule getPLiteralRule() {
+		return getPLiteralAccess().getRule();
+	}
+	
+	//PClosure PExpression:
+	//	=> ({PClosure}
+	//	'sub' '{') expression=PExpressionInClosure
+	//	'}'
+	public PClosureElements getPClosureAccess() {
+		return pPClosure;
+	}
+	
+	public ParserRule getPClosureRule() {
+		return getPClosureAccess().getRule();
+	}
+	
+	//PExpressionInClosure PExpression:
+	//	{PBlockExpression} (expressions+=PExpressionOrVarDeclaration ';'?)*
+	public PExpressionInClosureElements getPExpressionInClosureAccess() {
+		return pPExpressionInClosure;
+	}
+	
+	public ParserRule getPExpressionInClosureRule() {
+		return getPExpressionInClosureAccess().getRule();
+	}
+	
+	//PParenthesizedExpression PExpression:
+	//	'(' PExpression ')'
+	public PParenthesizedExpressionElements getPParenthesizedExpressionAccess() {
+		return pPParenthesizedExpression;
+	}
+	
+	public ParserRule getPParenthesizedExpressionRule() {
+		return getPParenthesizedExpressionAccess().getRule();
+	}
+	
+	//PIfExpression PExpression:
+	//	{PIfExpression}
+	//	'if' '(' if=PExpression ')'
+	//	then=PExpression (=> 'else' else=PExpression)?
+	public PIfExpressionElements getPIfExpressionAccess() {
+		return pPIfExpression;
+	}
+	
+	public ParserRule getPIfExpressionRule() {
+		return getPIfExpressionAccess().getRule();
+	}
+	
+	//PBlockExpression PExpression:
+	//	{PBlockExpression}
+	//	'{' (expressions+=PExpressionOrVarDeclaration ';'?)*
+	//	'}'
+	public PBlockExpressionElements getPBlockExpressionAccess() {
+		return pPBlockExpression;
+	}
+	
+	public ParserRule getPBlockExpressionRule() {
+		return getPBlockExpressionAccess().getRule();
+	}
+	
+	//PExpressionOrVarDeclaration PExpression:
+	//	PVariableDeclaration | PExpression
+	public PExpressionOrVarDeclarationElements getPExpressionOrVarDeclarationAccess() {
+		return pPExpressionOrVarDeclaration;
+	}
+	
+	public ParserRule getPExpressionOrVarDeclarationRule() {
+		return getPExpressionOrVarDeclarationAccess().getRule();
+	}
+	
+	//PVariableDeclaration PExpression:
+	//	{PVariableDeclaration} ('my' | 'our' | 'local') ('$' | '%' | '@') => (name=ID) ('=' right=PExpression)?
+	public PVariableDeclarationElements getPVariableDeclarationAccess() {
+		return pPVariableDeclaration;
+	}
+	
+	public ParserRule getPVariableDeclarationRule() {
+		return getPVariableDeclarationAccess().getRule();
+	}
+	
+	//PFeatureCall PExpression:
+	//	{PFeatureCall} feature=FeatureCallID
+	//	featureCallArguments+=PClosure?
+	public PFeatureCallElements getPFeatureCallAccess() {
+		return pPFeatureCall;
+	}
+	
+	public ParserRule getPFeatureCallRule() {
+		return getPFeatureCallAccess().getRule();
+	}
+	
+	//FeatureCallID:
+	//	('$' | '%' | '@') ID;
+	public FeatureCallIDElements getFeatureCallIDAccess() {
+		return pFeatureCallID;
+	}
+	
+	public ParserRule getFeatureCallIDRule() {
+		return getFeatureCallIDAccess().getRule();
+	}
+	
+	//PConstructorCall PExpression:
+	//	{PConstructorCall}
+	//	'new' constructor=QualifiedName (=> explicitConstructorCall?='('
+	//	arguments+=PExpression (',' arguments+=PExpression)*
+	//	')')?
+	public PConstructorCallElements getPConstructorCallAccess() {
+		return pPConstructorCall;
+	}
+	
+	public ParserRule getPConstructorCallRule() {
+		return getPConstructorCallAccess().getRule();
+	}
+	
+	//PNumberLiteral PExpression:
+	//	{PNumberLiteral} value=Number
+	public PNumberLiteralElements getPNumberLiteralAccess() {
+		return pPNumberLiteral;
+	}
+	
+	public ParserRule getPNumberLiteralRule() {
+		return getPNumberLiteralAccess().getRule();
+	}
+	
+	//PNullLiteral PExpression:
+	//	{PNullLiteral} 'undef'
+	public PNullLiteralElements getPNullLiteralAccess() {
+		return pPNullLiteral;
+	}
+	
+	public ParserRule getPNullLiteralRule() {
+		return getPNullLiteralAccess().getRule();
+	}
+	
+	//PReturnExpression PExpression:
+	//	{PReturnExpression} 'return' -> expression=PExpression?
+	public PReturnExpressionElements getPReturnExpressionAccess() {
+		return pPReturnExpression;
+	}
+	
+	public ParserRule getPReturnExpressionRule() {
+		return getPReturnExpressionAccess().getRule();
+	}
+	
+	//PStringLiteral PExpression:
+	//	{PStringLiteral} value=STRING
+	public PStringLiteralElements getPStringLiteralAccess() {
+		return pPStringLiteral;
+	}
+	
+	public ParserRule getPStringLiteralRule() {
+		return getPStringLiteralAccess().getRule();
+	}
+	
+	//QualifiedName:
+	//	ID (=> '::' ID)*;
+	public QualifiedNameElements getQualifiedNameAccess() {
+		return pQualifiedName;
+	}
+	
+	public ParserRule getQualifiedNameRule() {
+		return getQualifiedNameAccess().getRule();
+	}
+	
+	//Number hidden():
+	//	HEX
+	//	| BIN
+	//	| INT;
+	public NumberElements getNumberAccess() {
+		return pNumber;
+	}
+	
+	public ParserRule getNumberRule() {
+		return getNumberAccess().getRule();
 	}
 	
 	//terminal ID:
 	//	'^'? ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
 	public TerminalRule getIDRule() {
-		return gaTerminals.getIDRule();
+		return tID;
 	}
 	
 	//terminal INT returns ecore::EInt:
 	//	'0'..'9'+;
 	public TerminalRule getINTRule() {
-		return gaTerminals.getINTRule();
+		return tINT;
+	}
+	
+	//terminal HEX:
+	//	('0x' | '0X') ('0'..'9' | 'a'..'f' | 'A'..'F' | '_')+;
+	public TerminalRule getHEXRule() {
+		return tHEX;
+	}
+	
+	//terminal BIN:
+	//	'0b' ('0'..'1' | '_')+;
+	public TerminalRule getBINRule() {
+		return tBIN;
 	}
 	
 	//terminal STRING:
 	//	'"' ('\\' . | !('\\' | '"'))* '"' |
 	//	"'" ('\\' . | !('\\' | "'"))* "'";
 	public TerminalRule getSTRINGRule() {
-		return gaTerminals.getSTRINGRule();
-	}
-	
-	//terminal ML_COMMENT:
-	//	'/ *'->'* /';
-	public TerminalRule getML_COMMENTRule() {
-		return gaTerminals.getML_COMMENTRule();
+		return tSTRING;
 	}
 	
 	//terminal SL_COMMENT:
 	//	'//' !('\n' | '\r')* ('\r'? '\n')?;
 	public TerminalRule getSL_COMMENTRule() {
-		return gaTerminals.getSL_COMMENTRule();
+		return tSL_COMMENT;
 	}
 	
 	//terminal WS:
 	//	' ' | '\t' | '\r' | '\n'+;
 	public TerminalRule getWSRule() {
-		return gaTerminals.getWSRule();
+		return tWS;
 	}
 	
 	//terminal ANY_OTHER:
 	//	.;
 	public TerminalRule getANY_OTHERRule() {
-		return gaTerminals.getANY_OTHERRule();
+		return tANY_OTHER;
 	}
 }

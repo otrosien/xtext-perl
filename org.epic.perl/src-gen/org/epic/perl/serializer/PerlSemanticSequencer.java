@@ -14,8 +14,20 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import org.epic.perl.perl.Greeting;
-import org.epic.perl.perl.Model;
+import org.epic.perl.perl.PAssignment;
+import org.epic.perl.perl.PBinaryOperation;
+import org.epic.perl.perl.PBlockExpression;
+import org.epic.perl.perl.PClosure;
+import org.epic.perl.perl.PConstructorCall;
+import org.epic.perl.perl.PFeatureCall;
+import org.epic.perl.perl.PIfExpression;
+import org.epic.perl.perl.PNullLiteral;
+import org.epic.perl.perl.PNumberLiteral;
+import org.epic.perl.perl.PPostfixOperation;
+import org.epic.perl.perl.PReturnExpression;
+import org.epic.perl.perl.PStringLiteral;
+import org.epic.perl.perl.PUnaryOperation;
+import org.epic.perl.perl.PVariableDeclaration;
 import org.epic.perl.perl.PerlPackage;
 import org.epic.perl.services.PerlGrammarAccess;
 
@@ -33,11 +45,114 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == PerlPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case PerlPackage.GREETING:
-				sequence_Greeting(context, (Greeting) semanticObject); 
+			case PerlPackage.PASSIGNMENT:
+				if (rule == grammarAccess.getPExpressionRule()
+						|| rule == grammarAccess.getPAssignmentRule()
+						|| action == grammarAccess.getPMemberFeatureCallAccess().getPAssignmentAssignableAction_1_0_0_0()
+						|| rule == grammarAccess.getPPrimaryExpressionRule()
+						|| rule == grammarAccess.getPParenthesizedExpressionRule()
+						|| rule == grammarAccess.getPExpressionOrVarDeclarationRule()) {
+					sequence_PAssignment(context, (PAssignment) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getPPostfixOperationRule()
+						|| action == grammarAccess.getPPostfixOperationAccess().getPPostfixOperationOperandAction_1_0_0()
+						|| rule == grammarAccess.getPMemberFeatureCallRule()) {
+					sequence_PMemberFeatureCall(context, (PAssignment) semanticObject); 
+					return; 
+				}
+				else break;
+			case PerlPackage.PBINARY_OPERATION:
+				if (rule == grammarAccess.getPExpressionRule()
+						|| rule == grammarAccess.getPAssignmentRule()
+						|| action == grammarAccess.getPMemberFeatureCallAccess().getPAssignmentAssignableAction_1_0_0_0()
+						|| rule == grammarAccess.getPPrimaryExpressionRule()
+						|| rule == grammarAccess.getPParenthesizedExpressionRule()
+						|| rule == grammarAccess.getPExpressionOrVarDeclarationRule()) {
+					sequence_PAdditiveExpression_PAndExpression_PAssignment_PEqualityExpression_PMultiplicativeExpression_POrExpression_POtherOperatorExpression_PRelationalExpression(context, (PBinaryOperation) semanticObject); 
+					return; 
+				}
+				else if (action == grammarAccess.getPAssignmentAccess().getPBinaryOperationLeftOperandAction_1_1_0_0_0()
+						|| rule == grammarAccess.getPOrExpressionRule()
+						|| action == grammarAccess.getPOrExpressionAccess().getPBinaryOperationLeftOperandAction_1_0_0_0()) {
+					sequence_PAdditiveExpression_PAndExpression_PEqualityExpression_PMultiplicativeExpression_POrExpression_POtherOperatorExpression_PRelationalExpression(context, (PBinaryOperation) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getPAndExpressionRule()
+						|| action == grammarAccess.getPAndExpressionAccess().getPBinaryOperationLeftOperandAction_1_0_0_0()) {
+					sequence_PAdditiveExpression_PAndExpression_PEqualityExpression_PMultiplicativeExpression_POtherOperatorExpression_PRelationalExpression(context, (PBinaryOperation) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getPEqualityExpressionRule()
+						|| action == grammarAccess.getPEqualityExpressionAccess().getPBinaryOperationLeftOperandAction_1_0_0_0()) {
+					sequence_PAdditiveExpression_PEqualityExpression_PMultiplicativeExpression_POtherOperatorExpression_PRelationalExpression(context, (PBinaryOperation) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getPAdditiveExpressionRule()
+						|| action == grammarAccess.getPAdditiveExpressionAccess().getPBinaryOperationLeftOperandAction_1_0_0_0()) {
+					sequence_PAdditiveExpression_PMultiplicativeExpression(context, (PBinaryOperation) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getPOtherOperatorExpressionRule()
+						|| action == grammarAccess.getPOtherOperatorExpressionAccess().getPBinaryOperationLeftOperandAction_1_0_0_0()) {
+					sequence_PAdditiveExpression_PMultiplicativeExpression_POtherOperatorExpression(context, (PBinaryOperation) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getPRelationalExpressionRule()
+						|| action == grammarAccess.getPRelationalExpressionAccess().getPBinaryOperationLeftOperandAction_1_0_0_0()) {
+					sequence_PAdditiveExpression_PMultiplicativeExpression_POtherOperatorExpression_PRelationalExpression(context, (PBinaryOperation) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getPMultiplicativeExpressionRule()
+						|| action == grammarAccess.getPMultiplicativeExpressionAccess().getPBinaryOperationLeftOperandAction_1_0_0_0()) {
+					sequence_PMultiplicativeExpression(context, (PBinaryOperation) semanticObject); 
+					return; 
+				}
+				else break;
+			case PerlPackage.PBLOCK_EXPRESSION:
+				if (action == grammarAccess.getPMemberFeatureCallAccess().getPAssignmentAssignableAction_1_0_0_0()
+						|| rule == grammarAccess.getPPrimaryExpressionRule()
+						|| rule == grammarAccess.getPBlockExpressionRule()) {
+					sequence_PBlockExpression(context, (PBlockExpression) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getPExpressionInClosureRule()) {
+					sequence_PExpressionInClosure(context, (PBlockExpression) semanticObject); 
+					return; 
+				}
+				else break;
+			case PerlPackage.PCLOSURE:
+				sequence_PClosure(context, (PClosure) semanticObject); 
 				return; 
-			case PerlPackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
+			case PerlPackage.PCONSTRUCTOR_CALL:
+				sequence_PConstructorCall(context, (PConstructorCall) semanticObject); 
+				return; 
+			case PerlPackage.PFEATURE_CALL:
+				sequence_PFeatureCall(context, (PFeatureCall) semanticObject); 
+				return; 
+			case PerlPackage.PIF_EXPRESSION:
+				sequence_PIfExpression(context, (PIfExpression) semanticObject); 
+				return; 
+			case PerlPackage.PNULL_LITERAL:
+				sequence_PNullLiteral(context, (PNullLiteral) semanticObject); 
+				return; 
+			case PerlPackage.PNUMBER_LITERAL:
+				sequence_PNumberLiteral(context, (PNumberLiteral) semanticObject); 
+				return; 
+			case PerlPackage.PPOSTFIX_OPERATION:
+				sequence_PPostfixOperation(context, (PPostfixOperation) semanticObject); 
+				return; 
+			case PerlPackage.PRETURN_EXPRESSION:
+				sequence_PReturnExpression(context, (PReturnExpression) semanticObject); 
+				return; 
+			case PerlPackage.PSTRING_LITERAL:
+				sequence_PStringLiteral(context, (PStringLiteral) semanticObject); 
+				return; 
+			case PerlPackage.PUNARY_OPERATION:
+				sequence_PUnaryOperation(context, (PUnaryOperation) semanticObject); 
+				return; 
+			case PerlPackage.PVARIABLE_DECLARATION:
+				sequence_PVariableDeclaration(context, (PVariableDeclaration) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -46,30 +161,447 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Greeting returns Greeting
+	 *     PExpression returns PBinaryOperation
+	 *     PAssignment returns PBinaryOperation
+	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PBinaryOperation
+	 *     PPrimaryExpression returns PBinaryOperation
+	 *     PParenthesizedExpression returns PBinaryOperation
+	 *     PExpressionOrVarDeclaration returns PBinaryOperation
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (
+	 *         (leftOperand=PAssignment_PBinaryOperation_1_1_0_0_0 feature=OpMultiAssign rightOperand=PAssignment) | 
+	 *         (leftOperand=POrExpression_PBinaryOperation_1_0_0_0 feature=OpOr rightOperand=PAndExpression) | 
+	 *         (leftOperand=PAndExpression_PBinaryOperation_1_0_0_0 feature=OpAnd rightOperand=PEqualityExpression) | 
+	 *         (leftOperand=PEqualityExpression_PBinaryOperation_1_0_0_0 feature=OpEquality rightOperand=PRelationalExpression) | 
+	 *         (leftOperand=PRelationalExpression_PBinaryOperation_1_0_0_0 feature=OpCompare rightOperand=POtherOperatorExpression) | 
+	 *         (leftOperand=POtherOperatorExpression_PBinaryOperation_1_0_0_0 feature=OpOther rightOperand=PAdditiveExpression) | 
+	 *         (leftOperand=PAdditiveExpression_PBinaryOperation_1_0_0_0 feature=OpAdd rightOperand=PMultiplicativeExpression) | 
+	 *         (leftOperand=PMultiplicativeExpression_PBinaryOperation_1_0_0_0 feature=OpMulti rightOperand=PUnaryOperation)
+	 *     )
 	 */
-	protected void sequence_Greeting(ISerializationContext context, Greeting semanticObject) {
+	protected void sequence_PAdditiveExpression_PAndExpression_PAssignment_PEqualityExpression_PMultiplicativeExpression_POrExpression_POtherOperatorExpression_PRelationalExpression(ISerializationContext context, PBinaryOperation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PAssignment.PBinaryOperation_1_1_0_0_0 returns PBinaryOperation
+	 *     POrExpression returns PBinaryOperation
+	 *     POrExpression.PBinaryOperation_1_0_0_0 returns PBinaryOperation
+	 *
+	 * Constraint:
+	 *     (
+	 *         (leftOperand=POrExpression_PBinaryOperation_1_0_0_0 feature=OpOr rightOperand=PAndExpression) | 
+	 *         (leftOperand=PAndExpression_PBinaryOperation_1_0_0_0 feature=OpAnd rightOperand=PEqualityExpression) | 
+	 *         (leftOperand=PEqualityExpression_PBinaryOperation_1_0_0_0 feature=OpEquality rightOperand=PRelationalExpression) | 
+	 *         (leftOperand=PRelationalExpression_PBinaryOperation_1_0_0_0 feature=OpCompare rightOperand=POtherOperatorExpression) | 
+	 *         (leftOperand=POtherOperatorExpression_PBinaryOperation_1_0_0_0 feature=OpOther rightOperand=PAdditiveExpression) | 
+	 *         (leftOperand=PAdditiveExpression_PBinaryOperation_1_0_0_0 feature=OpAdd rightOperand=PMultiplicativeExpression) | 
+	 *         (leftOperand=PMultiplicativeExpression_PBinaryOperation_1_0_0_0 feature=OpMulti rightOperand=PUnaryOperation)
+	 *     )
+	 */
+	protected void sequence_PAdditiveExpression_PAndExpression_PEqualityExpression_PMultiplicativeExpression_POrExpression_POtherOperatorExpression_PRelationalExpression(ISerializationContext context, PBinaryOperation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PAndExpression returns PBinaryOperation
+	 *     PAndExpression.PBinaryOperation_1_0_0_0 returns PBinaryOperation
+	 *
+	 * Constraint:
+	 *     (
+	 *         (leftOperand=PAndExpression_PBinaryOperation_1_0_0_0 feature=OpAnd rightOperand=PEqualityExpression) | 
+	 *         (leftOperand=PEqualityExpression_PBinaryOperation_1_0_0_0 feature=OpEquality rightOperand=PRelationalExpression) | 
+	 *         (leftOperand=PRelationalExpression_PBinaryOperation_1_0_0_0 feature=OpCompare rightOperand=POtherOperatorExpression) | 
+	 *         (leftOperand=POtherOperatorExpression_PBinaryOperation_1_0_0_0 feature=OpOther rightOperand=PAdditiveExpression) | 
+	 *         (leftOperand=PAdditiveExpression_PBinaryOperation_1_0_0_0 feature=OpAdd rightOperand=PMultiplicativeExpression) | 
+	 *         (leftOperand=PMultiplicativeExpression_PBinaryOperation_1_0_0_0 feature=OpMulti rightOperand=PUnaryOperation)
+	 *     )
+	 */
+	protected void sequence_PAdditiveExpression_PAndExpression_PEqualityExpression_PMultiplicativeExpression_POtherOperatorExpression_PRelationalExpression(ISerializationContext context, PBinaryOperation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PEqualityExpression returns PBinaryOperation
+	 *     PEqualityExpression.PBinaryOperation_1_0_0_0 returns PBinaryOperation
+	 *
+	 * Constraint:
+	 *     (
+	 *         (leftOperand=PEqualityExpression_PBinaryOperation_1_0_0_0 feature=OpEquality rightOperand=PRelationalExpression) | 
+	 *         (leftOperand=PRelationalExpression_PBinaryOperation_1_0_0_0 feature=OpCompare rightOperand=POtherOperatorExpression) | 
+	 *         (leftOperand=POtherOperatorExpression_PBinaryOperation_1_0_0_0 feature=OpOther rightOperand=PAdditiveExpression) | 
+	 *         (leftOperand=PAdditiveExpression_PBinaryOperation_1_0_0_0 feature=OpAdd rightOperand=PMultiplicativeExpression) | 
+	 *         (leftOperand=PMultiplicativeExpression_PBinaryOperation_1_0_0_0 feature=OpMulti rightOperand=PUnaryOperation)
+	 *     )
+	 */
+	protected void sequence_PAdditiveExpression_PEqualityExpression_PMultiplicativeExpression_POtherOperatorExpression_PRelationalExpression(ISerializationContext context, PBinaryOperation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PAdditiveExpression returns PBinaryOperation
+	 *     PAdditiveExpression.PBinaryOperation_1_0_0_0 returns PBinaryOperation
+	 *
+	 * Constraint:
+	 *     (
+	 *         (leftOperand=PAdditiveExpression_PBinaryOperation_1_0_0_0 feature=OpAdd rightOperand=PMultiplicativeExpression) | 
+	 *         (leftOperand=PMultiplicativeExpression_PBinaryOperation_1_0_0_0 feature=OpMulti rightOperand=PUnaryOperation)
+	 *     )
+	 */
+	protected void sequence_PAdditiveExpression_PMultiplicativeExpression(ISerializationContext context, PBinaryOperation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     POtherOperatorExpression returns PBinaryOperation
+	 *     POtherOperatorExpression.PBinaryOperation_1_0_0_0 returns PBinaryOperation
+	 *
+	 * Constraint:
+	 *     (
+	 *         (leftOperand=POtherOperatorExpression_PBinaryOperation_1_0_0_0 feature=OpOther rightOperand=PAdditiveExpression) | 
+	 *         (leftOperand=PAdditiveExpression_PBinaryOperation_1_0_0_0 feature=OpAdd rightOperand=PMultiplicativeExpression) | 
+	 *         (leftOperand=PMultiplicativeExpression_PBinaryOperation_1_0_0_0 feature=OpMulti rightOperand=PUnaryOperation)
+	 *     )
+	 */
+	protected void sequence_PAdditiveExpression_PMultiplicativeExpression_POtherOperatorExpression(ISerializationContext context, PBinaryOperation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PRelationalExpression returns PBinaryOperation
+	 *     PRelationalExpression.PBinaryOperation_1_0_0_0 returns PBinaryOperation
+	 *
+	 * Constraint:
+	 *     (
+	 *         (leftOperand=PRelationalExpression_PBinaryOperation_1_0_0_0 feature=OpCompare rightOperand=POtherOperatorExpression) | 
+	 *         (leftOperand=POtherOperatorExpression_PBinaryOperation_1_0_0_0 feature=OpOther rightOperand=PAdditiveExpression) | 
+	 *         (leftOperand=PAdditiveExpression_PBinaryOperation_1_0_0_0 feature=OpAdd rightOperand=PMultiplicativeExpression) | 
+	 *         (leftOperand=PMultiplicativeExpression_PBinaryOperation_1_0_0_0 feature=OpMulti rightOperand=PUnaryOperation)
+	 *     )
+	 */
+	protected void sequence_PAdditiveExpression_PMultiplicativeExpression_POtherOperatorExpression_PRelationalExpression(ISerializationContext context, PBinaryOperation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PExpression returns PAssignment
+	 *     PAssignment returns PAssignment
+	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PAssignment
+	 *     PPrimaryExpression returns PAssignment
+	 *     PParenthesizedExpression returns PAssignment
+	 *     PExpressionOrVarDeclaration returns PAssignment
+	 *
+	 * Constraint:
+	 *     (feature=FeatureCallID value=PAssignment)
+	 */
+	protected void sequence_PAssignment(ISerializationContext context, PAssignment semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.GREETING__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.GREETING__NAME));
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PASSIGNMENT__FEATURE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PASSIGNMENT__FEATURE));
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PASSIGNMENT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PASSIGNMENT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGreetingAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getPAssignmentAccess().getFeatureFeatureCallIDParserRuleCall_0_1_0(), semanticObject.getFeature());
+		feeder.accept(grammarAccess.getPAssignmentAccess().getValuePAssignmentParserRuleCall_0_3_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Model returns Model
+	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PBlockExpression
+	 *     PPrimaryExpression returns PBlockExpression
+	 *     PBlockExpression returns PBlockExpression
 	 *
 	 * Constraint:
-	 *     greetings+=Greeting+
+	 *     expressions+=PExpressionOrVarDeclaration*
 	 */
-	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+	protected void sequence_PBlockExpression(ISerializationContext context, PBlockExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PClosure
+	 *     PPrimaryExpression returns PClosure
+	 *     PLiteral returns PClosure
+	 *     PClosure returns PClosure
+	 *
+	 * Constraint:
+	 *     expression=PExpressionInClosure
+	 */
+	protected void sequence_PClosure(ISerializationContext context, PClosure semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PCLOSURE__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PCLOSURE__EXPRESSION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPClosureAccess().getExpressionPExpressionInClosureParserRuleCall_1_0(), semanticObject.getExpression());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PConstructorCall returns PConstructorCall
+	 *
+	 * Constraint:
+	 *     (constructor=QualifiedName (explicitConstructorCall?='(' arguments+=PExpression arguments+=PExpression*)?)
+	 */
+	protected void sequence_PConstructorCall(ISerializationContext context, PConstructorCall semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PExpressionInClosure returns PBlockExpression
+	 *
+	 * Constraint:
+	 *     expressions+=PExpressionOrVarDeclaration*
+	 */
+	protected void sequence_PExpressionInClosure(ISerializationContext context, PBlockExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PFeatureCall returns PFeatureCall
+	 *
+	 * Constraint:
+	 *     (feature=FeatureCallID featureCallArguments+=PClosure?)
+	 */
+	protected void sequence_PFeatureCall(ISerializationContext context, PFeatureCall semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PIfExpression
+	 *     PPrimaryExpression returns PIfExpression
+	 *     PIfExpression returns PIfExpression
+	 *
+	 * Constraint:
+	 *     (if=PExpression then=PExpression else=PExpression?)
+	 */
+	protected void sequence_PIfExpression(ISerializationContext context, PIfExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PPostfixOperation returns PAssignment
+	 *     PPostfixOperation.PPostfixOperation_1_0_0 returns PAssignment
+	 *     PMemberFeatureCall returns PAssignment
+	 *
+	 * Constraint:
+	 *     (assignable=PMemberFeatureCall_PAssignment_1_0_0_0 feature=FeatureCallID value=PAssignment)
+	 */
+	protected void sequence_PMemberFeatureCall(ISerializationContext context, PAssignment semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PASSIGNMENT__ASSIGNABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PASSIGNMENT__ASSIGNABLE));
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PASSIGNMENT__FEATURE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PASSIGNMENT__FEATURE));
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PASSIGNMENT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PASSIGNMENT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPMemberFeatureCallAccess().getPAssignmentAssignableAction_1_0_0_0(), semanticObject.getAssignable());
+		feeder.accept(grammarAccess.getPMemberFeatureCallAccess().getFeatureFeatureCallIDParserRuleCall_1_0_0_1_0(), semanticObject.getFeature());
+		feeder.accept(grammarAccess.getPMemberFeatureCallAccess().getValuePAssignmentParserRuleCall_1_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PMultiplicativeExpression returns PBinaryOperation
+	 *     PMultiplicativeExpression.PBinaryOperation_1_0_0_0 returns PBinaryOperation
+	 *
+	 * Constraint:
+	 *     (leftOperand=PMultiplicativeExpression_PBinaryOperation_1_0_0_0 feature=OpMulti rightOperand=PUnaryOperation)
+	 */
+	protected void sequence_PMultiplicativeExpression(ISerializationContext context, PBinaryOperation semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PBINARY_OPERATION__LEFT_OPERAND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PBINARY_OPERATION__LEFT_OPERAND));
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PBINARY_OPERATION__FEATURE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PBINARY_OPERATION__FEATURE));
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PBINARY_OPERATION__RIGHT_OPERAND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PBINARY_OPERATION__RIGHT_OPERAND));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPMultiplicativeExpressionAccess().getPBinaryOperationLeftOperandAction_1_0_0_0(), semanticObject.getLeftOperand());
+		feeder.accept(grammarAccess.getPMultiplicativeExpressionAccess().getFeatureOpMultiParserRuleCall_1_0_0_1_0(), semanticObject.getFeature());
+		feeder.accept(grammarAccess.getPMultiplicativeExpressionAccess().getRightOperandPUnaryOperationParserRuleCall_1_1_0(), semanticObject.getRightOperand());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PNullLiteral
+	 *     PPrimaryExpression returns PNullLiteral
+	 *     PLiteral returns PNullLiteral
+	 *     PNullLiteral returns PNullLiteral
+	 *
+	 * Constraint:
+	 *     {PNullLiteral}
+	 */
+	protected void sequence_PNullLiteral(ISerializationContext context, PNullLiteral semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PNumberLiteral
+	 *     PPrimaryExpression returns PNumberLiteral
+	 *     PLiteral returns PNumberLiteral
+	 *     PNumberLiteral returns PNumberLiteral
+	 *
+	 * Constraint:
+	 *     value=Number
+	 */
+	protected void sequence_PNumberLiteral(ISerializationContext context, PNumberLiteral semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PNUMBER_LITERAL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PNUMBER_LITERAL__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPNumberLiteralAccess().getValueNumberParserRuleCall_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PPostfixOperation returns PPostfixOperation
+	 *
+	 * Constraint:
+	 *     (operand=PPostfixOperation_PPostfixOperation_1_0_0 feature=OpPostfix)
+	 */
+	protected void sequence_PPostfixOperation(ISerializationContext context, PPostfixOperation semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PPOSTFIX_OPERATION__OPERAND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PPOSTFIX_OPERATION__OPERAND));
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PPOSTFIX_OPERATION__FEATURE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PPOSTFIX_OPERATION__FEATURE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPPostfixOperationAccess().getPPostfixOperationOperandAction_1_0_0(), semanticObject.getOperand());
+		feeder.accept(grammarAccess.getPPostfixOperationAccess().getFeatureOpPostfixParserRuleCall_1_0_1_0(), semanticObject.getFeature());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PReturnExpression
+	 *     PPrimaryExpression returns PReturnExpression
+	 *     PReturnExpression returns PReturnExpression
+	 *
+	 * Constraint:
+	 *     expression=PExpression?
+	 */
+	protected void sequence_PReturnExpression(ISerializationContext context, PReturnExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PStringLiteral
+	 *     PPrimaryExpression returns PStringLiteral
+	 *     PLiteral returns PStringLiteral
+	 *     PStringLiteral returns PStringLiteral
+	 *
+	 * Constraint:
+	 *     value=STRING
+	 */
+	protected void sequence_PStringLiteral(ISerializationContext context, PStringLiteral semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PSTRING_LITERAL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PSTRING_LITERAL__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPStringLiteralAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PExpression returns PUnaryOperation
+	 *     PAssignment returns PUnaryOperation
+	 *     PAssignment.PBinaryOperation_1_1_0_0_0 returns PUnaryOperation
+	 *     POrExpression returns PUnaryOperation
+	 *     POrExpression.PBinaryOperation_1_0_0_0 returns PUnaryOperation
+	 *     PAndExpression returns PUnaryOperation
+	 *     PAndExpression.PBinaryOperation_1_0_0_0 returns PUnaryOperation
+	 *     PEqualityExpression returns PUnaryOperation
+	 *     PEqualityExpression.PBinaryOperation_1_0_0_0 returns PUnaryOperation
+	 *     PRelationalExpression returns PUnaryOperation
+	 *     PRelationalExpression.PBinaryOperation_1_0_0_0 returns PUnaryOperation
+	 *     POtherOperatorExpression returns PUnaryOperation
+	 *     POtherOperatorExpression.PBinaryOperation_1_0_0_0 returns PUnaryOperation
+	 *     PAdditiveExpression returns PUnaryOperation
+	 *     PAdditiveExpression.PBinaryOperation_1_0_0_0 returns PUnaryOperation
+	 *     PMultiplicativeExpression returns PUnaryOperation
+	 *     PMultiplicativeExpression.PBinaryOperation_1_0_0_0 returns PUnaryOperation
+	 *     PUnaryOperation returns PUnaryOperation
+	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PUnaryOperation
+	 *     PPrimaryExpression returns PUnaryOperation
+	 *     PParenthesizedExpression returns PUnaryOperation
+	 *     PExpressionOrVarDeclaration returns PUnaryOperation
+	 *
+	 * Constraint:
+	 *     (feature=OpUnary operand=PUnaryOperation)
+	 */
+	protected void sequence_PUnaryOperation(ISerializationContext context, PUnaryOperation semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PUNARY_OPERATION__FEATURE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PUNARY_OPERATION__FEATURE));
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PUNARY_OPERATION__OPERAND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PUNARY_OPERATION__OPERAND));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPUnaryOperationAccess().getFeatureOpUnaryParserRuleCall_1_0(), semanticObject.getFeature());
+		feeder.accept(grammarAccess.getPUnaryOperationAccess().getOperandPUnaryOperationParserRuleCall_2_0(), semanticObject.getOperand());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PExpressionOrVarDeclaration returns PVariableDeclaration
+	 *     PVariableDeclaration returns PVariableDeclaration
+	 *
+	 * Constraint:
+	 *     (name=ID right=PExpression?)
+	 */
+	protected void sequence_PVariableDeclaration(ISerializationContext context, PVariableDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

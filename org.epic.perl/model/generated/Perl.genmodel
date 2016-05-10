@@ -6,11 +6,58 @@
     copyrightFields="false" runtimeVersion="2.11">
   <genPackages prefix="Perl" basePackage="org.epic.perl" disposableProviderFactory="true"
       fileExtensions="pm" ecorePackage="Perl.ecore#/">
-    <genClasses ecoreClass="Perl.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//Model/greetings"/>
+    <genClasses ecoreClass="Perl.ecore#//PExpression"/>
+    <genClasses ecoreClass="Perl.ecore#//PAssignment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PAssignment/feature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PAssignment/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PAssignment/assignable"/>
     </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//Greeting">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//Greeting/name"/>
+    <genClasses ecoreClass="Perl.ecore#//PBinaryOperation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PBinaryOperation/leftOperand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PBinaryOperation/feature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PBinaryOperation/rightOperand"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//PUnaryOperation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PUnaryOperation/feature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PUnaryOperation/operand"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//PPostfixOperation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PPostfixOperation/operand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PPostfixOperation/feature"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//PClosure">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PClosure/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//PBlockExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PBlockExpression/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//PIfExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PIfExpression/if"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PIfExpression/then"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PIfExpression/else"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//PVariableDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PVariableDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PVariableDeclaration/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//PFeatureCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PFeatureCall/feature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PFeatureCall/featureCallArguments"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//PConstructorCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PConstructorCall/constructor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PConstructorCall/explicitConstructorCall"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PConstructorCall/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//PNumberLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PNumberLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//PNullLiteral"/>
+    <genClasses ecoreClass="Perl.ecore#//PReturnExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PReturnExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//PStringLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PStringLiteral/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -35,9 +35,139 @@ public class PerlParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getGreetingAccess().getGroup(), "rule__Greeting__Group__0");
-					put(grammarAccess.getModelAccess().getGreetingsAssignment(), "rule__Model__GreetingsAssignment");
-					put(grammarAccess.getGreetingAccess().getNameAssignment_1(), "rule__Greeting__NameAssignment_1");
+					put(grammarAccess.getPAssignmentAccess().getAlternatives(), "rule__PAssignment__Alternatives");
+					put(grammarAccess.getOpMultiAssignAccess().getAlternatives(), "rule__OpMultiAssign__Alternatives");
+					put(grammarAccess.getOpEqualityAccess().getAlternatives(), "rule__OpEquality__Alternatives");
+					put(grammarAccess.getOpCompareAccess().getAlternatives(), "rule__OpCompare__Alternatives");
+					put(grammarAccess.getOpOtherAccess().getAlternatives(), "rule__OpOther__Alternatives");
+					put(grammarAccess.getOpOtherAccess().getAlternatives_5_1(), "rule__OpOther__Alternatives_5_1");
+					put(grammarAccess.getOpOtherAccess().getAlternatives_6_1(), "rule__OpOther__Alternatives_6_1");
+					put(grammarAccess.getOpAddAccess().getAlternatives(), "rule__OpAdd__Alternatives");
+					put(grammarAccess.getOpMultiAccess().getAlternatives(), "rule__OpMulti__Alternatives");
+					put(grammarAccess.getOpUnaryAccess().getAlternatives(), "rule__OpUnary__Alternatives");
+					put(grammarAccess.getOpPostfixAccess().getAlternatives(), "rule__OpPostfix__Alternatives");
+					put(grammarAccess.getPPrimaryExpressionAccess().getAlternatives(), "rule__PPrimaryExpression__Alternatives");
+					put(grammarAccess.getPLiteralAccess().getAlternatives(), "rule__PLiteral__Alternatives");
+					put(grammarAccess.getPExpressionOrVarDeclarationAccess().getAlternatives(), "rule__PExpressionOrVarDeclaration__Alternatives");
+					put(grammarAccess.getPVariableDeclarationAccess().getAlternatives_1(), "rule__PVariableDeclaration__Alternatives_1");
+					put(grammarAccess.getPVariableDeclarationAccess().getAlternatives_2(), "rule__PVariableDeclaration__Alternatives_2");
+					put(grammarAccess.getFeatureCallIDAccess().getAlternatives_0(), "rule__FeatureCallID__Alternatives_0");
+					put(grammarAccess.getNumberAccess().getAlternatives(), "rule__Number__Alternatives");
+					put(grammarAccess.getPAssignmentAccess().getGroup_0(), "rule__PAssignment__Group_0__0");
+					put(grammarAccess.getPAssignmentAccess().getGroup_1(), "rule__PAssignment__Group_1__0");
+					put(grammarAccess.getPAssignmentAccess().getGroup_1_1(), "rule__PAssignment__Group_1_1__0");
+					put(grammarAccess.getPAssignmentAccess().getGroup_1_1_0(), "rule__PAssignment__Group_1_1_0__0");
+					put(grammarAccess.getPAssignmentAccess().getGroup_1_1_0_0(), "rule__PAssignment__Group_1_1_0_0__0");
+					put(grammarAccess.getOpMultiAssignAccess().getGroup_6(), "rule__OpMultiAssign__Group_6__0");
+					put(grammarAccess.getOpMultiAssignAccess().getGroup_7(), "rule__OpMultiAssign__Group_7__0");
+					put(grammarAccess.getPOrExpressionAccess().getGroup(), "rule__POrExpression__Group__0");
+					put(grammarAccess.getPOrExpressionAccess().getGroup_1(), "rule__POrExpression__Group_1__0");
+					put(grammarAccess.getPOrExpressionAccess().getGroup_1_0(), "rule__POrExpression__Group_1_0__0");
+					put(grammarAccess.getPOrExpressionAccess().getGroup_1_0_0(), "rule__POrExpression__Group_1_0_0__0");
+					put(grammarAccess.getPAndExpressionAccess().getGroup(), "rule__PAndExpression__Group__0");
+					put(grammarAccess.getPAndExpressionAccess().getGroup_1(), "rule__PAndExpression__Group_1__0");
+					put(grammarAccess.getPAndExpressionAccess().getGroup_1_0(), "rule__PAndExpression__Group_1_0__0");
+					put(grammarAccess.getPAndExpressionAccess().getGroup_1_0_0(), "rule__PAndExpression__Group_1_0_0__0");
+					put(grammarAccess.getPEqualityExpressionAccess().getGroup(), "rule__PEqualityExpression__Group__0");
+					put(grammarAccess.getPEqualityExpressionAccess().getGroup_1(), "rule__PEqualityExpression__Group_1__0");
+					put(grammarAccess.getPEqualityExpressionAccess().getGroup_1_0(), "rule__PEqualityExpression__Group_1_0__0");
+					put(grammarAccess.getPEqualityExpressionAccess().getGroup_1_0_0(), "rule__PEqualityExpression__Group_1_0_0__0");
+					put(grammarAccess.getPRelationalExpressionAccess().getGroup(), "rule__PRelationalExpression__Group__0");
+					put(grammarAccess.getPRelationalExpressionAccess().getGroup_1(), "rule__PRelationalExpression__Group_1__0");
+					put(grammarAccess.getPRelationalExpressionAccess().getGroup_1_0(), "rule__PRelationalExpression__Group_1_0__0");
+					put(grammarAccess.getPRelationalExpressionAccess().getGroup_1_0_0(), "rule__PRelationalExpression__Group_1_0_0__0");
+					put(grammarAccess.getOpCompareAccess().getGroup_1(), "rule__OpCompare__Group_1__0");
+					put(grammarAccess.getPOtherOperatorExpressionAccess().getGroup(), "rule__POtherOperatorExpression__Group__0");
+					put(grammarAccess.getPOtherOperatorExpressionAccess().getGroup_1(), "rule__POtherOperatorExpression__Group_1__0");
+					put(grammarAccess.getPOtherOperatorExpressionAccess().getGroup_1_0(), "rule__POtherOperatorExpression__Group_1_0__0");
+					put(grammarAccess.getPOtherOperatorExpressionAccess().getGroup_1_0_0(), "rule__POtherOperatorExpression__Group_1_0_0__0");
+					put(grammarAccess.getOpOtherAccess().getGroup_2(), "rule__OpOther__Group_2__0");
+					put(grammarAccess.getOpOtherAccess().getGroup_5(), "rule__OpOther__Group_5__0");
+					put(grammarAccess.getOpOtherAccess().getGroup_5_1_0(), "rule__OpOther__Group_5_1_0__0");
+					put(grammarAccess.getOpOtherAccess().getGroup_5_1_0_0(), "rule__OpOther__Group_5_1_0_0__0");
+					put(grammarAccess.getOpOtherAccess().getGroup_6(), "rule__OpOther__Group_6__0");
+					put(grammarAccess.getOpOtherAccess().getGroup_6_1_0(), "rule__OpOther__Group_6_1_0__0");
+					put(grammarAccess.getOpOtherAccess().getGroup_6_1_0_0(), "rule__OpOther__Group_6_1_0_0__0");
+					put(grammarAccess.getPAdditiveExpressionAccess().getGroup(), "rule__PAdditiveExpression__Group__0");
+					put(grammarAccess.getPAdditiveExpressionAccess().getGroup_1(), "rule__PAdditiveExpression__Group_1__0");
+					put(grammarAccess.getPAdditiveExpressionAccess().getGroup_1_0(), "rule__PAdditiveExpression__Group_1_0__0");
+					put(grammarAccess.getPAdditiveExpressionAccess().getGroup_1_0_0(), "rule__PAdditiveExpression__Group_1_0_0__0");
+					put(grammarAccess.getPMultiplicativeExpressionAccess().getGroup(), "rule__PMultiplicativeExpression__Group__0");
+					put(grammarAccess.getPMultiplicativeExpressionAccess().getGroup_1(), "rule__PMultiplicativeExpression__Group_1__0");
+					put(grammarAccess.getPMultiplicativeExpressionAccess().getGroup_1_0(), "rule__PMultiplicativeExpression__Group_1_0__0");
+					put(grammarAccess.getPMultiplicativeExpressionAccess().getGroup_1_0_0(), "rule__PMultiplicativeExpression__Group_1_0_0__0");
+					put(grammarAccess.getPUnaryOperationAccess().getGroup(), "rule__PUnaryOperation__Group__0");
+					put(grammarAccess.getPPostfixOperationAccess().getGroup(), "rule__PPostfixOperation__Group__0");
+					put(grammarAccess.getPPostfixOperationAccess().getGroup_1(), "rule__PPostfixOperation__Group_1__0");
+					put(grammarAccess.getPPostfixOperationAccess().getGroup_1_0(), "rule__PPostfixOperation__Group_1_0__0");
+					put(grammarAccess.getPMemberFeatureCallAccess().getGroup(), "rule__PMemberFeatureCall__Group__0");
+					put(grammarAccess.getPMemberFeatureCallAccess().getGroup_1(), "rule__PMemberFeatureCall__Group_1__0");
+					put(grammarAccess.getPMemberFeatureCallAccess().getGroup_1_0(), "rule__PMemberFeatureCall__Group_1_0__0");
+					put(grammarAccess.getPMemberFeatureCallAccess().getGroup_1_0_0(), "rule__PMemberFeatureCall__Group_1_0_0__0");
+					put(grammarAccess.getPClosureAccess().getGroup(), "rule__PClosure__Group__0");
+					put(grammarAccess.getPClosureAccess().getGroup_0(), "rule__PClosure__Group_0__0");
+					put(grammarAccess.getPClosureAccess().getGroup_0_0(), "rule__PClosure__Group_0_0__0");
+					put(grammarAccess.getPExpressionInClosureAccess().getGroup(), "rule__PExpressionInClosure__Group__0");
+					put(grammarAccess.getPExpressionInClosureAccess().getGroup_1(), "rule__PExpressionInClosure__Group_1__0");
+					put(grammarAccess.getPParenthesizedExpressionAccess().getGroup(), "rule__PParenthesizedExpression__Group__0");
+					put(grammarAccess.getPIfExpressionAccess().getGroup(), "rule__PIfExpression__Group__0");
+					put(grammarAccess.getPIfExpressionAccess().getGroup_6(), "rule__PIfExpression__Group_6__0");
+					put(grammarAccess.getPBlockExpressionAccess().getGroup(), "rule__PBlockExpression__Group__0");
+					put(grammarAccess.getPBlockExpressionAccess().getGroup_2(), "rule__PBlockExpression__Group_2__0");
+					put(grammarAccess.getPVariableDeclarationAccess().getGroup(), "rule__PVariableDeclaration__Group__0");
+					put(grammarAccess.getPVariableDeclarationAccess().getGroup_3(), "rule__PVariableDeclaration__Group_3__0");
+					put(grammarAccess.getPVariableDeclarationAccess().getGroup_4(), "rule__PVariableDeclaration__Group_4__0");
+					put(grammarAccess.getPFeatureCallAccess().getGroup(), "rule__PFeatureCall__Group__0");
+					put(grammarAccess.getFeatureCallIDAccess().getGroup(), "rule__FeatureCallID__Group__0");
+					put(grammarAccess.getPConstructorCallAccess().getGroup(), "rule__PConstructorCall__Group__0");
+					put(grammarAccess.getPConstructorCallAccess().getGroup_3(), "rule__PConstructorCall__Group_3__0");
+					put(grammarAccess.getPConstructorCallAccess().getGroup_3_2(), "rule__PConstructorCall__Group_3_2__0");
+					put(grammarAccess.getPNumberLiteralAccess().getGroup(), "rule__PNumberLiteral__Group__0");
+					put(grammarAccess.getPNullLiteralAccess().getGroup(), "rule__PNullLiteral__Group__0");
+					put(grammarAccess.getPReturnExpressionAccess().getGroup(), "rule__PReturnExpression__Group__0");
+					put(grammarAccess.getPStringLiteralAccess().getGroup(), "rule__PStringLiteral__Group__0");
+					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
+					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
+					put(grammarAccess.getPAssignmentAccess().getFeatureAssignment_0_1(), "rule__PAssignment__FeatureAssignment_0_1");
+					put(grammarAccess.getPAssignmentAccess().getValueAssignment_0_3(), "rule__PAssignment__ValueAssignment_0_3");
+					put(grammarAccess.getPAssignmentAccess().getFeatureAssignment_1_1_0_0_1(), "rule__PAssignment__FeatureAssignment_1_1_0_0_1");
+					put(grammarAccess.getPAssignmentAccess().getRightOperandAssignment_1_1_1(), "rule__PAssignment__RightOperandAssignment_1_1_1");
+					put(grammarAccess.getPOrExpressionAccess().getFeatureAssignment_1_0_0_1(), "rule__POrExpression__FeatureAssignment_1_0_0_1");
+					put(grammarAccess.getPOrExpressionAccess().getRightOperandAssignment_1_1(), "rule__POrExpression__RightOperandAssignment_1_1");
+					put(grammarAccess.getPAndExpressionAccess().getFeatureAssignment_1_0_0_1(), "rule__PAndExpression__FeatureAssignment_1_0_0_1");
+					put(grammarAccess.getPAndExpressionAccess().getRightOperandAssignment_1_1(), "rule__PAndExpression__RightOperandAssignment_1_1");
+					put(grammarAccess.getPEqualityExpressionAccess().getFeatureAssignment_1_0_0_1(), "rule__PEqualityExpression__FeatureAssignment_1_0_0_1");
+					put(grammarAccess.getPEqualityExpressionAccess().getRightOperandAssignment_1_1(), "rule__PEqualityExpression__RightOperandAssignment_1_1");
+					put(grammarAccess.getPRelationalExpressionAccess().getFeatureAssignment_1_0_0_1(), "rule__PRelationalExpression__FeatureAssignment_1_0_0_1");
+					put(grammarAccess.getPRelationalExpressionAccess().getRightOperandAssignment_1_1(), "rule__PRelationalExpression__RightOperandAssignment_1_1");
+					put(grammarAccess.getPOtherOperatorExpressionAccess().getFeatureAssignment_1_0_0_1(), "rule__POtherOperatorExpression__FeatureAssignment_1_0_0_1");
+					put(grammarAccess.getPOtherOperatorExpressionAccess().getRightOperandAssignment_1_1(), "rule__POtherOperatorExpression__RightOperandAssignment_1_1");
+					put(grammarAccess.getPAdditiveExpressionAccess().getFeatureAssignment_1_0_0_1(), "rule__PAdditiveExpression__FeatureAssignment_1_0_0_1");
+					put(grammarAccess.getPAdditiveExpressionAccess().getRightOperandAssignment_1_1(), "rule__PAdditiveExpression__RightOperandAssignment_1_1");
+					put(grammarAccess.getPMultiplicativeExpressionAccess().getFeatureAssignment_1_0_0_1(), "rule__PMultiplicativeExpression__FeatureAssignment_1_0_0_1");
+					put(grammarAccess.getPMultiplicativeExpressionAccess().getRightOperandAssignment_1_1(), "rule__PMultiplicativeExpression__RightOperandAssignment_1_1");
+					put(grammarAccess.getPUnaryOperationAccess().getFeatureAssignment_1(), "rule__PUnaryOperation__FeatureAssignment_1");
+					put(grammarAccess.getPUnaryOperationAccess().getOperandAssignment_2(), "rule__PUnaryOperation__OperandAssignment_2");
+					put(grammarAccess.getPPostfixOperationAccess().getFeatureAssignment_1_0_1(), "rule__PPostfixOperation__FeatureAssignment_1_0_1");
+					put(grammarAccess.getPMemberFeatureCallAccess().getFeatureAssignment_1_0_0_1(), "rule__PMemberFeatureCall__FeatureAssignment_1_0_0_1");
+					put(grammarAccess.getPMemberFeatureCallAccess().getValueAssignment_1_1(), "rule__PMemberFeatureCall__ValueAssignment_1_1");
+					put(grammarAccess.getPClosureAccess().getExpressionAssignment_1(), "rule__PClosure__ExpressionAssignment_1");
+					put(grammarAccess.getPExpressionInClosureAccess().getExpressionsAssignment_1_0(), "rule__PExpressionInClosure__ExpressionsAssignment_1_0");
+					put(grammarAccess.getPIfExpressionAccess().getIfAssignment_3(), "rule__PIfExpression__IfAssignment_3");
+					put(grammarAccess.getPIfExpressionAccess().getThenAssignment_5(), "rule__PIfExpression__ThenAssignment_5");
+					put(grammarAccess.getPIfExpressionAccess().getElseAssignment_6_1(), "rule__PIfExpression__ElseAssignment_6_1");
+					put(grammarAccess.getPBlockExpressionAccess().getExpressionsAssignment_2_0(), "rule__PBlockExpression__ExpressionsAssignment_2_0");
+					put(grammarAccess.getPVariableDeclarationAccess().getNameAssignment_3_0(), "rule__PVariableDeclaration__NameAssignment_3_0");
+					put(grammarAccess.getPVariableDeclarationAccess().getRightAssignment_4_1(), "rule__PVariableDeclaration__RightAssignment_4_1");
+					put(grammarAccess.getPFeatureCallAccess().getFeatureAssignment_1(), "rule__PFeatureCall__FeatureAssignment_1");
+					put(grammarAccess.getPFeatureCallAccess().getFeatureCallArgumentsAssignment_2(), "rule__PFeatureCall__FeatureCallArgumentsAssignment_2");
+					put(grammarAccess.getPConstructorCallAccess().getConstructorAssignment_2(), "rule__PConstructorCall__ConstructorAssignment_2");
+					put(grammarAccess.getPConstructorCallAccess().getExplicitConstructorCallAssignment_3_0(), "rule__PConstructorCall__ExplicitConstructorCallAssignment_3_0");
+					put(grammarAccess.getPConstructorCallAccess().getArgumentsAssignment_3_1(), "rule__PConstructorCall__ArgumentsAssignment_3_1");
+					put(grammarAccess.getPConstructorCallAccess().getArgumentsAssignment_3_2_1(), "rule__PConstructorCall__ArgumentsAssignment_3_2_1");
+					put(grammarAccess.getPNumberLiteralAccess().getValueAssignment_1(), "rule__PNumberLiteral__ValueAssignment_1");
+					put(grammarAccess.getPReturnExpressionAccess().getExpressionAssignment_2(), "rule__PReturnExpression__ExpressionAssignment_2");
+					put(grammarAccess.getPStringLiteralAccess().getValueAssignment_1(), "rule__PStringLiteral__ValueAssignment_1");
 				}
 			};
 		}
@@ -48,7 +178,7 @@ public class PerlParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			InternalPerlParser typedParser = (InternalPerlParser) parser;
-			typedParser.entryRuleModel();
+			typedParser.entryRulePExpression();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);
@@ -57,7 +187,7 @@ public class PerlParser extends AbstractContentAssistParser {
 
 	@Override
 	protected String[] getInitialHiddenTokens() {
-		return new String[] { "RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT" };
+		return new String[] { "RULE_WS", "RULE_SL_COMMENT" };
 	}
 
 	public PerlGrammarAccess getGrammarAccess() {

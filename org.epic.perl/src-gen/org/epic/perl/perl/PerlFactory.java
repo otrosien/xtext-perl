@@ -24,22 +24,139 @@ public interface PerlFactory extends EFactory
   PerlFactory eINSTANCE = org.epic.perl.perl.impl.PerlFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
+   * Returns a new object of class '<em>PExpression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
+   * @return a new object of class '<em>PExpression</em>'.
    * @generated
    */
-  Model createModel();
+  PExpression createPExpression();
 
   /**
-   * Returns a new object of class '<em>Greeting</em>'.
+   * Returns a new object of class '<em>PAssignment</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Greeting</em>'.
+   * @return a new object of class '<em>PAssignment</em>'.
    * @generated
    */
-  Greeting createGreeting();
+  PAssignment createPAssignment();
+
+  /**
+   * Returns a new object of class '<em>PBinary Operation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PBinary Operation</em>'.
+   * @generated
+   */
+  PBinaryOperation createPBinaryOperation();
+
+  /**
+   * Returns a new object of class '<em>PUnary Operation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PUnary Operation</em>'.
+   * @generated
+   */
+  PUnaryOperation createPUnaryOperation();
+
+  /**
+   * Returns a new object of class '<em>PPostfix Operation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PPostfix Operation</em>'.
+   * @generated
+   */
+  PPostfixOperation createPPostfixOperation();
+
+  /**
+   * Returns a new object of class '<em>PClosure</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PClosure</em>'.
+   * @generated
+   */
+  PClosure createPClosure();
+
+  /**
+   * Returns a new object of class '<em>PBlock Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PBlock Expression</em>'.
+   * @generated
+   */
+  PBlockExpression createPBlockExpression();
+
+  /**
+   * Returns a new object of class '<em>PIf Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PIf Expression</em>'.
+   * @generated
+   */
+  PIfExpression createPIfExpression();
+
+  /**
+   * Returns a new object of class '<em>PVariable Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PVariable Declaration</em>'.
+   * @generated
+   */
+  PVariableDeclaration createPVariableDeclaration();
+
+  /**
+   * Returns a new object of class '<em>PFeature Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PFeature Call</em>'.
+   * @generated
+   */
+  PFeatureCall createPFeatureCall();
+
+  /**
+   * Returns a new object of class '<em>PConstructor Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PConstructor Call</em>'.
+   * @generated
+   */
+  PConstructorCall createPConstructorCall();
+
+  /**
+   * Returns a new object of class '<em>PNumber Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PNumber Literal</em>'.
+   * @generated
+   */
+  PNumberLiteral createPNumberLiteral();
+
+  /**
+   * Returns a new object of class '<em>PNull Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PNull Literal</em>'.
+   * @generated
+   */
+  PNullLiteral createPNullLiteral();
+
+  /**
+   * Returns a new object of class '<em>PReturn Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PReturn Expression</em>'.
+   * @generated
+   */
+  PReturnExpression createPReturnExpression();
+
+  /**
+   * Returns a new object of class '<em>PString Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PString Literal</em>'.
+   * @generated
+   */
+  PStringLiteral createPStringLiteral();
 
   /**
    * Returns the package supported by this factory.

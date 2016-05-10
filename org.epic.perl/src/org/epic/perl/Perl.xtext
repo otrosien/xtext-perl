@@ -1,9 +1,210 @@
-grammar org.epic.perl.Perl with org.eclipse.xtext.common.Terminals
+grammar org.epic.perl.Perl hidden(WS, SL_COMMENT)
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 generate perl "http://www.epic.org/perl/Perl"
 
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
+PExpression returns PExpression :
+	PAssignment
+;
+
+PAssignment returns PExpression :
+	{PAssignment} feature=FeatureCallID OpSingleAssign value=PAssignment |	
+	POrExpression (
+		=>({PBinaryOperation.leftOperand=current} feature=OpMultiAssign) rightOperand=PAssignment
+	)?;
+
+OpSingleAssign:
+	'='
+;
+
+OpMultiAssign:
+	'+=' | '-=' | '*=' | '/=' | '%=' | '**=' |
+	'<' '<' '=' | 
+	'>' '>'? '>=';
+
+POrExpression returns PExpression:
+	PAndExpression (=>({PBinaryOperation.leftOperand=current} feature=OpOr) rightOperand=PAndExpression)*;
+
+OpOr:
+	'||';
+
+PAndExpression returns PExpression:
+	PEqualityExpression (=>({PBinaryOperation.leftOperand=current} feature=OpAnd) rightOperand=PEqualityExpression)*;
+
+OpAnd:
+	'&&';
+
+PEqualityExpression returns PExpression:
+	PRelationalExpression (=>({PBinaryOperation.leftOperand=current} feature=OpEquality)
+	rightOperand=PRelationalExpression)*;
+
+OpEquality:
+	'==' | '!=' | 'eq' | 'ne';
+
+PRelationalExpression returns PExpression:
+	POtherOperatorExpression
+	(=>({PBinaryOperation.leftOperand=current} feature=OpCompare) rightOperand=POtherOperatorExpression)*;
+
+OpCompare:
+	'>=' | '<' '=' | '>' | '<' ;
+
+POtherOperatorExpression returns PExpression:
+	PAdditiveExpression (=>({PBinaryOperation.leftOperand=current} feature=OpOther)
+	rightOperand=PAdditiveExpression)*;
+
+OpOther:
+	  '->' 
+	| '..<'
+	| '>' '..'
+	| '..'
+	| '=>' 
+	| '>' (=>('>' '>') | '>') 
+	| '<' (=>('<' '<') | '<' | '=>')
+	| '<>'
+	| '?:';
+
+PAdditiveExpression returns PExpression:
+	PMultiplicativeExpression (=>({PBinaryOperation.leftOperand=current} feature=OpAdd)
+	rightOperand=PMultiplicativeExpression)*;
+
+OpAdd:
+	'+' | '-';
+
+PMultiplicativeExpression returns PExpression:
+	PUnaryOperation (=>({PBinaryOperation.leftOperand=current} feature=OpMulti) rightOperand=PUnaryOperation)*;
+
+OpMulti:
+	'*' | '**' | '/' | '%';
+
+PUnaryOperation returns PExpression:
+	{PUnaryOperation} feature=OpUnary operand=PUnaryOperation
+;
+
+OpUnary:
+	"!" | "-" | "+";
+
+PPostfixOperation returns PExpression:
+	PMemberFeatureCall =>({PPostfixOperation.operand=current} feature=OpPostfix)?
+;
+
+OpPostfix:
+	"++" | "--"
+;
+
+PMemberFeatureCall returns PExpression:
+	PPrimaryExpression
+	(=>({PAssignment.assignable=current} feature=FeatureCallID OpSingleAssign) value=PAssignment)
+;
+
+PPrimaryExpression returns PExpression:
+	PBlockExpression |
+	PLiteral |
+	PIfExpression |
+	PReturnExpression |
+	PParenthesizedExpression
+;		
+
+PLiteral returns PExpression:
+	PClosure |
+	PNumberLiteral |
+	PNullLiteral |
+	PStringLiteral
+;
+
+PClosure returns PExpression:
+	=>({PClosure} 
+	'sub' '{') 
+		expression=PExpressionInClosure 
+	'}'
+;
+
+PExpressionInClosure returns PExpression: 
+	{PBlockExpression}
+	(expressions+=PExpressionOrVarDeclaration ';'?)*
+;
+
+PParenthesizedExpression returns PExpression:
+	'(' PExpression ')'
+;
+
+PIfExpression returns PExpression:
+	{PIfExpression}
+	'if' '(' if=PExpression ')'
+	then=PExpression
+	(=>'else' else=PExpression)?;
+
+PBlockExpression returns PExpression: 
+	{PBlockExpression}
+	'{'
+		(expressions+=PExpressionOrVarDeclaration ';'?)*
+	'}';
+
+PExpressionOrVarDeclaration returns PExpression:
+	PVariableDeclaration | PExpression;
+
+PVariableDeclaration returns PExpression:
+	{PVariableDeclaration}
+	('my'|'our'|'local') ('$'|'%'|'@') (=>(name=ID)) ('=' right=PExpression)?;
+
+PFeatureCall returns PExpression:
+	{PFeatureCall}
+	feature=FeatureCallID
+	featureCallArguments+=PClosure?
+;
+
+FeatureCallID:
+	('$'|'%'|'@') ID
+;
+
+PConstructorCall returns PExpression:
+	{PConstructorCall}
+	'new' constructor=QualifiedName
+	(=>explicitConstructorCall?='(' 
+		arguments+=PExpression (',' arguments+=PExpression)*
+	')')?
+;
+
+PNumberLiteral returns PExpression :
+	{PNumberLiteral} value=Number;
+
+PNullLiteral returns PExpression :
+	{PNullLiteral} 'undef'
+;
+
+PReturnExpression returns PExpression :
+	{PReturnExpression} 'return' (->expression=PExpression)?;
+
+PStringLiteral returns PExpression:
+	{PStringLiteral} value=STRING;
+
+QualifiedName:
+	ID (=> '::' ID)*
+;
+
+Number hidden():
+	HEX
+	| BIN
+	| INT
+;
+
+terminal ID  		: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+
+terminal INT returns ecore::EInt: ('0'..'9')+;
+
+terminal HEX:
+	('0x'|'0X') ('0'..'9'|'a'..'f'|'A'..'F'|'_')+ ;
+
+terminal BIN:
+	('0b') ('0'..'1'|'_')+ ;
+
+terminal STRING	: 
+			'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"' |
+			"'" ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|"'") )* "'"
+; 
+
+terminal SL_COMMENT 	: '//' !('\n'|'\r')* ('\r'? '\n')?;
+
+terminal WS			: (' '|'\t'|'\r'|'\n')+;
+
+terminal ANY_OTHER: .;

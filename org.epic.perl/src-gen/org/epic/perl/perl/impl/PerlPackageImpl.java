@@ -10,8 +10,21 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.epic.perl.perl.Greeting;
-import org.epic.perl.perl.Model;
+import org.epic.perl.perl.PAssignment;
+import org.epic.perl.perl.PBinaryOperation;
+import org.epic.perl.perl.PBlockExpression;
+import org.epic.perl.perl.PClosure;
+import org.epic.perl.perl.PConstructorCall;
+import org.epic.perl.perl.PExpression;
+import org.epic.perl.perl.PFeatureCall;
+import org.epic.perl.perl.PIfExpression;
+import org.epic.perl.perl.PNullLiteral;
+import org.epic.perl.perl.PNumberLiteral;
+import org.epic.perl.perl.PPostfixOperation;
+import org.epic.perl.perl.PReturnExpression;
+import org.epic.perl.perl.PStringLiteral;
+import org.epic.perl.perl.PUnaryOperation;
+import org.epic.perl.perl.PVariableDeclaration;
 import org.epic.perl.perl.PerlFactory;
 import org.epic.perl.perl.PerlPackage;
 
@@ -28,14 +41,105 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass modelEClass = null;
+  private EClass pExpressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass greetingEClass = null;
+  private EClass pAssignmentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pBinaryOperationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pUnaryOperationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pPostfixOperationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pClosureEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pBlockExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pIfExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pVariableDeclarationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pFeatureCallEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pConstructorCallEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pNumberLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pNullLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pReturnExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pStringLiteralEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -105,9 +209,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getModel()
+  public EClass getPExpression()
   {
-    return modelEClass;
+    return pExpressionEClass;
   }
 
   /**
@@ -115,9 +219,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Greetings()
+  public EClass getPAssignment()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
+    return pAssignmentEClass;
   }
 
   /**
@@ -125,9 +229,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getGreeting()
+  public EAttribute getPAssignment_Feature()
   {
-    return greetingEClass;
+    return (EAttribute)pAssignmentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -135,9 +239,369 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getGreeting_Name()
+  public EReference getPAssignment_Value()
   {
-    return (EAttribute)greetingEClass.getEStructuralFeatures().get(0);
+    return (EReference)pAssignmentEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPAssignment_Assignable()
+  {
+    return (EReference)pAssignmentEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPBinaryOperation()
+  {
+    return pBinaryOperationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPBinaryOperation_LeftOperand()
+  {
+    return (EReference)pBinaryOperationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPBinaryOperation_Feature()
+  {
+    return (EAttribute)pBinaryOperationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPBinaryOperation_RightOperand()
+  {
+    return (EReference)pBinaryOperationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPUnaryOperation()
+  {
+    return pUnaryOperationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPUnaryOperation_Feature()
+  {
+    return (EAttribute)pUnaryOperationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPUnaryOperation_Operand()
+  {
+    return (EReference)pUnaryOperationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPPostfixOperation()
+  {
+    return pPostfixOperationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPPostfixOperation_Operand()
+  {
+    return (EReference)pPostfixOperationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPPostfixOperation_Feature()
+  {
+    return (EAttribute)pPostfixOperationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPClosure()
+  {
+    return pClosureEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPClosure_Expression()
+  {
+    return (EReference)pClosureEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPBlockExpression()
+  {
+    return pBlockExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPBlockExpression_Expressions()
+  {
+    return (EReference)pBlockExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPIfExpression()
+  {
+    return pIfExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPIfExpression_If()
+  {
+    return (EReference)pIfExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPIfExpression_Then()
+  {
+    return (EReference)pIfExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPIfExpression_Else()
+  {
+    return (EReference)pIfExpressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPVariableDeclaration()
+  {
+    return pVariableDeclarationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPVariableDeclaration_Name()
+  {
+    return (EAttribute)pVariableDeclarationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPVariableDeclaration_Right()
+  {
+    return (EReference)pVariableDeclarationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPFeatureCall()
+  {
+    return pFeatureCallEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPFeatureCall_Feature()
+  {
+    return (EAttribute)pFeatureCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPFeatureCall_FeatureCallArguments()
+  {
+    return (EReference)pFeatureCallEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPConstructorCall()
+  {
+    return pConstructorCallEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPConstructorCall_Constructor()
+  {
+    return (EAttribute)pConstructorCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPConstructorCall_ExplicitConstructorCall()
+  {
+    return (EAttribute)pConstructorCallEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPConstructorCall_Arguments()
+  {
+    return (EReference)pConstructorCallEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPNumberLiteral()
+  {
+    return pNumberLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPNumberLiteral_Value()
+  {
+    return (EAttribute)pNumberLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPNullLiteral()
+  {
+    return pNullLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPReturnExpression()
+  {
+    return pReturnExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPReturnExpression_Expression()
+  {
+    return (EReference)pReturnExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPStringLiteral()
+  {
+    return pStringLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPStringLiteral_Value()
+  {
+    return (EAttribute)pStringLiteralEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -170,11 +634,60 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     isCreated = true;
 
     // Create classes and their features
-    modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__GREETINGS);
+    pExpressionEClass = createEClass(PEXPRESSION);
 
-    greetingEClass = createEClass(GREETING);
-    createEAttribute(greetingEClass, GREETING__NAME);
+    pAssignmentEClass = createEClass(PASSIGNMENT);
+    createEAttribute(pAssignmentEClass, PASSIGNMENT__FEATURE);
+    createEReference(pAssignmentEClass, PASSIGNMENT__VALUE);
+    createEReference(pAssignmentEClass, PASSIGNMENT__ASSIGNABLE);
+
+    pBinaryOperationEClass = createEClass(PBINARY_OPERATION);
+    createEReference(pBinaryOperationEClass, PBINARY_OPERATION__LEFT_OPERAND);
+    createEAttribute(pBinaryOperationEClass, PBINARY_OPERATION__FEATURE);
+    createEReference(pBinaryOperationEClass, PBINARY_OPERATION__RIGHT_OPERAND);
+
+    pUnaryOperationEClass = createEClass(PUNARY_OPERATION);
+    createEAttribute(pUnaryOperationEClass, PUNARY_OPERATION__FEATURE);
+    createEReference(pUnaryOperationEClass, PUNARY_OPERATION__OPERAND);
+
+    pPostfixOperationEClass = createEClass(PPOSTFIX_OPERATION);
+    createEReference(pPostfixOperationEClass, PPOSTFIX_OPERATION__OPERAND);
+    createEAttribute(pPostfixOperationEClass, PPOSTFIX_OPERATION__FEATURE);
+
+    pClosureEClass = createEClass(PCLOSURE);
+    createEReference(pClosureEClass, PCLOSURE__EXPRESSION);
+
+    pBlockExpressionEClass = createEClass(PBLOCK_EXPRESSION);
+    createEReference(pBlockExpressionEClass, PBLOCK_EXPRESSION__EXPRESSIONS);
+
+    pIfExpressionEClass = createEClass(PIF_EXPRESSION);
+    createEReference(pIfExpressionEClass, PIF_EXPRESSION__IF);
+    createEReference(pIfExpressionEClass, PIF_EXPRESSION__THEN);
+    createEReference(pIfExpressionEClass, PIF_EXPRESSION__ELSE);
+
+    pVariableDeclarationEClass = createEClass(PVARIABLE_DECLARATION);
+    createEAttribute(pVariableDeclarationEClass, PVARIABLE_DECLARATION__NAME);
+    createEReference(pVariableDeclarationEClass, PVARIABLE_DECLARATION__RIGHT);
+
+    pFeatureCallEClass = createEClass(PFEATURE_CALL);
+    createEAttribute(pFeatureCallEClass, PFEATURE_CALL__FEATURE);
+    createEReference(pFeatureCallEClass, PFEATURE_CALL__FEATURE_CALL_ARGUMENTS);
+
+    pConstructorCallEClass = createEClass(PCONSTRUCTOR_CALL);
+    createEAttribute(pConstructorCallEClass, PCONSTRUCTOR_CALL__CONSTRUCTOR);
+    createEAttribute(pConstructorCallEClass, PCONSTRUCTOR_CALL__EXPLICIT_CONSTRUCTOR_CALL);
+    createEReference(pConstructorCallEClass, PCONSTRUCTOR_CALL__ARGUMENTS);
+
+    pNumberLiteralEClass = createEClass(PNUMBER_LITERAL);
+    createEAttribute(pNumberLiteralEClass, PNUMBER_LITERAL__VALUE);
+
+    pNullLiteralEClass = createEClass(PNULL_LITERAL);
+
+    pReturnExpressionEClass = createEClass(PRETURN_EXPRESSION);
+    createEReference(pReturnExpressionEClass, PRETURN_EXPRESSION__EXPRESSION);
+
+    pStringLiteralEClass = createEClass(PSTRING_LITERAL);
+    createEAttribute(pStringLiteralEClass, PSTRING_LITERAL__VALUE);
   }
 
   /**
@@ -206,13 +719,76 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    pAssignmentEClass.getESuperTypes().add(this.getPExpression());
+    pBinaryOperationEClass.getESuperTypes().add(this.getPExpression());
+    pUnaryOperationEClass.getESuperTypes().add(this.getPExpression());
+    pPostfixOperationEClass.getESuperTypes().add(this.getPExpression());
+    pClosureEClass.getESuperTypes().add(this.getPExpression());
+    pBlockExpressionEClass.getESuperTypes().add(this.getPExpression());
+    pIfExpressionEClass.getESuperTypes().add(this.getPExpression());
+    pVariableDeclarationEClass.getESuperTypes().add(this.getPExpression());
+    pFeatureCallEClass.getESuperTypes().add(this.getPExpression());
+    pConstructorCallEClass.getESuperTypes().add(this.getPExpression());
+    pNumberLiteralEClass.getESuperTypes().add(this.getPExpression());
+    pNullLiteralEClass.getESuperTypes().add(this.getPExpression());
+    pReturnExpressionEClass.getESuperTypes().add(this.getPExpression());
+    pStringLiteralEClass.getESuperTypes().add(this.getPExpression());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Greetings(), this.getGreeting(), null, "greetings", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(pExpressionEClass, PExpression.class, "PExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(greetingEClass, Greeting.class, "Greeting", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGreeting_Name(), ecorePackage.getEString(), "name", null, 0, 1, Greeting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(pAssignmentEClass, PAssignment.class, "PAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPAssignment_Feature(), ecorePackage.getEString(), "feature", null, 0, 1, PAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPAssignment_Value(), this.getPExpression(), null, "value", null, 0, 1, PAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPAssignment_Assignable(), this.getPExpression(), null, "assignable", null, 0, 1, PAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pBinaryOperationEClass, PBinaryOperation.class, "PBinaryOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPBinaryOperation_LeftOperand(), this.getPExpression(), null, "leftOperand", null, 0, 1, PBinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPBinaryOperation_Feature(), ecorePackage.getEString(), "feature", null, 0, 1, PBinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPBinaryOperation_RightOperand(), this.getPExpression(), null, "rightOperand", null, 0, 1, PBinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pUnaryOperationEClass, PUnaryOperation.class, "PUnaryOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPUnaryOperation_Feature(), ecorePackage.getEString(), "feature", null, 0, 1, PUnaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPUnaryOperation_Operand(), this.getPExpression(), null, "operand", null, 0, 1, PUnaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pPostfixOperationEClass, PPostfixOperation.class, "PPostfixOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPPostfixOperation_Operand(), this.getPExpression(), null, "operand", null, 0, 1, PPostfixOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPPostfixOperation_Feature(), ecorePackage.getEString(), "feature", null, 0, 1, PPostfixOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pClosureEClass, PClosure.class, "PClosure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPClosure_Expression(), this.getPExpression(), null, "expression", null, 0, 1, PClosure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pBlockExpressionEClass, PBlockExpression.class, "PBlockExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPBlockExpression_Expressions(), this.getPExpression(), null, "expressions", null, 0, -1, PBlockExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pIfExpressionEClass, PIfExpression.class, "PIfExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPIfExpression_If(), this.getPExpression(), null, "if", null, 0, 1, PIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPIfExpression_Then(), this.getPExpression(), null, "then", null, 0, 1, PIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPIfExpression_Else(), this.getPExpression(), null, "else", null, 0, 1, PIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pVariableDeclarationEClass, PVariableDeclaration.class, "PVariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPVariableDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, PVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPVariableDeclaration_Right(), this.getPExpression(), null, "right", null, 0, 1, PVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pFeatureCallEClass, PFeatureCall.class, "PFeatureCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPFeatureCall_Feature(), ecorePackage.getEString(), "feature", null, 0, 1, PFeatureCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPFeatureCall_FeatureCallArguments(), this.getPExpression(), null, "featureCallArguments", null, 0, -1, PFeatureCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pConstructorCallEClass, PConstructorCall.class, "PConstructorCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPConstructorCall_Constructor(), ecorePackage.getEString(), "constructor", null, 0, 1, PConstructorCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPConstructorCall_ExplicitConstructorCall(), ecorePackage.getEBoolean(), "explicitConstructorCall", null, 0, 1, PConstructorCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPConstructorCall_Arguments(), this.getPExpression(), null, "arguments", null, 0, -1, PConstructorCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pNumberLiteralEClass, PNumberLiteral.class, "PNumberLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPNumberLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, PNumberLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pNullLiteralEClass, PNullLiteral.class, "PNullLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(pReturnExpressionEClass, PReturnExpression.class, "PReturnExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPReturnExpression_Expression(), this.getPExpression(), null, "expression", null, 0, 1, PReturnExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pStringLiteralEClass, PStringLiteral.class, "PStringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPStringLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, PStringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

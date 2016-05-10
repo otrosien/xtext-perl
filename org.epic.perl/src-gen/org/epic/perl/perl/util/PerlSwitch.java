@@ -73,17 +73,122 @@ public class PerlSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case PerlPackage.MODEL:
+      case PerlPackage.PEXPRESSION:
       {
-        Model model = (Model)theEObject;
-        T result = caseModel(model);
+        PExpression pExpression = (PExpression)theEObject;
+        T result = casePExpression(pExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PerlPackage.GREETING:
+      case PerlPackage.PASSIGNMENT:
       {
-        Greeting greeting = (Greeting)theEObject;
-        T result = caseGreeting(greeting);
+        PAssignment pAssignment = (PAssignment)theEObject;
+        T result = casePAssignment(pAssignment);
+        if (result == null) result = casePExpression(pAssignment);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.PBINARY_OPERATION:
+      {
+        PBinaryOperation pBinaryOperation = (PBinaryOperation)theEObject;
+        T result = casePBinaryOperation(pBinaryOperation);
+        if (result == null) result = casePExpression(pBinaryOperation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.PUNARY_OPERATION:
+      {
+        PUnaryOperation pUnaryOperation = (PUnaryOperation)theEObject;
+        T result = casePUnaryOperation(pUnaryOperation);
+        if (result == null) result = casePExpression(pUnaryOperation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.PPOSTFIX_OPERATION:
+      {
+        PPostfixOperation pPostfixOperation = (PPostfixOperation)theEObject;
+        T result = casePPostfixOperation(pPostfixOperation);
+        if (result == null) result = casePExpression(pPostfixOperation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.PCLOSURE:
+      {
+        PClosure pClosure = (PClosure)theEObject;
+        T result = casePClosure(pClosure);
+        if (result == null) result = casePExpression(pClosure);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.PBLOCK_EXPRESSION:
+      {
+        PBlockExpression pBlockExpression = (PBlockExpression)theEObject;
+        T result = casePBlockExpression(pBlockExpression);
+        if (result == null) result = casePExpression(pBlockExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.PIF_EXPRESSION:
+      {
+        PIfExpression pIfExpression = (PIfExpression)theEObject;
+        T result = casePIfExpression(pIfExpression);
+        if (result == null) result = casePExpression(pIfExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.PVARIABLE_DECLARATION:
+      {
+        PVariableDeclaration pVariableDeclaration = (PVariableDeclaration)theEObject;
+        T result = casePVariableDeclaration(pVariableDeclaration);
+        if (result == null) result = casePExpression(pVariableDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.PFEATURE_CALL:
+      {
+        PFeatureCall pFeatureCall = (PFeatureCall)theEObject;
+        T result = casePFeatureCall(pFeatureCall);
+        if (result == null) result = casePExpression(pFeatureCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.PCONSTRUCTOR_CALL:
+      {
+        PConstructorCall pConstructorCall = (PConstructorCall)theEObject;
+        T result = casePConstructorCall(pConstructorCall);
+        if (result == null) result = casePExpression(pConstructorCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.PNUMBER_LITERAL:
+      {
+        PNumberLiteral pNumberLiteral = (PNumberLiteral)theEObject;
+        T result = casePNumberLiteral(pNumberLiteral);
+        if (result == null) result = casePExpression(pNumberLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.PNULL_LITERAL:
+      {
+        PNullLiteral pNullLiteral = (PNullLiteral)theEObject;
+        T result = casePNullLiteral(pNullLiteral);
+        if (result == null) result = casePExpression(pNullLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.PRETURN_EXPRESSION:
+      {
+        PReturnExpression pReturnExpression = (PReturnExpression)theEObject;
+        T result = casePReturnExpression(pReturnExpression);
+        if (result == null) result = casePExpression(pReturnExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.PSTRING_LITERAL:
+      {
+        PStringLiteral pStringLiteral = (PStringLiteral)theEObject;
+        T result = casePStringLiteral(pStringLiteral);
+        if (result == null) result = casePExpression(pStringLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -92,33 +197,241 @@ public class PerlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>PExpression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+   * @return the result of interpreting the object as an instance of '<em>PExpression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseModel(Model object)
+  public T casePExpression(PExpression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Greeting</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>PAssignment</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Greeting</em>'.
+   * @return the result of interpreting the object as an instance of '<em>PAssignment</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseGreeting(Greeting object)
+  public T casePAssignment(PAssignment object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PBinary Operation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PBinary Operation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePBinaryOperation(PBinaryOperation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PUnary Operation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PUnary Operation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePUnaryOperation(PUnaryOperation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PPostfix Operation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PPostfix Operation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePPostfixOperation(PPostfixOperation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PClosure</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PClosure</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePClosure(PClosure object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PBlock Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PBlock Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePBlockExpression(PBlockExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PIf Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PIf Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePIfExpression(PIfExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PVariable Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PVariable Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePVariableDeclaration(PVariableDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PFeature Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PFeature Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePFeatureCall(PFeatureCall object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PConstructor Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PConstructor Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePConstructorCall(PConstructorCall object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PNumber Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PNumber Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePNumberLiteral(PNumberLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PNull Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PNull Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePNullLiteral(PNullLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PReturn Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PReturn Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePReturnExpression(PReturnExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>PString Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PString Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePStringLiteral(PStringLiteral object)
   {
     return null;
   }

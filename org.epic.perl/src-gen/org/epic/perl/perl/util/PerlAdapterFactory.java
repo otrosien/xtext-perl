@@ -76,14 +76,79 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
     new PerlSwitch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
+      public Adapter casePExpression(PExpression object)
       {
-        return createModelAdapter();
+        return createPExpressionAdapter();
       }
       @Override
-      public Adapter caseGreeting(Greeting object)
+      public Adapter casePAssignment(PAssignment object)
       {
-        return createGreetingAdapter();
+        return createPAssignmentAdapter();
+      }
+      @Override
+      public Adapter casePBinaryOperation(PBinaryOperation object)
+      {
+        return createPBinaryOperationAdapter();
+      }
+      @Override
+      public Adapter casePUnaryOperation(PUnaryOperation object)
+      {
+        return createPUnaryOperationAdapter();
+      }
+      @Override
+      public Adapter casePPostfixOperation(PPostfixOperation object)
+      {
+        return createPPostfixOperationAdapter();
+      }
+      @Override
+      public Adapter casePClosure(PClosure object)
+      {
+        return createPClosureAdapter();
+      }
+      @Override
+      public Adapter casePBlockExpression(PBlockExpression object)
+      {
+        return createPBlockExpressionAdapter();
+      }
+      @Override
+      public Adapter casePIfExpression(PIfExpression object)
+      {
+        return createPIfExpressionAdapter();
+      }
+      @Override
+      public Adapter casePVariableDeclaration(PVariableDeclaration object)
+      {
+        return createPVariableDeclarationAdapter();
+      }
+      @Override
+      public Adapter casePFeatureCall(PFeatureCall object)
+      {
+        return createPFeatureCallAdapter();
+      }
+      @Override
+      public Adapter casePConstructorCall(PConstructorCall object)
+      {
+        return createPConstructorCallAdapter();
+      }
+      @Override
+      public Adapter casePNumberLiteral(PNumberLiteral object)
+      {
+        return createPNumberLiteralAdapter();
+      }
+      @Override
+      public Adapter casePNullLiteral(PNullLiteral object)
+      {
+        return createPNullLiteralAdapter();
+      }
+      @Override
+      public Adapter casePReturnExpression(PReturnExpression object)
+      {
+        return createPReturnExpressionAdapter();
+      }
+      @Override
+      public Adapter casePStringLiteral(PStringLiteral object)
+      {
+        return createPStringLiteralAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -108,31 +173,226 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.Model <em>Model</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PExpression <em>PExpression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.Model
+   * @see org.epic.perl.perl.PExpression
    * @generated
    */
-  public Adapter createModelAdapter()
+  public Adapter createPExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.Greeting <em>Greeting</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PAssignment <em>PAssignment</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.Greeting
+   * @see org.epic.perl.perl.PAssignment
    * @generated
    */
-  public Adapter createGreetingAdapter()
+  public Adapter createPAssignmentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PBinaryOperation <em>PBinary Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.PBinaryOperation
+   * @generated
+   */
+  public Adapter createPBinaryOperationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PUnaryOperation <em>PUnary Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.PUnaryOperation
+   * @generated
+   */
+  public Adapter createPUnaryOperationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PPostfixOperation <em>PPostfix Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.PPostfixOperation
+   * @generated
+   */
+  public Adapter createPPostfixOperationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PClosure <em>PClosure</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.PClosure
+   * @generated
+   */
+  public Adapter createPClosureAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PBlockExpression <em>PBlock Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.PBlockExpression
+   * @generated
+   */
+  public Adapter createPBlockExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PIfExpression <em>PIf Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.PIfExpression
+   * @generated
+   */
+  public Adapter createPIfExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PVariableDeclaration <em>PVariable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.PVariableDeclaration
+   * @generated
+   */
+  public Adapter createPVariableDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PFeatureCall <em>PFeature Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.PFeatureCall
+   * @generated
+   */
+  public Adapter createPFeatureCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PConstructorCall <em>PConstructor Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.PConstructorCall
+   * @generated
+   */
+  public Adapter createPConstructorCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PNumberLiteral <em>PNumber Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.PNumberLiteral
+   * @generated
+   */
+  public Adapter createPNumberLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PNullLiteral <em>PNull Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.PNullLiteral
+   * @generated
+   */
+  public Adapter createPNullLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PReturnExpression <em>PReturn Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.PReturnExpression
+   * @generated
+   */
+  public Adapter createPReturnExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PStringLiteral <em>PString Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.PStringLiteral
+   * @generated
+   */
+  public Adapter createPStringLiteralAdapter()
   {
     return null;
   }
