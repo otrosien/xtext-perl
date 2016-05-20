@@ -16,7 +16,6 @@ import org.epic.perl.perl.PBlockExpression;
 import org.epic.perl.perl.PClosure;
 import org.epic.perl.perl.PConstructorCall;
 import org.epic.perl.perl.PExpression;
-import org.epic.perl.perl.PFeatureCall;
 import org.epic.perl.perl.PIfExpression;
 import org.epic.perl.perl.PNullLiteral;
 import org.epic.perl.perl.PNumberLiteral;
@@ -98,13 +97,6 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * @generated
    */
   private EClass pVariableDeclarationEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass pFeatureCallEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -229,7 +221,7 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPAssignment_Feature()
+  public EAttribute getPAssignment_Var()
   {
     return (EAttribute)pAssignmentEClass.getEStructuralFeatures().get(0);
   }
@@ -242,16 +234,6 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
   public EReference getPAssignment_Value()
   {
     return (EReference)pAssignmentEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPAssignment_Assignable()
-  {
-    return (EReference)pAssignmentEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -469,36 +451,6 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPFeatureCall()
-  {
-    return pFeatureCallEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getPFeatureCall_Feature()
-  {
-    return (EAttribute)pFeatureCallEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPFeatureCall_FeatureCallArguments()
-  {
-    return (EReference)pFeatureCallEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getPConstructorCall()
   {
     return pConstructorCallEClass;
@@ -637,9 +589,8 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     pExpressionEClass = createEClass(PEXPRESSION);
 
     pAssignmentEClass = createEClass(PASSIGNMENT);
-    createEAttribute(pAssignmentEClass, PASSIGNMENT__FEATURE);
+    createEAttribute(pAssignmentEClass, PASSIGNMENT__VAR);
     createEReference(pAssignmentEClass, PASSIGNMENT__VALUE);
-    createEReference(pAssignmentEClass, PASSIGNMENT__ASSIGNABLE);
 
     pBinaryOperationEClass = createEClass(PBINARY_OPERATION);
     createEReference(pBinaryOperationEClass, PBINARY_OPERATION__LEFT_OPERAND);
@@ -668,10 +619,6 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     pVariableDeclarationEClass = createEClass(PVARIABLE_DECLARATION);
     createEAttribute(pVariableDeclarationEClass, PVARIABLE_DECLARATION__NAME);
     createEReference(pVariableDeclarationEClass, PVARIABLE_DECLARATION__RIGHT);
-
-    pFeatureCallEClass = createEClass(PFEATURE_CALL);
-    createEAttribute(pFeatureCallEClass, PFEATURE_CALL__FEATURE);
-    createEReference(pFeatureCallEClass, PFEATURE_CALL__FEATURE_CALL_ARGUMENTS);
 
     pConstructorCallEClass = createEClass(PCONSTRUCTOR_CALL);
     createEAttribute(pConstructorCallEClass, PCONSTRUCTOR_CALL__CONSTRUCTOR);
@@ -727,7 +674,6 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     pBlockExpressionEClass.getESuperTypes().add(this.getPExpression());
     pIfExpressionEClass.getESuperTypes().add(this.getPExpression());
     pVariableDeclarationEClass.getESuperTypes().add(this.getPExpression());
-    pFeatureCallEClass.getESuperTypes().add(this.getPExpression());
     pConstructorCallEClass.getESuperTypes().add(this.getPExpression());
     pNumberLiteralEClass.getESuperTypes().add(this.getPExpression());
     pNullLiteralEClass.getESuperTypes().add(this.getPExpression());
@@ -738,9 +684,8 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     initEClass(pExpressionEClass, PExpression.class, "PExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(pAssignmentEClass, PAssignment.class, "PAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPAssignment_Feature(), ecorePackage.getEString(), "feature", null, 0, 1, PAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPAssignment_Var(), ecorePackage.getEString(), "var", null, 0, 1, PAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPAssignment_Value(), this.getPExpression(), null, "value", null, 0, 1, PAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPAssignment_Assignable(), this.getPExpression(), null, "assignable", null, 0, 1, PAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pBinaryOperationEClass, PBinaryOperation.class, "PBinaryOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPBinaryOperation_LeftOperand(), this.getPExpression(), null, "leftOperand", null, 0, 1, PBinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -752,7 +697,7 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     initEReference(getPUnaryOperation_Operand(), this.getPExpression(), null, "operand", null, 0, 1, PUnaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pPostfixOperationEClass, PPostfixOperation.class, "PPostfixOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPPostfixOperation_Operand(), this.getPExpression(), null, "operand", null, 0, 1, PPostfixOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPPostfixOperation_Operand(), this.getPPostfixOperation(), null, "operand", null, 0, 1, PPostfixOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPPostfixOperation_Feature(), ecorePackage.getEString(), "feature", null, 0, 1, PPostfixOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pClosureEClass, PClosure.class, "PClosure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -769,10 +714,6 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     initEClass(pVariableDeclarationEClass, PVariableDeclaration.class, "PVariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPVariableDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, PVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPVariableDeclaration_Right(), this.getPExpression(), null, "right", null, 0, 1, PVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(pFeatureCallEClass, PFeatureCall.class, "PFeatureCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPFeatureCall_Feature(), ecorePackage.getEString(), "feature", null, 0, 1, PFeatureCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPFeatureCall_FeatureCallArguments(), this.getPExpression(), null, "featureCallArguments", null, 0, -1, PFeatureCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pConstructorCallEClass, PConstructorCall.class, "PConstructorCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPConstructorCall_Constructor(), ecorePackage.getEString(), "constructor", null, 0, 1, PConstructorCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -87,13 +87,13 @@ public interface PerlPackage extends EPackage
   int PASSIGNMENT = 1;
 
   /**
-   * The feature id for the '<em><b>Feature</b></em>' attribute.
+   * The feature id for the '<em><b>Var</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PASSIGNMENT__FEATURE = PEXPRESSION_FEATURE_COUNT + 0;
+  int PASSIGNMENT__VAR = PEXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -105,22 +105,13 @@ public interface PerlPackage extends EPackage
   int PASSIGNMENT__VALUE = PEXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Assignable</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PASSIGNMENT__ASSIGNABLE = PEXPRESSION_FEATURE_COUNT + 2;
-
-  /**
    * The number of structural features of the '<em>PAssignment</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PASSIGNMENT_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 3;
+  int PASSIGNMENT_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.epic.perl.perl.impl.PBinaryOperationImpl <em>PBinary Operation</em>}' class.
@@ -382,43 +373,6 @@ public interface PerlPackage extends EPackage
   int PVARIABLE_DECLARATION_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.PFeatureCallImpl <em>PFeature Call</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.PFeatureCallImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPFeatureCall()
-   * @generated
-   */
-  int PFEATURE_CALL = 9;
-
-  /**
-   * The feature id for the '<em><b>Feature</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PFEATURE_CALL__FEATURE = PEXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Feature Call Arguments</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PFEATURE_CALL__FEATURE_CALL_ARGUMENTS = PEXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>PFeature Call</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PFEATURE_CALL_FEATURE_COUNT = PEXPRESSION_FEATURE_COUNT + 2;
-
-  /**
    * The meta object id for the '{@link org.epic.perl.perl.impl.PConstructorCallImpl <em>PConstructor Call</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -426,7 +380,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getPConstructorCall()
    * @generated
    */
-  int PCONSTRUCTOR_CALL = 10;
+  int PCONSTRUCTOR_CALL = 9;
 
   /**
    * The feature id for the '<em><b>Constructor</b></em>' attribute.
@@ -472,7 +426,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getPNumberLiteral()
    * @generated
    */
-  int PNUMBER_LITERAL = 11;
+  int PNUMBER_LITERAL = 10;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -500,7 +454,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getPNullLiteral()
    * @generated
    */
-  int PNULL_LITERAL = 12;
+  int PNULL_LITERAL = 11;
 
   /**
    * The number of structural features of the '<em>PNull Literal</em>' class.
@@ -519,7 +473,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getPReturnExpression()
    * @generated
    */
-  int PRETURN_EXPRESSION = 13;
+  int PRETURN_EXPRESSION = 12;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -547,7 +501,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getPStringLiteral()
    * @generated
    */
-  int PSTRING_LITERAL = 14;
+  int PSTRING_LITERAL = 13;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -589,15 +543,15 @@ public interface PerlPackage extends EPackage
   EClass getPAssignment();
 
   /**
-   * Returns the meta object for the attribute '{@link org.epic.perl.perl.PAssignment#getFeature <em>Feature</em>}'.
+   * Returns the meta object for the attribute '{@link org.epic.perl.perl.PAssignment#getVar <em>Var</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Feature</em>'.
-   * @see org.epic.perl.perl.PAssignment#getFeature()
+   * @return the meta object for the attribute '<em>Var</em>'.
+   * @see org.epic.perl.perl.PAssignment#getVar()
    * @see #getPAssignment()
    * @generated
    */
-  EAttribute getPAssignment_Feature();
+  EAttribute getPAssignment_Var();
 
   /**
    * Returns the meta object for the containment reference '{@link org.epic.perl.perl.PAssignment#getValue <em>Value</em>}'.
@@ -609,17 +563,6 @@ public interface PerlPackage extends EPackage
    * @generated
    */
   EReference getPAssignment_Value();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.PAssignment#getAssignable <em>Assignable</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Assignable</em>'.
-   * @see org.epic.perl.perl.PAssignment#getAssignable()
-   * @see #getPAssignment()
-   * @generated
-   */
-  EReference getPAssignment_Assignable();
 
   /**
    * Returns the meta object for class '{@link org.epic.perl.perl.PBinaryOperation <em>PBinary Operation</em>}'.
@@ -846,38 +789,6 @@ public interface PerlPackage extends EPackage
   EReference getPVariableDeclaration_Right();
 
   /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.PFeatureCall <em>PFeature Call</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>PFeature Call</em>'.
-   * @see org.epic.perl.perl.PFeatureCall
-   * @generated
-   */
-  EClass getPFeatureCall();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.epic.perl.perl.PFeatureCall#getFeature <em>Feature</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Feature</em>'.
-   * @see org.epic.perl.perl.PFeatureCall#getFeature()
-   * @see #getPFeatureCall()
-   * @generated
-   */
-  EAttribute getPFeatureCall_Feature();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.epic.perl.perl.PFeatureCall#getFeatureCallArguments <em>Feature Call Arguments</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Feature Call Arguments</em>'.
-   * @see org.epic.perl.perl.PFeatureCall#getFeatureCallArguments()
-   * @see #getPFeatureCall()
-   * @generated
-   */
-  EReference getPFeatureCall_FeatureCallArguments();
-
-  /**
    * Returns the meta object for class '{@link org.epic.perl.perl.PConstructorCall <em>PConstructor Call</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1037,12 +948,12 @@ public interface PerlPackage extends EPackage
     EClass PASSIGNMENT = eINSTANCE.getPAssignment();
 
     /**
-     * The meta object literal for the '<em><b>Feature</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Var</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PASSIGNMENT__FEATURE = eINSTANCE.getPAssignment_Feature();
+    EAttribute PASSIGNMENT__VAR = eINSTANCE.getPAssignment_Var();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
@@ -1051,14 +962,6 @@ public interface PerlPackage extends EPackage
      * @generated
      */
     EReference PASSIGNMENT__VALUE = eINSTANCE.getPAssignment_Value();
-
-    /**
-     * The meta object literal for the '<em><b>Assignable</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PASSIGNMENT__ASSIGNABLE = eINSTANCE.getPAssignment_Assignable();
 
     /**
      * The meta object literal for the '{@link org.epic.perl.perl.impl.PBinaryOperationImpl <em>PBinary Operation</em>}' class.
@@ -1241,32 +1144,6 @@ public interface PerlPackage extends EPackage
      * @generated
      */
     EReference PVARIABLE_DECLARATION__RIGHT = eINSTANCE.getPVariableDeclaration_Right();
-
-    /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.PFeatureCallImpl <em>PFeature Call</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.PFeatureCallImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPFeatureCall()
-     * @generated
-     */
-    EClass PFEATURE_CALL = eINSTANCE.getPFeatureCall();
-
-    /**
-     * The meta object literal for the '<em><b>Feature</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PFEATURE_CALL__FEATURE = eINSTANCE.getPFeatureCall_Feature();
-
-    /**
-     * The meta object literal for the '<em><b>Feature Call Arguments</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PFEATURE_CALL__FEATURE_CALL_ARGUMENTS = eINSTANCE.getPFeatureCall_FeatureCallArguments();
 
     /**
      * The meta object literal for the '{@link org.epic.perl.perl.impl.PConstructorCallImpl <em>PConstructor Call</em>}' class.

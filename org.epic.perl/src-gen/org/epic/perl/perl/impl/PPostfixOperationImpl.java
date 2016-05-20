@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.epic.perl.perl.PExpression;
 import org.epic.perl.perl.PPostfixOperation;
 import org.epic.perl.perl.PerlPackage;
 
@@ -39,7 +38,7 @@ public class PPostfixOperationImpl extends PExpressionImpl implements PPostfixOp
    * @generated
    * @ordered
    */
-  protected PExpression operand;
+  protected PPostfixOperation operand;
 
   /**
    * The default value of the '{@link #getFeature() <em>Feature</em>}' attribute.
@@ -87,7 +86,7 @@ public class PPostfixOperationImpl extends PExpressionImpl implements PPostfixOp
    * <!-- end-user-doc -->
    * @generated
    */
-  public PExpression getOperand()
+  public PPostfixOperation getOperand()
   {
     return operand;
   }
@@ -97,9 +96,9 @@ public class PPostfixOperationImpl extends PExpressionImpl implements PPostfixOp
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetOperand(PExpression newOperand, NotificationChain msgs)
+  public NotificationChain basicSetOperand(PPostfixOperation newOperand, NotificationChain msgs)
   {
-    PExpression oldOperand = operand;
+    PPostfixOperation oldOperand = operand;
     operand = newOperand;
     if (eNotificationRequired())
     {
@@ -114,7 +113,7 @@ public class PPostfixOperationImpl extends PExpressionImpl implements PPostfixOp
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setOperand(PExpression newOperand)
+  public void setOperand(PPostfixOperation newOperand)
   {
     if (newOperand != operand)
     {
@@ -198,7 +197,7 @@ public class PPostfixOperationImpl extends PExpressionImpl implements PPostfixOp
     switch (featureID)
     {
       case PerlPackage.PPOSTFIX_OPERATION__OPERAND:
-        setOperand((PExpression)newValue);
+        setOperand((PPostfixOperation)newValue);
         return;
       case PerlPackage.PPOSTFIX_OPERATION__FEATURE:
         setFeature((String)newValue);
@@ -218,7 +217,7 @@ public class PPostfixOperationImpl extends PExpressionImpl implements PPostfixOp
     switch (featureID)
     {
       case PerlPackage.PPOSTFIX_OPERATION__OPERAND:
-        setOperand((PExpression)null);
+        setOperand((PPostfixOperation)null);
         return;
       case PerlPackage.PPOSTFIX_OPERATION__FEATURE:
         setFeature(FEATURE_EDEFAULT);

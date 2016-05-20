@@ -3,10 +3,8 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="perl" nsURI="http://www.epic.org/perl/Perl" nsPrefix="perl">
   <eClassifiers xsi:type="ecore:EClass" name="PExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="PAssignment" eSuperTypes="#//PExpression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="feature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//PExpression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="assignable" eType="#//PExpression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PBinaryOperation" eSuperTypes="#//PExpression">
@@ -22,7 +20,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PPostfixOperation" eSuperTypes="#//PExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="operand" eType="#//PExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand" eType="#//PPostfixOperation"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="feature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -46,11 +44,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//PExpression"
         containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PFeatureCall" eSuperTypes="#//PExpression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="feature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureCallArguments" upperBound="-1"
-        eType="#//PExpression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PConstructorCall" eSuperTypes="#//PExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="constructor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

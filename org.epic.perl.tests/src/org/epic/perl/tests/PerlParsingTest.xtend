@@ -7,22 +7,72 @@ import com.google.inject.Inject
 import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.junit4.XtextRunner
 import org.eclipse.xtext.junit4.util.ParseHelper
-import org.epic.perl.perl.Model
+import org.epic.perl.perl.PExpression
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.junit.Ignore
 
 @RunWith(XtextRunner)
 @InjectWith(PerlInjectorProvider)
 class PerlParsingTest{
 
 	@Inject
-	ParseHelper<Model> parseHelper;
+	ParseHelper<PExpression> parseHelper;
 
 	@Test 
-	def void loadModel() {
+	def void varExpr() {
 		val result = parseHelper.parse('''
-			Hello Xtext!
+			$a
+		''')
+		Assert.assertNotNull(result)
+	}
+
+	@Test 
+	def void simpleAssignment() {
+		val result = parseHelper.parse('''
+			$a = 10;
+		''')
+		Assert.assertNotNull(result)
+	}
+
+	@Test 
+	def void multiAssign() {
+		val result = parseHelper.parse('''
+			$a += 10;
+		''')
+		Assert.assertNotNull(result)
+	}
+
+	@Test 
+	def void equalityExpr() {
+		val result = parseHelper.parse('''
+			$a eq $b
+		''')
+		Assert.assertNotNull(result)
+	}
+
+	@Test
+	def void andExpr() {
+		val result = parseHelper.parse('''
+			$a && $b
+		''')
+		Assert.assertNotNull(result)
+	}
+
+	@Test
+	def void compareExpr() {
+		val result = parseHelper.parse('''
+			$a < $b
+		''')
+		Assert.assertNotNull(result)
+	}
+
+	@Test
+	@Ignore
+	def void stringLiteral() {
+		val result = parseHelper.parse('''
+			"10"
 		''')
 		Assert.assertNotNull(result)
 	}

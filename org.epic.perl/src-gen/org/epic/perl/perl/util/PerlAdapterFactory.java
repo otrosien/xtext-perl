@@ -121,11 +121,6 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
         return createPVariableDeclarationAdapter();
       }
       @Override
-      public Adapter casePFeatureCall(PFeatureCall object)
-      {
-        return createPFeatureCallAdapter();
-      }
-      @Override
       public Adapter casePConstructorCall(PConstructorCall object)
       {
         return createPConstructorCallAdapter();
@@ -303,21 +298,6 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPVariableDeclarationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PFeatureCall <em>PFeature Call</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.epic.perl.perl.PFeatureCall
-   * @generated
-   */
-  public Adapter createPFeatureCallAdapter()
   {
     return null;
   }

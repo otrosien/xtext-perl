@@ -38,8 +38,8 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Action cPAssignmentAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Assignment cFeatureAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cFeatureFeatureCallIDParserRuleCall_0_1_0 = (RuleCall)cFeatureAssignment_0_1.eContents().get(0);
+		private final Assignment cVarAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cVarPVarParserRuleCall_0_1_0 = (RuleCall)cVarAssignment_0_1.eContents().get(0);
 		private final RuleCall cOpSingleAssignParserRuleCall_0_2 = (RuleCall)cGroup_0.eContents().get(2);
 		private final Assignment cValueAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
 		private final RuleCall cValuePAssignmentParserRuleCall_0_3_0 = (RuleCall)cValueAssignment_0_3.eContents().get(0);
@@ -55,25 +55,25 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRightOperandPAssignmentParserRuleCall_1_1_1_0 = (RuleCall)cRightOperandAssignment_1_1_1.eContents().get(0);
 		
 		//PAssignment PExpression:
-		//	{PAssignment} feature=FeatureCallID OpSingleAssign value=PAssignment | POrExpression (=>
-		//	({PBinaryOperation.leftOperand=current} feature=OpMultiAssign) rightOperand=PAssignment)?
+		//	{PAssignment} var=PVar OpSingleAssign value=PAssignment | POrExpression (=> ({PBinaryOperation.leftOperand=current}
+		//	feature=OpMultiAssign) rightOperand=PAssignment)?
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PAssignment} feature=FeatureCallID OpSingleAssign value=PAssignment | POrExpression (=>
-		//({PBinaryOperation.leftOperand=current} feature=OpMultiAssign) rightOperand=PAssignment)?
+		//{PAssignment} var=PVar OpSingleAssign value=PAssignment | POrExpression (=> ({PBinaryOperation.leftOperand=current}
+		//feature=OpMultiAssign) rightOperand=PAssignment)?
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{PAssignment} feature=FeatureCallID OpSingleAssign value=PAssignment
+		//{PAssignment} var=PVar OpSingleAssign value=PAssignment
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//{PAssignment}
 		public Action getPAssignmentAction_0_0() { return cPAssignmentAction_0_0; }
 		
-		//feature=FeatureCallID
-		public Assignment getFeatureAssignment_0_1() { return cFeatureAssignment_0_1; }
+		//var=PVar
+		public Assignment getVarAssignment_0_1() { return cVarAssignment_0_1; }
 		
-		//FeatureCallID
-		public RuleCall getFeatureFeatureCallIDParserRuleCall_0_1_0() { return cFeatureFeatureCallIDParserRuleCall_0_1_0; }
+		//PVar
+		public RuleCall getVarPVarParserRuleCall_0_1_0() { return cVarPVarParserRuleCall_0_1_0; }
 		
 		//OpSingleAssign
 		public RuleCall getOpSingleAssignParserRuleCall_0_2() { return cOpSingleAssignParserRuleCall_0_2; }
@@ -520,123 +520,90 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	public class OpOtherElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpOther");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cHyphenMinusGreaterThanSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cFullStopFullStopLessThanSignKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cGreaterThanSignKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cFullStopFullStopKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Keyword cFullStopFullStopKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
-		private final Keyword cEqualsSignGreaterThanSignKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
-		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Keyword cGreaterThanSignKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Alternatives cAlternatives_5_1 = (Alternatives)cGroup_5.eContents().get(1);
-		private final Group cGroup_5_1_0 = (Group)cAlternatives_5_1.eContents().get(0);
-		private final Group cGroup_5_1_0_0 = (Group)cGroup_5_1_0.eContents().get(0);
-		private final Keyword cGreaterThanSignKeyword_5_1_0_0_0 = (Keyword)cGroup_5_1_0_0.eContents().get(0);
-		private final Keyword cGreaterThanSignKeyword_5_1_0_0_1 = (Keyword)cGroup_5_1_0_0.eContents().get(1);
-		private final Keyword cGreaterThanSignKeyword_5_1_1 = (Keyword)cAlternatives_5_1.eContents().get(1);
-		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
-		private final Keyword cLessThanSignKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Alternatives cAlternatives_6_1 = (Alternatives)cGroup_6.eContents().get(1);
-		private final Group cGroup_6_1_0 = (Group)cAlternatives_6_1.eContents().get(0);
-		private final Group cGroup_6_1_0_0 = (Group)cGroup_6_1_0.eContents().get(0);
-		private final Keyword cLessThanSignKeyword_6_1_0_0_0 = (Keyword)cGroup_6_1_0_0.eContents().get(0);
-		private final Keyword cLessThanSignKeyword_6_1_0_0_1 = (Keyword)cGroup_6_1_0_0.eContents().get(1);
-		private final Keyword cLessThanSignKeyword_6_1_1 = (Keyword)cAlternatives_6_1.eContents().get(1);
-		private final Keyword cEqualsSignGreaterThanSignKeyword_6_1_2 = (Keyword)cAlternatives_6_1.eContents().get(2);
-		private final Keyword cLessThanSignGreaterThanSignKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
-		private final Keyword cQuestionMarkColonKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Alternatives cAlternatives_0_1 = (Alternatives)cGroup_0.eContents().get(1);
+		private final Group cGroup_0_1_0 = (Group)cAlternatives_0_1.eContents().get(0);
+		private final Group cGroup_0_1_0_0 = (Group)cGroup_0_1_0.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_0_1_0_0_0 = (Keyword)cGroup_0_1_0_0.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_0_1_0_0_1 = (Keyword)cGroup_0_1_0_0.eContents().get(1);
+		private final Keyword cGreaterThanSignKeyword_0_1_1 = (Keyword)cAlternatives_0_1.eContents().get(1);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cLessThanSignKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
+		private final Group cGroup_1_1_0 = (Group)cAlternatives_1_1.eContents().get(0);
+		private final Group cGroup_1_1_0_0 = (Group)cGroup_1_1_0.eContents().get(0);
+		private final Keyword cLessThanSignKeyword_1_1_0_0_0 = (Keyword)cGroup_1_1_0_0.eContents().get(0);
+		private final Keyword cLessThanSignKeyword_1_1_0_0_1 = (Keyword)cGroup_1_1_0_0.eContents().get(1);
+		private final Keyword cLessThanSignKeyword_1_1_1 = (Keyword)cAlternatives_1_1.eContents().get(1);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_1_1_2 = (Keyword)cAlternatives_1_1.eContents().get(2);
+		private final Keyword cLessThanSignGreaterThanSignKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cQuestionMarkColonKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
 		
 		//OpOther:
-		//	'->'
-		//	| '..<'
-		//	| '>' '..'
-		//	| '..'
-		//	| '=>'
-		//	| '>' (=> ('>' '>') | '>') | '<' (=> ('<' '<') | '<' | '=>') | '<>'
+		//	'>' (=> ('>' '>') | '>') | '<' (=> ('<' '<') | '<' | '=>') | '<>'
 		//	| '?:';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'->' | '..<' | '>' '..' | '..' | '=>' | '>' (=> ('>' '>') | '>') | '<' (=> ('<' '<') | '<' | '=>') | '<>' | '?:'
+		//'>' (=> ('>' '>') | '>') | '<' (=> ('<' '<') | '<' | '=>') | '<>' | '?:'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'->'
-		public Keyword getHyphenMinusGreaterThanSignKeyword_0() { return cHyphenMinusGreaterThanSignKeyword_0; }
-		
-		//'..<'
-		public Keyword getFullStopFullStopLessThanSignKeyword_1() { return cFullStopFullStopLessThanSignKeyword_1; }
-		
-		//'>' '..'
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'>'
-		public Keyword getGreaterThanSignKeyword_2_0() { return cGreaterThanSignKeyword_2_0; }
-		
-		//'..'
-		public Keyword getFullStopFullStopKeyword_2_1() { return cFullStopFullStopKeyword_2_1; }
-		
-		//'..'
-		public Keyword getFullStopFullStopKeyword_3() { return cFullStopFullStopKeyword_3; }
-		
-		//'=>'
-		public Keyword getEqualsSignGreaterThanSignKeyword_4() { return cEqualsSignGreaterThanSignKeyword_4; }
-		
 		//'>' (=> ('>' '>') | '>')
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_0() { return cGroup_0; }
 		
 		//'>'
-		public Keyword getGreaterThanSignKeyword_5_0() { return cGreaterThanSignKeyword_5_0; }
+		public Keyword getGreaterThanSignKeyword_0_0() { return cGreaterThanSignKeyword_0_0; }
 		
 		//(=> ('>' '>') | '>')
-		public Alternatives getAlternatives_5_1() { return cAlternatives_5_1; }
+		public Alternatives getAlternatives_0_1() { return cAlternatives_0_1; }
 		
 		//=> ('>' '>')
-		public Group getGroup_5_1_0() { return cGroup_5_1_0; }
+		public Group getGroup_0_1_0() { return cGroup_0_1_0; }
 		
 		//('>' '>')
-		public Group getGroup_5_1_0_0() { return cGroup_5_1_0_0; }
+		public Group getGroup_0_1_0_0() { return cGroup_0_1_0_0; }
 		
 		//'>'
-		public Keyword getGreaterThanSignKeyword_5_1_0_0_0() { return cGreaterThanSignKeyword_5_1_0_0_0; }
+		public Keyword getGreaterThanSignKeyword_0_1_0_0_0() { return cGreaterThanSignKeyword_0_1_0_0_0; }
 		
 		//'>'
-		public Keyword getGreaterThanSignKeyword_5_1_0_0_1() { return cGreaterThanSignKeyword_5_1_0_0_1; }
+		public Keyword getGreaterThanSignKeyword_0_1_0_0_1() { return cGreaterThanSignKeyword_0_1_0_0_1; }
 		
 		//'>'
-		public Keyword getGreaterThanSignKeyword_5_1_1() { return cGreaterThanSignKeyword_5_1_1; }
+		public Keyword getGreaterThanSignKeyword_0_1_1() { return cGreaterThanSignKeyword_0_1_1; }
 		
 		//'<' (=> ('<' '<') | '<' | '=>')
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_1() { return cGroup_1; }
 		
 		//'<'
-		public Keyword getLessThanSignKeyword_6_0() { return cLessThanSignKeyword_6_0; }
+		public Keyword getLessThanSignKeyword_1_0() { return cLessThanSignKeyword_1_0; }
 		
 		//(=> ('<' '<') | '<' | '=>')
-		public Alternatives getAlternatives_6_1() { return cAlternatives_6_1; }
+		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 		
 		//=> ('<' '<')
-		public Group getGroup_6_1_0() { return cGroup_6_1_0; }
+		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
 		
 		//('<' '<')
-		public Group getGroup_6_1_0_0() { return cGroup_6_1_0_0; }
+		public Group getGroup_1_1_0_0() { return cGroup_1_1_0_0; }
 		
 		//'<'
-		public Keyword getLessThanSignKeyword_6_1_0_0_0() { return cLessThanSignKeyword_6_1_0_0_0; }
+		public Keyword getLessThanSignKeyword_1_1_0_0_0() { return cLessThanSignKeyword_1_1_0_0_0; }
 		
 		//'<'
-		public Keyword getLessThanSignKeyword_6_1_0_0_1() { return cLessThanSignKeyword_6_1_0_0_1; }
+		public Keyword getLessThanSignKeyword_1_1_0_0_1() { return cLessThanSignKeyword_1_1_0_0_1; }
 		
 		//'<'
-		public Keyword getLessThanSignKeyword_6_1_1() { return cLessThanSignKeyword_6_1_1; }
+		public Keyword getLessThanSignKeyword_1_1_1() { return cLessThanSignKeyword_1_1_1; }
 		
 		//'=>'
-		public Keyword getEqualsSignGreaterThanSignKeyword_6_1_2() { return cEqualsSignGreaterThanSignKeyword_6_1_2; }
+		public Keyword getEqualsSignGreaterThanSignKeyword_1_1_2() { return cEqualsSignGreaterThanSignKeyword_1_1_2; }
 		
 		//'<>'
-		public Keyword getLessThanSignGreaterThanSignKeyword_7() { return cLessThanSignGreaterThanSignKeyword_7; }
+		public Keyword getLessThanSignGreaterThanSignKeyword_2() { return cLessThanSignGreaterThanSignKeyword_2; }
 		
 		//'?:'
-		public Keyword getQuestionMarkColonKeyword_8() { return cQuestionMarkColonKeyword_8; }
+		public Keyword getQuestionMarkColonKeyword_3() { return cQuestionMarkColonKeyword_3; }
 	}
 	public class PAdditiveExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PAdditiveExpression");
@@ -837,37 +804,41 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	public class PPostfixOperationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PPostfixOperation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cPMemberFeatureCallParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
-		private final Action cPPostfixOperationOperandAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
-		private final Assignment cFeatureAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
-		private final RuleCall cFeatureOpPostfixParserRuleCall_1_0_1_0 = (RuleCall)cFeatureAssignment_1_0_1.eContents().get(0);
+		private final Action cPPostfixOperationAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cPVarParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Group cGroup_2_0 = (Group)cGroup_2.eContents().get(0);
+		private final Action cPPostfixOperationOperandAction_2_0_0 = (Action)cGroup_2_0.eContents().get(0);
+		private final Assignment cFeatureAssignment_2_0_1 = (Assignment)cGroup_2_0.eContents().get(1);
+		private final RuleCall cFeatureOpPostfixParserRuleCall_2_0_1_0 = (RuleCall)cFeatureAssignment_2_0_1.eContents().get(0);
 		
 		//PPostfixOperation PExpression:
-		//	PMemberFeatureCall => ({PPostfixOperation.operand=current} feature=OpPostfix)?
+		//	{PPostfixOperation} PVar => ({PPostfixOperation.operand=current} feature=OpPostfix)?
 		@Override public ParserRule getRule() { return rule; }
 		
-		//PMemberFeatureCall => ({PPostfixOperation.operand=current} feature=OpPostfix)?
+		//{PPostfixOperation} PVar => ({PPostfixOperation.operand=current} feature=OpPostfix)?
 		public Group getGroup() { return cGroup; }
 		
-		//PMemberFeatureCall
-		public RuleCall getPMemberFeatureCallParserRuleCall_0() { return cPMemberFeatureCallParserRuleCall_0; }
+		//{PPostfixOperation}
+		public Action getPPostfixOperationAction_0() { return cPPostfixOperationAction_0; }
+		
+		//PVar
+		public RuleCall getPVarParserRuleCall_1() { return cPVarParserRuleCall_1; }
 		
 		//=> ({PPostfixOperation.operand=current} feature=OpPostfix)?
-		public Group getGroup_1() { return cGroup_1; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//({PPostfixOperation.operand=current} feature=OpPostfix)
-		public Group getGroup_1_0() { return cGroup_1_0; }
+		public Group getGroup_2_0() { return cGroup_2_0; }
 		
 		//{PPostfixOperation.operand=current}
-		public Action getPPostfixOperationOperandAction_1_0_0() { return cPPostfixOperationOperandAction_1_0_0; }
+		public Action getPPostfixOperationOperandAction_2_0_0() { return cPPostfixOperationOperandAction_2_0_0; }
 		
 		//feature=OpPostfix
-		public Assignment getFeatureAssignment_1_0_1() { return cFeatureAssignment_1_0_1; }
+		public Assignment getFeatureAssignment_2_0_1() { return cFeatureAssignment_2_0_1; }
 		
 		//OpPostfix
-		public RuleCall getFeatureOpPostfixParserRuleCall_1_0_1_0() { return cFeatureOpPostfixParserRuleCall_1_0_1_0; }
+		public RuleCall getFeatureOpPostfixParserRuleCall_2_0_1_0() { return cFeatureOpPostfixParserRuleCall_2_0_1_0; }
 	}
 	public class OpPostfixElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpPostfix");
@@ -888,56 +859,24 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//"--"
 		public Keyword getHyphenMinusHyphenMinusKeyword_1() { return cHyphenMinusHyphenMinusKeyword_1; }
 	}
-	public class PMemberFeatureCallElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PMemberFeatureCall");
+	public class PVarElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PVar");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cPPrimaryExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
-		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
-		private final Action cPAssignmentAssignableAction_1_0_0_0 = (Action)cGroup_1_0_0.eContents().get(0);
-		private final Assignment cFeatureAssignment_1_0_0_1 = (Assignment)cGroup_1_0_0.eContents().get(1);
-		private final RuleCall cFeatureFeatureCallIDParserRuleCall_1_0_0_1_0 = (RuleCall)cFeatureAssignment_1_0_0_1.eContents().get(0);
-		private final RuleCall cOpSingleAssignParserRuleCall_1_0_0_2 = (RuleCall)cGroup_1_0_0.eContents().get(2);
-		private final Assignment cValueAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cValuePAssignmentParserRuleCall_1_1_0 = (RuleCall)cValueAssignment_1_1.eContents().get(0);
+		private final RuleCall cVAR_STARTTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
-		//PMemberFeatureCall PExpression:
-		//	PPrimaryExpression (=> ({PAssignment.assignable=current} feature=FeatureCallID OpSingleAssign) value=PAssignment)
+		//PVar:
+		//	VAR_START ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//PPrimaryExpression (=> ({PAssignment.assignable=current} feature=FeatureCallID OpSingleAssign) value=PAssignment)
+		//VAR_START ID
 		public Group getGroup() { return cGroup; }
 		
-		//PPrimaryExpression
-		public RuleCall getPPrimaryExpressionParserRuleCall_0() { return cPPrimaryExpressionParserRuleCall_0; }
+		//VAR_START
+		public RuleCall getVAR_STARTTerminalRuleCall_0() { return cVAR_STARTTerminalRuleCall_0; }
 		
-		//(=> ({PAssignment.assignable=current} feature=FeatureCallID OpSingleAssign) value=PAssignment)
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//=> ({PAssignment.assignable=current} feature=FeatureCallID OpSingleAssign)
-		public Group getGroup_1_0() { return cGroup_1_0; }
-		
-		//({PAssignment.assignable=current} feature=FeatureCallID OpSingleAssign)
-		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
-		
-		//{PAssignment.assignable=current}
-		public Action getPAssignmentAssignableAction_1_0_0_0() { return cPAssignmentAssignableAction_1_0_0_0; }
-		
-		//feature=FeatureCallID
-		public Assignment getFeatureAssignment_1_0_0_1() { return cFeatureAssignment_1_0_0_1; }
-		
-		//FeatureCallID
-		public RuleCall getFeatureFeatureCallIDParserRuleCall_1_0_0_1_0() { return cFeatureFeatureCallIDParserRuleCall_1_0_0_1_0; }
-		
-		//OpSingleAssign
-		public RuleCall getOpSingleAssignParserRuleCall_1_0_0_2() { return cOpSingleAssignParserRuleCall_1_0_0_2; }
-		
-		//value=PAssignment
-		public Assignment getValueAssignment_1_1() { return cValueAssignment_1_1; }
-		
-		//PAssignment
-		public RuleCall getValuePAssignmentParserRuleCall_1_1_0() { return cValuePAssignmentParserRuleCall_1_1_0; }
+		//ID
+		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
 	}
 	public class PPrimaryExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PPrimaryExpression");
@@ -1225,23 +1164,19 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMyKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
 		private final Keyword cOurKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
 		private final Keyword cLocalKeyword_1_2 = (Keyword)cAlternatives_1.eContents().get(2);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Keyword cDollarSignKeyword_2_0 = (Keyword)cAlternatives_2.eContents().get(0);
-		private final Keyword cPercentSignKeyword_2_1 = (Keyword)cAlternatives_2.eContents().get(1);
-		private final Keyword cCommercialAtKeyword_2_2 = (Keyword)cAlternatives_2.eContents().get(2);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cNamePVarParserRuleCall_2_0_0 = (RuleCall)cNameAssignment_2_0.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Assignment cNameAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_3_0_0 = (RuleCall)cNameAssignment_3_0.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cEqualsSignKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cRightAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cRightPExpressionParserRuleCall_4_1_0 = (RuleCall)cRightAssignment_4_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cRightAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cRightPExpressionParserRuleCall_3_1_0 = (RuleCall)cRightAssignment_3_1.eContents().get(0);
 		
 		//PVariableDeclaration PExpression:
-		//	{PVariableDeclaration} ('my' | 'our' | 'local') ('$' | '%' | '@') => (name=ID) ('=' right=PExpression)?
+		//	{PVariableDeclaration} ('my' | 'our' | 'local') => (name=PVar) ('=' right=PExpression)?
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PVariableDeclaration} ('my' | 'our' | 'local') ('$' | '%' | '@') => (name=ID) ('=' right=PExpression)?
+		//{PVariableDeclaration} ('my' | 'our' | 'local') => (name=PVar) ('=' right=PExpression)?
 		public Group getGroup() { return cGroup; }
 		
 		//{PVariableDeclaration}
@@ -1259,101 +1194,26 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//'local'
 		public Keyword getLocalKeyword_1_2() { return cLocalKeyword_1_2; }
 		
-		//('$' | '%' | '@')
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		//=> (name=PVar)
+		public Group getGroup_2() { return cGroup_2; }
 		
-		//'$'
-		public Keyword getDollarSignKeyword_2_0() { return cDollarSignKeyword_2_0; }
+		//name=PVar
+		public Assignment getNameAssignment_2_0() { return cNameAssignment_2_0; }
 		
-		//'%'
-		public Keyword getPercentSignKeyword_2_1() { return cPercentSignKeyword_2_1; }
-		
-		//'@'
-		public Keyword getCommercialAtKeyword_2_2() { return cCommercialAtKeyword_2_2; }
-		
-		//=> (name=ID)
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//name=ID
-		public Assignment getNameAssignment_3_0() { return cNameAssignment_3_0; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_3_0_0() { return cNameIDTerminalRuleCall_3_0_0; }
+		//PVar
+		public RuleCall getNamePVarParserRuleCall_2_0_0() { return cNamePVarParserRuleCall_2_0_0; }
 		
 		//('=' right=PExpression)?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//'='
-		public Keyword getEqualsSignKeyword_4_0() { return cEqualsSignKeyword_4_0; }
+		public Keyword getEqualsSignKeyword_3_0() { return cEqualsSignKeyword_3_0; }
 		
 		//right=PExpression
-		public Assignment getRightAssignment_4_1() { return cRightAssignment_4_1; }
+		public Assignment getRightAssignment_3_1() { return cRightAssignment_3_1; }
 		
 		//PExpression
-		public RuleCall getRightPExpressionParserRuleCall_4_1_0() { return cRightPExpressionParserRuleCall_4_1_0; }
-	}
-	public class PFeatureCallElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PFeatureCall");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cPFeatureCallAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cFeatureAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cFeatureFeatureCallIDParserRuleCall_1_0 = (RuleCall)cFeatureAssignment_1.eContents().get(0);
-		private final Assignment cFeatureCallArgumentsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cFeatureCallArgumentsPClosureParserRuleCall_2_0 = (RuleCall)cFeatureCallArgumentsAssignment_2.eContents().get(0);
-		
-		//PFeatureCall PExpression:
-		//	{PFeatureCall} feature=FeatureCallID
-		//	featureCallArguments+=PClosure?
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{PFeatureCall} feature=FeatureCallID featureCallArguments+=PClosure?
-		public Group getGroup() { return cGroup; }
-		
-		//{PFeatureCall}
-		public Action getPFeatureCallAction_0() { return cPFeatureCallAction_0; }
-		
-		//feature=FeatureCallID
-		public Assignment getFeatureAssignment_1() { return cFeatureAssignment_1; }
-		
-		//FeatureCallID
-		public RuleCall getFeatureFeatureCallIDParserRuleCall_1_0() { return cFeatureFeatureCallIDParserRuleCall_1_0; }
-		
-		//featureCallArguments+=PClosure?
-		public Assignment getFeatureCallArgumentsAssignment_2() { return cFeatureCallArgumentsAssignment_2; }
-		
-		//PClosure
-		public RuleCall getFeatureCallArgumentsPClosureParserRuleCall_2_0() { return cFeatureCallArgumentsPClosureParserRuleCall_2_0; }
-	}
-	public class FeatureCallIDElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.FeatureCallID");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Keyword cDollarSignKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
-		private final Keyword cPercentSignKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
-		private final Keyword cCommercialAtKeyword_0_2 = (Keyword)cAlternatives_0.eContents().get(2);
-		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		
-		//FeatureCallID:
-		//	('$' | '%' | '@') ID;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//('$' | '%' | '@') ID
-		public Group getGroup() { return cGroup; }
-		
-		//('$' | '%' | '@')
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
-		
-		//'$'
-		public Keyword getDollarSignKeyword_0_0() { return cDollarSignKeyword_0_0; }
-		
-		//'%'
-		public Keyword getPercentSignKeyword_0_1() { return cPercentSignKeyword_0_1; }
-		
-		//'@'
-		public Keyword getCommercialAtKeyword_0_2() { return cCommercialAtKeyword_0_2; }
-		
-		//ID
-		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
+		public RuleCall getRightPExpressionParserRuleCall_3_1_0() { return cRightPExpressionParserRuleCall_3_1_0; }
 	}
 	public class PConstructorCallElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PConstructorCall");
@@ -1550,15 +1410,17 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cHEXTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cBINTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cOCTTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cINTTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//Number hidden():
 		//	HEX
 		//	| BIN
+		//	| OCT
 		//	| INT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//HEX | BIN | INT
+		//HEX | BIN | OCT | INT
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//HEX
@@ -1567,8 +1429,11 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//BIN
 		public RuleCall getBINTerminalRuleCall_1() { return cBINTerminalRuleCall_1; }
 		
+		//OCT
+		public RuleCall getOCTTerminalRuleCall_2() { return cOCTTerminalRuleCall_2; }
+		
 		//INT
-		public RuleCall getINTTerminalRuleCall_2() { return cINTTerminalRuleCall_2; }
+		public RuleCall getINTTerminalRuleCall_3() { return cINTTerminalRuleCall_3; }
 	}
 	
 	
@@ -1594,7 +1459,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	private final OpUnaryElements pOpUnary;
 	private final PPostfixOperationElements pPPostfixOperation;
 	private final OpPostfixElements pOpPostfix;
-	private final PMemberFeatureCallElements pPMemberFeatureCall;
+	private final PVarElements pPVar;
 	private final PPrimaryExpressionElements pPPrimaryExpression;
 	private final PLiteralElements pPLiteral;
 	private final PClosureElements pPClosure;
@@ -1604,8 +1469,6 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	private final PBlockExpressionElements pPBlockExpression;
 	private final PExpressionOrVarDeclarationElements pPExpressionOrVarDeclaration;
 	private final PVariableDeclarationElements pPVariableDeclaration;
-	private final PFeatureCallElements pPFeatureCall;
-	private final FeatureCallIDElements pFeatureCallID;
 	private final PConstructorCallElements pPConstructorCall;
 	private final PNumberLiteralElements pPNumberLiteral;
 	private final PNullLiteralElements pPNullLiteral;
@@ -1613,8 +1476,10 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	private final PStringLiteralElements pPStringLiteral;
 	private final QualifiedNameElements pQualifiedName;
 	private final NumberElements pNumber;
+	private final TerminalRule tVAR_START;
 	private final TerminalRule tID;
 	private final TerminalRule tINT;
+	private final TerminalRule tOCT;
 	private final TerminalRule tHEX;
 	private final TerminalRule tBIN;
 	private final TerminalRule tSTRING;
@@ -1649,7 +1514,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pOpUnary = new OpUnaryElements();
 		this.pPPostfixOperation = new PPostfixOperationElements();
 		this.pOpPostfix = new OpPostfixElements();
-		this.pPMemberFeatureCall = new PMemberFeatureCallElements();
+		this.pPVar = new PVarElements();
 		this.pPPrimaryExpression = new PPrimaryExpressionElements();
 		this.pPLiteral = new PLiteralElements();
 		this.pPClosure = new PClosureElements();
@@ -1659,8 +1524,6 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPBlockExpression = new PBlockExpressionElements();
 		this.pPExpressionOrVarDeclaration = new PExpressionOrVarDeclarationElements();
 		this.pPVariableDeclaration = new PVariableDeclarationElements();
-		this.pPFeatureCall = new PFeatureCallElements();
-		this.pFeatureCallID = new FeatureCallIDElements();
 		this.pPConstructorCall = new PConstructorCallElements();
 		this.pPNumberLiteral = new PNumberLiteralElements();
 		this.pPNullLiteral = new PNullLiteralElements();
@@ -1668,8 +1531,10 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPStringLiteral = new PStringLiteralElements();
 		this.pQualifiedName = new QualifiedNameElements();
 		this.pNumber = new NumberElements();
+		this.tVAR_START = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.VAR_START");
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.ID");
 		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.INT");
+		this.tOCT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OCT");
 		this.tHEX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.HEX");
 		this.tBIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.BIN");
 		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.STRING");
@@ -1712,8 +1577,8 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PAssignment PExpression:
-	//	{PAssignment} feature=FeatureCallID OpSingleAssign value=PAssignment | POrExpression (=>
-	//	({PBinaryOperation.leftOperand=current} feature=OpMultiAssign) rightOperand=PAssignment)?
+	//	{PAssignment} var=PVar OpSingleAssign value=PAssignment | POrExpression (=> ({PBinaryOperation.leftOperand=current}
+	//	feature=OpMultiAssign) rightOperand=PAssignment)?
 	public PAssignmentElements getPAssignmentAccess() {
 		return pPAssignment;
 	}
@@ -1837,12 +1702,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//OpOther:
-	//	'->'
-	//	| '..<'
-	//	| '>' '..'
-	//	| '..'
-	//	| '=>'
-	//	| '>' (=> ('>' '>') | '>') | '<' (=> ('<' '<') | '<' | '=>') | '<>'
+	//	'>' (=> ('>' '>') | '>') | '<' (=> ('<' '<') | '<' | '=>') | '<>'
 	//	| '?:';
 	public OpOtherElements getOpOtherAccess() {
 		return pOpOther;
@@ -1914,7 +1774,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PPostfixOperation PExpression:
-	//	PMemberFeatureCall => ({PPostfixOperation.operand=current} feature=OpPostfix)?
+	//	{PPostfixOperation} PVar => ({PPostfixOperation.operand=current} feature=OpPostfix)?
 	public PPostfixOperationElements getPPostfixOperationAccess() {
 		return pPPostfixOperation;
 	}
@@ -1933,14 +1793,14 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		return getOpPostfixAccess().getRule();
 	}
 	
-	//PMemberFeatureCall PExpression:
-	//	PPrimaryExpression (=> ({PAssignment.assignable=current} feature=FeatureCallID OpSingleAssign) value=PAssignment)
-	public PMemberFeatureCallElements getPMemberFeatureCallAccess() {
-		return pPMemberFeatureCall;
+	//PVar:
+	//	VAR_START ID;
+	public PVarElements getPVarAccess() {
+		return pPVar;
 	}
 	
-	public ParserRule getPMemberFeatureCallRule() {
-		return getPMemberFeatureCallAccess().getRule();
+	public ParserRule getPVarRule() {
+		return getPVarAccess().getRule();
 	}
 	
 	//PPrimaryExpression PExpression:
@@ -2030,34 +1890,13 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PVariableDeclaration PExpression:
-	//	{PVariableDeclaration} ('my' | 'our' | 'local') ('$' | '%' | '@') => (name=ID) ('=' right=PExpression)?
+	//	{PVariableDeclaration} ('my' | 'our' | 'local') => (name=PVar) ('=' right=PExpression)?
 	public PVariableDeclarationElements getPVariableDeclarationAccess() {
 		return pPVariableDeclaration;
 	}
 	
 	public ParserRule getPVariableDeclarationRule() {
 		return getPVariableDeclarationAccess().getRule();
-	}
-	
-	//PFeatureCall PExpression:
-	//	{PFeatureCall} feature=FeatureCallID
-	//	featureCallArguments+=PClosure?
-	public PFeatureCallElements getPFeatureCallAccess() {
-		return pPFeatureCall;
-	}
-	
-	public ParserRule getPFeatureCallRule() {
-		return getPFeatureCallAccess().getRule();
-	}
-	
-	//FeatureCallID:
-	//	('$' | '%' | '@') ID;
-	public FeatureCallIDElements getFeatureCallIDAccess() {
-		return pFeatureCallID;
-	}
-	
-	public ParserRule getFeatureCallIDRule() {
-		return getFeatureCallIDAccess().getRule();
 	}
 	
 	//PConstructorCall PExpression:
@@ -2126,6 +1965,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	//Number hidden():
 	//	HEX
 	//	| BIN
+	//	| OCT
 	//	| INT;
 	public NumberElements getNumberAccess() {
 		return pNumber;
@@ -2135,16 +1975,28 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		return getNumberAccess().getRule();
 	}
 	
+	//terminal VAR_START:
+	//	('@' | '$' | '%') ('@' | '$' | '%' | '*' | '#')*;
+	public TerminalRule getVAR_STARTRule() {
+		return tVAR_START;
+	}
+	
 	//terminal ID:
-	//	'^'? ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
+	//	('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
 	public TerminalRule getIDRule() {
 		return tID;
 	}
 	
 	//terminal INT returns ecore::EInt:
-	//	'0'..'9'+;
+	//	'1'..'9' ('0'..'9' | '_')*;
 	public TerminalRule getINTRule() {
 		return tINT;
+	}
+	
+	//terminal OCT:
+	//	'0' ('0'..'7' | '_')+;
+	public TerminalRule getOCTRule() {
+		return tOCT;
 	}
 	
 	//terminal HEX:
@@ -2167,7 +2019,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal SL_COMMENT:
-	//	'//' !('\n' | '\r')* ('\r'? '\n')?;
+	//	'#' !('\n' | '\r')* ('\r'? '\n')?;
 	public TerminalRule getSL_COMMENTRule() {
 		return tSL_COMMENT;
 	}

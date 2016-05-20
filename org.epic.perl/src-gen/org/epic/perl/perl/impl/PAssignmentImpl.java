@@ -23,9 +23,8 @@ import org.epic.perl.perl.PerlPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.epic.perl.perl.impl.PAssignmentImpl#getFeature <em>Feature</em>}</li>
+ *   <li>{@link org.epic.perl.perl.impl.PAssignmentImpl#getVar <em>Var</em>}</li>
  *   <li>{@link org.epic.perl.perl.impl.PAssignmentImpl#getValue <em>Value</em>}</li>
- *   <li>{@link org.epic.perl.perl.impl.PAssignmentImpl#getAssignable <em>Assignable</em>}</li>
  * </ul>
  *
  * @generated
@@ -33,24 +32,24 @@ import org.epic.perl.perl.PerlPackage;
 public class PAssignmentImpl extends PExpressionImpl implements PAssignment
 {
   /**
-   * The default value of the '{@link #getFeature() <em>Feature</em>}' attribute.
+   * The default value of the '{@link #getVar() <em>Var</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFeature()
+   * @see #getVar()
    * @generated
    * @ordered
    */
-  protected static final String FEATURE_EDEFAULT = null;
+  protected static final String VAR_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getFeature() <em>Feature</em>}' attribute.
+   * The cached value of the '{@link #getVar() <em>Var</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFeature()
+   * @see #getVar()
    * @generated
    * @ordered
    */
-  protected String feature = FEATURE_EDEFAULT;
+  protected String var = VAR_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -61,16 +60,6 @@ public class PAssignmentImpl extends PExpressionImpl implements PAssignment
    * @ordered
    */
   protected PExpression value;
-
-  /**
-   * The cached value of the '{@link #getAssignable() <em>Assignable</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAssignable()
-   * @generated
-   * @ordered
-   */
-  protected PExpression assignable;
 
   /**
    * <!-- begin-user-doc -->
@@ -98,9 +87,9 @@ public class PAssignmentImpl extends PExpressionImpl implements PAssignment
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getFeature()
+  public String getVar()
   {
-    return feature;
+    return var;
   }
 
   /**
@@ -108,12 +97,12 @@ public class PAssignmentImpl extends PExpressionImpl implements PAssignment
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFeature(String newFeature)
+  public void setVar(String newVar)
   {
-    String oldFeature = feature;
-    feature = newFeature;
+    String oldVar = var;
+    var = newVar;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PerlPackage.PASSIGNMENT__FEATURE, oldFeature, feature));
+      eNotify(new ENotificationImpl(this, Notification.SET, PerlPackage.PASSIGNMENT__VAR, oldVar, var));
   }
 
   /**
@@ -169,54 +158,6 @@ public class PAssignmentImpl extends PExpressionImpl implements PAssignment
    * <!-- end-user-doc -->
    * @generated
    */
-  public PExpression getAssignable()
-  {
-    return assignable;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAssignable(PExpression newAssignable, NotificationChain msgs)
-  {
-    PExpression oldAssignable = assignable;
-    assignable = newAssignable;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PerlPackage.PASSIGNMENT__ASSIGNABLE, oldAssignable, newAssignable);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAssignable(PExpression newAssignable)
-  {
-    if (newAssignable != assignable)
-    {
-      NotificationChain msgs = null;
-      if (assignable != null)
-        msgs = ((InternalEObject)assignable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PerlPackage.PASSIGNMENT__ASSIGNABLE, null, msgs);
-      if (newAssignable != null)
-        msgs = ((InternalEObject)newAssignable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PerlPackage.PASSIGNMENT__ASSIGNABLE, null, msgs);
-      msgs = basicSetAssignable(newAssignable, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PerlPackage.PASSIGNMENT__ASSIGNABLE, newAssignable, newAssignable));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -224,8 +165,6 @@ public class PAssignmentImpl extends PExpressionImpl implements PAssignment
     {
       case PerlPackage.PASSIGNMENT__VALUE:
         return basicSetValue(null, msgs);
-      case PerlPackage.PASSIGNMENT__ASSIGNABLE:
-        return basicSetAssignable(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -240,12 +179,10 @@ public class PAssignmentImpl extends PExpressionImpl implements PAssignment
   {
     switch (featureID)
     {
-      case PerlPackage.PASSIGNMENT__FEATURE:
-        return getFeature();
+      case PerlPackage.PASSIGNMENT__VAR:
+        return getVar();
       case PerlPackage.PASSIGNMENT__VALUE:
         return getValue();
-      case PerlPackage.PASSIGNMENT__ASSIGNABLE:
-        return getAssignable();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -260,14 +197,11 @@ public class PAssignmentImpl extends PExpressionImpl implements PAssignment
   {
     switch (featureID)
     {
-      case PerlPackage.PASSIGNMENT__FEATURE:
-        setFeature((String)newValue);
+      case PerlPackage.PASSIGNMENT__VAR:
+        setVar((String)newValue);
         return;
       case PerlPackage.PASSIGNMENT__VALUE:
         setValue((PExpression)newValue);
-        return;
-      case PerlPackage.PASSIGNMENT__ASSIGNABLE:
-        setAssignable((PExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -283,14 +217,11 @@ public class PAssignmentImpl extends PExpressionImpl implements PAssignment
   {
     switch (featureID)
     {
-      case PerlPackage.PASSIGNMENT__FEATURE:
-        setFeature(FEATURE_EDEFAULT);
+      case PerlPackage.PASSIGNMENT__VAR:
+        setVar(VAR_EDEFAULT);
         return;
       case PerlPackage.PASSIGNMENT__VALUE:
         setValue((PExpression)null);
-        return;
-      case PerlPackage.PASSIGNMENT__ASSIGNABLE:
-        setAssignable((PExpression)null);
         return;
     }
     super.eUnset(featureID);
@@ -306,12 +237,10 @@ public class PAssignmentImpl extends PExpressionImpl implements PAssignment
   {
     switch (featureID)
     {
-      case PerlPackage.PASSIGNMENT__FEATURE:
-        return FEATURE_EDEFAULT == null ? feature != null : !FEATURE_EDEFAULT.equals(feature);
+      case PerlPackage.PASSIGNMENT__VAR:
+        return VAR_EDEFAULT == null ? var != null : !VAR_EDEFAULT.equals(var);
       case PerlPackage.PASSIGNMENT__VALUE:
         return value != null;
-      case PerlPackage.PASSIGNMENT__ASSIGNABLE:
-        return assignable != null;
     }
     return super.eIsSet(featureID);
   }
@@ -327,8 +256,8 @@ public class PAssignmentImpl extends PExpressionImpl implements PAssignment
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (feature: ");
-    result.append(feature);
+    result.append(" (var: ");
+    result.append(var);
     result.append(')');
     return result.toString();
   }

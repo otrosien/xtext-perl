@@ -74,7 +74,6 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
       case PerlPackage.PBLOCK_EXPRESSION: return createPBlockExpression();
       case PerlPackage.PIF_EXPRESSION: return createPIfExpression();
       case PerlPackage.PVARIABLE_DECLARATION: return createPVariableDeclaration();
-      case PerlPackage.PFEATURE_CALL: return createPFeatureCall();
       case PerlPackage.PCONSTRUCTOR_CALL: return createPConstructorCall();
       case PerlPackage.PNUMBER_LITERAL: return createPNumberLiteral();
       case PerlPackage.PNULL_LITERAL: return createPNullLiteral();
@@ -182,17 +181,6 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
   {
     PVariableDeclarationImpl pVariableDeclaration = new PVariableDeclarationImpl();
     return pVariableDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PFeatureCall createPFeatureCall()
-  {
-    PFeatureCallImpl pFeatureCall = new PFeatureCallImpl();
-    return pFeatureCall;
   }
 
   /**

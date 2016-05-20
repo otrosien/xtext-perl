@@ -32,12 +32,12 @@ public interface PPostfixOperation extends PExpression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Operand</em>' containment reference.
-   * @see #setOperand(PExpression)
+   * @see #setOperand(PPostfixOperation)
    * @see org.epic.perl.perl.PerlPackage#getPPostfixOperation_Operand()
    * @model containment="true"
    * @generated
    */
-  PExpression getOperand();
+  PPostfixOperation getOperand();
 
   /**
    * Sets the value of the '{@link org.epic.perl.perl.PPostfixOperation#getOperand <em>Operand</em>}' containment reference.
@@ -47,7 +47,7 @@ public interface PPostfixOperation extends PExpression
    * @see #getOperand()
    * @generated
    */
-  void setOperand(PExpression value);
+  void setOperand(PPostfixOperation value);
 
   /**
    * Returns the value of the '<em><b>Feature</b></em>' attribute.

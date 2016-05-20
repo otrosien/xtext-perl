@@ -22,32 +22,28 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalPerlParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_HEX", "RULE_BIN", "RULE_INT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'='", "'+='", "'-='", "'*='", "'/='", "'%='", "'**='", "'<'", "'>'", "'>='", "'||'", "'&&'", "'=='", "'!='", "'eq'", "'ne'", "'->'", "'..<'", "'..'", "'=>'", "'<>'", "'?:'", "'+'", "'-'", "'*'", "'**'", "'/'", "'%'", "'!'", "'++'", "'--'", "'sub'", "'{'", "'}'", "';'", "'('", "')'", "'if'", "'else'", "'my'", "'our'", "'local'", "'$'", "'@'", "'undef'", "'return'", "'::'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_VAR_START", "RULE_ID", "RULE_STRING", "RULE_HEX", "RULE_BIN", "RULE_OCT", "RULE_INT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'='", "'+='", "'-='", "'*='", "'/='", "'%='", "'**='", "'<'", "'>'", "'>='", "'||'", "'&&'", "'=='", "'!='", "'eq'", "'ne'", "'=>'", "'<>'", "'?:'", "'+'", "'-'", "'*'", "'**'", "'/'", "'%'", "'!'", "'++'", "'--'", "'sub'", "'{'", "'}'", "';'", "'('", "')'", "'if'", "'else'", "'my'", "'our'", "'local'", "'undef'", "'return'", "'::'"
     };
-    public static final int RULE_HEX=6;
+    public static final int RULE_HEX=7;
     public static final int T__50=50;
+    public static final int RULE_OCT=9;
     public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
     public static final int T__55=55;
-    public static final int T__12=12;
-    public static final int T__56=56;
-    public static final int T__13=13;
-    public static final int T__57=57;
     public static final int T__14=14;
-    public static final int T__58=58;
     public static final int T__51=51;
     public static final int T__52=52;
     public static final int T__53=53;
-    public static final int RULE_BIN=7;
+    public static final int RULE_BIN=8;
     public static final int T__54=54;
-    public static final int RULE_ID=4;
+    public static final int RULE_ID=5;
     public static final int T__26=26;
     public static final int T__27=27;
     public static final int T__28=28;
-    public static final int RULE_INT=8;
+    public static final int RULE_INT=10;
     public static final int T__29=29;
     public static final int T__22=22;
     public static final int T__23=23;
@@ -55,8 +51,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
     public static final int T__25=25;
     public static final int T__20=20;
     public static final int T__21=21;
-    public static final int RULE_STRING=5;
-    public static final int RULE_SL_COMMENT=9;
+    public static final int RULE_STRING=6;
+    public static final int RULE_SL_COMMENT=11;
     public static final int T__37=37;
     public static final int T__38=38;
     public static final int T__39=39;
@@ -68,8 +64,9 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
     public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
-    public static final int RULE_WS=10;
-    public static final int RULE_ANY_OTHER=11;
+    public static final int RULE_WS=12;
+    public static final int RULE_ANY_OTHER=13;
+    public static final int RULE_VAR_START=4;
     public static final int T__48=48;
     public static final int T__49=49;
     public static final int T__44=44;
@@ -253,11 +250,11 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePAssignment"
-    // InternalPerl.g:96:1: rulePAssignment returns [EObject current=null] : ( ( () ( (lv_feature_1_0= ruleFeatureCallID ) ) ruleOpSingleAssign ( (lv_value_3_0= rulePAssignment ) ) ) | (this_POrExpression_4= rulePOrExpression ( ( ( ( () ( ( ruleOpMultiAssign ) ) ) )=> ( () ( (lv_feature_6_0= ruleOpMultiAssign ) ) ) ) ( (lv_rightOperand_7_0= rulePAssignment ) ) )? ) ) ;
+    // InternalPerl.g:96:1: rulePAssignment returns [EObject current=null] : ( ( () ( (lv_var_1_0= rulePVar ) ) ruleOpSingleAssign ( (lv_value_3_0= rulePAssignment ) ) ) | (this_POrExpression_4= rulePOrExpression ( ( ( ( () ( ( ruleOpMultiAssign ) ) ) )=> ( () ( (lv_feature_6_0= ruleOpMultiAssign ) ) ) ) ( (lv_rightOperand_7_0= rulePAssignment ) ) )? ) ) ;
     public final EObject rulePAssignment() throws RecognitionException {
         EObject current = null;
 
-        AntlrDatatypeRuleToken lv_feature_1_0 = null;
+        AntlrDatatypeRuleToken lv_var_1_0 = null;
 
         EObject lv_value_3_0 = null;
 
@@ -272,17 +269,17 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:102:2: ( ( ( () ( (lv_feature_1_0= ruleFeatureCallID ) ) ruleOpSingleAssign ( (lv_value_3_0= rulePAssignment ) ) ) | (this_POrExpression_4= rulePOrExpression ( ( ( ( () ( ( ruleOpMultiAssign ) ) ) )=> ( () ( (lv_feature_6_0= ruleOpMultiAssign ) ) ) ) ( (lv_rightOperand_7_0= rulePAssignment ) ) )? ) ) )
-            // InternalPerl.g:103:2: ( ( () ( (lv_feature_1_0= ruleFeatureCallID ) ) ruleOpSingleAssign ( (lv_value_3_0= rulePAssignment ) ) ) | (this_POrExpression_4= rulePOrExpression ( ( ( ( () ( ( ruleOpMultiAssign ) ) ) )=> ( () ( (lv_feature_6_0= ruleOpMultiAssign ) ) ) ) ( (lv_rightOperand_7_0= rulePAssignment ) ) )? ) )
+            // InternalPerl.g:102:2: ( ( ( () ( (lv_var_1_0= rulePVar ) ) ruleOpSingleAssign ( (lv_value_3_0= rulePAssignment ) ) ) | (this_POrExpression_4= rulePOrExpression ( ( ( ( () ( ( ruleOpMultiAssign ) ) ) )=> ( () ( (lv_feature_6_0= ruleOpMultiAssign ) ) ) ) ( (lv_rightOperand_7_0= rulePAssignment ) ) )? ) ) )
+            // InternalPerl.g:103:2: ( ( () ( (lv_var_1_0= rulePVar ) ) ruleOpSingleAssign ( (lv_value_3_0= rulePAssignment ) ) ) | (this_POrExpression_4= rulePOrExpression ( ( ( ( () ( ( ruleOpMultiAssign ) ) ) )=> ( () ( (lv_feature_6_0= ruleOpMultiAssign ) ) ) ) ( (lv_rightOperand_7_0= rulePAssignment ) ) )? ) )
             {
-            // InternalPerl.g:103:2: ( ( () ( (lv_feature_1_0= ruleFeatureCallID ) ) ruleOpSingleAssign ( (lv_value_3_0= rulePAssignment ) ) ) | (this_POrExpression_4= rulePOrExpression ( ( ( ( () ( ( ruleOpMultiAssign ) ) ) )=> ( () ( (lv_feature_6_0= ruleOpMultiAssign ) ) ) ) ( (lv_rightOperand_7_0= rulePAssignment ) ) )? ) )
+            // InternalPerl.g:103:2: ( ( () ( (lv_var_1_0= rulePVar ) ) ruleOpSingleAssign ( (lv_value_3_0= rulePAssignment ) ) ) | (this_POrExpression_4= rulePOrExpression ( ( ( ( () ( ( ruleOpMultiAssign ) ) ) )=> ( () ( (lv_feature_6_0= ruleOpMultiAssign ) ) ) ) ( (lv_rightOperand_7_0= rulePAssignment ) ) )? ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==39||(LA2_0>=54 && LA2_0<=55)) ) {
+            if ( (LA2_0==RULE_VAR_START) ) {
                 alt2=1;
             }
-            else if ( ((LA2_0>=34 && LA2_0<=35)||LA2_0==40) ) {
+            else if ( ((LA2_0>=33 && LA2_0<=34)||LA2_0==39) ) {
                 alt2=2;
             }
             else {
@@ -294,10 +291,10 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
             }
             switch (alt2) {
                 case 1 :
-                    // InternalPerl.g:104:3: ( () ( (lv_feature_1_0= ruleFeatureCallID ) ) ruleOpSingleAssign ( (lv_value_3_0= rulePAssignment ) ) )
+                    // InternalPerl.g:104:3: ( () ( (lv_var_1_0= rulePVar ) ) ruleOpSingleAssign ( (lv_value_3_0= rulePAssignment ) ) )
                     {
-                    // InternalPerl.g:104:3: ( () ( (lv_feature_1_0= ruleFeatureCallID ) ) ruleOpSingleAssign ( (lv_value_3_0= rulePAssignment ) ) )
-                    // InternalPerl.g:105:4: () ( (lv_feature_1_0= ruleFeatureCallID ) ) ruleOpSingleAssign ( (lv_value_3_0= rulePAssignment ) )
+                    // InternalPerl.g:104:3: ( () ( (lv_var_1_0= rulePVar ) ) ruleOpSingleAssign ( (lv_value_3_0= rulePAssignment ) ) )
+                    // InternalPerl.g:105:4: () ( (lv_var_1_0= rulePVar ) ) ruleOpSingleAssign ( (lv_value_3_0= rulePAssignment ) )
                     {
                     // InternalPerl.g:105:4: ()
                     // InternalPerl.g:106:5: 
@@ -312,19 +309,19 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalPerl.g:112:4: ( (lv_feature_1_0= ruleFeatureCallID ) )
-                    // InternalPerl.g:113:5: (lv_feature_1_0= ruleFeatureCallID )
+                    // InternalPerl.g:112:4: ( (lv_var_1_0= rulePVar ) )
+                    // InternalPerl.g:113:5: (lv_var_1_0= rulePVar )
                     {
-                    // InternalPerl.g:113:5: (lv_feature_1_0= ruleFeatureCallID )
-                    // InternalPerl.g:114:6: lv_feature_1_0= ruleFeatureCallID
+                    // InternalPerl.g:113:5: (lv_var_1_0= rulePVar )
+                    // InternalPerl.g:114:6: lv_var_1_0= rulePVar
                     {
                     if ( state.backtracking==0 ) {
 
-                      						newCompositeNode(grammarAccess.getPAssignmentAccess().getFeatureFeatureCallIDParserRuleCall_0_1_0());
+                      						newCompositeNode(grammarAccess.getPAssignmentAccess().getVarPVarParserRuleCall_0_1_0());
                       					
                     }
                     pushFollow(FOLLOW_3);
-                    lv_feature_1_0=ruleFeatureCallID();
+                    lv_var_1_0=rulePVar();
 
                     state._fsp--;
                     if (state.failed) return current;
@@ -335,9 +332,9 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                       						}
                       						set(
                       							current,
-                      							"feature",
-                      							lv_feature_1_0,
-                      							"org.epic.perl.Perl.FeatureCallID");
+                      							"var",
+                      							lv_var_1_0,
+                      							"org.epic.perl.Perl.PVar");
                       						afterParserOrEnumRuleCall();
                       					
                     }
@@ -617,7 +614,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
             // InternalPerl.g:247:2: (kw= '=' )
             // InternalPerl.g:248:2: kw= '='
             {
-            kw=(Token)match(input,12,FOLLOW_2); if (state.failed) return current;
+            kw=(Token)match(input,14,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		current.merge(kw);
@@ -702,42 +699,42 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
             // InternalPerl.g:270:2: (kw= '+=' | kw= '-=' | kw= '*=' | kw= '/=' | kw= '%=' | kw= '**=' | (kw= '<' kw= '<' kw= '=' ) | (kw= '>' (kw= '>' )? kw= '>=' ) )
             int alt4=8;
             switch ( input.LA(1) ) {
-            case 13:
+            case 15:
                 {
                 alt4=1;
                 }
                 break;
-            case 14:
+            case 16:
                 {
                 alt4=2;
                 }
                 break;
-            case 15:
+            case 17:
                 {
                 alt4=3;
                 }
                 break;
-            case 16:
+            case 18:
                 {
                 alt4=4;
                 }
                 break;
-            case 17:
+            case 19:
                 {
                 alt4=5;
                 }
                 break;
-            case 18:
+            case 20:
                 {
                 alt4=6;
                 }
                 break;
-            case 19:
+            case 21:
                 {
                 alt4=7;
                 }
                 break;
-            case 20:
+            case 22:
                 {
                 alt4=8;
                 }
@@ -754,7 +751,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalPerl.g:271:3: kw= '+='
                     {
-                    kw=(Token)match(input,13,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,15,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -767,7 +764,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // InternalPerl.g:277:3: kw= '-='
                     {
-                    kw=(Token)match(input,14,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,16,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -780,7 +777,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // InternalPerl.g:283:3: kw= '*='
                     {
-                    kw=(Token)match(input,15,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,17,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -793,7 +790,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // InternalPerl.g:289:3: kw= '/='
                     {
-                    kw=(Token)match(input,16,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,18,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -806,7 +803,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 case 5 :
                     // InternalPerl.g:295:3: kw= '%='
                     {
-                    kw=(Token)match(input,17,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,19,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -819,7 +816,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 case 6 :
                     // InternalPerl.g:301:3: kw= '**='
                     {
-                    kw=(Token)match(input,18,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,20,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -835,21 +832,21 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     // InternalPerl.g:307:3: (kw= '<' kw= '<' kw= '=' )
                     // InternalPerl.g:308:4: kw= '<' kw= '<' kw= '='
                     {
-                    kw=(Token)match(input,19,FOLLOW_6); if (state.failed) return current;
+                    kw=(Token)match(input,21,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current.merge(kw);
                       				newLeafNode(kw, grammarAccess.getOpMultiAssignAccess().getLessThanSignKeyword_6_0());
                       			
                     }
-                    kw=(Token)match(input,19,FOLLOW_3); if (state.failed) return current;
+                    kw=(Token)match(input,21,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current.merge(kw);
                       				newLeafNode(kw, grammarAccess.getOpMultiAssignAccess().getLessThanSignKeyword_6_1());
                       			
                     }
-                    kw=(Token)match(input,12,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,14,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current.merge(kw);
@@ -868,7 +865,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     // InternalPerl.g:325:3: (kw= '>' (kw= '>' )? kw= '>=' )
                     // InternalPerl.g:326:4: kw= '>' (kw= '>' )? kw= '>='
                     {
-                    kw=(Token)match(input,20,FOLLOW_7); if (state.failed) return current;
+                    kw=(Token)match(input,22,FOLLOW_7); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current.merge(kw);
@@ -879,14 +876,14 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     int alt3=2;
                     int LA3_0 = input.LA(1);
 
-                    if ( (LA3_0==20) ) {
+                    if ( (LA3_0==22) ) {
                         alt3=1;
                     }
                     switch (alt3) {
                         case 1 :
                             // InternalPerl.g:332:5: kw= '>'
                             {
-                            kw=(Token)match(input,20,FOLLOW_8); if (state.failed) return current;
+                            kw=(Token)match(input,22,FOLLOW_8); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               					current.merge(kw);
@@ -899,7 +896,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    kw=(Token)match(input,21,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,23,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current.merge(kw);
@@ -1020,7 +1017,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( (LA5_0==22) && (synpred2_InternalPerl())) {
+                if ( (LA5_0==24) && (synpred2_InternalPerl())) {
                     alt5=1;
                 }
 
@@ -1211,7 +1208,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
             // InternalPerl.g:449:2: (kw= '||' )
             // InternalPerl.g:450:2: kw= '||'
             {
-            kw=(Token)match(input,22,FOLLOW_2); if (state.failed) return current;
+            kw=(Token)match(input,24,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		current.merge(kw);
@@ -1323,7 +1320,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( (LA6_0==23) && (synpred3_InternalPerl())) {
+                if ( (LA6_0==25) && (synpred3_InternalPerl())) {
                     alt6=1;
                 }
 
@@ -1514,7 +1511,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
             // InternalPerl.g:559:2: (kw= '&&' )
             // InternalPerl.g:560:2: kw= '&&'
             {
-            kw=(Token)match(input,23,FOLLOW_2); if (state.failed) return current;
+            kw=(Token)match(input,25,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		current.merge(kw);
@@ -1626,16 +1623,16 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 int alt7=2;
                 int LA7_0 = input.LA(1);
 
-                if ( (LA7_0==24) && (synpred4_InternalPerl())) {
-                    alt7=1;
-                }
-                else if ( (LA7_0==25) && (synpred4_InternalPerl())) {
-                    alt7=1;
-                }
-                else if ( (LA7_0==26) && (synpred4_InternalPerl())) {
+                if ( (LA7_0==26) && (synpred4_InternalPerl())) {
                     alt7=1;
                 }
                 else if ( (LA7_0==27) && (synpred4_InternalPerl())) {
+                    alt7=1;
+                }
+                else if ( (LA7_0==28) && (synpred4_InternalPerl())) {
+                    alt7=1;
+                }
+                else if ( (LA7_0==29) && (synpred4_InternalPerl())) {
                     alt7=1;
                 }
 
@@ -1829,22 +1826,22 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
             // InternalPerl.g:670:2: (kw= '==' | kw= '!=' | kw= 'eq' | kw= 'ne' )
             int alt8=4;
             switch ( input.LA(1) ) {
-            case 24:
+            case 26:
                 {
                 alt8=1;
                 }
                 break;
-            case 25:
+            case 27:
                 {
                 alt8=2;
                 }
                 break;
-            case 26:
+            case 28:
                 {
                 alt8=3;
                 }
                 break;
-            case 27:
+            case 29:
                 {
                 alt8=4;
                 }
@@ -1861,7 +1858,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalPerl.g:671:3: kw= '=='
                     {
-                    kw=(Token)match(input,24,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,26,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -1874,7 +1871,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // InternalPerl.g:677:3: kw= '!='
                     {
-                    kw=(Token)match(input,25,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,27,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -1887,7 +1884,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // InternalPerl.g:683:3: kw= 'eq'
                     {
-                    kw=(Token)match(input,26,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,28,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -1900,7 +1897,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // InternalPerl.g:689:3: kw= 'ne'
                     {
-                    kw=(Token)match(input,27,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,29,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -2018,40 +2015,40 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 int alt9=2;
                 int LA9_0 = input.LA(1);
 
-                if ( (LA9_0==19) ) {
+                if ( (LA9_0==21) ) {
                     int LA9_2 = input.LA(2);
 
-                    if ( (LA9_2==40) && (synpred5_InternalPerl())) {
-                        alt9=1;
-                    }
-                    else if ( (LA9_2==35) && (synpred5_InternalPerl())) {
+                    if ( (LA9_2==39) && (synpred5_InternalPerl())) {
                         alt9=1;
                     }
                     else if ( (LA9_2==34) && (synpred5_InternalPerl())) {
                         alt9=1;
                     }
-                    else if ( (LA9_2==12) && (synpred5_InternalPerl())) {
+                    else if ( (LA9_2==33) && (synpred5_InternalPerl())) {
+                        alt9=1;
+                    }
+                    else if ( (LA9_2==14) && (synpred5_InternalPerl())) {
                         alt9=1;
                     }
 
 
                 }
-                else if ( (LA9_0==20) ) {
+                else if ( (LA9_0==22) ) {
                     int LA9_3 = input.LA(2);
 
-                    if ( (LA9_3==40) && (synpred5_InternalPerl())) {
-                        alt9=1;
-                    }
-                    else if ( (LA9_3==35) && (synpred5_InternalPerl())) {
+                    if ( (LA9_3==39) && (synpred5_InternalPerl())) {
                         alt9=1;
                     }
                     else if ( (LA9_3==34) && (synpred5_InternalPerl())) {
                         alt9=1;
                     }
+                    else if ( (LA9_3==33) && (synpred5_InternalPerl())) {
+                        alt9=1;
+                    }
 
 
                 }
-                else if ( (LA9_0==21) && (synpred5_InternalPerl())) {
+                else if ( (LA9_0==23) && (synpred5_InternalPerl())) {
                     alt9=1;
                 }
 
@@ -2245,19 +2242,19 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
             // InternalPerl.g:800:2: (kw= '>=' | (kw= '<' kw= '=' ) | kw= '>' | kw= '<' )
             int alt10=4;
             switch ( input.LA(1) ) {
-            case 21:
+            case 23:
                 {
                 alt10=1;
                 }
                 break;
-            case 19:
+            case 21:
                 {
                 int LA10_2 = input.LA(2);
 
-                if ( (LA10_2==EOF||(LA10_2>=34 && LA10_2<=35)||LA10_2==40) ) {
+                if ( (LA10_2==EOF||(LA10_2>=33 && LA10_2<=34)||LA10_2==39) ) {
                     alt10=4;
                 }
-                else if ( (LA10_2==12) ) {
+                else if ( (LA10_2==14) ) {
                     alt10=2;
                 }
                 else {
@@ -2269,7 +2266,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 }
                 }
                 break;
-            case 20:
+            case 22:
                 {
                 alt10=3;
                 }
@@ -2286,7 +2283,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalPerl.g:801:3: kw= '>='
                     {
-                    kw=(Token)match(input,21,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,23,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -2302,14 +2299,14 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     // InternalPerl.g:807:3: (kw= '<' kw= '=' )
                     // InternalPerl.g:808:4: kw= '<' kw= '='
                     {
-                    kw=(Token)match(input,19,FOLLOW_3); if (state.failed) return current;
+                    kw=(Token)match(input,21,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current.merge(kw);
                       				newLeafNode(kw, grammarAccess.getOpCompareAccess().getLessThanSignKeyword_1_0());
                       			
                     }
-                    kw=(Token)match(input,12,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,14,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current.merge(kw);
@@ -2325,7 +2322,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // InternalPerl.g:820:3: kw= '>'
                     {
-                    kw=(Token)match(input,20,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,22,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -2338,7 +2335,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // InternalPerl.g:826:3: kw= '<'
                     {
-                    kw=(Token)match(input,19,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,21,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -2628,7 +2625,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpOther"
-    // InternalPerl.g:930:1: ruleOpOther returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '->' | kw= '..<' | (kw= '>' kw= '..' ) | kw= '..' | kw= '=>' | (kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' ) ) | (kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' | kw= '=>' ) ) | kw= '<>' | kw= '?:' ) ;
+    // InternalPerl.g:930:1: ruleOpOther returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' ) ) | (kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' | kw= '=>' ) ) | kw= '<>' | kw= '?:' ) ;
     public final AntlrDatatypeRuleToken ruleOpOther() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2638,116 +2635,66 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:936:2: ( (kw= '->' | kw= '..<' | (kw= '>' kw= '..' ) | kw= '..' | kw= '=>' | (kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' ) ) | (kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' | kw= '=>' ) ) | kw= '<>' | kw= '?:' ) )
-            // InternalPerl.g:937:2: (kw= '->' | kw= '..<' | (kw= '>' kw= '..' ) | kw= '..' | kw= '=>' | (kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' ) ) | (kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' | kw= '=>' ) ) | kw= '<>' | kw= '?:' )
+            // InternalPerl.g:936:2: ( ( (kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' ) ) | (kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' | kw= '=>' ) ) | kw= '<>' | kw= '?:' ) )
+            // InternalPerl.g:937:2: ( (kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' ) ) | (kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' | kw= '=>' ) ) | kw= '<>' | kw= '?:' )
             {
-            // InternalPerl.g:937:2: (kw= '->' | kw= '..<' | (kw= '>' kw= '..' ) | kw= '..' | kw= '=>' | (kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' ) ) | (kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' | kw= '=>' ) ) | kw= '<>' | kw= '?:' )
-            int alt14=9;
-            alt14 = dfa14.predict(input);
+            // InternalPerl.g:937:2: ( (kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' ) ) | (kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' | kw= '=>' ) ) | kw= '<>' | kw= '?:' )
+            int alt14=4;
+            switch ( input.LA(1) ) {
+            case 22:
+                {
+                alt14=1;
+                }
+                break;
+            case 21:
+                {
+                alt14=2;
+                }
+                break;
+            case 31:
+                {
+                alt14=3;
+                }
+                break;
+            case 32:
+                {
+                alt14=4;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 14, 0, input);
+
+                throw nvae;
+            }
+
             switch (alt14) {
                 case 1 :
-                    // InternalPerl.g:938:3: kw= '->'
+                    // InternalPerl.g:938:3: (kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' ) )
                     {
-                    kw=(Token)match(input,28,FOLLOW_2); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      			current.merge(kw);
-                      			newLeafNode(kw, grammarAccess.getOpOtherAccess().getHyphenMinusGreaterThanSignKeyword_0());
-                      		
-                    }
-
-                    }
-                    break;
-                case 2 :
-                    // InternalPerl.g:944:3: kw= '..<'
+                    // InternalPerl.g:938:3: (kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' ) )
+                    // InternalPerl.g:939:4: kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' )
                     {
-                    kw=(Token)match(input,29,FOLLOW_2); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      			current.merge(kw);
-                      			newLeafNode(kw, grammarAccess.getOpOtherAccess().getFullStopFullStopLessThanSignKeyword_1());
-                      		
-                    }
-
-                    }
-                    break;
-                case 3 :
-                    // InternalPerl.g:950:3: (kw= '>' kw= '..' )
-                    {
-                    // InternalPerl.g:950:3: (kw= '>' kw= '..' )
-                    // InternalPerl.g:951:4: kw= '>' kw= '..'
-                    {
-                    kw=(Token)match(input,20,FOLLOW_14); if (state.failed) return current;
+                    kw=(Token)match(input,22,FOLLOW_14); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current.merge(kw);
-                      				newLeafNode(kw, grammarAccess.getOpOtherAccess().getGreaterThanSignKeyword_2_0());
+                      				newLeafNode(kw, grammarAccess.getOpOtherAccess().getGreaterThanSignKeyword_0_0());
                       			
                     }
-                    kw=(Token)match(input,30,FOLLOW_2); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      				current.merge(kw);
-                      				newLeafNode(kw, grammarAccess.getOpOtherAccess().getFullStopFullStopKeyword_2_1());
-                      			
-                    }
-
-                    }
-
-
-                    }
-                    break;
-                case 4 :
-                    // InternalPerl.g:963:3: kw= '..'
-                    {
-                    kw=(Token)match(input,30,FOLLOW_2); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      			current.merge(kw);
-                      			newLeafNode(kw, grammarAccess.getOpOtherAccess().getFullStopFullStopKeyword_3());
-                      		
-                    }
-
-                    }
-                    break;
-                case 5 :
-                    // InternalPerl.g:969:3: kw= '=>'
-                    {
-                    kw=(Token)match(input,31,FOLLOW_2); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      			current.merge(kw);
-                      			newLeafNode(kw, grammarAccess.getOpOtherAccess().getEqualsSignGreaterThanSignKeyword_4());
-                      		
-                    }
-
-                    }
-                    break;
-                case 6 :
-                    // InternalPerl.g:975:3: (kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' ) )
-                    {
-                    // InternalPerl.g:975:3: (kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' ) )
-                    // InternalPerl.g:976:4: kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' )
-                    {
-                    kw=(Token)match(input,20,FOLLOW_15); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      				current.merge(kw);
-                      				newLeafNode(kw, grammarAccess.getOpOtherAccess().getGreaterThanSignKeyword_5_0());
-                      			
-                    }
-                    // InternalPerl.g:981:4: ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' )
+                    // InternalPerl.g:944:4: ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' )
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
-                    if ( (LA12_0==20) ) {
+                    if ( (LA12_0==22) ) {
                         int LA12_1 = input.LA(2);
 
-                        if ( (LA12_1==20) && (synpred7_InternalPerl())) {
-                            alt12=1;
-                        }
-                        else if ( (LA12_1==EOF||(LA12_1>=34 && LA12_1<=35)||LA12_1==40) ) {
+                        if ( (LA12_1==EOF||(LA12_1>=33 && LA12_1<=34)||LA12_1==39) ) {
                             alt12=2;
+                        }
+                        else if ( (LA12_1==22) && (synpred7_InternalPerl())) {
+                            alt12=1;
                         }
                         else {
                             if (state.backtracking>0) {state.failed=true; return current;}
@@ -2766,26 +2713,26 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt12) {
                         case 1 :
-                            // InternalPerl.g:982:5: ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) )
+                            // InternalPerl.g:945:5: ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) )
                             {
-                            // InternalPerl.g:982:5: ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) )
-                            // InternalPerl.g:983:6: ( ( '>' '>' ) )=> (kw= '>' kw= '>' )
+                            // InternalPerl.g:945:5: ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) )
+                            // InternalPerl.g:946:6: ( ( '>' '>' ) )=> (kw= '>' kw= '>' )
                             {
-                            // InternalPerl.g:988:6: (kw= '>' kw= '>' )
-                            // InternalPerl.g:989:7: kw= '>' kw= '>'
+                            // InternalPerl.g:951:6: (kw= '>' kw= '>' )
+                            // InternalPerl.g:952:7: kw= '>' kw= '>'
                             {
-                            kw=(Token)match(input,20,FOLLOW_15); if (state.failed) return current;
+                            kw=(Token)match(input,22,FOLLOW_14); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               							current.merge(kw);
-                              							newLeafNode(kw, grammarAccess.getOpOtherAccess().getGreaterThanSignKeyword_5_1_0_0_0());
+                              							newLeafNode(kw, grammarAccess.getOpOtherAccess().getGreaterThanSignKeyword_0_1_0_0_0());
                               						
                             }
-                            kw=(Token)match(input,20,FOLLOW_2); if (state.failed) return current;
+                            kw=(Token)match(input,22,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               							current.merge(kw);
-                              							newLeafNode(kw, grammarAccess.getOpOtherAccess().getGreaterThanSignKeyword_5_1_0_0_1());
+                              							newLeafNode(kw, grammarAccess.getOpOtherAccess().getGreaterThanSignKeyword_0_1_0_0_1());
                               						
                             }
 
@@ -2798,13 +2745,13 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalPerl.g:1002:5: kw= '>'
+                            // InternalPerl.g:965:5: kw= '>'
                             {
-                            kw=(Token)match(input,20,FOLLOW_2); if (state.failed) return current;
+                            kw=(Token)match(input,22,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               					current.merge(kw);
-                              					newLeafNode(kw, grammarAccess.getOpOtherAccess().getGreaterThanSignKeyword_5_1_1());
+                              					newLeafNode(kw, grammarAccess.getOpOtherAccess().getGreaterThanSignKeyword_0_1_1());
                               				
                             }
 
@@ -2819,30 +2766,30 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 7 :
-                    // InternalPerl.g:1010:3: (kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' | kw= '=>' ) )
+                case 2 :
+                    // InternalPerl.g:973:3: (kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' | kw= '=>' ) )
                     {
-                    // InternalPerl.g:1010:3: (kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' | kw= '=>' ) )
-                    // InternalPerl.g:1011:4: kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' | kw= '=>' )
+                    // InternalPerl.g:973:3: (kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' | kw= '=>' ) )
+                    // InternalPerl.g:974:4: kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' | kw= '=>' )
                     {
-                    kw=(Token)match(input,19,FOLLOW_16); if (state.failed) return current;
+                    kw=(Token)match(input,21,FOLLOW_15); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current.merge(kw);
-                      				newLeafNode(kw, grammarAccess.getOpOtherAccess().getLessThanSignKeyword_6_0());
+                      				newLeafNode(kw, grammarAccess.getOpOtherAccess().getLessThanSignKeyword_1_0());
                       			
                     }
-                    // InternalPerl.g:1016:4: ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' | kw= '=>' )
+                    // InternalPerl.g:979:4: ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' | kw= '=>' )
                     int alt13=3;
                     int LA13_0 = input.LA(1);
 
-                    if ( (LA13_0==19) ) {
+                    if ( (LA13_0==21) ) {
                         int LA13_1 = input.LA(2);
 
-                        if ( (LA13_1==EOF||(LA13_1>=34 && LA13_1<=35)||LA13_1==40) ) {
+                        if ( (LA13_1==EOF||(LA13_1>=33 && LA13_1<=34)||LA13_1==39) ) {
                             alt13=2;
                         }
-                        else if ( (LA13_1==19) && (synpred8_InternalPerl())) {
+                        else if ( (LA13_1==21) && (synpred8_InternalPerl())) {
                             alt13=1;
                         }
                         else {
@@ -2853,7 +2800,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                             throw nvae;
                         }
                     }
-                    else if ( (LA13_0==31) ) {
+                    else if ( (LA13_0==30) ) {
                         alt13=3;
                     }
                     else {
@@ -2865,26 +2812,26 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt13) {
                         case 1 :
-                            // InternalPerl.g:1017:5: ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) )
+                            // InternalPerl.g:980:5: ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) )
                             {
-                            // InternalPerl.g:1017:5: ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) )
-                            // InternalPerl.g:1018:6: ( ( '<' '<' ) )=> (kw= '<' kw= '<' )
+                            // InternalPerl.g:980:5: ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) )
+                            // InternalPerl.g:981:6: ( ( '<' '<' ) )=> (kw= '<' kw= '<' )
                             {
-                            // InternalPerl.g:1023:6: (kw= '<' kw= '<' )
-                            // InternalPerl.g:1024:7: kw= '<' kw= '<'
+                            // InternalPerl.g:986:6: (kw= '<' kw= '<' )
+                            // InternalPerl.g:987:7: kw= '<' kw= '<'
                             {
-                            kw=(Token)match(input,19,FOLLOW_6); if (state.failed) return current;
+                            kw=(Token)match(input,21,FOLLOW_6); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               							current.merge(kw);
-                              							newLeafNode(kw, grammarAccess.getOpOtherAccess().getLessThanSignKeyword_6_1_0_0_0());
+                              							newLeafNode(kw, grammarAccess.getOpOtherAccess().getLessThanSignKeyword_1_1_0_0_0());
                               						
                             }
-                            kw=(Token)match(input,19,FOLLOW_2); if (state.failed) return current;
+                            kw=(Token)match(input,21,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               							current.merge(kw);
-                              							newLeafNode(kw, grammarAccess.getOpOtherAccess().getLessThanSignKeyword_6_1_0_0_1());
+                              							newLeafNode(kw, grammarAccess.getOpOtherAccess().getLessThanSignKeyword_1_1_0_0_1());
                               						
                             }
 
@@ -2897,26 +2844,26 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalPerl.g:1037:5: kw= '<'
+                            // InternalPerl.g:1000:5: kw= '<'
                             {
-                            kw=(Token)match(input,19,FOLLOW_2); if (state.failed) return current;
+                            kw=(Token)match(input,21,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               					current.merge(kw);
-                              					newLeafNode(kw, grammarAccess.getOpOtherAccess().getLessThanSignKeyword_6_1_1());
+                              					newLeafNode(kw, grammarAccess.getOpOtherAccess().getLessThanSignKeyword_1_1_1());
                               				
                             }
 
                             }
                             break;
                         case 3 :
-                            // InternalPerl.g:1043:5: kw= '=>'
+                            // InternalPerl.g:1006:5: kw= '=>'
                             {
-                            kw=(Token)match(input,31,FOLLOW_2); if (state.failed) return current;
+                            kw=(Token)match(input,30,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               					current.merge(kw);
-                              					newLeafNode(kw, grammarAccess.getOpOtherAccess().getEqualsSignGreaterThanSignKeyword_6_1_2());
+                              					newLeafNode(kw, grammarAccess.getOpOtherAccess().getEqualsSignGreaterThanSignKeyword_1_1_2());
                               				
                             }
 
@@ -2931,27 +2878,27 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 8 :
-                    // InternalPerl.g:1051:3: kw= '<>'
+                case 3 :
+                    // InternalPerl.g:1014:3: kw= '<>'
                     {
-                    kw=(Token)match(input,32,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,31,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
-                      			newLeafNode(kw, grammarAccess.getOpOtherAccess().getLessThanSignGreaterThanSignKeyword_7());
+                      			newLeafNode(kw, grammarAccess.getOpOtherAccess().getLessThanSignGreaterThanSignKeyword_2());
                       		
                     }
 
                     }
                     break;
-                case 9 :
-                    // InternalPerl.g:1057:3: kw= '?:'
+                case 4 :
+                    // InternalPerl.g:1020:3: kw= '?:'
                     {
-                    kw=(Token)match(input,33,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,32,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
-                      			newLeafNode(kw, grammarAccess.getOpOtherAccess().getQuestionMarkColonKeyword_8());
+                      			newLeafNode(kw, grammarAccess.getOpOtherAccess().getQuestionMarkColonKeyword_3());
                       		
                     }
 
@@ -2982,7 +2929,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePAdditiveExpression"
-    // InternalPerl.g:1066:1: entryRulePAdditiveExpression returns [EObject current=null] : iv_rulePAdditiveExpression= rulePAdditiveExpression EOF ;
+    // InternalPerl.g:1029:1: entryRulePAdditiveExpression returns [EObject current=null] : iv_rulePAdditiveExpression= rulePAdditiveExpression EOF ;
     public final EObject entryRulePAdditiveExpression() throws RecognitionException {
         EObject current = null;
 
@@ -2990,8 +2937,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:1066:60: (iv_rulePAdditiveExpression= rulePAdditiveExpression EOF )
-            // InternalPerl.g:1067:2: iv_rulePAdditiveExpression= rulePAdditiveExpression EOF
+            // InternalPerl.g:1029:60: (iv_rulePAdditiveExpression= rulePAdditiveExpression EOF )
+            // InternalPerl.g:1030:2: iv_rulePAdditiveExpression= rulePAdditiveExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPAdditiveExpressionRule()); 
@@ -3022,7 +2969,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePAdditiveExpression"
-    // InternalPerl.g:1073:1: rulePAdditiveExpression returns [EObject current=null] : (this_PMultiplicativeExpression_0= rulePMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) ) )* ) ;
+    // InternalPerl.g:1036:1: rulePAdditiveExpression returns [EObject current=null] : (this_PMultiplicativeExpression_0= rulePMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) ) )* ) ;
     public final EObject rulePAdditiveExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3037,18 +2984,18 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:1079:2: ( (this_PMultiplicativeExpression_0= rulePMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) ) )* ) )
-            // InternalPerl.g:1080:2: (this_PMultiplicativeExpression_0= rulePMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) ) )* )
+            // InternalPerl.g:1042:2: ( (this_PMultiplicativeExpression_0= rulePMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) ) )* ) )
+            // InternalPerl.g:1043:2: (this_PMultiplicativeExpression_0= rulePMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) ) )* )
             {
-            // InternalPerl.g:1080:2: (this_PMultiplicativeExpression_0= rulePMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) ) )* )
-            // InternalPerl.g:1081:3: this_PMultiplicativeExpression_0= rulePMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) ) )*
+            // InternalPerl.g:1043:2: (this_PMultiplicativeExpression_0= rulePMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) ) )* )
+            // InternalPerl.g:1044:3: this_PMultiplicativeExpression_0= rulePMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) ) )*
             {
             if ( state.backtracking==0 ) {
 
               			newCompositeNode(grammarAccess.getPAdditiveExpressionAccess().getPMultiplicativeExpressionParserRuleCall_0());
               		
             }
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             this_PMultiplicativeExpression_0=rulePMultiplicativeExpression();
 
             state._fsp--;
@@ -3059,23 +3006,23 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalPerl.g:1089:3: ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) ) )*
+            // InternalPerl.g:1052:3: ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) ) )*
             loop15:
             do {
                 int alt15=2;
                 alt15 = dfa15.predict(input);
                 switch (alt15) {
             	case 1 :
-            	    // InternalPerl.g:1090:4: ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) )
+            	    // InternalPerl.g:1053:4: ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) )
             	    {
-            	    // InternalPerl.g:1090:4: ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) )
-            	    // InternalPerl.g:1091:5: ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) )
+            	    // InternalPerl.g:1053:4: ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) )
+            	    // InternalPerl.g:1054:5: ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) )
             	    {
-            	    // InternalPerl.g:1101:5: ( () ( (lv_feature_2_0= ruleOpAdd ) ) )
-            	    // InternalPerl.g:1102:6: () ( (lv_feature_2_0= ruleOpAdd ) )
+            	    // InternalPerl.g:1064:5: ( () ( (lv_feature_2_0= ruleOpAdd ) ) )
+            	    // InternalPerl.g:1065:6: () ( (lv_feature_2_0= ruleOpAdd ) )
             	    {
-            	    // InternalPerl.g:1102:6: ()
-            	    // InternalPerl.g:1103:7: 
+            	    // InternalPerl.g:1065:6: ()
+            	    // InternalPerl.g:1066:7: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -3087,11 +3034,11 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalPerl.g:1109:6: ( (lv_feature_2_0= ruleOpAdd ) )
-            	    // InternalPerl.g:1110:7: (lv_feature_2_0= ruleOpAdd )
+            	    // InternalPerl.g:1072:6: ( (lv_feature_2_0= ruleOpAdd ) )
+            	    // InternalPerl.g:1073:7: (lv_feature_2_0= ruleOpAdd )
             	    {
-            	    // InternalPerl.g:1110:7: (lv_feature_2_0= ruleOpAdd )
-            	    // InternalPerl.g:1111:8: lv_feature_2_0= ruleOpAdd
+            	    // InternalPerl.g:1073:7: (lv_feature_2_0= ruleOpAdd )
+            	    // InternalPerl.g:1074:8: lv_feature_2_0= ruleOpAdd
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -3128,18 +3075,18 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalPerl.g:1130:4: ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) )
-            	    // InternalPerl.g:1131:5: (lv_rightOperand_3_0= rulePMultiplicativeExpression )
+            	    // InternalPerl.g:1093:4: ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) )
+            	    // InternalPerl.g:1094:5: (lv_rightOperand_3_0= rulePMultiplicativeExpression )
             	    {
-            	    // InternalPerl.g:1131:5: (lv_rightOperand_3_0= rulePMultiplicativeExpression )
-            	    // InternalPerl.g:1132:6: lv_rightOperand_3_0= rulePMultiplicativeExpression
+            	    // InternalPerl.g:1094:5: (lv_rightOperand_3_0= rulePMultiplicativeExpression )
+            	    // InternalPerl.g:1095:6: lv_rightOperand_3_0= rulePMultiplicativeExpression
             	    {
             	    if ( state.backtracking==0 ) {
 
             	      						newCompositeNode(grammarAccess.getPAdditiveExpressionAccess().getRightOperandPMultiplicativeExpressionParserRuleCall_1_1_0());
             	      					
             	    }
-            	    pushFollow(FOLLOW_17);
+            	    pushFollow(FOLLOW_16);
             	    lv_rightOperand_3_0=rulePMultiplicativeExpression();
 
             	    state._fsp--;
@@ -3197,7 +3144,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOpAdd"
-    // InternalPerl.g:1154:1: entryRuleOpAdd returns [String current=null] : iv_ruleOpAdd= ruleOpAdd EOF ;
+    // InternalPerl.g:1117:1: entryRuleOpAdd returns [String current=null] : iv_ruleOpAdd= ruleOpAdd EOF ;
     public final String entryRuleOpAdd() throws RecognitionException {
         String current = null;
 
@@ -3205,8 +3152,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:1154:45: (iv_ruleOpAdd= ruleOpAdd EOF )
-            // InternalPerl.g:1155:2: iv_ruleOpAdd= ruleOpAdd EOF
+            // InternalPerl.g:1117:45: (iv_ruleOpAdd= ruleOpAdd EOF )
+            // InternalPerl.g:1118:2: iv_ruleOpAdd= ruleOpAdd EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getOpAddRule()); 
@@ -3237,7 +3184,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpAdd"
-    // InternalPerl.g:1161:1: ruleOpAdd returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '+' | kw= '-' ) ;
+    // InternalPerl.g:1124:1: ruleOpAdd returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '+' | kw= '-' ) ;
     public final AntlrDatatypeRuleToken ruleOpAdd() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -3247,17 +3194,17 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:1167:2: ( (kw= '+' | kw= '-' ) )
-            // InternalPerl.g:1168:2: (kw= '+' | kw= '-' )
+            // InternalPerl.g:1130:2: ( (kw= '+' | kw= '-' ) )
+            // InternalPerl.g:1131:2: (kw= '+' | kw= '-' )
             {
-            // InternalPerl.g:1168:2: (kw= '+' | kw= '-' )
+            // InternalPerl.g:1131:2: (kw= '+' | kw= '-' )
             int alt16=2;
             int LA16_0 = input.LA(1);
 
-            if ( (LA16_0==34) ) {
+            if ( (LA16_0==33) ) {
                 alt16=1;
             }
-            else if ( (LA16_0==35) ) {
+            else if ( (LA16_0==34) ) {
                 alt16=2;
             }
             else {
@@ -3269,9 +3216,9 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
             }
             switch (alt16) {
                 case 1 :
-                    // InternalPerl.g:1169:3: kw= '+'
+                    // InternalPerl.g:1132:3: kw= '+'
                     {
-                    kw=(Token)match(input,34,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,33,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -3282,9 +3229,9 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:1175:3: kw= '-'
+                    // InternalPerl.g:1138:3: kw= '-'
                     {
-                    kw=(Token)match(input,35,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,34,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -3319,7 +3266,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePMultiplicativeExpression"
-    // InternalPerl.g:1184:1: entryRulePMultiplicativeExpression returns [EObject current=null] : iv_rulePMultiplicativeExpression= rulePMultiplicativeExpression EOF ;
+    // InternalPerl.g:1147:1: entryRulePMultiplicativeExpression returns [EObject current=null] : iv_rulePMultiplicativeExpression= rulePMultiplicativeExpression EOF ;
     public final EObject entryRulePMultiplicativeExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3327,8 +3274,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:1184:66: (iv_rulePMultiplicativeExpression= rulePMultiplicativeExpression EOF )
-            // InternalPerl.g:1185:2: iv_rulePMultiplicativeExpression= rulePMultiplicativeExpression EOF
+            // InternalPerl.g:1147:66: (iv_rulePMultiplicativeExpression= rulePMultiplicativeExpression EOF )
+            // InternalPerl.g:1148:2: iv_rulePMultiplicativeExpression= rulePMultiplicativeExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPMultiplicativeExpressionRule()); 
@@ -3359,7 +3306,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePMultiplicativeExpression"
-    // InternalPerl.g:1191:1: rulePMultiplicativeExpression returns [EObject current=null] : (this_PUnaryOperation_0= rulePUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= rulePUnaryOperation ) ) )* ) ;
+    // InternalPerl.g:1154:1: rulePMultiplicativeExpression returns [EObject current=null] : (this_PUnaryOperation_0= rulePUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= rulePUnaryOperation ) ) )* ) ;
     public final EObject rulePMultiplicativeExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3374,18 +3321,18 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:1197:2: ( (this_PUnaryOperation_0= rulePUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= rulePUnaryOperation ) ) )* ) )
-            // InternalPerl.g:1198:2: (this_PUnaryOperation_0= rulePUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= rulePUnaryOperation ) ) )* )
+            // InternalPerl.g:1160:2: ( (this_PUnaryOperation_0= rulePUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= rulePUnaryOperation ) ) )* ) )
+            // InternalPerl.g:1161:2: (this_PUnaryOperation_0= rulePUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= rulePUnaryOperation ) ) )* )
             {
-            // InternalPerl.g:1198:2: (this_PUnaryOperation_0= rulePUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= rulePUnaryOperation ) ) )* )
-            // InternalPerl.g:1199:3: this_PUnaryOperation_0= rulePUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= rulePUnaryOperation ) ) )*
+            // InternalPerl.g:1161:2: (this_PUnaryOperation_0= rulePUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= rulePUnaryOperation ) ) )* )
+            // InternalPerl.g:1162:3: this_PUnaryOperation_0= rulePUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= rulePUnaryOperation ) ) )*
             {
             if ( state.backtracking==0 ) {
 
               			newCompositeNode(grammarAccess.getPMultiplicativeExpressionAccess().getPUnaryOperationParserRuleCall_0());
               		
             }
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             this_PUnaryOperation_0=rulePUnaryOperation();
 
             state._fsp--;
@@ -3396,26 +3343,14 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalPerl.g:1207:3: ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= rulePUnaryOperation ) ) )*
+            // InternalPerl.g:1170:3: ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= rulePUnaryOperation ) ) )*
             loop17:
             do {
                 int alt17=2;
                 int LA17_0 = input.LA(1);
 
-                if ( (LA17_0==39) ) {
-                    int LA17_2 = input.LA(2);
-
-                    if ( (LA17_2==40) && (synpred10_InternalPerl())) {
-                        alt17=1;
-                    }
-                    else if ( (LA17_2==35) && (synpred10_InternalPerl())) {
-                        alt17=1;
-                    }
-                    else if ( (LA17_2==34) && (synpred10_InternalPerl())) {
-                        alt17=1;
-                    }
-
-
+                if ( (LA17_0==35) && (synpred10_InternalPerl())) {
+                    alt17=1;
                 }
                 else if ( (LA17_0==36) && (synpred10_InternalPerl())) {
                     alt17=1;
@@ -3430,16 +3365,16 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
                 switch (alt17) {
             	case 1 :
-            	    // InternalPerl.g:1208:4: ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= rulePUnaryOperation ) )
+            	    // InternalPerl.g:1171:4: ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= rulePUnaryOperation ) )
             	    {
-            	    // InternalPerl.g:1208:4: ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) ) )
-            	    // InternalPerl.g:1209:5: ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) )
+            	    // InternalPerl.g:1171:4: ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) ) )
+            	    // InternalPerl.g:1172:5: ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpMulti ) ) )
             	    {
-            	    // InternalPerl.g:1219:5: ( () ( (lv_feature_2_0= ruleOpMulti ) ) )
-            	    // InternalPerl.g:1220:6: () ( (lv_feature_2_0= ruleOpMulti ) )
+            	    // InternalPerl.g:1182:5: ( () ( (lv_feature_2_0= ruleOpMulti ) ) )
+            	    // InternalPerl.g:1183:6: () ( (lv_feature_2_0= ruleOpMulti ) )
             	    {
-            	    // InternalPerl.g:1220:6: ()
-            	    // InternalPerl.g:1221:7: 
+            	    // InternalPerl.g:1183:6: ()
+            	    // InternalPerl.g:1184:7: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -3451,11 +3386,11 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalPerl.g:1227:6: ( (lv_feature_2_0= ruleOpMulti ) )
-            	    // InternalPerl.g:1228:7: (lv_feature_2_0= ruleOpMulti )
+            	    // InternalPerl.g:1190:6: ( (lv_feature_2_0= ruleOpMulti ) )
+            	    // InternalPerl.g:1191:7: (lv_feature_2_0= ruleOpMulti )
             	    {
-            	    // InternalPerl.g:1228:7: (lv_feature_2_0= ruleOpMulti )
-            	    // InternalPerl.g:1229:8: lv_feature_2_0= ruleOpMulti
+            	    // InternalPerl.g:1191:7: (lv_feature_2_0= ruleOpMulti )
+            	    // InternalPerl.g:1192:8: lv_feature_2_0= ruleOpMulti
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -3492,18 +3427,18 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalPerl.g:1248:4: ( (lv_rightOperand_3_0= rulePUnaryOperation ) )
-            	    // InternalPerl.g:1249:5: (lv_rightOperand_3_0= rulePUnaryOperation )
+            	    // InternalPerl.g:1211:4: ( (lv_rightOperand_3_0= rulePUnaryOperation ) )
+            	    // InternalPerl.g:1212:5: (lv_rightOperand_3_0= rulePUnaryOperation )
             	    {
-            	    // InternalPerl.g:1249:5: (lv_rightOperand_3_0= rulePUnaryOperation )
-            	    // InternalPerl.g:1250:6: lv_rightOperand_3_0= rulePUnaryOperation
+            	    // InternalPerl.g:1212:5: (lv_rightOperand_3_0= rulePUnaryOperation )
+            	    // InternalPerl.g:1213:6: lv_rightOperand_3_0= rulePUnaryOperation
             	    {
             	    if ( state.backtracking==0 ) {
 
             	      						newCompositeNode(grammarAccess.getPMultiplicativeExpressionAccess().getRightOperandPUnaryOperationParserRuleCall_1_1_0());
             	      					
             	    }
-            	    pushFollow(FOLLOW_18);
+            	    pushFollow(FOLLOW_17);
             	    lv_rightOperand_3_0=rulePUnaryOperation();
 
             	    state._fsp--;
@@ -3561,7 +3496,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOpMulti"
-    // InternalPerl.g:1272:1: entryRuleOpMulti returns [String current=null] : iv_ruleOpMulti= ruleOpMulti EOF ;
+    // InternalPerl.g:1235:1: entryRuleOpMulti returns [String current=null] : iv_ruleOpMulti= ruleOpMulti EOF ;
     public final String entryRuleOpMulti() throws RecognitionException {
         String current = null;
 
@@ -3569,8 +3504,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:1272:47: (iv_ruleOpMulti= ruleOpMulti EOF )
-            // InternalPerl.g:1273:2: iv_ruleOpMulti= ruleOpMulti EOF
+            // InternalPerl.g:1235:47: (iv_ruleOpMulti= ruleOpMulti EOF )
+            // InternalPerl.g:1236:2: iv_ruleOpMulti= ruleOpMulti EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getOpMultiRule()); 
@@ -3601,7 +3536,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpMulti"
-    // InternalPerl.g:1279:1: ruleOpMulti returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '*' | kw= '**' | kw= '/' | kw= '%' ) ;
+    // InternalPerl.g:1242:1: ruleOpMulti returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '*' | kw= '**' | kw= '/' | kw= '%' ) ;
     public final AntlrDatatypeRuleToken ruleOpMulti() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -3611,28 +3546,28 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:1285:2: ( (kw= '*' | kw= '**' | kw= '/' | kw= '%' ) )
-            // InternalPerl.g:1286:2: (kw= '*' | kw= '**' | kw= '/' | kw= '%' )
+            // InternalPerl.g:1248:2: ( (kw= '*' | kw= '**' | kw= '/' | kw= '%' ) )
+            // InternalPerl.g:1249:2: (kw= '*' | kw= '**' | kw= '/' | kw= '%' )
             {
-            // InternalPerl.g:1286:2: (kw= '*' | kw= '**' | kw= '/' | kw= '%' )
+            // InternalPerl.g:1249:2: (kw= '*' | kw= '**' | kw= '/' | kw= '%' )
             int alt18=4;
             switch ( input.LA(1) ) {
-            case 36:
+            case 35:
                 {
                 alt18=1;
                 }
                 break;
-            case 37:
+            case 36:
                 {
                 alt18=2;
                 }
                 break;
-            case 38:
+            case 37:
                 {
                 alt18=3;
                 }
                 break;
-            case 39:
+            case 38:
                 {
                 alt18=4;
                 }
@@ -3647,9 +3582,9 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             switch (alt18) {
                 case 1 :
-                    // InternalPerl.g:1287:3: kw= '*'
+                    // InternalPerl.g:1250:3: kw= '*'
                     {
-                    kw=(Token)match(input,36,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,35,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -3660,9 +3595,9 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:1293:3: kw= '**'
+                    // InternalPerl.g:1256:3: kw= '**'
                     {
-                    kw=(Token)match(input,37,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,36,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -3673,9 +3608,9 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:1299:3: kw= '/'
+                    // InternalPerl.g:1262:3: kw= '/'
                     {
-                    kw=(Token)match(input,38,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,37,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -3686,9 +3621,9 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalPerl.g:1305:3: kw= '%'
+                    // InternalPerl.g:1268:3: kw= '%'
                     {
-                    kw=(Token)match(input,39,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,38,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -3723,7 +3658,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePUnaryOperation"
-    // InternalPerl.g:1314:1: entryRulePUnaryOperation returns [EObject current=null] : iv_rulePUnaryOperation= rulePUnaryOperation EOF ;
+    // InternalPerl.g:1277:1: entryRulePUnaryOperation returns [EObject current=null] : iv_rulePUnaryOperation= rulePUnaryOperation EOF ;
     public final EObject entryRulePUnaryOperation() throws RecognitionException {
         EObject current = null;
 
@@ -3731,8 +3666,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:1314:56: (iv_rulePUnaryOperation= rulePUnaryOperation EOF )
-            // InternalPerl.g:1315:2: iv_rulePUnaryOperation= rulePUnaryOperation EOF
+            // InternalPerl.g:1277:56: (iv_rulePUnaryOperation= rulePUnaryOperation EOF )
+            // InternalPerl.g:1278:2: iv_rulePUnaryOperation= rulePUnaryOperation EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPUnaryOperationRule()); 
@@ -3763,7 +3698,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePUnaryOperation"
-    // InternalPerl.g:1321:1: rulePUnaryOperation returns [EObject current=null] : ( () ( (lv_feature_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= rulePUnaryOperation ) ) ) ;
+    // InternalPerl.g:1284:1: rulePUnaryOperation returns [EObject current=null] : ( () ( (lv_feature_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= rulePUnaryOperation ) ) ) ;
     public final EObject rulePUnaryOperation() throws RecognitionException {
         EObject current = null;
 
@@ -3776,14 +3711,14 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:1327:2: ( ( () ( (lv_feature_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= rulePUnaryOperation ) ) ) )
-            // InternalPerl.g:1328:2: ( () ( (lv_feature_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= rulePUnaryOperation ) ) )
+            // InternalPerl.g:1290:2: ( ( () ( (lv_feature_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= rulePUnaryOperation ) ) ) )
+            // InternalPerl.g:1291:2: ( () ( (lv_feature_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= rulePUnaryOperation ) ) )
             {
-            // InternalPerl.g:1328:2: ( () ( (lv_feature_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= rulePUnaryOperation ) ) )
-            // InternalPerl.g:1329:3: () ( (lv_feature_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= rulePUnaryOperation ) )
+            // InternalPerl.g:1291:2: ( () ( (lv_feature_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= rulePUnaryOperation ) ) )
+            // InternalPerl.g:1292:3: () ( (lv_feature_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= rulePUnaryOperation ) )
             {
-            // InternalPerl.g:1329:3: ()
-            // InternalPerl.g:1330:4: 
+            // InternalPerl.g:1292:3: ()
+            // InternalPerl.g:1293:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -3795,11 +3730,11 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPerl.g:1336:3: ( (lv_feature_1_0= ruleOpUnary ) )
-            // InternalPerl.g:1337:4: (lv_feature_1_0= ruleOpUnary )
+            // InternalPerl.g:1299:3: ( (lv_feature_1_0= ruleOpUnary ) )
+            // InternalPerl.g:1300:4: (lv_feature_1_0= ruleOpUnary )
             {
-            // InternalPerl.g:1337:4: (lv_feature_1_0= ruleOpUnary )
-            // InternalPerl.g:1338:5: lv_feature_1_0= ruleOpUnary
+            // InternalPerl.g:1300:4: (lv_feature_1_0= ruleOpUnary )
+            // InternalPerl.g:1301:5: lv_feature_1_0= ruleOpUnary
             {
             if ( state.backtracking==0 ) {
 
@@ -3830,11 +3765,11 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPerl.g:1355:3: ( (lv_operand_2_0= rulePUnaryOperation ) )
-            // InternalPerl.g:1356:4: (lv_operand_2_0= rulePUnaryOperation )
+            // InternalPerl.g:1318:3: ( (lv_operand_2_0= rulePUnaryOperation ) )
+            // InternalPerl.g:1319:4: (lv_operand_2_0= rulePUnaryOperation )
             {
-            // InternalPerl.g:1356:4: (lv_operand_2_0= rulePUnaryOperation )
-            // InternalPerl.g:1357:5: lv_operand_2_0= rulePUnaryOperation
+            // InternalPerl.g:1319:4: (lv_operand_2_0= rulePUnaryOperation )
+            // InternalPerl.g:1320:5: lv_operand_2_0= rulePUnaryOperation
             {
             if ( state.backtracking==0 ) {
 
@@ -3890,7 +3825,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOpUnary"
-    // InternalPerl.g:1378:1: entryRuleOpUnary returns [String current=null] : iv_ruleOpUnary= ruleOpUnary EOF ;
+    // InternalPerl.g:1341:1: entryRuleOpUnary returns [String current=null] : iv_ruleOpUnary= ruleOpUnary EOF ;
     public final String entryRuleOpUnary() throws RecognitionException {
         String current = null;
 
@@ -3898,8 +3833,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:1378:47: (iv_ruleOpUnary= ruleOpUnary EOF )
-            // InternalPerl.g:1379:2: iv_ruleOpUnary= ruleOpUnary EOF
+            // InternalPerl.g:1341:47: (iv_ruleOpUnary= ruleOpUnary EOF )
+            // InternalPerl.g:1342:2: iv_ruleOpUnary= ruleOpUnary EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getOpUnaryRule()); 
@@ -3930,7 +3865,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpUnary"
-    // InternalPerl.g:1385:1: ruleOpUnary returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '!' | kw= '-' | kw= '+' ) ;
+    // InternalPerl.g:1348:1: ruleOpUnary returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '!' | kw= '-' | kw= '+' ) ;
     public final AntlrDatatypeRuleToken ruleOpUnary() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -3940,23 +3875,23 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:1391:2: ( (kw= '!' | kw= '-' | kw= '+' ) )
-            // InternalPerl.g:1392:2: (kw= '!' | kw= '-' | kw= '+' )
+            // InternalPerl.g:1354:2: ( (kw= '!' | kw= '-' | kw= '+' ) )
+            // InternalPerl.g:1355:2: (kw= '!' | kw= '-' | kw= '+' )
             {
-            // InternalPerl.g:1392:2: (kw= '!' | kw= '-' | kw= '+' )
+            // InternalPerl.g:1355:2: (kw= '!' | kw= '-' | kw= '+' )
             int alt19=3;
             switch ( input.LA(1) ) {
-            case 40:
+            case 39:
                 {
                 alt19=1;
                 }
                 break;
-            case 35:
+            case 34:
                 {
                 alt19=2;
                 }
                 break;
-            case 34:
+            case 33:
                 {
                 alt19=3;
                 }
@@ -3971,9 +3906,9 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             switch (alt19) {
                 case 1 :
-                    // InternalPerl.g:1393:3: kw= '!'
+                    // InternalPerl.g:1356:3: kw= '!'
                     {
-                    kw=(Token)match(input,40,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,39,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -3984,9 +3919,9 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:1399:3: kw= '-'
+                    // InternalPerl.g:1362:3: kw= '-'
                     {
-                    kw=(Token)match(input,35,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,34,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -3997,9 +3932,9 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:1405:3: kw= '+'
+                    // InternalPerl.g:1368:3: kw= '+'
                     {
-                    kw=(Token)match(input,34,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,33,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -4034,7 +3969,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOpPostfix"
-    // InternalPerl.g:1414:1: entryRuleOpPostfix returns [String current=null] : iv_ruleOpPostfix= ruleOpPostfix EOF ;
+    // InternalPerl.g:1377:1: entryRuleOpPostfix returns [String current=null] : iv_ruleOpPostfix= ruleOpPostfix EOF ;
     public final String entryRuleOpPostfix() throws RecognitionException {
         String current = null;
 
@@ -4042,8 +3977,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:1414:49: (iv_ruleOpPostfix= ruleOpPostfix EOF )
-            // InternalPerl.g:1415:2: iv_ruleOpPostfix= ruleOpPostfix EOF
+            // InternalPerl.g:1377:49: (iv_ruleOpPostfix= ruleOpPostfix EOF )
+            // InternalPerl.g:1378:2: iv_ruleOpPostfix= ruleOpPostfix EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getOpPostfixRule()); 
@@ -4074,7 +4009,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpPostfix"
-    // InternalPerl.g:1421:1: ruleOpPostfix returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '++' | kw= '--' ) ;
+    // InternalPerl.g:1384:1: ruleOpPostfix returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '++' | kw= '--' ) ;
     public final AntlrDatatypeRuleToken ruleOpPostfix() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -4084,17 +4019,17 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:1427:2: ( (kw= '++' | kw= '--' ) )
-            // InternalPerl.g:1428:2: (kw= '++' | kw= '--' )
+            // InternalPerl.g:1390:2: ( (kw= '++' | kw= '--' ) )
+            // InternalPerl.g:1391:2: (kw= '++' | kw= '--' )
             {
-            // InternalPerl.g:1428:2: (kw= '++' | kw= '--' )
+            // InternalPerl.g:1391:2: (kw= '++' | kw= '--' )
             int alt20=2;
             int LA20_0 = input.LA(1);
 
-            if ( (LA20_0==41) ) {
+            if ( (LA20_0==40) ) {
                 alt20=1;
             }
-            else if ( (LA20_0==42) ) {
+            else if ( (LA20_0==41) ) {
                 alt20=2;
             }
             else {
@@ -4106,9 +4041,9 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
             }
             switch (alt20) {
                 case 1 :
-                    // InternalPerl.g:1429:3: kw= '++'
+                    // InternalPerl.g:1392:3: kw= '++'
                     {
-                    kw=(Token)match(input,41,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,40,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -4119,9 +4054,9 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:1435:3: kw= '--'
+                    // InternalPerl.g:1398:3: kw= '--'
                     {
-                    kw=(Token)match(input,42,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,41,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -4155,28 +4090,28 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleOpPostfix"
 
 
-    // $ANTLR start "entryRulePMemberFeatureCall"
-    // InternalPerl.g:1444:1: entryRulePMemberFeatureCall returns [EObject current=null] : iv_rulePMemberFeatureCall= rulePMemberFeatureCall EOF ;
-    public final EObject entryRulePMemberFeatureCall() throws RecognitionException {
-        EObject current = null;
+    // $ANTLR start "entryRulePVar"
+    // InternalPerl.g:1407:1: entryRulePVar returns [String current=null] : iv_rulePVar= rulePVar EOF ;
+    public final String entryRulePVar() throws RecognitionException {
+        String current = null;
 
-        EObject iv_rulePMemberFeatureCall = null;
+        AntlrDatatypeRuleToken iv_rulePVar = null;
 
 
         try {
-            // InternalPerl.g:1444:59: (iv_rulePMemberFeatureCall= rulePMemberFeatureCall EOF )
-            // InternalPerl.g:1445:2: iv_rulePMemberFeatureCall= rulePMemberFeatureCall EOF
+            // InternalPerl.g:1407:44: (iv_rulePVar= rulePVar EOF )
+            // InternalPerl.g:1408:2: iv_rulePVar= rulePVar EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getPMemberFeatureCallRule()); 
+               newCompositeNode(grammarAccess.getPVarRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_rulePMemberFeatureCall=rulePMemberFeatureCall();
+            iv_rulePVar=rulePVar();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_rulePMemberFeatureCall; 
+               current =iv_rulePVar.getText(); 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -4192,163 +4127,49 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRulePMemberFeatureCall"
+    // $ANTLR end "entryRulePVar"
 
 
-    // $ANTLR start "rulePMemberFeatureCall"
-    // InternalPerl.g:1451:1: rulePMemberFeatureCall returns [EObject current=null] : (this_PPrimaryExpression_0= rulePPrimaryExpression ( ( ( ( () ( ( ruleFeatureCallID ) ) ruleOpSingleAssign ) )=> ( () ( (lv_feature_2_0= ruleFeatureCallID ) ) ruleOpSingleAssign ) ) ( (lv_value_4_0= rulePAssignment ) ) ) ) ;
-    public final EObject rulePMemberFeatureCall() throws RecognitionException {
-        EObject current = null;
+    // $ANTLR start "rulePVar"
+    // InternalPerl.g:1414:1: rulePVar returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_VAR_START_0= RULE_VAR_START this_ID_1= RULE_ID ) ;
+    public final AntlrDatatypeRuleToken rulePVar() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
-        EObject this_PPrimaryExpression_0 = null;
-
-        AntlrDatatypeRuleToken lv_feature_2_0 = null;
-
-        EObject lv_value_4_0 = null;
-
+        Token this_VAR_START_0=null;
+        Token this_ID_1=null;
 
 
         	enterRule();
 
         try {
-            // InternalPerl.g:1457:2: ( (this_PPrimaryExpression_0= rulePPrimaryExpression ( ( ( ( () ( ( ruleFeatureCallID ) ) ruleOpSingleAssign ) )=> ( () ( (lv_feature_2_0= ruleFeatureCallID ) ) ruleOpSingleAssign ) ) ( (lv_value_4_0= rulePAssignment ) ) ) ) )
-            // InternalPerl.g:1458:2: (this_PPrimaryExpression_0= rulePPrimaryExpression ( ( ( ( () ( ( ruleFeatureCallID ) ) ruleOpSingleAssign ) )=> ( () ( (lv_feature_2_0= ruleFeatureCallID ) ) ruleOpSingleAssign ) ) ( (lv_value_4_0= rulePAssignment ) ) ) )
+            // InternalPerl.g:1420:2: ( (this_VAR_START_0= RULE_VAR_START this_ID_1= RULE_ID ) )
+            // InternalPerl.g:1421:2: (this_VAR_START_0= RULE_VAR_START this_ID_1= RULE_ID )
             {
-            // InternalPerl.g:1458:2: (this_PPrimaryExpression_0= rulePPrimaryExpression ( ( ( ( () ( ( ruleFeatureCallID ) ) ruleOpSingleAssign ) )=> ( () ( (lv_feature_2_0= ruleFeatureCallID ) ) ruleOpSingleAssign ) ) ( (lv_value_4_0= rulePAssignment ) ) ) )
-            // InternalPerl.g:1459:3: this_PPrimaryExpression_0= rulePPrimaryExpression ( ( ( ( () ( ( ruleFeatureCallID ) ) ruleOpSingleAssign ) )=> ( () ( (lv_feature_2_0= ruleFeatureCallID ) ) ruleOpSingleAssign ) ) ( (lv_value_4_0= rulePAssignment ) ) )
+            // InternalPerl.g:1421:2: (this_VAR_START_0= RULE_VAR_START this_ID_1= RULE_ID )
+            // InternalPerl.g:1422:3: this_VAR_START_0= RULE_VAR_START this_ID_1= RULE_ID
             {
+            this_VAR_START_0=(Token)match(input,RULE_VAR_START,FOLLOW_18); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newCompositeNode(grammarAccess.getPMemberFeatureCallAccess().getPPrimaryExpressionParserRuleCall_0());
+              			current.merge(this_VAR_START_0);
               		
             }
-            pushFollow(FOLLOW_19);
-            this_PPrimaryExpression_0=rulePPrimaryExpression();
-
-            state._fsp--;
-            if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			current = this_PPrimaryExpression_0;
-              			afterParserOrEnumRuleCall();
+              			newLeafNode(this_VAR_START_0, grammarAccess.getPVarAccess().getVAR_STARTTerminalRuleCall_0());
               		
             }
-            // InternalPerl.g:1467:3: ( ( ( ( () ( ( ruleFeatureCallID ) ) ruleOpSingleAssign ) )=> ( () ( (lv_feature_2_0= ruleFeatureCallID ) ) ruleOpSingleAssign ) ) ( (lv_value_4_0= rulePAssignment ) ) )
-            // InternalPerl.g:1468:4: ( ( ( () ( ( ruleFeatureCallID ) ) ruleOpSingleAssign ) )=> ( () ( (lv_feature_2_0= ruleFeatureCallID ) ) ruleOpSingleAssign ) ) ( (lv_value_4_0= rulePAssignment ) )
-            {
-            // InternalPerl.g:1468:4: ( ( ( () ( ( ruleFeatureCallID ) ) ruleOpSingleAssign ) )=> ( () ( (lv_feature_2_0= ruleFeatureCallID ) ) ruleOpSingleAssign ) )
-            // InternalPerl.g:1469:5: ( ( () ( ( ruleFeatureCallID ) ) ruleOpSingleAssign ) )=> ( () ( (lv_feature_2_0= ruleFeatureCallID ) ) ruleOpSingleAssign )
-            {
-            // InternalPerl.g:1480:5: ( () ( (lv_feature_2_0= ruleFeatureCallID ) ) ruleOpSingleAssign )
-            // InternalPerl.g:1481:6: () ( (lv_feature_2_0= ruleFeatureCallID ) ) ruleOpSingleAssign
-            {
-            // InternalPerl.g:1481:6: ()
-            // InternalPerl.g:1482:7: 
-            {
+            this_ID_1=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              							current = forceCreateModelElementAndSet(
-              								grammarAccess.getPMemberFeatureCallAccess().getPAssignmentAssignableAction_1_0_0_0(),
-              								current);
-              						
+              			current.merge(this_ID_1);
+              		
             }
-
-            }
-
-            // InternalPerl.g:1488:6: ( (lv_feature_2_0= ruleFeatureCallID ) )
-            // InternalPerl.g:1489:7: (lv_feature_2_0= ruleFeatureCallID )
-            {
-            // InternalPerl.g:1489:7: (lv_feature_2_0= ruleFeatureCallID )
-            // InternalPerl.g:1490:8: lv_feature_2_0= ruleFeatureCallID
-            {
             if ( state.backtracking==0 ) {
 
-              								newCompositeNode(grammarAccess.getPMemberFeatureCallAccess().getFeatureFeatureCallIDParserRuleCall_1_0_0_1_0());
-              							
+              			newLeafNode(this_ID_1, grammarAccess.getPVarAccess().getIDTerminalRuleCall_1());
+              		
             }
-            pushFollow(FOLLOW_3);
-            lv_feature_2_0=ruleFeatureCallID();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              								if (current==null) {
-              									current = createModelElementForParent(grammarAccess.getPMemberFeatureCallRule());
-              								}
-              								set(
-              									current,
-              									"feature",
-              									lv_feature_2_0,
-              									"org.epic.perl.Perl.FeatureCallID");
-              								afterParserOrEnumRuleCall();
-              							
-            }
-
-            }
-
-
-            }
-
-            if ( state.backtracking==0 ) {
-
-              						newCompositeNode(grammarAccess.getPMemberFeatureCallAccess().getOpSingleAssignParserRuleCall_1_0_0_2());
-              					
-            }
-            pushFollow(FOLLOW_4);
-            ruleOpSingleAssign();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              						afterParserOrEnumRuleCall();
-              					
-            }
-
-            }
-
-
-            }
-
-            // InternalPerl.g:1516:4: ( (lv_value_4_0= rulePAssignment ) )
-            // InternalPerl.g:1517:5: (lv_value_4_0= rulePAssignment )
-            {
-            // InternalPerl.g:1517:5: (lv_value_4_0= rulePAssignment )
-            // InternalPerl.g:1518:6: lv_value_4_0= rulePAssignment
-            {
-            if ( state.backtracking==0 ) {
-
-              						newCompositeNode(grammarAccess.getPMemberFeatureCallAccess().getValuePAssignmentParserRuleCall_1_1_0());
-              					
-            }
-            pushFollow(FOLLOW_2);
-            lv_value_4_0=rulePAssignment();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              						if (current==null) {
-              							current = createModelElementForParent(grammarAccess.getPMemberFeatureCallRule());
-              						}
-              						set(
-              							current,
-              							"value",
-              							lv_value_4_0,
-              							"org.epic.perl.Perl.PAssignment");
-              						afterParserOrEnumRuleCall();
-              					
-            }
-
-            }
-
-
-            }
-
-
-            }
-
 
             }
 
@@ -4370,250 +4191,11 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "rulePMemberFeatureCall"
-
-
-    // $ANTLR start "entryRulePPrimaryExpression"
-    // InternalPerl.g:1540:1: entryRulePPrimaryExpression returns [EObject current=null] : iv_rulePPrimaryExpression= rulePPrimaryExpression EOF ;
-    public final EObject entryRulePPrimaryExpression() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_rulePPrimaryExpression = null;
-
-
-        try {
-            // InternalPerl.g:1540:59: (iv_rulePPrimaryExpression= rulePPrimaryExpression EOF )
-            // InternalPerl.g:1541:2: iv_rulePPrimaryExpression= rulePPrimaryExpression EOF
-            {
-            if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getPPrimaryExpressionRule()); 
-            }
-            pushFollow(FOLLOW_1);
-            iv_rulePPrimaryExpression=rulePPrimaryExpression();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-               current =iv_rulePPrimaryExpression; 
-            }
-            match(input,EOF,FOLLOW_2); if (state.failed) return current;
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRulePPrimaryExpression"
-
-
-    // $ANTLR start "rulePPrimaryExpression"
-    // InternalPerl.g:1547:1: rulePPrimaryExpression returns [EObject current=null] : (this_PBlockExpression_0= rulePBlockExpression | this_PLiteral_1= rulePLiteral | this_PIfExpression_2= rulePIfExpression | this_PReturnExpression_3= rulePReturnExpression | this_PParenthesizedExpression_4= rulePParenthesizedExpression ) ;
-    public final EObject rulePPrimaryExpression() throws RecognitionException {
-        EObject current = null;
-
-        EObject this_PBlockExpression_0 = null;
-
-        EObject this_PLiteral_1 = null;
-
-        EObject this_PIfExpression_2 = null;
-
-        EObject this_PReturnExpression_3 = null;
-
-        EObject this_PParenthesizedExpression_4 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalPerl.g:1553:2: ( (this_PBlockExpression_0= rulePBlockExpression | this_PLiteral_1= rulePLiteral | this_PIfExpression_2= rulePIfExpression | this_PReturnExpression_3= rulePReturnExpression | this_PParenthesizedExpression_4= rulePParenthesizedExpression ) )
-            // InternalPerl.g:1554:2: (this_PBlockExpression_0= rulePBlockExpression | this_PLiteral_1= rulePLiteral | this_PIfExpression_2= rulePIfExpression | this_PReturnExpression_3= rulePReturnExpression | this_PParenthesizedExpression_4= rulePParenthesizedExpression )
-            {
-            // InternalPerl.g:1554:2: (this_PBlockExpression_0= rulePBlockExpression | this_PLiteral_1= rulePLiteral | this_PIfExpression_2= rulePIfExpression | this_PReturnExpression_3= rulePReturnExpression | this_PParenthesizedExpression_4= rulePParenthesizedExpression )
-            int alt21=5;
-            switch ( input.LA(1) ) {
-            case 44:
-                {
-                alt21=1;
-                }
-                break;
-            case RULE_STRING:
-            case RULE_HEX:
-            case RULE_BIN:
-            case RULE_INT:
-            case 43:
-            case 56:
-                {
-                alt21=2;
-                }
-                break;
-            case 49:
-                {
-                alt21=3;
-                }
-                break;
-            case 57:
-                {
-                alt21=4;
-                }
-                break;
-            case 47:
-                {
-                alt21=5;
-                }
-                break;
-            default:
-                if (state.backtracking>0) {state.failed=true; return current;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 21, 0, input);
-
-                throw nvae;
-            }
-
-            switch (alt21) {
-                case 1 :
-                    // InternalPerl.g:1555:3: this_PBlockExpression_0= rulePBlockExpression
-                    {
-                    if ( state.backtracking==0 ) {
-
-                      			newCompositeNode(grammarAccess.getPPrimaryExpressionAccess().getPBlockExpressionParserRuleCall_0());
-                      		
-                    }
-                    pushFollow(FOLLOW_2);
-                    this_PBlockExpression_0=rulePBlockExpression();
-
-                    state._fsp--;
-                    if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      			current = this_PBlockExpression_0;
-                      			afterParserOrEnumRuleCall();
-                      		
-                    }
-
-                    }
-                    break;
-                case 2 :
-                    // InternalPerl.g:1564:3: this_PLiteral_1= rulePLiteral
-                    {
-                    if ( state.backtracking==0 ) {
-
-                      			newCompositeNode(grammarAccess.getPPrimaryExpressionAccess().getPLiteralParserRuleCall_1());
-                      		
-                    }
-                    pushFollow(FOLLOW_2);
-                    this_PLiteral_1=rulePLiteral();
-
-                    state._fsp--;
-                    if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      			current = this_PLiteral_1;
-                      			afterParserOrEnumRuleCall();
-                      		
-                    }
-
-                    }
-                    break;
-                case 3 :
-                    // InternalPerl.g:1573:3: this_PIfExpression_2= rulePIfExpression
-                    {
-                    if ( state.backtracking==0 ) {
-
-                      			newCompositeNode(grammarAccess.getPPrimaryExpressionAccess().getPIfExpressionParserRuleCall_2());
-                      		
-                    }
-                    pushFollow(FOLLOW_2);
-                    this_PIfExpression_2=rulePIfExpression();
-
-                    state._fsp--;
-                    if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      			current = this_PIfExpression_2;
-                      			afterParserOrEnumRuleCall();
-                      		
-                    }
-
-                    }
-                    break;
-                case 4 :
-                    // InternalPerl.g:1582:3: this_PReturnExpression_3= rulePReturnExpression
-                    {
-                    if ( state.backtracking==0 ) {
-
-                      			newCompositeNode(grammarAccess.getPPrimaryExpressionAccess().getPReturnExpressionParserRuleCall_3());
-                      		
-                    }
-                    pushFollow(FOLLOW_2);
-                    this_PReturnExpression_3=rulePReturnExpression();
-
-                    state._fsp--;
-                    if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      			current = this_PReturnExpression_3;
-                      			afterParserOrEnumRuleCall();
-                      		
-                    }
-
-                    }
-                    break;
-                case 5 :
-                    // InternalPerl.g:1591:3: this_PParenthesizedExpression_4= rulePParenthesizedExpression
-                    {
-                    if ( state.backtracking==0 ) {
-
-                      			newCompositeNode(grammarAccess.getPPrimaryExpressionAccess().getPParenthesizedExpressionParserRuleCall_4());
-                      		
-                    }
-                    pushFollow(FOLLOW_2);
-                    this_PParenthesizedExpression_4=rulePParenthesizedExpression();
-
-                    state._fsp--;
-                    if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      			current = this_PParenthesizedExpression_4;
-                      			afterParserOrEnumRuleCall();
-                      		
-                    }
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-            if ( state.backtracking==0 ) {
-
-              	leaveRule();
-
-            }
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "rulePPrimaryExpression"
+    // $ANTLR end "rulePVar"
 
 
     // $ANTLR start "entryRulePLiteral"
-    // InternalPerl.g:1603:1: entryRulePLiteral returns [EObject current=null] : iv_rulePLiteral= rulePLiteral EOF ;
+    // InternalPerl.g:1440:1: entryRulePLiteral returns [EObject current=null] : iv_rulePLiteral= rulePLiteral EOF ;
     public final EObject entryRulePLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -4621,8 +4203,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:1603:49: (iv_rulePLiteral= rulePLiteral EOF )
-            // InternalPerl.g:1604:2: iv_rulePLiteral= rulePLiteral EOF
+            // InternalPerl.g:1440:49: (iv_rulePLiteral= rulePLiteral EOF )
+            // InternalPerl.g:1441:2: iv_rulePLiteral= rulePLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPLiteralRule()); 
@@ -4653,7 +4235,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePLiteral"
-    // InternalPerl.g:1610:1: rulePLiteral returns [EObject current=null] : ( ( ( ( () 'sub' '{' ) )=>this_PClosure_0= rulePClosure ) | this_PNumberLiteral_1= rulePNumberLiteral | this_PNullLiteral_2= rulePNullLiteral | this_PStringLiteral_3= rulePStringLiteral ) ;
+    // InternalPerl.g:1447:1: rulePLiteral returns [EObject current=null] : ( ( ( ( () 'sub' '{' ) )=>this_PClosure_0= rulePClosure ) | this_PNumberLiteral_1= rulePNumberLiteral | this_PNullLiteral_2= rulePNullLiteral | this_PStringLiteral_3= rulePStringLiteral ) ;
     public final EObject rulePLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -4670,38 +4252,38 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:1616:2: ( ( ( ( ( () 'sub' '{' ) )=>this_PClosure_0= rulePClosure ) | this_PNumberLiteral_1= rulePNumberLiteral | this_PNullLiteral_2= rulePNullLiteral | this_PStringLiteral_3= rulePStringLiteral ) )
-            // InternalPerl.g:1617:2: ( ( ( ( () 'sub' '{' ) )=>this_PClosure_0= rulePClosure ) | this_PNumberLiteral_1= rulePNumberLiteral | this_PNullLiteral_2= rulePNullLiteral | this_PStringLiteral_3= rulePStringLiteral )
+            // InternalPerl.g:1453:2: ( ( ( ( ( () 'sub' '{' ) )=>this_PClosure_0= rulePClosure ) | this_PNumberLiteral_1= rulePNumberLiteral | this_PNullLiteral_2= rulePNullLiteral | this_PStringLiteral_3= rulePStringLiteral ) )
+            // InternalPerl.g:1454:2: ( ( ( ( () 'sub' '{' ) )=>this_PClosure_0= rulePClosure ) | this_PNumberLiteral_1= rulePNumberLiteral | this_PNullLiteral_2= rulePNullLiteral | this_PStringLiteral_3= rulePStringLiteral )
             {
-            // InternalPerl.g:1617:2: ( ( ( ( () 'sub' '{' ) )=>this_PClosure_0= rulePClosure ) | this_PNumberLiteral_1= rulePNumberLiteral | this_PNullLiteral_2= rulePNullLiteral | this_PStringLiteral_3= rulePStringLiteral )
-            int alt22=4;
-            int LA22_0 = input.LA(1);
+            // InternalPerl.g:1454:2: ( ( ( ( () 'sub' '{' ) )=>this_PClosure_0= rulePClosure ) | this_PNumberLiteral_1= rulePNumberLiteral | this_PNullLiteral_2= rulePNullLiteral | this_PStringLiteral_3= rulePStringLiteral )
+            int alt21=4;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA22_0==43) && (synpred12_InternalPerl())) {
-                alt22=1;
+            if ( (LA21_0==42) && (synpred11_InternalPerl())) {
+                alt21=1;
             }
-            else if ( ((LA22_0>=RULE_HEX && LA22_0<=RULE_INT)) ) {
-                alt22=2;
+            else if ( ((LA21_0>=RULE_HEX && LA21_0<=RULE_INT)) ) {
+                alt21=2;
             }
-            else if ( (LA22_0==56) ) {
-                alt22=3;
+            else if ( (LA21_0==53) ) {
+                alt21=3;
             }
-            else if ( (LA22_0==RULE_STRING) ) {
-                alt22=4;
+            else if ( (LA21_0==RULE_STRING) ) {
+                alt21=4;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 22, 0, input);
+                    new NoViableAltException("", 21, 0, input);
 
                 throw nvae;
             }
-            switch (alt22) {
+            switch (alt21) {
                 case 1 :
-                    // InternalPerl.g:1618:3: ( ( ( () 'sub' '{' ) )=>this_PClosure_0= rulePClosure )
+                    // InternalPerl.g:1455:3: ( ( ( () 'sub' '{' ) )=>this_PClosure_0= rulePClosure )
                     {
-                    // InternalPerl.g:1618:3: ( ( ( () 'sub' '{' ) )=>this_PClosure_0= rulePClosure )
-                    // InternalPerl.g:1619:4: ( ( () 'sub' '{' ) )=>this_PClosure_0= rulePClosure
+                    // InternalPerl.g:1455:3: ( ( ( () 'sub' '{' ) )=>this_PClosure_0= rulePClosure )
+                    // InternalPerl.g:1456:4: ( ( () 'sub' '{' ) )=>this_PClosure_0= rulePClosure
                     {
                     if ( state.backtracking==0 ) {
 
@@ -4726,7 +4308,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:1636:3: this_PNumberLiteral_1= rulePNumberLiteral
+                    // InternalPerl.g:1473:3: this_PNumberLiteral_1= rulePNumberLiteral
                     {
                     if ( state.backtracking==0 ) {
 
@@ -4748,7 +4330,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:1645:3: this_PNullLiteral_2= rulePNullLiteral
+                    // InternalPerl.g:1482:3: this_PNullLiteral_2= rulePNullLiteral
                     {
                     if ( state.backtracking==0 ) {
 
@@ -4770,7 +4352,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalPerl.g:1654:3: this_PStringLiteral_3= rulePStringLiteral
+                    // InternalPerl.g:1491:3: this_PStringLiteral_3= rulePStringLiteral
                     {
                     if ( state.backtracking==0 ) {
 
@@ -4816,7 +4398,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePClosure"
-    // InternalPerl.g:1666:1: entryRulePClosure returns [EObject current=null] : iv_rulePClosure= rulePClosure EOF ;
+    // InternalPerl.g:1503:1: entryRulePClosure returns [EObject current=null] : iv_rulePClosure= rulePClosure EOF ;
     public final EObject entryRulePClosure() throws RecognitionException {
         EObject current = null;
 
@@ -4824,8 +4406,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:1666:49: (iv_rulePClosure= rulePClosure EOF )
-            // InternalPerl.g:1667:2: iv_rulePClosure= rulePClosure EOF
+            // InternalPerl.g:1503:49: (iv_rulePClosure= rulePClosure EOF )
+            // InternalPerl.g:1504:2: iv_rulePClosure= rulePClosure EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPClosureRule()); 
@@ -4856,7 +4438,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePClosure"
-    // InternalPerl.g:1673:1: rulePClosure returns [EObject current=null] : ( ( ( ( () 'sub' '{' ) )=> ( () otherlv_1= 'sub' otherlv_2= '{' ) ) ( (lv_expression_3_0= rulePExpressionInClosure ) ) otherlv_4= '}' ) ;
+    // InternalPerl.g:1510:1: rulePClosure returns [EObject current=null] : ( ( ( ( () 'sub' '{' ) )=> ( () otherlv_1= 'sub' otherlv_2= '{' ) ) ( (lv_expression_3_0= rulePExpressionInClosure ) ) otherlv_4= '}' ) ;
     public final EObject rulePClosure() throws RecognitionException {
         EObject current = null;
 
@@ -4870,20 +4452,20 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:1679:2: ( ( ( ( ( () 'sub' '{' ) )=> ( () otherlv_1= 'sub' otherlv_2= '{' ) ) ( (lv_expression_3_0= rulePExpressionInClosure ) ) otherlv_4= '}' ) )
-            // InternalPerl.g:1680:2: ( ( ( ( () 'sub' '{' ) )=> ( () otherlv_1= 'sub' otherlv_2= '{' ) ) ( (lv_expression_3_0= rulePExpressionInClosure ) ) otherlv_4= '}' )
+            // InternalPerl.g:1516:2: ( ( ( ( ( () 'sub' '{' ) )=> ( () otherlv_1= 'sub' otherlv_2= '{' ) ) ( (lv_expression_3_0= rulePExpressionInClosure ) ) otherlv_4= '}' ) )
+            // InternalPerl.g:1517:2: ( ( ( ( () 'sub' '{' ) )=> ( () otherlv_1= 'sub' otherlv_2= '{' ) ) ( (lv_expression_3_0= rulePExpressionInClosure ) ) otherlv_4= '}' )
             {
-            // InternalPerl.g:1680:2: ( ( ( ( () 'sub' '{' ) )=> ( () otherlv_1= 'sub' otherlv_2= '{' ) ) ( (lv_expression_3_0= rulePExpressionInClosure ) ) otherlv_4= '}' )
-            // InternalPerl.g:1681:3: ( ( ( () 'sub' '{' ) )=> ( () otherlv_1= 'sub' otherlv_2= '{' ) ) ( (lv_expression_3_0= rulePExpressionInClosure ) ) otherlv_4= '}'
+            // InternalPerl.g:1517:2: ( ( ( ( () 'sub' '{' ) )=> ( () otherlv_1= 'sub' otherlv_2= '{' ) ) ( (lv_expression_3_0= rulePExpressionInClosure ) ) otherlv_4= '}' )
+            // InternalPerl.g:1518:3: ( ( ( () 'sub' '{' ) )=> ( () otherlv_1= 'sub' otherlv_2= '{' ) ) ( (lv_expression_3_0= rulePExpressionInClosure ) ) otherlv_4= '}'
             {
-            // InternalPerl.g:1681:3: ( ( ( () 'sub' '{' ) )=> ( () otherlv_1= 'sub' otherlv_2= '{' ) )
-            // InternalPerl.g:1682:4: ( ( () 'sub' '{' ) )=> ( () otherlv_1= 'sub' otherlv_2= '{' )
+            // InternalPerl.g:1518:3: ( ( ( () 'sub' '{' ) )=> ( () otherlv_1= 'sub' otherlv_2= '{' ) )
+            // InternalPerl.g:1519:4: ( ( () 'sub' '{' ) )=> ( () otherlv_1= 'sub' otherlv_2= '{' )
             {
-            // InternalPerl.g:1689:4: ( () otherlv_1= 'sub' otherlv_2= '{' )
-            // InternalPerl.g:1690:5: () otherlv_1= 'sub' otherlv_2= '{'
+            // InternalPerl.g:1526:4: ( () otherlv_1= 'sub' otherlv_2= '{' )
+            // InternalPerl.g:1527:5: () otherlv_1= 'sub' otherlv_2= '{'
             {
-            // InternalPerl.g:1690:5: ()
-            // InternalPerl.g:1691:6: 
+            // InternalPerl.g:1527:5: ()
+            // InternalPerl.g:1528:6: 
             {
             if ( state.backtracking==0 ) {
 
@@ -4895,13 +4477,13 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,43,FOLLOW_20); if (state.failed) return current;
+            otherlv_1=(Token)match(input,42,FOLLOW_19); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               					newLeafNode(otherlv_1, grammarAccess.getPClosureAccess().getSubKeyword_0_0_1());
               				
             }
-            otherlv_2=(Token)match(input,44,FOLLOW_21); if (state.failed) return current;
+            otherlv_2=(Token)match(input,43,FOLLOW_20); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               					newLeafNode(otherlv_2, grammarAccess.getPClosureAccess().getLeftCurlyBracketKeyword_0_0_2());
@@ -4913,18 +4495,18 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPerl.g:1707:3: ( (lv_expression_3_0= rulePExpressionInClosure ) )
-            // InternalPerl.g:1708:4: (lv_expression_3_0= rulePExpressionInClosure )
+            // InternalPerl.g:1544:3: ( (lv_expression_3_0= rulePExpressionInClosure ) )
+            // InternalPerl.g:1545:4: (lv_expression_3_0= rulePExpressionInClosure )
             {
-            // InternalPerl.g:1708:4: (lv_expression_3_0= rulePExpressionInClosure )
-            // InternalPerl.g:1709:5: lv_expression_3_0= rulePExpressionInClosure
+            // InternalPerl.g:1545:4: (lv_expression_3_0= rulePExpressionInClosure )
+            // InternalPerl.g:1546:5: lv_expression_3_0= rulePExpressionInClosure
             {
             if ( state.backtracking==0 ) {
 
               					newCompositeNode(grammarAccess.getPClosureAccess().getExpressionPExpressionInClosureParserRuleCall_1_0());
               				
             }
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_21);
             lv_expression_3_0=rulePExpressionInClosure();
 
             state._fsp--;
@@ -4948,7 +4530,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,45,FOLLOW_2); if (state.failed) return current;
+            otherlv_4=(Token)match(input,44,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_4, grammarAccess.getPClosureAccess().getRightCurlyBracketKeyword_2());
@@ -4979,7 +4561,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePExpressionInClosure"
-    // InternalPerl.g:1734:1: entryRulePExpressionInClosure returns [EObject current=null] : iv_rulePExpressionInClosure= rulePExpressionInClosure EOF ;
+    // InternalPerl.g:1571:1: entryRulePExpressionInClosure returns [EObject current=null] : iv_rulePExpressionInClosure= rulePExpressionInClosure EOF ;
     public final EObject entryRulePExpressionInClosure() throws RecognitionException {
         EObject current = null;
 
@@ -4987,8 +4569,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:1734:61: (iv_rulePExpressionInClosure= rulePExpressionInClosure EOF )
-            // InternalPerl.g:1735:2: iv_rulePExpressionInClosure= rulePExpressionInClosure EOF
+            // InternalPerl.g:1571:61: (iv_rulePExpressionInClosure= rulePExpressionInClosure EOF )
+            // InternalPerl.g:1572:2: iv_rulePExpressionInClosure= rulePExpressionInClosure EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPExpressionInClosureRule()); 
@@ -5019,7 +4601,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePExpressionInClosure"
-    // InternalPerl.g:1741:1: rulePExpressionInClosure returns [EObject current=null] : ( () ( ( (lv_expressions_1_0= rulePExpressionOrVarDeclaration ) ) (otherlv_2= ';' )? )* ) ;
+    // InternalPerl.g:1578:1: rulePExpressionInClosure returns [EObject current=null] : ( () ( ( (lv_expressions_1_0= rulePExpressionOrVarDeclaration ) ) (otherlv_2= ';' )? )* ) ;
     public final EObject rulePExpressionInClosure() throws RecognitionException {
         EObject current = null;
 
@@ -5031,14 +4613,14 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:1747:2: ( ( () ( ( (lv_expressions_1_0= rulePExpressionOrVarDeclaration ) ) (otherlv_2= ';' )? )* ) )
-            // InternalPerl.g:1748:2: ( () ( ( (lv_expressions_1_0= rulePExpressionOrVarDeclaration ) ) (otherlv_2= ';' )? )* )
+            // InternalPerl.g:1584:2: ( ( () ( ( (lv_expressions_1_0= rulePExpressionOrVarDeclaration ) ) (otherlv_2= ';' )? )* ) )
+            // InternalPerl.g:1585:2: ( () ( ( (lv_expressions_1_0= rulePExpressionOrVarDeclaration ) ) (otherlv_2= ';' )? )* )
             {
-            // InternalPerl.g:1748:2: ( () ( ( (lv_expressions_1_0= rulePExpressionOrVarDeclaration ) ) (otherlv_2= ';' )? )* )
-            // InternalPerl.g:1749:3: () ( ( (lv_expressions_1_0= rulePExpressionOrVarDeclaration ) ) (otherlv_2= ';' )? )*
+            // InternalPerl.g:1585:2: ( () ( ( (lv_expressions_1_0= rulePExpressionOrVarDeclaration ) ) (otherlv_2= ';' )? )* )
+            // InternalPerl.g:1586:3: () ( ( (lv_expressions_1_0= rulePExpressionOrVarDeclaration ) ) (otherlv_2= ';' )? )*
             {
-            // InternalPerl.g:1749:3: ()
-            // InternalPerl.g:1750:4: 
+            // InternalPerl.g:1586:3: ()
+            // InternalPerl.g:1587:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -5050,33 +4632,33 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPerl.g:1756:3: ( ( (lv_expressions_1_0= rulePExpressionOrVarDeclaration ) ) (otherlv_2= ';' )? )*
-            loop24:
+            // InternalPerl.g:1593:3: ( ( (lv_expressions_1_0= rulePExpressionOrVarDeclaration ) ) (otherlv_2= ';' )? )*
+            loop23:
             do {
-                int alt24=2;
-                int LA24_0 = input.LA(1);
+                int alt23=2;
+                int LA23_0 = input.LA(1);
 
-                if ( ((LA24_0>=34 && LA24_0<=35)||(LA24_0>=39 && LA24_0<=40)||(LA24_0>=51 && LA24_0<=55)) ) {
-                    alt24=1;
+                if ( (LA23_0==RULE_VAR_START||(LA23_0>=33 && LA23_0<=34)||LA23_0==39||(LA23_0>=50 && LA23_0<=52)) ) {
+                    alt23=1;
                 }
 
 
-                switch (alt24) {
+                switch (alt23) {
             	case 1 :
-            	    // InternalPerl.g:1757:4: ( (lv_expressions_1_0= rulePExpressionOrVarDeclaration ) ) (otherlv_2= ';' )?
+            	    // InternalPerl.g:1594:4: ( (lv_expressions_1_0= rulePExpressionOrVarDeclaration ) ) (otherlv_2= ';' )?
             	    {
-            	    // InternalPerl.g:1757:4: ( (lv_expressions_1_0= rulePExpressionOrVarDeclaration ) )
-            	    // InternalPerl.g:1758:5: (lv_expressions_1_0= rulePExpressionOrVarDeclaration )
+            	    // InternalPerl.g:1594:4: ( (lv_expressions_1_0= rulePExpressionOrVarDeclaration ) )
+            	    // InternalPerl.g:1595:5: (lv_expressions_1_0= rulePExpressionOrVarDeclaration )
             	    {
-            	    // InternalPerl.g:1758:5: (lv_expressions_1_0= rulePExpressionOrVarDeclaration )
-            	    // InternalPerl.g:1759:6: lv_expressions_1_0= rulePExpressionOrVarDeclaration
+            	    // InternalPerl.g:1595:5: (lv_expressions_1_0= rulePExpressionOrVarDeclaration )
+            	    // InternalPerl.g:1596:6: lv_expressions_1_0= rulePExpressionOrVarDeclaration
             	    {
             	    if ( state.backtracking==0 ) {
 
             	      						newCompositeNode(grammarAccess.getPExpressionInClosureAccess().getExpressionsPExpressionOrVarDeclarationParserRuleCall_1_0_0());
             	      					
             	    }
-            	    pushFollow(FOLLOW_23);
+            	    pushFollow(FOLLOW_22);
             	    lv_expressions_1_0=rulePExpressionOrVarDeclaration();
 
             	    state._fsp--;
@@ -5100,18 +4682,18 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalPerl.g:1776:4: (otherlv_2= ';' )?
-            	    int alt23=2;
-            	    int LA23_0 = input.LA(1);
+            	    // InternalPerl.g:1613:4: (otherlv_2= ';' )?
+            	    int alt22=2;
+            	    int LA22_0 = input.LA(1);
 
-            	    if ( (LA23_0==46) ) {
-            	        alt23=1;
+            	    if ( (LA22_0==45) ) {
+            	        alt22=1;
             	    }
-            	    switch (alt23) {
+            	    switch (alt22) {
             	        case 1 :
-            	            // InternalPerl.g:1777:5: otherlv_2= ';'
+            	            // InternalPerl.g:1614:5: otherlv_2= ';'
             	            {
-            	            otherlv_2=(Token)match(input,46,FOLLOW_24); if (state.failed) return current;
+            	            otherlv_2=(Token)match(input,45,FOLLOW_23); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	              					newLeafNode(otherlv_2, grammarAccess.getPExpressionInClosureAccess().getSemicolonKeyword_1_1());
@@ -5128,7 +4710,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop24;
+            	    break loop23;
                 }
             } while (true);
 
@@ -5157,7 +4739,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePParenthesizedExpression"
-    // InternalPerl.g:1787:1: entryRulePParenthesizedExpression returns [EObject current=null] : iv_rulePParenthesizedExpression= rulePParenthesizedExpression EOF ;
+    // InternalPerl.g:1624:1: entryRulePParenthesizedExpression returns [EObject current=null] : iv_rulePParenthesizedExpression= rulePParenthesizedExpression EOF ;
     public final EObject entryRulePParenthesizedExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5165,8 +4747,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:1787:65: (iv_rulePParenthesizedExpression= rulePParenthesizedExpression EOF )
-            // InternalPerl.g:1788:2: iv_rulePParenthesizedExpression= rulePParenthesizedExpression EOF
+            // InternalPerl.g:1624:65: (iv_rulePParenthesizedExpression= rulePParenthesizedExpression EOF )
+            // InternalPerl.g:1625:2: iv_rulePParenthesizedExpression= rulePParenthesizedExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPParenthesizedExpressionRule()); 
@@ -5197,7 +4779,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePParenthesizedExpression"
-    // InternalPerl.g:1794:1: rulePParenthesizedExpression returns [EObject current=null] : (otherlv_0= '(' this_PExpression_1= rulePExpression otherlv_2= ')' ) ;
+    // InternalPerl.g:1631:1: rulePParenthesizedExpression returns [EObject current=null] : (otherlv_0= '(' this_PExpression_1= rulePExpression otherlv_2= ')' ) ;
     public final EObject rulePParenthesizedExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5210,13 +4792,13 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:1800:2: ( (otherlv_0= '(' this_PExpression_1= rulePExpression otherlv_2= ')' ) )
-            // InternalPerl.g:1801:2: (otherlv_0= '(' this_PExpression_1= rulePExpression otherlv_2= ')' )
+            // InternalPerl.g:1637:2: ( (otherlv_0= '(' this_PExpression_1= rulePExpression otherlv_2= ')' ) )
+            // InternalPerl.g:1638:2: (otherlv_0= '(' this_PExpression_1= rulePExpression otherlv_2= ')' )
             {
-            // InternalPerl.g:1801:2: (otherlv_0= '(' this_PExpression_1= rulePExpression otherlv_2= ')' )
-            // InternalPerl.g:1802:3: otherlv_0= '(' this_PExpression_1= rulePExpression otherlv_2= ')'
+            // InternalPerl.g:1638:2: (otherlv_0= '(' this_PExpression_1= rulePExpression otherlv_2= ')' )
+            // InternalPerl.g:1639:3: otherlv_0= '(' this_PExpression_1= rulePExpression otherlv_2= ')'
             {
-            otherlv_0=(Token)match(input,47,FOLLOW_25); if (state.failed) return current;
+            otherlv_0=(Token)match(input,46,FOLLOW_24); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getPParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
@@ -5227,7 +4809,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
               			newCompositeNode(grammarAccess.getPParenthesizedExpressionAccess().getPExpressionParserRuleCall_1());
               		
             }
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_25);
             this_PExpression_1=rulePExpression();
 
             state._fsp--;
@@ -5238,7 +4820,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            otherlv_2=(Token)match(input,48,FOLLOW_2); if (state.failed) return current;
+            otherlv_2=(Token)match(input,47,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_2, grammarAccess.getPParenthesizedExpressionAccess().getRightParenthesisKeyword_2());
@@ -5269,7 +4851,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePIfExpression"
-    // InternalPerl.g:1822:1: entryRulePIfExpression returns [EObject current=null] : iv_rulePIfExpression= rulePIfExpression EOF ;
+    // InternalPerl.g:1659:1: entryRulePIfExpression returns [EObject current=null] : iv_rulePIfExpression= rulePIfExpression EOF ;
     public final EObject entryRulePIfExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5277,8 +4859,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:1822:54: (iv_rulePIfExpression= rulePIfExpression EOF )
-            // InternalPerl.g:1823:2: iv_rulePIfExpression= rulePIfExpression EOF
+            // InternalPerl.g:1659:54: (iv_rulePIfExpression= rulePIfExpression EOF )
+            // InternalPerl.g:1660:2: iv_rulePIfExpression= rulePIfExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPIfExpressionRule()); 
@@ -5309,7 +4891,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePIfExpression"
-    // InternalPerl.g:1829:1: rulePIfExpression returns [EObject current=null] : ( () otherlv_1= 'if' otherlv_2= '(' ( (lv_if_3_0= rulePExpression ) ) otherlv_4= ')' ( (lv_then_5_0= rulePExpression ) ) ( ( ( 'else' )=>otherlv_6= 'else' ) ( (lv_else_7_0= rulePExpression ) ) )? ) ;
+    // InternalPerl.g:1666:1: rulePIfExpression returns [EObject current=null] : ( () otherlv_1= 'if' otherlv_2= '(' ( (lv_if_3_0= rulePExpression ) ) otherlv_4= ')' ( (lv_then_5_0= rulePExpression ) ) ( ( ( 'else' )=>otherlv_6= 'else' ) ( (lv_else_7_0= rulePExpression ) ) )? ) ;
     public final EObject rulePIfExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5328,14 +4910,14 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:1835:2: ( ( () otherlv_1= 'if' otherlv_2= '(' ( (lv_if_3_0= rulePExpression ) ) otherlv_4= ')' ( (lv_then_5_0= rulePExpression ) ) ( ( ( 'else' )=>otherlv_6= 'else' ) ( (lv_else_7_0= rulePExpression ) ) )? ) )
-            // InternalPerl.g:1836:2: ( () otherlv_1= 'if' otherlv_2= '(' ( (lv_if_3_0= rulePExpression ) ) otherlv_4= ')' ( (lv_then_5_0= rulePExpression ) ) ( ( ( 'else' )=>otherlv_6= 'else' ) ( (lv_else_7_0= rulePExpression ) ) )? )
+            // InternalPerl.g:1672:2: ( ( () otherlv_1= 'if' otherlv_2= '(' ( (lv_if_3_0= rulePExpression ) ) otherlv_4= ')' ( (lv_then_5_0= rulePExpression ) ) ( ( ( 'else' )=>otherlv_6= 'else' ) ( (lv_else_7_0= rulePExpression ) ) )? ) )
+            // InternalPerl.g:1673:2: ( () otherlv_1= 'if' otherlv_2= '(' ( (lv_if_3_0= rulePExpression ) ) otherlv_4= ')' ( (lv_then_5_0= rulePExpression ) ) ( ( ( 'else' )=>otherlv_6= 'else' ) ( (lv_else_7_0= rulePExpression ) ) )? )
             {
-            // InternalPerl.g:1836:2: ( () otherlv_1= 'if' otherlv_2= '(' ( (lv_if_3_0= rulePExpression ) ) otherlv_4= ')' ( (lv_then_5_0= rulePExpression ) ) ( ( ( 'else' )=>otherlv_6= 'else' ) ( (lv_else_7_0= rulePExpression ) ) )? )
-            // InternalPerl.g:1837:3: () otherlv_1= 'if' otherlv_2= '(' ( (lv_if_3_0= rulePExpression ) ) otherlv_4= ')' ( (lv_then_5_0= rulePExpression ) ) ( ( ( 'else' )=>otherlv_6= 'else' ) ( (lv_else_7_0= rulePExpression ) ) )?
+            // InternalPerl.g:1673:2: ( () otherlv_1= 'if' otherlv_2= '(' ( (lv_if_3_0= rulePExpression ) ) otherlv_4= ')' ( (lv_then_5_0= rulePExpression ) ) ( ( ( 'else' )=>otherlv_6= 'else' ) ( (lv_else_7_0= rulePExpression ) ) )? )
+            // InternalPerl.g:1674:3: () otherlv_1= 'if' otherlv_2= '(' ( (lv_if_3_0= rulePExpression ) ) otherlv_4= ')' ( (lv_then_5_0= rulePExpression ) ) ( ( ( 'else' )=>otherlv_6= 'else' ) ( (lv_else_7_0= rulePExpression ) ) )?
             {
-            // InternalPerl.g:1837:3: ()
-            // InternalPerl.g:1838:4: 
+            // InternalPerl.g:1674:3: ()
+            // InternalPerl.g:1675:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -5347,30 +4929,30 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,49,FOLLOW_27); if (state.failed) return current;
+            otherlv_1=(Token)match(input,48,FOLLOW_26); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getPIfExpressionAccess().getIfKeyword_1());
               		
             }
-            otherlv_2=(Token)match(input,47,FOLLOW_25); if (state.failed) return current;
+            otherlv_2=(Token)match(input,46,FOLLOW_24); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_2, grammarAccess.getPIfExpressionAccess().getLeftParenthesisKeyword_2());
               		
             }
-            // InternalPerl.g:1852:3: ( (lv_if_3_0= rulePExpression ) )
-            // InternalPerl.g:1853:4: (lv_if_3_0= rulePExpression )
+            // InternalPerl.g:1689:3: ( (lv_if_3_0= rulePExpression ) )
+            // InternalPerl.g:1690:4: (lv_if_3_0= rulePExpression )
             {
-            // InternalPerl.g:1853:4: (lv_if_3_0= rulePExpression )
-            // InternalPerl.g:1854:5: lv_if_3_0= rulePExpression
+            // InternalPerl.g:1690:4: (lv_if_3_0= rulePExpression )
+            // InternalPerl.g:1691:5: lv_if_3_0= rulePExpression
             {
             if ( state.backtracking==0 ) {
 
               					newCompositeNode(grammarAccess.getPIfExpressionAccess().getIfPExpressionParserRuleCall_3_0());
               				
             }
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_25);
             lv_if_3_0=rulePExpression();
 
             state._fsp--;
@@ -5394,24 +4976,24 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,48,FOLLOW_25); if (state.failed) return current;
+            otherlv_4=(Token)match(input,47,FOLLOW_24); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_4, grammarAccess.getPIfExpressionAccess().getRightParenthesisKeyword_4());
               		
             }
-            // InternalPerl.g:1875:3: ( (lv_then_5_0= rulePExpression ) )
-            // InternalPerl.g:1876:4: (lv_then_5_0= rulePExpression )
+            // InternalPerl.g:1712:3: ( (lv_then_5_0= rulePExpression ) )
+            // InternalPerl.g:1713:4: (lv_then_5_0= rulePExpression )
             {
-            // InternalPerl.g:1876:4: (lv_then_5_0= rulePExpression )
-            // InternalPerl.g:1877:5: lv_then_5_0= rulePExpression
+            // InternalPerl.g:1713:4: (lv_then_5_0= rulePExpression )
+            // InternalPerl.g:1714:5: lv_then_5_0= rulePExpression
             {
             if ( state.backtracking==0 ) {
 
               					newCompositeNode(grammarAccess.getPIfExpressionAccess().getThenPExpressionParserRuleCall_5_0());
               				
             }
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_27);
             lv_then_5_0=rulePExpression();
 
             state._fsp--;
@@ -5435,21 +5017,21 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPerl.g:1894:3: ( ( ( 'else' )=>otherlv_6= 'else' ) ( (lv_else_7_0= rulePExpression ) ) )?
-            int alt25=2;
-            int LA25_0 = input.LA(1);
+            // InternalPerl.g:1731:3: ( ( ( 'else' )=>otherlv_6= 'else' ) ( (lv_else_7_0= rulePExpression ) ) )?
+            int alt24=2;
+            int LA24_0 = input.LA(1);
 
-            if ( (LA25_0==50) && (synpred14_InternalPerl())) {
-                alt25=1;
+            if ( (LA24_0==49) && (synpred13_InternalPerl())) {
+                alt24=1;
             }
-            switch (alt25) {
+            switch (alt24) {
                 case 1 :
-                    // InternalPerl.g:1895:4: ( ( 'else' )=>otherlv_6= 'else' ) ( (lv_else_7_0= rulePExpression ) )
+                    // InternalPerl.g:1732:4: ( ( 'else' )=>otherlv_6= 'else' ) ( (lv_else_7_0= rulePExpression ) )
                     {
-                    // InternalPerl.g:1895:4: ( ( 'else' )=>otherlv_6= 'else' )
-                    // InternalPerl.g:1896:5: ( 'else' )=>otherlv_6= 'else'
+                    // InternalPerl.g:1732:4: ( ( 'else' )=>otherlv_6= 'else' )
+                    // InternalPerl.g:1733:5: ( 'else' )=>otherlv_6= 'else'
                     {
-                    otherlv_6=(Token)match(input,50,FOLLOW_25); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,49,FOLLOW_24); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_6, grammarAccess.getPIfExpressionAccess().getElseKeyword_6_0());
@@ -5458,11 +5040,11 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalPerl.g:1902:4: ( (lv_else_7_0= rulePExpression ) )
-                    // InternalPerl.g:1903:5: (lv_else_7_0= rulePExpression )
+                    // InternalPerl.g:1739:4: ( (lv_else_7_0= rulePExpression ) )
+                    // InternalPerl.g:1740:5: (lv_else_7_0= rulePExpression )
                     {
-                    // InternalPerl.g:1903:5: (lv_else_7_0= rulePExpression )
-                    // InternalPerl.g:1904:6: lv_else_7_0= rulePExpression
+                    // InternalPerl.g:1740:5: (lv_else_7_0= rulePExpression )
+                    // InternalPerl.g:1741:6: lv_else_7_0= rulePExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -5524,7 +5106,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePBlockExpression"
-    // InternalPerl.g:1926:1: entryRulePBlockExpression returns [EObject current=null] : iv_rulePBlockExpression= rulePBlockExpression EOF ;
+    // InternalPerl.g:1763:1: entryRulePBlockExpression returns [EObject current=null] : iv_rulePBlockExpression= rulePBlockExpression EOF ;
     public final EObject entryRulePBlockExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5532,8 +5114,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:1926:57: (iv_rulePBlockExpression= rulePBlockExpression EOF )
-            // InternalPerl.g:1927:2: iv_rulePBlockExpression= rulePBlockExpression EOF
+            // InternalPerl.g:1763:57: (iv_rulePBlockExpression= rulePBlockExpression EOF )
+            // InternalPerl.g:1764:2: iv_rulePBlockExpression= rulePBlockExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPBlockExpressionRule()); 
@@ -5564,7 +5146,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePBlockExpression"
-    // InternalPerl.g:1933:1: rulePBlockExpression returns [EObject current=null] : ( () otherlv_1= '{' ( ( (lv_expressions_2_0= rulePExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}' ) ;
+    // InternalPerl.g:1770:1: rulePBlockExpression returns [EObject current=null] : ( () otherlv_1= '{' ( ( (lv_expressions_2_0= rulePExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}' ) ;
     public final EObject rulePBlockExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5578,14 +5160,14 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:1939:2: ( ( () otherlv_1= '{' ( ( (lv_expressions_2_0= rulePExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}' ) )
-            // InternalPerl.g:1940:2: ( () otherlv_1= '{' ( ( (lv_expressions_2_0= rulePExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}' )
+            // InternalPerl.g:1776:2: ( ( () otherlv_1= '{' ( ( (lv_expressions_2_0= rulePExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}' ) )
+            // InternalPerl.g:1777:2: ( () otherlv_1= '{' ( ( (lv_expressions_2_0= rulePExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}' )
             {
-            // InternalPerl.g:1940:2: ( () otherlv_1= '{' ( ( (lv_expressions_2_0= rulePExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}' )
-            // InternalPerl.g:1941:3: () otherlv_1= '{' ( ( (lv_expressions_2_0= rulePExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}'
+            // InternalPerl.g:1777:2: ( () otherlv_1= '{' ( ( (lv_expressions_2_0= rulePExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}' )
+            // InternalPerl.g:1778:3: () otherlv_1= '{' ( ( (lv_expressions_2_0= rulePExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )* otherlv_4= '}'
             {
-            // InternalPerl.g:1941:3: ()
-            // InternalPerl.g:1942:4: 
+            // InternalPerl.g:1778:3: ()
+            // InternalPerl.g:1779:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -5597,39 +5179,39 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,44,FOLLOW_21); if (state.failed) return current;
+            otherlv_1=(Token)match(input,43,FOLLOW_20); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getPBlockExpressionAccess().getLeftCurlyBracketKeyword_1());
               		
             }
-            // InternalPerl.g:1952:3: ( ( (lv_expressions_2_0= rulePExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )*
-            loop27:
+            // InternalPerl.g:1789:3: ( ( (lv_expressions_2_0= rulePExpressionOrVarDeclaration ) ) (otherlv_3= ';' )? )*
+            loop26:
             do {
-                int alt27=2;
-                int LA27_0 = input.LA(1);
+                int alt26=2;
+                int LA26_0 = input.LA(1);
 
-                if ( ((LA27_0>=34 && LA27_0<=35)||(LA27_0>=39 && LA27_0<=40)||(LA27_0>=51 && LA27_0<=55)) ) {
-                    alt27=1;
+                if ( (LA26_0==RULE_VAR_START||(LA26_0>=33 && LA26_0<=34)||LA26_0==39||(LA26_0>=50 && LA26_0<=52)) ) {
+                    alt26=1;
                 }
 
 
-                switch (alt27) {
+                switch (alt26) {
             	case 1 :
-            	    // InternalPerl.g:1953:4: ( (lv_expressions_2_0= rulePExpressionOrVarDeclaration ) ) (otherlv_3= ';' )?
+            	    // InternalPerl.g:1790:4: ( (lv_expressions_2_0= rulePExpressionOrVarDeclaration ) ) (otherlv_3= ';' )?
             	    {
-            	    // InternalPerl.g:1953:4: ( (lv_expressions_2_0= rulePExpressionOrVarDeclaration ) )
-            	    // InternalPerl.g:1954:5: (lv_expressions_2_0= rulePExpressionOrVarDeclaration )
+            	    // InternalPerl.g:1790:4: ( (lv_expressions_2_0= rulePExpressionOrVarDeclaration ) )
+            	    // InternalPerl.g:1791:5: (lv_expressions_2_0= rulePExpressionOrVarDeclaration )
             	    {
-            	    // InternalPerl.g:1954:5: (lv_expressions_2_0= rulePExpressionOrVarDeclaration )
-            	    // InternalPerl.g:1955:6: lv_expressions_2_0= rulePExpressionOrVarDeclaration
+            	    // InternalPerl.g:1791:5: (lv_expressions_2_0= rulePExpressionOrVarDeclaration )
+            	    // InternalPerl.g:1792:6: lv_expressions_2_0= rulePExpressionOrVarDeclaration
             	    {
             	    if ( state.backtracking==0 ) {
 
             	      						newCompositeNode(grammarAccess.getPBlockExpressionAccess().getExpressionsPExpressionOrVarDeclarationParserRuleCall_2_0_0());
             	      					
             	    }
-            	    pushFollow(FOLLOW_29);
+            	    pushFollow(FOLLOW_28);
             	    lv_expressions_2_0=rulePExpressionOrVarDeclaration();
 
             	    state._fsp--;
@@ -5653,18 +5235,18 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalPerl.g:1972:4: (otherlv_3= ';' )?
-            	    int alt26=2;
-            	    int LA26_0 = input.LA(1);
+            	    // InternalPerl.g:1809:4: (otherlv_3= ';' )?
+            	    int alt25=2;
+            	    int LA25_0 = input.LA(1);
 
-            	    if ( (LA26_0==46) ) {
-            	        alt26=1;
+            	    if ( (LA25_0==45) ) {
+            	        alt25=1;
             	    }
-            	    switch (alt26) {
+            	    switch (alt25) {
             	        case 1 :
-            	            // InternalPerl.g:1973:5: otherlv_3= ';'
+            	            // InternalPerl.g:1810:5: otherlv_3= ';'
             	            {
-            	            otherlv_3=(Token)match(input,46,FOLLOW_21); if (state.failed) return current;
+            	            otherlv_3=(Token)match(input,45,FOLLOW_20); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	              					newLeafNode(otherlv_3, grammarAccess.getPBlockExpressionAccess().getSemicolonKeyword_2_1());
@@ -5681,11 +5263,11 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop27;
+            	    break loop26;
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,45,FOLLOW_2); if (state.failed) return current;
+            otherlv_4=(Token)match(input,44,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_4, grammarAccess.getPBlockExpressionAccess().getRightCurlyBracketKeyword_3());
@@ -5716,7 +5298,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePExpressionOrVarDeclaration"
-    // InternalPerl.g:1987:1: entryRulePExpressionOrVarDeclaration returns [EObject current=null] : iv_rulePExpressionOrVarDeclaration= rulePExpressionOrVarDeclaration EOF ;
+    // InternalPerl.g:1824:1: entryRulePExpressionOrVarDeclaration returns [EObject current=null] : iv_rulePExpressionOrVarDeclaration= rulePExpressionOrVarDeclaration EOF ;
     public final EObject entryRulePExpressionOrVarDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -5724,8 +5306,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:1987:68: (iv_rulePExpressionOrVarDeclaration= rulePExpressionOrVarDeclaration EOF )
-            // InternalPerl.g:1988:2: iv_rulePExpressionOrVarDeclaration= rulePExpressionOrVarDeclaration EOF
+            // InternalPerl.g:1824:68: (iv_rulePExpressionOrVarDeclaration= rulePExpressionOrVarDeclaration EOF )
+            // InternalPerl.g:1825:2: iv_rulePExpressionOrVarDeclaration= rulePExpressionOrVarDeclaration EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPExpressionOrVarDeclarationRule()); 
@@ -5756,7 +5338,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePExpressionOrVarDeclaration"
-    // InternalPerl.g:1994:1: rulePExpressionOrVarDeclaration returns [EObject current=null] : (this_PVariableDeclaration_0= rulePVariableDeclaration | this_PExpression_1= rulePExpression ) ;
+    // InternalPerl.g:1831:1: rulePExpressionOrVarDeclaration returns [EObject current=null] : (this_PVariableDeclaration_0= rulePVariableDeclaration | this_PExpression_1= rulePExpression ) ;
     public final EObject rulePExpressionOrVarDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -5769,29 +5351,29 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:2000:2: ( (this_PVariableDeclaration_0= rulePVariableDeclaration | this_PExpression_1= rulePExpression ) )
-            // InternalPerl.g:2001:2: (this_PVariableDeclaration_0= rulePVariableDeclaration | this_PExpression_1= rulePExpression )
+            // InternalPerl.g:1837:2: ( (this_PVariableDeclaration_0= rulePVariableDeclaration | this_PExpression_1= rulePExpression ) )
+            // InternalPerl.g:1838:2: (this_PVariableDeclaration_0= rulePVariableDeclaration | this_PExpression_1= rulePExpression )
             {
-            // InternalPerl.g:2001:2: (this_PVariableDeclaration_0= rulePVariableDeclaration | this_PExpression_1= rulePExpression )
-            int alt28=2;
-            int LA28_0 = input.LA(1);
+            // InternalPerl.g:1838:2: (this_PVariableDeclaration_0= rulePVariableDeclaration | this_PExpression_1= rulePExpression )
+            int alt27=2;
+            int LA27_0 = input.LA(1);
 
-            if ( ((LA28_0>=51 && LA28_0<=53)) ) {
-                alt28=1;
+            if ( ((LA27_0>=50 && LA27_0<=52)) ) {
+                alt27=1;
             }
-            else if ( ((LA28_0>=34 && LA28_0<=35)||(LA28_0>=39 && LA28_0<=40)||(LA28_0>=54 && LA28_0<=55)) ) {
-                alt28=2;
+            else if ( (LA27_0==RULE_VAR_START||(LA27_0>=33 && LA27_0<=34)||LA27_0==39) ) {
+                alt27=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 28, 0, input);
+                    new NoViableAltException("", 27, 0, input);
 
                 throw nvae;
             }
-            switch (alt28) {
+            switch (alt27) {
                 case 1 :
-                    // InternalPerl.g:2002:3: this_PVariableDeclaration_0= rulePVariableDeclaration
+                    // InternalPerl.g:1839:3: this_PVariableDeclaration_0= rulePVariableDeclaration
                     {
                     if ( state.backtracking==0 ) {
 
@@ -5813,7 +5395,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:2011:3: this_PExpression_1= rulePExpression
+                    // InternalPerl.g:1848:3: this_PExpression_1= rulePExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -5859,7 +5441,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePVariableDeclaration"
-    // InternalPerl.g:2023:1: entryRulePVariableDeclaration returns [EObject current=null] : iv_rulePVariableDeclaration= rulePVariableDeclaration EOF ;
+    // InternalPerl.g:1860:1: entryRulePVariableDeclaration returns [EObject current=null] : iv_rulePVariableDeclaration= rulePVariableDeclaration EOF ;
     public final EObject entryRulePVariableDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -5867,8 +5449,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:2023:61: (iv_rulePVariableDeclaration= rulePVariableDeclaration EOF )
-            // InternalPerl.g:2024:2: iv_rulePVariableDeclaration= rulePVariableDeclaration EOF
+            // InternalPerl.g:1860:61: (iv_rulePVariableDeclaration= rulePVariableDeclaration EOF )
+            // InternalPerl.g:1861:2: iv_rulePVariableDeclaration= rulePVariableDeclaration EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPVariableDeclarationRule()); 
@@ -5899,33 +5481,31 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePVariableDeclaration"
-    // InternalPerl.g:2030:1: rulePVariableDeclaration returns [EObject current=null] : ( () (otherlv_1= 'my' | otherlv_2= 'our' | otherlv_3= 'local' ) (otherlv_4= '$' | otherlv_5= '%' | otherlv_6= '@' ) ( ( ( ( RULE_ID ) ) )=> ( (lv_name_7_0= RULE_ID ) ) ) (otherlv_8= '=' ( (lv_right_9_0= rulePExpression ) ) )? ) ;
+    // InternalPerl.g:1867:1: rulePVariableDeclaration returns [EObject current=null] : ( () (otherlv_1= 'my' | otherlv_2= 'our' | otherlv_3= 'local' ) ( ( ( ( rulePVar ) ) )=> ( (lv_name_4_0= rulePVar ) ) ) (otherlv_5= '=' ( (lv_right_6_0= rulePExpression ) ) )? ) ;
     public final EObject rulePVariableDeclaration() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
         Token otherlv_2=null;
         Token otherlv_3=null;
-        Token otherlv_4=null;
         Token otherlv_5=null;
-        Token otherlv_6=null;
-        Token lv_name_7_0=null;
-        Token otherlv_8=null;
-        EObject lv_right_9_0 = null;
+        AntlrDatatypeRuleToken lv_name_4_0 = null;
+
+        EObject lv_right_6_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalPerl.g:2036:2: ( ( () (otherlv_1= 'my' | otherlv_2= 'our' | otherlv_3= 'local' ) (otherlv_4= '$' | otherlv_5= '%' | otherlv_6= '@' ) ( ( ( ( RULE_ID ) ) )=> ( (lv_name_7_0= RULE_ID ) ) ) (otherlv_8= '=' ( (lv_right_9_0= rulePExpression ) ) )? ) )
-            // InternalPerl.g:2037:2: ( () (otherlv_1= 'my' | otherlv_2= 'our' | otherlv_3= 'local' ) (otherlv_4= '$' | otherlv_5= '%' | otherlv_6= '@' ) ( ( ( ( RULE_ID ) ) )=> ( (lv_name_7_0= RULE_ID ) ) ) (otherlv_8= '=' ( (lv_right_9_0= rulePExpression ) ) )? )
+            // InternalPerl.g:1873:2: ( ( () (otherlv_1= 'my' | otherlv_2= 'our' | otherlv_3= 'local' ) ( ( ( ( rulePVar ) ) )=> ( (lv_name_4_0= rulePVar ) ) ) (otherlv_5= '=' ( (lv_right_6_0= rulePExpression ) ) )? ) )
+            // InternalPerl.g:1874:2: ( () (otherlv_1= 'my' | otherlv_2= 'our' | otherlv_3= 'local' ) ( ( ( ( rulePVar ) ) )=> ( (lv_name_4_0= rulePVar ) ) ) (otherlv_5= '=' ( (lv_right_6_0= rulePExpression ) ) )? )
             {
-            // InternalPerl.g:2037:2: ( () (otherlv_1= 'my' | otherlv_2= 'our' | otherlv_3= 'local' ) (otherlv_4= '$' | otherlv_5= '%' | otherlv_6= '@' ) ( ( ( ( RULE_ID ) ) )=> ( (lv_name_7_0= RULE_ID ) ) ) (otherlv_8= '=' ( (lv_right_9_0= rulePExpression ) ) )? )
-            // InternalPerl.g:2038:3: () (otherlv_1= 'my' | otherlv_2= 'our' | otherlv_3= 'local' ) (otherlv_4= '$' | otherlv_5= '%' | otherlv_6= '@' ) ( ( ( ( RULE_ID ) ) )=> ( (lv_name_7_0= RULE_ID ) ) ) (otherlv_8= '=' ( (lv_right_9_0= rulePExpression ) ) )?
+            // InternalPerl.g:1874:2: ( () (otherlv_1= 'my' | otherlv_2= 'our' | otherlv_3= 'local' ) ( ( ( ( rulePVar ) ) )=> ( (lv_name_4_0= rulePVar ) ) ) (otherlv_5= '=' ( (lv_right_6_0= rulePExpression ) ) )? )
+            // InternalPerl.g:1875:3: () (otherlv_1= 'my' | otherlv_2= 'our' | otherlv_3= 'local' ) ( ( ( ( rulePVar ) ) )=> ( (lv_name_4_0= rulePVar ) ) ) (otherlv_5= '=' ( (lv_right_6_0= rulePExpression ) ) )?
             {
-            // InternalPerl.g:2038:3: ()
-            // InternalPerl.g:2039:4: 
+            // InternalPerl.g:1875:3: ()
+            // InternalPerl.g:1876:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -5937,37 +5517,37 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPerl.g:2045:3: (otherlv_1= 'my' | otherlv_2= 'our' | otherlv_3= 'local' )
-            int alt29=3;
+            // InternalPerl.g:1882:3: (otherlv_1= 'my' | otherlv_2= 'our' | otherlv_3= 'local' )
+            int alt28=3;
             switch ( input.LA(1) ) {
+            case 50:
+                {
+                alt28=1;
+                }
+                break;
             case 51:
                 {
-                alt29=1;
+                alt28=2;
                 }
                 break;
             case 52:
                 {
-                alt29=2;
-                }
-                break;
-            case 53:
-                {
-                alt29=3;
+                alt28=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 29, 0, input);
+                    new NoViableAltException("", 28, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt29) {
+            switch (alt28) {
                 case 1 :
-                    // InternalPerl.g:2046:4: otherlv_1= 'my'
+                    // InternalPerl.g:1883:4: otherlv_1= 'my'
                     {
-                    otherlv_1=(Token)match(input,51,FOLLOW_19); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,50,FOLLOW_29); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_1, grammarAccess.getPVariableDeclarationAccess().getMyKeyword_1_0());
@@ -5977,9 +5557,9 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:2051:4: otherlv_2= 'our'
+                    // InternalPerl.g:1888:4: otherlv_2= 'our'
                     {
-                    otherlv_2=(Token)match(input,52,FOLLOW_19); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,51,FOLLOW_29); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_2, grammarAccess.getPVariableDeclarationAccess().getOurKeyword_1_1());
@@ -5989,9 +5569,9 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:2056:4: otherlv_3= 'local'
+                    // InternalPerl.g:1893:4: otherlv_3= 'local'
                     {
-                    otherlv_3=(Token)match(input,53,FOLLOW_19); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,52,FOLLOW_29); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_3, grammarAccess.getPVariableDeclarationAccess().getLocalKeyword_1_2());
@@ -6003,97 +5583,36 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPerl.g:2061:3: (otherlv_4= '$' | otherlv_5= '%' | otherlv_6= '@' )
-            int alt30=3;
-            switch ( input.LA(1) ) {
-            case 54:
-                {
-                alt30=1;
-                }
-                break;
-            case 39:
-                {
-                alt30=2;
-                }
-                break;
-            case 55:
-                {
-                alt30=3;
-                }
-                break;
-            default:
-                if (state.backtracking>0) {state.failed=true; return current;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 30, 0, input);
-
-                throw nvae;
-            }
-
-            switch (alt30) {
-                case 1 :
-                    // InternalPerl.g:2062:4: otherlv_4= '$'
-                    {
-                    otherlv_4=(Token)match(input,54,FOLLOW_30); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      				newLeafNode(otherlv_4, grammarAccess.getPVariableDeclarationAccess().getDollarSignKeyword_2_0());
-                      			
-                    }
-
-                    }
-                    break;
-                case 2 :
-                    // InternalPerl.g:2067:4: otherlv_5= '%'
-                    {
-                    otherlv_5=(Token)match(input,39,FOLLOW_30); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      				newLeafNode(otherlv_5, grammarAccess.getPVariableDeclarationAccess().getPercentSignKeyword_2_1());
-                      			
-                    }
-
-                    }
-                    break;
-                case 3 :
-                    // InternalPerl.g:2072:4: otherlv_6= '@'
-                    {
-                    otherlv_6=(Token)match(input,55,FOLLOW_30); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      				newLeafNode(otherlv_6, grammarAccess.getPVariableDeclarationAccess().getCommercialAtKeyword_2_2());
-                      			
-                    }
-
-                    }
-                    break;
-
-            }
-
-            // InternalPerl.g:2077:3: ( ( ( ( RULE_ID ) ) )=> ( (lv_name_7_0= RULE_ID ) ) )
-            // InternalPerl.g:2078:4: ( ( ( RULE_ID ) ) )=> ( (lv_name_7_0= RULE_ID ) )
+            // InternalPerl.g:1898:3: ( ( ( ( rulePVar ) ) )=> ( (lv_name_4_0= rulePVar ) ) )
+            // InternalPerl.g:1899:4: ( ( ( rulePVar ) ) )=> ( (lv_name_4_0= rulePVar ) )
             {
-            // InternalPerl.g:2084:4: ( (lv_name_7_0= RULE_ID ) )
-            // InternalPerl.g:2085:5: (lv_name_7_0= RULE_ID )
+            // InternalPerl.g:1905:4: ( (lv_name_4_0= rulePVar ) )
+            // InternalPerl.g:1906:5: (lv_name_4_0= rulePVar )
             {
-            // InternalPerl.g:2085:5: (lv_name_7_0= RULE_ID )
-            // InternalPerl.g:2086:6: lv_name_7_0= RULE_ID
+            // InternalPerl.g:1906:5: (lv_name_4_0= rulePVar )
+            // InternalPerl.g:1907:6: lv_name_4_0= rulePVar
             {
-            lv_name_7_0=(Token)match(input,RULE_ID,FOLLOW_31); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              						newLeafNode(lv_name_7_0, grammarAccess.getPVariableDeclarationAccess().getNameIDTerminalRuleCall_3_0_0());
+              						newCompositeNode(grammarAccess.getPVariableDeclarationAccess().getNamePVarParserRuleCall_2_0_0());
               					
             }
+            pushFollow(FOLLOW_30);
+            lv_name_4_0=rulePVar();
+
+            state._fsp--;
+            if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               						if (current==null) {
-              							current = createModelElement(grammarAccess.getPVariableDeclarationRule());
+              							current = createModelElementForParent(grammarAccess.getPVariableDeclarationRule());
               						}
-              						setWithLastConsumed(
+              						set(
               							current,
               							"name",
-              							lv_name_7_0,
-              							"org.epic.perl.Perl.ID");
+              							lv_name_4_0,
+              							"org.epic.perl.Perl.PVar");
+              						afterParserOrEnumRuleCall();
               					
             }
 
@@ -6105,36 +5624,36 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPerl.g:2103:3: (otherlv_8= '=' ( (lv_right_9_0= rulePExpression ) ) )?
-            int alt31=2;
-            int LA31_0 = input.LA(1);
+            // InternalPerl.g:1925:3: (otherlv_5= '=' ( (lv_right_6_0= rulePExpression ) ) )?
+            int alt29=2;
+            int LA29_0 = input.LA(1);
 
-            if ( (LA31_0==12) ) {
-                alt31=1;
+            if ( (LA29_0==14) ) {
+                alt29=1;
             }
-            switch (alt31) {
+            switch (alt29) {
                 case 1 :
-                    // InternalPerl.g:2104:4: otherlv_8= '=' ( (lv_right_9_0= rulePExpression ) )
+                    // InternalPerl.g:1926:4: otherlv_5= '=' ( (lv_right_6_0= rulePExpression ) )
                     {
-                    otherlv_8=(Token)match(input,12,FOLLOW_25); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,14,FOLLOW_24); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_8, grammarAccess.getPVariableDeclarationAccess().getEqualsSignKeyword_4_0());
+                      				newLeafNode(otherlv_5, grammarAccess.getPVariableDeclarationAccess().getEqualsSignKeyword_3_0());
                       			
                     }
-                    // InternalPerl.g:2108:4: ( (lv_right_9_0= rulePExpression ) )
-                    // InternalPerl.g:2109:5: (lv_right_9_0= rulePExpression )
+                    // InternalPerl.g:1930:4: ( (lv_right_6_0= rulePExpression ) )
+                    // InternalPerl.g:1931:5: (lv_right_6_0= rulePExpression )
                     {
-                    // InternalPerl.g:2109:5: (lv_right_9_0= rulePExpression )
-                    // InternalPerl.g:2110:6: lv_right_9_0= rulePExpression
+                    // InternalPerl.g:1931:5: (lv_right_6_0= rulePExpression )
+                    // InternalPerl.g:1932:6: lv_right_6_0= rulePExpression
                     {
                     if ( state.backtracking==0 ) {
 
-                      						newCompositeNode(grammarAccess.getPVariableDeclarationAccess().getRightPExpressionParserRuleCall_4_1_0());
+                      						newCompositeNode(grammarAccess.getPVariableDeclarationAccess().getRightPExpressionParserRuleCall_3_1_0());
                       					
                     }
                     pushFollow(FOLLOW_2);
-                    lv_right_9_0=rulePExpression();
+                    lv_right_6_0=rulePExpression();
 
                     state._fsp--;
                     if (state.failed) return current;
@@ -6146,7 +5665,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                       						set(
                       							current,
                       							"right",
-                      							lv_right_9_0,
+                      							lv_right_6_0,
                       							"org.epic.perl.Perl.PExpression");
                       						afterParserOrEnumRuleCall();
                       					
@@ -6187,170 +5706,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
     // $ANTLR end "rulePVariableDeclaration"
 
 
-    // $ANTLR start "entryRuleFeatureCallID"
-    // InternalPerl.g:2132:1: entryRuleFeatureCallID returns [String current=null] : iv_ruleFeatureCallID= ruleFeatureCallID EOF ;
-    public final String entryRuleFeatureCallID() throws RecognitionException {
-        String current = null;
-
-        AntlrDatatypeRuleToken iv_ruleFeatureCallID = null;
-
-
-        try {
-            // InternalPerl.g:2132:53: (iv_ruleFeatureCallID= ruleFeatureCallID EOF )
-            // InternalPerl.g:2133:2: iv_ruleFeatureCallID= ruleFeatureCallID EOF
-            {
-            if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getFeatureCallIDRule()); 
-            }
-            pushFollow(FOLLOW_1);
-            iv_ruleFeatureCallID=ruleFeatureCallID();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-               current =iv_ruleFeatureCallID.getText(); 
-            }
-            match(input,EOF,FOLLOW_2); if (state.failed) return current;
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleFeatureCallID"
-
-
-    // $ANTLR start "ruleFeatureCallID"
-    // InternalPerl.g:2139:1: ruleFeatureCallID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '$' | kw= '%' | kw= '@' ) this_ID_3= RULE_ID ) ;
-    public final AntlrDatatypeRuleToken ruleFeatureCallID() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
-
-        Token kw=null;
-        Token this_ID_3=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalPerl.g:2145:2: ( ( (kw= '$' | kw= '%' | kw= '@' ) this_ID_3= RULE_ID ) )
-            // InternalPerl.g:2146:2: ( (kw= '$' | kw= '%' | kw= '@' ) this_ID_3= RULE_ID )
-            {
-            // InternalPerl.g:2146:2: ( (kw= '$' | kw= '%' | kw= '@' ) this_ID_3= RULE_ID )
-            // InternalPerl.g:2147:3: (kw= '$' | kw= '%' | kw= '@' ) this_ID_3= RULE_ID
-            {
-            // InternalPerl.g:2147:3: (kw= '$' | kw= '%' | kw= '@' )
-            int alt32=3;
-            switch ( input.LA(1) ) {
-            case 54:
-                {
-                alt32=1;
-                }
-                break;
-            case 39:
-                {
-                alt32=2;
-                }
-                break;
-            case 55:
-                {
-                alt32=3;
-                }
-                break;
-            default:
-                if (state.backtracking>0) {state.failed=true; return current;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 32, 0, input);
-
-                throw nvae;
-            }
-
-            switch (alt32) {
-                case 1 :
-                    // InternalPerl.g:2148:4: kw= '$'
-                    {
-                    kw=(Token)match(input,54,FOLLOW_30); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      				current.merge(kw);
-                      				newLeafNode(kw, grammarAccess.getFeatureCallIDAccess().getDollarSignKeyword_0_0());
-                      			
-                    }
-
-                    }
-                    break;
-                case 2 :
-                    // InternalPerl.g:2154:4: kw= '%'
-                    {
-                    kw=(Token)match(input,39,FOLLOW_30); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      				current.merge(kw);
-                      				newLeafNode(kw, grammarAccess.getFeatureCallIDAccess().getPercentSignKeyword_0_1());
-                      			
-                    }
-
-                    }
-                    break;
-                case 3 :
-                    // InternalPerl.g:2160:4: kw= '@'
-                    {
-                    kw=(Token)match(input,55,FOLLOW_30); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      				current.merge(kw);
-                      				newLeafNode(kw, grammarAccess.getFeatureCallIDAccess().getCommercialAtKeyword_0_2());
-                      			
-                    }
-
-                    }
-                    break;
-
-            }
-
-            this_ID_3=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              			current.merge(this_ID_3);
-              		
-            }
-            if ( state.backtracking==0 ) {
-
-              			newLeafNode(this_ID_3, grammarAccess.getFeatureCallIDAccess().getIDTerminalRuleCall_1());
-              		
-            }
-
-            }
-
-
-            }
-
-            if ( state.backtracking==0 ) {
-
-              	leaveRule();
-
-            }
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleFeatureCallID"
-
-
     // $ANTLR start "entryRulePNumberLiteral"
-    // InternalPerl.g:2177:1: entryRulePNumberLiteral returns [EObject current=null] : iv_rulePNumberLiteral= rulePNumberLiteral EOF ;
+    // InternalPerl.g:1954:1: entryRulePNumberLiteral returns [EObject current=null] : iv_rulePNumberLiteral= rulePNumberLiteral EOF ;
     public final EObject entryRulePNumberLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6358,8 +5715,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:2177:55: (iv_rulePNumberLiteral= rulePNumberLiteral EOF )
-            // InternalPerl.g:2178:2: iv_rulePNumberLiteral= rulePNumberLiteral EOF
+            // InternalPerl.g:1954:55: (iv_rulePNumberLiteral= rulePNumberLiteral EOF )
+            // InternalPerl.g:1955:2: iv_rulePNumberLiteral= rulePNumberLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPNumberLiteralRule()); 
@@ -6390,7 +5747,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePNumberLiteral"
-    // InternalPerl.g:2184:1: rulePNumberLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= ruleNumber ) ) ) ;
+    // InternalPerl.g:1961:1: rulePNumberLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= ruleNumber ) ) ) ;
     public final EObject rulePNumberLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6401,14 +5758,14 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:2190:2: ( ( () ( (lv_value_1_0= ruleNumber ) ) ) )
-            // InternalPerl.g:2191:2: ( () ( (lv_value_1_0= ruleNumber ) ) )
+            // InternalPerl.g:1967:2: ( ( () ( (lv_value_1_0= ruleNumber ) ) ) )
+            // InternalPerl.g:1968:2: ( () ( (lv_value_1_0= ruleNumber ) ) )
             {
-            // InternalPerl.g:2191:2: ( () ( (lv_value_1_0= ruleNumber ) ) )
-            // InternalPerl.g:2192:3: () ( (lv_value_1_0= ruleNumber ) )
+            // InternalPerl.g:1968:2: ( () ( (lv_value_1_0= ruleNumber ) ) )
+            // InternalPerl.g:1969:3: () ( (lv_value_1_0= ruleNumber ) )
             {
-            // InternalPerl.g:2192:3: ()
-            // InternalPerl.g:2193:4: 
+            // InternalPerl.g:1969:3: ()
+            // InternalPerl.g:1970:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -6420,11 +5777,11 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPerl.g:2199:3: ( (lv_value_1_0= ruleNumber ) )
-            // InternalPerl.g:2200:4: (lv_value_1_0= ruleNumber )
+            // InternalPerl.g:1976:3: ( (lv_value_1_0= ruleNumber ) )
+            // InternalPerl.g:1977:4: (lv_value_1_0= ruleNumber )
             {
-            // InternalPerl.g:2200:4: (lv_value_1_0= ruleNumber )
-            // InternalPerl.g:2201:5: lv_value_1_0= ruleNumber
+            // InternalPerl.g:1977:4: (lv_value_1_0= ruleNumber )
+            // InternalPerl.g:1978:5: lv_value_1_0= ruleNumber
             {
             if ( state.backtracking==0 ) {
 
@@ -6480,7 +5837,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePNullLiteral"
-    // InternalPerl.g:2222:1: entryRulePNullLiteral returns [EObject current=null] : iv_rulePNullLiteral= rulePNullLiteral EOF ;
+    // InternalPerl.g:1999:1: entryRulePNullLiteral returns [EObject current=null] : iv_rulePNullLiteral= rulePNullLiteral EOF ;
     public final EObject entryRulePNullLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6488,8 +5845,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:2222:53: (iv_rulePNullLiteral= rulePNullLiteral EOF )
-            // InternalPerl.g:2223:2: iv_rulePNullLiteral= rulePNullLiteral EOF
+            // InternalPerl.g:1999:53: (iv_rulePNullLiteral= rulePNullLiteral EOF )
+            // InternalPerl.g:2000:2: iv_rulePNullLiteral= rulePNullLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPNullLiteralRule()); 
@@ -6520,7 +5877,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePNullLiteral"
-    // InternalPerl.g:2229:1: rulePNullLiteral returns [EObject current=null] : ( () otherlv_1= 'undef' ) ;
+    // InternalPerl.g:2006:1: rulePNullLiteral returns [EObject current=null] : ( () otherlv_1= 'undef' ) ;
     public final EObject rulePNullLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6530,14 +5887,14 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:2235:2: ( ( () otherlv_1= 'undef' ) )
-            // InternalPerl.g:2236:2: ( () otherlv_1= 'undef' )
+            // InternalPerl.g:2012:2: ( ( () otherlv_1= 'undef' ) )
+            // InternalPerl.g:2013:2: ( () otherlv_1= 'undef' )
             {
-            // InternalPerl.g:2236:2: ( () otherlv_1= 'undef' )
-            // InternalPerl.g:2237:3: () otherlv_1= 'undef'
+            // InternalPerl.g:2013:2: ( () otherlv_1= 'undef' )
+            // InternalPerl.g:2014:3: () otherlv_1= 'undef'
             {
-            // InternalPerl.g:2237:3: ()
-            // InternalPerl.g:2238:4: 
+            // InternalPerl.g:2014:3: ()
+            // InternalPerl.g:2015:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -6549,7 +5906,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,56,FOLLOW_2); if (state.failed) return current;
+            otherlv_1=(Token)match(input,53,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getPNullLiteralAccess().getUndefKeyword_1());
@@ -6580,7 +5937,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePReturnExpression"
-    // InternalPerl.g:2252:1: entryRulePReturnExpression returns [EObject current=null] : iv_rulePReturnExpression= rulePReturnExpression EOF ;
+    // InternalPerl.g:2029:1: entryRulePReturnExpression returns [EObject current=null] : iv_rulePReturnExpression= rulePReturnExpression EOF ;
     public final EObject entryRulePReturnExpression() throws RecognitionException {
         EObject current = null;
 
@@ -6588,8 +5945,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:2252:58: (iv_rulePReturnExpression= rulePReturnExpression EOF )
-            // InternalPerl.g:2253:2: iv_rulePReturnExpression= rulePReturnExpression EOF
+            // InternalPerl.g:2029:58: (iv_rulePReturnExpression= rulePReturnExpression EOF )
+            // InternalPerl.g:2030:2: iv_rulePReturnExpression= rulePReturnExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPReturnExpressionRule()); 
@@ -6620,7 +5977,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePReturnExpression"
-    // InternalPerl.g:2259:1: rulePReturnExpression returns [EObject current=null] : ( () otherlv_1= 'return' ( ( '$' | '%' | '@' | '!' | '-' | '+' )=> (lv_expression_2_0= rulePExpression ) )? ) ;
+    // InternalPerl.g:2036:1: rulePReturnExpression returns [EObject current=null] : ( () otherlv_1= 'return' ( ( '!' | '-' | '+' | RULE_VAR_START )=> (lv_expression_2_0= rulePExpression ) )? ) ;
     public final EObject rulePReturnExpression() throws RecognitionException {
         EObject current = null;
 
@@ -6632,14 +5989,14 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:2265:2: ( ( () otherlv_1= 'return' ( ( '$' | '%' | '@' | '!' | '-' | '+' )=> (lv_expression_2_0= rulePExpression ) )? ) )
-            // InternalPerl.g:2266:2: ( () otherlv_1= 'return' ( ( '$' | '%' | '@' | '!' | '-' | '+' )=> (lv_expression_2_0= rulePExpression ) )? )
+            // InternalPerl.g:2042:2: ( ( () otherlv_1= 'return' ( ( '!' | '-' | '+' | RULE_VAR_START )=> (lv_expression_2_0= rulePExpression ) )? ) )
+            // InternalPerl.g:2043:2: ( () otherlv_1= 'return' ( ( '!' | '-' | '+' | RULE_VAR_START )=> (lv_expression_2_0= rulePExpression ) )? )
             {
-            // InternalPerl.g:2266:2: ( () otherlv_1= 'return' ( ( '$' | '%' | '@' | '!' | '-' | '+' )=> (lv_expression_2_0= rulePExpression ) )? )
-            // InternalPerl.g:2267:3: () otherlv_1= 'return' ( ( '$' | '%' | '@' | '!' | '-' | '+' )=> (lv_expression_2_0= rulePExpression ) )?
+            // InternalPerl.g:2043:2: ( () otherlv_1= 'return' ( ( '!' | '-' | '+' | RULE_VAR_START )=> (lv_expression_2_0= rulePExpression ) )? )
+            // InternalPerl.g:2044:3: () otherlv_1= 'return' ( ( '!' | '-' | '+' | RULE_VAR_START )=> (lv_expression_2_0= rulePExpression ) )?
             {
-            // InternalPerl.g:2267:3: ()
-            // InternalPerl.g:2268:4: 
+            // InternalPerl.g:2044:3: ()
+            // InternalPerl.g:2045:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -6651,52 +6008,34 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,57,FOLLOW_24); if (state.failed) return current;
+            otherlv_1=(Token)match(input,54,FOLLOW_23); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getPReturnExpressionAccess().getReturnKeyword_1());
               		
             }
-            // InternalPerl.g:2278:3: ( ( '$' | '%' | '@' | '!' | '-' | '+' )=> (lv_expression_2_0= rulePExpression ) )?
-            int alt33=2;
-            int LA33_0 = input.LA(1);
+            // InternalPerl.g:2055:3: ( ( '!' | '-' | '+' | RULE_VAR_START )=> (lv_expression_2_0= rulePExpression ) )?
+            int alt30=2;
+            int LA30_0 = input.LA(1);
 
-            if ( (LA33_0==54) ) {
-                int LA33_1 = input.LA(2);
-
-                if ( (synpred16_InternalPerl()) ) {
-                    alt33=1;
-                }
+            if ( (LA30_0==RULE_VAR_START) && (synpred15_InternalPerl())) {
+                alt30=1;
             }
-            else if ( (LA33_0==39) ) {
-                int LA33_2 = input.LA(2);
-
-                if ( (synpred16_InternalPerl()) ) {
-                    alt33=1;
-                }
+            else if ( (LA30_0==39) && (synpred15_InternalPerl())) {
+                alt30=1;
             }
-            else if ( (LA33_0==55) ) {
-                int LA33_3 = input.LA(2);
-
-                if ( (synpred16_InternalPerl()) ) {
-                    alt33=1;
-                }
+            else if ( (LA30_0==34) && (synpred15_InternalPerl())) {
+                alt30=1;
             }
-            else if ( (LA33_0==40) && (synpred16_InternalPerl())) {
-                alt33=1;
+            else if ( (LA30_0==33) && (synpred15_InternalPerl())) {
+                alt30=1;
             }
-            else if ( (LA33_0==35) && (synpred16_InternalPerl())) {
-                alt33=1;
-            }
-            else if ( (LA33_0==34) && (synpred16_InternalPerl())) {
-                alt33=1;
-            }
-            switch (alt33) {
+            switch (alt30) {
                 case 1 :
-                    // InternalPerl.g:2279:4: ( '$' | '%' | '@' | '!' | '-' | '+' )=> (lv_expression_2_0= rulePExpression )
+                    // InternalPerl.g:2056:4: ( '!' | '-' | '+' | RULE_VAR_START )=> (lv_expression_2_0= rulePExpression )
                     {
-                    // InternalPerl.g:2280:4: (lv_expression_2_0= rulePExpression )
-                    // InternalPerl.g:2281:5: lv_expression_2_0= rulePExpression
+                    // InternalPerl.g:2057:4: (lv_expression_2_0= rulePExpression )
+                    // InternalPerl.g:2058:5: lv_expression_2_0= rulePExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -6755,7 +6094,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePStringLiteral"
-    // InternalPerl.g:2302:1: entryRulePStringLiteral returns [EObject current=null] : iv_rulePStringLiteral= rulePStringLiteral EOF ;
+    // InternalPerl.g:2079:1: entryRulePStringLiteral returns [EObject current=null] : iv_rulePStringLiteral= rulePStringLiteral EOF ;
     public final EObject entryRulePStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6763,8 +6102,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:2302:55: (iv_rulePStringLiteral= rulePStringLiteral EOF )
-            // InternalPerl.g:2303:2: iv_rulePStringLiteral= rulePStringLiteral EOF
+            // InternalPerl.g:2079:55: (iv_rulePStringLiteral= rulePStringLiteral EOF )
+            // InternalPerl.g:2080:2: iv_rulePStringLiteral= rulePStringLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPStringLiteralRule()); 
@@ -6795,7 +6134,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePStringLiteral"
-    // InternalPerl.g:2309:1: rulePStringLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_STRING ) ) ) ;
+    // InternalPerl.g:2086:1: rulePStringLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_STRING ) ) ) ;
     public final EObject rulePStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6805,14 +6144,14 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:2315:2: ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) )
-            // InternalPerl.g:2316:2: ( () ( (lv_value_1_0= RULE_STRING ) ) )
+            // InternalPerl.g:2092:2: ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) )
+            // InternalPerl.g:2093:2: ( () ( (lv_value_1_0= RULE_STRING ) ) )
             {
-            // InternalPerl.g:2316:2: ( () ( (lv_value_1_0= RULE_STRING ) ) )
-            // InternalPerl.g:2317:3: () ( (lv_value_1_0= RULE_STRING ) )
+            // InternalPerl.g:2093:2: ( () ( (lv_value_1_0= RULE_STRING ) ) )
+            // InternalPerl.g:2094:3: () ( (lv_value_1_0= RULE_STRING ) )
             {
-            // InternalPerl.g:2317:3: ()
-            // InternalPerl.g:2318:4: 
+            // InternalPerl.g:2094:3: ()
+            // InternalPerl.g:2095:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -6824,11 +6163,11 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPerl.g:2324:3: ( (lv_value_1_0= RULE_STRING ) )
-            // InternalPerl.g:2325:4: (lv_value_1_0= RULE_STRING )
+            // InternalPerl.g:2101:3: ( (lv_value_1_0= RULE_STRING ) )
+            // InternalPerl.g:2102:4: (lv_value_1_0= RULE_STRING )
             {
-            // InternalPerl.g:2325:4: (lv_value_1_0= RULE_STRING )
-            // InternalPerl.g:2326:5: lv_value_1_0= RULE_STRING
+            // InternalPerl.g:2102:4: (lv_value_1_0= RULE_STRING )
+            // InternalPerl.g:2103:5: lv_value_1_0= RULE_STRING
             {
             lv_value_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -6879,7 +6218,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQualifiedName"
-    // InternalPerl.g:2346:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
+    // InternalPerl.g:2123:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
     public final String entryRuleQualifiedName() throws RecognitionException {
         String current = null;
 
@@ -6887,8 +6226,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPerl.g:2346:53: (iv_ruleQualifiedName= ruleQualifiedName EOF )
-            // InternalPerl.g:2347:2: iv_ruleQualifiedName= ruleQualifiedName EOF
+            // InternalPerl.g:2123:53: (iv_ruleQualifiedName= ruleQualifiedName EOF )
+            // InternalPerl.g:2124:2: iv_ruleQualifiedName= ruleQualifiedName EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getQualifiedNameRule()); 
@@ -6919,7 +6258,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQualifiedName"
-    // InternalPerl.g:2353:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID ( ( ( '::' )=>kw= '::' ) this_ID_2= RULE_ID )* ) ;
+    // InternalPerl.g:2130:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID ( ( ( '::' )=>kw= '::' ) this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -6931,13 +6270,13 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPerl.g:2359:2: ( (this_ID_0= RULE_ID ( ( ( '::' )=>kw= '::' ) this_ID_2= RULE_ID )* ) )
-            // InternalPerl.g:2360:2: (this_ID_0= RULE_ID ( ( ( '::' )=>kw= '::' ) this_ID_2= RULE_ID )* )
+            // InternalPerl.g:2136:2: ( (this_ID_0= RULE_ID ( ( ( '::' )=>kw= '::' ) this_ID_2= RULE_ID )* ) )
+            // InternalPerl.g:2137:2: (this_ID_0= RULE_ID ( ( ( '::' )=>kw= '::' ) this_ID_2= RULE_ID )* )
             {
-            // InternalPerl.g:2360:2: (this_ID_0= RULE_ID ( ( ( '::' )=>kw= '::' ) this_ID_2= RULE_ID )* )
-            // InternalPerl.g:2361:3: this_ID_0= RULE_ID ( ( ( '::' )=>kw= '::' ) this_ID_2= RULE_ID )*
+            // InternalPerl.g:2137:2: (this_ID_0= RULE_ID ( ( ( '::' )=>kw= '::' ) this_ID_2= RULE_ID )* )
+            // InternalPerl.g:2138:3: this_ID_0= RULE_ID ( ( ( '::' )=>kw= '::' ) this_ID_2= RULE_ID )*
             {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_32); if (state.failed) return current;
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_31); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			current.merge(this_ID_0);
@@ -6948,25 +6287,25 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
               			newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0());
               		
             }
-            // InternalPerl.g:2368:3: ( ( ( '::' )=>kw= '::' ) this_ID_2= RULE_ID )*
-            loop34:
+            // InternalPerl.g:2145:3: ( ( ( '::' )=>kw= '::' ) this_ID_2= RULE_ID )*
+            loop31:
             do {
-                int alt34=2;
-                int LA34_0 = input.LA(1);
+                int alt31=2;
+                int LA31_0 = input.LA(1);
 
-                if ( (LA34_0==58) && (synpred17_InternalPerl())) {
-                    alt34=1;
+                if ( (LA31_0==55) && (synpred16_InternalPerl())) {
+                    alt31=1;
                 }
 
 
-                switch (alt34) {
+                switch (alt31) {
             	case 1 :
-            	    // InternalPerl.g:2369:4: ( ( '::' )=>kw= '::' ) this_ID_2= RULE_ID
+            	    // InternalPerl.g:2146:4: ( ( '::' )=>kw= '::' ) this_ID_2= RULE_ID
             	    {
-            	    // InternalPerl.g:2369:4: ( ( '::' )=>kw= '::' )
-            	    // InternalPerl.g:2370:5: ( '::' )=>kw= '::'
+            	    // InternalPerl.g:2146:4: ( ( '::' )=>kw= '::' )
+            	    // InternalPerl.g:2147:5: ( '::' )=>kw= '::'
             	    {
-            	    kw=(Token)match(input,58,FOLLOW_30); if (state.failed) return current;
+            	    kw=(Token)match(input,55,FOLLOW_18); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      					current.merge(kw);
@@ -6976,7 +6315,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_32); if (state.failed) return current;
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_31); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				current.merge(this_ID_2);
@@ -6992,7 +6331,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop34;
+            	    break loop31;
                 }
             } while (true);
 
@@ -7021,7 +6360,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNumber"
-    // InternalPerl.g:2389:1: entryRuleNumber returns [String current=null] : iv_ruleNumber= ruleNumber EOF ;
+    // InternalPerl.g:2166:1: entryRuleNumber returns [String current=null] : iv_ruleNumber= ruleNumber EOF ;
     public final String entryRuleNumber() throws RecognitionException {
         String current = null;
 
@@ -7032,8 +6371,8 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 
         try {
-            // InternalPerl.g:2391:2: (iv_ruleNumber= ruleNumber EOF )
-            // InternalPerl.g:2392:2: iv_ruleNumber= ruleNumber EOF
+            // InternalPerl.g:2168:2: (iv_ruleNumber= ruleNumber EOF )
+            // InternalPerl.g:2169:2: iv_ruleNumber= ruleNumber EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNumberRule()); 
@@ -7067,51 +6406,57 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNumber"
-    // InternalPerl.g:2401:1: ruleNumber returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_HEX_0= RULE_HEX | this_BIN_1= RULE_BIN | this_INT_2= RULE_INT ) ;
+    // InternalPerl.g:2178:1: ruleNumber returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_HEX_0= RULE_HEX | this_BIN_1= RULE_BIN | this_OCT_2= RULE_OCT | this_INT_3= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleNumber() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
         Token this_HEX_0=null;
         Token this_BIN_1=null;
-        Token this_INT_2=null;
+        Token this_OCT_2=null;
+        Token this_INT_3=null;
 
 
         	enterRule();
         	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 
         try {
-            // InternalPerl.g:2408:2: ( (this_HEX_0= RULE_HEX | this_BIN_1= RULE_BIN | this_INT_2= RULE_INT ) )
-            // InternalPerl.g:2409:2: (this_HEX_0= RULE_HEX | this_BIN_1= RULE_BIN | this_INT_2= RULE_INT )
+            // InternalPerl.g:2185:2: ( (this_HEX_0= RULE_HEX | this_BIN_1= RULE_BIN | this_OCT_2= RULE_OCT | this_INT_3= RULE_INT ) )
+            // InternalPerl.g:2186:2: (this_HEX_0= RULE_HEX | this_BIN_1= RULE_BIN | this_OCT_2= RULE_OCT | this_INT_3= RULE_INT )
             {
-            // InternalPerl.g:2409:2: (this_HEX_0= RULE_HEX | this_BIN_1= RULE_BIN | this_INT_2= RULE_INT )
-            int alt35=3;
+            // InternalPerl.g:2186:2: (this_HEX_0= RULE_HEX | this_BIN_1= RULE_BIN | this_OCT_2= RULE_OCT | this_INT_3= RULE_INT )
+            int alt32=4;
             switch ( input.LA(1) ) {
             case RULE_HEX:
                 {
-                alt35=1;
+                alt32=1;
                 }
                 break;
             case RULE_BIN:
                 {
-                alt35=2;
+                alt32=2;
+                }
+                break;
+            case RULE_OCT:
+                {
+                alt32=3;
                 }
                 break;
             case RULE_INT:
                 {
-                alt35=3;
+                alt32=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 35, 0, input);
+                    new NoViableAltException("", 32, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt35) {
+            switch (alt32) {
                 case 1 :
-                    // InternalPerl.g:2410:3: this_HEX_0= RULE_HEX
+                    // InternalPerl.g:2187:3: this_HEX_0= RULE_HEX
                     {
                     this_HEX_0=(Token)match(input,RULE_HEX,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -7128,7 +6473,7 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:2418:3: this_BIN_1= RULE_BIN
+                    // InternalPerl.g:2195:3: this_BIN_1= RULE_BIN
                     {
                     this_BIN_1=(Token)match(input,RULE_BIN,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -7145,17 +6490,34 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:2426:3: this_INT_2= RULE_INT
+                    // InternalPerl.g:2203:3: this_OCT_2= RULE_OCT
                     {
-                    this_INT_2=(Token)match(input,RULE_INT,FOLLOW_2); if (state.failed) return current;
+                    this_OCT_2=(Token)match(input,RULE_OCT,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current.merge(this_INT_2);
+                      			current.merge(this_OCT_2);
                       		
                     }
                     if ( state.backtracking==0 ) {
 
-                      			newLeafNode(this_INT_2, grammarAccess.getNumberAccess().getINTTerminalRuleCall_2());
+                      			newLeafNode(this_OCT_2, grammarAccess.getNumberAccess().getOCTTerminalRuleCall_2());
+                      		
+                    }
+
+                    }
+                    break;
+                case 4 :
+                    // InternalPerl.g:2211:3: this_INT_3= RULE_INT
+                    {
+                    this_INT_3=(Token)match(input,RULE_INT,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current.merge(this_INT_3);
+                      		
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      			newLeafNode(this_INT_3, grammarAccess.getNumberAccess().getINTTerminalRuleCall_3());
                       		
                     }
 
@@ -7417,14 +6779,14 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred7_InternalPerl
     public final void synpred7_InternalPerl_fragment() throws RecognitionException {   
-        // InternalPerl.g:983:6: ( ( '>' '>' ) )
-        // InternalPerl.g:983:7: ( '>' '>' )
+        // InternalPerl.g:946:6: ( ( '>' '>' ) )
+        // InternalPerl.g:946:7: ( '>' '>' )
         {
-        // InternalPerl.g:983:7: ( '>' '>' )
-        // InternalPerl.g:984:7: '>' '>'
+        // InternalPerl.g:946:7: ( '>' '>' )
+        // InternalPerl.g:947:7: '>' '>'
         {
-        match(input,20,FOLLOW_15); if (state.failed) return ;
-        match(input,20,FOLLOW_2); if (state.failed) return ;
+        match(input,22,FOLLOW_14); if (state.failed) return ;
+        match(input,22,FOLLOW_2); if (state.failed) return ;
 
         }
 
@@ -7435,14 +6797,14 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred8_InternalPerl
     public final void synpred8_InternalPerl_fragment() throws RecognitionException {   
-        // InternalPerl.g:1018:6: ( ( '<' '<' ) )
-        // InternalPerl.g:1018:7: ( '<' '<' )
+        // InternalPerl.g:981:6: ( ( '<' '<' ) )
+        // InternalPerl.g:981:7: ( '<' '<' )
         {
-        // InternalPerl.g:1018:7: ( '<' '<' )
-        // InternalPerl.g:1019:7: '<' '<'
+        // InternalPerl.g:981:7: ( '<' '<' )
+        // InternalPerl.g:982:7: '<' '<'
         {
-        match(input,19,FOLLOW_6); if (state.failed) return ;
-        match(input,19,FOLLOW_2); if (state.failed) return ;
+        match(input,21,FOLLOW_6); if (state.failed) return ;
+        match(input,21,FOLLOW_2); if (state.failed) return ;
 
         }
 
@@ -7453,22 +6815,22 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred9_InternalPerl
     public final void synpred9_InternalPerl_fragment() throws RecognitionException {   
-        // InternalPerl.g:1091:5: ( ( () ( ( ruleOpAdd ) ) ) )
-        // InternalPerl.g:1091:6: ( () ( ( ruleOpAdd ) ) )
+        // InternalPerl.g:1054:5: ( ( () ( ( ruleOpAdd ) ) ) )
+        // InternalPerl.g:1054:6: ( () ( ( ruleOpAdd ) ) )
         {
-        // InternalPerl.g:1091:6: ( () ( ( ruleOpAdd ) ) )
-        // InternalPerl.g:1092:6: () ( ( ruleOpAdd ) )
+        // InternalPerl.g:1054:6: ( () ( ( ruleOpAdd ) ) )
+        // InternalPerl.g:1055:6: () ( ( ruleOpAdd ) )
         {
-        // InternalPerl.g:1092:6: ()
-        // InternalPerl.g:1093:6: 
+        // InternalPerl.g:1055:6: ()
+        // InternalPerl.g:1056:6: 
         {
         }
 
-        // InternalPerl.g:1094:6: ( ( ruleOpAdd ) )
-        // InternalPerl.g:1095:7: ( ruleOpAdd )
+        // InternalPerl.g:1057:6: ( ( ruleOpAdd ) )
+        // InternalPerl.g:1058:7: ( ruleOpAdd )
         {
-        // InternalPerl.g:1095:7: ( ruleOpAdd )
-        // InternalPerl.g:1096:8: ruleOpAdd
+        // InternalPerl.g:1058:7: ( ruleOpAdd )
+        // InternalPerl.g:1059:8: ruleOpAdd
         {
         pushFollow(FOLLOW_2);
         ruleOpAdd();
@@ -7491,22 +6853,22 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred10_InternalPerl
     public final void synpred10_InternalPerl_fragment() throws RecognitionException {   
-        // InternalPerl.g:1209:5: ( ( () ( ( ruleOpMulti ) ) ) )
-        // InternalPerl.g:1209:6: ( () ( ( ruleOpMulti ) ) )
+        // InternalPerl.g:1172:5: ( ( () ( ( ruleOpMulti ) ) ) )
+        // InternalPerl.g:1172:6: ( () ( ( ruleOpMulti ) ) )
         {
-        // InternalPerl.g:1209:6: ( () ( ( ruleOpMulti ) ) )
-        // InternalPerl.g:1210:6: () ( ( ruleOpMulti ) )
+        // InternalPerl.g:1172:6: ( () ( ( ruleOpMulti ) ) )
+        // InternalPerl.g:1173:6: () ( ( ruleOpMulti ) )
         {
-        // InternalPerl.g:1210:6: ()
-        // InternalPerl.g:1211:6: 
+        // InternalPerl.g:1173:6: ()
+        // InternalPerl.g:1174:6: 
         {
         }
 
-        // InternalPerl.g:1212:6: ( ( ruleOpMulti ) )
-        // InternalPerl.g:1213:7: ( ruleOpMulti )
+        // InternalPerl.g:1175:6: ( ( ruleOpMulti ) )
+        // InternalPerl.g:1176:7: ( ruleOpMulti )
         {
-        // InternalPerl.g:1213:7: ( ruleOpMulti )
-        // InternalPerl.g:1214:8: ruleOpMulti
+        // InternalPerl.g:1176:7: ( ruleOpMulti )
+        // InternalPerl.g:1177:8: ruleOpMulti
         {
         pushFollow(FOLLOW_2);
         ruleOpMulti();
@@ -7527,46 +6889,46 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end synpred10_InternalPerl
 
-    // $ANTLR start synpred12_InternalPerl
-    public final void synpred12_InternalPerl_fragment() throws RecognitionException {   
-        // InternalPerl.g:1619:4: ( ( () 'sub' '{' ) )
-        // InternalPerl.g:1619:5: ( () 'sub' '{' )
+    // $ANTLR start synpred11_InternalPerl
+    public final void synpred11_InternalPerl_fragment() throws RecognitionException {   
+        // InternalPerl.g:1456:4: ( ( () 'sub' '{' ) )
+        // InternalPerl.g:1456:5: ( () 'sub' '{' )
         {
-        // InternalPerl.g:1619:5: ( () 'sub' '{' )
-        // InternalPerl.g:1620:5: () 'sub' '{'
+        // InternalPerl.g:1456:5: ( () 'sub' '{' )
+        // InternalPerl.g:1457:5: () 'sub' '{'
         {
-        // InternalPerl.g:1620:5: ()
-        // InternalPerl.g:1621:5: 
+        // InternalPerl.g:1457:5: ()
+        // InternalPerl.g:1458:5: 
         {
         }
 
-        match(input,43,FOLLOW_20); if (state.failed) return ;
-        match(input,44,FOLLOW_2); if (state.failed) return ;
+        match(input,42,FOLLOW_19); if (state.failed) return ;
+        match(input,43,FOLLOW_2); if (state.failed) return ;
 
         }
 
-
-        }
-    }
-    // $ANTLR end synpred12_InternalPerl
-
-    // $ANTLR start synpred14_InternalPerl
-    public final void synpred14_InternalPerl_fragment() throws RecognitionException {   
-        // InternalPerl.g:1896:5: ( 'else' )
-        // InternalPerl.g:1896:6: 'else'
-        {
-        match(input,50,FOLLOW_2); if (state.failed) return ;
 
         }
     }
-    // $ANTLR end synpred14_InternalPerl
+    // $ANTLR end synpred11_InternalPerl
 
-    // $ANTLR start synpred16_InternalPerl
-    public final void synpred16_InternalPerl_fragment() throws RecognitionException {   
-        // InternalPerl.g:2279:4: ( '$' | '%' | '@' | '!' | '-' | '+' )
+    // $ANTLR start synpred13_InternalPerl
+    public final void synpred13_InternalPerl_fragment() throws RecognitionException {   
+        // InternalPerl.g:1733:5: ( 'else' )
+        // InternalPerl.g:1733:6: 'else'
+        {
+        match(input,49,FOLLOW_2); if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred13_InternalPerl
+
+    // $ANTLR start synpred15_InternalPerl
+    public final void synpred15_InternalPerl_fragment() throws RecognitionException {   
+        // InternalPerl.g:2056:4: ( '!' | '-' | '+' | RULE_VAR_START )
         // InternalPerl.g:
         {
-        if ( (input.LA(1)>=34 && input.LA(1)<=35)||(input.LA(1)>=39 && input.LA(1)<=40)||(input.LA(1)>=54 && input.LA(1)<=55) ) {
+        if ( input.LA(1)==RULE_VAR_START||(input.LA(1)>=33 && input.LA(1)<=34)||input.LA(1)==39 ) {
             input.consume();
             state.errorRecovery=false;state.failed=false;
         }
@@ -7579,18 +6941,18 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
         }
     }
-    // $ANTLR end synpred16_InternalPerl
+    // $ANTLR end synpred15_InternalPerl
 
-    // $ANTLR start synpred17_InternalPerl
-    public final void synpred17_InternalPerl_fragment() throws RecognitionException {   
-        // InternalPerl.g:2370:5: ( '::' )
-        // InternalPerl.g:2370:6: '::'
+    // $ANTLR start synpred16_InternalPerl
+    public final void synpred16_InternalPerl_fragment() throws RecognitionException {   
+        // InternalPerl.g:2147:5: ( '::' )
+        // InternalPerl.g:2147:6: '::'
         {
-        match(input,58,FOLLOW_2); if (state.failed) return ;
+        match(input,55,FOLLOW_2); if (state.failed) return ;
 
         }
     }
-    // $ANTLR end synpred17_InternalPerl
+    // $ANTLR end synpred16_InternalPerl
 
     // Delegated rules
 
@@ -7608,11 +6970,11 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred14_InternalPerl() {
+    public final boolean synpred11_InternalPerl() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred14_InternalPerl_fragment(); // can never throw exception
+            synpred11_InternalPerl_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -7622,11 +6984,11 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred17_InternalPerl() {
+    public final boolean synpred15_InternalPerl() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred17_InternalPerl_fragment(); // can never throw exception
+            synpred15_InternalPerl_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -7762,11 +7124,11 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred12_InternalPerl() {
+    public final boolean synpred13_InternalPerl() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred12_InternalPerl_fragment(); // can never throw exception
+            synpred13_InternalPerl_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -7794,16 +7156,15 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
     protected DFA1 dfa1 = new DFA1(this);
     protected DFA11 dfa11 = new DFA11(this);
-    protected DFA14 dfa14 = new DFA14(this);
     protected DFA15 dfa15 = new DFA15(this);
     static final String dfa_1s = "\12\uffff";
     static final String dfa_2s = "\1\11\11\uffff";
-    static final String dfa_3s = "\1\15\11\uffff";
-    static final String dfa_4s = "\1\67\11\uffff";
+    static final String dfa_3s = "\1\4\11\uffff";
+    static final String dfa_4s = "\1\64\11\uffff";
     static final String dfa_5s = "\1\uffff\10\1\1\2";
     static final String dfa_6s = "\1\0\11\uffff}>";
     static final String[] dfa_7s = {
-            "\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\15\uffff\2\11\3\uffff\2\11\4\uffff\2\11\1\uffff\1\11\1\uffff\6\11",
+            "\1\11\12\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\12\uffff\2\11\4\uffff\1\11\4\uffff\2\11\1\uffff\1\11\1\uffff\4\11",
             "",
             "",
             "",
@@ -7850,23 +7211,23 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
                         int index1_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA1_0==13) && (synpred1_InternalPerl())) {s = 1;}
+                        if ( (LA1_0==15) && (synpred1_InternalPerl())) {s = 1;}
 
-                        else if ( (LA1_0==14) && (synpred1_InternalPerl())) {s = 2;}
+                        else if ( (LA1_0==16) && (synpred1_InternalPerl())) {s = 2;}
 
-                        else if ( (LA1_0==15) && (synpred1_InternalPerl())) {s = 3;}
+                        else if ( (LA1_0==17) && (synpred1_InternalPerl())) {s = 3;}
 
-                        else if ( (LA1_0==16) && (synpred1_InternalPerl())) {s = 4;}
+                        else if ( (LA1_0==18) && (synpred1_InternalPerl())) {s = 4;}
 
-                        else if ( (LA1_0==17) && (synpred1_InternalPerl())) {s = 5;}
+                        else if ( (LA1_0==19) && (synpred1_InternalPerl())) {s = 5;}
 
-                        else if ( (LA1_0==18) && (synpred1_InternalPerl())) {s = 6;}
+                        else if ( (LA1_0==20) && (synpred1_InternalPerl())) {s = 6;}
 
-                        else if ( (LA1_0==19) && (synpred1_InternalPerl())) {s = 7;}
+                        else if ( (LA1_0==21) && (synpred1_InternalPerl())) {s = 7;}
 
-                        else if ( (LA1_0==20) && (synpred1_InternalPerl())) {s = 8;}
+                        else if ( (LA1_0==22) && (synpred1_InternalPerl())) {s = 8;}
 
-                        else if ( (LA1_0==EOF||(LA1_0>=34 && LA1_0<=35)||(LA1_0>=39 && LA1_0<=40)||(LA1_0>=45 && LA1_0<=46)||LA1_0==48||(LA1_0>=50 && LA1_0<=55)) ) {s = 9;}
+                        else if ( (LA1_0==EOF||LA1_0==RULE_VAR_START||(LA1_0>=33 && LA1_0<=34)||LA1_0==39||(LA1_0>=44 && LA1_0<=45)||LA1_0==47||(LA1_0>=49 && LA1_0<=52)) ) {s = 9;}
 
                          
                         input.seek(index1_0);
@@ -7880,27 +7241,22 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String dfa_8s = "\23\uffff";
-    static final String dfa_9s = "\1\1\22\uffff";
-    static final String dfa_10s = "\1\15\1\uffff\1\14\1\24\6\uffff\1\14\1\uffff\1\24\6\uffff";
-    static final String dfa_11s = "\1\67\1\uffff\2\50\6\uffff\1\50\1\uffff\1\50\6\uffff";
-    static final String dfa_12s = "\1\uffff\1\2\2\uffff\6\1\1\uffff\1\1\1\uffff\6\1";
-    static final String dfa_13s = "\1\3\1\uffff\1\4\1\2\6\uffff\1\1\1\uffff\1\0\6\uffff}>";
+    static final String dfa_8s = "\16\uffff";
+    static final String dfa_9s = "\1\1\15\uffff";
+    static final String dfa_10s = "\1\4\1\uffff\1\16\1\26\2\uffff\1\16\1\uffff\1\26\5\uffff";
+    static final String dfa_11s = "\1\64\1\uffff\2\47\2\uffff\1\47\1\uffff\1\47\5\uffff";
+    static final String dfa_12s = "\1\uffff\1\2\2\uffff\2\1\1\uffff\1\1\1\uffff\5\1";
+    static final String dfa_13s = "\1\1\1\uffff\1\2\3\uffff\1\3\1\uffff\1\0\5\uffff}>";
     static final String[] dfa_14s = {
-            "\6\1\1\2\1\3\7\1\1\4\1\5\1\6\1\7\1\10\1\11\2\1\3\uffff\2\1\4\uffff\2\1\1\uffff\1\1\1\uffff\6\1",
+            "\1\1\12\uffff\6\1\1\2\1\3\7\1\1\uffff\1\4\1\5\2\1\4\uffff\1\1\4\uffff\2\1\1\uffff\1\1\1\uffff\4\1",
             "",
-            "\1\1\6\uffff\1\12\13\uffff\1\13\2\uffff\2\1\4\uffff\1\1",
-            "\1\14\1\1\10\uffff\1\15\3\uffff\2\1\4\uffff\1\1",
-            "",
-            "",
+            "\1\1\6\uffff\1\6\10\uffff\1\7\2\uffff\2\1\4\uffff\1\1",
+            "\1\10\1\1\11\uffff\2\1\4\uffff\1\1",
             "",
             "",
+            "\1\1\6\uffff\1\14\13\uffff\1\13\1\12\4\uffff\1\11",
             "",
-            "",
-            "\1\1\6\uffff\1\21\16\uffff\1\20\1\17\4\uffff\1\16",
-            "",
-            "\1\22\1\1\14\uffff\1\20\1\17\4\uffff\1\16",
-            "",
+            "\1\15\1\1\11\uffff\1\13\1\12\4\uffff\1\11",
             "",
             "",
             "",
@@ -7937,108 +7293,83 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA11_12 = input.LA(1);
+                        int LA11_8 = input.LA(1);
 
                          
-                        int index11_12 = input.index();
+                        int index11_8 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_12==21) ) {s = 1;}
+                        if ( (LA11_8==23) ) {s = 1;}
 
-                        else if ( (LA11_12==40) && (synpred6_InternalPerl())) {s = 14;}
+                        else if ( (LA11_8==22) && (synpred6_InternalPerl())) {s = 13;}
 
-                        else if ( (LA11_12==35) && (synpred6_InternalPerl())) {s = 15;}
+                        else if ( (LA11_8==39) && (synpred6_InternalPerl())) {s = 9;}
 
-                        else if ( (LA11_12==34) && (synpred6_InternalPerl())) {s = 16;}
+                        else if ( (LA11_8==34) && (synpred6_InternalPerl())) {s = 10;}
 
-                        else if ( (LA11_12==20) && (synpred6_InternalPerl())) {s = 18;}
+                        else if ( (LA11_8==33) && (synpred6_InternalPerl())) {s = 11;}
 
                          
-                        input.seek(index11_12);
+                        input.seek(index11_8);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA11_10 = input.LA(1);
-
-                         
-                        int index11_10 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA11_10==40) && (synpred6_InternalPerl())) {s = 14;}
-
-                        else if ( (LA11_10==35) && (synpred6_InternalPerl())) {s = 15;}
-
-                        else if ( (LA11_10==34) && (synpred6_InternalPerl())) {s = 16;}
-
-                        else if ( (LA11_10==19) && (synpred6_InternalPerl())) {s = 17;}
-
-                        else if ( (LA11_10==12) ) {s = 1;}
-
-                         
-                        input.seek(index11_10);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA11_3 = input.LA(1);
-
-                         
-                        int index11_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA11_3==20) ) {s = 12;}
-
-                        else if ( (LA11_3==21||(LA11_3>=34 && LA11_3<=35)||LA11_3==40) ) {s = 1;}
-
-                        else if ( (LA11_3==30) && (synpred6_InternalPerl())) {s = 13;}
-
-                         
-                        input.seek(index11_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
                         int LA11_0 = input.LA(1);
 
                          
                         int index11_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_0==EOF||(LA11_0>=13 && LA11_0<=18)||(LA11_0>=21 && LA11_0<=27)||(LA11_0>=34 && LA11_0<=35)||(LA11_0>=39 && LA11_0<=40)||(LA11_0>=45 && LA11_0<=46)||LA11_0==48||(LA11_0>=50 && LA11_0<=55)) ) {s = 1;}
+                        if ( (LA11_0==EOF||LA11_0==RULE_VAR_START||(LA11_0>=15 && LA11_0<=20)||(LA11_0>=23 && LA11_0<=29)||(LA11_0>=33 && LA11_0<=34)||LA11_0==39||(LA11_0>=44 && LA11_0<=45)||LA11_0==47||(LA11_0>=49 && LA11_0<=52)) ) {s = 1;}
 
-                        else if ( (LA11_0==19) ) {s = 2;}
+                        else if ( (LA11_0==21) ) {s = 2;}
 
-                        else if ( (LA11_0==20) ) {s = 3;}
+                        else if ( (LA11_0==22) ) {s = 3;}
 
-                        else if ( (LA11_0==28) && (synpred6_InternalPerl())) {s = 4;}
+                        else if ( (LA11_0==31) && (synpred6_InternalPerl())) {s = 4;}
 
-                        else if ( (LA11_0==29) && (synpred6_InternalPerl())) {s = 5;}
-
-                        else if ( (LA11_0==30) && (synpred6_InternalPerl())) {s = 6;}
-
-                        else if ( (LA11_0==31) && (synpred6_InternalPerl())) {s = 7;}
-
-                        else if ( (LA11_0==32) && (synpred6_InternalPerl())) {s = 8;}
-
-                        else if ( (LA11_0==33) && (synpred6_InternalPerl())) {s = 9;}
+                        else if ( (LA11_0==32) && (synpred6_InternalPerl())) {s = 5;}
 
                          
                         input.seek(index11_0);
                         if ( s>=0 ) return s;
                         break;
-                    case 4 : 
+                    case 2 : 
                         int LA11_2 = input.LA(1);
 
                          
                         int index11_2 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_2==19) ) {s = 10;}
+                        if ( (LA11_2==21) ) {s = 6;}
 
-                        else if ( (LA11_2==31) && (synpred6_InternalPerl())) {s = 11;}
+                        else if ( (LA11_2==30) && (synpred6_InternalPerl())) {s = 7;}
 
-                        else if ( (LA11_2==12||(LA11_2>=34 && LA11_2<=35)||LA11_2==40) ) {s = 1;}
+                        else if ( (LA11_2==14||(LA11_2>=33 && LA11_2<=34)||LA11_2==39) ) {s = 1;}
 
                          
                         input.seek(index11_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA11_6 = input.LA(1);
+
+                         
+                        int index11_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA11_6==14) ) {s = 1;}
+
+                        else if ( (LA11_6==39) && (synpred6_InternalPerl())) {s = 9;}
+
+                        else if ( (LA11_6==34) && (synpred6_InternalPerl())) {s = 10;}
+
+                        else if ( (LA11_6==33) && (synpred6_InternalPerl())) {s = 11;}
+
+                        else if ( (LA11_6==21) && (synpred6_InternalPerl())) {s = 12;}
+
+                         
+                        input.seek(index11_6);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -8049,151 +7380,102 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String dfa_15s = "\13\uffff";
-    static final String dfa_16s = "\1\23\2\uffff\1\24\7\uffff";
-    static final String dfa_17s = "\1\41\2\uffff\1\36\7\uffff";
-    static final String dfa_18s = "\1\uffff\1\1\1\2\1\uffff\1\4\1\5\1\7\1\10\1\11\1\6\1\3";
-    static final String dfa_19s = "\13\uffff}>";
-    static final String[] dfa_20s = {
-            "\1\6\1\3\7\uffff\1\1\1\2\1\4\1\5\1\7\1\10",
-            "",
-            "",
-            "\1\11\11\uffff\1\12",
-            "",
+    static final String dfa_15s = "\37\uffff";
+    static final String dfa_16s = "\1\1\36\uffff";
+    static final String dfa_17s = "\1\4\33\uffff\2\0\1\uffff";
+    static final String dfa_18s = "\1\64\33\uffff\2\0\1\uffff";
+    static final String dfa_19s = "\1\uffff\1\2\34\uffff\1\1";
+    static final String dfa_20s = "\34\uffff\1\0\1\1\1\uffff}>";
+    static final String[] dfa_21s = {
+            "\1\1\12\uffff\17\1\1\uffff\2\1\1\35\1\34\4\uffff\1\1\4\uffff\2\1\1\uffff\1\1\1\uffff\4\1",
             "",
             "",
             "",
             "",
             "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\uffff",
+            "\1\uffff",
             ""
     };
 
     static final short[] dfa_15 = DFA.unpackEncodedString(dfa_15s);
-    static final char[] dfa_16 = DFA.unpackEncodedStringToUnsignedChars(dfa_16s);
+    static final short[] dfa_16 = DFA.unpackEncodedString(dfa_16s);
     static final char[] dfa_17 = DFA.unpackEncodedStringToUnsignedChars(dfa_17s);
-    static final short[] dfa_18 = DFA.unpackEncodedString(dfa_18s);
+    static final char[] dfa_18 = DFA.unpackEncodedStringToUnsignedChars(dfa_18s);
     static final short[] dfa_19 = DFA.unpackEncodedString(dfa_19s);
-    static final short[][] dfa_20 = unpackEncodedStringArray(dfa_20s);
-
-    class DFA14 extends DFA {
-
-        public DFA14(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 14;
-            this.eot = dfa_15;
-            this.eof = dfa_15;
-            this.min = dfa_16;
-            this.max = dfa_17;
-            this.accept = dfa_18;
-            this.special = dfa_19;
-            this.transition = dfa_20;
-        }
-        public String getDescription() {
-            return "937:2: (kw= '->' | kw= '..<' | (kw= '>' kw= '..' ) | kw= '..' | kw= '=>' | (kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' ) ) | (kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' | kw= '=>' ) ) | kw= '<>' | kw= '?:' )";
-        }
-    }
-    static final String dfa_21s = "\45\uffff";
-    static final String dfa_22s = "\1\1\44\uffff";
-    static final String dfa_23s = "\1\15\41\uffff\2\0\1\uffff";
-    static final String dfa_24s = "\1\67\41\uffff\2\0\1\uffff";
-    static final String dfa_25s = "\1\uffff\1\2\42\uffff\1\1";
-    static final String dfa_26s = "\42\uffff\1\0\1\1\1\uffff}>";
-    static final String[] dfa_27s = {
-            "\25\1\1\43\1\42\3\uffff\2\1\4\uffff\2\1\1\uffff\1\1\1\uffff\6\1",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\uffff",
-            "\1\uffff",
-            ""
-    };
-
-    static final short[] dfa_21 = DFA.unpackEncodedString(dfa_21s);
-    static final short[] dfa_22 = DFA.unpackEncodedString(dfa_22s);
-    static final char[] dfa_23 = DFA.unpackEncodedStringToUnsignedChars(dfa_23s);
-    static final char[] dfa_24 = DFA.unpackEncodedStringToUnsignedChars(dfa_24s);
-    static final short[] dfa_25 = DFA.unpackEncodedString(dfa_25s);
-    static final short[] dfa_26 = DFA.unpackEncodedString(dfa_26s);
-    static final short[][] dfa_27 = unpackEncodedStringArray(dfa_27s);
+    static final short[] dfa_20 = DFA.unpackEncodedString(dfa_20s);
+    static final short[][] dfa_21 = unpackEncodedStringArray(dfa_21s);
 
     class DFA15 extends DFA {
 
         public DFA15(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 15;
-            this.eot = dfa_21;
-            this.eof = dfa_22;
-            this.min = dfa_23;
-            this.max = dfa_24;
-            this.accept = dfa_25;
-            this.special = dfa_26;
-            this.transition = dfa_27;
+            this.eot = dfa_15;
+            this.eof = dfa_16;
+            this.min = dfa_17;
+            this.max = dfa_18;
+            this.accept = dfa_19;
+            this.special = dfa_20;
+            this.transition = dfa_21;
         }
         public String getDescription() {
-            return "()* loopback of 1089:3: ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) ) )*";
+            return "()* loopback of 1052:3: ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_feature_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= rulePMultiplicativeExpression ) ) )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA15_34 = input.LA(1);
+                        int LA15_28 = input.LA(1);
 
                          
-                        int index15_34 = input.index();
+                        int index15_28 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred9_InternalPerl()) ) {s = 36;}
+                        if ( (synpred9_InternalPerl()) ) {s = 30;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index15_34);
+                        input.seek(index15_28);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA15_35 = input.LA(1);
+                        int LA15_29 = input.LA(1);
 
                          
-                        int index15_35 = input.index();
+                        int index15_29 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred9_InternalPerl()) ) {s = 36;}
+                        if ( (synpred9_InternalPerl()) ) {s = 30;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index15_35);
+                        input.seek(index15_29);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -8208,35 +7490,34 @@ public class InternalPerlParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x00C0018C00000000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x00000000001FE002L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000300000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x000000000F000002L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000380002L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x00000003F0180002L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000080080000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000C00000002L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x000000F000000002L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x00C0008000000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x00F8218C00000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x00F8418C00000002L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x00F8018C00000002L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x00F8018C00000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0004000000000002L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x00F8618C00000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000001002L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0400000000000002L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000008600000010L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x00000000007F8002L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000C00000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000002000002L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x000000003C000002L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000E00002L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000180600002L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000040200000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000600000002L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000007800000002L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x001C108600000010L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x001C208600000012L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x001C008600000012L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x001C008600000010L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0002000000000002L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x001C308600000010L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0080000000000002L});
 
 }

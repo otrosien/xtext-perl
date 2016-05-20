@@ -13,9 +13,8 @@ package org.epic.perl.perl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.epic.perl.perl.PAssignment#getFeature <em>Feature</em>}</li>
+ *   <li>{@link org.epic.perl.perl.PAssignment#getVar <em>Var</em>}</li>
  *   <li>{@link org.epic.perl.perl.PAssignment#getValue <em>Value</em>}</li>
- *   <li>{@link org.epic.perl.perl.PAssignment#getAssignable <em>Assignable</em>}</li>
  * </ul>
  *
  * @see org.epic.perl.perl.PerlPackage#getPAssignment()
@@ -25,30 +24,30 @@ package org.epic.perl.perl;
 public interface PAssignment extends PExpression
 {
   /**
-   * Returns the value of the '<em><b>Feature</b></em>' attribute.
+   * Returns the value of the '<em><b>Var</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Feature</em>' attribute isn't clear,
+   * If the meaning of the '<em>Var</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Feature</em>' attribute.
-   * @see #setFeature(String)
-   * @see org.epic.perl.perl.PerlPackage#getPAssignment_Feature()
+   * @return the value of the '<em>Var</em>' attribute.
+   * @see #setVar(String)
+   * @see org.epic.perl.perl.PerlPackage#getPAssignment_Var()
    * @model
    * @generated
    */
-  String getFeature();
+  String getVar();
 
   /**
-   * Sets the value of the '{@link org.epic.perl.perl.PAssignment#getFeature <em>Feature</em>}' attribute.
+   * Sets the value of the '{@link org.epic.perl.perl.PAssignment#getVar <em>Var</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Feature</em>' attribute.
-   * @see #getFeature()
+   * @param value the new value of the '<em>Var</em>' attribute.
+   * @see #getVar()
    * @generated
    */
-  void setFeature(String value);
+  void setVar(String value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.
@@ -75,31 +74,5 @@ public interface PAssignment extends PExpression
    * @generated
    */
   void setValue(PExpression value);
-
-  /**
-   * Returns the value of the '<em><b>Assignable</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Assignable</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Assignable</em>' containment reference.
-   * @see #setAssignable(PExpression)
-   * @see org.epic.perl.perl.PerlPackage#getPAssignment_Assignable()
-   * @model containment="true"
-   * @generated
-   */
-  PExpression getAssignable();
-
-  /**
-   * Sets the value of the '{@link org.epic.perl.perl.PAssignment#getAssignable <em>Assignable</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Assignable</em>' containment reference.
-   * @see #getAssignable()
-   * @generated
-   */
-  void setAssignable(PExpression value);
 
 } // PAssignment

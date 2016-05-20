@@ -8,9 +8,8 @@
       fileExtensions="pm" ecorePackage="Perl.ecore#/">
     <genClasses ecoreClass="Perl.ecore#//PExpression"/>
     <genClasses ecoreClass="Perl.ecore#//PAssignment">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PAssignment/feature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PAssignment/var"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PAssignment/value"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PAssignment/assignable"/>
     </genClasses>
     <genClasses ecoreClass="Perl.ecore#//PBinaryOperation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PBinaryOperation/leftOperand"/>
@@ -39,10 +38,6 @@
     <genClasses ecoreClass="Perl.ecore#//PVariableDeclaration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PVariableDeclaration/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PVariableDeclaration/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//PFeatureCall">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PFeatureCall/feature"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PFeatureCall/featureCallArguments"/>
     </genClasses>
     <genClasses ecoreClass="Perl.ecore#//PConstructorCall">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PConstructorCall/constructor"/>

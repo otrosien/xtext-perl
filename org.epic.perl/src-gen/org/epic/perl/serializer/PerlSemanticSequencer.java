@@ -19,7 +19,6 @@ import org.epic.perl.perl.PBinaryOperation;
 import org.epic.perl.perl.PBlockExpression;
 import org.epic.perl.perl.PClosure;
 import org.epic.perl.perl.PConstructorCall;
-import org.epic.perl.perl.PFeatureCall;
 import org.epic.perl.perl.PIfExpression;
 import org.epic.perl.perl.PNullLiteral;
 import org.epic.perl.perl.PNumberLiteral;
@@ -46,26 +45,11 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		if (epackage == PerlPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
 			case PerlPackage.PASSIGNMENT:
-				if (rule == grammarAccess.getPExpressionRule()
-						|| rule == grammarAccess.getPAssignmentRule()
-						|| action == grammarAccess.getPMemberFeatureCallAccess().getPAssignmentAssignableAction_1_0_0_0()
-						|| rule == grammarAccess.getPPrimaryExpressionRule()
-						|| rule == grammarAccess.getPParenthesizedExpressionRule()
-						|| rule == grammarAccess.getPExpressionOrVarDeclarationRule()) {
-					sequence_PAssignment(context, (PAssignment) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getPPostfixOperationRule()
-						|| action == grammarAccess.getPPostfixOperationAccess().getPPostfixOperationOperandAction_1_0_0()
-						|| rule == grammarAccess.getPMemberFeatureCallRule()) {
-					sequence_PMemberFeatureCall(context, (PAssignment) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_PAssignment(context, (PAssignment) semanticObject); 
+				return; 
 			case PerlPackage.PBINARY_OPERATION:
 				if (rule == grammarAccess.getPExpressionRule()
 						|| rule == grammarAccess.getPAssignmentRule()
-						|| action == grammarAccess.getPMemberFeatureCallAccess().getPAssignmentAssignableAction_1_0_0_0()
 						|| rule == grammarAccess.getPPrimaryExpressionRule()
 						|| rule == grammarAccess.getPParenthesizedExpressionRule()
 						|| rule == grammarAccess.getPExpressionOrVarDeclarationRule()) {
@@ -110,8 +94,7 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				}
 				else break;
 			case PerlPackage.PBLOCK_EXPRESSION:
-				if (action == grammarAccess.getPMemberFeatureCallAccess().getPAssignmentAssignableAction_1_0_0_0()
-						|| rule == grammarAccess.getPPrimaryExpressionRule()
+				if (rule == grammarAccess.getPPrimaryExpressionRule()
 						|| rule == grammarAccess.getPBlockExpressionRule()) {
 					sequence_PBlockExpression(context, (PBlockExpression) semanticObject); 
 					return; 
@@ -127,9 +110,6 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case PerlPackage.PCONSTRUCTOR_CALL:
 				sequence_PConstructorCall(context, (PConstructorCall) semanticObject); 
 				return; 
-			case PerlPackage.PFEATURE_CALL:
-				sequence_PFeatureCall(context, (PFeatureCall) semanticObject); 
-				return; 
 			case PerlPackage.PIF_EXPRESSION:
 				sequence_PIfExpression(context, (PIfExpression) semanticObject); 
 				return; 
@@ -140,8 +120,15 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_PNumberLiteral(context, (PNumberLiteral) semanticObject); 
 				return; 
 			case PerlPackage.PPOSTFIX_OPERATION:
-				sequence_PPostfixOperation(context, (PPostfixOperation) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getPPostfixOperationRule()) {
+					sequence_PPostfixOperation(context, (PPostfixOperation) semanticObject); 
+					return; 
+				}
+				else if (action == grammarAccess.getPPostfixOperationAccess().getPPostfixOperationOperandAction_2_0_0()) {
+					sequence_PPostfixOperation_PPostfixOperation_2_0_0(context, (PPostfixOperation) semanticObject); 
+					return; 
+				}
+				else break;
 			case PerlPackage.PRETURN_EXPRESSION:
 				sequence_PReturnExpression(context, (PReturnExpression) semanticObject); 
 				return; 
@@ -163,7 +150,6 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Contexts:
 	 *     PExpression returns PBinaryOperation
 	 *     PAssignment returns PBinaryOperation
-	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PBinaryOperation
 	 *     PPrimaryExpression returns PBinaryOperation
 	 *     PParenthesizedExpression returns PBinaryOperation
 	 *     PExpressionOrVarDeclaration returns PBinaryOperation
@@ -301,23 +287,22 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Contexts:
 	 *     PExpression returns PAssignment
 	 *     PAssignment returns PAssignment
-	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PAssignment
 	 *     PPrimaryExpression returns PAssignment
 	 *     PParenthesizedExpression returns PAssignment
 	 *     PExpressionOrVarDeclaration returns PAssignment
 	 *
 	 * Constraint:
-	 *     (feature=FeatureCallID value=PAssignment)
+	 *     (var=PVar value=PAssignment)
 	 */
 	protected void sequence_PAssignment(ISerializationContext context, PAssignment semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PASSIGNMENT__FEATURE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PASSIGNMENT__FEATURE));
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PASSIGNMENT__VAR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PASSIGNMENT__VAR));
 			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PASSIGNMENT__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PASSIGNMENT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPAssignmentAccess().getFeatureFeatureCallIDParserRuleCall_0_1_0(), semanticObject.getFeature());
+		feeder.accept(grammarAccess.getPAssignmentAccess().getVarPVarParserRuleCall_0_1_0(), semanticObject.getVar());
 		feeder.accept(grammarAccess.getPAssignmentAccess().getValuePAssignmentParserRuleCall_0_3_0(), semanticObject.getValue());
 		feeder.finish();
 	}
@@ -325,7 +310,6 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PBlockExpression
 	 *     PPrimaryExpression returns PBlockExpression
 	 *     PBlockExpression returns PBlockExpression
 	 *
@@ -339,7 +323,6 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PClosure
 	 *     PPrimaryExpression returns PClosure
 	 *     PLiteral returns PClosure
 	 *     PClosure returns PClosure
@@ -384,19 +367,6 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     PFeatureCall returns PFeatureCall
-	 *
-	 * Constraint:
-	 *     (feature=FeatureCallID featureCallArguments+=PClosure?)
-	 */
-	protected void sequence_PFeatureCall(ISerializationContext context, PFeatureCall semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PIfExpression
 	 *     PPrimaryExpression returns PIfExpression
 	 *     PIfExpression returns PIfExpression
 	 *
@@ -405,32 +375,6 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_PIfExpression(ISerializationContext context, PIfExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PPostfixOperation returns PAssignment
-	 *     PPostfixOperation.PPostfixOperation_1_0_0 returns PAssignment
-	 *     PMemberFeatureCall returns PAssignment
-	 *
-	 * Constraint:
-	 *     (assignable=PMemberFeatureCall_PAssignment_1_0_0_0 feature=FeatureCallID value=PAssignment)
-	 */
-	protected void sequence_PMemberFeatureCall(ISerializationContext context, PAssignment semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PASSIGNMENT__ASSIGNABLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PASSIGNMENT__ASSIGNABLE));
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PASSIGNMENT__FEATURE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PASSIGNMENT__FEATURE));
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PASSIGNMENT__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PASSIGNMENT__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPMemberFeatureCallAccess().getPAssignmentAssignableAction_1_0_0_0(), semanticObject.getAssignable());
-		feeder.accept(grammarAccess.getPMemberFeatureCallAccess().getFeatureFeatureCallIDParserRuleCall_1_0_0_1_0(), semanticObject.getFeature());
-		feeder.accept(grammarAccess.getPMemberFeatureCallAccess().getValuePAssignmentParserRuleCall_1_1_0(), semanticObject.getValue());
-		feeder.finish();
 	}
 	
 	
@@ -461,7 +405,6 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PNullLiteral
 	 *     PPrimaryExpression returns PNullLiteral
 	 *     PLiteral returns PNullLiteral
 	 *     PNullLiteral returns PNullLiteral
@@ -476,7 +419,6 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PNumberLiteral
 	 *     PPrimaryExpression returns PNumberLiteral
 	 *     PLiteral returns PNumberLiteral
 	 *     PNumberLiteral returns PNumberLiteral
@@ -500,25 +442,27 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PPostfixOperation returns PPostfixOperation
 	 *
 	 * Constraint:
-	 *     (operand=PPostfixOperation_PPostfixOperation_1_0_0 feature=OpPostfix)
+	 *     (operand=PPostfixOperation_PPostfixOperation_2_0_0 feature=OpPostfix)?
 	 */
 	protected void sequence_PPostfixOperation(ISerializationContext context, PPostfixOperation semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PPOSTFIX_OPERATION__OPERAND) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PPOSTFIX_OPERATION__OPERAND));
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PPOSTFIX_OPERATION__FEATURE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PPOSTFIX_OPERATION__FEATURE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPPostfixOperationAccess().getPPostfixOperationOperandAction_1_0_0(), semanticObject.getOperand());
-		feeder.accept(grammarAccess.getPPostfixOperationAccess().getFeatureOpPostfixParserRuleCall_1_0_1_0(), semanticObject.getFeature());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PReturnExpression
+	 *     PPostfixOperation.PPostfixOperation_2_0_0 returns PPostfixOperation
+	 *
+	 * Constraint:
+	 *     {PPostfixOperation}
+	 */
+	protected void sequence_PPostfixOperation_PPostfixOperation_2_0_0(ISerializationContext context, PPostfixOperation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     PPrimaryExpression returns PReturnExpression
 	 *     PReturnExpression returns PReturnExpression
 	 *
@@ -532,7 +476,6 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PStringLiteral
 	 *     PPrimaryExpression returns PStringLiteral
 	 *     PLiteral returns PStringLiteral
 	 *     PStringLiteral returns PStringLiteral
@@ -571,7 +514,6 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PMultiplicativeExpression returns PUnaryOperation
 	 *     PMultiplicativeExpression.PBinaryOperation_1_0_0_0 returns PUnaryOperation
 	 *     PUnaryOperation returns PUnaryOperation
-	 *     PMemberFeatureCall.PAssignment_1_0_0_0 returns PUnaryOperation
 	 *     PPrimaryExpression returns PUnaryOperation
 	 *     PParenthesizedExpression returns PUnaryOperation
 	 *     PExpressionOrVarDeclaration returns PUnaryOperation
@@ -599,7 +541,7 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PVariableDeclaration returns PVariableDeclaration
 	 *
 	 * Constraint:
-	 *     (name=ID right=PExpression?)
+	 *     (name=PVar right=PExpression?)
 	 */
 	protected void sequence_PVariableDeclaration(ISerializationContext context, PVariableDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

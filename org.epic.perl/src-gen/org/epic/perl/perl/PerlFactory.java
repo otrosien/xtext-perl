@@ -105,15 +105,6 @@ public interface PerlFactory extends EFactory
   PVariableDeclaration createPVariableDeclaration();
 
   /**
-   * Returns a new object of class '<em>PFeature Call</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>PFeature Call</em>'.
-   * @generated
-   */
-  PFeatureCall createPFeatureCall();
-
-  /**
    * Returns a new object of class '<em>PConstructor Call</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

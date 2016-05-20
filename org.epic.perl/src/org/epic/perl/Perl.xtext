@@ -9,7 +9,7 @@ PExpression returns PExpression :
 ;
 
 PAssignment returns PExpression :
-	{PAssignment} feature=FeatureCallID OpSingleAssign value=PAssignment |	
+	{PAssignment} var=PVar OpSingleAssign value=PAssignment |	
 	POrExpression (
 		=>({PBinaryOperation.leftOperand=current} feature=OpMultiAssign) rightOperand=PAssignment
 	)?;
@@ -54,12 +54,7 @@ POtherOperatorExpression returns PExpression:
 	rightOperand=PAdditiveExpression)*;
 
 OpOther:
-	  '->' 
-	| '..<'
-	| '>' '..'
-	| '..'
-	| '=>' 
-	| '>' (=>('>' '>') | '>') 
+	  '>' (=>('>' '>') | '>')
 	| '<' (=>('<' '<') | '<' | '=>')
 	| '<>'
 	| '?:';
@@ -85,16 +80,16 @@ OpUnary:
 	"!" | "-" | "+";
 
 PPostfixOperation returns PExpression:
-	PMemberFeatureCall =>({PPostfixOperation.operand=current} feature=OpPostfix)?
+	{PPostfixOperation}
+	PVar =>({PPostfixOperation.operand=current} feature=OpPostfix)?
 ;
 
 OpPostfix:
 	"++" | "--"
 ;
 
-PMemberFeatureCall returns PExpression:
-	PPrimaryExpression
-	(=>({PAssignment.assignable=current} feature=FeatureCallID OpSingleAssign) value=PAssignment)
+PVar:
+	VAR_START ID
 ;
 
 PPrimaryExpression returns PExpression:
@@ -145,17 +140,7 @@ PExpressionOrVarDeclaration returns PExpression:
 
 PVariableDeclaration returns PExpression:
 	{PVariableDeclaration}
-	('my'|'our'|'local') ('$'|'%'|'@') (=>(name=ID)) ('=' right=PExpression)?;
-
-PFeatureCall returns PExpression:
-	{PFeatureCall}
-	feature=FeatureCallID
-	featureCallArguments+=PClosure?
-;
-
-FeatureCallID:
-	('$'|'%'|'@') ID
-;
+	('my'|'our'|'local') (=>(name=PVar)) ('=' right=PExpression)?;
 
 PConstructorCall returns PExpression:
 	{PConstructorCall}
@@ -165,14 +150,14 @@ PConstructorCall returns PExpression:
 	')')?
 ;
 
-PNumberLiteral returns PExpression :
+PNumberLiteral returns PExpression:
 	{PNumberLiteral} value=Number;
 
-PNullLiteral returns PExpression :
+PNullLiteral returns PExpression:
 	{PNullLiteral} 'undef'
 ;
 
-PReturnExpression returns PExpression :
+PReturnExpression returns PExpression:
 	{PReturnExpression} 'return' (->expression=PExpression)?;
 
 PStringLiteral returns PExpression:
@@ -185,12 +170,22 @@ QualifiedName:
 Number hidden():
 	HEX
 	| BIN
+	| OCT
 	| INT
 ;
 
-terminal ID  		: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+terminal VAR_START
+	: ('@' | '$' | '%' )
+	( '@' | '$' | '%' | '*' | '#' )*
+;
 
-terminal INT returns ecore::EInt: ('0'..'9')+;
+terminal ID  		: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+
+terminal INT returns ecore::EInt: '1'..'9' ('0'..'9'|'_')*;
+
+terminal OCT:
+	'0' ('0'..'7'|'_')+
+;
 
 terminal HEX:
 	('0x'|'0X') ('0'..'9'|'a'..'f'|'A'..'F'|'_')+ ;
@@ -203,7 +198,7 @@ terminal STRING	:
 			"'" ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|"'") )* "'"
 ; 
 
-terminal SL_COMMENT 	: '//' !('\n'|'\r')* ('\r'? '\n')?;
+terminal SL_COMMENT 	: '#' !('\n'|'\r')* ('\r'? '\n')?;
 
 terminal WS			: (' '|'\t'|'\r'|'\n')+;
 

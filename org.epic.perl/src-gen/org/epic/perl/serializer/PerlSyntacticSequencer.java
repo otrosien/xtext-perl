@@ -23,7 +23,6 @@ public class PerlSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected PerlGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_PBlockExpression_SemicolonKeyword_2_1_q;
 	protected AbstractElementAlias match_PExpressionInClosure_SemicolonKeyword_1_1_q;
-	protected AbstractElementAlias match_PVariableDeclaration_CommercialAtKeyword_2_2_or_DollarSignKeyword_2_0_or_PercentSignKeyword_2_1;
 	protected AbstractElementAlias match_PVariableDeclaration_LocalKeyword_1_2_or_MyKeyword_1_0_or_OurKeyword_1_1;
 	
 	@Inject
@@ -31,7 +30,6 @@ public class PerlSyntacticSequencer extends AbstractSyntacticSequencer {
 		grammarAccess = (PerlGrammarAccess) access;
 		match_PBlockExpression_SemicolonKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getPBlockExpressionAccess().getSemicolonKeyword_2_1());
 		match_PExpressionInClosure_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getPExpressionInClosureAccess().getSemicolonKeyword_1_1());
-		match_PVariableDeclaration_CommercialAtKeyword_2_2_or_DollarSignKeyword_2_0_or_PercentSignKeyword_2_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getPVariableDeclarationAccess().getCommercialAtKeyword_2_2()), new TokenAlias(false, false, grammarAccess.getPVariableDeclarationAccess().getDollarSignKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getPVariableDeclarationAccess().getPercentSignKeyword_2_1()));
 		match_PVariableDeclaration_LocalKeyword_1_2_or_MyKeyword_1_0_or_OurKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getPVariableDeclarationAccess().getLocalKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getPVariableDeclarationAccess().getMyKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getPVariableDeclarationAccess().getOurKeyword_1_1()));
 	}
 	
@@ -39,6 +37,8 @@ public class PerlSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (ruleCall.getRule() == grammarAccess.getOpSingleAssignRule())
 			return getOpSingleAssignToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getPVarRule())
+			return getPVarToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -53,6 +53,17 @@ public class PerlSyntacticSequencer extends AbstractSyntacticSequencer {
 		return "=";
 	}
 	
+	/**
+	 * PVar:
+	 * 	VAR_START ID
+	 * ;
+	 */
+	protected String getPVarToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "@";
+	}
+	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
 		if (transition.getAmbiguousSyntaxes().isEmpty()) return;
@@ -63,8 +74,6 @@ public class PerlSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_PBlockExpression_SemicolonKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PExpressionInClosure_SemicolonKeyword_1_1_q.equals(syntax))
 				emit_PExpressionInClosure_SemicolonKeyword_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_PVariableDeclaration_CommercialAtKeyword_2_2_or_DollarSignKeyword_2_0_or_PercentSignKeyword_2_1.equals(syntax))
-				emit_PVariableDeclaration_CommercialAtKeyword_2_2_or_DollarSignKeyword_2_0_or_PercentSignKeyword_2_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PVariableDeclaration_LocalKeyword_1_2_or_MyKeyword_1_0_or_OurKeyword_1_1.equals(syntax))
 				emit_PVariableDeclaration_LocalKeyword_1_2_or_MyKeyword_1_0_or_OurKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -97,21 +106,10 @@ public class PerlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     '$' | '%' | '@'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) ('my' | 'our' | 'local') (ambiguity) name=ID
-	 */
-	protected void emit_PVariableDeclaration_CommercialAtKeyword_2_2_or_DollarSignKeyword_2_0_or_PercentSignKeyword_2_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
 	 *     'my' | 'our' | 'local'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) ('$' | '%' | '@') name=ID
+	 *     (rule start) (ambiguity) name=PVar
 	 */
 	protected void emit_PVariableDeclaration_LocalKeyword_1_2_or_MyKeyword_1_0_or_OurKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

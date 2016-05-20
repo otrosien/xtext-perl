@@ -9,9 +9,10 @@ import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.epic.perl.perl.Model;
+import org.epic.perl.perl.PExpression;
 import org.epic.perl.tests.PerlInjectorProvider;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -20,15 +21,94 @@ import org.junit.runner.RunWith;
 @SuppressWarnings("all")
 public class PerlParsingTest {
   @Inject
-  private ParseHelper<Model> parseHelper;
+  private ParseHelper<PExpression> parseHelper;
   
   @Test
-  public void loadModel() {
+  public void varExpr() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("Hello Xtext!");
+      _builder.append("$a");
       _builder.newLine();
-      final Model result = this.parseHelper.parse(_builder);
+      final PExpression result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void simpleAssignment() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("$a = 10;");
+      _builder.newLine();
+      final PExpression result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void multiAssign() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("$a += 10;");
+      _builder.newLine();
+      final PExpression result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void equalityExpr() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("$a eq $b");
+      _builder.newLine();
+      final PExpression result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void andExpr() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("$a && $b");
+      _builder.newLine();
+      final PExpression result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void compareExpr() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("$a < $b");
+      _builder.newLine();
+      final PExpression result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  @Ignore
+  public void stringLiteral() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("\"10\"");
+      _builder.newLine();
+      final PExpression result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
