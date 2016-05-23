@@ -7,24 +7,24 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.epic.perl.perl.AbstractElement;
+import org.epic.perl.perl.Element;
 import org.epic.perl.perl.PerlPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Abstract Element</b></em>'.
+ * An implementation of the model object '<em><b>Element</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class AbstractElementImpl extends MinimalEObjectImpl.Container implements AbstractElement
+public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AbstractElementImpl()
+  protected ElementImpl()
   {
     super();
   }
@@ -37,7 +37,7 @@ public class AbstractElementImpl extends MinimalEObjectImpl.Container implements
   @Override
   protected EClass eStaticClass()
   {
-    return PerlPackage.Literals.ABSTRACT_ELEMENT;
+    return PerlPackage.Literals.ELEMENT;
   }
 
-} //AbstractElementImpl
+} //ElementImpl

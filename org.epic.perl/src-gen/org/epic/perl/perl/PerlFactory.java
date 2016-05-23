@@ -24,22 +24,22 @@ public interface PerlFactory extends EFactory
   PerlFactory eINSTANCE = org.epic.perl.perl.impl.PerlFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
+   * Returns a new object of class '<em>Document</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
+   * @return a new object of class '<em>Document</em>'.
    * @generated
    */
-  PerlModel createPerlModel();
+  PerlDocument createPerlDocument();
 
   /**
-   * Returns a new object of class '<em>Abstract Element</em>'.
+   * Returns a new object of class '<em>Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Element</em>'.
+   * @return a new object of class '<em>Element</em>'.
    * @generated
    */
-  AbstractElement createAbstractElement();
+  Element createElement();
 
   /**
    * Returns a new object of class '<em>Token</em>'.
@@ -58,15 +58,6 @@ public interface PerlFactory extends EFactory
    * @generated
    */
   QuoteLikeToken createQuoteLikeToken();
-
-  /**
-   * Returns a new object of class '<em>Comment Token</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Comment Token</em>'.
-   * @generated
-   */
-  CommentToken createCommentToken();
 
   /**
    * Returns a new object of class '<em>Pod Token</em>'.
@@ -157,6 +148,24 @@ public interface PerlFactory extends EFactory
    * @generated
    */
   CommandQuoteLikeToken createCommandQuoteLikeToken();
+
+  /**
+   * Returns a new object of class '<em>Regexp Quote Like Token</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Regexp Quote Like Token</em>'.
+   * @generated
+   */
+  RegexpQuoteLikeToken createRegexpQuoteLikeToken();
+
+  /**
+   * Returns a new object of class '<em>Read Line Quote Like Token</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Read Line Quote Like Token</em>'.
+   * @generated
+   */
+  ReadLineQuoteLikeToken createReadLineQuoteLikeToken();
 
   /**
    * Returns the package supported by this factory.

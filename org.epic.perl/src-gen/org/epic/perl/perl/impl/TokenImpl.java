@@ -25,7 +25,7 @@ import org.epic.perl.perl.Token;
  *
  * @generated
  */
-public class TokenImpl extends AbstractElementImpl implements Token
+public class TokenImpl extends ElementImpl implements Token
 {
   /**
    * The default value of the '{@link #getContent() <em>Content</em>}' attribute.

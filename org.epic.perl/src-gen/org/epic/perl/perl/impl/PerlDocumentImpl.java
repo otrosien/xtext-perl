@@ -17,24 +17,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.epic.perl.perl.AbstractElement;
-import org.epic.perl.perl.PerlModel;
+import org.epic.perl.perl.Element;
+import org.epic.perl.perl.PerlDocument;
 import org.epic.perl.perl.PerlPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>Document</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.epic.perl.perl.impl.PerlModelImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.epic.perl.perl.impl.PerlDocumentImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PerlModelImpl extends MinimalEObjectImpl.Container implements PerlModel
+public class PerlDocumentImpl extends MinimalEObjectImpl.Container implements PerlDocument
 {
   /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
@@ -44,14 +44,14 @@ public class PerlModelImpl extends MinimalEObjectImpl.Container implements PerlM
    * @generated
    * @ordered
    */
-  protected EList<AbstractElement> elements;
+  protected EList<Element> elements;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected PerlModelImpl()
+  protected PerlDocumentImpl()
   {
     super();
   }
@@ -64,7 +64,7 @@ public class PerlModelImpl extends MinimalEObjectImpl.Container implements PerlM
   @Override
   protected EClass eStaticClass()
   {
-    return PerlPackage.Literals.PERL_MODEL;
+    return PerlPackage.Literals.PERL_DOCUMENT;
   }
 
   /**
@@ -72,11 +72,11 @@ public class PerlModelImpl extends MinimalEObjectImpl.Container implements PerlM
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<AbstractElement> getElements()
+  public EList<Element> getElements()
   {
     if (elements == null)
     {
-      elements = new EObjectContainmentEList<AbstractElement>(AbstractElement.class, this, PerlPackage.PERL_MODEL__ELEMENTS);
+      elements = new EObjectContainmentEList<Element>(Element.class, this, PerlPackage.PERL_DOCUMENT__ELEMENTS);
     }
     return elements;
   }
@@ -91,7 +91,7 @@ public class PerlModelImpl extends MinimalEObjectImpl.Container implements PerlM
   {
     switch (featureID)
     {
-      case PerlPackage.PERL_MODEL__ELEMENTS:
+      case PerlPackage.PERL_DOCUMENT__ELEMENTS:
         return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -107,7 +107,7 @@ public class PerlModelImpl extends MinimalEObjectImpl.Container implements PerlM
   {
     switch (featureID)
     {
-      case PerlPackage.PERL_MODEL__ELEMENTS:
+      case PerlPackage.PERL_DOCUMENT__ELEMENTS:
         return getElements();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -124,9 +124,9 @@ public class PerlModelImpl extends MinimalEObjectImpl.Container implements PerlM
   {
     switch (featureID)
     {
-      case PerlPackage.PERL_MODEL__ELEMENTS:
+      case PerlPackage.PERL_DOCUMENT__ELEMENTS:
         getElements().clear();
-        getElements().addAll((Collection<? extends AbstractElement>)newValue);
+        getElements().addAll((Collection<? extends Element>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,7 +142,7 @@ public class PerlModelImpl extends MinimalEObjectImpl.Container implements PerlM
   {
     switch (featureID)
     {
-      case PerlPackage.PERL_MODEL__ELEMENTS:
+      case PerlPackage.PERL_DOCUMENT__ELEMENTS:
         getElements().clear();
         return;
     }
@@ -159,10 +159,10 @@ public class PerlModelImpl extends MinimalEObjectImpl.Container implements PerlM
   {
     switch (featureID)
     {
-      case PerlPackage.PERL_MODEL__ELEMENTS:
+      case PerlPackage.PERL_DOCUMENT__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //PerlModelImpl
+} //PerlDocumentImpl

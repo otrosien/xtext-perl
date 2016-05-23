@@ -5,24 +5,24 @@ package org.epic.perl.perl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.epic.perl.perl.CommentToken;
 import org.epic.perl.perl.PerlPackage;
+import org.epic.perl.perl.RegexpQuoteLikeToken;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Comment Token</b></em>'.
+ * An implementation of the model object '<em><b>Regexp Quote Like Token</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class CommentTokenImpl extends TokenImpl implements CommentToken
+public class RegexpQuoteLikeTokenImpl extends QuoteLikeTokenImpl implements RegexpQuoteLikeToken
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected CommentTokenImpl()
+  protected RegexpQuoteLikeTokenImpl()
   {
     super();
   }
@@ -35,7 +35,7 @@ public class CommentTokenImpl extends TokenImpl implements CommentToken
   @Override
   protected EClass eStaticClass()
   {
-    return PerlPackage.Literals.COMMENT_TOKEN;
+    return PerlPackage.Literals.REGEXP_QUOTE_LIKE_TOKEN;
   }
 
-} //CommentTokenImpl
+} //RegexpQuoteLikeTokenImpl

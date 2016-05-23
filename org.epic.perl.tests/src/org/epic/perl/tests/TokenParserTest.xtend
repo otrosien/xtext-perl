@@ -9,22 +9,23 @@ import org.eclipse.xtext.junit4.XtextRunner
 import org.eclipse.xtext.junit4.util.ParseHelper
 import org.eclipse.xtext.junit4.validation.ValidationTestHelper
 import org.epic.perl.perl.BacktickQuoteLikeToken
-import org.epic.perl.perl.CommentToken
 import org.epic.perl.perl.NumberToken
-import org.epic.perl.perl.PerlModel
+import org.epic.perl.perl.PerlDocument
 import org.epic.perl.perl.QuoteToken
 import org.epic.perl.perl.WordToken
 import org.epic.perl.perl.WordsQuoteLikeToken
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.epic.perl.perl.RegexpQuoteLikeToken
+import org.epic.perl.perl.ReadLineQuoteLikeToken
 
 @RunWith(XtextRunner)
 @InjectWith(PerlInjectorProvider)
 class TokenParserTest{
 
 	@Inject
-	extension ParseHelper<PerlModel>
+	extension ParseHelper<PerlDocument>
 
 	@Inject
 	extension ValidationTestHelper
@@ -34,27 +35,17 @@ class TokenParserTest{
 
 	@Test
 	def void commentToken() {
-		val result = parse('''
+		_parseDocument('''
 			# comment
 		''')
-		assertNoErrors(result)
-		println(result.dump)
-		Assert.assertTrue(result.class.name, result instanceof PerlModel)
-		val token = (result as PerlModel).elements.head
-		Assert.assertTrue(token.class.name, token instanceof CommentToken)
 	}
 
 	@Test
 	def void stringToken() {
-		val result = parse('''
+		val token = _parseDocument('''
 			"10"
-		''')
-		result.assertNoErrors
-		println(result.dump)
-		Assert.assertTrue(result.class.name, result instanceof PerlModel)
-		val token = (result as PerlModel).elements.head
-		Assert.assertTrue(token.class.name, token instanceof QuoteToken)
-		Assert.assertEquals('10', (token as QuoteToken).content)
+		''').elements.head as QuoteToken
+		Assert.assertEquals('10', token.content)
 	}
 
 	@Test
@@ -64,87 +55,82 @@ class TokenParserTest{
 		''')
 		result.assertNoErrors
 		println(result.dump)
-		Assert.assertTrue(result.class.name, result instanceof PerlModel)
-		val token = (result as PerlModel).elements.head
+		Assert.assertTrue(result.class.name, result instanceof PerlDocument)
+		val token = (result as PerlDocument).elements.head
 		Assert.assertTrue(token.class.name, token instanceof QuoteToken)
 		Assert.assertEquals('test', (token as QuoteToken).content)
 	}
 
 	@Test
 	def void undefToken() {
-		val result = parse('''
+		val token = _parseDocument('''
 			undef
-		''')
-		result.assertNoErrors
-		println(result.dump)
-		Assert.assertTrue(result.class.name, result instanceof PerlModel)
-		val token = (result as PerlModel).elements.head
-		Assert.assertTrue(token.class.name, token instanceof WordToken)
-		Assert.assertEquals('undef', (token as WordToken).content)
+		''').elements.head as WordToken
+		Assert.assertEquals('undef', token.content)
 	}
 
 	@Test
 	def void numberToken() {
-		val result = parse('''
+		val token = _parseDocument('''
 			123.45
-		''')
-		result.assertNoErrors
-		println(result.dump)
-		Assert.assertTrue(result.class.name, result instanceof PerlModel)
-		val token = (result as PerlModel).elements.head
-		Assert.assertTrue(token.class.name, token instanceof NumberToken)
-		Assert.assertEquals('123.45', (token as NumberToken).content)
+		''').elements.head as NumberToken
+		Assert.assertEquals('123.45', token.content)
 	}
 
 	@Test
 	def void hexNumberToken() {
-		val result = parse('''
+		val token = _parseDocument('''
 			0x10
-		''')
-		result.assertNoErrors
-		println(result.dump)
-		Assert.assertTrue(result.class.name, result instanceof PerlModel)
-		val token = (result as PerlModel).elements.head
-		Assert.assertTrue(token.class.name, token instanceof NumberToken)
-		Assert.assertEquals('0x10', (token as NumberToken).content)
+		''').elements.head as NumberToken
+		Assert.assertEquals('0x10', token.content)
 	}
 
 	@Test
 	def void backtickQuoteLike() {
-		val result = parse('''
+		val token = _parseDocument('''
 			`abc`
-		''')
-		result.assertNoErrors
-		println(result.dump)
-		Assert.assertTrue(result.class.name, result instanceof PerlModel)
-		val token = (result as PerlModel).elements.head
-		Assert.assertTrue(token.class.name, token instanceof BacktickQuoteLikeToken)
-		Assert.assertEquals('`abc`', (token as BacktickQuoteLikeToken).content)
+		''').elements.head as BacktickQuoteLikeToken
+		Assert.assertEquals('`abc`', token.content)
 	}
 	
 	@Test
 	def void wordsQuoteLike() {
-		val result = parse('''
+		val token = _parseDocument('''
 			qw{a b c}
-		''')
-		result.assertNoErrors
-		println(result.dump)
-		Assert.assertTrue(result.class.name, result instanceof PerlModel)
-		val token = (result as PerlModel).elements.head
-		Assert.assertTrue(token.class.name, token instanceof WordsQuoteLikeToken)
-		Assert.assertEquals('qw{a b c}', (token as WordsQuoteLikeToken).content)
+		''').elements.head as WordsQuoteLikeToken
+		Assert.assertEquals('qw{a b c}', token.content)
 	}
 	
 	@Test
 	def void interpolateQuoteLike() {
-		val result = parse('''
+		val token = _parseDocument('''
 			qq{a b c}
-		''')
+		''').elements.head as QuoteToken
+		Assert.assertEquals('qq{a b c}', token.content)
+	}
+
+	@Test
+	def void regexQuoteLike() {
+		val token = _parseDocument('''
+			qr/a+b/
+		''').elements.head as RegexpQuoteLikeToken
+		Assert.assertEquals('qr/a+b/', token.content)
+	}
+	
+	@Test
+	def void readlineQuoteLike() {
+		val token = _parseDocument('''
+			<$file>
+		''').elements.head as ReadLineQuoteLikeToken
+		Assert.assertEquals('<$file>', token.content)
+	}
+	
+	
+	private def PerlDocument _parseDocument(String str) {
+		val result = parse(str)
 		result.assertNoErrors
 		println(result.dump)
-		Assert.assertTrue(result.class.name, result instanceof PerlModel)
-		val token = (result as PerlModel).elements.head
-		Assert.assertTrue(token.class.name, token instanceof QuoteToken)
-		Assert.assertEquals('qq{a b c}', (token as QuoteToken).content)
+		Assert.assertTrue(result.class.name, result instanceof PerlDocument)
+		return result
 	}
 }

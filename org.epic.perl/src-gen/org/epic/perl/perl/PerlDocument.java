@@ -9,25 +9,25 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Model</b></em>'.
+ * A representation of the model object '<em><b>Document</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.epic.perl.perl.PerlModel#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.epic.perl.perl.PerlDocument#getElements <em>Elements</em>}</li>
  * </ul>
  *
- * @see org.epic.perl.perl.PerlPackage#getPerlModel()
+ * @see org.epic.perl.perl.PerlPackage#getPerlDocument()
  * @model
  * @generated
  */
-public interface PerlModel extends EObject
+public interface PerlDocument extends EObject
 {
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-   * The list contents are of type {@link org.epic.perl.perl.AbstractElement}.
+   * The list contents are of type {@link org.epic.perl.perl.Element}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
@@ -35,10 +35,10 @@ public interface PerlModel extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Elements</em>' containment reference list.
-   * @see org.epic.perl.perl.PerlPackage#getPerlModel_Elements()
+   * @see org.epic.perl.perl.PerlPackage#getPerlDocument_Elements()
    * @model containment="true"
    * @generated
    */
-  EList<AbstractElement> getElements();
+  EList<Element> getElements();
 
-} // PerlModel
+} // PerlDocument

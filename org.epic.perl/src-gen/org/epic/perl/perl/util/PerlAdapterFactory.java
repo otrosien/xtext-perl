@@ -76,14 +76,14 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
     new PerlSwitch<Adapter>()
     {
       @Override
-      public Adapter casePerlModel(PerlModel object)
+      public Adapter casePerlDocument(PerlDocument object)
       {
-        return createPerlModelAdapter();
+        return createPerlDocumentAdapter();
       }
       @Override
-      public Adapter caseAbstractElement(AbstractElement object)
+      public Adapter caseElement(Element object)
       {
-        return createAbstractElementAdapter();
+        return createElementAdapter();
       }
       @Override
       public Adapter caseToken(Token object)
@@ -94,11 +94,6 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
       public Adapter caseQuoteLikeToken(QuoteLikeToken object)
       {
         return createQuoteLikeTokenAdapter();
-      }
-      @Override
-      public Adapter caseCommentToken(CommentToken object)
-      {
-        return createCommentTokenAdapter();
       }
       @Override
       public Adapter casePodToken(PodToken object)
@@ -151,6 +146,16 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
         return createCommandQuoteLikeTokenAdapter();
       }
       @Override
+      public Adapter caseRegexpQuoteLikeToken(RegexpQuoteLikeToken object)
+      {
+        return createRegexpQuoteLikeTokenAdapter();
+      }
+      @Override
+      public Adapter caseReadLineQuoteLikeToken(ReadLineQuoteLikeToken object)
+      {
+        return createReadLineQuoteLikeTokenAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -173,31 +178,31 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PerlModel <em>Model</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PerlDocument <em>Document</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.PerlModel
+   * @see org.epic.perl.perl.PerlDocument
    * @generated
    */
-  public Adapter createPerlModelAdapter()
+  public Adapter createPerlDocumentAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.AbstractElement <em>Abstract Element</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.Element <em>Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.AbstractElement
+   * @see org.epic.perl.perl.Element
    * @generated
    */
-  public Adapter createAbstractElementAdapter()
+  public Adapter createElementAdapter()
   {
     return null;
   }
@@ -228,21 +233,6 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createQuoteLikeTokenAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.CommentToken <em>Comment Token</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.epic.perl.perl.CommentToken
-   * @generated
-   */
-  public Adapter createCommentTokenAdapter()
   {
     return null;
   }
@@ -393,6 +383,36 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCommandQuoteLikeTokenAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.RegexpQuoteLikeToken <em>Regexp Quote Like Token</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.RegexpQuoteLikeToken
+   * @generated
+   */
+  public Adapter createRegexpQuoteLikeTokenAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.ReadLineQuoteLikeToken <em>Read Line Quote Like Token</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.ReadLineQuoteLikeToken
+   * @generated
+   */
+  public Adapter createReadLineQuoteLikeTokenAdapter()
   {
     return null;
   }

@@ -20,7 +20,7 @@ package org.epic.perl.perl;
  * @model
  * @generated
  */
-public interface Token extends AbstractElement
+public interface Token extends Element
 {
   /**
    * Returns the value of the '<em><b>Content</b></em>' attribute.

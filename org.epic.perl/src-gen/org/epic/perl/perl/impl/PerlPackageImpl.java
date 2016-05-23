@@ -10,20 +10,21 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.epic.perl.perl.AbstractElement;
 import org.epic.perl.perl.BacktickQuoteLikeToken;
 import org.epic.perl.perl.CommandQuoteLikeToken;
-import org.epic.perl.perl.CommentToken;
 import org.epic.perl.perl.DataToken;
+import org.epic.perl.perl.Element;
 import org.epic.perl.perl.EndToken;
 import org.epic.perl.perl.NumberToken;
 import org.epic.perl.perl.OperatorToken;
+import org.epic.perl.perl.PerlDocument;
 import org.epic.perl.perl.PerlFactory;
-import org.epic.perl.perl.PerlModel;
 import org.epic.perl.perl.PerlPackage;
 import org.epic.perl.perl.PodToken;
 import org.epic.perl.perl.QuoteLikeToken;
 import org.epic.perl.perl.QuoteToken;
+import org.epic.perl.perl.ReadLineQuoteLikeToken;
+import org.epic.perl.perl.RegexpQuoteLikeToken;
 import org.epic.perl.perl.Token;
 import org.epic.perl.perl.WordToken;
 import org.epic.perl.perl.WordsQuoteLikeToken;
@@ -41,14 +42,14 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass perlModelEClass = null;
+  private EClass perlDocumentEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass abstractElementEClass = null;
+  private EClass elementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -63,13 +64,6 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * @generated
    */
   private EClass quoteLikeTokenEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass commentTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -142,6 +136,20 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
   private EClass commandQuoteLikeTokenEClass = null;
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass regexpQuoteLikeTokenEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass readLineQuoteLikeTokenEClass = null;
+
+  /**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -209,9 +217,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPerlModel()
+  public EClass getPerlDocument()
   {
-    return perlModelEClass;
+    return perlDocumentEClass;
   }
 
   /**
@@ -219,9 +227,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPerlModel_Elements()
+  public EReference getPerlDocument_Elements()
   {
-    return (EReference)perlModelEClass.getEStructuralFeatures().get(0);
+    return (EReference)perlDocumentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -229,9 +237,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAbstractElement()
+  public EClass getElement()
   {
-    return abstractElementEClass;
+    return elementEClass;
   }
 
   /**
@@ -262,16 +270,6 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
   public EClass getQuoteLikeToken()
   {
     return quoteLikeTokenEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getCommentToken()
-  {
-    return commentTokenEClass;
   }
 
   /**
@@ -379,6 +377,26 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getRegexpQuoteLikeToken()
+  {
+    return regexpQuoteLikeTokenEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getReadLineQuoteLikeToken()
+  {
+    return readLineQuoteLikeTokenEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public PerlFactory getPerlFactory()
   {
     return (PerlFactory)getEFactoryInstance();
@@ -404,17 +422,15 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     isCreated = true;
 
     // Create classes and their features
-    perlModelEClass = createEClass(PERL_MODEL);
-    createEReference(perlModelEClass, PERL_MODEL__ELEMENTS);
+    perlDocumentEClass = createEClass(PERL_DOCUMENT);
+    createEReference(perlDocumentEClass, PERL_DOCUMENT__ELEMENTS);
 
-    abstractElementEClass = createEClass(ABSTRACT_ELEMENT);
+    elementEClass = createEClass(ELEMENT);
 
     tokenEClass = createEClass(TOKEN);
     createEAttribute(tokenEClass, TOKEN__CONTENT);
 
     quoteLikeTokenEClass = createEClass(QUOTE_LIKE_TOKEN);
-
-    commentTokenEClass = createEClass(COMMENT_TOKEN);
 
     podTokenEClass = createEClass(POD_TOKEN);
 
@@ -435,6 +451,10 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     wordsQuoteLikeTokenEClass = createEClass(WORDS_QUOTE_LIKE_TOKEN);
 
     commandQuoteLikeTokenEClass = createEClass(COMMAND_QUOTE_LIKE_TOKEN);
+
+    regexpQuoteLikeTokenEClass = createEClass(REGEXP_QUOTE_LIKE_TOKEN);
+
+    readLineQuoteLikeTokenEClass = createEClass(READ_LINE_QUOTE_LIKE_TOKEN);
   }
 
   /**
@@ -466,9 +486,8 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    tokenEClass.getESuperTypes().add(this.getAbstractElement());
+    tokenEClass.getESuperTypes().add(this.getElement());
     quoteLikeTokenEClass.getESuperTypes().add(this.getToken());
-    commentTokenEClass.getESuperTypes().add(this.getToken());
     podTokenEClass.getESuperTypes().add(this.getToken());
     numberTokenEClass.getESuperTypes().add(this.getToken());
     wordTokenEClass.getESuperTypes().add(this.getToken());
@@ -479,19 +498,19 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     backtickQuoteLikeTokenEClass.getESuperTypes().add(this.getQuoteLikeToken());
     wordsQuoteLikeTokenEClass.getESuperTypes().add(this.getQuoteLikeToken());
     commandQuoteLikeTokenEClass.getESuperTypes().add(this.getQuoteLikeToken());
+    regexpQuoteLikeTokenEClass.getESuperTypes().add(this.getQuoteLikeToken());
+    readLineQuoteLikeTokenEClass.getESuperTypes().add(this.getQuoteLikeToken());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(perlModelEClass, PerlModel.class, "PerlModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPerlModel_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, PerlModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(perlDocumentEClass, PerlDocument.class, "PerlDocument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPerlDocument_Elements(), this.getElement(), null, "elements", null, 0, -1, PerlDocument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(abstractElementEClass, AbstractElement.class, "AbstractElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(tokenEClass, Token.class, "Token", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getToken_Content(), ecorePackage.getEString(), "content", null, 0, 1, Token.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(quoteLikeTokenEClass, QuoteLikeToken.class, "QuoteLikeToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(commentTokenEClass, CommentToken.class, "CommentToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(podTokenEClass, PodToken.class, "PodToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -512,6 +531,10 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     initEClass(wordsQuoteLikeTokenEClass, WordsQuoteLikeToken.class, "WordsQuoteLikeToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(commandQuoteLikeTokenEClass, CommandQuoteLikeToken.class, "CommandQuoteLikeToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(regexpQuoteLikeTokenEClass, RegexpQuoteLikeToken.class, "RegexpQuoteLikeToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(readLineQuoteLikeTokenEClass, ReadLineQuoteLikeToken.class, "ReadLineQuoteLikeToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

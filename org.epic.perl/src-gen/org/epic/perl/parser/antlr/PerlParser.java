@@ -16,7 +16,7 @@ public class PerlParser extends AbstractAntlrParser {
 
 	@Override
 	protected void setInitialHiddenTokens(XtextTokenStream tokenStream) {
-		tokenStream.setInitialHiddenTokens("RULE_WS");
+		tokenStream.setInitialHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
 	}
 	
 
@@ -27,7 +27,7 @@ public class PerlParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "PerlModel";
+		return "PerlDocument";
 	}
 
 	public PerlGrammarAccess getGrammarAccess() {

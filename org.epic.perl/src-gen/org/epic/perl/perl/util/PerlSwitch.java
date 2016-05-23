@@ -73,17 +73,17 @@ public class PerlSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case PerlPackage.PERL_MODEL:
+      case PerlPackage.PERL_DOCUMENT:
       {
-        PerlModel perlModel = (PerlModel)theEObject;
-        T result = casePerlModel(perlModel);
+        PerlDocument perlDocument = (PerlDocument)theEObject;
+        T result = casePerlDocument(perlDocument);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PerlPackage.ABSTRACT_ELEMENT:
+      case PerlPackage.ELEMENT:
       {
-        AbstractElement abstractElement = (AbstractElement)theEObject;
-        T result = caseAbstractElement(abstractElement);
+        Element element = (Element)theEObject;
+        T result = caseElement(element);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -91,7 +91,7 @@ public class PerlSwitch<T> extends Switch<T>
       {
         Token token = (Token)theEObject;
         T result = caseToken(token);
-        if (result == null) result = caseAbstractElement(token);
+        if (result == null) result = caseElement(token);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -100,16 +100,7 @@ public class PerlSwitch<T> extends Switch<T>
         QuoteLikeToken quoteLikeToken = (QuoteLikeToken)theEObject;
         T result = caseQuoteLikeToken(quoteLikeToken);
         if (result == null) result = caseToken(quoteLikeToken);
-        if (result == null) result = caseAbstractElement(quoteLikeToken);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PerlPackage.COMMENT_TOKEN:
-      {
-        CommentToken commentToken = (CommentToken)theEObject;
-        T result = caseCommentToken(commentToken);
-        if (result == null) result = caseToken(commentToken);
-        if (result == null) result = caseAbstractElement(commentToken);
+        if (result == null) result = caseElement(quoteLikeToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -118,7 +109,7 @@ public class PerlSwitch<T> extends Switch<T>
         PodToken podToken = (PodToken)theEObject;
         T result = casePodToken(podToken);
         if (result == null) result = caseToken(podToken);
-        if (result == null) result = caseAbstractElement(podToken);
+        if (result == null) result = caseElement(podToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -127,7 +118,7 @@ public class PerlSwitch<T> extends Switch<T>
         NumberToken numberToken = (NumberToken)theEObject;
         T result = caseNumberToken(numberToken);
         if (result == null) result = caseToken(numberToken);
-        if (result == null) result = caseAbstractElement(numberToken);
+        if (result == null) result = caseElement(numberToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -136,7 +127,7 @@ public class PerlSwitch<T> extends Switch<T>
         WordToken wordToken = (WordToken)theEObject;
         T result = caseWordToken(wordToken);
         if (result == null) result = caseToken(wordToken);
-        if (result == null) result = caseAbstractElement(wordToken);
+        if (result == null) result = caseElement(wordToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -145,7 +136,7 @@ public class PerlSwitch<T> extends Switch<T>
         OperatorToken operatorToken = (OperatorToken)theEObject;
         T result = caseOperatorToken(operatorToken);
         if (result == null) result = caseToken(operatorToken);
-        if (result == null) result = caseAbstractElement(operatorToken);
+        if (result == null) result = caseElement(operatorToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -154,7 +145,7 @@ public class PerlSwitch<T> extends Switch<T>
         QuoteToken quoteToken = (QuoteToken)theEObject;
         T result = caseQuoteToken(quoteToken);
         if (result == null) result = caseToken(quoteToken);
-        if (result == null) result = caseAbstractElement(quoteToken);
+        if (result == null) result = caseElement(quoteToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -163,7 +154,7 @@ public class PerlSwitch<T> extends Switch<T>
         DataToken dataToken = (DataToken)theEObject;
         T result = caseDataToken(dataToken);
         if (result == null) result = caseToken(dataToken);
-        if (result == null) result = caseAbstractElement(dataToken);
+        if (result == null) result = caseElement(dataToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -172,7 +163,7 @@ public class PerlSwitch<T> extends Switch<T>
         EndToken endToken = (EndToken)theEObject;
         T result = caseEndToken(endToken);
         if (result == null) result = caseToken(endToken);
-        if (result == null) result = caseAbstractElement(endToken);
+        if (result == null) result = caseElement(endToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -182,7 +173,7 @@ public class PerlSwitch<T> extends Switch<T>
         T result = caseBacktickQuoteLikeToken(backtickQuoteLikeToken);
         if (result == null) result = caseQuoteLikeToken(backtickQuoteLikeToken);
         if (result == null) result = caseToken(backtickQuoteLikeToken);
-        if (result == null) result = caseAbstractElement(backtickQuoteLikeToken);
+        if (result == null) result = caseElement(backtickQuoteLikeToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -192,7 +183,7 @@ public class PerlSwitch<T> extends Switch<T>
         T result = caseWordsQuoteLikeToken(wordsQuoteLikeToken);
         if (result == null) result = caseQuoteLikeToken(wordsQuoteLikeToken);
         if (result == null) result = caseToken(wordsQuoteLikeToken);
-        if (result == null) result = caseAbstractElement(wordsQuoteLikeToken);
+        if (result == null) result = caseElement(wordsQuoteLikeToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -202,7 +193,27 @@ public class PerlSwitch<T> extends Switch<T>
         T result = caseCommandQuoteLikeToken(commandQuoteLikeToken);
         if (result == null) result = caseQuoteLikeToken(commandQuoteLikeToken);
         if (result == null) result = caseToken(commandQuoteLikeToken);
-        if (result == null) result = caseAbstractElement(commandQuoteLikeToken);
+        if (result == null) result = caseElement(commandQuoteLikeToken);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.REGEXP_QUOTE_LIKE_TOKEN:
+      {
+        RegexpQuoteLikeToken regexpQuoteLikeToken = (RegexpQuoteLikeToken)theEObject;
+        T result = caseRegexpQuoteLikeToken(regexpQuoteLikeToken);
+        if (result == null) result = caseQuoteLikeToken(regexpQuoteLikeToken);
+        if (result == null) result = caseToken(regexpQuoteLikeToken);
+        if (result == null) result = caseElement(regexpQuoteLikeToken);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.READ_LINE_QUOTE_LIKE_TOKEN:
+      {
+        ReadLineQuoteLikeToken readLineQuoteLikeToken = (ReadLineQuoteLikeToken)theEObject;
+        T result = caseReadLineQuoteLikeToken(readLineQuoteLikeToken);
+        if (result == null) result = caseQuoteLikeToken(readLineQuoteLikeToken);
+        if (result == null) result = caseToken(readLineQuoteLikeToken);
+        if (result == null) result = caseElement(readLineQuoteLikeToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -211,33 +222,33 @@ public class PerlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Document</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Document</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePerlModel(PerlModel object)
+  public T casePerlDocument(PerlDocument object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Element</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAbstractElement(AbstractElement object)
+  public T caseElement(Element object)
   {
     return null;
   }
@@ -270,22 +281,6 @@ public class PerlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseQuoteLikeToken(QuoteLikeToken object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Comment Token</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Comment Token</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCommentToken(CommentToken object)
   {
     return null;
   }
@@ -446,6 +441,38 @@ public class PerlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCommandQuoteLikeToken(CommandQuoteLikeToken object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Regexp Quote Like Token</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Regexp Quote Like Token</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRegexpQuoteLikeToken(RegexpQuoteLikeToken object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Read Line Quote Like Token</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Read Line Quote Like Token</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReadLineQuoteLikeToken(ReadLineQuoteLikeToken object)
   {
     return null;
   }

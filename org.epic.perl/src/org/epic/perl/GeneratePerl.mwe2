@@ -12,9 +12,9 @@ Workflow {
 			project = StandardProjectConfig {
 				baseName = "org.epic.perl"
 				rootPath = rootPath
-				runtimeTest = {
-					enabled = true
-				}
+//				runtimeTest = {
+//					enabled = true
+//				}
 				eclipsePlugin = {
 					enabled = true
 				}

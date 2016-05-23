@@ -1,13 +1,15 @@
-grammar org.epic.perl.Perl hidden(WS)
+grammar org.epic.perl.Perl hidden(WS, SL_COMMENT)
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 generate perl "http://www.epic.org/perl/Perl"
 
-PerlModel:
-	elements += AbstractElement*;
+PerlDocument:
+	{PerlDocument}
+	elements += Element*
+;
 
-AbstractElement:
+Element:
 //	Node 
 //	| 
 	Token
@@ -51,8 +53,9 @@ AbstractElement:
 //;
 
 Token:
-	  {CommentToken}   content=SL_COMMENT
-	| {PodToken}       content=POD 
+	// hidden:
+//	  {CommentToken}   content=SL_COMMENT
+	  {PodToken}       content=POD 
 	| {NumberToken}    content=Number
 	| {WordToken}      content=Word 
 //	| DashedWord 
@@ -64,7 +67,6 @@ Token:
     | {QuoteToken}    content=STRING
     | {QuoteToken}    content=INTERPOLATE
     | {QuoteToken}    content=LITERAL
-	| {QuoteToken}    content=REGEX_QUOTE
 //	| HereDoc 
 //	| Cast 
 //	| Structure 
@@ -78,11 +80,11 @@ Token:
 ;
 
 QuoteLikeToken:
-	{BacktickQuoteLikeToken}  content=BACKTICK_STRING
-	| {WordsQuoteLikeToken}   content=WORDS_QUOTE_LIKE
-	| {CommandQuoteLikeToken} content=COMMAND_QUOTE_LIKE
-//	| RegexpQuoteLike
-//	| ReadLineQuoteLike
+	{BacktickQuoteLikeToken}   content=BACKTICK_STRING
+	| {WordsQuoteLikeToken}    content=WORDS_QUOTE_LIKE
+	| {CommandQuoteLikeToken}  content=COMMAND_QUOTE_LIKE
+	| {RegexpQuoteLikeToken}   content=REGEX_QUOTE
+  	| {ReadLineQuoteLikeToken} content=READLINE_QUOTE
 ;
 
 Number hidden():
@@ -143,13 +145,6 @@ FileTestOperator:
 	'-c' | '-t' | '-u' | '-g' | '-k' | '-T' | '-B' | '-M' | '-A' | '-C')
 ;
 
-//terminal fragment VAR_START
-//	: ('@' | '$' | '%' )
-//	( '@' | '$' | '%' | '*' | '#' )*
-//;
-//
-//terminal ID  		: VAR_START ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
-
 terminal HEX:
 	("0x"|"0X") ('0'..'9'|'a'..'f'|'A'..'F'|'_')+ ;
 
@@ -208,6 +203,10 @@ terminal REGEX_QUOTE:
 		('/' -> '/') |
 		('<' -> '>')
 	)
+;
+
+terminal READLINE_QUOTE:
+	'<' '$'?('a'..'z'|'A'..'Z')+ '>'	
 ;
 
 terminal POD:

@@ -65,11 +65,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
   {
     switch (eClass.getClassifierID())
     {
-      case PerlPackage.PERL_MODEL: return createPerlModel();
-      case PerlPackage.ABSTRACT_ELEMENT: return createAbstractElement();
+      case PerlPackage.PERL_DOCUMENT: return createPerlDocument();
+      case PerlPackage.ELEMENT: return createElement();
       case PerlPackage.TOKEN: return createToken();
       case PerlPackage.QUOTE_LIKE_TOKEN: return createQuoteLikeToken();
-      case PerlPackage.COMMENT_TOKEN: return createCommentToken();
       case PerlPackage.POD_TOKEN: return createPodToken();
       case PerlPackage.NUMBER_TOKEN: return createNumberToken();
       case PerlPackage.WORD_TOKEN: return createWordToken();
@@ -80,6 +79,8 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
       case PerlPackage.BACKTICK_QUOTE_LIKE_TOKEN: return createBacktickQuoteLikeToken();
       case PerlPackage.WORDS_QUOTE_LIKE_TOKEN: return createWordsQuoteLikeToken();
       case PerlPackage.COMMAND_QUOTE_LIKE_TOKEN: return createCommandQuoteLikeToken();
+      case PerlPackage.REGEXP_QUOTE_LIKE_TOKEN: return createRegexpQuoteLikeToken();
+      case PerlPackage.READ_LINE_QUOTE_LIKE_TOKEN: return createReadLineQuoteLikeToken();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -90,10 +91,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public PerlModel createPerlModel()
+  public PerlDocument createPerlDocument()
   {
-    PerlModelImpl perlModel = new PerlModelImpl();
-    return perlModel;
+    PerlDocumentImpl perlDocument = new PerlDocumentImpl();
+    return perlDocument;
   }
 
   /**
@@ -101,10 +102,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public AbstractElement createAbstractElement()
+  public Element createElement()
   {
-    AbstractElementImpl abstractElement = new AbstractElementImpl();
-    return abstractElement;
+    ElementImpl element = new ElementImpl();
+    return element;
   }
 
   /**
@@ -127,17 +128,6 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
   {
     QuoteLikeTokenImpl quoteLikeToken = new QuoteLikeTokenImpl();
     return quoteLikeToken;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public CommentToken createCommentToken()
-  {
-    CommentTokenImpl commentToken = new CommentTokenImpl();
-    return commentToken;
   }
 
   /**
@@ -248,6 +238,28 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
   {
     CommandQuoteLikeTokenImpl commandQuoteLikeToken = new CommandQuoteLikeTokenImpl();
     return commandQuoteLikeToken;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RegexpQuoteLikeToken createRegexpQuoteLikeToken()
+  {
+    RegexpQuoteLikeTokenImpl regexpQuoteLikeToken = new RegexpQuoteLikeTokenImpl();
+    return regexpQuoteLikeToken;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ReadLineQuoteLikeToken createReadLineQuoteLikeToken()
+  {
+    ReadLineQuoteLikeTokenImpl readLineQuoteLikeToken = new ReadLineQuoteLikeTokenImpl();
+    return readLineQuoteLikeToken;
   }
 
   /**

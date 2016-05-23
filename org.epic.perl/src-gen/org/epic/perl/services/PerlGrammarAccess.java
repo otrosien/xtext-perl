@@ -22,26 +22,34 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class PerlModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PerlModel");
-		private final Assignment cElementsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cElementsAbstractElementParserRuleCall_0 = (RuleCall)cElementsAssignment.eContents().get(0);
+	public class PerlDocumentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PerlDocument");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPerlDocumentAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cElementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cElementsElementParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
 		
-		//PerlModel:
-		//	elements+=AbstractElement*;
+		//PerlDocument:
+		//	{PerlDocument} elements+=Element*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//elements+=AbstractElement*
-		public Assignment getElementsAssignment() { return cElementsAssignment; }
+		//{PerlDocument} elements+=Element*
+		public Group getGroup() { return cGroup; }
 		
-		//AbstractElement
-		public RuleCall getElementsAbstractElementParserRuleCall_0() { return cElementsAbstractElementParserRuleCall_0; }
+		//{PerlDocument}
+		public Action getPerlDocumentAction_0() { return cPerlDocumentAction_0; }
+		
+		//elements+=Element*
+		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
+		
+		//Element
+		public RuleCall getElementsElementParserRuleCall_1_0() { return cElementsElementParserRuleCall_1_0; }
 	}
-	public class AbstractElementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.AbstractElement");
+	public class ElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Element");
 		private final RuleCall cTokenParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//AbstractElement:
+		//Element:
 		//	Token;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -54,50 +62,46 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Token");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Action cCommentTokenAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Action cPodTokenAction_0_0 = (Action)cGroup_0.eContents().get(0);
 		private final Assignment cContentAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cContentSL_COMMENTTerminalRuleCall_0_1_0 = (RuleCall)cContentAssignment_0_1.eContents().get(0);
+		private final RuleCall cContentPODTerminalRuleCall_0_1_0 = (RuleCall)cContentAssignment_0_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Action cPodTokenAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Action cNumberTokenAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cContentAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cContentPODTerminalRuleCall_1_1_0 = (RuleCall)cContentAssignment_1_1.eContents().get(0);
+		private final RuleCall cContentNumberParserRuleCall_1_1_0 = (RuleCall)cContentAssignment_1_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Action cNumberTokenAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Action cWordTokenAction_2_0 = (Action)cGroup_2.eContents().get(0);
 		private final Assignment cContentAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cContentNumberParserRuleCall_2_1_0 = (RuleCall)cContentAssignment_2_1.eContents().get(0);
-		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Action cWordTokenAction_3_0 = (Action)cGroup_3.eContents().get(0);
-		private final Assignment cContentAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cContentWordParserRuleCall_3_1_0 = (RuleCall)cContentAssignment_3_1.eContents().get(0);
-		private final RuleCall cQuoteLikeTokenParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cContentWordParserRuleCall_2_1_0 = (RuleCall)cContentAssignment_2_1.eContents().get(0);
+		private final RuleCall cQuoteLikeTokenParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
+		private final Action cOperatorTokenAction_4_0 = (Action)cGroup_4.eContents().get(0);
+		private final Assignment cContentAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cContentFileTestOperatorParserRuleCall_4_1_0 = (RuleCall)cContentAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
 		private final Action cOperatorTokenAction_5_0 = (Action)cGroup_5.eContents().get(0);
 		private final Assignment cContentAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cContentFileTestOperatorParserRuleCall_5_1_0 = (RuleCall)cContentAssignment_5_1.eContents().get(0);
+		private final RuleCall cContentOperatorParserRuleCall_5_1_0 = (RuleCall)cContentAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
-		private final Action cOperatorTokenAction_6_0 = (Action)cGroup_6.eContents().get(0);
+		private final Action cQuoteTokenAction_6_0 = (Action)cGroup_6.eContents().get(0);
 		private final Assignment cContentAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cContentOperatorParserRuleCall_6_1_0 = (RuleCall)cContentAssignment_6_1.eContents().get(0);
+		private final RuleCall cContentSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cContentAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
 		private final Action cQuoteTokenAction_7_0 = (Action)cGroup_7.eContents().get(0);
 		private final Assignment cContentAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cContentSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cContentAssignment_7_1.eContents().get(0);
+		private final RuleCall cContentINTERPOLATETerminalRuleCall_7_1_0 = (RuleCall)cContentAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cAlternatives.eContents().get(8);
 		private final Action cQuoteTokenAction_8_0 = (Action)cGroup_8.eContents().get(0);
 		private final Assignment cContentAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cContentINTERPOLATETerminalRuleCall_8_1_0 = (RuleCall)cContentAssignment_8_1.eContents().get(0);
+		private final RuleCall cContentLITERALTerminalRuleCall_8_1_0 = (RuleCall)cContentAssignment_8_1.eContents().get(0);
 		private final Group cGroup_9 = (Group)cAlternatives.eContents().get(9);
-		private final Action cQuoteTokenAction_9_0 = (Action)cGroup_9.eContents().get(0);
+		private final Action cDataTokenAction_9_0 = (Action)cGroup_9.eContents().get(0);
 		private final Assignment cContentAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cContentLITERALTerminalRuleCall_9_1_0 = (RuleCall)cContentAssignment_9_1.eContents().get(0);
+		private final RuleCall cContentDATATerminalRuleCall_9_1_0 = (RuleCall)cContentAssignment_9_1.eContents().get(0);
 		private final Group cGroup_10 = (Group)cAlternatives.eContents().get(10);
-		private final Action cDataTokenAction_10_0 = (Action)cGroup_10.eContents().get(0);
+		private final Action cEndTokenAction_10_0 = (Action)cGroup_10.eContents().get(0);
 		private final Assignment cContentAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
-		private final RuleCall cContentDATATerminalRuleCall_10_1_0 = (RuleCall)cContentAssignment_10_1.eContents().get(0);
-		private final Group cGroup_11 = (Group)cAlternatives.eContents().get(11);
-		private final Action cEndTokenAction_11_0 = (Action)cGroup_11.eContents().get(0);
-		private final Assignment cContentAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
-		private final RuleCall cContentENDTerminalRuleCall_11_1_0 = (RuleCall)cContentAssignment_11_1.eContents().get(0);
+		private final RuleCall cContentENDTerminalRuleCall_10_1_0 = (RuleCall)cContentAssignment_10_1.eContents().get(0);
 		
 		////Node:
 		////	StatementNode
@@ -133,8 +137,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		////	VariableExpression
 		////;
 		//Token:
-		//	{CommentToken} content=SL_COMMENT
-		//	| {PodToken} content=POD
+		//	{PodToken} content=POD
 		//	| {NumberToken} content=Number
 		//	| {WordToken} content=Word
 		//	//	| DashedWord 
@@ -146,7 +149,6 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//	| {QuoteToken} content=STRING
 		//	| {QuoteToken} content=INTERPOLATE
 		//	| {QuoteToken} content=LITERAL
-		//	//	| Regexp 
 		//	//	| HereDoc 
 		//	//	| Cast 
 		//	//	| Structure 
@@ -160,12 +162,11 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{CommentToken} content=SL_COMMENT | {PodToken} content=POD | {NumberToken} content=Number | {WordToken} content=Word //	| DashedWord 
+		//{PodToken} content=POD | {NumberToken} content=Number | {WordToken} content=Word //	| DashedWord 
 		////	| Symbol 
 		////	| ArrayIndex 
 		//| QuoteLikeToken | {OperatorToken} content=FileTestOperator | {OperatorToken} content=Operator | {QuoteToken}
-		//content=STRING | {QuoteToken} content=INTERPOLATE | {QuoteToken} content=LITERAL //	| Regexp 
-		////	| HereDoc 
+		//content=STRING | {QuoteToken} content=INTERPOLATE | {QuoteToken} content=LITERAL //	| HereDoc 
 		////	| Cast 
 		////	| Structure 
 		////	| Label
@@ -173,140 +174,128 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//| {DataToken} content=DATA | {EndToken} content=END
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{CommentToken} content=SL_COMMENT
+		//{PodToken} content=POD
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//{CommentToken}
-		public Action getCommentTokenAction_0_0() { return cCommentTokenAction_0_0; }
-		
-		//content=SL_COMMENT
-		public Assignment getContentAssignment_0_1() { return cContentAssignment_0_1; }
-		
-		//SL_COMMENT
-		public RuleCall getContentSL_COMMENTTerminalRuleCall_0_1_0() { return cContentSL_COMMENTTerminalRuleCall_0_1_0; }
-		
-		//{PodToken} content=POD
-		public Group getGroup_1() { return cGroup_1; }
-		
 		//{PodToken}
-		public Action getPodTokenAction_1_0() { return cPodTokenAction_1_0; }
+		public Action getPodTokenAction_0_0() { return cPodTokenAction_0_0; }
 		
 		//content=POD
-		public Assignment getContentAssignment_1_1() { return cContentAssignment_1_1; }
+		public Assignment getContentAssignment_0_1() { return cContentAssignment_0_1; }
 		
 		//POD
-		public RuleCall getContentPODTerminalRuleCall_1_1_0() { return cContentPODTerminalRuleCall_1_1_0; }
+		public RuleCall getContentPODTerminalRuleCall_0_1_0() { return cContentPODTerminalRuleCall_0_1_0; }
 		
 		//{NumberToken} content=Number
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_1() { return cGroup_1; }
 		
 		//{NumberToken}
-		public Action getNumberTokenAction_2_0() { return cNumberTokenAction_2_0; }
+		public Action getNumberTokenAction_1_0() { return cNumberTokenAction_1_0; }
 		
 		//content=Number
-		public Assignment getContentAssignment_2_1() { return cContentAssignment_2_1; }
+		public Assignment getContentAssignment_1_1() { return cContentAssignment_1_1; }
 		
 		//Number
-		public RuleCall getContentNumberParserRuleCall_2_1_0() { return cContentNumberParserRuleCall_2_1_0; }
+		public RuleCall getContentNumberParserRuleCall_1_1_0() { return cContentNumberParserRuleCall_1_1_0; }
 		
 		//{WordToken} content=Word
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//{WordToken}
-		public Action getWordTokenAction_3_0() { return cWordTokenAction_3_0; }
+		public Action getWordTokenAction_2_0() { return cWordTokenAction_2_0; }
 		
 		//content=Word
-		public Assignment getContentAssignment_3_1() { return cContentAssignment_3_1; }
+		public Assignment getContentAssignment_2_1() { return cContentAssignment_2_1; }
 		
 		//Word
-		public RuleCall getContentWordParserRuleCall_3_1_0() { return cContentWordParserRuleCall_3_1_0; }
+		public RuleCall getContentWordParserRuleCall_2_1_0() { return cContentWordParserRuleCall_2_1_0; }
 		
 		//QuoteLikeToken
-		public RuleCall getQuoteLikeTokenParserRuleCall_4() { return cQuoteLikeTokenParserRuleCall_4; }
+		public RuleCall getQuoteLikeTokenParserRuleCall_3() { return cQuoteLikeTokenParserRuleCall_3; }
 		
 		//{OperatorToken} content=FileTestOperator
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//{OperatorToken}
+		public Action getOperatorTokenAction_4_0() { return cOperatorTokenAction_4_0; }
+		
+		//content=FileTestOperator
+		public Assignment getContentAssignment_4_1() { return cContentAssignment_4_1; }
+		
+		//FileTestOperator
+		public RuleCall getContentFileTestOperatorParserRuleCall_4_1_0() { return cContentFileTestOperatorParserRuleCall_4_1_0; }
+		
+		//{OperatorToken} content=Operator
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//{OperatorToken}
 		public Action getOperatorTokenAction_5_0() { return cOperatorTokenAction_5_0; }
 		
-		//content=FileTestOperator
+		//content=Operator
 		public Assignment getContentAssignment_5_1() { return cContentAssignment_5_1; }
 		
-		//FileTestOperator
-		public RuleCall getContentFileTestOperatorParserRuleCall_5_1_0() { return cContentFileTestOperatorParserRuleCall_5_1_0; }
-		
-		//{OperatorToken} content=Operator
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//{OperatorToken}
-		public Action getOperatorTokenAction_6_0() { return cOperatorTokenAction_6_0; }
-		
-		//content=Operator
-		public Assignment getContentAssignment_6_1() { return cContentAssignment_6_1; }
-		
 		//Operator
-		public RuleCall getContentOperatorParserRuleCall_6_1_0() { return cContentOperatorParserRuleCall_6_1_0; }
+		public RuleCall getContentOperatorParserRuleCall_5_1_0() { return cContentOperatorParserRuleCall_5_1_0; }
 		
 		//{QuoteToken} content=STRING
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//{QuoteToken}
+		public Action getQuoteTokenAction_6_0() { return cQuoteTokenAction_6_0; }
+		
+		//content=STRING
+		public Assignment getContentAssignment_6_1() { return cContentAssignment_6_1; }
+		
+		//STRING
+		public RuleCall getContentSTRINGTerminalRuleCall_6_1_0() { return cContentSTRINGTerminalRuleCall_6_1_0; }
+		
+		//{QuoteToken} content=INTERPOLATE
 		public Group getGroup_7() { return cGroup_7; }
 		
 		//{QuoteToken}
 		public Action getQuoteTokenAction_7_0() { return cQuoteTokenAction_7_0; }
 		
-		//content=STRING
+		//content=INTERPOLATE
 		public Assignment getContentAssignment_7_1() { return cContentAssignment_7_1; }
 		
-		//STRING
-		public RuleCall getContentSTRINGTerminalRuleCall_7_1_0() { return cContentSTRINGTerminalRuleCall_7_1_0; }
+		//INTERPOLATE
+		public RuleCall getContentINTERPOLATETerminalRuleCall_7_1_0() { return cContentINTERPOLATETerminalRuleCall_7_1_0; }
 		
-		//{QuoteToken} content=INTERPOLATE
+		//{QuoteToken} content=LITERAL
 		public Group getGroup_8() { return cGroup_8; }
 		
 		//{QuoteToken}
 		public Action getQuoteTokenAction_8_0() { return cQuoteTokenAction_8_0; }
 		
-		//content=INTERPOLATE
+		//content=LITERAL
 		public Assignment getContentAssignment_8_1() { return cContentAssignment_8_1; }
 		
-		//INTERPOLATE
-		public RuleCall getContentINTERPOLATETerminalRuleCall_8_1_0() { return cContentINTERPOLATETerminalRuleCall_8_1_0; }
-		
-		//{QuoteToken} content=LITERAL
-		public Group getGroup_9() { return cGroup_9; }
-		
-		//{QuoteToken}
-		public Action getQuoteTokenAction_9_0() { return cQuoteTokenAction_9_0; }
-		
-		//content=LITERAL
-		public Assignment getContentAssignment_9_1() { return cContentAssignment_9_1; }
-		
 		//LITERAL
-		public RuleCall getContentLITERALTerminalRuleCall_9_1_0() { return cContentLITERALTerminalRuleCall_9_1_0; }
+		public RuleCall getContentLITERALTerminalRuleCall_8_1_0() { return cContentLITERALTerminalRuleCall_8_1_0; }
 		
 		//{DataToken} content=DATA
-		public Group getGroup_10() { return cGroup_10; }
+		public Group getGroup_9() { return cGroup_9; }
 		
 		//{DataToken}
-		public Action getDataTokenAction_10_0() { return cDataTokenAction_10_0; }
+		public Action getDataTokenAction_9_0() { return cDataTokenAction_9_0; }
 		
 		//content=DATA
-		public Assignment getContentAssignment_10_1() { return cContentAssignment_10_1; }
+		public Assignment getContentAssignment_9_1() { return cContentAssignment_9_1; }
 		
 		//DATA
-		public RuleCall getContentDATATerminalRuleCall_10_1_0() { return cContentDATATerminalRuleCall_10_1_0; }
+		public RuleCall getContentDATATerminalRuleCall_9_1_0() { return cContentDATATerminalRuleCall_9_1_0; }
 		
 		//{EndToken} content=END
-		public Group getGroup_11() { return cGroup_11; }
+		public Group getGroup_10() { return cGroup_10; }
 		
 		//{EndToken}
-		public Action getEndTokenAction_11_0() { return cEndTokenAction_11_0; }
+		public Action getEndTokenAction_10_0() { return cEndTokenAction_10_0; }
 		
 		//content=END
-		public Assignment getContentAssignment_11_1() { return cContentAssignment_11_1; }
+		public Assignment getContentAssignment_10_1() { return cContentAssignment_10_1; }
 		
 		//END
-		public RuleCall getContentENDTerminalRuleCall_11_1_0() { return cContentENDTerminalRuleCall_11_1_0; }
+		public RuleCall getContentENDTerminalRuleCall_10_1_0() { return cContentENDTerminalRuleCall_10_1_0; }
 	}
 	public class QuoteLikeTokenElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.QuoteLikeToken");
@@ -323,18 +312,26 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cCommandQuoteLikeTokenAction_2_0 = (Action)cGroup_2.eContents().get(0);
 		private final Assignment cContentAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cContentCOMMAND_QUOTE_LIKETerminalRuleCall_2_1_0 = (RuleCall)cContentAssignment_2_1.eContents().get(0);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Action cRegexpQuoteLikeTokenAction_3_0 = (Action)cGroup_3.eContents().get(0);
+		private final Assignment cContentAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cContentREGEX_QUOTETerminalRuleCall_3_1_0 = (RuleCall)cContentAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
+		private final Action cReadLineQuoteLikeTokenAction_4_0 = (Action)cGroup_4.eContents().get(0);
+		private final Assignment cContentAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cContentREADLINE_QUOTETerminalRuleCall_4_1_0 = (RuleCall)cContentAssignment_4_1.eContents().get(0);
 		
 		//QuoteLikeToken:
 		//	{BacktickQuoteLikeToken} content=BACKTICK_STRING
 		//	| {WordsQuoteLikeToken} content=WORDS_QUOTE_LIKE
 		//	| {CommandQuoteLikeToken} content=COMMAND_QUOTE_LIKE
-		//	//	| RegexpQuoteLike
-		//	//	| ReadLineQuoteLike
-		//;
+		//	| {RegexpQuoteLikeToken} content=REGEX_QUOTE
+		//	| {ReadLineQuoteLikeToken} content=READLINE_QUOTE;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{BacktickQuoteLikeToken} content=BACKTICK_STRING | {WordsQuoteLikeToken} content=WORDS_QUOTE_LIKE |
-		//{CommandQuoteLikeToken} content=COMMAND_QUOTE_LIKE
+		//{CommandQuoteLikeToken} content=COMMAND_QUOTE_LIKE | {RegexpQuoteLikeToken} content=REGEX_QUOTE |
+		//{ReadLineQuoteLikeToken} content=READLINE_QUOTE
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{BacktickQuoteLikeToken} content=BACKTICK_STRING
@@ -372,6 +369,30 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//COMMAND_QUOTE_LIKE
 		public RuleCall getContentCOMMAND_QUOTE_LIKETerminalRuleCall_2_1_0() { return cContentCOMMAND_QUOTE_LIKETerminalRuleCall_2_1_0; }
+		
+		//{RegexpQuoteLikeToken} content=REGEX_QUOTE
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//{RegexpQuoteLikeToken}
+		public Action getRegexpQuoteLikeTokenAction_3_0() { return cRegexpQuoteLikeTokenAction_3_0; }
+		
+		//content=REGEX_QUOTE
+		public Assignment getContentAssignment_3_1() { return cContentAssignment_3_1; }
+		
+		//REGEX_QUOTE
+		public RuleCall getContentREGEX_QUOTETerminalRuleCall_3_1_0() { return cContentREGEX_QUOTETerminalRuleCall_3_1_0; }
+		
+		//{ReadLineQuoteLikeToken} content=READLINE_QUOTE
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//{ReadLineQuoteLikeToken}
+		public Action getReadLineQuoteLikeTokenAction_4_0() { return cReadLineQuoteLikeTokenAction_4_0; }
+		
+		//content=READLINE_QUOTE
+		public Assignment getContentAssignment_4_1() { return cContentAssignment_4_1; }
+		
+		//READLINE_QUOTE
+		public RuleCall getContentREADLINE_QUOTETerminalRuleCall_4_1_0() { return cContentREADLINE_QUOTETerminalRuleCall_4_1_0; }
 	}
 	public class NumberElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Number");
@@ -1782,8 +1803,8 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private final PerlModelElements pPerlModel;
-	private final AbstractElementElements pAbstractElement;
+	private final PerlDocumentElements pPerlDocument;
+	private final ElementElements pElement;
 	private final TokenElements pToken;
 	private final QuoteLikeTokenElements pQuoteLikeToken;
 	private final NumberElements pNumber;
@@ -1795,11 +1816,13 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tBIN;
 	private final TerminalRule tINT;
 	private final TerminalRule tSTRING;
+	private final TerminalRule tBACKTICK_STRING;
 	private final TerminalRule tINTERPOLATE;
 	private final TerminalRule tLITERAL;
-	private final TerminalRule tBACKTICK_STRING;
 	private final TerminalRule tWORDS_QUOTE_LIKE;
 	private final TerminalRule tCOMMAND_QUOTE_LIKE;
+	private final TerminalRule tREGEX_QUOTE;
+	private final TerminalRule tREADLINE_QUOTE;
 	private final TerminalRule tPOD;
 	private final TerminalRule tDATA;
 	private final TerminalRule tEND;
@@ -1812,8 +1835,8 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	@Inject
 	public PerlGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
-		this.pPerlModel = new PerlModelElements();
-		this.pAbstractElement = new AbstractElementElements();
+		this.pPerlDocument = new PerlDocumentElements();
+		this.pElement = new ElementElements();
 		this.pToken = new TokenElements();
 		this.pQuoteLikeToken = new QuoteLikeTokenElements();
 		this.pNumber = new NumberElements();
@@ -1825,11 +1848,13 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		this.tBIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.BIN");
 		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.INT");
 		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.STRING");
+		this.tBACKTICK_STRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.BACKTICK_STRING");
 		this.tINTERPOLATE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.INTERPOLATE");
 		this.tLITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.LITERAL");
-		this.tBACKTICK_STRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.BACKTICK_STRING");
 		this.tWORDS_QUOTE_LIKE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.WORDS_QUOTE_LIKE");
 		this.tCOMMAND_QUOTE_LIKE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.COMMAND_QUOTE_LIKE");
+		this.tREGEX_QUOTE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.REGEX_QUOTE");
+		this.tREADLINE_QUOTE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.READLINE_QUOTE");
 		this.tPOD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.POD");
 		this.tDATA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.DATA");
 		this.tEND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.END");
@@ -1861,24 +1886,24 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	
 
 	
-	//PerlModel:
-	//	elements+=AbstractElement*;
-	public PerlModelElements getPerlModelAccess() {
-		return pPerlModel;
+	//PerlDocument:
+	//	{PerlDocument} elements+=Element*;
+	public PerlDocumentElements getPerlDocumentAccess() {
+		return pPerlDocument;
 	}
 	
-	public ParserRule getPerlModelRule() {
-		return getPerlModelAccess().getRule();
+	public ParserRule getPerlDocumentRule() {
+		return getPerlDocumentAccess().getRule();
 	}
 	
-	//AbstractElement:
+	//Element:
 	//	Token;
-	public AbstractElementElements getAbstractElementAccess() {
-		return pAbstractElement;
+	public ElementElements getElementAccess() {
+		return pElement;
 	}
 	
-	public ParserRule getAbstractElementRule() {
-		return getAbstractElementAccess().getRule();
+	public ParserRule getElementRule() {
+		return getElementAccess().getRule();
 	}
 	
 	////Node:
@@ -1915,8 +1940,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	////	VariableExpression
 	////;
 	//Token:
-	//	{CommentToken} content=SL_COMMENT
-	//	| {PodToken} content=POD
+	//	{PodToken} content=POD
 	//	| {NumberToken} content=Number
 	//	| {WordToken} content=Word
 	//	//	| DashedWord 
@@ -1928,7 +1952,6 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	//	| {QuoteToken} content=STRING
 	//	| {QuoteToken} content=INTERPOLATE
 	//	| {QuoteToken} content=LITERAL
-	//	//	| Regexp 
 	//	//	| HereDoc 
 	//	//	| Cast 
 	//	//	| Structure 
@@ -1952,9 +1975,8 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	//	{BacktickQuoteLikeToken} content=BACKTICK_STRING
 	//	| {WordsQuoteLikeToken} content=WORDS_QUOTE_LIKE
 	//	| {CommandQuoteLikeToken} content=COMMAND_QUOTE_LIKE
-	//	//	| RegexpQuoteLike
-	//	//	| ReadLineQuoteLike
-	//;
+	//	| {RegexpQuoteLikeToken} content=REGEX_QUOTE
+	//	| {ReadLineQuoteLikeToken} content=READLINE_QUOTE;
 	public QuoteLikeTokenElements getQuoteLikeTokenAccess() {
 		return pQuoteLikeToken;
 	}
@@ -2077,6 +2099,12 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		return tSTRING;
 	}
 	
+	//terminal BACKTICK_STRING:
+	//	'`' !'`'* '`';
+	public TerminalRule getBACKTICK_STRINGRule() {
+		return tBACKTICK_STRING;
+	}
+	
 	//terminal INTERPOLATE:
 	//	'qq' ('{'->'}' | '|'->'|' | '/'->'/' | '<'->'>');
 	public TerminalRule getINTERPOLATERule() {
@@ -2089,12 +2117,6 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		return tLITERAL;
 	}
 	
-	//terminal BACKTICK_STRING:
-	//	'`' !'`'* '`';
-	public TerminalRule getBACKTICK_STRINGRule() {
-		return tBACKTICK_STRING;
-	}
-	
 	//terminal WORDS_QUOTE_LIKE:
 	//	'qw' ('{'->'}' | '|'->'|' | '/'->'/' | '<'->'>');
 	public TerminalRule getWORDS_QUOTE_LIKERule() {
@@ -2105,6 +2127,18 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	//	'qx' ('{'->'}' | '|'->'|' | '/'->'/' | '<'->'>');
 	public TerminalRule getCOMMAND_QUOTE_LIKERule() {
 		return tCOMMAND_QUOTE_LIKE;
+	}
+	
+	//terminal REGEX_QUOTE:
+	//	'qr' ('{'->'}' | '|'->'|' | '/'->'/' | '<'->'>');
+	public TerminalRule getREGEX_QUOTERule() {
+		return tREGEX_QUOTE;
+	}
+	
+	//terminal READLINE_QUOTE:
+	//	'<' '$'? ('a'..'z' | 'A'..'Z')+ '>';
+	public TerminalRule getREADLINE_QUOTERule() {
+		return tREADLINE_QUOTE;
 	}
 	
 	//terminal POD:

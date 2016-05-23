@@ -6,15 +6,14 @@
     copyrightFields="false" runtimeVersion="2.12">
   <genPackages prefix="Perl" basePackage="org.epic.perl" disposableProviderFactory="true"
       fileExtensions="pm" ecorePackage="Perl.ecore#/">
-    <genClasses ecoreClass="Perl.ecore#//PerlModel">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PerlModel/elements"/>
+    <genClasses ecoreClass="Perl.ecore#//PerlDocument">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PerlDocument/elements"/>
     </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//AbstractElement"/>
+    <genClasses ecoreClass="Perl.ecore#//Element"/>
     <genClasses ecoreClass="Perl.ecore#//Token">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//Token/content"/>
     </genClasses>
     <genClasses ecoreClass="Perl.ecore#//QuoteLikeToken"/>
-    <genClasses ecoreClass="Perl.ecore#//CommentToken"/>
     <genClasses ecoreClass="Perl.ecore#//PodToken"/>
     <genClasses ecoreClass="Perl.ecore#//NumberToken"/>
     <genClasses ecoreClass="Perl.ecore#//WordToken"/>
@@ -25,5 +24,7 @@
     <genClasses ecoreClass="Perl.ecore#//BacktickQuoteLikeToken"/>
     <genClasses ecoreClass="Perl.ecore#//WordsQuoteLikeToken"/>
     <genClasses ecoreClass="Perl.ecore#//CommandQuoteLikeToken"/>
+    <genClasses ecoreClass="Perl.ecore#//RegexpQuoteLikeToken"/>
+    <genClasses ecoreClass="Perl.ecore#//ReadLineQuoteLikeToken"/>
   </genPackages>
 </genmodel:GenModel>
