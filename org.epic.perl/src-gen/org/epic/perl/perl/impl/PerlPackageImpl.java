@@ -25,6 +25,7 @@ import org.epic.perl.perl.QuoteLikeToken;
 import org.epic.perl.perl.QuoteToken;
 import org.epic.perl.perl.ReadLineQuoteLikeToken;
 import org.epic.perl.perl.RegexpQuoteLikeToken;
+import org.epic.perl.perl.SymbolToken;
 import org.epic.perl.perl.Token;
 import org.epic.perl.perl.WordToken;
 import org.epic.perl.perl.WordsQuoteLikeToken;
@@ -85,6 +86,13 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * @generated
    */
   private EClass wordTokenEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass symbolTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -307,6 +315,16 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getSymbolToken()
+  {
+    return symbolTokenEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getOperatorToken()
   {
     return operatorTokenEClass;
@@ -438,6 +456,8 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
 
     wordTokenEClass = createEClass(WORD_TOKEN);
 
+    symbolTokenEClass = createEClass(SYMBOL_TOKEN);
+
     operatorTokenEClass = createEClass(OPERATOR_TOKEN);
 
     quoteTokenEClass = createEClass(QUOTE_TOKEN);
@@ -491,6 +511,7 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     podTokenEClass.getESuperTypes().add(this.getToken());
     numberTokenEClass.getESuperTypes().add(this.getToken());
     wordTokenEClass.getESuperTypes().add(this.getToken());
+    symbolTokenEClass.getESuperTypes().add(this.getToken());
     operatorTokenEClass.getESuperTypes().add(this.getToken());
     quoteTokenEClass.getESuperTypes().add(this.getToken());
     dataTokenEClass.getESuperTypes().add(this.getToken());
@@ -517,6 +538,8 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     initEClass(numberTokenEClass, NumberToken.class, "NumberToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(wordTokenEClass, WordToken.class, "WordToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(symbolTokenEClass, SymbolToken.class, "SymbolToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(operatorTokenEClass, OperatorToken.class, "OperatorToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -26,6 +26,7 @@ import org.epic.perl.perl.PodToken;
 import org.epic.perl.perl.QuoteToken;
 import org.epic.perl.perl.ReadLineQuoteLikeToken;
 import org.epic.perl.perl.RegexpQuoteLikeToken;
+import org.epic.perl.perl.SymbolToken;
 import org.epic.perl.perl.WordToken;
 import org.epic.perl.perl.WordsQuoteLikeToken;
 import org.epic.perl.services.PerlGrammarAccess;
@@ -76,6 +77,9 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case PerlPackage.REGEXP_QUOTE_LIKE_TOKEN:
 				sequence_QuoteLikeToken(context, (RegexpQuoteLikeToken) semanticObject); 
+				return; 
+			case PerlPackage.SYMBOL_TOKEN:
+				sequence_Token(context, (SymbolToken) semanticObject); 
 				return; 
 			case PerlPackage.WORD_TOKEN:
 				sequence_Token(context, (WordToken) semanticObject); 
@@ -214,7 +218,7 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.TOKEN__CONTENT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTokenAccess().getContentDATATerminalRuleCall_9_1_0(), semanticObject.getContent());
+		feeder.accept(grammarAccess.getTokenAccess().getContentDATATerminalRuleCall_10_1_0(), semanticObject.getContent());
 		feeder.finish();
 	}
 	
@@ -233,7 +237,7 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.TOKEN__CONTENT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTokenAccess().getContentENDTerminalRuleCall_10_1_0(), semanticObject.getContent());
+		feeder.accept(grammarAccess.getTokenAccess().getContentENDTerminalRuleCall_11_1_0(), semanticObject.getContent());
 		feeder.finish();
 	}
 	
@@ -299,6 +303,25 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Token(ISerializationContext context, QuoteToken semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Element returns SymbolToken
+	 *     Token returns SymbolToken
+	 *
+	 * Constraint:
+	 *     content=SYMBOL
+	 */
+	protected void sequence_Token(ISerializationContext context, SymbolToken semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.TOKEN__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.TOKEN__CONTENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTokenAccess().getContentSYMBOLTerminalRuleCall_3_1_0(), semanticObject.getContent());
+		feeder.finish();
 	}
 	
 	

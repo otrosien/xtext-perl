@@ -17,6 +17,7 @@
     <genClasses ecoreClass="Perl.ecore#//PodToken"/>
     <genClasses ecoreClass="Perl.ecore#//NumberToken"/>
     <genClasses ecoreClass="Perl.ecore#//WordToken"/>
+    <genClasses ecoreClass="Perl.ecore#//SymbolToken"/>
     <genClasses ecoreClass="Perl.ecore#//OperatorToken"/>
     <genClasses ecoreClass="Perl.ecore#//QuoteToken"/>
     <genClasses ecoreClass="Perl.ecore#//DataToken"/>

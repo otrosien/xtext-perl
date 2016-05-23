@@ -131,6 +131,15 @@ public class PerlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case PerlPackage.SYMBOL_TOKEN:
+      {
+        SymbolToken symbolToken = (SymbolToken)theEObject;
+        T result = caseSymbolToken(symbolToken);
+        if (result == null) result = caseToken(symbolToken);
+        if (result == null) result = caseElement(symbolToken);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case PerlPackage.OPERATOR_TOKEN:
       {
         OperatorToken operatorToken = (OperatorToken)theEObject;
@@ -329,6 +338,22 @@ public class PerlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseWordToken(WordToken object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Symbol Token</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Symbol Token</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSymbolToken(SymbolToken object)
   {
     return null;
   }

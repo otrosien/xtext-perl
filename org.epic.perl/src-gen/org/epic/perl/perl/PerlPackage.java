@@ -245,6 +245,34 @@ public interface PerlPackage extends EPackage
   int WORD_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.SymbolTokenImpl <em>Symbol Token</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.SymbolTokenImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getSymbolToken()
+   * @generated
+   */
+  int SYMBOL_TOKEN = 7;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYMBOL_TOKEN__CONTENT = TOKEN__CONTENT;
+
+  /**
+   * The number of structural features of the '<em>Symbol Token</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYMBOL_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link org.epic.perl.perl.impl.OperatorTokenImpl <em>Operator Token</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -252,7 +280,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getOperatorToken()
    * @generated
    */
-  int OPERATOR_TOKEN = 7;
+  int OPERATOR_TOKEN = 8;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -280,7 +308,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getQuoteToken()
    * @generated
    */
-  int QUOTE_TOKEN = 8;
+  int QUOTE_TOKEN = 9;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -308,7 +336,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getDataToken()
    * @generated
    */
-  int DATA_TOKEN = 9;
+  int DATA_TOKEN = 10;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -336,7 +364,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getEndToken()
    * @generated
    */
-  int END_TOKEN = 10;
+  int END_TOKEN = 11;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -364,7 +392,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getBacktickQuoteLikeToken()
    * @generated
    */
-  int BACKTICK_QUOTE_LIKE_TOKEN = 11;
+  int BACKTICK_QUOTE_LIKE_TOKEN = 12;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -392,7 +420,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getWordsQuoteLikeToken()
    * @generated
    */
-  int WORDS_QUOTE_LIKE_TOKEN = 12;
+  int WORDS_QUOTE_LIKE_TOKEN = 13;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -420,7 +448,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getCommandQuoteLikeToken()
    * @generated
    */
-  int COMMAND_QUOTE_LIKE_TOKEN = 13;
+  int COMMAND_QUOTE_LIKE_TOKEN = 14;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -448,7 +476,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getRegexpQuoteLikeToken()
    * @generated
    */
-  int REGEXP_QUOTE_LIKE_TOKEN = 14;
+  int REGEXP_QUOTE_LIKE_TOKEN = 15;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -476,7 +504,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getReadLineQuoteLikeToken()
    * @generated
    */
-  int READ_LINE_QUOTE_LIKE_TOKEN = 15;
+  int READ_LINE_QUOTE_LIKE_TOKEN = 16;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -588,6 +616,16 @@ public interface PerlPackage extends EPackage
    * @generated
    */
   EClass getWordToken();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.SymbolToken <em>Symbol Token</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Symbol Token</em>'.
+   * @see org.epic.perl.perl.SymbolToken
+   * @generated
+   */
+  EClass getSymbolToken();
 
   /**
    * Returns the meta object for class '{@link org.epic.perl.perl.OperatorToken <em>Operator Token</em>}'.
@@ -787,6 +825,16 @@ public interface PerlPackage extends EPackage
      * @generated
      */
     EClass WORD_TOKEN = eINSTANCE.getWordToken();
+
+    /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.SymbolTokenImpl <em>Symbol Token</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.SymbolTokenImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getSymbolToken()
+     * @generated
+     */
+    EClass SYMBOL_TOKEN = eINSTANCE.getSymbolToken();
 
     /**
      * The meta object literal for the '{@link org.epic.perl.perl.impl.OperatorTokenImpl <em>Operator Token</em>}' class.

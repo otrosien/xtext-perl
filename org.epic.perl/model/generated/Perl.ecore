@@ -13,6 +13,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="PodToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="NumberToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="WordToken" eSuperTypes="#//Token"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SymbolToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="OperatorToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="QuoteToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="DataToken" eSuperTypes="#//Token"/>

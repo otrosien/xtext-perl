@@ -87,6 +87,15 @@ public interface PerlFactory extends EFactory
   WordToken createWordToken();
 
   /**
+   * Returns a new object of class '<em>Symbol Token</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Symbol Token</em>'.
+   * @generated
+   */
+  SymbolToken createSymbolToken();
+
+  /**
    * Returns a new object of class '<em>Operator Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

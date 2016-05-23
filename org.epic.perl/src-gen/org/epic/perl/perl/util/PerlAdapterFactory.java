@@ -111,6 +111,11 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
         return createWordTokenAdapter();
       }
       @Override
+      public Adapter caseSymbolToken(SymbolToken object)
+      {
+        return createSymbolTokenAdapter();
+      }
+      @Override
       public Adapter caseOperatorToken(OperatorToken object)
       {
         return createOperatorTokenAdapter();
@@ -278,6 +283,21 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createWordTokenAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.SymbolToken <em>Symbol Token</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.SymbolToken
+   * @generated
+   */
+  public Adapter createSymbolTokenAdapter()
   {
     return null;
   }

@@ -72,6 +72,7 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
       case PerlPackage.POD_TOKEN: return createPodToken();
       case PerlPackage.NUMBER_TOKEN: return createNumberToken();
       case PerlPackage.WORD_TOKEN: return createWordToken();
+      case PerlPackage.SYMBOL_TOKEN: return createSymbolToken();
       case PerlPackage.OPERATOR_TOKEN: return createOperatorToken();
       case PerlPackage.QUOTE_TOKEN: return createQuoteToken();
       case PerlPackage.DATA_TOKEN: return createDataToken();
@@ -161,6 +162,17 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
   {
     WordTokenImpl wordToken = new WordTokenImpl();
     return wordToken;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SymbolToken createSymbolToken()
+  {
+    SymbolTokenImpl symbolToken = new SymbolTokenImpl();
+    return symbolToken;
   }
 
   /**

@@ -59,7 +59,7 @@ Token:
 	| {NumberToken}    content=Number
 	| {WordToken}      content=Word 
 //	| DashedWord 
-//	| Symbol 
+    | {SymbolToken}    content=SYMBOL
 //	| ArrayIndex 
 	| QuoteLikeToken 
 	| {OperatorToken} content=FileTestOperator
@@ -85,6 +85,10 @@ QuoteLikeToken:
 	| {CommandQuoteLikeToken}  content=COMMAND_QUOTE_LIKE
 	| {RegexpQuoteLikeToken}   content=REGEX_QUOTE
   	| {ReadLineQuoteLikeToken} content=READLINE_QUOTE
+;
+
+terminal SYMBOL:
+	('$'|'%'|'@') ('a'..'z' | 'A'..'Z' | '_')+ (('::'|"'") ('a'..'z' | 'A'..'Z' | '_')+ )*
 ;
 
 Number hidden():
@@ -210,7 +214,7 @@ terminal READLINE_QUOTE:
 ;
 
 terminal POD:
-	'=pod' !('=cut')* '=cut'
+	'=pod' -> '=cut'
 ;
 
 terminal DATA:
