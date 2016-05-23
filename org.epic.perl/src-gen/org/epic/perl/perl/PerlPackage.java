@@ -105,504 +105,368 @@ public interface PerlPackage extends EPackage
   int ABSTRACT_ELEMENT_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.AssignmentImpl <em>Assignment</em>}' class.
+   * The meta object id for the '{@link org.epic.perl.perl.impl.TokenImpl <em>Token</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.AssignmentImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getAssignment()
+   * @see org.epic.perl.perl.impl.TokenImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getToken()
    * @generated
    */
-  int ASSIGNMENT = 2;
+  int TOKEN = 2;
 
   /**
-   * The feature id for the '<em><b>Variable</b></em>' attribute.
+   * The feature id for the '<em><b>Content</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSIGNMENT__VARIABLE = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+  int TOKEN__CONTENT = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * The number of structural features of the '<em>Token</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSIGNMENT__OP = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
+  int TOKEN_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The meta object id for the '{@link org.epic.perl.perl.impl.QuoteLikeTokenImpl <em>Quote Like Token</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.QuoteLikeTokenImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getQuoteLikeToken()
+   * @generated
+   */
+  int QUOTE_LIKE_TOKEN = 3;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSIGNMENT__EXPRESSION = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
+  int QUOTE_LIKE_TOKEN__CONTENT = TOKEN__CONTENT;
 
   /**
-   * The number of structural features of the '<em>Assignment</em>' class.
+   * The number of structural features of the '<em>Quote Like Token</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSIGNMENT_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 3;
+  int QUOTE_LIKE_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.ExpressionImpl <em>Expression</em>}' class.
+   * The meta object id for the '{@link org.epic.perl.perl.impl.CommentTokenImpl <em>Comment Token</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.ExpressionImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getExpression()
+   * @see org.epic.perl.perl.impl.CommentTokenImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getCommentToken()
    * @generated
    */
-  int EXPRESSION = 3;
+  int COMMENT_TOKEN = 4;
 
   /**
-   * The number of structural features of the '<em>Expression</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.VariableRefImpl <em>Variable Ref</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.VariableRefImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getVariableRef()
-   * @generated
-   */
-  int VARIABLE_REF = 4;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Content</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_REF__NAME = EXPRESSION_FEATURE_COUNT + 0;
+  int COMMENT_TOKEN__CONTENT = TOKEN__CONTENT;
 
   /**
-   * The number of structural features of the '<em>Variable Ref</em>' class.
+   * The number of structural features of the '<em>Comment Token</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_REF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int COMMENT_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.OrImpl <em>Or</em>}' class.
+   * The meta object id for the '{@link org.epic.perl.perl.impl.PodTokenImpl <em>Pod Token</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.OrImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getOr()
+   * @see org.epic.perl.perl.impl.PodTokenImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPodToken()
    * @generated
    */
-  int OR = 5;
+  int POD_TOKEN = 5;
 
   /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OR__LEFT = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * The feature id for the '<em><b>Content</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OR__OP = EXPRESSION_FEATURE_COUNT + 1;
+  int POD_TOKEN__CONTENT = TOKEN__CONTENT;
 
   /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * The number of structural features of the '<em>Pod Token</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OR__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
+  int POD_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Or</em>' class.
+   * The meta object id for the '{@link org.epic.perl.perl.impl.NumberTokenImpl <em>Number Token</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.NumberTokenImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getNumberToken()
+   * @generated
+   */
+  int NUMBER_TOKEN = 6;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int NUMBER_TOKEN__CONTENT = TOKEN__CONTENT;
 
   /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.AndImpl <em>And</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.AndImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getAnd()
-   * @generated
-   */
-  int AND = 6;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * The number of structural features of the '<em>Number Token</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+  int NUMBER_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * The meta object id for the '{@link org.epic.perl.perl.impl.WordTokenImpl <em>Word Token</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.WordTokenImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getWordToken()
+   * @generated
+   */
+  int WORD_TOKEN = 7;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND__OP = EXPRESSION_FEATURE_COUNT + 1;
+  int WORD_TOKEN__CONTENT = TOKEN__CONTENT;
 
   /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * The number of structural features of the '<em>Word Token</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
+  int WORD_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>And</em>' class.
+   * The meta object id for the '{@link org.epic.perl.perl.impl.OperatorTokenImpl <em>Operator Token</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.OperatorTokenImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getOperatorToken()
+   * @generated
+   */
+  int OPERATOR_TOKEN = 8;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int OPERATOR_TOKEN__CONTENT = TOKEN__CONTENT;
 
   /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.EqualityImpl <em>Equality</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.EqualityImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getEquality()
-   * @generated
-   */
-  int EQUALITY = 7;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * The number of structural features of the '<em>Operator Token</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUALITY__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+  int OPERATOR_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * The meta object id for the '{@link org.epic.perl.perl.impl.QuoteTokenImpl <em>Quote Token</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.QuoteTokenImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getQuoteToken()
+   * @generated
+   */
+  int QUOTE_TOKEN = 9;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUALITY__OP = EXPRESSION_FEATURE_COUNT + 1;
+  int QUOTE_TOKEN__CONTENT = TOKEN__CONTENT;
 
   /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * The number of structural features of the '<em>Quote Token</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUALITY__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
+  int QUOTE_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Equality</em>' class.
+   * The meta object id for the '{@link org.epic.perl.perl.impl.DataTokenImpl <em>Data Token</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.DataTokenImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getDataToken()
+   * @generated
+   */
+  int DATA_TOKEN = 10;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUALITY_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int DATA_TOKEN__CONTENT = TOKEN__CONTENT;
 
   /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.ComparisonImpl <em>Comparison</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.ComparisonImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getComparison()
-   * @generated
-   */
-  int COMPARISON = 8;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * The number of structural features of the '<em>Data Token</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPARISON__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+  int DATA_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * The meta object id for the '{@link org.epic.perl.perl.impl.EndTokenImpl <em>End Token</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.EndTokenImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getEndToken()
+   * @generated
+   */
+  int END_TOKEN = 11;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPARISON__OP = EXPRESSION_FEATURE_COUNT + 1;
+  int END_TOKEN__CONTENT = TOKEN__CONTENT;
 
   /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * The number of structural features of the '<em>End Token</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPARISON__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
+  int END_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Comparison</em>' class.
+   * The meta object id for the '{@link org.epic.perl.perl.impl.BacktickQuoteLikeTokenImpl <em>Backtick Quote Like Token</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.BacktickQuoteLikeTokenImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getBacktickQuoteLikeToken()
+   * @generated
+   */
+  int BACKTICK_QUOTE_LIKE_TOKEN = 12;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPARISON_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int BACKTICK_QUOTE_LIKE_TOKEN__CONTENT = QUOTE_LIKE_TOKEN__CONTENT;
 
   /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.PlusImpl <em>Plus</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.PlusImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getPlus()
-   * @generated
-   */
-  int PLUS = 9;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * The number of structural features of the '<em>Backtick Quote Like Token</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PLUS__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+  int BACKTICK_QUOTE_LIKE_TOKEN_FEATURE_COUNT = QUOTE_LIKE_TOKEN_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * The meta object id for the '{@link org.epic.perl.perl.impl.WordsQuoteLikeTokenImpl <em>Words Quote Like Token</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.WordsQuoteLikeTokenImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getWordsQuoteLikeToken()
+   * @generated
+   */
+  int WORDS_QUOTE_LIKE_TOKEN = 13;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PLUS__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+  int WORDS_QUOTE_LIKE_TOKEN__CONTENT = QUOTE_LIKE_TOKEN__CONTENT;
 
   /**
-   * The number of structural features of the '<em>Plus</em>' class.
+   * The number of structural features of the '<em>Words Quote Like Token</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PLUS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int WORDS_QUOTE_LIKE_TOKEN_FEATURE_COUNT = QUOTE_LIKE_TOKEN_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.MinusImpl <em>Minus</em>}' class.
+   * The meta object id for the '{@link org.epic.perl.perl.impl.CommandQuoteLikeTokenImpl <em>Command Quote Like Token</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.MinusImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getMinus()
+   * @see org.epic.perl.perl.impl.CommandQuoteLikeTokenImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getCommandQuoteLikeToken()
    * @generated
    */
-  int MINUS = 10;
+  int COMMAND_QUOTE_LIKE_TOKEN = 14;
 
   /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MINUS__LEFT = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * The feature id for the '<em><b>Content</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MINUS__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+  int COMMAND_QUOTE_LIKE_TOKEN__CONTENT = QUOTE_LIKE_TOKEN__CONTENT;
 
   /**
-   * The number of structural features of the '<em>Minus</em>' class.
+   * The number of structural features of the '<em>Command Quote Like Token</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MINUS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.MulOrDivImpl <em>Mul Or Div</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.MulOrDivImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getMulOrDiv()
-   * @generated
-   */
-  int MUL_OR_DIV = 11;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MUL_OR_DIV__LEFT = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MUL_OR_DIV__OP = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MUL_OR_DIV__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Mul Or Div</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MUL_OR_DIV_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.NotImpl <em>Not</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.NotImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getNot()
-   * @generated
-   */
-  int NOT = 12;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NOT__EXPRESSION = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Not</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NOT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.NumberLiteralImpl <em>Number Literal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.NumberLiteralImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getNumberLiteral()
-   * @generated
-   */
-  int NUMBER_LITERAL = 13;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NUMBER_LITERAL__VALUE = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Number Literal</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NUMBER_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.NullLiteralImpl <em>Null Literal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.NullLiteralImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getNullLiteral()
-   * @generated
-   */
-  int NULL_LITERAL = 14;
-
-  /**
-   * The number of structural features of the '<em>Null Literal</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NULL_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.StringLiteralImpl <em>String Literal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.StringLiteralImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getStringLiteral()
-   * @generated
-   */
-  int STRING_LITERAL = 15;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRING_LITERAL__VALUE = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>String Literal</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRING_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int COMMAND_QUOTE_LIKE_TOKEN_FEATURE_COUNT = QUOTE_LIKE_TOKEN_FEATURE_COUNT + 0;
 
 
   /**
@@ -637,430 +501,145 @@ public interface PerlPackage extends EPackage
   EClass getAbstractElement();
 
   /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.Assignment <em>Assignment</em>}'.
+   * Returns the meta object for class '{@link org.epic.perl.perl.Token <em>Token</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Assignment</em>'.
-   * @see org.epic.perl.perl.Assignment
+   * @return the meta object for class '<em>Token</em>'.
+   * @see org.epic.perl.perl.Token
    * @generated
    */
-  EClass getAssignment();
+  EClass getToken();
 
   /**
-   * Returns the meta object for the attribute '{@link org.epic.perl.perl.Assignment#getVariable <em>Variable</em>}'.
+   * Returns the meta object for the attribute '{@link org.epic.perl.perl.Token#getContent <em>Content</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Variable</em>'.
-   * @see org.epic.perl.perl.Assignment#getVariable()
-   * @see #getAssignment()
+   * @return the meta object for the attribute '<em>Content</em>'.
+   * @see org.epic.perl.perl.Token#getContent()
+   * @see #getToken()
    * @generated
    */
-  EAttribute getAssignment_Variable();
+  EAttribute getToken_Content();
 
   /**
-   * Returns the meta object for the attribute '{@link org.epic.perl.perl.Assignment#getOp <em>Op</em>}'.
+   * Returns the meta object for class '{@link org.epic.perl.perl.QuoteLikeToken <em>Quote Like Token</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.epic.perl.perl.Assignment#getOp()
-   * @see #getAssignment()
+   * @return the meta object for class '<em>Quote Like Token</em>'.
+   * @see org.epic.perl.perl.QuoteLikeToken
    * @generated
    */
-  EAttribute getAssignment_Op();
+  EClass getQuoteLikeToken();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.Assignment#getExpression <em>Expression</em>}'.
+   * Returns the meta object for class '{@link org.epic.perl.perl.CommentToken <em>Comment Token</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see org.epic.perl.perl.Assignment#getExpression()
-   * @see #getAssignment()
+   * @return the meta object for class '<em>Comment Token</em>'.
+   * @see org.epic.perl.perl.CommentToken
    * @generated
    */
-  EReference getAssignment_Expression();
+  EClass getCommentToken();
 
   /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.Expression <em>Expression</em>}'.
+   * Returns the meta object for class '{@link org.epic.perl.perl.PodToken <em>Pod Token</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Expression</em>'.
-   * @see org.epic.perl.perl.Expression
+   * @return the meta object for class '<em>Pod Token</em>'.
+   * @see org.epic.perl.perl.PodToken
    * @generated
    */
-  EClass getExpression();
+  EClass getPodToken();
 
   /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.VariableRef <em>Variable Ref</em>}'.
+   * Returns the meta object for class '{@link org.epic.perl.perl.NumberToken <em>Number Token</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Variable Ref</em>'.
-   * @see org.epic.perl.perl.VariableRef
+   * @return the meta object for class '<em>Number Token</em>'.
+   * @see org.epic.perl.perl.NumberToken
    * @generated
    */
-  EClass getVariableRef();
+  EClass getNumberToken();
 
   /**
-   * Returns the meta object for the attribute '{@link org.epic.perl.perl.VariableRef#getName <em>Name</em>}'.
+   * Returns the meta object for class '{@link org.epic.perl.perl.WordToken <em>Word Token</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.epic.perl.perl.VariableRef#getName()
-   * @see #getVariableRef()
+   * @return the meta object for class '<em>Word Token</em>'.
+   * @see org.epic.perl.perl.WordToken
    * @generated
    */
-  EAttribute getVariableRef_Name();
+  EClass getWordToken();
 
   /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.Or <em>Or</em>}'.
+   * Returns the meta object for class '{@link org.epic.perl.perl.OperatorToken <em>Operator Token</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Or</em>'.
-   * @see org.epic.perl.perl.Or
+   * @return the meta object for class '<em>Operator Token</em>'.
+   * @see org.epic.perl.perl.OperatorToken
    * @generated
    */
-  EClass getOr();
+  EClass getOperatorToken();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.Or#getLeft <em>Left</em>}'.
+   * Returns the meta object for class '{@link org.epic.perl.perl.QuoteToken <em>Quote Token</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see org.epic.perl.perl.Or#getLeft()
-   * @see #getOr()
+   * @return the meta object for class '<em>Quote Token</em>'.
+   * @see org.epic.perl.perl.QuoteToken
    * @generated
    */
-  EReference getOr_Left();
+  EClass getQuoteToken();
 
   /**
-   * Returns the meta object for the attribute '{@link org.epic.perl.perl.Or#getOp <em>Op</em>}'.
+   * Returns the meta object for class '{@link org.epic.perl.perl.DataToken <em>Data Token</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.epic.perl.perl.Or#getOp()
-   * @see #getOr()
+   * @return the meta object for class '<em>Data Token</em>'.
+   * @see org.epic.perl.perl.DataToken
    * @generated
    */
-  EAttribute getOr_Op();
+  EClass getDataToken();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.Or#getRight <em>Right</em>}'.
+   * Returns the meta object for class '{@link org.epic.perl.perl.EndToken <em>End Token</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see org.epic.perl.perl.Or#getRight()
-   * @see #getOr()
+   * @return the meta object for class '<em>End Token</em>'.
+   * @see org.epic.perl.perl.EndToken
    * @generated
    */
-  EReference getOr_Right();
+  EClass getEndToken();
 
   /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.And <em>And</em>}'.
+   * Returns the meta object for class '{@link org.epic.perl.perl.BacktickQuoteLikeToken <em>Backtick Quote Like Token</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>And</em>'.
-   * @see org.epic.perl.perl.And
+   * @return the meta object for class '<em>Backtick Quote Like Token</em>'.
+   * @see org.epic.perl.perl.BacktickQuoteLikeToken
    * @generated
    */
-  EClass getAnd();
+  EClass getBacktickQuoteLikeToken();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.And#getLeft <em>Left</em>}'.
+   * Returns the meta object for class '{@link org.epic.perl.perl.WordsQuoteLikeToken <em>Words Quote Like Token</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see org.epic.perl.perl.And#getLeft()
-   * @see #getAnd()
+   * @return the meta object for class '<em>Words Quote Like Token</em>'.
+   * @see org.epic.perl.perl.WordsQuoteLikeToken
    * @generated
    */
-  EReference getAnd_Left();
+  EClass getWordsQuoteLikeToken();
 
   /**
-   * Returns the meta object for the attribute '{@link org.epic.perl.perl.And#getOp <em>Op</em>}'.
+   * Returns the meta object for class '{@link org.epic.perl.perl.CommandQuoteLikeToken <em>Command Quote Like Token</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.epic.perl.perl.And#getOp()
-   * @see #getAnd()
+   * @return the meta object for class '<em>Command Quote Like Token</em>'.
+   * @see org.epic.perl.perl.CommandQuoteLikeToken
    * @generated
    */
-  EAttribute getAnd_Op();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.And#getRight <em>Right</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see org.epic.perl.perl.And#getRight()
-   * @see #getAnd()
-   * @generated
-   */
-  EReference getAnd_Right();
-
-  /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.Equality <em>Equality</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Equality</em>'.
-   * @see org.epic.perl.perl.Equality
-   * @generated
-   */
-  EClass getEquality();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.Equality#getLeft <em>Left</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see org.epic.perl.perl.Equality#getLeft()
-   * @see #getEquality()
-   * @generated
-   */
-  EReference getEquality_Left();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.epic.perl.perl.Equality#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.epic.perl.perl.Equality#getOp()
-   * @see #getEquality()
-   * @generated
-   */
-  EAttribute getEquality_Op();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.Equality#getRight <em>Right</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see org.epic.perl.perl.Equality#getRight()
-   * @see #getEquality()
-   * @generated
-   */
-  EReference getEquality_Right();
-
-  /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.Comparison <em>Comparison</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Comparison</em>'.
-   * @see org.epic.perl.perl.Comparison
-   * @generated
-   */
-  EClass getComparison();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.Comparison#getLeft <em>Left</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see org.epic.perl.perl.Comparison#getLeft()
-   * @see #getComparison()
-   * @generated
-   */
-  EReference getComparison_Left();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.epic.perl.perl.Comparison#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.epic.perl.perl.Comparison#getOp()
-   * @see #getComparison()
-   * @generated
-   */
-  EAttribute getComparison_Op();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.Comparison#getRight <em>Right</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see org.epic.perl.perl.Comparison#getRight()
-   * @see #getComparison()
-   * @generated
-   */
-  EReference getComparison_Right();
-
-  /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.Plus <em>Plus</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Plus</em>'.
-   * @see org.epic.perl.perl.Plus
-   * @generated
-   */
-  EClass getPlus();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.Plus#getLeft <em>Left</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see org.epic.perl.perl.Plus#getLeft()
-   * @see #getPlus()
-   * @generated
-   */
-  EReference getPlus_Left();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.Plus#getRight <em>Right</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see org.epic.perl.perl.Plus#getRight()
-   * @see #getPlus()
-   * @generated
-   */
-  EReference getPlus_Right();
-
-  /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.Minus <em>Minus</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Minus</em>'.
-   * @see org.epic.perl.perl.Minus
-   * @generated
-   */
-  EClass getMinus();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.Minus#getLeft <em>Left</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see org.epic.perl.perl.Minus#getLeft()
-   * @see #getMinus()
-   * @generated
-   */
-  EReference getMinus_Left();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.Minus#getRight <em>Right</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see org.epic.perl.perl.Minus#getRight()
-   * @see #getMinus()
-   * @generated
-   */
-  EReference getMinus_Right();
-
-  /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.MulOrDiv <em>Mul Or Div</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Mul Or Div</em>'.
-   * @see org.epic.perl.perl.MulOrDiv
-   * @generated
-   */
-  EClass getMulOrDiv();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.MulOrDiv#getLeft <em>Left</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see org.epic.perl.perl.MulOrDiv#getLeft()
-   * @see #getMulOrDiv()
-   * @generated
-   */
-  EReference getMulOrDiv_Left();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.epic.perl.perl.MulOrDiv#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.epic.perl.perl.MulOrDiv#getOp()
-   * @see #getMulOrDiv()
-   * @generated
-   */
-  EAttribute getMulOrDiv_Op();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.MulOrDiv#getRight <em>Right</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see org.epic.perl.perl.MulOrDiv#getRight()
-   * @see #getMulOrDiv()
-   * @generated
-   */
-  EReference getMulOrDiv_Right();
-
-  /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.Not <em>Not</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Not</em>'.
-   * @see org.epic.perl.perl.Not
-   * @generated
-   */
-  EClass getNot();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.Not#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see org.epic.perl.perl.Not#getExpression()
-   * @see #getNot()
-   * @generated
-   */
-  EReference getNot_Expression();
-
-  /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.NumberLiteral <em>Number Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Number Literal</em>'.
-   * @see org.epic.perl.perl.NumberLiteral
-   * @generated
-   */
-  EClass getNumberLiteral();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.epic.perl.perl.NumberLiteral#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.epic.perl.perl.NumberLiteral#getValue()
-   * @see #getNumberLiteral()
-   * @generated
-   */
-  EAttribute getNumberLiteral_Value();
-
-  /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.NullLiteral <em>Null Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Null Literal</em>'.
-   * @see org.epic.perl.perl.NullLiteral
-   * @generated
-   */
-  EClass getNullLiteral();
-
-  /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.StringLiteral <em>String Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>String Literal</em>'.
-   * @see org.epic.perl.perl.StringLiteral
-   * @generated
-   */
-  EClass getStringLiteral();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.epic.perl.perl.StringLiteral#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.epic.perl.perl.StringLiteral#getValue()
-   * @see #getStringLiteral()
-   * @generated
-   */
-  EAttribute getStringLiteral_Value();
+  EClass getCommandQuoteLikeToken();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1114,352 +693,142 @@ public interface PerlPackage extends EPackage
     EClass ABSTRACT_ELEMENT = eINSTANCE.getAbstractElement();
 
     /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.AssignmentImpl <em>Assignment</em>}' class.
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.TokenImpl <em>Token</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.AssignmentImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getAssignment()
+     * @see org.epic.perl.perl.impl.TokenImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getToken()
      * @generated
      */
-    EClass ASSIGNMENT = eINSTANCE.getAssignment();
+    EClass TOKEN = eINSTANCE.getToken();
 
     /**
-     * The meta object literal for the '<em><b>Variable</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ASSIGNMENT__VARIABLE = eINSTANCE.getAssignment_Variable();
+    EAttribute TOKEN__CONTENT = eINSTANCE.getToken_Content();
 
     /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.QuoteLikeTokenImpl <em>Quote Like Token</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.QuoteLikeTokenImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getQuoteLikeToken()
      * @generated
      */
-    EAttribute ASSIGNMENT__OP = eINSTANCE.getAssignment_Op();
+    EClass QUOTE_LIKE_TOKEN = eINSTANCE.getQuoteLikeToken();
 
     /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.CommentTokenImpl <em>Comment Token</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.CommentTokenImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getCommentToken()
      * @generated
      */
-    EReference ASSIGNMENT__EXPRESSION = eINSTANCE.getAssignment_Expression();
+    EClass COMMENT_TOKEN = eINSTANCE.getCommentToken();
 
     /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.ExpressionImpl <em>Expression</em>}' class.
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.PodTokenImpl <em>Pod Token</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.ExpressionImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getExpression()
+     * @see org.epic.perl.perl.impl.PodTokenImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPodToken()
      * @generated
      */
-    EClass EXPRESSION = eINSTANCE.getExpression();
+    EClass POD_TOKEN = eINSTANCE.getPodToken();
 
     /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.VariableRefImpl <em>Variable Ref</em>}' class.
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.NumberTokenImpl <em>Number Token</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.VariableRefImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getVariableRef()
+     * @see org.epic.perl.perl.impl.NumberTokenImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getNumberToken()
      * @generated
      */
-    EClass VARIABLE_REF = eINSTANCE.getVariableRef();
+    EClass NUMBER_TOKEN = eINSTANCE.getNumberToken();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.WordTokenImpl <em>Word Token</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.WordTokenImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getWordToken()
      * @generated
      */
-    EAttribute VARIABLE_REF__NAME = eINSTANCE.getVariableRef_Name();
+    EClass WORD_TOKEN = eINSTANCE.getWordToken();
 
     /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.OrImpl <em>Or</em>}' class.
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.OperatorTokenImpl <em>Operator Token</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.OrImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getOr()
+     * @see org.epic.perl.perl.impl.OperatorTokenImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getOperatorToken()
      * @generated
      */
-    EClass OR = eINSTANCE.getOr();
+    EClass OPERATOR_TOKEN = eINSTANCE.getOperatorToken();
 
     /**
-     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.QuoteTokenImpl <em>Quote Token</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.QuoteTokenImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getQuoteToken()
      * @generated
      */
-    EReference OR__LEFT = eINSTANCE.getOr_Left();
+    EClass QUOTE_TOKEN = eINSTANCE.getQuoteToken();
 
     /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.DataTokenImpl <em>Data Token</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.DataTokenImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getDataToken()
      * @generated
      */
-    EAttribute OR__OP = eINSTANCE.getOr_Op();
+    EClass DATA_TOKEN = eINSTANCE.getDataToken();
 
     /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.EndTokenImpl <em>End Token</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.EndTokenImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getEndToken()
      * @generated
      */
-    EReference OR__RIGHT = eINSTANCE.getOr_Right();
+    EClass END_TOKEN = eINSTANCE.getEndToken();
 
     /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.AndImpl <em>And</em>}' class.
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.BacktickQuoteLikeTokenImpl <em>Backtick Quote Like Token</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.AndImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getAnd()
+     * @see org.epic.perl.perl.impl.BacktickQuoteLikeTokenImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getBacktickQuoteLikeToken()
      * @generated
      */
-    EClass AND = eINSTANCE.getAnd();
+    EClass BACKTICK_QUOTE_LIKE_TOKEN = eINSTANCE.getBacktickQuoteLikeToken();
 
     /**
-     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.WordsQuoteLikeTokenImpl <em>Words Quote Like Token</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.WordsQuoteLikeTokenImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getWordsQuoteLikeToken()
      * @generated
      */
-    EReference AND__LEFT = eINSTANCE.getAnd_Left();
+    EClass WORDS_QUOTE_LIKE_TOKEN = eINSTANCE.getWordsQuoteLikeToken();
 
     /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.CommandQuoteLikeTokenImpl <em>Command Quote Like Token</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.CommandQuoteLikeTokenImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getCommandQuoteLikeToken()
      * @generated
      */
-    EAttribute AND__OP = eINSTANCE.getAnd_Op();
-
-    /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference AND__RIGHT = eINSTANCE.getAnd_Right();
-
-    /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.EqualityImpl <em>Equality</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.EqualityImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getEquality()
-     * @generated
-     */
-    EClass EQUALITY = eINSTANCE.getEquality();
-
-    /**
-     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EQUALITY__LEFT = eINSTANCE.getEquality_Left();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EQUALITY__OP = eINSTANCE.getEquality_Op();
-
-    /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EQUALITY__RIGHT = eINSTANCE.getEquality_Right();
-
-    /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.ComparisonImpl <em>Comparison</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.ComparisonImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getComparison()
-     * @generated
-     */
-    EClass COMPARISON = eINSTANCE.getComparison();
-
-    /**
-     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COMPARISON__LEFT = eINSTANCE.getComparison_Left();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COMPARISON__OP = eINSTANCE.getComparison_Op();
-
-    /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COMPARISON__RIGHT = eINSTANCE.getComparison_Right();
-
-    /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.PlusImpl <em>Plus</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.PlusImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getPlus()
-     * @generated
-     */
-    EClass PLUS = eINSTANCE.getPlus();
-
-    /**
-     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PLUS__LEFT = eINSTANCE.getPlus_Left();
-
-    /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PLUS__RIGHT = eINSTANCE.getPlus_Right();
-
-    /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.MinusImpl <em>Minus</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.MinusImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getMinus()
-     * @generated
-     */
-    EClass MINUS = eINSTANCE.getMinus();
-
-    /**
-     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MINUS__LEFT = eINSTANCE.getMinus_Left();
-
-    /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MINUS__RIGHT = eINSTANCE.getMinus_Right();
-
-    /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.MulOrDivImpl <em>Mul Or Div</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.MulOrDivImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getMulOrDiv()
-     * @generated
-     */
-    EClass MUL_OR_DIV = eINSTANCE.getMulOrDiv();
-
-    /**
-     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MUL_OR_DIV__LEFT = eINSTANCE.getMulOrDiv_Left();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MUL_OR_DIV__OP = eINSTANCE.getMulOrDiv_Op();
-
-    /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MUL_OR_DIV__RIGHT = eINSTANCE.getMulOrDiv_Right();
-
-    /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.NotImpl <em>Not</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.NotImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getNot()
-     * @generated
-     */
-    EClass NOT = eINSTANCE.getNot();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference NOT__EXPRESSION = eINSTANCE.getNot_Expression();
-
-    /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.NumberLiteralImpl <em>Number Literal</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.NumberLiteralImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getNumberLiteral()
-     * @generated
-     */
-    EClass NUMBER_LITERAL = eINSTANCE.getNumberLiteral();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute NUMBER_LITERAL__VALUE = eINSTANCE.getNumberLiteral_Value();
-
-    /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.NullLiteralImpl <em>Null Literal</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.NullLiteralImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getNullLiteral()
-     * @generated
-     */
-    EClass NULL_LITERAL = eINSTANCE.getNullLiteral();
-
-    /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.StringLiteralImpl <em>String Literal</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.StringLiteralImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getStringLiteral()
-     * @generated
-     */
-    EClass STRING_LITERAL = eINSTANCE.getStringLiteral();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute STRING_LITERAL__VALUE = eINSTANCE.getStringLiteral_Value();
+    EClass COMMAND_QUOTE_LIKE_TOKEN = eINSTANCE.getCommandQuoteLikeToken();
 
   }
 

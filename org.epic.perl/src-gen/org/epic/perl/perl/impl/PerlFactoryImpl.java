@@ -67,20 +67,19 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
     {
       case PerlPackage.PERL_MODEL: return createPerlModel();
       case PerlPackage.ABSTRACT_ELEMENT: return createAbstractElement();
-      case PerlPackage.ASSIGNMENT: return createAssignment();
-      case PerlPackage.EXPRESSION: return createExpression();
-      case PerlPackage.VARIABLE_REF: return createVariableRef();
-      case PerlPackage.OR: return createOr();
-      case PerlPackage.AND: return createAnd();
-      case PerlPackage.EQUALITY: return createEquality();
-      case PerlPackage.COMPARISON: return createComparison();
-      case PerlPackage.PLUS: return createPlus();
-      case PerlPackage.MINUS: return createMinus();
-      case PerlPackage.MUL_OR_DIV: return createMulOrDiv();
-      case PerlPackage.NOT: return createNot();
-      case PerlPackage.NUMBER_LITERAL: return createNumberLiteral();
-      case PerlPackage.NULL_LITERAL: return createNullLiteral();
-      case PerlPackage.STRING_LITERAL: return createStringLiteral();
+      case PerlPackage.TOKEN: return createToken();
+      case PerlPackage.QUOTE_LIKE_TOKEN: return createQuoteLikeToken();
+      case PerlPackage.COMMENT_TOKEN: return createCommentToken();
+      case PerlPackage.POD_TOKEN: return createPodToken();
+      case PerlPackage.NUMBER_TOKEN: return createNumberToken();
+      case PerlPackage.WORD_TOKEN: return createWordToken();
+      case PerlPackage.OPERATOR_TOKEN: return createOperatorToken();
+      case PerlPackage.QUOTE_TOKEN: return createQuoteToken();
+      case PerlPackage.DATA_TOKEN: return createDataToken();
+      case PerlPackage.END_TOKEN: return createEndToken();
+      case PerlPackage.BACKTICK_QUOTE_LIKE_TOKEN: return createBacktickQuoteLikeToken();
+      case PerlPackage.WORDS_QUOTE_LIKE_TOKEN: return createWordsQuoteLikeToken();
+      case PerlPackage.COMMAND_QUOTE_LIKE_TOKEN: return createCommandQuoteLikeToken();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -113,10 +112,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Assignment createAssignment()
+  public Token createToken()
   {
-    AssignmentImpl assignment = new AssignmentImpl();
-    return assignment;
+    TokenImpl token = new TokenImpl();
+    return token;
   }
 
   /**
@@ -124,10 +123,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression createExpression()
+  public QuoteLikeToken createQuoteLikeToken()
   {
-    ExpressionImpl expression = new ExpressionImpl();
-    return expression;
+    QuoteLikeTokenImpl quoteLikeToken = new QuoteLikeTokenImpl();
+    return quoteLikeToken;
   }
 
   /**
@@ -135,10 +134,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public VariableRef createVariableRef()
+  public CommentToken createCommentToken()
   {
-    VariableRefImpl variableRef = new VariableRefImpl();
-    return variableRef;
+    CommentTokenImpl commentToken = new CommentTokenImpl();
+    return commentToken;
   }
 
   /**
@@ -146,10 +145,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Or createOr()
+  public PodToken createPodToken()
   {
-    OrImpl or = new OrImpl();
-    return or;
+    PodTokenImpl podToken = new PodTokenImpl();
+    return podToken;
   }
 
   /**
@@ -157,10 +156,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public And createAnd()
+  public NumberToken createNumberToken()
   {
-    AndImpl and = new AndImpl();
-    return and;
+    NumberTokenImpl numberToken = new NumberTokenImpl();
+    return numberToken;
   }
 
   /**
@@ -168,10 +167,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Equality createEquality()
+  public WordToken createWordToken()
   {
-    EqualityImpl equality = new EqualityImpl();
-    return equality;
+    WordTokenImpl wordToken = new WordTokenImpl();
+    return wordToken;
   }
 
   /**
@@ -179,10 +178,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Comparison createComparison()
+  public OperatorToken createOperatorToken()
   {
-    ComparisonImpl comparison = new ComparisonImpl();
-    return comparison;
+    OperatorTokenImpl operatorToken = new OperatorTokenImpl();
+    return operatorToken;
   }
 
   /**
@@ -190,10 +189,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Plus createPlus()
+  public QuoteToken createQuoteToken()
   {
-    PlusImpl plus = new PlusImpl();
-    return plus;
+    QuoteTokenImpl quoteToken = new QuoteTokenImpl();
+    return quoteToken;
   }
 
   /**
@@ -201,10 +200,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Minus createMinus()
+  public DataToken createDataToken()
   {
-    MinusImpl minus = new MinusImpl();
-    return minus;
+    DataTokenImpl dataToken = new DataTokenImpl();
+    return dataToken;
   }
 
   /**
@@ -212,10 +211,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MulOrDiv createMulOrDiv()
+  public EndToken createEndToken()
   {
-    MulOrDivImpl mulOrDiv = new MulOrDivImpl();
-    return mulOrDiv;
+    EndTokenImpl endToken = new EndTokenImpl();
+    return endToken;
   }
 
   /**
@@ -223,10 +222,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Not createNot()
+  public BacktickQuoteLikeToken createBacktickQuoteLikeToken()
   {
-    NotImpl not = new NotImpl();
-    return not;
+    BacktickQuoteLikeTokenImpl backtickQuoteLikeToken = new BacktickQuoteLikeTokenImpl();
+    return backtickQuoteLikeToken;
   }
 
   /**
@@ -234,10 +233,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public NumberLiteral createNumberLiteral()
+  public WordsQuoteLikeToken createWordsQuoteLikeToken()
   {
-    NumberLiteralImpl numberLiteral = new NumberLiteralImpl();
-    return numberLiteral;
+    WordsQuoteLikeTokenImpl wordsQuoteLikeToken = new WordsQuoteLikeTokenImpl();
+    return wordsQuoteLikeToken;
   }
 
   /**
@@ -245,21 +244,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public NullLiteral createNullLiteral()
+  public CommandQuoteLikeToken createCommandQuoteLikeToken()
   {
-    NullLiteralImpl nullLiteral = new NullLiteralImpl();
-    return nullLiteral;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public StringLiteral createStringLiteral()
-  {
-    StringLiteralImpl stringLiteral = new StringLiteralImpl();
-    return stringLiteral;
+    CommandQuoteLikeTokenImpl commandQuoteLikeToken = new CommandQuoteLikeTokenImpl();
+    return commandQuoteLikeToken;
   }
 
   /**

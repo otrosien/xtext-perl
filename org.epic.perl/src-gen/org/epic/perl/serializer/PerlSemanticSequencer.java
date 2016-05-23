@@ -14,21 +14,19 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import org.epic.perl.perl.And;
-import org.epic.perl.perl.Assignment;
-import org.epic.perl.perl.Comparison;
-import org.epic.perl.perl.Equality;
-import org.epic.perl.perl.Minus;
-import org.epic.perl.perl.MulOrDiv;
-import org.epic.perl.perl.Not;
-import org.epic.perl.perl.NullLiteral;
-import org.epic.perl.perl.NumberLiteral;
-import org.epic.perl.perl.Or;
+import org.epic.perl.perl.BacktickQuoteLikeToken;
+import org.epic.perl.perl.CommandQuoteLikeToken;
+import org.epic.perl.perl.CommentToken;
+import org.epic.perl.perl.DataToken;
+import org.epic.perl.perl.EndToken;
+import org.epic.perl.perl.NumberToken;
+import org.epic.perl.perl.OperatorToken;
 import org.epic.perl.perl.PerlModel;
 import org.epic.perl.perl.PerlPackage;
-import org.epic.perl.perl.Plus;
-import org.epic.perl.perl.StringLiteral;
-import org.epic.perl.perl.VariableRef;
+import org.epic.perl.perl.PodToken;
+import org.epic.perl.perl.QuoteToken;
+import org.epic.perl.perl.WordToken;
+import org.epic.perl.perl.WordsQuoteLikeToken;
 import org.epic.perl.services.PerlGrammarAccess;
 
 @SuppressWarnings("all")
@@ -45,312 +43,46 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == PerlPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case PerlPackage.AND:
-				sequence_And(context, (And) semanticObject); 
+			case PerlPackage.BACKTICK_QUOTE_LIKE_TOKEN:
+				sequence_QuoteLikeToken(context, (BacktickQuoteLikeToken) semanticObject); 
 				return; 
-			case PerlPackage.ASSIGNMENT:
-				sequence_Assignment(context, (Assignment) semanticObject); 
+			case PerlPackage.COMMAND_QUOTE_LIKE_TOKEN:
+				sequence_QuoteLikeToken(context, (CommandQuoteLikeToken) semanticObject); 
 				return; 
-			case PerlPackage.COMPARISON:
-				sequence_Comparison(context, (Comparison) semanticObject); 
+			case PerlPackage.COMMENT_TOKEN:
+				sequence_Token(context, (CommentToken) semanticObject); 
 				return; 
-			case PerlPackage.EQUALITY:
-				sequence_Equality(context, (Equality) semanticObject); 
+			case PerlPackage.DATA_TOKEN:
+				sequence_Token(context, (DataToken) semanticObject); 
 				return; 
-			case PerlPackage.MINUS:
-				sequence_PlusOrMinus(context, (Minus) semanticObject); 
+			case PerlPackage.END_TOKEN:
+				sequence_Token(context, (EndToken) semanticObject); 
 				return; 
-			case PerlPackage.MUL_OR_DIV:
-				sequence_MulOrDiv(context, (MulOrDiv) semanticObject); 
+			case PerlPackage.NUMBER_TOKEN:
+				sequence_Token(context, (NumberToken) semanticObject); 
 				return; 
-			case PerlPackage.NOT:
-				sequence_Primary(context, (Not) semanticObject); 
-				return; 
-			case PerlPackage.NULL_LITERAL:
-				sequence_NullLiteral(context, (NullLiteral) semanticObject); 
-				return; 
-			case PerlPackage.NUMBER_LITERAL:
-				sequence_NumberLiteral(context, (NumberLiteral) semanticObject); 
-				return; 
-			case PerlPackage.OR:
-				sequence_Or(context, (Or) semanticObject); 
+			case PerlPackage.OPERATOR_TOKEN:
+				sequence_Token(context, (OperatorToken) semanticObject); 
 				return; 
 			case PerlPackage.PERL_MODEL:
 				sequence_PerlModel(context, (PerlModel) semanticObject); 
 				return; 
-			case PerlPackage.PLUS:
-				sequence_PlusOrMinus(context, (Plus) semanticObject); 
+			case PerlPackage.POD_TOKEN:
+				sequence_Token(context, (PodToken) semanticObject); 
 				return; 
-			case PerlPackage.STRING_LITERAL:
-				sequence_StringLiteral(context, (StringLiteral) semanticObject); 
+			case PerlPackage.QUOTE_TOKEN:
+				sequence_Token(context, (QuoteToken) semanticObject); 
 				return; 
-			case PerlPackage.VARIABLE_REF:
-				sequence_VariableRef(context, (VariableRef) semanticObject); 
+			case PerlPackage.WORD_TOKEN:
+				sequence_Token(context, (WordToken) semanticObject); 
+				return; 
+			case PerlPackage.WORDS_QUOTE_LIKE_TOKEN:
+				sequence_QuoteLikeToken(context, (WordsQuoteLikeToken) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
-	
-	/**
-	 * Contexts:
-	 *     AbstractElement returns And
-	 *     Expression returns And
-	 *     Or returns And
-	 *     Or.Or_1_0 returns And
-	 *     And returns And
-	 *     And.And_1_0 returns And
-	 *     Equality returns And
-	 *     Equality.Equality_1_0 returns And
-	 *     Comparison returns And
-	 *     Comparison.Comparison_1_0 returns And
-	 *     PlusOrMinus returns And
-	 *     PlusOrMinus.Plus_1_0_0_0 returns And
-	 *     PlusOrMinus.Minus_1_0_1_0 returns And
-	 *     MulOrDiv returns And
-	 *     MulOrDiv.MulOrDiv_1_0 returns And
-	 *     Primary returns And
-	 *
-	 * Constraint:
-	 *     (left=And_And_1_0 op=OpAnd right=Equality)
-	 */
-	protected void sequence_And(ISerializationContext context, And semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.AND__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.AND__LEFT));
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.AND__OP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.AND__OP));
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.AND__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.AND__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAndAccess().getAndLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getAndAccess().getOpOpAndParserRuleCall_1_1_0(), semanticObject.getOp());
-		feeder.accept(grammarAccess.getAndAccess().getRightEqualityParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     AbstractElement returns Assignment
-	 *     Assignment returns Assignment
-	 *
-	 * Constraint:
-	 *     (variable=ID (op=OpSingleAssign | op=OpMultiAssign) expression=Expression)
-	 */
-	protected void sequence_Assignment(ISerializationContext context, Assignment semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     AbstractElement returns Comparison
-	 *     Expression returns Comparison
-	 *     Or returns Comparison
-	 *     Or.Or_1_0 returns Comparison
-	 *     And returns Comparison
-	 *     And.And_1_0 returns Comparison
-	 *     Equality returns Comparison
-	 *     Equality.Equality_1_0 returns Comparison
-	 *     Comparison returns Comparison
-	 *     Comparison.Comparison_1_0 returns Comparison
-	 *     PlusOrMinus returns Comparison
-	 *     PlusOrMinus.Plus_1_0_0_0 returns Comparison
-	 *     PlusOrMinus.Minus_1_0_1_0 returns Comparison
-	 *     MulOrDiv returns Comparison
-	 *     MulOrDiv.MulOrDiv_1_0 returns Comparison
-	 *     Primary returns Comparison
-	 *
-	 * Constraint:
-	 *     (left=Comparison_Comparison_1_0 (op='>=' | op='<=' | op='>' | op='<') right=PlusOrMinus)
-	 */
-	protected void sequence_Comparison(ISerializationContext context, Comparison semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     AbstractElement returns Equality
-	 *     Expression returns Equality
-	 *     Or returns Equality
-	 *     Or.Or_1_0 returns Equality
-	 *     And returns Equality
-	 *     And.And_1_0 returns Equality
-	 *     Equality returns Equality
-	 *     Equality.Equality_1_0 returns Equality
-	 *     Comparison returns Equality
-	 *     Comparison.Comparison_1_0 returns Equality
-	 *     PlusOrMinus returns Equality
-	 *     PlusOrMinus.Plus_1_0_0_0 returns Equality
-	 *     PlusOrMinus.Minus_1_0_1_0 returns Equality
-	 *     MulOrDiv returns Equality
-	 *     MulOrDiv.MulOrDiv_1_0 returns Equality
-	 *     Primary returns Equality
-	 *
-	 * Constraint:
-	 *     (left=Equality_Equality_1_0 op=OpEquality right=Comparison)
-	 */
-	protected void sequence_Equality(ISerializationContext context, Equality semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.EQUALITY__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.EQUALITY__LEFT));
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.EQUALITY__OP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.EQUALITY__OP));
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.EQUALITY__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.EQUALITY__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getEqualityAccess().getOpOpEqualityParserRuleCall_1_1_0(), semanticObject.getOp());
-		feeder.accept(grammarAccess.getEqualityAccess().getRightComparisonParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     AbstractElement returns MulOrDiv
-	 *     Expression returns MulOrDiv
-	 *     Or returns MulOrDiv
-	 *     Or.Or_1_0 returns MulOrDiv
-	 *     And returns MulOrDiv
-	 *     And.And_1_0 returns MulOrDiv
-	 *     Equality returns MulOrDiv
-	 *     Equality.Equality_1_0 returns MulOrDiv
-	 *     Comparison returns MulOrDiv
-	 *     Comparison.Comparison_1_0 returns MulOrDiv
-	 *     PlusOrMinus returns MulOrDiv
-	 *     PlusOrMinus.Plus_1_0_0_0 returns MulOrDiv
-	 *     PlusOrMinus.Minus_1_0_1_0 returns MulOrDiv
-	 *     MulOrDiv returns MulOrDiv
-	 *     MulOrDiv.MulOrDiv_1_0 returns MulOrDiv
-	 *     Primary returns MulOrDiv
-	 *
-	 * Constraint:
-	 *     (left=MulOrDiv_MulOrDiv_1_0 op=OpMulOrDiv right=Primary)
-	 */
-	protected void sequence_MulOrDiv(ISerializationContext context, MulOrDiv semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.MUL_OR_DIV__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.MUL_OR_DIV__LEFT));
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.MUL_OR_DIV__OP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.MUL_OR_DIV__OP));
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.MUL_OR_DIV__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.MUL_OR_DIV__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMulOrDivAccess().getMulOrDivLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getMulOrDivAccess().getOpOpMulOrDivParserRuleCall_1_1_0(), semanticObject.getOp());
-		feeder.accept(grammarAccess.getMulOrDivAccess().getRightPrimaryParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     AbstractElement returns NullLiteral
-	 *     Expression returns NullLiteral
-	 *     Or returns NullLiteral
-	 *     Or.Or_1_0 returns NullLiteral
-	 *     And returns NullLiteral
-	 *     And.And_1_0 returns NullLiteral
-	 *     Equality returns NullLiteral
-	 *     Equality.Equality_1_0 returns NullLiteral
-	 *     Comparison returns NullLiteral
-	 *     Comparison.Comparison_1_0 returns NullLiteral
-	 *     PlusOrMinus returns NullLiteral
-	 *     PlusOrMinus.Plus_1_0_0_0 returns NullLiteral
-	 *     PlusOrMinus.Minus_1_0_1_0 returns NullLiteral
-	 *     MulOrDiv returns NullLiteral
-	 *     MulOrDiv.MulOrDiv_1_0 returns NullLiteral
-	 *     Primary returns NullLiteral
-	 *     Atomic returns NullLiteral
-	 *     NullLiteral returns NullLiteral
-	 *
-	 * Constraint:
-	 *     {NullLiteral}
-	 */
-	protected void sequence_NullLiteral(ISerializationContext context, NullLiteral semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     AbstractElement returns NumberLiteral
-	 *     Expression returns NumberLiteral
-	 *     Or returns NumberLiteral
-	 *     Or.Or_1_0 returns NumberLiteral
-	 *     And returns NumberLiteral
-	 *     And.And_1_0 returns NumberLiteral
-	 *     Equality returns NumberLiteral
-	 *     Equality.Equality_1_0 returns NumberLiteral
-	 *     Comparison returns NumberLiteral
-	 *     Comparison.Comparison_1_0 returns NumberLiteral
-	 *     PlusOrMinus returns NumberLiteral
-	 *     PlusOrMinus.Plus_1_0_0_0 returns NumberLiteral
-	 *     PlusOrMinus.Minus_1_0_1_0 returns NumberLiteral
-	 *     MulOrDiv returns NumberLiteral
-	 *     MulOrDiv.MulOrDiv_1_0 returns NumberLiteral
-	 *     Primary returns NumberLiteral
-	 *     Atomic returns NumberLiteral
-	 *     NumberLiteral returns NumberLiteral
-	 *
-	 * Constraint:
-	 *     value=Number
-	 */
-	protected void sequence_NumberLiteral(ISerializationContext context, NumberLiteral semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.NUMBER_LITERAL__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.NUMBER_LITERAL__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNumberLiteralAccess().getValueNumberParserRuleCall_1_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     AbstractElement returns Or
-	 *     Expression returns Or
-	 *     Or returns Or
-	 *     Or.Or_1_0 returns Or
-	 *     And returns Or
-	 *     And.And_1_0 returns Or
-	 *     Equality returns Or
-	 *     Equality.Equality_1_0 returns Or
-	 *     Comparison returns Or
-	 *     Comparison.Comparison_1_0 returns Or
-	 *     PlusOrMinus returns Or
-	 *     PlusOrMinus.Plus_1_0_0_0 returns Or
-	 *     PlusOrMinus.Minus_1_0_1_0 returns Or
-	 *     MulOrDiv returns Or
-	 *     MulOrDiv.MulOrDiv_1_0 returns Or
-	 *     Primary returns Or
-	 *
-	 * Constraint:
-	 *     (left=Or_Or_1_0 op=OpOr right=And)
-	 */
-	protected void sequence_Or(ISerializationContext context, Or semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.OR__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.OR__LEFT));
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.OR__OP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.OR__OP));
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.OR__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.OR__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOrAccess().getOrLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getOrAccess().getOpOpOrParserRuleCall_1_1_0(), semanticObject.getOp());
-		feeder.accept(grammarAccess.getOrAccess().getRightAndParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
 	
 	/**
 	 * Contexts:
@@ -366,175 +98,200 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     AbstractElement returns Minus
-	 *     Expression returns Minus
-	 *     Or returns Minus
-	 *     Or.Or_1_0 returns Minus
-	 *     And returns Minus
-	 *     And.And_1_0 returns Minus
-	 *     Equality returns Minus
-	 *     Equality.Equality_1_0 returns Minus
-	 *     Comparison returns Minus
-	 *     Comparison.Comparison_1_0 returns Minus
-	 *     PlusOrMinus returns Minus
-	 *     PlusOrMinus.Plus_1_0_0_0 returns Minus
-	 *     PlusOrMinus.Minus_1_0_1_0 returns Minus
-	 *     MulOrDiv returns Minus
-	 *     MulOrDiv.MulOrDiv_1_0 returns Minus
-	 *     Primary returns Minus
+	 *     AbstractElement returns BacktickQuoteLikeToken
+	 *     Token returns BacktickQuoteLikeToken
+	 *     QuoteLikeToken returns BacktickQuoteLikeToken
 	 *
 	 * Constraint:
-	 *     (left=PlusOrMinus_Minus_1_0_1_0 right=MulOrDiv)
+	 *     content=BACKTICK_STRING
 	 */
-	protected void sequence_PlusOrMinus(ISerializationContext context, Minus semanticObject) {
+	protected void sequence_QuoteLikeToken(ISerializationContext context, BacktickQuoteLikeToken semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.MINUS__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.MINUS__LEFT));
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.MINUS__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.MINUS__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.TOKEN__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.TOKEN__CONTENT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPlusOrMinusAccess().getMinusLeftAction_1_0_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getPlusOrMinusAccess().getRightMulOrDivParserRuleCall_1_1_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getQuoteLikeTokenAccess().getContentBACKTICK_STRINGTerminalRuleCall_0_1_0(), semanticObject.getContent());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     AbstractElement returns Plus
-	 *     Expression returns Plus
-	 *     Or returns Plus
-	 *     Or.Or_1_0 returns Plus
-	 *     And returns Plus
-	 *     And.And_1_0 returns Plus
-	 *     Equality returns Plus
-	 *     Equality.Equality_1_0 returns Plus
-	 *     Comparison returns Plus
-	 *     Comparison.Comparison_1_0 returns Plus
-	 *     PlusOrMinus returns Plus
-	 *     PlusOrMinus.Plus_1_0_0_0 returns Plus
-	 *     PlusOrMinus.Minus_1_0_1_0 returns Plus
-	 *     MulOrDiv returns Plus
-	 *     MulOrDiv.MulOrDiv_1_0 returns Plus
-	 *     Primary returns Plus
+	 *     AbstractElement returns CommandQuoteLikeToken
+	 *     Token returns CommandQuoteLikeToken
+	 *     QuoteLikeToken returns CommandQuoteLikeToken
 	 *
 	 * Constraint:
-	 *     (left=PlusOrMinus_Plus_1_0_0_0 right=MulOrDiv)
+	 *     content=COMMAND_QUOTE_LIKE
 	 */
-	protected void sequence_PlusOrMinus(ISerializationContext context, Plus semanticObject) {
+	protected void sequence_QuoteLikeToken(ISerializationContext context, CommandQuoteLikeToken semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PLUS__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PLUS__LEFT));
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.PLUS__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.PLUS__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.TOKEN__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.TOKEN__CONTENT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPlusOrMinusAccess().getPlusLeftAction_1_0_0_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getPlusOrMinusAccess().getRightMulOrDivParserRuleCall_1_1_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getQuoteLikeTokenAccess().getContentCOMMAND_QUOTE_LIKETerminalRuleCall_2_1_0(), semanticObject.getContent());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     AbstractElement returns Not
-	 *     Expression returns Not
-	 *     Or returns Not
-	 *     Or.Or_1_0 returns Not
-	 *     And returns Not
-	 *     And.And_1_0 returns Not
-	 *     Equality returns Not
-	 *     Equality.Equality_1_0 returns Not
-	 *     Comparison returns Not
-	 *     Comparison.Comparison_1_0 returns Not
-	 *     PlusOrMinus returns Not
-	 *     PlusOrMinus.Plus_1_0_0_0 returns Not
-	 *     PlusOrMinus.Minus_1_0_1_0 returns Not
-	 *     MulOrDiv returns Not
-	 *     MulOrDiv.MulOrDiv_1_0 returns Not
-	 *     Primary returns Not
+	 *     AbstractElement returns WordsQuoteLikeToken
+	 *     Token returns WordsQuoteLikeToken
+	 *     QuoteLikeToken returns WordsQuoteLikeToken
 	 *
 	 * Constraint:
-	 *     expression=Primary
+	 *     content=WORDS_QUOTE_LIKE
 	 */
-	protected void sequence_Primary(ISerializationContext context, Not semanticObject) {
+	protected void sequence_QuoteLikeToken(ISerializationContext context, WordsQuoteLikeToken semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.NOT__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.NOT__EXPRESSION));
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.TOKEN__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.TOKEN__CONTENT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPrimaryAccess().getExpressionPrimaryParserRuleCall_1_2_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getQuoteLikeTokenAccess().getContentWORDS_QUOTE_LIKETerminalRuleCall_1_1_0(), semanticObject.getContent());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     AbstractElement returns StringLiteral
-	 *     Expression returns StringLiteral
-	 *     Or returns StringLiteral
-	 *     Or.Or_1_0 returns StringLiteral
-	 *     And returns StringLiteral
-	 *     And.And_1_0 returns StringLiteral
-	 *     Equality returns StringLiteral
-	 *     Equality.Equality_1_0 returns StringLiteral
-	 *     Comparison returns StringLiteral
-	 *     Comparison.Comparison_1_0 returns StringLiteral
-	 *     PlusOrMinus returns StringLiteral
-	 *     PlusOrMinus.Plus_1_0_0_0 returns StringLiteral
-	 *     PlusOrMinus.Minus_1_0_1_0 returns StringLiteral
-	 *     MulOrDiv returns StringLiteral
-	 *     MulOrDiv.MulOrDiv_1_0 returns StringLiteral
-	 *     Primary returns StringLiteral
-	 *     Atomic returns StringLiteral
-	 *     StringLiteral returns StringLiteral
+	 *     AbstractElement returns CommentToken
+	 *     Token returns CommentToken
 	 *
 	 * Constraint:
-	 *     value=STRING
+	 *     content=SL_COMMENT
 	 */
-	protected void sequence_StringLiteral(ISerializationContext context, StringLiteral semanticObject) {
+	protected void sequence_Token(ISerializationContext context, CommentToken semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.STRING_LITERAL__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.STRING_LITERAL__VALUE));
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.TOKEN__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.TOKEN__CONTENT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getStringLiteralAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getTokenAccess().getContentSL_COMMENTTerminalRuleCall_0_1_0(), semanticObject.getContent());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     AbstractElement returns VariableRef
-	 *     Expression returns VariableRef
-	 *     Or returns VariableRef
-	 *     Or.Or_1_0 returns VariableRef
-	 *     And returns VariableRef
-	 *     And.And_1_0 returns VariableRef
-	 *     Equality returns VariableRef
-	 *     Equality.Equality_1_0 returns VariableRef
-	 *     Comparison returns VariableRef
-	 *     Comparison.Comparison_1_0 returns VariableRef
-	 *     PlusOrMinus returns VariableRef
-	 *     PlusOrMinus.Plus_1_0_0_0 returns VariableRef
-	 *     PlusOrMinus.Minus_1_0_1_0 returns VariableRef
-	 *     MulOrDiv returns VariableRef
-	 *     MulOrDiv.MulOrDiv_1_0 returns VariableRef
-	 *     Primary returns VariableRef
-	 *     Atomic returns VariableRef
-	 *     VariableRef returns VariableRef
+	 *     AbstractElement returns DataToken
+	 *     Token returns DataToken
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     content=DATA
 	 */
-	protected void sequence_VariableRef(ISerializationContext context, VariableRef semanticObject) {
+	protected void sequence_Token(ISerializationContext context, DataToken semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.VARIABLE_REF__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.VARIABLE_REF__NAME));
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.TOKEN__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.TOKEN__CONTENT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVariableRefAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getTokenAccess().getContentDATATerminalRuleCall_10_1_0(), semanticObject.getContent());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns EndToken
+	 *     Token returns EndToken
+	 *
+	 * Constraint:
+	 *     content=END
+	 */
+	protected void sequence_Token(ISerializationContext context, EndToken semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.TOKEN__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.TOKEN__CONTENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTokenAccess().getContentENDTerminalRuleCall_11_1_0(), semanticObject.getContent());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns NumberToken
+	 *     Token returns NumberToken
+	 *
+	 * Constraint:
+	 *     content=Number
+	 */
+	protected void sequence_Token(ISerializationContext context, NumberToken semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.TOKEN__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.TOKEN__CONTENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTokenAccess().getContentNumberParserRuleCall_2_1_0(), semanticObject.getContent());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns OperatorToken
+	 *     Token returns OperatorToken
+	 *
+	 * Constraint:
+	 *     (content=FileTestOperator | content=Operator)
+	 */
+	protected void sequence_Token(ISerializationContext context, OperatorToken semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns PodToken
+	 *     Token returns PodToken
+	 *
+	 * Constraint:
+	 *     content=POD
+	 */
+	protected void sequence_Token(ISerializationContext context, PodToken semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.TOKEN__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.TOKEN__CONTENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTokenAccess().getContentPODTerminalRuleCall_1_1_0(), semanticObject.getContent());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns QuoteToken
+	 *     Token returns QuoteToken
+	 *
+	 * Constraint:
+	 *     (content=STRING | content=INTERPOLATE | content=LITERAL)
+	 */
+	protected void sequence_Token(ISerializationContext context, QuoteToken semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns WordToken
+	 *     Token returns WordToken
+	 *
+	 * Constraint:
+	 *     content=Word
+	 */
+	protected void sequence_Token(ISerializationContext context, WordToken semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.TOKEN__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.TOKEN__CONTENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTokenAccess().getContentWordParserRuleCall_3_1_0(), semanticObject.getContent());
 		feeder.finish();
 	}
 	

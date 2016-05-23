@@ -11,23 +11,22 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.epic.perl.perl.AbstractElement;
-import org.epic.perl.perl.And;
-import org.epic.perl.perl.Assignment;
-import org.epic.perl.perl.Comparison;
-import org.epic.perl.perl.Equality;
-import org.epic.perl.perl.Expression;
-import org.epic.perl.perl.Minus;
-import org.epic.perl.perl.MulOrDiv;
-import org.epic.perl.perl.Not;
-import org.epic.perl.perl.NullLiteral;
-import org.epic.perl.perl.NumberLiteral;
-import org.epic.perl.perl.Or;
+import org.epic.perl.perl.BacktickQuoteLikeToken;
+import org.epic.perl.perl.CommandQuoteLikeToken;
+import org.epic.perl.perl.CommentToken;
+import org.epic.perl.perl.DataToken;
+import org.epic.perl.perl.EndToken;
+import org.epic.perl.perl.NumberToken;
+import org.epic.perl.perl.OperatorToken;
 import org.epic.perl.perl.PerlFactory;
 import org.epic.perl.perl.PerlModel;
 import org.epic.perl.perl.PerlPackage;
-import org.epic.perl.perl.Plus;
-import org.epic.perl.perl.StringLiteral;
-import org.epic.perl.perl.VariableRef;
+import org.epic.perl.perl.PodToken;
+import org.epic.perl.perl.QuoteLikeToken;
+import org.epic.perl.perl.QuoteToken;
+import org.epic.perl.perl.Token;
+import org.epic.perl.perl.WordToken;
+import org.epic.perl.perl.WordsQuoteLikeToken;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,98 +55,91 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass assignmentEClass = null;
+  private EClass tokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass expressionEClass = null;
+  private EClass quoteLikeTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass variableRefEClass = null;
+  private EClass commentTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass orEClass = null;
+  private EClass podTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass andEClass = null;
+  private EClass numberTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass equalityEClass = null;
+  private EClass wordTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass comparisonEClass = null;
+  private EClass operatorTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass plusEClass = null;
+  private EClass quoteTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass minusEClass = null;
+  private EClass dataTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass mulOrDivEClass = null;
+  private EClass endTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass notEClass = null;
+  private EClass backtickQuoteLikeTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass numberLiteralEClass = null;
+  private EClass wordsQuoteLikeTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass nullLiteralEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass stringLiteralEClass = null;
+  private EClass commandQuoteLikeTokenEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -247,9 +239,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAssignment()
+  public EClass getToken()
   {
-    return assignmentEClass;
+    return tokenEClass;
   }
 
   /**
@@ -257,9 +249,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAssignment_Variable()
+  public EAttribute getToken_Content()
   {
-    return (EAttribute)assignmentEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)tokenEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -267,9 +259,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAssignment_Op()
+  public EClass getQuoteLikeToken()
   {
-    return (EAttribute)assignmentEClass.getEStructuralFeatures().get(1);
+    return quoteLikeTokenEClass;
   }
 
   /**
@@ -277,9 +269,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAssignment_Expression()
+  public EClass getCommentToken()
   {
-    return (EReference)assignmentEClass.getEStructuralFeatures().get(2);
+    return commentTokenEClass;
   }
 
   /**
@@ -287,9 +279,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getExpression()
+  public EClass getPodToken()
   {
-    return expressionEClass;
+    return podTokenEClass;
   }
 
   /**
@@ -297,9 +289,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getVariableRef()
+  public EClass getNumberToken()
   {
-    return variableRefEClass;
+    return numberTokenEClass;
   }
 
   /**
@@ -307,9 +299,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVariableRef_Name()
+  public EClass getWordToken()
   {
-    return (EAttribute)variableRefEClass.getEStructuralFeatures().get(0);
+    return wordTokenEClass;
   }
 
   /**
@@ -317,9 +309,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getOr()
+  public EClass getOperatorToken()
   {
-    return orEClass;
+    return operatorTokenEClass;
   }
 
   /**
@@ -327,9 +319,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getOr_Left()
+  public EClass getQuoteToken()
   {
-    return (EReference)orEClass.getEStructuralFeatures().get(0);
+    return quoteTokenEClass;
   }
 
   /**
@@ -337,9 +329,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getOr_Op()
+  public EClass getDataToken()
   {
-    return (EAttribute)orEClass.getEStructuralFeatures().get(1);
+    return dataTokenEClass;
   }
 
   /**
@@ -347,9 +339,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getOr_Right()
+  public EClass getEndToken()
   {
-    return (EReference)orEClass.getEStructuralFeatures().get(2);
+    return endTokenEClass;
   }
 
   /**
@@ -357,9 +349,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAnd()
+  public EClass getBacktickQuoteLikeToken()
   {
-    return andEClass;
+    return backtickQuoteLikeTokenEClass;
   }
 
   /**
@@ -367,9 +359,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAnd_Left()
+  public EClass getWordsQuoteLikeToken()
   {
-    return (EReference)andEClass.getEStructuralFeatures().get(0);
+    return wordsQuoteLikeTokenEClass;
   }
 
   /**
@@ -377,269 +369,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAnd_Op()
+  public EClass getCommandQuoteLikeToken()
   {
-    return (EAttribute)andEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getAnd_Right()
-  {
-    return (EReference)andEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getEquality()
-  {
-    return equalityEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getEquality_Left()
-  {
-    return (EReference)equalityEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getEquality_Op()
-  {
-    return (EAttribute)equalityEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getEquality_Right()
-  {
-    return (EReference)equalityEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getComparison()
-  {
-    return comparisonEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getComparison_Left()
-  {
-    return (EReference)comparisonEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getComparison_Op()
-  {
-    return (EAttribute)comparisonEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getComparison_Right()
-  {
-    return (EReference)comparisonEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getPlus()
-  {
-    return plusEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPlus_Left()
-  {
-    return (EReference)plusEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPlus_Right()
-  {
-    return (EReference)plusEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getMinus()
-  {
-    return minusEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getMinus_Left()
-  {
-    return (EReference)minusEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getMinus_Right()
-  {
-    return (EReference)minusEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getMulOrDiv()
-  {
-    return mulOrDivEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getMulOrDiv_Left()
-  {
-    return (EReference)mulOrDivEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getMulOrDiv_Op()
-  {
-    return (EAttribute)mulOrDivEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getMulOrDiv_Right()
-  {
-    return (EReference)mulOrDivEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getNot()
-  {
-    return notEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getNot_Expression()
-  {
-    return (EReference)notEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getNumberLiteral()
-  {
-    return numberLiteralEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getNumberLiteral_Value()
-  {
-    return (EAttribute)numberLiteralEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getNullLiteral()
-  {
-    return nullLiteralEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getStringLiteral()
-  {
-    return stringLiteralEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getStringLiteral_Value()
-  {
-    return (EAttribute)stringLiteralEClass.getEStructuralFeatures().get(0);
+    return commandQuoteLikeTokenEClass;
   }
 
   /**
@@ -677,59 +409,32 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
 
     abstractElementEClass = createEClass(ABSTRACT_ELEMENT);
 
-    assignmentEClass = createEClass(ASSIGNMENT);
-    createEAttribute(assignmentEClass, ASSIGNMENT__VARIABLE);
-    createEAttribute(assignmentEClass, ASSIGNMENT__OP);
-    createEReference(assignmentEClass, ASSIGNMENT__EXPRESSION);
+    tokenEClass = createEClass(TOKEN);
+    createEAttribute(tokenEClass, TOKEN__CONTENT);
 
-    expressionEClass = createEClass(EXPRESSION);
+    quoteLikeTokenEClass = createEClass(QUOTE_LIKE_TOKEN);
 
-    variableRefEClass = createEClass(VARIABLE_REF);
-    createEAttribute(variableRefEClass, VARIABLE_REF__NAME);
+    commentTokenEClass = createEClass(COMMENT_TOKEN);
 
-    orEClass = createEClass(OR);
-    createEReference(orEClass, OR__LEFT);
-    createEAttribute(orEClass, OR__OP);
-    createEReference(orEClass, OR__RIGHT);
+    podTokenEClass = createEClass(POD_TOKEN);
 
-    andEClass = createEClass(AND);
-    createEReference(andEClass, AND__LEFT);
-    createEAttribute(andEClass, AND__OP);
-    createEReference(andEClass, AND__RIGHT);
+    numberTokenEClass = createEClass(NUMBER_TOKEN);
 
-    equalityEClass = createEClass(EQUALITY);
-    createEReference(equalityEClass, EQUALITY__LEFT);
-    createEAttribute(equalityEClass, EQUALITY__OP);
-    createEReference(equalityEClass, EQUALITY__RIGHT);
+    wordTokenEClass = createEClass(WORD_TOKEN);
 
-    comparisonEClass = createEClass(COMPARISON);
-    createEReference(comparisonEClass, COMPARISON__LEFT);
-    createEAttribute(comparisonEClass, COMPARISON__OP);
-    createEReference(comparisonEClass, COMPARISON__RIGHT);
+    operatorTokenEClass = createEClass(OPERATOR_TOKEN);
 
-    plusEClass = createEClass(PLUS);
-    createEReference(plusEClass, PLUS__LEFT);
-    createEReference(plusEClass, PLUS__RIGHT);
+    quoteTokenEClass = createEClass(QUOTE_TOKEN);
 
-    minusEClass = createEClass(MINUS);
-    createEReference(minusEClass, MINUS__LEFT);
-    createEReference(minusEClass, MINUS__RIGHT);
+    dataTokenEClass = createEClass(DATA_TOKEN);
 
-    mulOrDivEClass = createEClass(MUL_OR_DIV);
-    createEReference(mulOrDivEClass, MUL_OR_DIV__LEFT);
-    createEAttribute(mulOrDivEClass, MUL_OR_DIV__OP);
-    createEReference(mulOrDivEClass, MUL_OR_DIV__RIGHT);
+    endTokenEClass = createEClass(END_TOKEN);
 
-    notEClass = createEClass(NOT);
-    createEReference(notEClass, NOT__EXPRESSION);
+    backtickQuoteLikeTokenEClass = createEClass(BACKTICK_QUOTE_LIKE_TOKEN);
 
-    numberLiteralEClass = createEClass(NUMBER_LITERAL);
-    createEAttribute(numberLiteralEClass, NUMBER_LITERAL__VALUE);
+    wordsQuoteLikeTokenEClass = createEClass(WORDS_QUOTE_LIKE_TOKEN);
 
-    nullLiteralEClass = createEClass(NULL_LITERAL);
-
-    stringLiteralEClass = createEClass(STRING_LITERAL);
-    createEAttribute(stringLiteralEClass, STRING_LITERAL__VALUE);
+    commandQuoteLikeTokenEClass = createEClass(COMMAND_QUOTE_LIKE_TOKEN);
   }
 
   /**
@@ -761,20 +466,19 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    assignmentEClass.getESuperTypes().add(this.getAbstractElement());
-    expressionEClass.getESuperTypes().add(this.getAbstractElement());
-    variableRefEClass.getESuperTypes().add(this.getExpression());
-    orEClass.getESuperTypes().add(this.getExpression());
-    andEClass.getESuperTypes().add(this.getExpression());
-    equalityEClass.getESuperTypes().add(this.getExpression());
-    comparisonEClass.getESuperTypes().add(this.getExpression());
-    plusEClass.getESuperTypes().add(this.getExpression());
-    minusEClass.getESuperTypes().add(this.getExpression());
-    mulOrDivEClass.getESuperTypes().add(this.getExpression());
-    notEClass.getESuperTypes().add(this.getExpression());
-    numberLiteralEClass.getESuperTypes().add(this.getExpression());
-    nullLiteralEClass.getESuperTypes().add(this.getExpression());
-    stringLiteralEClass.getESuperTypes().add(this.getExpression());
+    tokenEClass.getESuperTypes().add(this.getAbstractElement());
+    quoteLikeTokenEClass.getESuperTypes().add(this.getToken());
+    commentTokenEClass.getESuperTypes().add(this.getToken());
+    podTokenEClass.getESuperTypes().add(this.getToken());
+    numberTokenEClass.getESuperTypes().add(this.getToken());
+    wordTokenEClass.getESuperTypes().add(this.getToken());
+    operatorTokenEClass.getESuperTypes().add(this.getToken());
+    quoteTokenEClass.getESuperTypes().add(this.getToken());
+    dataTokenEClass.getESuperTypes().add(this.getToken());
+    endTokenEClass.getESuperTypes().add(this.getToken());
+    backtickQuoteLikeTokenEClass.getESuperTypes().add(this.getQuoteLikeToken());
+    wordsQuoteLikeTokenEClass.getESuperTypes().add(this.getQuoteLikeToken());
+    commandQuoteLikeTokenEClass.getESuperTypes().add(this.getQuoteLikeToken());
 
     // Initialize classes and features; add operations and parameters
     initEClass(perlModelEClass, PerlModel.class, "PerlModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -782,59 +486,32 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
 
     initEClass(abstractElementEClass, AbstractElement.class, "AbstractElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(assignmentEClass, Assignment.class, "Assignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAssignment_Variable(), ecorePackage.getEString(), "variable", null, 0, 1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAssignment_Op(), ecorePackage.getEString(), "op", null, 0, 1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAssignment_Expression(), this.getExpression(), null, "expression", null, 0, 1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(tokenEClass, Token.class, "Token", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getToken_Content(), ecorePackage.getEString(), "content", null, 0, 1, Token.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(quoteLikeTokenEClass, QuoteLikeToken.class, "QuoteLikeToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(variableRefEClass, VariableRef.class, "VariableRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVariableRef_Name(), ecorePackage.getEString(), "name", null, 0, 1, VariableRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(commentTokenEClass, CommentToken.class, "CommentToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(orEClass, Or.class, "Or", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOr_Left(), this.getExpression(), null, "left", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getOr_Op(), ecorePackage.getEString(), "op", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOr_Right(), this.getExpression(), null, "right", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(podTokenEClass, PodToken.class, "PodToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(andEClass, And.class, "And", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAnd_Left(), this.getExpression(), null, "left", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAnd_Op(), ecorePackage.getEString(), "op", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAnd_Right(), this.getExpression(), null, "right", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(numberTokenEClass, NumberToken.class, "NumberToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(equalityEClass, Equality.class, "Equality", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEquality_Left(), this.getExpression(), null, "left", null, 0, 1, Equality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEquality_Op(), ecorePackage.getEString(), "op", null, 0, 1, Equality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEquality_Right(), this.getExpression(), null, "right", null, 0, 1, Equality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(wordTokenEClass, WordToken.class, "WordToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(comparisonEClass, Comparison.class, "Comparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getComparison_Left(), this.getExpression(), null, "left", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getComparison_Op(), ecorePackage.getEString(), "op", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComparison_Right(), this.getExpression(), null, "right", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(operatorTokenEClass, OperatorToken.class, "OperatorToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(plusEClass, Plus.class, "Plus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPlus_Left(), this.getExpression(), null, "left", null, 0, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPlus_Right(), this.getExpression(), null, "right", null, 0, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(quoteTokenEClass, QuoteToken.class, "QuoteToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(minusEClass, Minus.class, "Minus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMinus_Left(), this.getExpression(), null, "left", null, 0, 1, Minus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMinus_Right(), this.getExpression(), null, "right", null, 0, 1, Minus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(dataTokenEClass, DataToken.class, "DataToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(mulOrDivEClass, MulOrDiv.class, "MulOrDiv", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMulOrDiv_Left(), this.getExpression(), null, "left", null, 0, 1, MulOrDiv.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMulOrDiv_Op(), ecorePackage.getEString(), "op", null, 0, 1, MulOrDiv.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMulOrDiv_Right(), this.getExpression(), null, "right", null, 0, 1, MulOrDiv.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(endTokenEClass, EndToken.class, "EndToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(notEClass, Not.class, "Not", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getNot_Expression(), this.getExpression(), null, "expression", null, 0, 1, Not.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(backtickQuoteLikeTokenEClass, BacktickQuoteLikeToken.class, "BacktickQuoteLikeToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(numberLiteralEClass, NumberLiteral.class, "NumberLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getNumberLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, NumberLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(wordsQuoteLikeTokenEClass, WordsQuoteLikeToken.class, "WordsQuoteLikeToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(nullLiteralEClass, NullLiteral.class, "NullLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(stringLiteralEClass, StringLiteral.class, "StringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStringLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(commandQuoteLikeTokenEClass, CommandQuoteLikeToken.class, "CommandQuoteLikeToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

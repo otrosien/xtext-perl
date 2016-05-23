@@ -1,4 +1,4 @@
-grammar org.epic.perl.Perl hidden(WS, SL_COMMENT)
+grammar org.epic.perl.Perl hidden(WS)
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
@@ -8,290 +8,147 @@ PerlModel:
 	elements += AbstractElement*;
 
 AbstractElement:
-	Assignment | Expression ;
-
-Assignment:
-	('my'|'our'|'local')? variable=ID op=(OpSingleAssign|OpMultiAssign) expression=Expression;
-
-OpSingleAssign:
-	'='
+//	Node 
+//	| 
+	Token
 ;
 
-OpMultiAssign:
-	'+=' | '-=' | '*=' | '/=' | '%=' | '**=' |
-	'<' '<' '=' | 
-	'>' '>'? '>=';
-
-
-Expression: Or;
-
-Or returns Expression:
-	And ({Or.left=current} op=OpOr right=And)*
-;
-
-OpOr:
-	'||'
-;
-
-
-And returns Expression:
-	Equality ({And.left=current} op=OpAnd right=Equality)*
-;
-
-OpAnd:
-	'&&';
-
-Equality returns Expression:
-	Comparison (
-		{Equality.left=current} op=OpEquality
-		right=Comparison
-	)*
-;
-
-OpEquality:
-	'==' | '!=' | 'eq' | 'ne';
-
-Comparison returns Expression:
-	PlusOrMinus (
-		{Comparison.left=current} op=(">="|"<="|">"|"<")
-		right=PlusOrMinus
-	)*
-;
-
-PlusOrMinus returns Expression:
-	MulOrDiv (
-		({Plus.left=current} '+' | {Minus.left=current} '-') 
-		right=MulOrDiv
-	)*
-;
-
-MulOrDiv returns Expression:
-	Primary (
-		{MulOrDiv.left=current} op=OpMulOrDiv 
-		right=Primary
-	)*
-;
-
-OpMulOrDiv:
-	'*' | '**' | '/' | '%';
-
-//
-//Unary returns Expression:
-//	op=OpUnary {Unary.right=current}
+//Node:
+//	StatementNode
+//	| StructureNode
 //;
-//
-//OpUnary:
-//	"!" | "-" | "+";
 
-Primary returns Expression:
-	'(' Expression ')' |
-	{Not} "!" expression=Primary |
-	Atomic
+//StatementNode:
+//	PackageStatement
+//	| IncludeStatement
+//	| SubStatement
+//	| CompoundStatement
+//	| BreakStatement
+//	| GivenStatement
+//	| WhenStatement
+//	| DataStatement
+//	| EndStatement
+//	| ExpressionStatement
+//	| NullStatement
+//	| UnmatchedBraceStatement
+//	| UnknownStatement
+//;
+
+//StructureNode:
+//	BlockStructure
+//    | SubscriptStructure
+//    | ConstructorStructure
+//    | ConditionStructure
+//    | ListStructure
+//    | ForStructure
+//    | GivenStructure
+//    | WhenStructure
+//    | UnknownStructure
+//;
+
+//ExpressionStatement:
+//	VariableExpression
+//;
+
+Token:
+	  {CommentToken}   content=SL_COMMENT
+	| {PodToken}       content=POD 
+	| {NumberToken}    content=Number
+	| {WordToken}      content=Word 
+//	| DashedWord 
+//	| Symbol 
+//	| ArrayIndex 
+	| QuoteLikeToken 
+	| {OperatorToken} content=FileTestOperator
+	| {OperatorToken} content=Operator
+    | {QuoteToken}    content=STRING
+    | {QuoteToken}    content=INTERPOLATE
+    | {QuoteToken}    content=LITERAL
+	| {QuoteToken}    content=REGEX_QUOTE
+//	| HereDoc 
+//	| Cast 
+//	| Structure 
+//	| Label
+//	| Separator
+	| {DataToken} content=DATA
+	| {EndToken}  content=END
+//	| Prototype
+//	| Attribute 
+//	| UnknownToken
 ;
 
-Atomic returns Expression:
-	NumberLiteral |
-	NullLiteral |
-	StringLiteral |
-	VariableRef
+QuoteLikeToken:
+	{BacktickQuoteLikeToken}  content=BACKTICK_STRING
+	| {WordsQuoteLikeToken}   content=WORDS_QUOTE_LIKE
+	| {CommandQuoteLikeToken} content=COMMAND_QUOTE_LIKE
+//	| RegexpQuoteLike
+//	| ReadLineQuoteLike
 ;
-
-VariableRef:
-	name=ID
-;
-
-NumberLiteral returns Expression:
-	{NumberLiteral} value=Number;
-
-NullLiteral returns Expression:
-	{NullLiteral} 'undef';
-
-StringLiteral returns Expression:
-	{StringLiteral} value=STRING;
-
-
-//
-//
-//PExpression returns PExpression:
-//	PAssignment
-//	| PAdditiveExpression 
-//	| PLiteral
-//;
-//
-////PExpression returns PExpression :
-////	PAssignment
-////;
-////
-////PAssignment returns PExpression :
-////	{PAssignment} var=PVar OpSingleAssign value=PAssignment |	
-////	POrExpression (
-////		=>({PBinaryOperation.leftOperand=current} feature=OpMultiAssign) rightOperand=PAssignment
-////	)?;
-////
-////OpSingleAssign:
-////	'='
-////;
-////
-////OpMultiAssign:
-////	'+=' | '-=' | '*=' | '/=' | '%=' | '**=' |
-////	'<' '<' '=' | 
-////	'>' '>'? '>=';
-////
-////POrExpression returns PExpression:
-////	PAndExpression (=>({PBinaryOperation.leftOperand=current} feature=OpOr) rightOperand=PAndExpression)*;
-////
-////OpOr:
-////	'||';
-////
-////PAndExpression returns PExpression:
-////	PEqualityExpression (=>({PBinaryOperation.leftOperand=current} feature=OpAnd) rightOperand=PEqualityExpression)*;
-////
-////OpAnd:
-////	'&&';
-////
-////PEqualityExpression returns PExpression:
-////	PRelationalExpression (=>({PBinaryOperation.leftOperand=current} feature=OpEquality)
-////	rightOperand=PRelationalExpression)*;
-////
-////OpEquality:
-////	'==' | '!=' | 'eq' | 'ne';
-////
-////PRelationalExpression returns PExpression:
-////	POtherOperatorExpression
-////	(=>({PBinaryOperation.leftOperand=current} feature=OpCompare) rightOperand=POtherOperatorExpression)*;
-////
-////OpCompare:
-////	'>=' | '<' '=' | '>' | '<' ;
-////
-////POtherOperatorExpression returns PExpression:
-////	PAdditiveExpression (=>({PBinaryOperation.leftOperand=current} feature=OpOther)
-////	rightOperand=PAdditiveExpression)*;
-////
-////OpOther:
-////	  '>' (=>('>' '>') | '>')
-////	| '<' (=>('<' '<') | '<' | '=>')
-////	| '<>'
-////	| '?:';
-////
-//
-//PAdditiveExpression returns PExpression:
-//	PMultiplicativeExpression (=>({PBinaryOperation.leftOperand=current} variable=[Variable])
-//	rightOperand=PMultiplicativeExpression)*;
-//
-//OpAdd:
-//	'+' | '-';
-//
-//PMultiplicativeExpression returns PExpression:
-//	PUnaryOperation (=>({PBinaryOperation.leftOperand=current} variable=[Variable]) rightOperand=PUnaryOperation)*;
-//
-//OpMulti:
-//	'*' | '**' | '/' | '%';
-//
-//PUnaryOperation returns PExpression:
-//	{PUnaryOperation} variable=[Variable] operand=PUnaryOperation
-//;
-//
-//OpUnary:
-//	"!" | "-" | "+";
-////
-////PPostfixOperation returns PExpression:
-////	{PPostfixOperation}
-////	var=PVar =>({PPostfixOperation.operand=current} feature=OpPostfix)?
-////;
-////
-////OpPostfix:
-////	"++" | "--"
-////;
-////
-////PVar:
-////	VAR_START ID
-////;
-////
-////PPrimaryExpression returns PExpression:
-////	PBlockExpression |
-////	PLiteral |
-////	PIfExpression |
-////	PReturnExpression |
-////	PParenthesizedExpression
-////;		
-////
-////PLiteral returns PExpression:
-////	PClosure |
-////	PNumberLiteral |
-////	PNullLiteral |
-////	PStringLiteral
-////;
-////
-////PClosure returns PExpression:
-////	=>({PClosure} 
-////	'sub' '{') 
-////		expression=PExpressionInClosure 
-////	'}'
-////;
-////
-////PExpressionInClosure returns PExpression: 
-////	{PBlockExpression}
-////	(expressions+=PExpressionOrVarDeclaration ';'?)*
-////;
-////
-////PParenthesizedExpression returns PExpression:
-////	'(' PExpression ')'
-////;
-////
-////PIfExpression returns PExpression:
-////	{PIfExpression}
-////	'if' '(' if=PExpression ')'
-////	then=PExpression
-////	(=>'else' else=PExpression)?;
-////
-////PBlockExpression returns PExpression: 
-////	{PBlockExpression}
-////	'{'
-////		(expressions+=PExpressionOrVarDeclaration ';'?)*
-////	'}';
-////
-////PExpressionOrVarDeclaration returns PExpression:
-////	PVariableDeclaration | PExpression;
-////
-////PVariableDeclaration returns PExpression:
-////	{PVariableDeclaration}
-////	('my'|'our'|'local') (=>(name=PVar)) ('=' right=PExpression)?;
-////
-////PConstructorCall returns PExpression:
-////	{PConstructorCall}
-////	'new' constructor=QualifiedName
-////	(=>explicitConstructorCall?='(' 
-////		arguments+=PExpression (',' arguments+=PExpression)*
-////	')')?
-////;
-////
-//
-////
-////PReturnExpression returns PExpression:
-////	{PReturnExpression} 'return' (->expression=PExpression)?;
-////
-//
-//PLiteral returns PExpression:
-//	PNumberLiteral
-//	| PNullLiteral
-//	| PStringLiteral
-////	| PPackageLiteral
-//;
-//
-//PAssignment returns PExpression:
-//	Variable '=' expression=PExpression;
-//
 
 Number hidden():
 	(HEX | BIN | INT) ('.' INT)?
 ;
 
-terminal fragment VAR_START
-	: ('@' | '$' | '%' )
-	( '@' | '$' | '%' | '*' | '#' )*
+Word:
+	Keyword
 ;
 
-terminal ID  		: VAR_START ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+Keyword:
+'abs' | 'accept' | 'alarm' | 'atan2' | 'bind' | 'binmode' | 'bless' | 'break' | 'caller' | 'chdir' | 'chmod' |
+'chomp' | 'chop' | 'chown' | 'chr' | 'chroot' | 'close' | 'closedir' | 'connect' | 'continue' | 'cos' | 'crypt'
+| 'dbmclose' | 'dbmopen' | 'default' | 'defined' | 'delete' | 'die' | 'do' | 'dump' | 'each' | 'else' | 'elsif' |
+'endgrent' | 'endhostent' | 'endnetent' | 'endprotoent' | 'endpwent' | 'endservent' | 'eof' | 'eval' |
+'evalbytes' | 'exec' | 'exists' | 'exit' | 'exp' | 'fc' | 'fcntl' | 'fileno' | 'flock' | 'for' | 'foreach' | 'fork' |
+'format' | 'formline' | 'getc' | 'getgrent' | 'getgrgid' | 'getgrnam' | 'gethostbyaddr' | 'gethostbyname' |
+'gethostent' | 'getlogin' | 'getnetbyaddr' | 'getnetbyname' | 'getnetent' | 'getpeername' | 'getpgrp' | 'getppid' |
+'getpriority' | 'getprotobyname' | 'getprotobynumber' | 'getprotoent' | 'getpwent' | 'getpwnam' | 'getpwuid' |
+'getservbyname' | 'getservbyport' | 'getservent' | 'getsockname' | 'getsockopt' | 'given' | 'glob' | 'gmtime' | 'goto'
+| 'grep' | 'hex' | 'if' | 'index' | 'int' | 'ioctl' | 'join' | 'keys' | 'kill' | 'last' | 'lc' | 'lcfirst' |
+'length' | 'link' | 'listen' | 'local' | 'localtime' | 'lock' | 'log' | 'lstat' | 'map' | 'mkdir' |
+'msgctl' | 'msgget' | 'msgrcv' | 'msgsnd' | 'my' | 'next' | 'no' | 'oct' | 'open' | 'opendir' |
+'ord' | 'our' | 'pack' | 'package' | 'pipe' | 'pop' | 'pos' | 'print' | 'printf' | 'prototype' | 'push' |
+'quotemeta' | 'rand' | 'read' | 'readdir' | 'readline' | 'readlink' | 'readpipe' | 'recv' | 'redo'
+| 'ref' | 'rename' | 'require' | 'reset' | 'return' | 'reverse' | 'rewinddir' | 'rindex' | 'rmdir' | 'say' |
+'scalar' | 'seek' | 'seekdir' | 'select' | 'semctl' | 'semget' | 'semop' | 'send' | 'setgrent' | 'sethostent' |
+'setnetent' | 'setpgrp' | 'setpriority' | 'setprotoent' | 'setpwent' | 'setservent' | 'setsockopt' | 'shift' | 'shmctl'
+| 'shmget' | 'shmread' | 'shmwrite' | 'shutdown' | 'sin' | 'sleep' | 'socket' | 'socketpair' | 'sort' | 'splice' |
+'split' | 'sprintf' | 'sqrt' | 'srand' | 'stat' | 'state' | 'study' | 'sub' | 'substr' | 'symlink' | 'syscall' |
+'sysopen' | 'sysread' | 'sysseek' | 'system' | 'syswrite' | 'tell' | 'telldir' | 'tie' | 'tied' | 'time' | 'times' |
+'tr' | 'truncate' | 'uc' | 'ucfirst' | 'umask' | 'undef' | 'unless' | 'unlink' | 'unpack' | 'unshift' | 'untie' |
+'until' | 'use' | 'utime' | 'values' | 'vec' | 'wait' | 'waitpid' | 'wantarray' | 'warn' | 'when' | 'while' | 'write' |
+'y'
+;
+
+/*
+  # This is the list of valid operators
+  ++   --   **   !    ~    +    -
+  =~   !~   *    /    %    x
+  <<   >>   lt   gt   le   ge   cmp  ~~
+  ==   !=   <=>  .    ..   ...  ,
+  &    |    ^    &&   ||   //
+  ?    :    **=  +=   -=   .=   *=   /=
+  %=   x=   &=   |=   ^=   <<=  >>=  &&=
+  ||=  //=  <    >    <=   >=   <>   =>   ->
+  and  or   xor  not  eq   ne
+ */
+Operator:
+  '++' | '--' | '**' | '!' | '~' | '+' | '-' | '=~' | '!~' | '*' | '/' | '%' | 'x' | '<<' | '>>' | 'lt' | 'gt' | 'le' |
+  'ge' | 'cmp' | '~~' | '==' | '!=' | '<=>' '.' | '..' | '...' | ',' | '&' | '|' | '^' | '&&' | '||' | '//' | '?' | ':'
+  | '**=' | '+=' | '-=' | '.=' | '*=' | '/=' | '%=' | 'x=' | '&=' | '|=' | '^=' | '<<=' | '>>=' | '&&=' | '||=' | '//='
+  | '<' | '>' | '<=' | '>=' | '<>' | '=>' | '->' | 'and' | 'or' | 'xor' | 'not' | 'eq' | 'ne'
+;
+
+FileTestOperator:
+	('-r' | '-w' | '-x' | '-o' | '-R' | '-W' | '-X' | '-O' | '-e' | '-z' | '-s' | '-f' | '-d' | '-l' | '-p' | '-S' | '-b' |
+	'-c' | '-t' | '-u' | '-g' | '-k' | '-T' | '-B' | '-M' | '-A' | '-C')
+;
+
+//terminal fragment VAR_START
+//	: ('@' | '$' | '%' )
+//	( '@' | '$' | '%' | '*' | '#' )*
+//;
+//
+//terminal ID  		: VAR_START ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
 terminal HEX:
 	("0x"|"0X") ('0'..'9'|'a'..'f'|'A'..'F'|'_')+ ;
@@ -306,8 +163,67 @@ terminal STRING	:
 			"'" ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|"'") )* "'"
 ;
 
+terminal BACKTICK_STRING:
+	'`'  !('`')* '`'
+;
+
+terminal INTERPOLATE:
+	'qq' (
+		('{' -> '}') |
+		('|' -> '|') |
+		('/' -> '/') |
+		('<' -> '>'))
+;
+
+terminal LITERAL:
+	'q' (
+		('{' -> '}') |
+		('|' -> '|') |
+		('/' -> '/') |
+		('<' -> '>'))
+;
+
+terminal WORDS_QUOTE_LIKE:
+	'qw' (
+		('{' -> '}') |
+		('|' -> '|') |
+		('/' -> '/') |
+		('<' -> '>')
+	)
+;
+
+terminal COMMAND_QUOTE_LIKE:
+	'qx' (
+		('{' -> '}') |
+		('|' -> '|') |
+		('/' -> '/') |
+		('<' -> '>')
+	)
+;
+
+terminal REGEX_QUOTE:
+	'qr' (
+		('{' -> '}') |
+		('|' -> '|') |
+		('/' -> '/') |
+		('<' -> '>')
+	)
+;
+
+terminal POD:
+	'=pod' !('=cut')* '=cut'
+;
+
+terminal DATA:
+	'__DATA__' ANY_OTHER* EOF
+;
+
+terminal END:
+	'__END__' ANY_OTHER* EOF
+;
+
 terminal SL_COMMENT 	: '#' !('\n'|'\r')* ('\r'? '\n')?;
 
 terminal WS			: (' '|'\t'|'\r'|'\n')+;
 
-//terminal ANY_OTHER: .;
+terminal ANY_OTHER: .;

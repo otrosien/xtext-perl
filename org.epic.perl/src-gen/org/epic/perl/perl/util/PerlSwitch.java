@@ -87,127 +87,122 @@ public class PerlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PerlPackage.ASSIGNMENT:
+      case PerlPackage.TOKEN:
       {
-        Assignment assignment = (Assignment)theEObject;
-        T result = caseAssignment(assignment);
-        if (result == null) result = caseAbstractElement(assignment);
+        Token token = (Token)theEObject;
+        T result = caseToken(token);
+        if (result == null) result = caseAbstractElement(token);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PerlPackage.EXPRESSION:
+      case PerlPackage.QUOTE_LIKE_TOKEN:
       {
-        Expression expression = (Expression)theEObject;
-        T result = caseExpression(expression);
-        if (result == null) result = caseAbstractElement(expression);
+        QuoteLikeToken quoteLikeToken = (QuoteLikeToken)theEObject;
+        T result = caseQuoteLikeToken(quoteLikeToken);
+        if (result == null) result = caseToken(quoteLikeToken);
+        if (result == null) result = caseAbstractElement(quoteLikeToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PerlPackage.VARIABLE_REF:
+      case PerlPackage.COMMENT_TOKEN:
       {
-        VariableRef variableRef = (VariableRef)theEObject;
-        T result = caseVariableRef(variableRef);
-        if (result == null) result = caseExpression(variableRef);
-        if (result == null) result = caseAbstractElement(variableRef);
+        CommentToken commentToken = (CommentToken)theEObject;
+        T result = caseCommentToken(commentToken);
+        if (result == null) result = caseToken(commentToken);
+        if (result == null) result = caseAbstractElement(commentToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PerlPackage.OR:
+      case PerlPackage.POD_TOKEN:
       {
-        Or or = (Or)theEObject;
-        T result = caseOr(or);
-        if (result == null) result = caseExpression(or);
-        if (result == null) result = caseAbstractElement(or);
+        PodToken podToken = (PodToken)theEObject;
+        T result = casePodToken(podToken);
+        if (result == null) result = caseToken(podToken);
+        if (result == null) result = caseAbstractElement(podToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PerlPackage.AND:
+      case PerlPackage.NUMBER_TOKEN:
       {
-        And and = (And)theEObject;
-        T result = caseAnd(and);
-        if (result == null) result = caseExpression(and);
-        if (result == null) result = caseAbstractElement(and);
+        NumberToken numberToken = (NumberToken)theEObject;
+        T result = caseNumberToken(numberToken);
+        if (result == null) result = caseToken(numberToken);
+        if (result == null) result = caseAbstractElement(numberToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PerlPackage.EQUALITY:
+      case PerlPackage.WORD_TOKEN:
       {
-        Equality equality = (Equality)theEObject;
-        T result = caseEquality(equality);
-        if (result == null) result = caseExpression(equality);
-        if (result == null) result = caseAbstractElement(equality);
+        WordToken wordToken = (WordToken)theEObject;
+        T result = caseWordToken(wordToken);
+        if (result == null) result = caseToken(wordToken);
+        if (result == null) result = caseAbstractElement(wordToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PerlPackage.COMPARISON:
+      case PerlPackage.OPERATOR_TOKEN:
       {
-        Comparison comparison = (Comparison)theEObject;
-        T result = caseComparison(comparison);
-        if (result == null) result = caseExpression(comparison);
-        if (result == null) result = caseAbstractElement(comparison);
+        OperatorToken operatorToken = (OperatorToken)theEObject;
+        T result = caseOperatorToken(operatorToken);
+        if (result == null) result = caseToken(operatorToken);
+        if (result == null) result = caseAbstractElement(operatorToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PerlPackage.PLUS:
+      case PerlPackage.QUOTE_TOKEN:
       {
-        Plus plus = (Plus)theEObject;
-        T result = casePlus(plus);
-        if (result == null) result = caseExpression(plus);
-        if (result == null) result = caseAbstractElement(plus);
+        QuoteToken quoteToken = (QuoteToken)theEObject;
+        T result = caseQuoteToken(quoteToken);
+        if (result == null) result = caseToken(quoteToken);
+        if (result == null) result = caseAbstractElement(quoteToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PerlPackage.MINUS:
+      case PerlPackage.DATA_TOKEN:
       {
-        Minus minus = (Minus)theEObject;
-        T result = caseMinus(minus);
-        if (result == null) result = caseExpression(minus);
-        if (result == null) result = caseAbstractElement(minus);
+        DataToken dataToken = (DataToken)theEObject;
+        T result = caseDataToken(dataToken);
+        if (result == null) result = caseToken(dataToken);
+        if (result == null) result = caseAbstractElement(dataToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PerlPackage.MUL_OR_DIV:
+      case PerlPackage.END_TOKEN:
       {
-        MulOrDiv mulOrDiv = (MulOrDiv)theEObject;
-        T result = caseMulOrDiv(mulOrDiv);
-        if (result == null) result = caseExpression(mulOrDiv);
-        if (result == null) result = caseAbstractElement(mulOrDiv);
+        EndToken endToken = (EndToken)theEObject;
+        T result = caseEndToken(endToken);
+        if (result == null) result = caseToken(endToken);
+        if (result == null) result = caseAbstractElement(endToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PerlPackage.NOT:
+      case PerlPackage.BACKTICK_QUOTE_LIKE_TOKEN:
       {
-        Not not = (Not)theEObject;
-        T result = caseNot(not);
-        if (result == null) result = caseExpression(not);
-        if (result == null) result = caseAbstractElement(not);
+        BacktickQuoteLikeToken backtickQuoteLikeToken = (BacktickQuoteLikeToken)theEObject;
+        T result = caseBacktickQuoteLikeToken(backtickQuoteLikeToken);
+        if (result == null) result = caseQuoteLikeToken(backtickQuoteLikeToken);
+        if (result == null) result = caseToken(backtickQuoteLikeToken);
+        if (result == null) result = caseAbstractElement(backtickQuoteLikeToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PerlPackage.NUMBER_LITERAL:
+      case PerlPackage.WORDS_QUOTE_LIKE_TOKEN:
       {
-        NumberLiteral numberLiteral = (NumberLiteral)theEObject;
-        T result = caseNumberLiteral(numberLiteral);
-        if (result == null) result = caseExpression(numberLiteral);
-        if (result == null) result = caseAbstractElement(numberLiteral);
+        WordsQuoteLikeToken wordsQuoteLikeToken = (WordsQuoteLikeToken)theEObject;
+        T result = caseWordsQuoteLikeToken(wordsQuoteLikeToken);
+        if (result == null) result = caseQuoteLikeToken(wordsQuoteLikeToken);
+        if (result == null) result = caseToken(wordsQuoteLikeToken);
+        if (result == null) result = caseAbstractElement(wordsQuoteLikeToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PerlPackage.NULL_LITERAL:
+      case PerlPackage.COMMAND_QUOTE_LIKE_TOKEN:
       {
-        NullLiteral nullLiteral = (NullLiteral)theEObject;
-        T result = caseNullLiteral(nullLiteral);
-        if (result == null) result = caseExpression(nullLiteral);
-        if (result == null) result = caseAbstractElement(nullLiteral);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PerlPackage.STRING_LITERAL:
-      {
-        StringLiteral stringLiteral = (StringLiteral)theEObject;
-        T result = caseStringLiteral(stringLiteral);
-        if (result == null) result = caseExpression(stringLiteral);
-        if (result == null) result = caseAbstractElement(stringLiteral);
+        CommandQuoteLikeToken commandQuoteLikeToken = (CommandQuoteLikeToken)theEObject;
+        T result = caseCommandQuoteLikeToken(commandQuoteLikeToken);
+        if (result == null) result = caseQuoteLikeToken(commandQuoteLikeToken);
+        if (result == null) result = caseToken(commandQuoteLikeToken);
+        if (result == null) result = caseAbstractElement(commandQuoteLikeToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -248,225 +243,209 @@ public class PerlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Assignment</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Token</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Assignment</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Token</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAssignment(Assignment object)
+  public T caseToken(Token object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Quote Like Token</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Quote Like Token</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExpression(Expression object)
+  public T caseQuoteLikeToken(QuoteLikeToken object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable Ref</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Comment Token</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable Ref</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Comment Token</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseVariableRef(VariableRef object)
+  public T caseCommentToken(CommentToken object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Or</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Pod Token</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Or</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Pod Token</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseOr(Or object)
+  public T casePodToken(PodToken object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>And</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Number Token</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>And</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Number Token</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAnd(And object)
+  public T caseNumberToken(NumberToken object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Equality</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Word Token</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Equality</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Word Token</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEquality(Equality object)
+  public T caseWordToken(WordToken object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Comparison</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Operator Token</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Comparison</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Operator Token</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseComparison(Comparison object)
+  public T caseOperatorToken(OperatorToken object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Plus</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Quote Token</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Plus</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Quote Token</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePlus(Plus object)
+  public T caseQuoteToken(QuoteToken object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Minus</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Data Token</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Minus</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Data Token</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMinus(Minus object)
+  public T caseDataToken(DataToken object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Mul Or Div</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>End Token</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Mul Or Div</em>'.
+   * @return the result of interpreting the object as an instance of '<em>End Token</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMulOrDiv(MulOrDiv object)
+  public T caseEndToken(EndToken object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Not</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Backtick Quote Like Token</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Not</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Backtick Quote Like Token</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNot(Not object)
+  public T caseBacktickQuoteLikeToken(BacktickQuoteLikeToken object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Number Literal</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Words Quote Like Token</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Number Literal</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Words Quote Like Token</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNumberLiteral(NumberLiteral object)
+  public T caseWordsQuoteLikeToken(WordsQuoteLikeToken object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Null Literal</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Command Quote Like Token</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Null Literal</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Command Quote Like Token</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNullLiteral(NullLiteral object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>String Literal</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>String Literal</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseStringLiteral(StringLiteral object)
+  public T caseCommandQuoteLikeToken(CommandQuoteLikeToken object)
   {
     return null;
   }

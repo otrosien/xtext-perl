@@ -10,9 +10,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
-import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.epic.perl.services.PerlGrammarAccess;
@@ -21,16 +18,10 @@ import org.epic.perl.services.PerlGrammarAccess;
 public class PerlSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected PerlGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Assignment___LocalKeyword_0_2_or_MyKeyword_0_0_or_OurKeyword_0_1__q;
-	protected AbstractElementAlias match_Primary_LeftParenthesisKeyword_0_0_a;
-	protected AbstractElementAlias match_Primary_LeftParenthesisKeyword_0_0_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (PerlGrammarAccess) access;
-		match_Assignment___LocalKeyword_0_2_or_MyKeyword_0_0_or_OurKeyword_0_1__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getAssignmentAccess().getLocalKeyword_0_2()), new TokenAlias(false, false, grammarAccess.getAssignmentAccess().getMyKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getAssignmentAccess().getOurKeyword_0_1()));
-		match_Primary_LeftParenthesisKeyword_0_0_a = new TokenAlias(true, true, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_0_0());
-		match_Primary_LeftParenthesisKeyword_0_0_p = new TokenAlias(true, false, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_0_0());
 	}
 	
 	@Override
@@ -45,64 +36,8 @@ public class PerlSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Assignment___LocalKeyword_0_2_or_MyKeyword_0_0_or_OurKeyword_0_1__q.equals(syntax))
-				emit_Assignment___LocalKeyword_0_2_or_MyKeyword_0_0_or_OurKeyword_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Primary_LeftParenthesisKeyword_0_0_a.equals(syntax))
-				emit_Primary_LeftParenthesisKeyword_0_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Primary_LeftParenthesisKeyword_0_0_p.equals(syntax))
-				emit_Primary_LeftParenthesisKeyword_0_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else acceptNodes(getLastNavigableState(), syntaxNodes);
+			acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     ('my' | 'our' | 'local')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) variable=ID
-	 */
-	protected void emit_Assignment___LocalKeyword_0_2_or_MyKeyword_0_0_or_OurKeyword_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     '('*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) '!' expression=Primary
-	 *     (rule start) (ambiguity) 'undef' (rule start)
-	 *     (rule start) (ambiguity) name=ID
-	 *     (rule start) (ambiguity) value=Number
-	 *     (rule start) (ambiguity) value=STRING
-	 *     (rule start) (ambiguity) {And.left=}
-	 *     (rule start) (ambiguity) {Comparison.left=}
-	 *     (rule start) (ambiguity) {Equality.left=}
-	 *     (rule start) (ambiguity) {Minus.left=}
-	 *     (rule start) (ambiguity) {MulOrDiv.left=}
-	 *     (rule start) (ambiguity) {Or.left=}
-	 *     (rule start) (ambiguity) {Plus.left=}
-	 */
-	protected void emit_Primary_LeftParenthesisKeyword_0_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     '('+
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) {And.left=}
-	 *     (rule start) (ambiguity) {Comparison.left=}
-	 *     (rule start) (ambiguity) {Equality.left=}
-	 *     (rule start) (ambiguity) {Minus.left=}
-	 *     (rule start) (ambiguity) {MulOrDiv.left=}
-	 *     (rule start) (ambiguity) {Or.left=}
-	 *     (rule start) (ambiguity) {Plus.left=}
-	 */
-	protected void emit_Primary_LeftParenthesisKeyword_0_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 }

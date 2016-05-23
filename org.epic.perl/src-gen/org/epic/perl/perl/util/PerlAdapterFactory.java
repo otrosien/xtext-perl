@@ -86,74 +86,69 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
         return createAbstractElementAdapter();
       }
       @Override
-      public Adapter caseAssignment(Assignment object)
+      public Adapter caseToken(Token object)
       {
-        return createAssignmentAdapter();
+        return createTokenAdapter();
       }
       @Override
-      public Adapter caseExpression(Expression object)
+      public Adapter caseQuoteLikeToken(QuoteLikeToken object)
       {
-        return createExpressionAdapter();
+        return createQuoteLikeTokenAdapter();
       }
       @Override
-      public Adapter caseVariableRef(VariableRef object)
+      public Adapter caseCommentToken(CommentToken object)
       {
-        return createVariableRefAdapter();
+        return createCommentTokenAdapter();
       }
       @Override
-      public Adapter caseOr(Or object)
+      public Adapter casePodToken(PodToken object)
       {
-        return createOrAdapter();
+        return createPodTokenAdapter();
       }
       @Override
-      public Adapter caseAnd(And object)
+      public Adapter caseNumberToken(NumberToken object)
       {
-        return createAndAdapter();
+        return createNumberTokenAdapter();
       }
       @Override
-      public Adapter caseEquality(Equality object)
+      public Adapter caseWordToken(WordToken object)
       {
-        return createEqualityAdapter();
+        return createWordTokenAdapter();
       }
       @Override
-      public Adapter caseComparison(Comparison object)
+      public Adapter caseOperatorToken(OperatorToken object)
       {
-        return createComparisonAdapter();
+        return createOperatorTokenAdapter();
       }
       @Override
-      public Adapter casePlus(Plus object)
+      public Adapter caseQuoteToken(QuoteToken object)
       {
-        return createPlusAdapter();
+        return createQuoteTokenAdapter();
       }
       @Override
-      public Adapter caseMinus(Minus object)
+      public Adapter caseDataToken(DataToken object)
       {
-        return createMinusAdapter();
+        return createDataTokenAdapter();
       }
       @Override
-      public Adapter caseMulOrDiv(MulOrDiv object)
+      public Adapter caseEndToken(EndToken object)
       {
-        return createMulOrDivAdapter();
+        return createEndTokenAdapter();
       }
       @Override
-      public Adapter caseNot(Not object)
+      public Adapter caseBacktickQuoteLikeToken(BacktickQuoteLikeToken object)
       {
-        return createNotAdapter();
+        return createBacktickQuoteLikeTokenAdapter();
       }
       @Override
-      public Adapter caseNumberLiteral(NumberLiteral object)
+      public Adapter caseWordsQuoteLikeToken(WordsQuoteLikeToken object)
       {
-        return createNumberLiteralAdapter();
+        return createWordsQuoteLikeTokenAdapter();
       }
       @Override
-      public Adapter caseNullLiteral(NullLiteral object)
+      public Adapter caseCommandQuoteLikeToken(CommandQuoteLikeToken object)
       {
-        return createNullLiteralAdapter();
-      }
-      @Override
-      public Adapter caseStringLiteral(StringLiteral object)
-      {
-        return createStringLiteralAdapter();
+        return createCommandQuoteLikeTokenAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -208,211 +203,196 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.Assignment <em>Assignment</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.Token <em>Token</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.Assignment
+   * @see org.epic.perl.perl.Token
    * @generated
    */
-  public Adapter createAssignmentAdapter()
+  public Adapter createTokenAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.Expression <em>Expression</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.QuoteLikeToken <em>Quote Like Token</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.Expression
+   * @see org.epic.perl.perl.QuoteLikeToken
    * @generated
    */
-  public Adapter createExpressionAdapter()
+  public Adapter createQuoteLikeTokenAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.VariableRef <em>Variable Ref</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.CommentToken <em>Comment Token</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.VariableRef
+   * @see org.epic.perl.perl.CommentToken
    * @generated
    */
-  public Adapter createVariableRefAdapter()
+  public Adapter createCommentTokenAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.Or <em>Or</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PodToken <em>Pod Token</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.Or
+   * @see org.epic.perl.perl.PodToken
    * @generated
    */
-  public Adapter createOrAdapter()
+  public Adapter createPodTokenAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.And <em>And</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.NumberToken <em>Number Token</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.And
+   * @see org.epic.perl.perl.NumberToken
    * @generated
    */
-  public Adapter createAndAdapter()
+  public Adapter createNumberTokenAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.Equality <em>Equality</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.WordToken <em>Word Token</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.Equality
+   * @see org.epic.perl.perl.WordToken
    * @generated
    */
-  public Adapter createEqualityAdapter()
+  public Adapter createWordTokenAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.Comparison <em>Comparison</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.OperatorToken <em>Operator Token</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.Comparison
+   * @see org.epic.perl.perl.OperatorToken
    * @generated
    */
-  public Adapter createComparisonAdapter()
+  public Adapter createOperatorTokenAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.Plus <em>Plus</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.QuoteToken <em>Quote Token</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.Plus
+   * @see org.epic.perl.perl.QuoteToken
    * @generated
    */
-  public Adapter createPlusAdapter()
+  public Adapter createQuoteTokenAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.Minus <em>Minus</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.DataToken <em>Data Token</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.Minus
+   * @see org.epic.perl.perl.DataToken
    * @generated
    */
-  public Adapter createMinusAdapter()
+  public Adapter createDataTokenAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.MulOrDiv <em>Mul Or Div</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.EndToken <em>End Token</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.MulOrDiv
+   * @see org.epic.perl.perl.EndToken
    * @generated
    */
-  public Adapter createMulOrDivAdapter()
+  public Adapter createEndTokenAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.Not <em>Not</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.BacktickQuoteLikeToken <em>Backtick Quote Like Token</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.Not
+   * @see org.epic.perl.perl.BacktickQuoteLikeToken
    * @generated
    */
-  public Adapter createNotAdapter()
+  public Adapter createBacktickQuoteLikeTokenAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.NumberLiteral <em>Number Literal</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.WordsQuoteLikeToken <em>Words Quote Like Token</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.NumberLiteral
+   * @see org.epic.perl.perl.WordsQuoteLikeToken
    * @generated
    */
-  public Adapter createNumberLiteralAdapter()
+  public Adapter createWordsQuoteLikeTokenAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.NullLiteral <em>Null Literal</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.CommandQuoteLikeToken <em>Command Quote Like Token</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.NullLiteral
+   * @see org.epic.perl.perl.CommandQuoteLikeToken
    * @generated
    */
-  public Adapter createNullLiteralAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.StringLiteral <em>String Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.epic.perl.perl.StringLiteral
-   * @generated
-   */
-  public Adapter createStringLiteralAdapter()
+  public Adapter createCommandQuoteLikeTokenAdapter()
   {
     return null;
   }

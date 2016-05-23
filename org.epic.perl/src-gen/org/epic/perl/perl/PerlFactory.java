@@ -42,130 +42,121 @@ public interface PerlFactory extends EFactory
   AbstractElement createAbstractElement();
 
   /**
-   * Returns a new object of class '<em>Assignment</em>'.
+   * Returns a new object of class '<em>Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Assignment</em>'.
+   * @return a new object of class '<em>Token</em>'.
    * @generated
    */
-  Assignment createAssignment();
+  Token createToken();
 
   /**
-   * Returns a new object of class '<em>Expression</em>'.
+   * Returns a new object of class '<em>Quote Like Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expression</em>'.
+   * @return a new object of class '<em>Quote Like Token</em>'.
    * @generated
    */
-  Expression createExpression();
+  QuoteLikeToken createQuoteLikeToken();
 
   /**
-   * Returns a new object of class '<em>Variable Ref</em>'.
+   * Returns a new object of class '<em>Comment Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable Ref</em>'.
+   * @return a new object of class '<em>Comment Token</em>'.
    * @generated
    */
-  VariableRef createVariableRef();
+  CommentToken createCommentToken();
 
   /**
-   * Returns a new object of class '<em>Or</em>'.
+   * Returns a new object of class '<em>Pod Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Or</em>'.
+   * @return a new object of class '<em>Pod Token</em>'.
    * @generated
    */
-  Or createOr();
+  PodToken createPodToken();
 
   /**
-   * Returns a new object of class '<em>And</em>'.
+   * Returns a new object of class '<em>Number Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>And</em>'.
+   * @return a new object of class '<em>Number Token</em>'.
    * @generated
    */
-  And createAnd();
+  NumberToken createNumberToken();
 
   /**
-   * Returns a new object of class '<em>Equality</em>'.
+   * Returns a new object of class '<em>Word Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Equality</em>'.
+   * @return a new object of class '<em>Word Token</em>'.
    * @generated
    */
-  Equality createEquality();
+  WordToken createWordToken();
 
   /**
-   * Returns a new object of class '<em>Comparison</em>'.
+   * Returns a new object of class '<em>Operator Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Comparison</em>'.
+   * @return a new object of class '<em>Operator Token</em>'.
    * @generated
    */
-  Comparison createComparison();
+  OperatorToken createOperatorToken();
 
   /**
-   * Returns a new object of class '<em>Plus</em>'.
+   * Returns a new object of class '<em>Quote Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Plus</em>'.
+   * @return a new object of class '<em>Quote Token</em>'.
    * @generated
    */
-  Plus createPlus();
+  QuoteToken createQuoteToken();
 
   /**
-   * Returns a new object of class '<em>Minus</em>'.
+   * Returns a new object of class '<em>Data Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Minus</em>'.
+   * @return a new object of class '<em>Data Token</em>'.
    * @generated
    */
-  Minus createMinus();
+  DataToken createDataToken();
 
   /**
-   * Returns a new object of class '<em>Mul Or Div</em>'.
+   * Returns a new object of class '<em>End Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mul Or Div</em>'.
+   * @return a new object of class '<em>End Token</em>'.
    * @generated
    */
-  MulOrDiv createMulOrDiv();
+  EndToken createEndToken();
 
   /**
-   * Returns a new object of class '<em>Not</em>'.
+   * Returns a new object of class '<em>Backtick Quote Like Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Not</em>'.
+   * @return a new object of class '<em>Backtick Quote Like Token</em>'.
    * @generated
    */
-  Not createNot();
+  BacktickQuoteLikeToken createBacktickQuoteLikeToken();
 
   /**
-   * Returns a new object of class '<em>Number Literal</em>'.
+   * Returns a new object of class '<em>Words Quote Like Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Number Literal</em>'.
+   * @return a new object of class '<em>Words Quote Like Token</em>'.
    * @generated
    */
-  NumberLiteral createNumberLiteral();
+  WordsQuoteLikeToken createWordsQuoteLikeToken();
 
   /**
-   * Returns a new object of class '<em>Null Literal</em>'.
+   * Returns a new object of class '<em>Command Quote Like Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Null Literal</em>'.
+   * @return a new object of class '<em>Command Quote Like Token</em>'.
    * @generated
    */
-  NullLiteral createNullLiteral();
-
-  /**
-   * Returns a new object of class '<em>String Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>String Literal</em>'.
-   * @generated
-   */
-  StringLiteral createStringLiteral();
+  CommandQuoteLikeToken createCommandQuoteLikeToken();
 
   /**
    * Returns the package supported by this factory.

@@ -10,57 +10,20 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//PerlModel/elements"/>
     </genClasses>
     <genClasses ecoreClass="Perl.ecore#//AbstractElement"/>
-    <genClasses ecoreClass="Perl.ecore#//Assignment">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//Assignment/variable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//Assignment/op"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//Assignment/expression"/>
+    <genClasses ecoreClass="Perl.ecore#//Token">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//Token/content"/>
     </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//Expression"/>
-    <genClasses ecoreClass="Perl.ecore#//VariableRef">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//VariableRef/name"/>
-    </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//Or">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//Or/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//Or/op"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//Or/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//And">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//And/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//And/op"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//And/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//Equality">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//Equality/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//Equality/op"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//Equality/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//Comparison">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//Comparison/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//Comparison/op"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//Comparison/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//Plus">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//Plus/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//Plus/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//Minus">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//Minus/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//Minus/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//MulOrDiv">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//MulOrDiv/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//MulOrDiv/op"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//MulOrDiv/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//Not">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//Not/expression"/>
-    </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//NumberLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//NumberLiteral/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//NullLiteral"/>
-    <genClasses ecoreClass="Perl.ecore#//StringLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//StringLiteral/value"/>
-    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//QuoteLikeToken"/>
+    <genClasses ecoreClass="Perl.ecore#//CommentToken"/>
+    <genClasses ecoreClass="Perl.ecore#//PodToken"/>
+    <genClasses ecoreClass="Perl.ecore#//NumberToken"/>
+    <genClasses ecoreClass="Perl.ecore#//WordToken"/>
+    <genClasses ecoreClass="Perl.ecore#//OperatorToken"/>
+    <genClasses ecoreClass="Perl.ecore#//QuoteToken"/>
+    <genClasses ecoreClass="Perl.ecore#//DataToken"/>
+    <genClasses ecoreClass="Perl.ecore#//EndToken"/>
+    <genClasses ecoreClass="Perl.ecore#//BacktickQuoteLikeToken"/>
+    <genClasses ecoreClass="Perl.ecore#//WordsQuoteLikeToken"/>
+    <genClasses ecoreClass="Perl.ecore#//CommandQuoteLikeToken"/>
   </genPackages>
 </genmodel:GenModel>

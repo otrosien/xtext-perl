@@ -39,681 +39,339 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class AbstractElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.AbstractElement");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cAssignmentParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cTokenParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//AbstractElement:
-		//	Assignment | Expression;
+		//	Token;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Assignment | Expression
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//Assignment
-		public RuleCall getAssignmentParserRuleCall_0() { return cAssignmentParserRuleCall_0; }
-		
-		//Expression
-		public RuleCall getExpressionParserRuleCall_1() { return cExpressionParserRuleCall_1; }
+		////	Node 
+		////	| 
+		//Token
+		public RuleCall getTokenParserRuleCall() { return cTokenParserRuleCall; }
 	}
-	public class AssignmentElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Assignment");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Keyword cMyKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
-		private final Keyword cOurKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
-		private final Keyword cLocalKeyword_0_2 = (Keyword)cAlternatives_0.eContents().get(2);
-		private final Assignment cVariableAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cVariableIDTerminalRuleCall_1_0 = (RuleCall)cVariableAssignment_1.eContents().get(0);
-		private final Assignment cOpAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final Alternatives cOpAlternatives_2_0 = (Alternatives)cOpAssignment_2.eContents().get(0);
-		private final RuleCall cOpOpSingleAssignParserRuleCall_2_0_0 = (RuleCall)cOpAlternatives_2_0.eContents().get(0);
-		private final RuleCall cOpOpMultiAssignParserRuleCall_2_0_1 = (RuleCall)cOpAlternatives_2_0.eContents().get(1);
-		private final Assignment cExpressionAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cExpressionExpressionParserRuleCall_3_0 = (RuleCall)cExpressionAssignment_3.eContents().get(0);
-		
-		//Assignment:
-		//	('my' | 'our' | 'local')? variable=ID op=(OpSingleAssign | OpMultiAssign) expression=Expression;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//('my' | 'our' | 'local')? variable=ID op=(OpSingleAssign | OpMultiAssign) expression=Expression
-		public Group getGroup() { return cGroup; }
-		
-		//('my' | 'our' | 'local')?
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
-		
-		//'my'
-		public Keyword getMyKeyword_0_0() { return cMyKeyword_0_0; }
-		
-		//'our'
-		public Keyword getOurKeyword_0_1() { return cOurKeyword_0_1; }
-		
-		//'local'
-		public Keyword getLocalKeyword_0_2() { return cLocalKeyword_0_2; }
-		
-		//variable=ID
-		public Assignment getVariableAssignment_1() { return cVariableAssignment_1; }
-		
-		//ID
-		public RuleCall getVariableIDTerminalRuleCall_1_0() { return cVariableIDTerminalRuleCall_1_0; }
-		
-		//op=(OpSingleAssign | OpMultiAssign)
-		public Assignment getOpAssignment_2() { return cOpAssignment_2; }
-		
-		//(OpSingleAssign | OpMultiAssign)
-		public Alternatives getOpAlternatives_2_0() { return cOpAlternatives_2_0; }
-		
-		//OpSingleAssign
-		public RuleCall getOpOpSingleAssignParserRuleCall_2_0_0() { return cOpOpSingleAssignParserRuleCall_2_0_0; }
-		
-		//OpMultiAssign
-		public RuleCall getOpOpMultiAssignParserRuleCall_2_0_1() { return cOpOpMultiAssignParserRuleCall_2_0_1; }
-		
-		//expression=Expression
-		public Assignment getExpressionAssignment_3() { return cExpressionAssignment_3; }
-		
-		//Expression
-		public RuleCall getExpressionExpressionParserRuleCall_3_0() { return cExpressionExpressionParserRuleCall_3_0; }
-	}
-	public class OpSingleAssignElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpSingleAssign");
-		private final Keyword cEqualsSignKeyword = (Keyword)rule.eContents().get(1);
-		
-		//OpSingleAssign:
-		//	'=';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword() { return cEqualsSignKeyword; }
-	}
-	public class OpMultiAssignElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpMultiAssign");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cPlusSignEqualsSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cHyphenMinusEqualsSignKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cAsteriskEqualsSignKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
-		private final Keyword cSolidusEqualsSignKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
-		private final Keyword cPercentSignEqualsSignKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
-		private final Keyword cAsteriskAsteriskEqualsSignKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
-		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
-		private final Keyword cLessThanSignKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Keyword cLessThanSignKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Keyword cEqualsSignKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
-		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
-		private final Keyword cGreaterThanSignKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Keyword cGreaterThanSignKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
-		private final Keyword cGreaterThanSignEqualsSignKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
-		
-		//OpMultiAssign:
-		//	'+=' | '-=' | '*=' | '/=' | '%=' | '**=' |
-		//	'<' '<' '=' |
-		//	'>' '>'? '>=';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'+=' | '-=' | '*=' | '/=' | '%=' | '**=' | '<' '<' '=' | '>' '>'? '>='
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'+='
-		public Keyword getPlusSignEqualsSignKeyword_0() { return cPlusSignEqualsSignKeyword_0; }
-		
-		//'-='
-		public Keyword getHyphenMinusEqualsSignKeyword_1() { return cHyphenMinusEqualsSignKeyword_1; }
-		
-		//'*='
-		public Keyword getAsteriskEqualsSignKeyword_2() { return cAsteriskEqualsSignKeyword_2; }
-		
-		//'/='
-		public Keyword getSolidusEqualsSignKeyword_3() { return cSolidusEqualsSignKeyword_3; }
-		
-		//'%='
-		public Keyword getPercentSignEqualsSignKeyword_4() { return cPercentSignEqualsSignKeyword_4; }
-		
-		//'**='
-		public Keyword getAsteriskAsteriskEqualsSignKeyword_5() { return cAsteriskAsteriskEqualsSignKeyword_5; }
-		
-		//'<' '<' '='
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//'<'
-		public Keyword getLessThanSignKeyword_6_0() { return cLessThanSignKeyword_6_0; }
-		
-		//'<'
-		public Keyword getLessThanSignKeyword_6_1() { return cLessThanSignKeyword_6_1; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_6_2() { return cEqualsSignKeyword_6_2; }
-		
-		//'>' '>'? '>='
-		public Group getGroup_7() { return cGroup_7; }
-		
-		//'>'
-		public Keyword getGreaterThanSignKeyword_7_0() { return cGreaterThanSignKeyword_7_0; }
-		
-		//'>'?
-		public Keyword getGreaterThanSignKeyword_7_1() { return cGreaterThanSignKeyword_7_1; }
-		
-		//'>='
-		public Keyword getGreaterThanSignEqualsSignKeyword_7_2() { return cGreaterThanSignEqualsSignKeyword_7_2; }
-	}
-	public class ExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Expression");
-		private final RuleCall cOrParserRuleCall = (RuleCall)rule.eContents().get(1);
-		
-		//Expression:
-		//	Or;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//Or
-		public RuleCall getOrParserRuleCall() { return cOrParserRuleCall; }
-	}
-	public class OrElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Or");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cAndParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cOrLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Assignment cOpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cOpOpOrParserRuleCall_1_1_0 = (RuleCall)cOpAssignment_1_1.eContents().get(0);
-		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightAndParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
-		
-		//Or Expression:
-		//	And ({Or.left=current} op=OpOr right=And)*
-		@Override public ParserRule getRule() { return rule; }
-		
-		//And ({Or.left=current} op=OpOr right=And)*
-		public Group getGroup() { return cGroup; }
-		
-		//And
-		public RuleCall getAndParserRuleCall_0() { return cAndParserRuleCall_0; }
-		
-		//({Or.left=current} op=OpOr right=And)*
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//{Or.left=current}
-		public Action getOrLeftAction_1_0() { return cOrLeftAction_1_0; }
-		
-		//op=OpOr
-		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
-		
-		//OpOr
-		public RuleCall getOpOpOrParserRuleCall_1_1_0() { return cOpOpOrParserRuleCall_1_1_0; }
-		
-		//right=And
-		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
-		
-		//And
-		public RuleCall getRightAndParserRuleCall_1_2_0() { return cRightAndParserRuleCall_1_2_0; }
-	}
-	public class OpOrElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpOr");
-		private final Keyword cVerticalLineVerticalLineKeyword = (Keyword)rule.eContents().get(1);
-		
-		//OpOr:
-		//	'||';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'||'
-		public Keyword getVerticalLineVerticalLineKeyword() { return cVerticalLineVerticalLineKeyword; }
-	}
-	public class AndElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.And");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cEqualityParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cAndLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Assignment cOpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cOpOpAndParserRuleCall_1_1_0 = (RuleCall)cOpAssignment_1_1.eContents().get(0);
-		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightEqualityParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
-		
-		//And Expression:
-		//	Equality ({And.left=current} op=OpAnd right=Equality)*
-		@Override public ParserRule getRule() { return rule; }
-		
-		//Equality ({And.left=current} op=OpAnd right=Equality)*
-		public Group getGroup() { return cGroup; }
-		
-		//Equality
-		public RuleCall getEqualityParserRuleCall_0() { return cEqualityParserRuleCall_0; }
-		
-		//({And.left=current} op=OpAnd right=Equality)*
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//{And.left=current}
-		public Action getAndLeftAction_1_0() { return cAndLeftAction_1_0; }
-		
-		//op=OpAnd
-		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
-		
-		//OpAnd
-		public RuleCall getOpOpAndParserRuleCall_1_1_0() { return cOpOpAndParserRuleCall_1_1_0; }
-		
-		//right=Equality
-		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
-		
-		//Equality
-		public RuleCall getRightEqualityParserRuleCall_1_2_0() { return cRightEqualityParserRuleCall_1_2_0; }
-	}
-	public class OpAndElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpAnd");
-		private final Keyword cAmpersandAmpersandKeyword = (Keyword)rule.eContents().get(1);
-		
-		//OpAnd:
-		//	'&&';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'&&'
-		public Keyword getAmpersandAmpersandKeyword() { return cAmpersandAmpersandKeyword; }
-	}
-	public class EqualityElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Equality");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cComparisonParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cEqualityLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Assignment cOpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cOpOpEqualityParserRuleCall_1_1_0 = (RuleCall)cOpAssignment_1_1.eContents().get(0);
-		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightComparisonParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
-		
-		//Equality Expression:
-		//	Comparison ({Equality.left=current} op=OpEquality
-		//	right=Comparison)*
-		@Override public ParserRule getRule() { return rule; }
-		
-		//Comparison ({Equality.left=current} op=OpEquality right=Comparison)*
-		public Group getGroup() { return cGroup; }
-		
-		//Comparison
-		public RuleCall getComparisonParserRuleCall_0() { return cComparisonParserRuleCall_0; }
-		
-		//({Equality.left=current} op=OpEquality right=Comparison)*
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//{Equality.left=current}
-		public Action getEqualityLeftAction_1_0() { return cEqualityLeftAction_1_0; }
-		
-		//op=OpEquality
-		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
-		
-		//OpEquality
-		public RuleCall getOpOpEqualityParserRuleCall_1_1_0() { return cOpOpEqualityParserRuleCall_1_1_0; }
-		
-		//right=Comparison
-		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
-		
-		//Comparison
-		public RuleCall getRightComparisonParserRuleCall_1_2_0() { return cRightComparisonParserRuleCall_1_2_0; }
-	}
-	public class OpEqualityElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpEquality");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cEqualsSignEqualsSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cExclamationMarkEqualsSignKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cEqKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
-		private final Keyword cNeKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
-		
-		//OpEquality:
-		//	'==' | '!=' | 'eq' | 'ne';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'==' | '!=' | 'eq' | 'ne'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'=='
-		public Keyword getEqualsSignEqualsSignKeyword_0() { return cEqualsSignEqualsSignKeyword_0; }
-		
-		//'!='
-		public Keyword getExclamationMarkEqualsSignKeyword_1() { return cExclamationMarkEqualsSignKeyword_1; }
-		
-		//'eq'
-		public Keyword getEqKeyword_2() { return cEqKeyword_2; }
-		
-		//'ne'
-		public Keyword getNeKeyword_3() { return cNeKeyword_3; }
-	}
-	public class ComparisonElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Comparison");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cPlusOrMinusParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cComparisonLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Assignment cOpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final Alternatives cOpAlternatives_1_1_0 = (Alternatives)cOpAssignment_1_1.eContents().get(0);
-		private final Keyword cOpGreaterThanSignEqualsSignKeyword_1_1_0_0 = (Keyword)cOpAlternatives_1_1_0.eContents().get(0);
-		private final Keyword cOpLessThanSignEqualsSignKeyword_1_1_0_1 = (Keyword)cOpAlternatives_1_1_0.eContents().get(1);
-		private final Keyword cOpGreaterThanSignKeyword_1_1_0_2 = (Keyword)cOpAlternatives_1_1_0.eContents().get(2);
-		private final Keyword cOpLessThanSignKeyword_1_1_0_3 = (Keyword)cOpAlternatives_1_1_0.eContents().get(3);
-		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightPlusOrMinusParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
-		
-		//Comparison Expression:
-		//	PlusOrMinus ({Comparison.left=current} op=(">=" | "<=" | ">" | "<") right=PlusOrMinus)*
-		@Override public ParserRule getRule() { return rule; }
-		
-		//PlusOrMinus ({Comparison.left=current} op=(">=" | "<=" | ">" | "<") right=PlusOrMinus)*
-		public Group getGroup() { return cGroup; }
-		
-		//PlusOrMinus
-		public RuleCall getPlusOrMinusParserRuleCall_0() { return cPlusOrMinusParserRuleCall_0; }
-		
-		//({Comparison.left=current} op=(">=" | "<=" | ">" | "<") right=PlusOrMinus)*
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//{Comparison.left=current}
-		public Action getComparisonLeftAction_1_0() { return cComparisonLeftAction_1_0; }
-		
-		//op=(">=" | "<=" | ">" | "<")
-		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
-		
-		//(">=" | "<=" | ">" | "<")
-		public Alternatives getOpAlternatives_1_1_0() { return cOpAlternatives_1_1_0; }
-		
-		//">="
-		public Keyword getOpGreaterThanSignEqualsSignKeyword_1_1_0_0() { return cOpGreaterThanSignEqualsSignKeyword_1_1_0_0; }
-		
-		//"<="
-		public Keyword getOpLessThanSignEqualsSignKeyword_1_1_0_1() { return cOpLessThanSignEqualsSignKeyword_1_1_0_1; }
-		
-		//">"
-		public Keyword getOpGreaterThanSignKeyword_1_1_0_2() { return cOpGreaterThanSignKeyword_1_1_0_2; }
-		
-		//"<"
-		public Keyword getOpLessThanSignKeyword_1_1_0_3() { return cOpLessThanSignKeyword_1_1_0_3; }
-		
-		//right=PlusOrMinus
-		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
-		
-		//PlusOrMinus
-		public RuleCall getRightPlusOrMinusParserRuleCall_1_2_0() { return cRightPlusOrMinusParserRuleCall_1_2_0; }
-	}
-	public class PlusOrMinusElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PlusOrMinus");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cMulOrDivParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
-		private final Group cGroup_1_0_0 = (Group)cAlternatives_1_0.eContents().get(0);
-		private final Action cPlusLeftAction_1_0_0_0 = (Action)cGroup_1_0_0.eContents().get(0);
-		private final Keyword cPlusSignKeyword_1_0_0_1 = (Keyword)cGroup_1_0_0.eContents().get(1);
-		private final Group cGroup_1_0_1 = (Group)cAlternatives_1_0.eContents().get(1);
-		private final Action cMinusLeftAction_1_0_1_0 = (Action)cGroup_1_0_1.eContents().get(0);
-		private final Keyword cHyphenMinusKeyword_1_0_1_1 = (Keyword)cGroup_1_0_1.eContents().get(1);
-		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cRightMulOrDivParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
-		
-		//PlusOrMinus Expression:
-		//	MulOrDiv (({Plus.left=current} '+' | {Minus.left=current} '-') right=MulOrDiv)*
-		@Override public ParserRule getRule() { return rule; }
-		
-		//MulOrDiv (({Plus.left=current} '+' | {Minus.left=current} '-') right=MulOrDiv)*
-		public Group getGroup() { return cGroup; }
-		
-		//MulOrDiv
-		public RuleCall getMulOrDivParserRuleCall_0() { return cMulOrDivParserRuleCall_0; }
-		
-		//(({Plus.left=current} '+' | {Minus.left=current} '-') right=MulOrDiv)*
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//({Plus.left=current} '+' | {Minus.left=current} '-')
-		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
-		
-		//{Plus.left=current} '+'
-		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
-		
-		//{Plus.left=current}
-		public Action getPlusLeftAction_1_0_0_0() { return cPlusLeftAction_1_0_0_0; }
-		
-		//'+'
-		public Keyword getPlusSignKeyword_1_0_0_1() { return cPlusSignKeyword_1_0_0_1; }
-		
-		//{Minus.left=current} '-'
-		public Group getGroup_1_0_1() { return cGroup_1_0_1; }
-		
-		//{Minus.left=current}
-		public Action getMinusLeftAction_1_0_1_0() { return cMinusLeftAction_1_0_1_0; }
-		
-		//'-'
-		public Keyword getHyphenMinusKeyword_1_0_1_1() { return cHyphenMinusKeyword_1_0_1_1; }
-		
-		//right=MulOrDiv
-		public Assignment getRightAssignment_1_1() { return cRightAssignment_1_1; }
-		
-		//MulOrDiv
-		public RuleCall getRightMulOrDivParserRuleCall_1_1_0() { return cRightMulOrDivParserRuleCall_1_1_0; }
-	}
-	public class MulOrDivElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.MulOrDiv");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cPrimaryParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cMulOrDivLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Assignment cOpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cOpOpMulOrDivParserRuleCall_1_1_0 = (RuleCall)cOpAssignment_1_1.eContents().get(0);
-		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightPrimaryParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
-		
-		//MulOrDiv Expression:
-		//	Primary ({MulOrDiv.left=current} op=OpMulOrDiv
-		//	right=Primary)*
-		@Override public ParserRule getRule() { return rule; }
-		
-		//Primary ({MulOrDiv.left=current} op=OpMulOrDiv right=Primary)*
-		public Group getGroup() { return cGroup; }
-		
-		//Primary
-		public RuleCall getPrimaryParserRuleCall_0() { return cPrimaryParserRuleCall_0; }
-		
-		//({MulOrDiv.left=current} op=OpMulOrDiv right=Primary)*
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//{MulOrDiv.left=current}
-		public Action getMulOrDivLeftAction_1_0() { return cMulOrDivLeftAction_1_0; }
-		
-		//op=OpMulOrDiv
-		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
-		
-		//OpMulOrDiv
-		public RuleCall getOpOpMulOrDivParserRuleCall_1_1_0() { return cOpOpMulOrDivParserRuleCall_1_1_0; }
-		
-		//right=Primary
-		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
-		
-		//Primary
-		public RuleCall getRightPrimaryParserRuleCall_1_2_0() { return cRightPrimaryParserRuleCall_1_2_0; }
-	}
-	public class OpMulOrDivElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.OpMulOrDiv");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cAsteriskKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cAsteriskAsteriskKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cSolidusKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
-		private final Keyword cPercentSignKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
-		
-		//OpMulOrDiv:
-		//	'*' | '**' | '/' | '%';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'*' | '**' | '/' | '%'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'*'
-		public Keyword getAsteriskKeyword_0() { return cAsteriskKeyword_0; }
-		
-		//'**'
-		public Keyword getAsteriskAsteriskKeyword_1() { return cAsteriskAsteriskKeyword_1; }
-		
-		//'/'
-		public Keyword getSolidusKeyword_2() { return cSolidusKeyword_2; }
-		
-		//'%'
-		public Keyword getPercentSignKeyword_3() { return cPercentSignKeyword_3; }
-	}
-	public class PrimaryElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Primary");
+	public class TokenElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Token");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final RuleCall cExpressionParserRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Action cCommentTokenAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cContentAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cContentSL_COMMENTTerminalRuleCall_0_1_0 = (RuleCall)cContentAssignment_0_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Action cNotAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Keyword cExclamationMarkKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cExpressionAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cExpressionPrimaryParserRuleCall_1_2_0 = (RuleCall)cExpressionAssignment_1_2.eContents().get(0);
-		private final RuleCall cAtomicParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final Action cPodTokenAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Assignment cContentAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cContentPODTerminalRuleCall_1_1_0 = (RuleCall)cContentAssignment_1_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cNumberTokenAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Assignment cContentAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cContentNumberParserRuleCall_2_1_0 = (RuleCall)cContentAssignment_2_1.eContents().get(0);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Action cWordTokenAction_3_0 = (Action)cGroup_3.eContents().get(0);
+		private final Assignment cContentAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cContentWordParserRuleCall_3_1_0 = (RuleCall)cContentAssignment_3_1.eContents().get(0);
+		private final RuleCall cQuoteLikeTokenParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
+		private final Action cOperatorTokenAction_5_0 = (Action)cGroup_5.eContents().get(0);
+		private final Assignment cContentAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cContentFileTestOperatorParserRuleCall_5_1_0 = (RuleCall)cContentAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
+		private final Action cOperatorTokenAction_6_0 = (Action)cGroup_6.eContents().get(0);
+		private final Assignment cContentAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cContentOperatorParserRuleCall_6_1_0 = (RuleCall)cContentAssignment_6_1.eContents().get(0);
+		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
+		private final Action cQuoteTokenAction_7_0 = (Action)cGroup_7.eContents().get(0);
+		private final Assignment cContentAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cContentSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cContentAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cAlternatives.eContents().get(8);
+		private final Action cQuoteTokenAction_8_0 = (Action)cGroup_8.eContents().get(0);
+		private final Assignment cContentAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cContentINTERPOLATETerminalRuleCall_8_1_0 = (RuleCall)cContentAssignment_8_1.eContents().get(0);
+		private final Group cGroup_9 = (Group)cAlternatives.eContents().get(9);
+		private final Action cQuoteTokenAction_9_0 = (Action)cGroup_9.eContents().get(0);
+		private final Assignment cContentAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cContentLITERALTerminalRuleCall_9_1_0 = (RuleCall)cContentAssignment_9_1.eContents().get(0);
+		private final Group cGroup_10 = (Group)cAlternatives.eContents().get(10);
+		private final Action cDataTokenAction_10_0 = (Action)cGroup_10.eContents().get(0);
+		private final Assignment cContentAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cContentDATATerminalRuleCall_10_1_0 = (RuleCall)cContentAssignment_10_1.eContents().get(0);
+		private final Group cGroup_11 = (Group)cAlternatives.eContents().get(11);
+		private final Action cEndTokenAction_11_0 = (Action)cGroup_11.eContents().get(0);
+		private final Assignment cContentAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
+		private final RuleCall cContentENDTerminalRuleCall_11_1_0 = (RuleCall)cContentAssignment_11_1.eContents().get(0);
 		
-		////
-		////Unary returns Expression:
-		////	op=OpUnary {Unary.right=current}
+		////Node:
+		////	StatementNode
+		////	| StructureNode
 		////;
-		////
-		////OpUnary:
-		////	"!" | "-" | "+";
-		//Primary Expression:
-		//	'(' Expression ')' | {Not} "!" expression=Primary | Atomic
+		////StatementNode:
+		////	PackageStatement
+		////	| IncludeStatement
+		////	| SubStatement
+		////	| CompoundStatement
+		////	| BreakStatement
+		////	| GivenStatement
+		////	| WhenStatement
+		////	| DataStatement
+		////	| EndStatement
+		////	| ExpressionStatement
+		////	| NullStatement
+		////	| UnmatchedBraceStatement
+		////	| UnknownStatement
+		////;
+		////StructureNode:
+		////	BlockStructure
+		////    | SubscriptStructure
+		////    | ConstructorStructure
+		////    | ConditionStructure
+		////    | ListStructure
+		////    | ForStructure
+		////    | GivenStructure
+		////    | WhenStructure
+		////    | UnknownStructure
+		////;
+		////ExpressionStatement:
+		////	VariableExpression
+		////;
+		//Token:
+		//	{CommentToken} content=SL_COMMENT
+		//	| {PodToken} content=POD
+		//	| {NumberToken} content=Number
+		//	| {WordToken} content=Word
+		//	//	| DashedWord 
+		//	//	| Symbol 
+		//	//	| ArrayIndex 
+		//	| QuoteLikeToken
+		//	| {OperatorToken} content=FileTestOperator
+		//	| {OperatorToken} content=Operator
+		//	| {QuoteToken} content=STRING
+		//	| {QuoteToken} content=INTERPOLATE
+		//	| {QuoteToken} content=LITERAL
+		//	//	| Regexp 
+		//	//	| HereDoc 
+		//	//	| Cast 
+		//	//	| Structure 
+		//	//	| Label
+		//	//	| Separator
+		//	| {DataToken} content=DATA
+		//	| {EndToken} content=END
+		//	//	| Prototype
+		//	//	| Attribute 
+		//	//	| UnknownToken
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' Expression ')' | {Not} "!" expression=Primary | Atomic
+		//{CommentToken} content=SL_COMMENT | {PodToken} content=POD | {NumberToken} content=Number | {WordToken} content=Word //	| DashedWord 
+		////	| Symbol 
+		////	| ArrayIndex 
+		//| QuoteLikeToken | {OperatorToken} content=FileTestOperator | {OperatorToken} content=Operator | {QuoteToken}
+		//content=STRING | {QuoteToken} content=INTERPOLATE | {QuoteToken} content=LITERAL //	| Regexp 
+		////	| HereDoc 
+		////	| Cast 
+		////	| Structure 
+		////	| Label
+		////	| Separator
+		//| {DataToken} content=DATA | {EndToken} content=END
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'(' Expression ')'
+		//{CommentToken} content=SL_COMMENT
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_0_0() { return cLeftParenthesisKeyword_0_0; }
+		//{CommentToken}
+		public Action getCommentTokenAction_0_0() { return cCommentTokenAction_0_0; }
 		
-		//Expression
-		public RuleCall getExpressionParserRuleCall_0_1() { return cExpressionParserRuleCall_0_1; }
+		//content=SL_COMMENT
+		public Assignment getContentAssignment_0_1() { return cContentAssignment_0_1; }
 		
-		//')'
-		public Keyword getRightParenthesisKeyword_0_2() { return cRightParenthesisKeyword_0_2; }
+		//SL_COMMENT
+		public RuleCall getContentSL_COMMENTTerminalRuleCall_0_1_0() { return cContentSL_COMMENTTerminalRuleCall_0_1_0; }
 		
-		//{Not} "!" expression=Primary
+		//{PodToken} content=POD
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{Not}
-		public Action getNotAction_1_0() { return cNotAction_1_0; }
+		//{PodToken}
+		public Action getPodTokenAction_1_0() { return cPodTokenAction_1_0; }
 		
-		//"!"
-		public Keyword getExclamationMarkKeyword_1_1() { return cExclamationMarkKeyword_1_1; }
+		//content=POD
+		public Assignment getContentAssignment_1_1() { return cContentAssignment_1_1; }
 		
-		//expression=Primary
-		public Assignment getExpressionAssignment_1_2() { return cExpressionAssignment_1_2; }
+		//POD
+		public RuleCall getContentPODTerminalRuleCall_1_1_0() { return cContentPODTerminalRuleCall_1_1_0; }
 		
-		//Primary
-		public RuleCall getExpressionPrimaryParserRuleCall_1_2_0() { return cExpressionPrimaryParserRuleCall_1_2_0; }
+		//{NumberToken} content=Number
+		public Group getGroup_2() { return cGroup_2; }
 		
-		//Atomic
-		public RuleCall getAtomicParserRuleCall_2() { return cAtomicParserRuleCall_2; }
-	}
-	public class AtomicElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Atomic");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cNumberLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cNullLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cStringLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cVariableRefParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		//{NumberToken}
+		public Action getNumberTokenAction_2_0() { return cNumberTokenAction_2_0; }
 		
-		//Atomic Expression:
-		//	NumberLiteral | NullLiteral | StringLiteral | VariableRef
-		@Override public ParserRule getRule() { return rule; }
-		
-		//NumberLiteral | NullLiteral | StringLiteral | VariableRef
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//NumberLiteral
-		public RuleCall getNumberLiteralParserRuleCall_0() { return cNumberLiteralParserRuleCall_0; }
-		
-		//NullLiteral
-		public RuleCall getNullLiteralParserRuleCall_1() { return cNullLiteralParserRuleCall_1; }
-		
-		//StringLiteral
-		public RuleCall getStringLiteralParserRuleCall_2() { return cStringLiteralParserRuleCall_2; }
-		
-		//VariableRef
-		public RuleCall getVariableRefParserRuleCall_3() { return cVariableRefParserRuleCall_3; }
-	}
-	public class VariableRefElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.VariableRef");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
-		
-		//VariableRef:
-		//	name=ID;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//name=ID
-		public Assignment getNameAssignment() { return cNameAssignment; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
-	}
-	public class NumberLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.NumberLiteral");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cNumberLiteralAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueNumberParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
-		
-		//NumberLiteral Expression:
-		//	{NumberLiteral} value=Number
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{NumberLiteral} value=Number
-		public Group getGroup() { return cGroup; }
-		
-		//{NumberLiteral}
-		public Action getNumberLiteralAction_0() { return cNumberLiteralAction_0; }
-		
-		//value=Number
-		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		//content=Number
+		public Assignment getContentAssignment_2_1() { return cContentAssignment_2_1; }
 		
 		//Number
-		public RuleCall getValueNumberParserRuleCall_1_0() { return cValueNumberParserRuleCall_1_0; }
-	}
-	public class NullLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.NullLiteral");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cNullLiteralAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cUndefKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		public RuleCall getContentNumberParserRuleCall_2_1_0() { return cContentNumberParserRuleCall_2_1_0; }
 		
-		//NullLiteral Expression:
-		//	{NullLiteral} 'undef'
-		@Override public ParserRule getRule() { return rule; }
+		//{WordToken} content=Word
+		public Group getGroup_3() { return cGroup_3; }
 		
-		//{NullLiteral} 'undef'
-		public Group getGroup() { return cGroup; }
+		//{WordToken}
+		public Action getWordTokenAction_3_0() { return cWordTokenAction_3_0; }
 		
-		//{NullLiteral}
-		public Action getNullLiteralAction_0() { return cNullLiteralAction_0; }
+		//content=Word
+		public Assignment getContentAssignment_3_1() { return cContentAssignment_3_1; }
 		
-		//'undef'
-		public Keyword getUndefKeyword_1() { return cUndefKeyword_1; }
-	}
-	public class StringLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.StringLiteral");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cStringLiteralAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		//Word
+		public RuleCall getContentWordParserRuleCall_3_1_0() { return cContentWordParserRuleCall_3_1_0; }
 		
-		//StringLiteral Expression:
-		//	{StringLiteral} value=STRING
-		@Override public ParserRule getRule() { return rule; }
+		//QuoteLikeToken
+		public RuleCall getQuoteLikeTokenParserRuleCall_4() { return cQuoteLikeTokenParserRuleCall_4; }
 		
-		//{StringLiteral} value=STRING
-		public Group getGroup() { return cGroup; }
+		//{OperatorToken} content=FileTestOperator
+		public Group getGroup_5() { return cGroup_5; }
 		
-		//{StringLiteral}
-		public Action getStringLiteralAction_0() { return cStringLiteralAction_0; }
+		//{OperatorToken}
+		public Action getOperatorTokenAction_5_0() { return cOperatorTokenAction_5_0; }
 		
-		//value=STRING
-		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		//content=FileTestOperator
+		public Assignment getContentAssignment_5_1() { return cContentAssignment_5_1; }
+		
+		//FileTestOperator
+		public RuleCall getContentFileTestOperatorParserRuleCall_5_1_0() { return cContentFileTestOperatorParserRuleCall_5_1_0; }
+		
+		//{OperatorToken} content=Operator
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//{OperatorToken}
+		public Action getOperatorTokenAction_6_0() { return cOperatorTokenAction_6_0; }
+		
+		//content=Operator
+		public Assignment getContentAssignment_6_1() { return cContentAssignment_6_1; }
+		
+		//Operator
+		public RuleCall getContentOperatorParserRuleCall_6_1_0() { return cContentOperatorParserRuleCall_6_1_0; }
+		
+		//{QuoteToken} content=STRING
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//{QuoteToken}
+		public Action getQuoteTokenAction_7_0() { return cQuoteTokenAction_7_0; }
+		
+		//content=STRING
+		public Assignment getContentAssignment_7_1() { return cContentAssignment_7_1; }
 		
 		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_1_0() { return cValueSTRINGTerminalRuleCall_1_0; }
+		public RuleCall getContentSTRINGTerminalRuleCall_7_1_0() { return cContentSTRINGTerminalRuleCall_7_1_0; }
+		
+		//{QuoteToken} content=INTERPOLATE
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//{QuoteToken}
+		public Action getQuoteTokenAction_8_0() { return cQuoteTokenAction_8_0; }
+		
+		//content=INTERPOLATE
+		public Assignment getContentAssignment_8_1() { return cContentAssignment_8_1; }
+		
+		//INTERPOLATE
+		public RuleCall getContentINTERPOLATETerminalRuleCall_8_1_0() { return cContentINTERPOLATETerminalRuleCall_8_1_0; }
+		
+		//{QuoteToken} content=LITERAL
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//{QuoteToken}
+		public Action getQuoteTokenAction_9_0() { return cQuoteTokenAction_9_0; }
+		
+		//content=LITERAL
+		public Assignment getContentAssignment_9_1() { return cContentAssignment_9_1; }
+		
+		//LITERAL
+		public RuleCall getContentLITERALTerminalRuleCall_9_1_0() { return cContentLITERALTerminalRuleCall_9_1_0; }
+		
+		//{DataToken} content=DATA
+		public Group getGroup_10() { return cGroup_10; }
+		
+		//{DataToken}
+		public Action getDataTokenAction_10_0() { return cDataTokenAction_10_0; }
+		
+		//content=DATA
+		public Assignment getContentAssignment_10_1() { return cContentAssignment_10_1; }
+		
+		//DATA
+		public RuleCall getContentDATATerminalRuleCall_10_1_0() { return cContentDATATerminalRuleCall_10_1_0; }
+		
+		//{EndToken} content=END
+		public Group getGroup_11() { return cGroup_11; }
+		
+		//{EndToken}
+		public Action getEndTokenAction_11_0() { return cEndTokenAction_11_0; }
+		
+		//content=END
+		public Assignment getContentAssignment_11_1() { return cContentAssignment_11_1; }
+		
+		//END
+		public RuleCall getContentENDTerminalRuleCall_11_1_0() { return cContentENDTerminalRuleCall_11_1_0; }
+	}
+	public class QuoteLikeTokenElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.QuoteLikeToken");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cBacktickQuoteLikeTokenAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cContentAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cContentBACKTICK_STRINGTerminalRuleCall_0_1_0 = (RuleCall)cContentAssignment_0_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Action cWordsQuoteLikeTokenAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Assignment cContentAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cContentWORDS_QUOTE_LIKETerminalRuleCall_1_1_0 = (RuleCall)cContentAssignment_1_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cCommandQuoteLikeTokenAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Assignment cContentAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cContentCOMMAND_QUOTE_LIKETerminalRuleCall_2_1_0 = (RuleCall)cContentAssignment_2_1.eContents().get(0);
+		
+		//QuoteLikeToken:
+		//	{BacktickQuoteLikeToken} content=BACKTICK_STRING
+		//	| {WordsQuoteLikeToken} content=WORDS_QUOTE_LIKE
+		//	| {CommandQuoteLikeToken} content=COMMAND_QUOTE_LIKE
+		//	//	| RegexpQuoteLike
+		//	//	| ReadLineQuoteLike
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{BacktickQuoteLikeToken} content=BACKTICK_STRING | {WordsQuoteLikeToken} content=WORDS_QUOTE_LIKE |
+		//{CommandQuoteLikeToken} content=COMMAND_QUOTE_LIKE
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//{BacktickQuoteLikeToken} content=BACKTICK_STRING
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//{BacktickQuoteLikeToken}
+		public Action getBacktickQuoteLikeTokenAction_0_0() { return cBacktickQuoteLikeTokenAction_0_0; }
+		
+		//content=BACKTICK_STRING
+		public Assignment getContentAssignment_0_1() { return cContentAssignment_0_1; }
+		
+		//BACKTICK_STRING
+		public RuleCall getContentBACKTICK_STRINGTerminalRuleCall_0_1_0() { return cContentBACKTICK_STRINGTerminalRuleCall_0_1_0; }
+		
+		//{WordsQuoteLikeToken} content=WORDS_QUOTE_LIKE
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//{WordsQuoteLikeToken}
+		public Action getWordsQuoteLikeTokenAction_1_0() { return cWordsQuoteLikeTokenAction_1_0; }
+		
+		//content=WORDS_QUOTE_LIKE
+		public Assignment getContentAssignment_1_1() { return cContentAssignment_1_1; }
+		
+		//WORDS_QUOTE_LIKE
+		public RuleCall getContentWORDS_QUOTE_LIKETerminalRuleCall_1_1_0() { return cContentWORDS_QUOTE_LIKETerminalRuleCall_1_1_0; }
+		
+		//{CommandQuoteLikeToken} content=COMMAND_QUOTE_LIKE
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//{CommandQuoteLikeToken}
+		public Action getCommandQuoteLikeTokenAction_2_0() { return cCommandQuoteLikeTokenAction_2_0; }
+		
+		//content=COMMAND_QUOTE_LIKE
+		public Assignment getContentAssignment_2_1() { return cContentAssignment_2_1; }
+		
+		//COMMAND_QUOTE_LIKE
+		public RuleCall getContentCOMMAND_QUOTE_LIKETerminalRuleCall_2_1_0() { return cContentCOMMAND_QUOTE_LIKETerminalRuleCall_2_1_0; }
 	}
 	public class NumberElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Number");
@@ -726,177 +384,6 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
-		////
-		////
-		////PExpression returns PExpression:
-		////	PAssignment
-		////	| PAdditiveExpression 
-		////	| PLiteral
-		////;
-		////
-		//////PExpression returns PExpression :
-		//////	PAssignment
-		//////;
-		//////
-		//////PAssignment returns PExpression :
-		//////	{PAssignment} var=PVar OpSingleAssign value=PAssignment |	
-		//////	POrExpression (
-		//////		=>({PBinaryOperation.leftOperand=current} feature=OpMultiAssign) rightOperand=PAssignment
-		//////	)?;
-		//////
-		//////OpSingleAssign:
-		//////	'='
-		//////;
-		//////
-		//////OpMultiAssign:
-		//////	'+=' | '-=' | '*=' | '/=' | '%=' | '**=' |
-		//////	'<' '<' '=' | 
-		//////	'>' '>'? '>=';
-		//////
-		//////POrExpression returns PExpression:
-		//////	PAndExpression (=>({PBinaryOperation.leftOperand=current} feature=OpOr) rightOperand=PAndExpression)*;
-		//////
-		//////OpOr:
-		//////	'||';
-		//////
-		//////PAndExpression returns PExpression:
-		//////	PEqualityExpression (=>({PBinaryOperation.leftOperand=current} feature=OpAnd) rightOperand=PEqualityExpression)*;
-		//////
-		//////OpAnd:
-		//////	'&&';
-		//////
-		//////PEqualityExpression returns PExpression:
-		//////	PRelationalExpression (=>({PBinaryOperation.leftOperand=current} feature=OpEquality)
-		//////	rightOperand=PRelationalExpression)*;
-		//////
-		//////OpEquality:
-		//////	'==' | '!=' | 'eq' | 'ne';
-		//////
-		//////PRelationalExpression returns PExpression:
-		//////	POtherOperatorExpression
-		//////	(=>({PBinaryOperation.leftOperand=current} feature=OpCompare) rightOperand=POtherOperatorExpression)*;
-		//////
-		//////OpCompare:
-		//////	'>=' | '<' '=' | '>' | '<' ;
-		//////
-		//////POtherOperatorExpression returns PExpression:
-		//////	PAdditiveExpression (=>({PBinaryOperation.leftOperand=current} feature=OpOther)
-		//////	rightOperand=PAdditiveExpression)*;
-		//////
-		//////OpOther:
-		//////	  '>' (=>('>' '>') | '>')
-		//////	| '<' (=>('<' '<') | '<' | '=>')
-		//////	| '<>'
-		//////	| '?:';
-		//////
-		////
-		////PAdditiveExpression returns PExpression:
-		////	PMultiplicativeExpression (=>({PBinaryOperation.leftOperand=current} variable=[Variable])
-		////	rightOperand=PMultiplicativeExpression)*;
-		////
-		////OpAdd:
-		////	'+' | '-';
-		////
-		////PMultiplicativeExpression returns PExpression:
-		////	PUnaryOperation (=>({PBinaryOperation.leftOperand=current} variable=[Variable]) rightOperand=PUnaryOperation)*;
-		////
-		////OpMulti:
-		////	'*' | '**' | '/' | '%';
-		////
-		////PUnaryOperation returns PExpression:
-		////	{PUnaryOperation} variable=[Variable] operand=PUnaryOperation
-		////;
-		////
-		////OpUnary:
-		////	"!" | "-" | "+";
-		//////
-		//////PPostfixOperation returns PExpression:
-		//////	{PPostfixOperation}
-		//////	var=PVar =>({PPostfixOperation.operand=current} feature=OpPostfix)?
-		//////;
-		//////
-		//////OpPostfix:
-		//////	"++" | "--"
-		//////;
-		//////
-		//////PVar:
-		//////	VAR_START ID
-		//////;
-		//////
-		//////PPrimaryExpression returns PExpression:
-		//////	PBlockExpression |
-		//////	PLiteral |
-		//////	PIfExpression |
-		//////	PReturnExpression |
-		//////	PParenthesizedExpression
-		//////;		
-		//////
-		//////PLiteral returns PExpression:
-		//////	PClosure |
-		//////	PNumberLiteral |
-		//////	PNullLiteral |
-		//////	PStringLiteral
-		//////;
-		//////
-		//////PClosure returns PExpression:
-		//////	=>({PClosure} 
-		//////	'sub' '{') 
-		//////		expression=PExpressionInClosure 
-		//////	'}'
-		//////;
-		//////
-		//////PExpressionInClosure returns PExpression: 
-		//////	{PBlockExpression}
-		//////	(expressions+=PExpressionOrVarDeclaration ';'?)*
-		//////;
-		//////
-		//////PParenthesizedExpression returns PExpression:
-		//////	'(' PExpression ')'
-		//////;
-		//////
-		//////PIfExpression returns PExpression:
-		//////	{PIfExpression}
-		//////	'if' '(' if=PExpression ')'
-		//////	then=PExpression
-		//////	(=>'else' else=PExpression)?;
-		//////
-		//////PBlockExpression returns PExpression: 
-		//////	{PBlockExpression}
-		//////	'{'
-		//////		(expressions+=PExpressionOrVarDeclaration ';'?)*
-		//////	'}';
-		//////
-		//////PExpressionOrVarDeclaration returns PExpression:
-		//////	PVariableDeclaration | PExpression;
-		//////
-		//////PVariableDeclaration returns PExpression:
-		//////	{PVariableDeclaration}
-		//////	('my'|'our'|'local') (=>(name=PVar)) ('=' right=PExpression)?;
-		//////
-		//////PConstructorCall returns PExpression:
-		//////	{PConstructorCall}
-		//////	'new' constructor=QualifiedName
-		//////	(=>explicitConstructorCall?='(' 
-		//////		arguments+=PExpression (',' arguments+=PExpression)*
-		//////	')')?
-		//////;
-		//////
-		////
-		//////
-		//////PReturnExpression returns PExpression:
-		//////	{PReturnExpression} 'return' (->expression=PExpression)?;
-		//////
-		////
-		////PLiteral returns PExpression:
-		////	PNumberLiteral
-		////	| PNullLiteral
-		////	| PStringLiteral
-		//////	| PPackageLiteral
-		////;
-		////
-		////PAssignment returns PExpression:
-		////	Variable '=' expression=PExpression;
-		////
 		//Number hidden():
 		//	(HEX | BIN | INT) ('.' INT)?;
 		@Override public ParserRule getRule() { return rule; }
@@ -925,39 +412,1400 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getINTTerminalRuleCall_1_1() { return cINTTerminalRuleCall_1_1; }
 	}
+	public class WordElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Word");
+		private final RuleCall cKeywordParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//Word:
+		//	Keyword;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Keyword
+		public RuleCall getKeywordParserRuleCall() { return cKeywordParserRuleCall; }
+	}
+	public class KeywordElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Keyword");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cAbsKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cAcceptKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cAlarmKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cAtan2Keyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cBindKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cBinmodeKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cBlessKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cBreakKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		private final Keyword cCallerKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		private final Keyword cChdirKeyword_9 = (Keyword)cAlternatives.eContents().get(9);
+		private final Keyword cChmodKeyword_10 = (Keyword)cAlternatives.eContents().get(10);
+		private final Keyword cChompKeyword_11 = (Keyword)cAlternatives.eContents().get(11);
+		private final Keyword cChopKeyword_12 = (Keyword)cAlternatives.eContents().get(12);
+		private final Keyword cChownKeyword_13 = (Keyword)cAlternatives.eContents().get(13);
+		private final Keyword cChrKeyword_14 = (Keyword)cAlternatives.eContents().get(14);
+		private final Keyword cChrootKeyword_15 = (Keyword)cAlternatives.eContents().get(15);
+		private final Keyword cCloseKeyword_16 = (Keyword)cAlternatives.eContents().get(16);
+		private final Keyword cClosedirKeyword_17 = (Keyword)cAlternatives.eContents().get(17);
+		private final Keyword cConnectKeyword_18 = (Keyword)cAlternatives.eContents().get(18);
+		private final Keyword cContinueKeyword_19 = (Keyword)cAlternatives.eContents().get(19);
+		private final Keyword cCosKeyword_20 = (Keyword)cAlternatives.eContents().get(20);
+		private final Keyword cCryptKeyword_21 = (Keyword)cAlternatives.eContents().get(21);
+		private final Keyword cDbmcloseKeyword_22 = (Keyword)cAlternatives.eContents().get(22);
+		private final Keyword cDbmopenKeyword_23 = (Keyword)cAlternatives.eContents().get(23);
+		private final Keyword cDefaultKeyword_24 = (Keyword)cAlternatives.eContents().get(24);
+		private final Keyword cDefinedKeyword_25 = (Keyword)cAlternatives.eContents().get(25);
+		private final Keyword cDeleteKeyword_26 = (Keyword)cAlternatives.eContents().get(26);
+		private final Keyword cDieKeyword_27 = (Keyword)cAlternatives.eContents().get(27);
+		private final Keyword cDoKeyword_28 = (Keyword)cAlternatives.eContents().get(28);
+		private final Keyword cDumpKeyword_29 = (Keyword)cAlternatives.eContents().get(29);
+		private final Keyword cEachKeyword_30 = (Keyword)cAlternatives.eContents().get(30);
+		private final Keyword cElseKeyword_31 = (Keyword)cAlternatives.eContents().get(31);
+		private final Keyword cElsifKeyword_32 = (Keyword)cAlternatives.eContents().get(32);
+		private final Keyword cEndgrentKeyword_33 = (Keyword)cAlternatives.eContents().get(33);
+		private final Keyword cEndhostentKeyword_34 = (Keyword)cAlternatives.eContents().get(34);
+		private final Keyword cEndnetentKeyword_35 = (Keyword)cAlternatives.eContents().get(35);
+		private final Keyword cEndprotoentKeyword_36 = (Keyword)cAlternatives.eContents().get(36);
+		private final Keyword cEndpwentKeyword_37 = (Keyword)cAlternatives.eContents().get(37);
+		private final Keyword cEndserventKeyword_38 = (Keyword)cAlternatives.eContents().get(38);
+		private final Keyword cEofKeyword_39 = (Keyword)cAlternatives.eContents().get(39);
+		private final Keyword cEvalKeyword_40 = (Keyword)cAlternatives.eContents().get(40);
+		private final Keyword cEvalbytesKeyword_41 = (Keyword)cAlternatives.eContents().get(41);
+		private final Keyword cExecKeyword_42 = (Keyword)cAlternatives.eContents().get(42);
+		private final Keyword cExistsKeyword_43 = (Keyword)cAlternatives.eContents().get(43);
+		private final Keyword cExitKeyword_44 = (Keyword)cAlternatives.eContents().get(44);
+		private final Keyword cExpKeyword_45 = (Keyword)cAlternatives.eContents().get(45);
+		private final Keyword cFcKeyword_46 = (Keyword)cAlternatives.eContents().get(46);
+		private final Keyword cFcntlKeyword_47 = (Keyword)cAlternatives.eContents().get(47);
+		private final Keyword cFilenoKeyword_48 = (Keyword)cAlternatives.eContents().get(48);
+		private final Keyword cFlockKeyword_49 = (Keyword)cAlternatives.eContents().get(49);
+		private final Keyword cForKeyword_50 = (Keyword)cAlternatives.eContents().get(50);
+		private final Keyword cForeachKeyword_51 = (Keyword)cAlternatives.eContents().get(51);
+		private final Keyword cForkKeyword_52 = (Keyword)cAlternatives.eContents().get(52);
+		private final Keyword cFormatKeyword_53 = (Keyword)cAlternatives.eContents().get(53);
+		private final Keyword cFormlineKeyword_54 = (Keyword)cAlternatives.eContents().get(54);
+		private final Keyword cGetcKeyword_55 = (Keyword)cAlternatives.eContents().get(55);
+		private final Keyword cGetgrentKeyword_56 = (Keyword)cAlternatives.eContents().get(56);
+		private final Keyword cGetgrgidKeyword_57 = (Keyword)cAlternatives.eContents().get(57);
+		private final Keyword cGetgrnamKeyword_58 = (Keyword)cAlternatives.eContents().get(58);
+		private final Keyword cGethostbyaddrKeyword_59 = (Keyword)cAlternatives.eContents().get(59);
+		private final Keyword cGethostbynameKeyword_60 = (Keyword)cAlternatives.eContents().get(60);
+		private final Keyword cGethostentKeyword_61 = (Keyword)cAlternatives.eContents().get(61);
+		private final Keyword cGetloginKeyword_62 = (Keyword)cAlternatives.eContents().get(62);
+		private final Keyword cGetnetbyaddrKeyword_63 = (Keyword)cAlternatives.eContents().get(63);
+		private final Keyword cGetnetbynameKeyword_64 = (Keyword)cAlternatives.eContents().get(64);
+		private final Keyword cGetnetentKeyword_65 = (Keyword)cAlternatives.eContents().get(65);
+		private final Keyword cGetpeernameKeyword_66 = (Keyword)cAlternatives.eContents().get(66);
+		private final Keyword cGetpgrpKeyword_67 = (Keyword)cAlternatives.eContents().get(67);
+		private final Keyword cGetppidKeyword_68 = (Keyword)cAlternatives.eContents().get(68);
+		private final Keyword cGetpriorityKeyword_69 = (Keyword)cAlternatives.eContents().get(69);
+		private final Keyword cGetprotobynameKeyword_70 = (Keyword)cAlternatives.eContents().get(70);
+		private final Keyword cGetprotobynumberKeyword_71 = (Keyword)cAlternatives.eContents().get(71);
+		private final Keyword cGetprotoentKeyword_72 = (Keyword)cAlternatives.eContents().get(72);
+		private final Keyword cGetpwentKeyword_73 = (Keyword)cAlternatives.eContents().get(73);
+		private final Keyword cGetpwnamKeyword_74 = (Keyword)cAlternatives.eContents().get(74);
+		private final Keyword cGetpwuidKeyword_75 = (Keyword)cAlternatives.eContents().get(75);
+		private final Keyword cGetservbynameKeyword_76 = (Keyword)cAlternatives.eContents().get(76);
+		private final Keyword cGetservbyportKeyword_77 = (Keyword)cAlternatives.eContents().get(77);
+		private final Keyword cGetserventKeyword_78 = (Keyword)cAlternatives.eContents().get(78);
+		private final Keyword cGetsocknameKeyword_79 = (Keyword)cAlternatives.eContents().get(79);
+		private final Keyword cGetsockoptKeyword_80 = (Keyword)cAlternatives.eContents().get(80);
+		private final Keyword cGivenKeyword_81 = (Keyword)cAlternatives.eContents().get(81);
+		private final Keyword cGlobKeyword_82 = (Keyword)cAlternatives.eContents().get(82);
+		private final Keyword cGmtimeKeyword_83 = (Keyword)cAlternatives.eContents().get(83);
+		private final Keyword cGotoKeyword_84 = (Keyword)cAlternatives.eContents().get(84);
+		private final Keyword cGrepKeyword_85 = (Keyword)cAlternatives.eContents().get(85);
+		private final Keyword cHexKeyword_86 = (Keyword)cAlternatives.eContents().get(86);
+		private final Keyword cIfKeyword_87 = (Keyword)cAlternatives.eContents().get(87);
+		private final Keyword cIndexKeyword_88 = (Keyword)cAlternatives.eContents().get(88);
+		private final Keyword cIntKeyword_89 = (Keyword)cAlternatives.eContents().get(89);
+		private final Keyword cIoctlKeyword_90 = (Keyword)cAlternatives.eContents().get(90);
+		private final Keyword cJoinKeyword_91 = (Keyword)cAlternatives.eContents().get(91);
+		private final Keyword cKeysKeyword_92 = (Keyword)cAlternatives.eContents().get(92);
+		private final Keyword cKillKeyword_93 = (Keyword)cAlternatives.eContents().get(93);
+		private final Keyword cLastKeyword_94 = (Keyword)cAlternatives.eContents().get(94);
+		private final Keyword cLcKeyword_95 = (Keyword)cAlternatives.eContents().get(95);
+		private final Keyword cLcfirstKeyword_96 = (Keyword)cAlternatives.eContents().get(96);
+		private final Keyword cLengthKeyword_97 = (Keyword)cAlternatives.eContents().get(97);
+		private final Keyword cLinkKeyword_98 = (Keyword)cAlternatives.eContents().get(98);
+		private final Keyword cListenKeyword_99 = (Keyword)cAlternatives.eContents().get(99);
+		private final Keyword cLocalKeyword_100 = (Keyword)cAlternatives.eContents().get(100);
+		private final Keyword cLocaltimeKeyword_101 = (Keyword)cAlternatives.eContents().get(101);
+		private final Keyword cLockKeyword_102 = (Keyword)cAlternatives.eContents().get(102);
+		private final Keyword cLogKeyword_103 = (Keyword)cAlternatives.eContents().get(103);
+		private final Keyword cLstatKeyword_104 = (Keyword)cAlternatives.eContents().get(104);
+		private final Keyword cMapKeyword_105 = (Keyword)cAlternatives.eContents().get(105);
+		private final Keyword cMkdirKeyword_106 = (Keyword)cAlternatives.eContents().get(106);
+		private final Keyword cMsgctlKeyword_107 = (Keyword)cAlternatives.eContents().get(107);
+		private final Keyword cMsggetKeyword_108 = (Keyword)cAlternatives.eContents().get(108);
+		private final Keyword cMsgrcvKeyword_109 = (Keyword)cAlternatives.eContents().get(109);
+		private final Keyword cMsgsndKeyword_110 = (Keyword)cAlternatives.eContents().get(110);
+		private final Keyword cMyKeyword_111 = (Keyword)cAlternatives.eContents().get(111);
+		private final Keyword cNextKeyword_112 = (Keyword)cAlternatives.eContents().get(112);
+		private final Keyword cNoKeyword_113 = (Keyword)cAlternatives.eContents().get(113);
+		private final Keyword cOctKeyword_114 = (Keyword)cAlternatives.eContents().get(114);
+		private final Keyword cOpenKeyword_115 = (Keyword)cAlternatives.eContents().get(115);
+		private final Keyword cOpendirKeyword_116 = (Keyword)cAlternatives.eContents().get(116);
+		private final Keyword cOrdKeyword_117 = (Keyword)cAlternatives.eContents().get(117);
+		private final Keyword cOurKeyword_118 = (Keyword)cAlternatives.eContents().get(118);
+		private final Keyword cPackKeyword_119 = (Keyword)cAlternatives.eContents().get(119);
+		private final Keyword cPackageKeyword_120 = (Keyword)cAlternatives.eContents().get(120);
+		private final Keyword cPipeKeyword_121 = (Keyword)cAlternatives.eContents().get(121);
+		private final Keyword cPopKeyword_122 = (Keyword)cAlternatives.eContents().get(122);
+		private final Keyword cPosKeyword_123 = (Keyword)cAlternatives.eContents().get(123);
+		private final Keyword cPrintKeyword_124 = (Keyword)cAlternatives.eContents().get(124);
+		private final Keyword cPrintfKeyword_125 = (Keyword)cAlternatives.eContents().get(125);
+		private final Keyword cPrototypeKeyword_126 = (Keyword)cAlternatives.eContents().get(126);
+		private final Keyword cPushKeyword_127 = (Keyword)cAlternatives.eContents().get(127);
+		private final Keyword cQuotemetaKeyword_128 = (Keyword)cAlternatives.eContents().get(128);
+		private final Keyword cRandKeyword_129 = (Keyword)cAlternatives.eContents().get(129);
+		private final Keyword cReadKeyword_130 = (Keyword)cAlternatives.eContents().get(130);
+		private final Keyword cReaddirKeyword_131 = (Keyword)cAlternatives.eContents().get(131);
+		private final Keyword cReadlineKeyword_132 = (Keyword)cAlternatives.eContents().get(132);
+		private final Keyword cReadlinkKeyword_133 = (Keyword)cAlternatives.eContents().get(133);
+		private final Keyword cReadpipeKeyword_134 = (Keyword)cAlternatives.eContents().get(134);
+		private final Keyword cRecvKeyword_135 = (Keyword)cAlternatives.eContents().get(135);
+		private final Keyword cRedoKeyword_136 = (Keyword)cAlternatives.eContents().get(136);
+		private final Keyword cRefKeyword_137 = (Keyword)cAlternatives.eContents().get(137);
+		private final Keyword cRenameKeyword_138 = (Keyword)cAlternatives.eContents().get(138);
+		private final Keyword cRequireKeyword_139 = (Keyword)cAlternatives.eContents().get(139);
+		private final Keyword cResetKeyword_140 = (Keyword)cAlternatives.eContents().get(140);
+		private final Keyword cReturnKeyword_141 = (Keyword)cAlternatives.eContents().get(141);
+		private final Keyword cReverseKeyword_142 = (Keyword)cAlternatives.eContents().get(142);
+		private final Keyword cRewinddirKeyword_143 = (Keyword)cAlternatives.eContents().get(143);
+		private final Keyword cRindexKeyword_144 = (Keyword)cAlternatives.eContents().get(144);
+		private final Keyword cRmdirKeyword_145 = (Keyword)cAlternatives.eContents().get(145);
+		private final Keyword cSayKeyword_146 = (Keyword)cAlternatives.eContents().get(146);
+		private final Keyword cScalarKeyword_147 = (Keyword)cAlternatives.eContents().get(147);
+		private final Keyword cSeekKeyword_148 = (Keyword)cAlternatives.eContents().get(148);
+		private final Keyword cSeekdirKeyword_149 = (Keyword)cAlternatives.eContents().get(149);
+		private final Keyword cSelectKeyword_150 = (Keyword)cAlternatives.eContents().get(150);
+		private final Keyword cSemctlKeyword_151 = (Keyword)cAlternatives.eContents().get(151);
+		private final Keyword cSemgetKeyword_152 = (Keyword)cAlternatives.eContents().get(152);
+		private final Keyword cSemopKeyword_153 = (Keyword)cAlternatives.eContents().get(153);
+		private final Keyword cSendKeyword_154 = (Keyword)cAlternatives.eContents().get(154);
+		private final Keyword cSetgrentKeyword_155 = (Keyword)cAlternatives.eContents().get(155);
+		private final Keyword cSethostentKeyword_156 = (Keyword)cAlternatives.eContents().get(156);
+		private final Keyword cSetnetentKeyword_157 = (Keyword)cAlternatives.eContents().get(157);
+		private final Keyword cSetpgrpKeyword_158 = (Keyword)cAlternatives.eContents().get(158);
+		private final Keyword cSetpriorityKeyword_159 = (Keyword)cAlternatives.eContents().get(159);
+		private final Keyword cSetprotoentKeyword_160 = (Keyword)cAlternatives.eContents().get(160);
+		private final Keyword cSetpwentKeyword_161 = (Keyword)cAlternatives.eContents().get(161);
+		private final Keyword cSetserventKeyword_162 = (Keyword)cAlternatives.eContents().get(162);
+		private final Keyword cSetsockoptKeyword_163 = (Keyword)cAlternatives.eContents().get(163);
+		private final Keyword cShiftKeyword_164 = (Keyword)cAlternatives.eContents().get(164);
+		private final Keyword cShmctlKeyword_165 = (Keyword)cAlternatives.eContents().get(165);
+		private final Keyword cShmgetKeyword_166 = (Keyword)cAlternatives.eContents().get(166);
+		private final Keyword cShmreadKeyword_167 = (Keyword)cAlternatives.eContents().get(167);
+		private final Keyword cShmwriteKeyword_168 = (Keyword)cAlternatives.eContents().get(168);
+		private final Keyword cShutdownKeyword_169 = (Keyword)cAlternatives.eContents().get(169);
+		private final Keyword cSinKeyword_170 = (Keyword)cAlternatives.eContents().get(170);
+		private final Keyword cSleepKeyword_171 = (Keyword)cAlternatives.eContents().get(171);
+		private final Keyword cSocketKeyword_172 = (Keyword)cAlternatives.eContents().get(172);
+		private final Keyword cSocketpairKeyword_173 = (Keyword)cAlternatives.eContents().get(173);
+		private final Keyword cSortKeyword_174 = (Keyword)cAlternatives.eContents().get(174);
+		private final Keyword cSpliceKeyword_175 = (Keyword)cAlternatives.eContents().get(175);
+		private final Keyword cSplitKeyword_176 = (Keyword)cAlternatives.eContents().get(176);
+		private final Keyword cSprintfKeyword_177 = (Keyword)cAlternatives.eContents().get(177);
+		private final Keyword cSqrtKeyword_178 = (Keyword)cAlternatives.eContents().get(178);
+		private final Keyword cSrandKeyword_179 = (Keyword)cAlternatives.eContents().get(179);
+		private final Keyword cStatKeyword_180 = (Keyword)cAlternatives.eContents().get(180);
+		private final Keyword cStateKeyword_181 = (Keyword)cAlternatives.eContents().get(181);
+		private final Keyword cStudyKeyword_182 = (Keyword)cAlternatives.eContents().get(182);
+		private final Keyword cSubKeyword_183 = (Keyword)cAlternatives.eContents().get(183);
+		private final Keyword cSubstrKeyword_184 = (Keyword)cAlternatives.eContents().get(184);
+		private final Keyword cSymlinkKeyword_185 = (Keyword)cAlternatives.eContents().get(185);
+		private final Keyword cSyscallKeyword_186 = (Keyword)cAlternatives.eContents().get(186);
+		private final Keyword cSysopenKeyword_187 = (Keyword)cAlternatives.eContents().get(187);
+		private final Keyword cSysreadKeyword_188 = (Keyword)cAlternatives.eContents().get(188);
+		private final Keyword cSysseekKeyword_189 = (Keyword)cAlternatives.eContents().get(189);
+		private final Keyword cSystemKeyword_190 = (Keyword)cAlternatives.eContents().get(190);
+		private final Keyword cSyswriteKeyword_191 = (Keyword)cAlternatives.eContents().get(191);
+		private final Keyword cTellKeyword_192 = (Keyword)cAlternatives.eContents().get(192);
+		private final Keyword cTelldirKeyword_193 = (Keyword)cAlternatives.eContents().get(193);
+		private final Keyword cTieKeyword_194 = (Keyword)cAlternatives.eContents().get(194);
+		private final Keyword cTiedKeyword_195 = (Keyword)cAlternatives.eContents().get(195);
+		private final Keyword cTimeKeyword_196 = (Keyword)cAlternatives.eContents().get(196);
+		private final Keyword cTimesKeyword_197 = (Keyword)cAlternatives.eContents().get(197);
+		private final Keyword cTrKeyword_198 = (Keyword)cAlternatives.eContents().get(198);
+		private final Keyword cTruncateKeyword_199 = (Keyword)cAlternatives.eContents().get(199);
+		private final Keyword cUcKeyword_200 = (Keyword)cAlternatives.eContents().get(200);
+		private final Keyword cUcfirstKeyword_201 = (Keyword)cAlternatives.eContents().get(201);
+		private final Keyword cUmaskKeyword_202 = (Keyword)cAlternatives.eContents().get(202);
+		private final Keyword cUndefKeyword_203 = (Keyword)cAlternatives.eContents().get(203);
+		private final Keyword cUnlessKeyword_204 = (Keyword)cAlternatives.eContents().get(204);
+		private final Keyword cUnlinkKeyword_205 = (Keyword)cAlternatives.eContents().get(205);
+		private final Keyword cUnpackKeyword_206 = (Keyword)cAlternatives.eContents().get(206);
+		private final Keyword cUnshiftKeyword_207 = (Keyword)cAlternatives.eContents().get(207);
+		private final Keyword cUntieKeyword_208 = (Keyword)cAlternatives.eContents().get(208);
+		private final Keyword cUntilKeyword_209 = (Keyword)cAlternatives.eContents().get(209);
+		private final Keyword cUseKeyword_210 = (Keyword)cAlternatives.eContents().get(210);
+		private final Keyword cUtimeKeyword_211 = (Keyword)cAlternatives.eContents().get(211);
+		private final Keyword cValuesKeyword_212 = (Keyword)cAlternatives.eContents().get(212);
+		private final Keyword cVecKeyword_213 = (Keyword)cAlternatives.eContents().get(213);
+		private final Keyword cWaitKeyword_214 = (Keyword)cAlternatives.eContents().get(214);
+		private final Keyword cWaitpidKeyword_215 = (Keyword)cAlternatives.eContents().get(215);
+		private final Keyword cWantarrayKeyword_216 = (Keyword)cAlternatives.eContents().get(216);
+		private final Keyword cWarnKeyword_217 = (Keyword)cAlternatives.eContents().get(217);
+		private final Keyword cWhenKeyword_218 = (Keyword)cAlternatives.eContents().get(218);
+		private final Keyword cWhileKeyword_219 = (Keyword)cAlternatives.eContents().get(219);
+		private final Keyword cWriteKeyword_220 = (Keyword)cAlternatives.eContents().get(220);
+		private final Keyword cYKeyword_221 = (Keyword)cAlternatives.eContents().get(221);
+		
+		//Keyword:
+		//	'abs' | 'accept' | 'alarm' | 'atan2' | 'bind' | 'binmode' | 'bless' | 'break' | 'caller' | 'chdir' | 'chmod' |
+		//	'chomp' | 'chop' | 'chown' | 'chr' | 'chroot' | 'close' | 'closedir' | 'connect' | 'continue' | 'cos' | 'crypt'
+		//	| 'dbmclose' | 'dbmopen' | 'default' | 'defined' | 'delete' | 'die' | 'do' | 'dump' | 'each' | 'else' | 'elsif' |
+		//	'endgrent' | 'endhostent' | 'endnetent' | 'endprotoent' | 'endpwent' | 'endservent' | 'eof' | 'eval' |
+		//	'evalbytes' | 'exec' | 'exists' | 'exit' | 'exp' | 'fc' | 'fcntl' | 'fileno' | 'flock' | 'for' | 'foreach' | 'fork' |
+		//	'format' | 'formline' | 'getc' | 'getgrent' | 'getgrgid' | 'getgrnam' | 'gethostbyaddr' | 'gethostbyname' |
+		//	'gethostent' | 'getlogin' | 'getnetbyaddr' | 'getnetbyname' | 'getnetent' | 'getpeername' | 'getpgrp' | 'getppid' |
+		//	'getpriority' | 'getprotobyname' | 'getprotobynumber' | 'getprotoent' | 'getpwent' | 'getpwnam' | 'getpwuid' |
+		//	'getservbyname' | 'getservbyport' | 'getservent' | 'getsockname' | 'getsockopt' | 'given' | 'glob' | 'gmtime' | 'goto'
+		//	| 'grep' | 'hex' | 'if' | 'index' | 'int' | 'ioctl' | 'join' | 'keys' | 'kill' | 'last' | 'lc' | 'lcfirst' |
+		//	'length' | 'link' | 'listen' | 'local' | 'localtime' | 'lock' | 'log' | 'lstat' | 'map' | 'mkdir' |
+		//	'msgctl' | 'msgget' | 'msgrcv' | 'msgsnd' | 'my' | 'next' | 'no' | 'oct' | 'open' | 'opendir' |
+		//	'ord' | 'our' | 'pack' | 'package' | 'pipe' | 'pop' | 'pos' | 'print' | 'printf' | 'prototype' | 'push' |
+		//	'quotemeta' | 'rand' | 'read' | 'readdir' | 'readline' | 'readlink' | 'readpipe' | 'recv' | 'redo'
+		//	| 'ref' | 'rename' | 'require' | 'reset' | 'return' | 'reverse' | 'rewinddir' | 'rindex' | 'rmdir' | 'say' |
+		//	'scalar' | 'seek' | 'seekdir' | 'select' | 'semctl' | 'semget' | 'semop' | 'send' | 'setgrent' | 'sethostent' |
+		//	'setnetent' | 'setpgrp' | 'setpriority' | 'setprotoent' | 'setpwent' | 'setservent' | 'setsockopt' | 'shift' |
+		//	'shmctl'
+		//	| 'shmget' | 'shmread' | 'shmwrite' | 'shutdown' | 'sin' | 'sleep' | 'socket' | 'socketpair' | 'sort' | 'splice' |
+		//	'split' | 'sprintf' | 'sqrt' | 'srand' | 'stat' | 'state' | 'study' | 'sub' | 'substr' | 'symlink' | 'syscall' |
+		//	'sysopen' | 'sysread' | 'sysseek' | 'system' | 'syswrite' | 'tell' | 'telldir' | 'tie' | 'tied' | 'time' | 'times' |
+		//	'tr' | 'truncate' | 'uc' | 'ucfirst' | 'umask' | 'undef' | 'unless' | 'unlink' | 'unpack' | 'unshift' | 'untie' |
+		//	'until' | 'use' | 'utime' | 'values' | 'vec' | 'wait' | 'waitpid' | 'wantarray' | 'warn' | 'when' | 'while' | 'write'
+		//	|
+		//	'y';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'abs' | 'accept' | 'alarm' | 'atan2' | 'bind' | 'binmode' | 'bless' | 'break' | 'caller' | 'chdir' | 'chmod' | 'chomp' |
+		//'chop' | 'chown' | 'chr' | 'chroot' | 'close' | 'closedir' | 'connect' | 'continue' | 'cos' | 'crypt' | 'dbmclose' |
+		//'dbmopen' | 'default' | 'defined' | 'delete' | 'die' | 'do' | 'dump' | 'each' | 'else' | 'elsif' | 'endgrent' |
+		//'endhostent' | 'endnetent' | 'endprotoent' | 'endpwent' | 'endservent' | 'eof' | 'eval' | 'evalbytes' | 'exec' |
+		//'exists' | 'exit' | 'exp' | 'fc' | 'fcntl' | 'fileno' | 'flock' | 'for' | 'foreach' | 'fork' | 'format' | 'formline' |
+		//'getc' | 'getgrent' | 'getgrgid' | 'getgrnam' | 'gethostbyaddr' | 'gethostbyname' | 'gethostent' | 'getlogin' |
+		//'getnetbyaddr' | 'getnetbyname' | 'getnetent' | 'getpeername' | 'getpgrp' | 'getppid' | 'getpriority' |
+		//'getprotobyname' | 'getprotobynumber' | 'getprotoent' | 'getpwent' | 'getpwnam' | 'getpwuid' | 'getservbyname' |
+		//'getservbyport' | 'getservent' | 'getsockname' | 'getsockopt' | 'given' | 'glob' | 'gmtime' | 'goto' | 'grep' | 'hex' |
+		//'if' | 'index' | 'int' | 'ioctl' | 'join' | 'keys' | 'kill' | 'last' | 'lc' | 'lcfirst' | 'length' | 'link' | 'listen'
+		//| 'local' | 'localtime' | 'lock' | 'log' | 'lstat' | 'map' | 'mkdir' | 'msgctl' | 'msgget' | 'msgrcv' | 'msgsnd' | 'my'
+		//| 'next' | 'no' | 'oct' | 'open' | 'opendir' | 'ord' | 'our' | 'pack' | 'package' | 'pipe' | 'pop' | 'pos' | 'print' |
+		//'printf' | 'prototype' | 'push' | 'quotemeta' | 'rand' | 'read' | 'readdir' | 'readline' | 'readlink' | 'readpipe' |
+		//'recv' | 'redo' | 'ref' | 'rename' | 'require' | 'reset' | 'return' | 'reverse' | 'rewinddir' | 'rindex' | 'rmdir' |
+		//'say' | 'scalar' | 'seek' | 'seekdir' | 'select' | 'semctl' | 'semget' | 'semop' | 'send' | 'setgrent' | 'sethostent' |
+		//'setnetent' | 'setpgrp' | 'setpriority' | 'setprotoent' | 'setpwent' | 'setservent' | 'setsockopt' | 'shift' | 'shmctl'
+		//| 'shmget' | 'shmread' | 'shmwrite' | 'shutdown' | 'sin' | 'sleep' | 'socket' | 'socketpair' | 'sort' | 'splice' |
+		//'split' | 'sprintf' | 'sqrt' | 'srand' | 'stat' | 'state' | 'study' | 'sub' | 'substr' | 'symlink' | 'syscall' |
+		//'sysopen' | 'sysread' | 'sysseek' | 'system' | 'syswrite' | 'tell' | 'telldir' | 'tie' | 'tied' | 'time' | 'times' |
+		//'tr' | 'truncate' | 'uc' | 'ucfirst' | 'umask' | 'undef' | 'unless' | 'unlink' | 'unpack' | 'unshift' | 'untie' |
+		//'until' | 'use' | 'utime' | 'values' | 'vec' | 'wait' | 'waitpid' | 'wantarray' | 'warn' | 'when' | 'while' | 'write' |
+		//'y'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'abs'
+		public Keyword getAbsKeyword_0() { return cAbsKeyword_0; }
+		
+		//'accept'
+		public Keyword getAcceptKeyword_1() { return cAcceptKeyword_1; }
+		
+		//'alarm'
+		public Keyword getAlarmKeyword_2() { return cAlarmKeyword_2; }
+		
+		//'atan2'
+		public Keyword getAtan2Keyword_3() { return cAtan2Keyword_3; }
+		
+		//'bind'
+		public Keyword getBindKeyword_4() { return cBindKeyword_4; }
+		
+		//'binmode'
+		public Keyword getBinmodeKeyword_5() { return cBinmodeKeyword_5; }
+		
+		//'bless'
+		public Keyword getBlessKeyword_6() { return cBlessKeyword_6; }
+		
+		//'break'
+		public Keyword getBreakKeyword_7() { return cBreakKeyword_7; }
+		
+		//'caller'
+		public Keyword getCallerKeyword_8() { return cCallerKeyword_8; }
+		
+		//'chdir'
+		public Keyword getChdirKeyword_9() { return cChdirKeyword_9; }
+		
+		//'chmod'
+		public Keyword getChmodKeyword_10() { return cChmodKeyword_10; }
+		
+		//'chomp'
+		public Keyword getChompKeyword_11() { return cChompKeyword_11; }
+		
+		//'chop'
+		public Keyword getChopKeyword_12() { return cChopKeyword_12; }
+		
+		//'chown'
+		public Keyword getChownKeyword_13() { return cChownKeyword_13; }
+		
+		//'chr'
+		public Keyword getChrKeyword_14() { return cChrKeyword_14; }
+		
+		//'chroot'
+		public Keyword getChrootKeyword_15() { return cChrootKeyword_15; }
+		
+		//'close'
+		public Keyword getCloseKeyword_16() { return cCloseKeyword_16; }
+		
+		//'closedir'
+		public Keyword getClosedirKeyword_17() { return cClosedirKeyword_17; }
+		
+		//'connect'
+		public Keyword getConnectKeyword_18() { return cConnectKeyword_18; }
+		
+		//'continue'
+		public Keyword getContinueKeyword_19() { return cContinueKeyword_19; }
+		
+		//'cos'
+		public Keyword getCosKeyword_20() { return cCosKeyword_20; }
+		
+		//'crypt'
+		public Keyword getCryptKeyword_21() { return cCryptKeyword_21; }
+		
+		//'dbmclose'
+		public Keyword getDbmcloseKeyword_22() { return cDbmcloseKeyword_22; }
+		
+		//'dbmopen'
+		public Keyword getDbmopenKeyword_23() { return cDbmopenKeyword_23; }
+		
+		//'default'
+		public Keyword getDefaultKeyword_24() { return cDefaultKeyword_24; }
+		
+		//'defined'
+		public Keyword getDefinedKeyword_25() { return cDefinedKeyword_25; }
+		
+		//'delete'
+		public Keyword getDeleteKeyword_26() { return cDeleteKeyword_26; }
+		
+		//'die'
+		public Keyword getDieKeyword_27() { return cDieKeyword_27; }
+		
+		//'do'
+		public Keyword getDoKeyword_28() { return cDoKeyword_28; }
+		
+		//'dump'
+		public Keyword getDumpKeyword_29() { return cDumpKeyword_29; }
+		
+		//'each'
+		public Keyword getEachKeyword_30() { return cEachKeyword_30; }
+		
+		//'else'
+		public Keyword getElseKeyword_31() { return cElseKeyword_31; }
+		
+		//'elsif'
+		public Keyword getElsifKeyword_32() { return cElsifKeyword_32; }
+		
+		//'endgrent'
+		public Keyword getEndgrentKeyword_33() { return cEndgrentKeyword_33; }
+		
+		//'endhostent'
+		public Keyword getEndhostentKeyword_34() { return cEndhostentKeyword_34; }
+		
+		//'endnetent'
+		public Keyword getEndnetentKeyword_35() { return cEndnetentKeyword_35; }
+		
+		//'endprotoent'
+		public Keyword getEndprotoentKeyword_36() { return cEndprotoentKeyword_36; }
+		
+		//'endpwent'
+		public Keyword getEndpwentKeyword_37() { return cEndpwentKeyword_37; }
+		
+		//'endservent'
+		public Keyword getEndserventKeyword_38() { return cEndserventKeyword_38; }
+		
+		//'eof'
+		public Keyword getEofKeyword_39() { return cEofKeyword_39; }
+		
+		//'eval'
+		public Keyword getEvalKeyword_40() { return cEvalKeyword_40; }
+		
+		//'evalbytes'
+		public Keyword getEvalbytesKeyword_41() { return cEvalbytesKeyword_41; }
+		
+		//'exec'
+		public Keyword getExecKeyword_42() { return cExecKeyword_42; }
+		
+		//'exists'
+		public Keyword getExistsKeyword_43() { return cExistsKeyword_43; }
+		
+		//'exit'
+		public Keyword getExitKeyword_44() { return cExitKeyword_44; }
+		
+		//'exp'
+		public Keyword getExpKeyword_45() { return cExpKeyword_45; }
+		
+		//'fc'
+		public Keyword getFcKeyword_46() { return cFcKeyword_46; }
+		
+		//'fcntl'
+		public Keyword getFcntlKeyword_47() { return cFcntlKeyword_47; }
+		
+		//'fileno'
+		public Keyword getFilenoKeyword_48() { return cFilenoKeyword_48; }
+		
+		//'flock'
+		public Keyword getFlockKeyword_49() { return cFlockKeyword_49; }
+		
+		//'for'
+		public Keyword getForKeyword_50() { return cForKeyword_50; }
+		
+		//'foreach'
+		public Keyword getForeachKeyword_51() { return cForeachKeyword_51; }
+		
+		//'fork'
+		public Keyword getForkKeyword_52() { return cForkKeyword_52; }
+		
+		//'format'
+		public Keyword getFormatKeyword_53() { return cFormatKeyword_53; }
+		
+		//'formline'
+		public Keyword getFormlineKeyword_54() { return cFormlineKeyword_54; }
+		
+		//'getc'
+		public Keyword getGetcKeyword_55() { return cGetcKeyword_55; }
+		
+		//'getgrent'
+		public Keyword getGetgrentKeyword_56() { return cGetgrentKeyword_56; }
+		
+		//'getgrgid'
+		public Keyword getGetgrgidKeyword_57() { return cGetgrgidKeyword_57; }
+		
+		//'getgrnam'
+		public Keyword getGetgrnamKeyword_58() { return cGetgrnamKeyword_58; }
+		
+		//'gethostbyaddr'
+		public Keyword getGethostbyaddrKeyword_59() { return cGethostbyaddrKeyword_59; }
+		
+		//'gethostbyname'
+		public Keyword getGethostbynameKeyword_60() { return cGethostbynameKeyword_60; }
+		
+		//'gethostent'
+		public Keyword getGethostentKeyword_61() { return cGethostentKeyword_61; }
+		
+		//'getlogin'
+		public Keyword getGetloginKeyword_62() { return cGetloginKeyword_62; }
+		
+		//'getnetbyaddr'
+		public Keyword getGetnetbyaddrKeyword_63() { return cGetnetbyaddrKeyword_63; }
+		
+		//'getnetbyname'
+		public Keyword getGetnetbynameKeyword_64() { return cGetnetbynameKeyword_64; }
+		
+		//'getnetent'
+		public Keyword getGetnetentKeyword_65() { return cGetnetentKeyword_65; }
+		
+		//'getpeername'
+		public Keyword getGetpeernameKeyword_66() { return cGetpeernameKeyword_66; }
+		
+		//'getpgrp'
+		public Keyword getGetpgrpKeyword_67() { return cGetpgrpKeyword_67; }
+		
+		//'getppid'
+		public Keyword getGetppidKeyword_68() { return cGetppidKeyword_68; }
+		
+		//'getpriority'
+		public Keyword getGetpriorityKeyword_69() { return cGetpriorityKeyword_69; }
+		
+		//'getprotobyname'
+		public Keyword getGetprotobynameKeyword_70() { return cGetprotobynameKeyword_70; }
+		
+		//'getprotobynumber'
+		public Keyword getGetprotobynumberKeyword_71() { return cGetprotobynumberKeyword_71; }
+		
+		//'getprotoent'
+		public Keyword getGetprotoentKeyword_72() { return cGetprotoentKeyword_72; }
+		
+		//'getpwent'
+		public Keyword getGetpwentKeyword_73() { return cGetpwentKeyword_73; }
+		
+		//'getpwnam'
+		public Keyword getGetpwnamKeyword_74() { return cGetpwnamKeyword_74; }
+		
+		//'getpwuid'
+		public Keyword getGetpwuidKeyword_75() { return cGetpwuidKeyword_75; }
+		
+		//'getservbyname'
+		public Keyword getGetservbynameKeyword_76() { return cGetservbynameKeyword_76; }
+		
+		//'getservbyport'
+		public Keyword getGetservbyportKeyword_77() { return cGetservbyportKeyword_77; }
+		
+		//'getservent'
+		public Keyword getGetserventKeyword_78() { return cGetserventKeyword_78; }
+		
+		//'getsockname'
+		public Keyword getGetsocknameKeyword_79() { return cGetsocknameKeyword_79; }
+		
+		//'getsockopt'
+		public Keyword getGetsockoptKeyword_80() { return cGetsockoptKeyword_80; }
+		
+		//'given'
+		public Keyword getGivenKeyword_81() { return cGivenKeyword_81; }
+		
+		//'glob'
+		public Keyword getGlobKeyword_82() { return cGlobKeyword_82; }
+		
+		//'gmtime'
+		public Keyword getGmtimeKeyword_83() { return cGmtimeKeyword_83; }
+		
+		//'goto'
+		public Keyword getGotoKeyword_84() { return cGotoKeyword_84; }
+		
+		//'grep'
+		public Keyword getGrepKeyword_85() { return cGrepKeyword_85; }
+		
+		//'hex'
+		public Keyword getHexKeyword_86() { return cHexKeyword_86; }
+		
+		//'if'
+		public Keyword getIfKeyword_87() { return cIfKeyword_87; }
+		
+		//'index'
+		public Keyword getIndexKeyword_88() { return cIndexKeyword_88; }
+		
+		//'int'
+		public Keyword getIntKeyword_89() { return cIntKeyword_89; }
+		
+		//'ioctl'
+		public Keyword getIoctlKeyword_90() { return cIoctlKeyword_90; }
+		
+		//'join'
+		public Keyword getJoinKeyword_91() { return cJoinKeyword_91; }
+		
+		//'keys'
+		public Keyword getKeysKeyword_92() { return cKeysKeyword_92; }
+		
+		//'kill'
+		public Keyword getKillKeyword_93() { return cKillKeyword_93; }
+		
+		//'last'
+		public Keyword getLastKeyword_94() { return cLastKeyword_94; }
+		
+		//'lc'
+		public Keyword getLcKeyword_95() { return cLcKeyword_95; }
+		
+		//'lcfirst'
+		public Keyword getLcfirstKeyword_96() { return cLcfirstKeyword_96; }
+		
+		//'length'
+		public Keyword getLengthKeyword_97() { return cLengthKeyword_97; }
+		
+		//'link'
+		public Keyword getLinkKeyword_98() { return cLinkKeyword_98; }
+		
+		//'listen'
+		public Keyword getListenKeyword_99() { return cListenKeyword_99; }
+		
+		//'local'
+		public Keyword getLocalKeyword_100() { return cLocalKeyword_100; }
+		
+		//'localtime'
+		public Keyword getLocaltimeKeyword_101() { return cLocaltimeKeyword_101; }
+		
+		//'lock'
+		public Keyword getLockKeyword_102() { return cLockKeyword_102; }
+		
+		//'log'
+		public Keyword getLogKeyword_103() { return cLogKeyword_103; }
+		
+		//'lstat'
+		public Keyword getLstatKeyword_104() { return cLstatKeyword_104; }
+		
+		//'map'
+		public Keyword getMapKeyword_105() { return cMapKeyword_105; }
+		
+		//'mkdir'
+		public Keyword getMkdirKeyword_106() { return cMkdirKeyword_106; }
+		
+		//'msgctl'
+		public Keyword getMsgctlKeyword_107() { return cMsgctlKeyword_107; }
+		
+		//'msgget'
+		public Keyword getMsggetKeyword_108() { return cMsggetKeyword_108; }
+		
+		//'msgrcv'
+		public Keyword getMsgrcvKeyword_109() { return cMsgrcvKeyword_109; }
+		
+		//'msgsnd'
+		public Keyword getMsgsndKeyword_110() { return cMsgsndKeyword_110; }
+		
+		//'my'
+		public Keyword getMyKeyword_111() { return cMyKeyword_111; }
+		
+		//'next'
+		public Keyword getNextKeyword_112() { return cNextKeyword_112; }
+		
+		//'no'
+		public Keyword getNoKeyword_113() { return cNoKeyword_113; }
+		
+		//'oct'
+		public Keyword getOctKeyword_114() { return cOctKeyword_114; }
+		
+		//'open'
+		public Keyword getOpenKeyword_115() { return cOpenKeyword_115; }
+		
+		//'opendir'
+		public Keyword getOpendirKeyword_116() { return cOpendirKeyword_116; }
+		
+		//'ord'
+		public Keyword getOrdKeyword_117() { return cOrdKeyword_117; }
+		
+		//'our'
+		public Keyword getOurKeyword_118() { return cOurKeyword_118; }
+		
+		//'pack'
+		public Keyword getPackKeyword_119() { return cPackKeyword_119; }
+		
+		//'package'
+		public Keyword getPackageKeyword_120() { return cPackageKeyword_120; }
+		
+		//'pipe'
+		public Keyword getPipeKeyword_121() { return cPipeKeyword_121; }
+		
+		//'pop'
+		public Keyword getPopKeyword_122() { return cPopKeyword_122; }
+		
+		//'pos'
+		public Keyword getPosKeyword_123() { return cPosKeyword_123; }
+		
+		//'print'
+		public Keyword getPrintKeyword_124() { return cPrintKeyword_124; }
+		
+		//'printf'
+		public Keyword getPrintfKeyword_125() { return cPrintfKeyword_125; }
+		
+		//'prototype'
+		public Keyword getPrototypeKeyword_126() { return cPrototypeKeyword_126; }
+		
+		//'push'
+		public Keyword getPushKeyword_127() { return cPushKeyword_127; }
+		
+		//'quotemeta'
+		public Keyword getQuotemetaKeyword_128() { return cQuotemetaKeyword_128; }
+		
+		//'rand'
+		public Keyword getRandKeyword_129() { return cRandKeyword_129; }
+		
+		//'read'
+		public Keyword getReadKeyword_130() { return cReadKeyword_130; }
+		
+		//'readdir'
+		public Keyword getReaddirKeyword_131() { return cReaddirKeyword_131; }
+		
+		//'readline'
+		public Keyword getReadlineKeyword_132() { return cReadlineKeyword_132; }
+		
+		//'readlink'
+		public Keyword getReadlinkKeyword_133() { return cReadlinkKeyword_133; }
+		
+		//'readpipe'
+		public Keyword getReadpipeKeyword_134() { return cReadpipeKeyword_134; }
+		
+		//'recv'
+		public Keyword getRecvKeyword_135() { return cRecvKeyword_135; }
+		
+		//'redo'
+		public Keyword getRedoKeyword_136() { return cRedoKeyword_136; }
+		
+		//'ref'
+		public Keyword getRefKeyword_137() { return cRefKeyword_137; }
+		
+		//'rename'
+		public Keyword getRenameKeyword_138() { return cRenameKeyword_138; }
+		
+		//'require'
+		public Keyword getRequireKeyword_139() { return cRequireKeyword_139; }
+		
+		//'reset'
+		public Keyword getResetKeyword_140() { return cResetKeyword_140; }
+		
+		//'return'
+		public Keyword getReturnKeyword_141() { return cReturnKeyword_141; }
+		
+		//'reverse'
+		public Keyword getReverseKeyword_142() { return cReverseKeyword_142; }
+		
+		//'rewinddir'
+		public Keyword getRewinddirKeyword_143() { return cRewinddirKeyword_143; }
+		
+		//'rindex'
+		public Keyword getRindexKeyword_144() { return cRindexKeyword_144; }
+		
+		//'rmdir'
+		public Keyword getRmdirKeyword_145() { return cRmdirKeyword_145; }
+		
+		//'say'
+		public Keyword getSayKeyword_146() { return cSayKeyword_146; }
+		
+		//'scalar'
+		public Keyword getScalarKeyword_147() { return cScalarKeyword_147; }
+		
+		//'seek'
+		public Keyword getSeekKeyword_148() { return cSeekKeyword_148; }
+		
+		//'seekdir'
+		public Keyword getSeekdirKeyword_149() { return cSeekdirKeyword_149; }
+		
+		//'select'
+		public Keyword getSelectKeyword_150() { return cSelectKeyword_150; }
+		
+		//'semctl'
+		public Keyword getSemctlKeyword_151() { return cSemctlKeyword_151; }
+		
+		//'semget'
+		public Keyword getSemgetKeyword_152() { return cSemgetKeyword_152; }
+		
+		//'semop'
+		public Keyword getSemopKeyword_153() { return cSemopKeyword_153; }
+		
+		//'send'
+		public Keyword getSendKeyword_154() { return cSendKeyword_154; }
+		
+		//'setgrent'
+		public Keyword getSetgrentKeyword_155() { return cSetgrentKeyword_155; }
+		
+		//'sethostent'
+		public Keyword getSethostentKeyword_156() { return cSethostentKeyword_156; }
+		
+		//'setnetent'
+		public Keyword getSetnetentKeyword_157() { return cSetnetentKeyword_157; }
+		
+		//'setpgrp'
+		public Keyword getSetpgrpKeyword_158() { return cSetpgrpKeyword_158; }
+		
+		//'setpriority'
+		public Keyword getSetpriorityKeyword_159() { return cSetpriorityKeyword_159; }
+		
+		//'setprotoent'
+		public Keyword getSetprotoentKeyword_160() { return cSetprotoentKeyword_160; }
+		
+		//'setpwent'
+		public Keyword getSetpwentKeyword_161() { return cSetpwentKeyword_161; }
+		
+		//'setservent'
+		public Keyword getSetserventKeyword_162() { return cSetserventKeyword_162; }
+		
+		//'setsockopt'
+		public Keyword getSetsockoptKeyword_163() { return cSetsockoptKeyword_163; }
+		
+		//'shift'
+		public Keyword getShiftKeyword_164() { return cShiftKeyword_164; }
+		
+		//'shmctl'
+		public Keyword getShmctlKeyword_165() { return cShmctlKeyword_165; }
+		
+		//'shmget'
+		public Keyword getShmgetKeyword_166() { return cShmgetKeyword_166; }
+		
+		//'shmread'
+		public Keyword getShmreadKeyword_167() { return cShmreadKeyword_167; }
+		
+		//'shmwrite'
+		public Keyword getShmwriteKeyword_168() { return cShmwriteKeyword_168; }
+		
+		//'shutdown'
+		public Keyword getShutdownKeyword_169() { return cShutdownKeyword_169; }
+		
+		//'sin'
+		public Keyword getSinKeyword_170() { return cSinKeyword_170; }
+		
+		//'sleep'
+		public Keyword getSleepKeyword_171() { return cSleepKeyword_171; }
+		
+		//'socket'
+		public Keyword getSocketKeyword_172() { return cSocketKeyword_172; }
+		
+		//'socketpair'
+		public Keyword getSocketpairKeyword_173() { return cSocketpairKeyword_173; }
+		
+		//'sort'
+		public Keyword getSortKeyword_174() { return cSortKeyword_174; }
+		
+		//'splice'
+		public Keyword getSpliceKeyword_175() { return cSpliceKeyword_175; }
+		
+		//'split'
+		public Keyword getSplitKeyword_176() { return cSplitKeyword_176; }
+		
+		//'sprintf'
+		public Keyword getSprintfKeyword_177() { return cSprintfKeyword_177; }
+		
+		//'sqrt'
+		public Keyword getSqrtKeyword_178() { return cSqrtKeyword_178; }
+		
+		//'srand'
+		public Keyword getSrandKeyword_179() { return cSrandKeyword_179; }
+		
+		//'stat'
+		public Keyword getStatKeyword_180() { return cStatKeyword_180; }
+		
+		//'state'
+		public Keyword getStateKeyword_181() { return cStateKeyword_181; }
+		
+		//'study'
+		public Keyword getStudyKeyword_182() { return cStudyKeyword_182; }
+		
+		//'sub'
+		public Keyword getSubKeyword_183() { return cSubKeyword_183; }
+		
+		//'substr'
+		public Keyword getSubstrKeyword_184() { return cSubstrKeyword_184; }
+		
+		//'symlink'
+		public Keyword getSymlinkKeyword_185() { return cSymlinkKeyword_185; }
+		
+		//'syscall'
+		public Keyword getSyscallKeyword_186() { return cSyscallKeyword_186; }
+		
+		//'sysopen'
+		public Keyword getSysopenKeyword_187() { return cSysopenKeyword_187; }
+		
+		//'sysread'
+		public Keyword getSysreadKeyword_188() { return cSysreadKeyword_188; }
+		
+		//'sysseek'
+		public Keyword getSysseekKeyword_189() { return cSysseekKeyword_189; }
+		
+		//'system'
+		public Keyword getSystemKeyword_190() { return cSystemKeyword_190; }
+		
+		//'syswrite'
+		public Keyword getSyswriteKeyword_191() { return cSyswriteKeyword_191; }
+		
+		//'tell'
+		public Keyword getTellKeyword_192() { return cTellKeyword_192; }
+		
+		//'telldir'
+		public Keyword getTelldirKeyword_193() { return cTelldirKeyword_193; }
+		
+		//'tie'
+		public Keyword getTieKeyword_194() { return cTieKeyword_194; }
+		
+		//'tied'
+		public Keyword getTiedKeyword_195() { return cTiedKeyword_195; }
+		
+		//'time'
+		public Keyword getTimeKeyword_196() { return cTimeKeyword_196; }
+		
+		//'times'
+		public Keyword getTimesKeyword_197() { return cTimesKeyword_197; }
+		
+		//'tr'
+		public Keyword getTrKeyword_198() { return cTrKeyword_198; }
+		
+		//'truncate'
+		public Keyword getTruncateKeyword_199() { return cTruncateKeyword_199; }
+		
+		//'uc'
+		public Keyword getUcKeyword_200() { return cUcKeyword_200; }
+		
+		//'ucfirst'
+		public Keyword getUcfirstKeyword_201() { return cUcfirstKeyword_201; }
+		
+		//'umask'
+		public Keyword getUmaskKeyword_202() { return cUmaskKeyword_202; }
+		
+		//'undef'
+		public Keyword getUndefKeyword_203() { return cUndefKeyword_203; }
+		
+		//'unless'
+		public Keyword getUnlessKeyword_204() { return cUnlessKeyword_204; }
+		
+		//'unlink'
+		public Keyword getUnlinkKeyword_205() { return cUnlinkKeyword_205; }
+		
+		//'unpack'
+		public Keyword getUnpackKeyword_206() { return cUnpackKeyword_206; }
+		
+		//'unshift'
+		public Keyword getUnshiftKeyword_207() { return cUnshiftKeyword_207; }
+		
+		//'untie'
+		public Keyword getUntieKeyword_208() { return cUntieKeyword_208; }
+		
+		//'until'
+		public Keyword getUntilKeyword_209() { return cUntilKeyword_209; }
+		
+		//'use'
+		public Keyword getUseKeyword_210() { return cUseKeyword_210; }
+		
+		//'utime'
+		public Keyword getUtimeKeyword_211() { return cUtimeKeyword_211; }
+		
+		//'values'
+		public Keyword getValuesKeyword_212() { return cValuesKeyword_212; }
+		
+		//'vec'
+		public Keyword getVecKeyword_213() { return cVecKeyword_213; }
+		
+		//'wait'
+		public Keyword getWaitKeyword_214() { return cWaitKeyword_214; }
+		
+		//'waitpid'
+		public Keyword getWaitpidKeyword_215() { return cWaitpidKeyword_215; }
+		
+		//'wantarray'
+		public Keyword getWantarrayKeyword_216() { return cWantarrayKeyword_216; }
+		
+		//'warn'
+		public Keyword getWarnKeyword_217() { return cWarnKeyword_217; }
+		
+		//'when'
+		public Keyword getWhenKeyword_218() { return cWhenKeyword_218; }
+		
+		//'while'
+		public Keyword getWhileKeyword_219() { return cWhileKeyword_219; }
+		
+		//'write'
+		public Keyword getWriteKeyword_220() { return cWriteKeyword_220; }
+		
+		//'y'
+		public Keyword getYKeyword_221() { return cYKeyword_221; }
+	}
+	public class OperatorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Operator");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cPlusSignPlusSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cHyphenMinusHyphenMinusKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cAsteriskAsteriskKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cExclamationMarkKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cTildeKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cPlusSignKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cHyphenMinusKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cEqualsSignTildeKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		private final Keyword cExclamationMarkTildeKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		private final Keyword cAsteriskKeyword_9 = (Keyword)cAlternatives.eContents().get(9);
+		private final Keyword cSolidusKeyword_10 = (Keyword)cAlternatives.eContents().get(10);
+		private final Keyword cPercentSignKeyword_11 = (Keyword)cAlternatives.eContents().get(11);
+		private final Keyword cXKeyword_12 = (Keyword)cAlternatives.eContents().get(12);
+		private final Keyword cLessThanSignLessThanSignKeyword_13 = (Keyword)cAlternatives.eContents().get(13);
+		private final Keyword cGreaterThanSignGreaterThanSignKeyword_14 = (Keyword)cAlternatives.eContents().get(14);
+		private final Keyword cLtKeyword_15 = (Keyword)cAlternatives.eContents().get(15);
+		private final Keyword cGtKeyword_16 = (Keyword)cAlternatives.eContents().get(16);
+		private final Keyword cLeKeyword_17 = (Keyword)cAlternatives.eContents().get(17);
+		private final Keyword cGeKeyword_18 = (Keyword)cAlternatives.eContents().get(18);
+		private final Keyword cCmpKeyword_19 = (Keyword)cAlternatives.eContents().get(19);
+		private final Keyword cTildeTildeKeyword_20 = (Keyword)cAlternatives.eContents().get(20);
+		private final Keyword cEqualsSignEqualsSignKeyword_21 = (Keyword)cAlternatives.eContents().get(21);
+		private final Keyword cExclamationMarkEqualsSignKeyword_22 = (Keyword)cAlternatives.eContents().get(22);
+		private final Group cGroup_23 = (Group)cAlternatives.eContents().get(23);
+		private final Keyword cLessThanSignEqualsSignGreaterThanSignKeyword_23_0 = (Keyword)cGroup_23.eContents().get(0);
+		private final Keyword cFullStopKeyword_23_1 = (Keyword)cGroup_23.eContents().get(1);
+		private final Keyword cFullStopFullStopKeyword_24 = (Keyword)cAlternatives.eContents().get(24);
+		private final Keyword cFullStopFullStopFullStopKeyword_25 = (Keyword)cAlternatives.eContents().get(25);
+		private final Keyword cCommaKeyword_26 = (Keyword)cAlternatives.eContents().get(26);
+		private final Keyword cAmpersandKeyword_27 = (Keyword)cAlternatives.eContents().get(27);
+		private final Keyword cVerticalLineKeyword_28 = (Keyword)cAlternatives.eContents().get(28);
+		private final Keyword cCircumflexAccentKeyword_29 = (Keyword)cAlternatives.eContents().get(29);
+		private final Keyword cAmpersandAmpersandKeyword_30 = (Keyword)cAlternatives.eContents().get(30);
+		private final Keyword cVerticalLineVerticalLineKeyword_31 = (Keyword)cAlternatives.eContents().get(31);
+		private final Keyword cSolidusSolidusKeyword_32 = (Keyword)cAlternatives.eContents().get(32);
+		private final Keyword cQuestionMarkKeyword_33 = (Keyword)cAlternatives.eContents().get(33);
+		private final Keyword cColonKeyword_34 = (Keyword)cAlternatives.eContents().get(34);
+		private final Keyword cAsteriskAsteriskEqualsSignKeyword_35 = (Keyword)cAlternatives.eContents().get(35);
+		private final Keyword cPlusSignEqualsSignKeyword_36 = (Keyword)cAlternatives.eContents().get(36);
+		private final Keyword cHyphenMinusEqualsSignKeyword_37 = (Keyword)cAlternatives.eContents().get(37);
+		private final Keyword cFullStopEqualsSignKeyword_38 = (Keyword)cAlternatives.eContents().get(38);
+		private final Keyword cAsteriskEqualsSignKeyword_39 = (Keyword)cAlternatives.eContents().get(39);
+		private final Keyword cSolidusEqualsSignKeyword_40 = (Keyword)cAlternatives.eContents().get(40);
+		private final Keyword cPercentSignEqualsSignKeyword_41 = (Keyword)cAlternatives.eContents().get(41);
+		private final Keyword cXKeyword_42 = (Keyword)cAlternatives.eContents().get(42);
+		private final Keyword cAmpersandEqualsSignKeyword_43 = (Keyword)cAlternatives.eContents().get(43);
+		private final Keyword cVerticalLineEqualsSignKeyword_44 = (Keyword)cAlternatives.eContents().get(44);
+		private final Keyword cCircumflexAccentEqualsSignKeyword_45 = (Keyword)cAlternatives.eContents().get(45);
+		private final Keyword cLessThanSignLessThanSignEqualsSignKeyword_46 = (Keyword)cAlternatives.eContents().get(46);
+		private final Keyword cGreaterThanSignGreaterThanSignEqualsSignKeyword_47 = (Keyword)cAlternatives.eContents().get(47);
+		private final Keyword cAmpersandAmpersandEqualsSignKeyword_48 = (Keyword)cAlternatives.eContents().get(48);
+		private final Keyword cVerticalLineVerticalLineEqualsSignKeyword_49 = (Keyword)cAlternatives.eContents().get(49);
+		private final Keyword cSolidusSolidusEqualsSignKeyword_50 = (Keyword)cAlternatives.eContents().get(50);
+		private final Keyword cLessThanSignKeyword_51 = (Keyword)cAlternatives.eContents().get(51);
+		private final Keyword cGreaterThanSignKeyword_52 = (Keyword)cAlternatives.eContents().get(52);
+		private final Keyword cLessThanSignEqualsSignKeyword_53 = (Keyword)cAlternatives.eContents().get(53);
+		private final Keyword cGreaterThanSignEqualsSignKeyword_54 = (Keyword)cAlternatives.eContents().get(54);
+		private final Keyword cLessThanSignGreaterThanSignKeyword_55 = (Keyword)cAlternatives.eContents().get(55);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_56 = (Keyword)cAlternatives.eContents().get(56);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_57 = (Keyword)cAlternatives.eContents().get(57);
+		private final Keyword cAndKeyword_58 = (Keyword)cAlternatives.eContents().get(58);
+		private final Keyword cOrKeyword_59 = (Keyword)cAlternatives.eContents().get(59);
+		private final Keyword cXorKeyword_60 = (Keyword)cAlternatives.eContents().get(60);
+		private final Keyword cNotKeyword_61 = (Keyword)cAlternatives.eContents().get(61);
+		private final Keyword cEqKeyword_62 = (Keyword)cAlternatives.eContents().get(62);
+		private final Keyword cNeKeyword_63 = (Keyword)cAlternatives.eContents().get(63);
+		
+		/// *
+		//  # This is the list of valid operators
+		//  ++   --   **   !    ~    +    -
+		//  =~   !~   *    /    %    x
+		//  <<   >>   lt   gt   le   ge   cmp  ~~
+		//  ==   !=   <=>  .    ..   ...  ,
+		//  &    |    ^    &&   ||   //
+		//  ?    :    **=  +=   -=   .=   *=   /=
+		//  %=   x=   &=   |=   ^=   <<=  >>=  &&=
+		//  ||=  //=  <    >    <=   >=   <>   =>   ->
+		//  and  or   xor  not  eq   ne
+		// * / Operator:
+		//	'++' | '--' | '**' | '!' | '~' | '+' | '-' | '=~' | '!~' | '*' | '/' | '%' | 'x' | '<<' | '>>' | 'lt' | 'gt' | 'le' |
+		//	'ge' | 'cmp' | '~~' | '==' | '!=' | '<=>' '.' | '..' | '...' | ',' | '&' | '|' | '^' | '&&' | '||' | '//' | '?' | ':'
+		//	| '**=' | '+=' | '-=' | '.=' | '*=' | '/=' | '%=' | 'x=' | '&=' | '|=' | '^=' | '<<=' | '>>=' | '&&=' | '||=' | '//='
+		//	| '<' | '>' | '<=' | '>=' | '<>' | '=>' | '->' | 'and' | 'or' | 'xor' | 'not' | 'eq' | 'ne';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'++' | '--' | '**' | '!' | '~' | '+' | '-' | '=~' | '!~' | '*' | '/' | '%' | 'x' | '<<' | '>>' | 'lt' | 'gt' | 'le' |
+		//'ge' | 'cmp' | '~~' | '==' | '!=' | '<=>' '.' | '..' | '...' | ',' | '&' | '|' | '^' | '&&' | '||' | '//' | '?' | ':' |
+		//'**=' | '+=' | '-=' | '.=' | '*=' | '/=' | '%=' | 'x=' | '&=' | '|=' | '^=' | '<<=' | '>>=' | '&&=' | '||=' | '//=' |
+		//'<' | '>' | '<=' | '>=' | '<>' | '=>' | '->' | 'and' | 'or' | 'xor' | 'not' | 'eq' | 'ne'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'++'
+		public Keyword getPlusSignPlusSignKeyword_0() { return cPlusSignPlusSignKeyword_0; }
+		
+		//'--'
+		public Keyword getHyphenMinusHyphenMinusKeyword_1() { return cHyphenMinusHyphenMinusKeyword_1; }
+		
+		//'**'
+		public Keyword getAsteriskAsteriskKeyword_2() { return cAsteriskAsteriskKeyword_2; }
+		
+		//'!'
+		public Keyword getExclamationMarkKeyword_3() { return cExclamationMarkKeyword_3; }
+		
+		//'~'
+		public Keyword getTildeKeyword_4() { return cTildeKeyword_4; }
+		
+		//'+'
+		public Keyword getPlusSignKeyword_5() { return cPlusSignKeyword_5; }
+		
+		//'-'
+		public Keyword getHyphenMinusKeyword_6() { return cHyphenMinusKeyword_6; }
+		
+		//'=~'
+		public Keyword getEqualsSignTildeKeyword_7() { return cEqualsSignTildeKeyword_7; }
+		
+		//'!~'
+		public Keyword getExclamationMarkTildeKeyword_8() { return cExclamationMarkTildeKeyword_8; }
+		
+		//'*'
+		public Keyword getAsteriskKeyword_9() { return cAsteriskKeyword_9; }
+		
+		//'/'
+		public Keyword getSolidusKeyword_10() { return cSolidusKeyword_10; }
+		
+		//'%'
+		public Keyword getPercentSignKeyword_11() { return cPercentSignKeyword_11; }
+		
+		//'x'
+		public Keyword getXKeyword_12() { return cXKeyword_12; }
+		
+		//'<<'
+		public Keyword getLessThanSignLessThanSignKeyword_13() { return cLessThanSignLessThanSignKeyword_13; }
+		
+		//'>>'
+		public Keyword getGreaterThanSignGreaterThanSignKeyword_14() { return cGreaterThanSignGreaterThanSignKeyword_14; }
+		
+		//'lt'
+		public Keyword getLtKeyword_15() { return cLtKeyword_15; }
+		
+		//'gt'
+		public Keyword getGtKeyword_16() { return cGtKeyword_16; }
+		
+		//'le'
+		public Keyword getLeKeyword_17() { return cLeKeyword_17; }
+		
+		//'ge'
+		public Keyword getGeKeyword_18() { return cGeKeyword_18; }
+		
+		//'cmp'
+		public Keyword getCmpKeyword_19() { return cCmpKeyword_19; }
+		
+		//'~~'
+		public Keyword getTildeTildeKeyword_20() { return cTildeTildeKeyword_20; }
+		
+		//'=='
+		public Keyword getEqualsSignEqualsSignKeyword_21() { return cEqualsSignEqualsSignKeyword_21; }
+		
+		//'!='
+		public Keyword getExclamationMarkEqualsSignKeyword_22() { return cExclamationMarkEqualsSignKeyword_22; }
+		
+		//'<=>' '.'
+		public Group getGroup_23() { return cGroup_23; }
+		
+		//'<=>'
+		public Keyword getLessThanSignEqualsSignGreaterThanSignKeyword_23_0() { return cLessThanSignEqualsSignGreaterThanSignKeyword_23_0; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_23_1() { return cFullStopKeyword_23_1; }
+		
+		//'..'
+		public Keyword getFullStopFullStopKeyword_24() { return cFullStopFullStopKeyword_24; }
+		
+		//'...'
+		public Keyword getFullStopFullStopFullStopKeyword_25() { return cFullStopFullStopFullStopKeyword_25; }
+		
+		//','
+		public Keyword getCommaKeyword_26() { return cCommaKeyword_26; }
+		
+		//'&'
+		public Keyword getAmpersandKeyword_27() { return cAmpersandKeyword_27; }
+		
+		//'|'
+		public Keyword getVerticalLineKeyword_28() { return cVerticalLineKeyword_28; }
+		
+		//'^'
+		public Keyword getCircumflexAccentKeyword_29() { return cCircumflexAccentKeyword_29; }
+		
+		//'&&'
+		public Keyword getAmpersandAmpersandKeyword_30() { return cAmpersandAmpersandKeyword_30; }
+		
+		//'||'
+		public Keyword getVerticalLineVerticalLineKeyword_31() { return cVerticalLineVerticalLineKeyword_31; }
+		
+		//'//'
+		public Keyword getSolidusSolidusKeyword_32() { return cSolidusSolidusKeyword_32; }
+		
+		//'?'
+		public Keyword getQuestionMarkKeyword_33() { return cQuestionMarkKeyword_33; }
+		
+		//':'
+		public Keyword getColonKeyword_34() { return cColonKeyword_34; }
+		
+		//'**='
+		public Keyword getAsteriskAsteriskEqualsSignKeyword_35() { return cAsteriskAsteriskEqualsSignKeyword_35; }
+		
+		//'+='
+		public Keyword getPlusSignEqualsSignKeyword_36() { return cPlusSignEqualsSignKeyword_36; }
+		
+		//'-='
+		public Keyword getHyphenMinusEqualsSignKeyword_37() { return cHyphenMinusEqualsSignKeyword_37; }
+		
+		//'.='
+		public Keyword getFullStopEqualsSignKeyword_38() { return cFullStopEqualsSignKeyword_38; }
+		
+		//'*='
+		public Keyword getAsteriskEqualsSignKeyword_39() { return cAsteriskEqualsSignKeyword_39; }
+		
+		//'/='
+		public Keyword getSolidusEqualsSignKeyword_40() { return cSolidusEqualsSignKeyword_40; }
+		
+		//'%='
+		public Keyword getPercentSignEqualsSignKeyword_41() { return cPercentSignEqualsSignKeyword_41; }
+		
+		//'x='
+		public Keyword getXKeyword_42() { return cXKeyword_42; }
+		
+		//'&='
+		public Keyword getAmpersandEqualsSignKeyword_43() { return cAmpersandEqualsSignKeyword_43; }
+		
+		//'|='
+		public Keyword getVerticalLineEqualsSignKeyword_44() { return cVerticalLineEqualsSignKeyword_44; }
+		
+		//'^='
+		public Keyword getCircumflexAccentEqualsSignKeyword_45() { return cCircumflexAccentEqualsSignKeyword_45; }
+		
+		//'<<='
+		public Keyword getLessThanSignLessThanSignEqualsSignKeyword_46() { return cLessThanSignLessThanSignEqualsSignKeyword_46; }
+		
+		//'>>='
+		public Keyword getGreaterThanSignGreaterThanSignEqualsSignKeyword_47() { return cGreaterThanSignGreaterThanSignEqualsSignKeyword_47; }
+		
+		//'&&='
+		public Keyword getAmpersandAmpersandEqualsSignKeyword_48() { return cAmpersandAmpersandEqualsSignKeyword_48; }
+		
+		//'||='
+		public Keyword getVerticalLineVerticalLineEqualsSignKeyword_49() { return cVerticalLineVerticalLineEqualsSignKeyword_49; }
+		
+		//'//='
+		public Keyword getSolidusSolidusEqualsSignKeyword_50() { return cSolidusSolidusEqualsSignKeyword_50; }
+		
+		//'<'
+		public Keyword getLessThanSignKeyword_51() { return cLessThanSignKeyword_51; }
+		
+		//'>'
+		public Keyword getGreaterThanSignKeyword_52() { return cGreaterThanSignKeyword_52; }
+		
+		//'<='
+		public Keyword getLessThanSignEqualsSignKeyword_53() { return cLessThanSignEqualsSignKeyword_53; }
+		
+		//'>='
+		public Keyword getGreaterThanSignEqualsSignKeyword_54() { return cGreaterThanSignEqualsSignKeyword_54; }
+		
+		//'<>'
+		public Keyword getLessThanSignGreaterThanSignKeyword_55() { return cLessThanSignGreaterThanSignKeyword_55; }
+		
+		//'=>'
+		public Keyword getEqualsSignGreaterThanSignKeyword_56() { return cEqualsSignGreaterThanSignKeyword_56; }
+		
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_57() { return cHyphenMinusGreaterThanSignKeyword_57; }
+		
+		//'and'
+		public Keyword getAndKeyword_58() { return cAndKeyword_58; }
+		
+		//'or'
+		public Keyword getOrKeyword_59() { return cOrKeyword_59; }
+		
+		//'xor'
+		public Keyword getXorKeyword_60() { return cXorKeyword_60; }
+		
+		//'not'
+		public Keyword getNotKeyword_61() { return cNotKeyword_61; }
+		
+		//'eq'
+		public Keyword getEqKeyword_62() { return cEqKeyword_62; }
+		
+		//'ne'
+		public Keyword getNeKeyword_63() { return cNeKeyword_63; }
+	}
+	public class FileTestOperatorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.FileTestOperator");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cRKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cWKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cXKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cOKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cRKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cWKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cXKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cOKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		private final Keyword cEKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		private final Keyword cZKeyword_9 = (Keyword)cAlternatives.eContents().get(9);
+		private final Keyword cSKeyword_10 = (Keyword)cAlternatives.eContents().get(10);
+		private final Keyword cFKeyword_11 = (Keyword)cAlternatives.eContents().get(11);
+		private final Keyword cDKeyword_12 = (Keyword)cAlternatives.eContents().get(12);
+		private final Keyword cLKeyword_13 = (Keyword)cAlternatives.eContents().get(13);
+		private final Keyword cPKeyword_14 = (Keyword)cAlternatives.eContents().get(14);
+		private final Keyword cSKeyword_15 = (Keyword)cAlternatives.eContents().get(15);
+		private final Keyword cBKeyword_16 = (Keyword)cAlternatives.eContents().get(16);
+		private final Keyword cCKeyword_17 = (Keyword)cAlternatives.eContents().get(17);
+		private final Keyword cTKeyword_18 = (Keyword)cAlternatives.eContents().get(18);
+		private final Keyword cUKeyword_19 = (Keyword)cAlternatives.eContents().get(19);
+		private final Keyword cGKeyword_20 = (Keyword)cAlternatives.eContents().get(20);
+		private final Keyword cKKeyword_21 = (Keyword)cAlternatives.eContents().get(21);
+		private final Keyword cTKeyword_22 = (Keyword)cAlternatives.eContents().get(22);
+		private final Keyword cBKeyword_23 = (Keyword)cAlternatives.eContents().get(23);
+		private final Keyword cMKeyword_24 = (Keyword)cAlternatives.eContents().get(24);
+		private final Keyword cAKeyword_25 = (Keyword)cAlternatives.eContents().get(25);
+		private final Keyword cCKeyword_26 = (Keyword)cAlternatives.eContents().get(26);
+		
+		//FileTestOperator:
+		//	'-r' | '-w' | '-x' | '-o' | '-R' | '-W' | '-X' | '-O' | '-e' | '-z' | '-s' | '-f' | '-d' | '-l' | '-p' | '-S' | '-b' |
+		//	'-c' | '-t' | '-u' | '-g' | '-k' | '-T' | '-B' | '-M' | '-A' | '-C';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'-r' | '-w' | '-x' | '-o' | '-R' | '-W' | '-X' | '-O' | '-e' | '-z' | '-s' | '-f' | '-d' | '-l' | '-p' | '-S' | '-b' |
+		//'-c' | '-t' | '-u' | '-g' | '-k' | '-T' | '-B' | '-M' | '-A' | '-C'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'-r'
+		public Keyword getRKeyword_0() { return cRKeyword_0; }
+		
+		//'-w'
+		public Keyword getWKeyword_1() { return cWKeyword_1; }
+		
+		//'-x'
+		public Keyword getXKeyword_2() { return cXKeyword_2; }
+		
+		//'-o'
+		public Keyword getOKeyword_3() { return cOKeyword_3; }
+		
+		//'-R'
+		public Keyword getRKeyword_4() { return cRKeyword_4; }
+		
+		//'-W'
+		public Keyword getWKeyword_5() { return cWKeyword_5; }
+		
+		//'-X'
+		public Keyword getXKeyword_6() { return cXKeyword_6; }
+		
+		//'-O'
+		public Keyword getOKeyword_7() { return cOKeyword_7; }
+		
+		//'-e'
+		public Keyword getEKeyword_8() { return cEKeyword_8; }
+		
+		//'-z'
+		public Keyword getZKeyword_9() { return cZKeyword_9; }
+		
+		//'-s'
+		public Keyword getSKeyword_10() { return cSKeyword_10; }
+		
+		//'-f'
+		public Keyword getFKeyword_11() { return cFKeyword_11; }
+		
+		//'-d'
+		public Keyword getDKeyword_12() { return cDKeyword_12; }
+		
+		//'-l'
+		public Keyword getLKeyword_13() { return cLKeyword_13; }
+		
+		//'-p'
+		public Keyword getPKeyword_14() { return cPKeyword_14; }
+		
+		//'-S'
+		public Keyword getSKeyword_15() { return cSKeyword_15; }
+		
+		//'-b'
+		public Keyword getBKeyword_16() { return cBKeyword_16; }
+		
+		//'-c'
+		public Keyword getCKeyword_17() { return cCKeyword_17; }
+		
+		//'-t'
+		public Keyword getTKeyword_18() { return cTKeyword_18; }
+		
+		//'-u'
+		public Keyword getUKeyword_19() { return cUKeyword_19; }
+		
+		//'-g'
+		public Keyword getGKeyword_20() { return cGKeyword_20; }
+		
+		//'-k'
+		public Keyword getKKeyword_21() { return cKKeyword_21; }
+		
+		//'-T'
+		public Keyword getTKeyword_22() { return cTKeyword_22; }
+		
+		//'-B'
+		public Keyword getBKeyword_23() { return cBKeyword_23; }
+		
+		//'-M'
+		public Keyword getMKeyword_24() { return cMKeyword_24; }
+		
+		//'-A'
+		public Keyword getAKeyword_25() { return cAKeyword_25; }
+		
+		//'-C'
+		public Keyword getCKeyword_26() { return cCKeyword_26; }
+	}
 	
 	
 	private final PerlModelElements pPerlModel;
 	private final AbstractElementElements pAbstractElement;
-	private final AssignmentElements pAssignment;
-	private final OpSingleAssignElements pOpSingleAssign;
-	private final OpMultiAssignElements pOpMultiAssign;
-	private final ExpressionElements pExpression;
-	private final OrElements pOr;
-	private final OpOrElements pOpOr;
-	private final AndElements pAnd;
-	private final OpAndElements pOpAnd;
-	private final EqualityElements pEquality;
-	private final OpEqualityElements pOpEquality;
-	private final ComparisonElements pComparison;
-	private final PlusOrMinusElements pPlusOrMinus;
-	private final MulOrDivElements pMulOrDiv;
-	private final OpMulOrDivElements pOpMulOrDiv;
-	private final PrimaryElements pPrimary;
-	private final AtomicElements pAtomic;
-	private final VariableRefElements pVariableRef;
-	private final NumberLiteralElements pNumberLiteral;
-	private final NullLiteralElements pNullLiteral;
-	private final StringLiteralElements pStringLiteral;
+	private final TokenElements pToken;
+	private final QuoteLikeTokenElements pQuoteLikeToken;
 	private final NumberElements pNumber;
-	private final TerminalRule tVAR_START;
-	private final TerminalRule tID;
+	private final WordElements pWord;
+	private final KeywordElements pKeyword;
+	private final OperatorElements pOperator;
+	private final FileTestOperatorElements pFileTestOperator;
 	private final TerminalRule tHEX;
 	private final TerminalRule tBIN;
 	private final TerminalRule tINT;
 	private final TerminalRule tSTRING;
+	private final TerminalRule tINTERPOLATE;
+	private final TerminalRule tLITERAL;
+	private final TerminalRule tBACKTICK_STRING;
+	private final TerminalRule tWORDS_QUOTE_LIKE;
+	private final TerminalRule tCOMMAND_QUOTE_LIKE;
+	private final TerminalRule tPOD;
+	private final TerminalRule tDATA;
+	private final TerminalRule tEND;
 	private final TerminalRule tSL_COMMENT;
 	private final TerminalRule tWS;
+	private final TerminalRule tANY_OTHER;
 	
 	private final Grammar grammar;
 
@@ -966,35 +1814,28 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.pPerlModel = new PerlModelElements();
 		this.pAbstractElement = new AbstractElementElements();
-		this.pAssignment = new AssignmentElements();
-		this.pOpSingleAssign = new OpSingleAssignElements();
-		this.pOpMultiAssign = new OpMultiAssignElements();
-		this.pExpression = new ExpressionElements();
-		this.pOr = new OrElements();
-		this.pOpOr = new OpOrElements();
-		this.pAnd = new AndElements();
-		this.pOpAnd = new OpAndElements();
-		this.pEquality = new EqualityElements();
-		this.pOpEquality = new OpEqualityElements();
-		this.pComparison = new ComparisonElements();
-		this.pPlusOrMinus = new PlusOrMinusElements();
-		this.pMulOrDiv = new MulOrDivElements();
-		this.pOpMulOrDiv = new OpMulOrDivElements();
-		this.pPrimary = new PrimaryElements();
-		this.pAtomic = new AtomicElements();
-		this.pVariableRef = new VariableRefElements();
-		this.pNumberLiteral = new NumberLiteralElements();
-		this.pNullLiteral = new NullLiteralElements();
-		this.pStringLiteral = new StringLiteralElements();
+		this.pToken = new TokenElements();
+		this.pQuoteLikeToken = new QuoteLikeTokenElements();
 		this.pNumber = new NumberElements();
-		this.tVAR_START = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.VAR_START");
-		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.ID");
+		this.pWord = new WordElements();
+		this.pKeyword = new KeywordElements();
+		this.pOperator = new OperatorElements();
+		this.pFileTestOperator = new FileTestOperatorElements();
 		this.tHEX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.HEX");
 		this.tBIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.BIN");
 		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.INT");
 		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.STRING");
+		this.tINTERPOLATE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.INTERPOLATE");
+		this.tLITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.LITERAL");
+		this.tBACKTICK_STRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.BACKTICK_STRING");
+		this.tWORDS_QUOTE_LIKE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.WORDS_QUOTE_LIKE");
+		this.tCOMMAND_QUOTE_LIKE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.COMMAND_QUOTE_LIKE");
+		this.tPOD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.POD");
+		this.tDATA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.DATA");
+		this.tEND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.END");
 		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.SL_COMMENT");
 		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.WS");
+		this.tANY_OTHER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.ANY_OTHER");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1031,7 +1872,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AbstractElement:
-	//	Assignment | Expression;
+	//	Token;
 	public AbstractElementElements getAbstractElementAccess() {
 		return pAbstractElement;
 	}
@@ -1040,388 +1881,88 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		return getAbstractElementAccess().getRule();
 	}
 	
-	//Assignment:
-	//	('my' | 'our' | 'local')? variable=ID op=(OpSingleAssign | OpMultiAssign) expression=Expression;
-	public AssignmentElements getAssignmentAccess() {
-		return pAssignment;
-	}
-	
-	public ParserRule getAssignmentRule() {
-		return getAssignmentAccess().getRule();
-	}
-	
-	//OpSingleAssign:
-	//	'=';
-	public OpSingleAssignElements getOpSingleAssignAccess() {
-		return pOpSingleAssign;
-	}
-	
-	public ParserRule getOpSingleAssignRule() {
-		return getOpSingleAssignAccess().getRule();
-	}
-	
-	//OpMultiAssign:
-	//	'+=' | '-=' | '*=' | '/=' | '%=' | '**=' |
-	//	'<' '<' '=' |
-	//	'>' '>'? '>=';
-	public OpMultiAssignElements getOpMultiAssignAccess() {
-		return pOpMultiAssign;
-	}
-	
-	public ParserRule getOpMultiAssignRule() {
-		return getOpMultiAssignAccess().getRule();
-	}
-	
-	//Expression:
-	//	Or;
-	public ExpressionElements getExpressionAccess() {
-		return pExpression;
-	}
-	
-	public ParserRule getExpressionRule() {
-		return getExpressionAccess().getRule();
-	}
-	
-	//Or Expression:
-	//	And ({Or.left=current} op=OpOr right=And)*
-	public OrElements getOrAccess() {
-		return pOr;
-	}
-	
-	public ParserRule getOrRule() {
-		return getOrAccess().getRule();
-	}
-	
-	//OpOr:
-	//	'||';
-	public OpOrElements getOpOrAccess() {
-		return pOpOr;
-	}
-	
-	public ParserRule getOpOrRule() {
-		return getOpOrAccess().getRule();
-	}
-	
-	//And Expression:
-	//	Equality ({And.left=current} op=OpAnd right=Equality)*
-	public AndElements getAndAccess() {
-		return pAnd;
-	}
-	
-	public ParserRule getAndRule() {
-		return getAndAccess().getRule();
-	}
-	
-	//OpAnd:
-	//	'&&';
-	public OpAndElements getOpAndAccess() {
-		return pOpAnd;
-	}
-	
-	public ParserRule getOpAndRule() {
-		return getOpAndAccess().getRule();
-	}
-	
-	//Equality Expression:
-	//	Comparison ({Equality.left=current} op=OpEquality
-	//	right=Comparison)*
-	public EqualityElements getEqualityAccess() {
-		return pEquality;
-	}
-	
-	public ParserRule getEqualityRule() {
-		return getEqualityAccess().getRule();
-	}
-	
-	//OpEquality:
-	//	'==' | '!=' | 'eq' | 'ne';
-	public OpEqualityElements getOpEqualityAccess() {
-		return pOpEquality;
-	}
-	
-	public ParserRule getOpEqualityRule() {
-		return getOpEqualityAccess().getRule();
-	}
-	
-	//Comparison Expression:
-	//	PlusOrMinus ({Comparison.left=current} op=(">=" | "<=" | ">" | "<") right=PlusOrMinus)*
-	public ComparisonElements getComparisonAccess() {
-		return pComparison;
-	}
-	
-	public ParserRule getComparisonRule() {
-		return getComparisonAccess().getRule();
-	}
-	
-	//PlusOrMinus Expression:
-	//	MulOrDiv (({Plus.left=current} '+' | {Minus.left=current} '-') right=MulOrDiv)*
-	public PlusOrMinusElements getPlusOrMinusAccess() {
-		return pPlusOrMinus;
-	}
-	
-	public ParserRule getPlusOrMinusRule() {
-		return getPlusOrMinusAccess().getRule();
-	}
-	
-	//MulOrDiv Expression:
-	//	Primary ({MulOrDiv.left=current} op=OpMulOrDiv
-	//	right=Primary)*
-	public MulOrDivElements getMulOrDivAccess() {
-		return pMulOrDiv;
-	}
-	
-	public ParserRule getMulOrDivRule() {
-		return getMulOrDivAccess().getRule();
-	}
-	
-	//OpMulOrDiv:
-	//	'*' | '**' | '/' | '%';
-	public OpMulOrDivElements getOpMulOrDivAccess() {
-		return pOpMulOrDiv;
-	}
-	
-	public ParserRule getOpMulOrDivRule() {
-		return getOpMulOrDivAccess().getRule();
-	}
-	
-	////
-	////Unary returns Expression:
-	////	op=OpUnary {Unary.right=current}
+	////Node:
+	////	StatementNode
+	////	| StructureNode
 	////;
-	////
-	////OpUnary:
-	////	"!" | "-" | "+";
-	//Primary Expression:
-	//	'(' Expression ')' | {Not} "!" expression=Primary | Atomic
-	public PrimaryElements getPrimaryAccess() {
-		return pPrimary;
-	}
-	
-	public ParserRule getPrimaryRule() {
-		return getPrimaryAccess().getRule();
-	}
-	
-	//Atomic Expression:
-	//	NumberLiteral | NullLiteral | StringLiteral | VariableRef
-	public AtomicElements getAtomicAccess() {
-		return pAtomic;
-	}
-	
-	public ParserRule getAtomicRule() {
-		return getAtomicAccess().getRule();
-	}
-	
-	//VariableRef:
-	//	name=ID;
-	public VariableRefElements getVariableRefAccess() {
-		return pVariableRef;
-	}
-	
-	public ParserRule getVariableRefRule() {
-		return getVariableRefAccess().getRule();
-	}
-	
-	//NumberLiteral Expression:
-	//	{NumberLiteral} value=Number
-	public NumberLiteralElements getNumberLiteralAccess() {
-		return pNumberLiteral;
-	}
-	
-	public ParserRule getNumberLiteralRule() {
-		return getNumberLiteralAccess().getRule();
-	}
-	
-	//NullLiteral Expression:
-	//	{NullLiteral} 'undef'
-	public NullLiteralElements getNullLiteralAccess() {
-		return pNullLiteral;
-	}
-	
-	public ParserRule getNullLiteralRule() {
-		return getNullLiteralAccess().getRule();
-	}
-	
-	//StringLiteral Expression:
-	//	{StringLiteral} value=STRING
-	public StringLiteralElements getStringLiteralAccess() {
-		return pStringLiteral;
-	}
-	
-	public ParserRule getStringLiteralRule() {
-		return getStringLiteralAccess().getRule();
-	}
-	
-	////
-	////
-	////PExpression returns PExpression:
-	////	PAssignment
-	////	| PAdditiveExpression 
-	////	| PLiteral
+	////StatementNode:
+	////	PackageStatement
+	////	| IncludeStatement
+	////	| SubStatement
+	////	| CompoundStatement
+	////	| BreakStatement
+	////	| GivenStatement
+	////	| WhenStatement
+	////	| DataStatement
+	////	| EndStatement
+	////	| ExpressionStatement
+	////	| NullStatement
+	////	| UnmatchedBraceStatement
+	////	| UnknownStatement
 	////;
-	////
-	//////PExpression returns PExpression :
-	//////	PAssignment
-	//////;
-	//////
-	//////PAssignment returns PExpression :
-	//////	{PAssignment} var=PVar OpSingleAssign value=PAssignment |	
-	//////	POrExpression (
-	//////		=>({PBinaryOperation.leftOperand=current} feature=OpMultiAssign) rightOperand=PAssignment
-	//////	)?;
-	//////
-	//////OpSingleAssign:
-	//////	'='
-	//////;
-	//////
-	//////OpMultiAssign:
-	//////	'+=' | '-=' | '*=' | '/=' | '%=' | '**=' |
-	//////	'<' '<' '=' | 
-	//////	'>' '>'? '>=';
-	//////
-	//////POrExpression returns PExpression:
-	//////	PAndExpression (=>({PBinaryOperation.leftOperand=current} feature=OpOr) rightOperand=PAndExpression)*;
-	//////
-	//////OpOr:
-	//////	'||';
-	//////
-	//////PAndExpression returns PExpression:
-	//////	PEqualityExpression (=>({PBinaryOperation.leftOperand=current} feature=OpAnd) rightOperand=PEqualityExpression)*;
-	//////
-	//////OpAnd:
-	//////	'&&';
-	//////
-	//////PEqualityExpression returns PExpression:
-	//////	PRelationalExpression (=>({PBinaryOperation.leftOperand=current} feature=OpEquality)
-	//////	rightOperand=PRelationalExpression)*;
-	//////
-	//////OpEquality:
-	//////	'==' | '!=' | 'eq' | 'ne';
-	//////
-	//////PRelationalExpression returns PExpression:
-	//////	POtherOperatorExpression
-	//////	(=>({PBinaryOperation.leftOperand=current} feature=OpCompare) rightOperand=POtherOperatorExpression)*;
-	//////
-	//////OpCompare:
-	//////	'>=' | '<' '=' | '>' | '<' ;
-	//////
-	//////POtherOperatorExpression returns PExpression:
-	//////	PAdditiveExpression (=>({PBinaryOperation.leftOperand=current} feature=OpOther)
-	//////	rightOperand=PAdditiveExpression)*;
-	//////
-	//////OpOther:
-	//////	  '>' (=>('>' '>') | '>')
-	//////	| '<' (=>('<' '<') | '<' | '=>')
-	//////	| '<>'
-	//////	| '?:';
-	//////
-	////
-	////PAdditiveExpression returns PExpression:
-	////	PMultiplicativeExpression (=>({PBinaryOperation.leftOperand=current} variable=[Variable])
-	////	rightOperand=PMultiplicativeExpression)*;
-	////
-	////OpAdd:
-	////	'+' | '-';
-	////
-	////PMultiplicativeExpression returns PExpression:
-	////	PUnaryOperation (=>({PBinaryOperation.leftOperand=current} variable=[Variable]) rightOperand=PUnaryOperation)*;
-	////
-	////OpMulti:
-	////	'*' | '**' | '/' | '%';
-	////
-	////PUnaryOperation returns PExpression:
-	////	{PUnaryOperation} variable=[Variable] operand=PUnaryOperation
+	////StructureNode:
+	////	BlockStructure
+	////    | SubscriptStructure
+	////    | ConstructorStructure
+	////    | ConditionStructure
+	////    | ListStructure
+	////    | ForStructure
+	////    | GivenStructure
+	////    | WhenStructure
+	////    | UnknownStructure
 	////;
-	////
-	////OpUnary:
-	////	"!" | "-" | "+";
-	//////
-	//////PPostfixOperation returns PExpression:
-	//////	{PPostfixOperation}
-	//////	var=PVar =>({PPostfixOperation.operand=current} feature=OpPostfix)?
-	//////;
-	//////
-	//////OpPostfix:
-	//////	"++" | "--"
-	//////;
-	//////
-	//////PVar:
-	//////	VAR_START ID
-	//////;
-	//////
-	//////PPrimaryExpression returns PExpression:
-	//////	PBlockExpression |
-	//////	PLiteral |
-	//////	PIfExpression |
-	//////	PReturnExpression |
-	//////	PParenthesizedExpression
-	//////;		
-	//////
-	//////PLiteral returns PExpression:
-	//////	PClosure |
-	//////	PNumberLiteral |
-	//////	PNullLiteral |
-	//////	PStringLiteral
-	//////;
-	//////
-	//////PClosure returns PExpression:
-	//////	=>({PClosure} 
-	//////	'sub' '{') 
-	//////		expression=PExpressionInClosure 
-	//////	'}'
-	//////;
-	//////
-	//////PExpressionInClosure returns PExpression: 
-	//////	{PBlockExpression}
-	//////	(expressions+=PExpressionOrVarDeclaration ';'?)*
-	//////;
-	//////
-	//////PParenthesizedExpression returns PExpression:
-	//////	'(' PExpression ')'
-	//////;
-	//////
-	//////PIfExpression returns PExpression:
-	//////	{PIfExpression}
-	//////	'if' '(' if=PExpression ')'
-	//////	then=PExpression
-	//////	(=>'else' else=PExpression)?;
-	//////
-	//////PBlockExpression returns PExpression: 
-	//////	{PBlockExpression}
-	//////	'{'
-	//////		(expressions+=PExpressionOrVarDeclaration ';'?)*
-	//////	'}';
-	//////
-	//////PExpressionOrVarDeclaration returns PExpression:
-	//////	PVariableDeclaration | PExpression;
-	//////
-	//////PVariableDeclaration returns PExpression:
-	//////	{PVariableDeclaration}
-	//////	('my'|'our'|'local') (=>(name=PVar)) ('=' right=PExpression)?;
-	//////
-	//////PConstructorCall returns PExpression:
-	//////	{PConstructorCall}
-	//////	'new' constructor=QualifiedName
-	//////	(=>explicitConstructorCall?='(' 
-	//////		arguments+=PExpression (',' arguments+=PExpression)*
-	//////	')')?
-	//////;
-	//////
-	////
-	//////
-	//////PReturnExpression returns PExpression:
-	//////	{PReturnExpression} 'return' (->expression=PExpression)?;
-	//////
-	////
-	////PLiteral returns PExpression:
-	////	PNumberLiteral
-	////	| PNullLiteral
-	////	| PStringLiteral
-	//////	| PPackageLiteral
+	////ExpressionStatement:
+	////	VariableExpression
 	////;
-	////
-	////PAssignment returns PExpression:
-	////	Variable '=' expression=PExpression;
-	////
+	//Token:
+	//	{CommentToken} content=SL_COMMENT
+	//	| {PodToken} content=POD
+	//	| {NumberToken} content=Number
+	//	| {WordToken} content=Word
+	//	//	| DashedWord 
+	//	//	| Symbol 
+	//	//	| ArrayIndex 
+	//	| QuoteLikeToken
+	//	| {OperatorToken} content=FileTestOperator
+	//	| {OperatorToken} content=Operator
+	//	| {QuoteToken} content=STRING
+	//	| {QuoteToken} content=INTERPOLATE
+	//	| {QuoteToken} content=LITERAL
+	//	//	| Regexp 
+	//	//	| HereDoc 
+	//	//	| Cast 
+	//	//	| Structure 
+	//	//	| Label
+	//	//	| Separator
+	//	| {DataToken} content=DATA
+	//	| {EndToken} content=END
+	//	//	| Prototype
+	//	//	| Attribute 
+	//	//	| UnknownToken
+	//;
+	public TokenElements getTokenAccess() {
+		return pToken;
+	}
+	
+	public ParserRule getTokenRule() {
+		return getTokenAccess().getRule();
+	}
+	
+	//QuoteLikeToken:
+	//	{BacktickQuoteLikeToken} content=BACKTICK_STRING
+	//	| {WordsQuoteLikeToken} content=WORDS_QUOTE_LIKE
+	//	| {CommandQuoteLikeToken} content=COMMAND_QUOTE_LIKE
+	//	//	| RegexpQuoteLike
+	//	//	| ReadLineQuoteLike
+	//;
+	public QuoteLikeTokenElements getQuoteLikeTokenAccess() {
+		return pQuoteLikeToken;
+	}
+	
+	public ParserRule getQuoteLikeTokenRule() {
+		return getQuoteLikeTokenAccess().getRule();
+	}
+	
 	//Number hidden():
 	//	(HEX | BIN | INT) ('.' INT)?;
 	public NumberElements getNumberAccess() {
@@ -1432,16 +1973,83 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		return getNumberAccess().getRule();
 	}
 	
-	//terminal fragment VAR_START:
-	//	('@' | '$' | '%') ('@' | '$' | '%' | '*' | '#')*;
-	public TerminalRule getVAR_STARTRule() {
-		return tVAR_START;
+	//Word:
+	//	Keyword;
+	public WordElements getWordAccess() {
+		return pWord;
 	}
 	
-	//terminal ID:
-	//	VAR_START ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
-	public TerminalRule getIDRule() {
-		return tID;
+	public ParserRule getWordRule() {
+		return getWordAccess().getRule();
+	}
+	
+	//Keyword:
+	//	'abs' | 'accept' | 'alarm' | 'atan2' | 'bind' | 'binmode' | 'bless' | 'break' | 'caller' | 'chdir' | 'chmod' |
+	//	'chomp' | 'chop' | 'chown' | 'chr' | 'chroot' | 'close' | 'closedir' | 'connect' | 'continue' | 'cos' | 'crypt'
+	//	| 'dbmclose' | 'dbmopen' | 'default' | 'defined' | 'delete' | 'die' | 'do' | 'dump' | 'each' | 'else' | 'elsif' |
+	//	'endgrent' | 'endhostent' | 'endnetent' | 'endprotoent' | 'endpwent' | 'endservent' | 'eof' | 'eval' |
+	//	'evalbytes' | 'exec' | 'exists' | 'exit' | 'exp' | 'fc' | 'fcntl' | 'fileno' | 'flock' | 'for' | 'foreach' | 'fork' |
+	//	'format' | 'formline' | 'getc' | 'getgrent' | 'getgrgid' | 'getgrnam' | 'gethostbyaddr' | 'gethostbyname' |
+	//	'gethostent' | 'getlogin' | 'getnetbyaddr' | 'getnetbyname' | 'getnetent' | 'getpeername' | 'getpgrp' | 'getppid' |
+	//	'getpriority' | 'getprotobyname' | 'getprotobynumber' | 'getprotoent' | 'getpwent' | 'getpwnam' | 'getpwuid' |
+	//	'getservbyname' | 'getservbyport' | 'getservent' | 'getsockname' | 'getsockopt' | 'given' | 'glob' | 'gmtime' | 'goto'
+	//	| 'grep' | 'hex' | 'if' | 'index' | 'int' | 'ioctl' | 'join' | 'keys' | 'kill' | 'last' | 'lc' | 'lcfirst' |
+	//	'length' | 'link' | 'listen' | 'local' | 'localtime' | 'lock' | 'log' | 'lstat' | 'map' | 'mkdir' |
+	//	'msgctl' | 'msgget' | 'msgrcv' | 'msgsnd' | 'my' | 'next' | 'no' | 'oct' | 'open' | 'opendir' |
+	//	'ord' | 'our' | 'pack' | 'package' | 'pipe' | 'pop' | 'pos' | 'print' | 'printf' | 'prototype' | 'push' |
+	//	'quotemeta' | 'rand' | 'read' | 'readdir' | 'readline' | 'readlink' | 'readpipe' | 'recv' | 'redo'
+	//	| 'ref' | 'rename' | 'require' | 'reset' | 'return' | 'reverse' | 'rewinddir' | 'rindex' | 'rmdir' | 'say' |
+	//	'scalar' | 'seek' | 'seekdir' | 'select' | 'semctl' | 'semget' | 'semop' | 'send' | 'setgrent' | 'sethostent' |
+	//	'setnetent' | 'setpgrp' | 'setpriority' | 'setprotoent' | 'setpwent' | 'setservent' | 'setsockopt' | 'shift' |
+	//	'shmctl'
+	//	| 'shmget' | 'shmread' | 'shmwrite' | 'shutdown' | 'sin' | 'sleep' | 'socket' | 'socketpair' | 'sort' | 'splice' |
+	//	'split' | 'sprintf' | 'sqrt' | 'srand' | 'stat' | 'state' | 'study' | 'sub' | 'substr' | 'symlink' | 'syscall' |
+	//	'sysopen' | 'sysread' | 'sysseek' | 'system' | 'syswrite' | 'tell' | 'telldir' | 'tie' | 'tied' | 'time' | 'times' |
+	//	'tr' | 'truncate' | 'uc' | 'ucfirst' | 'umask' | 'undef' | 'unless' | 'unlink' | 'unpack' | 'unshift' | 'untie' |
+	//	'until' | 'use' | 'utime' | 'values' | 'vec' | 'wait' | 'waitpid' | 'wantarray' | 'warn' | 'when' | 'while' | 'write'
+	//	|
+	//	'y';
+	public KeywordElements getKeywordAccess() {
+		return pKeyword;
+	}
+	
+	public ParserRule getKeywordRule() {
+		return getKeywordAccess().getRule();
+	}
+	
+	/// *
+	//  # This is the list of valid operators
+	//  ++   --   **   !    ~    +    -
+	//  =~   !~   *    /    %    x
+	//  <<   >>   lt   gt   le   ge   cmp  ~~
+	//  ==   !=   <=>  .    ..   ...  ,
+	//  &    |    ^    &&   ||   //
+	//  ?    :    **=  +=   -=   .=   *=   /=
+	//  %=   x=   &=   |=   ^=   <<=  >>=  &&=
+	//  ||=  //=  <    >    <=   >=   <>   =>   ->
+	//  and  or   xor  not  eq   ne
+	// * / Operator:
+	//	'++' | '--' | '**' | '!' | '~' | '+' | '-' | '=~' | '!~' | '*' | '/' | '%' | 'x' | '<<' | '>>' | 'lt' | 'gt' | 'le' |
+	//	'ge' | 'cmp' | '~~' | '==' | '!=' | '<=>' '.' | '..' | '...' | ',' | '&' | '|' | '^' | '&&' | '||' | '//' | '?' | ':'
+	//	| '**=' | '+=' | '-=' | '.=' | '*=' | '/=' | '%=' | 'x=' | '&=' | '|=' | '^=' | '<<=' | '>>=' | '&&=' | '||=' | '//='
+	//	| '<' | '>' | '<=' | '>=' | '<>' | '=>' | '->' | 'and' | 'or' | 'xor' | 'not' | 'eq' | 'ne';
+	public OperatorElements getOperatorAccess() {
+		return pOperator;
+	}
+	
+	public ParserRule getOperatorRule() {
+		return getOperatorAccess().getRule();
+	}
+	
+	//FileTestOperator:
+	//	'-r' | '-w' | '-x' | '-o' | '-R' | '-W' | '-X' | '-O' | '-e' | '-z' | '-s' | '-f' | '-d' | '-l' | '-p' | '-S' | '-b' |
+	//	'-c' | '-t' | '-u' | '-g' | '-k' | '-T' | '-B' | '-M' | '-A' | '-C';
+	public FileTestOperatorElements getFileTestOperatorAccess() {
+		return pFileTestOperator;
+	}
+	
+	public ParserRule getFileTestOperatorRule() {
+		return getFileTestOperatorAccess().getRule();
 	}
 	
 	//terminal HEX:
@@ -1469,6 +2077,54 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		return tSTRING;
 	}
 	
+	//terminal INTERPOLATE:
+	//	'qq' ('{'->'}' | '|'->'|' | '/'->'/' | '<'->'>');
+	public TerminalRule getINTERPOLATERule() {
+		return tINTERPOLATE;
+	}
+	
+	//terminal LITERAL:
+	//	'q' ('{'->'}' | '|'->'|' | '/'->'/' | '<'->'>');
+	public TerminalRule getLITERALRule() {
+		return tLITERAL;
+	}
+	
+	//terminal BACKTICK_STRING:
+	//	'`' !'`'* '`';
+	public TerminalRule getBACKTICK_STRINGRule() {
+		return tBACKTICK_STRING;
+	}
+	
+	//terminal WORDS_QUOTE_LIKE:
+	//	'qw' ('{'->'}' | '|'->'|' | '/'->'/' | '<'->'>');
+	public TerminalRule getWORDS_QUOTE_LIKERule() {
+		return tWORDS_QUOTE_LIKE;
+	}
+	
+	//terminal COMMAND_QUOTE_LIKE:
+	//	'qx' ('{'->'}' | '|'->'|' | '/'->'/' | '<'->'>');
+	public TerminalRule getCOMMAND_QUOTE_LIKERule() {
+		return tCOMMAND_QUOTE_LIKE;
+	}
+	
+	//terminal POD:
+	//	'=pod' !'=cut'* '=cut';
+	public TerminalRule getPODRule() {
+		return tPOD;
+	}
+	
+	//terminal DATA:
+	//	'__DATA__' ANY_OTHER* EOF;
+	public TerminalRule getDATARule() {
+		return tDATA;
+	}
+	
+	//terminal END:
+	//	'__END__' ANY_OTHER* EOF;
+	public TerminalRule getENDRule() {
+		return tEND;
+	}
+	
 	//terminal SL_COMMENT:
 	//	'#' !('\n' | '\r')* ('\r'? '\n')?;
 	public TerminalRule getSL_COMMENTRule() {
@@ -1479,5 +2135,11 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	//	' ' | '\t' | '\r' | '\n'+;
 	public TerminalRule getWSRule() {
 		return tWS;
+	}
+	
+	//terminal ANY_OTHER:
+	//	.;
+	public TerminalRule getANY_OTHERRule() {
+		return tANY_OTHER;
 	}
 }

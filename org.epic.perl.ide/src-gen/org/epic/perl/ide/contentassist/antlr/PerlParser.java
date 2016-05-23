@@ -35,60 +35,44 @@ public class PerlParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getAbstractElementAccess().getAlternatives(), "rule__AbstractElement__Alternatives");
-					put(grammarAccess.getAssignmentAccess().getAlternatives_0(), "rule__Assignment__Alternatives_0");
-					put(grammarAccess.getAssignmentAccess().getOpAlternatives_2_0(), "rule__Assignment__OpAlternatives_2_0");
-					put(grammarAccess.getOpMultiAssignAccess().getAlternatives(), "rule__OpMultiAssign__Alternatives");
-					put(grammarAccess.getOpEqualityAccess().getAlternatives(), "rule__OpEquality__Alternatives");
-					put(grammarAccess.getComparisonAccess().getOpAlternatives_1_1_0(), "rule__Comparison__OpAlternatives_1_1_0");
-					put(grammarAccess.getPlusOrMinusAccess().getAlternatives_1_0(), "rule__PlusOrMinus__Alternatives_1_0");
-					put(grammarAccess.getOpMulOrDivAccess().getAlternatives(), "rule__OpMulOrDiv__Alternatives");
-					put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
-					put(grammarAccess.getAtomicAccess().getAlternatives(), "rule__Atomic__Alternatives");
+					put(grammarAccess.getTokenAccess().getAlternatives(), "rule__Token__Alternatives");
+					put(grammarAccess.getQuoteLikeTokenAccess().getAlternatives(), "rule__QuoteLikeToken__Alternatives");
 					put(grammarAccess.getNumberAccess().getAlternatives_0(), "rule__Number__Alternatives_0");
-					put(grammarAccess.getAssignmentAccess().getGroup(), "rule__Assignment__Group__0");
-					put(grammarAccess.getOpMultiAssignAccess().getGroup_6(), "rule__OpMultiAssign__Group_6__0");
-					put(grammarAccess.getOpMultiAssignAccess().getGroup_7(), "rule__OpMultiAssign__Group_7__0");
-					put(grammarAccess.getOrAccess().getGroup(), "rule__Or__Group__0");
-					put(grammarAccess.getOrAccess().getGroup_1(), "rule__Or__Group_1__0");
-					put(grammarAccess.getAndAccess().getGroup(), "rule__And__Group__0");
-					put(grammarAccess.getAndAccess().getGroup_1(), "rule__And__Group_1__0");
-					put(grammarAccess.getEqualityAccess().getGroup(), "rule__Equality__Group__0");
-					put(grammarAccess.getEqualityAccess().getGroup_1(), "rule__Equality__Group_1__0");
-					put(grammarAccess.getComparisonAccess().getGroup(), "rule__Comparison__Group__0");
-					put(grammarAccess.getComparisonAccess().getGroup_1(), "rule__Comparison__Group_1__0");
-					put(grammarAccess.getPlusOrMinusAccess().getGroup(), "rule__PlusOrMinus__Group__0");
-					put(grammarAccess.getPlusOrMinusAccess().getGroup_1(), "rule__PlusOrMinus__Group_1__0");
-					put(grammarAccess.getPlusOrMinusAccess().getGroup_1_0_0(), "rule__PlusOrMinus__Group_1_0_0__0");
-					put(grammarAccess.getPlusOrMinusAccess().getGroup_1_0_1(), "rule__PlusOrMinus__Group_1_0_1__0");
-					put(grammarAccess.getMulOrDivAccess().getGroup(), "rule__MulOrDiv__Group__0");
-					put(grammarAccess.getMulOrDivAccess().getGroup_1(), "rule__MulOrDiv__Group_1__0");
-					put(grammarAccess.getPrimaryAccess().getGroup_0(), "rule__Primary__Group_0__0");
-					put(grammarAccess.getPrimaryAccess().getGroup_1(), "rule__Primary__Group_1__0");
-					put(grammarAccess.getNumberLiteralAccess().getGroup(), "rule__NumberLiteral__Group__0");
-					put(grammarAccess.getNullLiteralAccess().getGroup(), "rule__NullLiteral__Group__0");
-					put(grammarAccess.getStringLiteralAccess().getGroup(), "rule__StringLiteral__Group__0");
+					put(grammarAccess.getKeywordAccess().getAlternatives(), "rule__Keyword__Alternatives");
+					put(grammarAccess.getOperatorAccess().getAlternatives(), "rule__Operator__Alternatives");
+					put(grammarAccess.getFileTestOperatorAccess().getAlternatives(), "rule__FileTestOperator__Alternatives");
+					put(grammarAccess.getTokenAccess().getGroup_0(), "rule__Token__Group_0__0");
+					put(grammarAccess.getTokenAccess().getGroup_1(), "rule__Token__Group_1__0");
+					put(grammarAccess.getTokenAccess().getGroup_2(), "rule__Token__Group_2__0");
+					put(grammarAccess.getTokenAccess().getGroup_3(), "rule__Token__Group_3__0");
+					put(grammarAccess.getTokenAccess().getGroup_5(), "rule__Token__Group_5__0");
+					put(grammarAccess.getTokenAccess().getGroup_6(), "rule__Token__Group_6__0");
+					put(grammarAccess.getTokenAccess().getGroup_7(), "rule__Token__Group_7__0");
+					put(grammarAccess.getTokenAccess().getGroup_8(), "rule__Token__Group_8__0");
+					put(grammarAccess.getTokenAccess().getGroup_9(), "rule__Token__Group_9__0");
+					put(grammarAccess.getTokenAccess().getGroup_10(), "rule__Token__Group_10__0");
+					put(grammarAccess.getTokenAccess().getGroup_11(), "rule__Token__Group_11__0");
+					put(grammarAccess.getQuoteLikeTokenAccess().getGroup_0(), "rule__QuoteLikeToken__Group_0__0");
+					put(grammarAccess.getQuoteLikeTokenAccess().getGroup_1(), "rule__QuoteLikeToken__Group_1__0");
+					put(grammarAccess.getQuoteLikeTokenAccess().getGroup_2(), "rule__QuoteLikeToken__Group_2__0");
 					put(grammarAccess.getNumberAccess().getGroup(), "rule__Number__Group__0");
 					put(grammarAccess.getNumberAccess().getGroup_1(), "rule__Number__Group_1__0");
+					put(grammarAccess.getOperatorAccess().getGroup_23(), "rule__Operator__Group_23__0");
 					put(grammarAccess.getPerlModelAccess().getElementsAssignment(), "rule__PerlModel__ElementsAssignment");
-					put(grammarAccess.getAssignmentAccess().getVariableAssignment_1(), "rule__Assignment__VariableAssignment_1");
-					put(grammarAccess.getAssignmentAccess().getOpAssignment_2(), "rule__Assignment__OpAssignment_2");
-					put(grammarAccess.getAssignmentAccess().getExpressionAssignment_3(), "rule__Assignment__ExpressionAssignment_3");
-					put(grammarAccess.getOrAccess().getOpAssignment_1_1(), "rule__Or__OpAssignment_1_1");
-					put(grammarAccess.getOrAccess().getRightAssignment_1_2(), "rule__Or__RightAssignment_1_2");
-					put(grammarAccess.getAndAccess().getOpAssignment_1_1(), "rule__And__OpAssignment_1_1");
-					put(grammarAccess.getAndAccess().getRightAssignment_1_2(), "rule__And__RightAssignment_1_2");
-					put(grammarAccess.getEqualityAccess().getOpAssignment_1_1(), "rule__Equality__OpAssignment_1_1");
-					put(grammarAccess.getEqualityAccess().getRightAssignment_1_2(), "rule__Equality__RightAssignment_1_2");
-					put(grammarAccess.getComparisonAccess().getOpAssignment_1_1(), "rule__Comparison__OpAssignment_1_1");
-					put(grammarAccess.getComparisonAccess().getRightAssignment_1_2(), "rule__Comparison__RightAssignment_1_2");
-					put(grammarAccess.getPlusOrMinusAccess().getRightAssignment_1_1(), "rule__PlusOrMinus__RightAssignment_1_1");
-					put(grammarAccess.getMulOrDivAccess().getOpAssignment_1_1(), "rule__MulOrDiv__OpAssignment_1_1");
-					put(grammarAccess.getMulOrDivAccess().getRightAssignment_1_2(), "rule__MulOrDiv__RightAssignment_1_2");
-					put(grammarAccess.getPrimaryAccess().getExpressionAssignment_1_2(), "rule__Primary__ExpressionAssignment_1_2");
-					put(grammarAccess.getVariableRefAccess().getNameAssignment(), "rule__VariableRef__NameAssignment");
-					put(grammarAccess.getNumberLiteralAccess().getValueAssignment_1(), "rule__NumberLiteral__ValueAssignment_1");
-					put(grammarAccess.getStringLiteralAccess().getValueAssignment_1(), "rule__StringLiteral__ValueAssignment_1");
+					put(grammarAccess.getTokenAccess().getContentAssignment_0_1(), "rule__Token__ContentAssignment_0_1");
+					put(grammarAccess.getTokenAccess().getContentAssignment_1_1(), "rule__Token__ContentAssignment_1_1");
+					put(grammarAccess.getTokenAccess().getContentAssignment_2_1(), "rule__Token__ContentAssignment_2_1");
+					put(grammarAccess.getTokenAccess().getContentAssignment_3_1(), "rule__Token__ContentAssignment_3_1");
+					put(grammarAccess.getTokenAccess().getContentAssignment_5_1(), "rule__Token__ContentAssignment_5_1");
+					put(grammarAccess.getTokenAccess().getContentAssignment_6_1(), "rule__Token__ContentAssignment_6_1");
+					put(grammarAccess.getTokenAccess().getContentAssignment_7_1(), "rule__Token__ContentAssignment_7_1");
+					put(grammarAccess.getTokenAccess().getContentAssignment_8_1(), "rule__Token__ContentAssignment_8_1");
+					put(grammarAccess.getTokenAccess().getContentAssignment_9_1(), "rule__Token__ContentAssignment_9_1");
+					put(grammarAccess.getTokenAccess().getContentAssignment_10_1(), "rule__Token__ContentAssignment_10_1");
+					put(grammarAccess.getTokenAccess().getContentAssignment_11_1(), "rule__Token__ContentAssignment_11_1");
+					put(grammarAccess.getQuoteLikeTokenAccess().getContentAssignment_0_1(), "rule__QuoteLikeToken__ContentAssignment_0_1");
+					put(grammarAccess.getQuoteLikeTokenAccess().getContentAssignment_1_1(), "rule__QuoteLikeToken__ContentAssignment_1_1");
+					put(grammarAccess.getQuoteLikeTokenAccess().getContentAssignment_2_1(), "rule__QuoteLikeToken__ContentAssignment_2_1");
 				}
 			};
 		}
@@ -108,7 +92,7 @@ public class PerlParser extends AbstractContentAssistParser {
 
 	@Override
 	protected String[] getInitialHiddenTokens() {
-		return new String[] { "RULE_WS", "RULE_SL_COMMENT" };
+		return new String[] { "RULE_WS" };
 	}
 
 	public PerlGrammarAccess getGrammarAccess() {
