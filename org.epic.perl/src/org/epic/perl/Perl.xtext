@@ -75,7 +75,7 @@ Token:
 	// hidden:
 //	  {CommentToken}   content=SL_COMMENT
 	  {PodToken}       content=POD 
-	| {NumberToken}    content=Number
+	| {NumberToken}    content=NUMBER
 //	| {VersionToken}   content=VERSION
 	| {WordToken}      content=Word 
 //	| DashedWord 
@@ -163,7 +163,7 @@ FileTestOperator:
 	'-c' | '-t' | '-u' | '-g' | '-k' | '-T' | '-B' | '-M' | '-A' | '-C')
 ;
 
-Number hidden():
+terminal NUMBER:
 	(HEX | BIN | INT) ('.' INT)?
 ;
 
@@ -178,10 +178,6 @@ terminal SYMBOL:
 terminal VERSION:
 	'v'? ('0'..'9')+ ('.' ('0'..'9')+ )*
 ;
-
-//terminal PRAGMA:
-//	('a'..'z' '0'..'9')+
-//;
 
 terminal HEX:
 	("0x"|"0X") ('0'..'9'|'a'..'f'|'A'..'F'|'_')+ ;
@@ -201,7 +197,7 @@ terminal BACKTICK_STRING:
 ;
 
 terminal INTERPOLATE:
-	'qq' (
+	'qq' WS? (
 		('{' -> '}') |
 		('|' -> '|') |
 		('/' -> '/') |
@@ -209,7 +205,7 @@ terminal INTERPOLATE:
 ;
 
 terminal LITERAL:
-	'q' (
+	'q' WS? (
 		('{' -> '}') |
 		('(' -> ')') |
 		('|' -> '|') |
@@ -218,7 +214,7 @@ terminal LITERAL:
 ;
 
 terminal WORDS_QUOTE_LIKE:
-	'qw' (
+	'qw' WS? (
 		('{' -> '}') |
 		('(' -> ')') |
 		('|' -> '|') |
@@ -228,7 +224,7 @@ terminal WORDS_QUOTE_LIKE:
 ;
 
 terminal COMMAND_QUOTE_LIKE:
-	'qx' (
+	'qx' WS? (
 		('{' -> '}') |
 		('(' -> ')') |
 		('|' -> '|') |
@@ -238,7 +234,7 @@ terminal COMMAND_QUOTE_LIKE:
 ;
 
 terminal REGEX_QUOTE:
-	'qr' (
+	'qr' WS? (
 		('{' -> '}') |
 		('|' -> '|') |
 		('/' -> '/') |
@@ -247,7 +243,7 @@ terminal REGEX_QUOTE:
 ;
 
 terminal READLINE_QUOTE:
-	'<' '$'?('a'..'z'|'A'..'Z')+ '>'	
+	'<' ( ID | SYMBOL ) '>'	
 ;
 
 terminal POD:

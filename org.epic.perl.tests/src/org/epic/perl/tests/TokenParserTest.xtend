@@ -95,9 +95,9 @@ class TokenParserTest{
 	@Test
 	def void wordsQuoteLike() {
 		val token = _parseDocument('''
-			qw{a b c}
+			qw {a b c}
 		''').elements.head as WordsQuoteLikeToken
-		Assert.assertEquals('qw{a b c}', token.content)
+		Assert.assertEquals('qw {a b c}', token.content)
 	}
 	
 	@Test
@@ -119,9 +119,17 @@ class TokenParserTest{
 	@Test
 	def void readlineQuoteLike() {
 		val token = _parseDocument('''
-			<$file>
+			<FILE>
 		''').elements.head as ReadLineQuoteLikeToken
-		Assert.assertEquals('<$file>', token.content)
+		Assert.assertEquals('<FILE>', token.content)
+	}
+	
+	@Test
+	def void readlineQuoteLikeWithVar() {
+		val token = _parseDocument('''
+			<$FILE>
+		''').elements.head as ReadLineQuoteLikeToken
+		Assert.assertEquals('<$FILE>', token.content)
 	}
 	
 	@Test

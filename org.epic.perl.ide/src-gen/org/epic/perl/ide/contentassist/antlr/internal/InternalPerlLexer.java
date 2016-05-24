@@ -28,7 +28,7 @@ public class InternalPerlLexer extends Lexer {
     public static final int T__263=263;
     public static final int T__141=141;
     public static final int T__262=262;
-    public static final int RULE_READLINE_QUOTE=20;
+    public static final int RULE_READLINE_QUOTE=18;
     public static final int T__59=59;
     public static final int T__55=55;
     public static final int T__56=56;
@@ -56,15 +56,15 @@ public class InternalPerlLexer extends Lexer {
     public static final int T__134=134;
     public static final int T__255=255;
     public static final int T__250=250;
-    public static final int RULE_ID=10;
+    public static final int RULE_ID=7;
     public static final int T__131=131;
     public static final int T__252=252;
     public static final int T__130=130;
     public static final int T__251=251;
-    public static final int RULE_DATA=15;
-    public static final int RULE_INT=9;
+    public static final int RULE_DATA=13;
+    public static final int RULE_INT=21;
     public static final int T__66=66;
-    public static final int RULE_COMMAND_QUOTE_LIKE=18;
+    public static final int RULE_COMMAND_QUOTE_LIKE=16;
     public static final int T__67=67;
     public static final int T__129=129;
     public static final int T__68=68;
@@ -105,7 +105,7 @@ public class InternalPerlLexer extends Lexer {
     public static final int T__39=39;
     public static final int T__33=33;
     public static final int T__34=34;
-    public static final int RULE_POD=13;
+    public static final int RULE_POD=10;
     public static final int T__35=35;
     public static final int T__36=36;
     public static final int T__159=159;
@@ -154,6 +154,7 @@ public class InternalPerlLexer extends Lexer {
     public static final int T__101=101;
     public static final int T__222=222;
     public static final int T__218=218;
+    public static final int T__339=339;
     public static final int T__217=217;
     public static final int T__338=338;
     public static final int T__219=219;
@@ -180,7 +181,6 @@ public class InternalPerlLexer extends Lexer {
     public static final int T__328=328;
     public static final int T__206=206;
     public static final int T__327=327;
-    public static final int T__24=24;
     public static final int T__209=209;
     public static final int T__25=25;
     public static final int T__208=208;
@@ -199,13 +199,13 @@ public class InternalPerlLexer extends Lexer {
     public static final int T__242=242;
     public static final int T__124=124;
     public static final int T__245=245;
-    public static final int RULE_END=16;
+    public static final int RULE_END=14;
     public static final int T__123=123;
     public static final int T__244=244;
     public static final int T__120=120;
     public static final int T__241=241;
     public static final int T__240=240;
-    public static final int RULE_SL_COMMENT=22;
+    public static final int RULE_SL_COMMENT=24;
     public static final int T__119=119;
     public static final int T__118=118;
     public static final int T__239=239;
@@ -227,6 +227,7 @@ public class InternalPerlLexer extends Lexer {
     public static final int T__112=112;
     public static final int T__233=233;
     public static final int T__230=230;
+    public static final int RULE_NUMBER=11;
     public static final int T__108=108;
     public static final int T__229=229;
     public static final int T__107=107;
@@ -241,10 +242,10 @@ public class InternalPerlLexer extends Lexer {
     public static final int T__105=105;
     public static final int T__226=226;
     public static final int T__300=300;
-    public static final int RULE_HEX=7;
-    public static final int RULE_VERSION=11;
+    public static final int RULE_HEX=19;
+    public static final int RULE_VERSION=8;
     public static final int RULE_LITERAL=6;
-    public static final int RULE_BIN=8;
+    public static final int RULE_BIN=20;
     public static final int RULE_INTERPOLATE=5;
     public static final int T__320=320;
     public static final int T__201=201;
@@ -310,9 +311,9 @@ public class InternalPerlLexer extends Lexer {
     public static final int T__292=292;
     public static final int T__170=170;
     public static final int T__291=291;
-    public static final int RULE_WORDS_QUOTE_LIKE=12;
+    public static final int RULE_WORDS_QUOTE_LIKE=9;
     public static final int T__169=169;
-    public static final int RULE_REGEX_QUOTE=19;
+    public static final int RULE_REGEX_QUOTE=17;
     public static final int T__70=70;
     public static final int T__71=71;
     public static final int T__72=72;
@@ -332,18 +333,18 @@ public class InternalPerlLexer extends Lexer {
     public static final int T__83=83;
     public static final int T__195=195;
     public static final int T__194=194;
-    public static final int RULE_WS=23;
+    public static final int RULE_WS=22;
     public static final int T__197=197;
-    public static final int RULE_BACKTICK_STRING=17;
+    public static final int RULE_BACKTICK_STRING=15;
     public static final int T__196=196;
     public static final int T__191=191;
     public static final int T__190=190;
     public static final int T__193=193;
     public static final int T__192=192;
-    public static final int RULE_ANY_OTHER=21;
+    public static final int RULE_ANY_OTHER=23;
     public static final int T__88=88;
     public static final int T__89=89;
-    public static final int RULE_SYMBOL=14;
+    public static final int RULE_SYMBOL=12;
     public static final int T__84=84;
     public static final int T__85=85;
     public static final int T__86=86;
@@ -362,36 +363,15 @@ public class InternalPerlLexer extends Lexer {
     }
     public String getGrammarFileName() { return "InternalPerl.g"; }
 
-    // $ANTLR start "T__24"
-    public final void mT__24() throws RecognitionException {
-        try {
-            int _type = T__24;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:11:7: ( 'abs' )
-            // InternalPerl.g:11:9: 'abs'
-            {
-            match("abs"); 
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__24"
-
     // $ANTLR start "T__25"
     public final void mT__25() throws RecognitionException {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:12:7: ( 'accept' )
-            // InternalPerl.g:12:9: 'accept'
+            // InternalPerl.g:11:7: ( 'abs' )
+            // InternalPerl.g:11:9: 'abs'
             {
-            match("accept"); 
+            match("abs"); 
 
 
             }
@@ -409,10 +389,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:13:7: ( 'alarm' )
-            // InternalPerl.g:13:9: 'alarm'
+            // InternalPerl.g:12:7: ( 'accept' )
+            // InternalPerl.g:12:9: 'accept'
             {
-            match("alarm"); 
+            match("accept"); 
 
 
             }
@@ -430,10 +410,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:14:7: ( 'atan2' )
-            // InternalPerl.g:14:9: 'atan2'
+            // InternalPerl.g:13:7: ( 'alarm' )
+            // InternalPerl.g:13:9: 'alarm'
             {
-            match("atan2"); 
+            match("alarm"); 
 
 
             }
@@ -451,10 +431,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:15:7: ( 'bind' )
-            // InternalPerl.g:15:9: 'bind'
+            // InternalPerl.g:14:7: ( 'atan2' )
+            // InternalPerl.g:14:9: 'atan2'
             {
-            match("bind"); 
+            match("atan2"); 
 
 
             }
@@ -472,10 +452,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:16:7: ( 'binmode' )
-            // InternalPerl.g:16:9: 'binmode'
+            // InternalPerl.g:15:7: ( 'bind' )
+            // InternalPerl.g:15:9: 'bind'
             {
-            match("binmode"); 
+            match("bind"); 
 
 
             }
@@ -493,10 +473,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:17:7: ( 'bless' )
-            // InternalPerl.g:17:9: 'bless'
+            // InternalPerl.g:16:7: ( 'binmode' )
+            // InternalPerl.g:16:9: 'binmode'
             {
-            match("bless"); 
+            match("binmode"); 
 
 
             }
@@ -514,10 +494,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:18:7: ( 'break' )
-            // InternalPerl.g:18:9: 'break'
+            // InternalPerl.g:17:7: ( 'bless' )
+            // InternalPerl.g:17:9: 'bless'
             {
-            match("break"); 
+            match("bless"); 
 
 
             }
@@ -535,10 +515,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:19:7: ( 'caller' )
-            // InternalPerl.g:19:9: 'caller'
+            // InternalPerl.g:18:7: ( 'break' )
+            // InternalPerl.g:18:9: 'break'
             {
-            match("caller"); 
+            match("break"); 
 
 
             }
@@ -556,10 +536,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:20:7: ( 'chdir' )
-            // InternalPerl.g:20:9: 'chdir'
+            // InternalPerl.g:19:7: ( 'caller' )
+            // InternalPerl.g:19:9: 'caller'
             {
-            match("chdir"); 
+            match("caller"); 
 
 
             }
@@ -577,10 +557,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:21:7: ( 'chmod' )
-            // InternalPerl.g:21:9: 'chmod'
+            // InternalPerl.g:20:7: ( 'chdir' )
+            // InternalPerl.g:20:9: 'chdir'
             {
-            match("chmod"); 
+            match("chdir"); 
 
 
             }
@@ -598,10 +578,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:22:7: ( 'chomp' )
-            // InternalPerl.g:22:9: 'chomp'
+            // InternalPerl.g:21:7: ( 'chmod' )
+            // InternalPerl.g:21:9: 'chmod'
             {
-            match("chomp"); 
+            match("chmod"); 
 
 
             }
@@ -619,10 +599,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:23:7: ( 'chop' )
-            // InternalPerl.g:23:9: 'chop'
+            // InternalPerl.g:22:7: ( 'chomp' )
+            // InternalPerl.g:22:9: 'chomp'
             {
-            match("chop"); 
+            match("chomp"); 
 
 
             }
@@ -640,10 +620,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:24:7: ( 'chown' )
-            // InternalPerl.g:24:9: 'chown'
+            // InternalPerl.g:23:7: ( 'chop' )
+            // InternalPerl.g:23:9: 'chop'
             {
-            match("chown"); 
+            match("chop"); 
 
 
             }
@@ -661,10 +641,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:25:7: ( 'chr' )
-            // InternalPerl.g:25:9: 'chr'
+            // InternalPerl.g:24:7: ( 'chown' )
+            // InternalPerl.g:24:9: 'chown'
             {
-            match("chr"); 
+            match("chown"); 
 
 
             }
@@ -682,10 +662,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:26:7: ( 'chroot' )
-            // InternalPerl.g:26:9: 'chroot'
+            // InternalPerl.g:25:7: ( 'chr' )
+            // InternalPerl.g:25:9: 'chr'
             {
-            match("chroot"); 
+            match("chr"); 
 
 
             }
@@ -703,10 +683,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:27:7: ( 'close' )
-            // InternalPerl.g:27:9: 'close'
+            // InternalPerl.g:26:7: ( 'chroot' )
+            // InternalPerl.g:26:9: 'chroot'
             {
-            match("close"); 
+            match("chroot"); 
 
 
             }
@@ -724,10 +704,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:28:7: ( 'closedir' )
-            // InternalPerl.g:28:9: 'closedir'
+            // InternalPerl.g:27:7: ( 'close' )
+            // InternalPerl.g:27:9: 'close'
             {
-            match("closedir"); 
+            match("close"); 
 
 
             }
@@ -745,10 +725,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:29:7: ( 'connect' )
-            // InternalPerl.g:29:9: 'connect'
+            // InternalPerl.g:28:7: ( 'closedir' )
+            // InternalPerl.g:28:9: 'closedir'
             {
-            match("connect"); 
+            match("closedir"); 
 
 
             }
@@ -766,10 +746,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:30:7: ( 'continue' )
-            // InternalPerl.g:30:9: 'continue'
+            // InternalPerl.g:29:7: ( 'connect' )
+            // InternalPerl.g:29:9: 'connect'
             {
-            match("continue"); 
+            match("connect"); 
 
 
             }
@@ -787,10 +767,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:31:7: ( 'cos' )
-            // InternalPerl.g:31:9: 'cos'
+            // InternalPerl.g:30:7: ( 'continue' )
+            // InternalPerl.g:30:9: 'continue'
             {
-            match("cos"); 
+            match("continue"); 
 
 
             }
@@ -808,10 +788,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:32:7: ( 'crypt' )
-            // InternalPerl.g:32:9: 'crypt'
+            // InternalPerl.g:31:7: ( 'cos' )
+            // InternalPerl.g:31:9: 'cos'
             {
-            match("crypt"); 
+            match("cos"); 
 
 
             }
@@ -829,10 +809,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:33:7: ( 'dbmclose' )
-            // InternalPerl.g:33:9: 'dbmclose'
+            // InternalPerl.g:32:7: ( 'crypt' )
+            // InternalPerl.g:32:9: 'crypt'
             {
-            match("dbmclose"); 
+            match("crypt"); 
 
 
             }
@@ -850,10 +830,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:34:7: ( 'dbmopen' )
-            // InternalPerl.g:34:9: 'dbmopen'
+            // InternalPerl.g:33:7: ( 'dbmclose' )
+            // InternalPerl.g:33:9: 'dbmclose'
             {
-            match("dbmopen"); 
+            match("dbmclose"); 
 
 
             }
@@ -871,10 +851,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:35:7: ( 'default' )
-            // InternalPerl.g:35:9: 'default'
+            // InternalPerl.g:34:7: ( 'dbmopen' )
+            // InternalPerl.g:34:9: 'dbmopen'
             {
-            match("default"); 
+            match("dbmopen"); 
 
 
             }
@@ -892,10 +872,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:36:7: ( 'defined' )
-            // InternalPerl.g:36:9: 'defined'
+            // InternalPerl.g:35:7: ( 'default' )
+            // InternalPerl.g:35:9: 'default'
             {
-            match("defined"); 
+            match("default"); 
 
 
             }
@@ -913,10 +893,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:37:7: ( 'delete' )
-            // InternalPerl.g:37:9: 'delete'
+            // InternalPerl.g:36:7: ( 'defined' )
+            // InternalPerl.g:36:9: 'defined'
             {
-            match("delete"); 
+            match("defined"); 
 
 
             }
@@ -934,10 +914,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:38:7: ( 'die' )
-            // InternalPerl.g:38:9: 'die'
+            // InternalPerl.g:37:7: ( 'delete' )
+            // InternalPerl.g:37:9: 'delete'
             {
-            match("die"); 
+            match("delete"); 
 
 
             }
@@ -955,10 +935,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:39:7: ( 'do' )
-            // InternalPerl.g:39:9: 'do'
+            // InternalPerl.g:38:7: ( 'die' )
+            // InternalPerl.g:38:9: 'die'
             {
-            match("do"); 
+            match("die"); 
 
 
             }
@@ -976,10 +956,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:40:7: ( 'dump' )
-            // InternalPerl.g:40:9: 'dump'
+            // InternalPerl.g:39:7: ( 'do' )
+            // InternalPerl.g:39:9: 'do'
             {
-            match("dump"); 
+            match("do"); 
 
 
             }
@@ -997,10 +977,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:41:7: ( 'each' )
-            // InternalPerl.g:41:9: 'each'
+            // InternalPerl.g:40:7: ( 'dump' )
+            // InternalPerl.g:40:9: 'dump'
             {
-            match("each"); 
+            match("dump"); 
 
 
             }
@@ -1018,10 +998,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:42:7: ( 'else' )
-            // InternalPerl.g:42:9: 'else'
+            // InternalPerl.g:41:7: ( 'each' )
+            // InternalPerl.g:41:9: 'each'
             {
-            match("else"); 
+            match("each"); 
 
 
             }
@@ -1039,10 +1019,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:43:7: ( 'elsif' )
-            // InternalPerl.g:43:9: 'elsif'
+            // InternalPerl.g:42:7: ( 'else' )
+            // InternalPerl.g:42:9: 'else'
             {
-            match("elsif"); 
+            match("else"); 
 
 
             }
@@ -1060,10 +1040,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:44:7: ( 'endgrent' )
-            // InternalPerl.g:44:9: 'endgrent'
+            // InternalPerl.g:43:7: ( 'elsif' )
+            // InternalPerl.g:43:9: 'elsif'
             {
-            match("endgrent"); 
+            match("elsif"); 
 
 
             }
@@ -1081,10 +1061,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:45:7: ( 'endhostent' )
-            // InternalPerl.g:45:9: 'endhostent'
+            // InternalPerl.g:44:7: ( 'endgrent' )
+            // InternalPerl.g:44:9: 'endgrent'
             {
-            match("endhostent"); 
+            match("endgrent"); 
 
 
             }
@@ -1102,10 +1082,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:46:7: ( 'endnetent' )
-            // InternalPerl.g:46:9: 'endnetent'
+            // InternalPerl.g:45:7: ( 'endhostent' )
+            // InternalPerl.g:45:9: 'endhostent'
             {
-            match("endnetent"); 
+            match("endhostent"); 
 
 
             }
@@ -1123,10 +1103,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:47:7: ( 'endprotoent' )
-            // InternalPerl.g:47:9: 'endprotoent'
+            // InternalPerl.g:46:7: ( 'endnetent' )
+            // InternalPerl.g:46:9: 'endnetent'
             {
-            match("endprotoent"); 
+            match("endnetent"); 
 
 
             }
@@ -1144,10 +1124,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:48:7: ( 'endpwent' )
-            // InternalPerl.g:48:9: 'endpwent'
+            // InternalPerl.g:47:7: ( 'endprotoent' )
+            // InternalPerl.g:47:9: 'endprotoent'
             {
-            match("endpwent"); 
+            match("endprotoent"); 
 
 
             }
@@ -1165,10 +1145,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:49:7: ( 'endservent' )
-            // InternalPerl.g:49:9: 'endservent'
+            // InternalPerl.g:48:7: ( 'endpwent' )
+            // InternalPerl.g:48:9: 'endpwent'
             {
-            match("endservent"); 
+            match("endpwent"); 
 
 
             }
@@ -1186,10 +1166,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:50:7: ( 'eof' )
-            // InternalPerl.g:50:9: 'eof'
+            // InternalPerl.g:49:7: ( 'endservent' )
+            // InternalPerl.g:49:9: 'endservent'
             {
-            match("eof"); 
+            match("endservent"); 
 
 
             }
@@ -1207,10 +1187,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:51:7: ( 'eval' )
-            // InternalPerl.g:51:9: 'eval'
+            // InternalPerl.g:50:7: ( 'eof' )
+            // InternalPerl.g:50:9: 'eof'
             {
-            match("eval"); 
+            match("eof"); 
 
 
             }
@@ -1228,10 +1208,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:52:7: ( 'evalbytes' )
-            // InternalPerl.g:52:9: 'evalbytes'
+            // InternalPerl.g:51:7: ( 'eval' )
+            // InternalPerl.g:51:9: 'eval'
             {
-            match("evalbytes"); 
+            match("eval"); 
 
 
             }
@@ -1249,10 +1229,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:53:7: ( 'exec' )
-            // InternalPerl.g:53:9: 'exec'
+            // InternalPerl.g:52:7: ( 'evalbytes' )
+            // InternalPerl.g:52:9: 'evalbytes'
             {
-            match("exec"); 
+            match("evalbytes"); 
 
 
             }
@@ -1270,10 +1250,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:54:7: ( 'exists' )
-            // InternalPerl.g:54:9: 'exists'
+            // InternalPerl.g:53:7: ( 'exec' )
+            // InternalPerl.g:53:9: 'exec'
             {
-            match("exists"); 
+            match("exec"); 
 
 
             }
@@ -1291,10 +1271,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:55:7: ( 'exit' )
-            // InternalPerl.g:55:9: 'exit'
+            // InternalPerl.g:54:7: ( 'exists' )
+            // InternalPerl.g:54:9: 'exists'
             {
-            match("exit"); 
+            match("exists"); 
 
 
             }
@@ -1312,10 +1292,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:56:7: ( 'exp' )
-            // InternalPerl.g:56:9: 'exp'
+            // InternalPerl.g:55:7: ( 'exit' )
+            // InternalPerl.g:55:9: 'exit'
             {
-            match("exp"); 
+            match("exit"); 
 
 
             }
@@ -1333,10 +1313,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:57:7: ( 'fc' )
-            // InternalPerl.g:57:9: 'fc'
+            // InternalPerl.g:56:7: ( 'exp' )
+            // InternalPerl.g:56:9: 'exp'
             {
-            match("fc"); 
+            match("exp"); 
 
 
             }
@@ -1354,10 +1334,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:58:7: ( 'fcntl' )
-            // InternalPerl.g:58:9: 'fcntl'
+            // InternalPerl.g:57:7: ( 'fc' )
+            // InternalPerl.g:57:9: 'fc'
             {
-            match("fcntl"); 
+            match("fc"); 
 
 
             }
@@ -1375,10 +1355,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:59:7: ( 'fileno' )
-            // InternalPerl.g:59:9: 'fileno'
+            // InternalPerl.g:58:7: ( 'fcntl' )
+            // InternalPerl.g:58:9: 'fcntl'
             {
-            match("fileno"); 
+            match("fcntl"); 
 
 
             }
@@ -1396,10 +1376,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:60:7: ( 'flock' )
-            // InternalPerl.g:60:9: 'flock'
+            // InternalPerl.g:59:7: ( 'fileno' )
+            // InternalPerl.g:59:9: 'fileno'
             {
-            match("flock"); 
+            match("fileno"); 
 
 
             }
@@ -1417,10 +1397,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:61:7: ( 'for' )
-            // InternalPerl.g:61:9: 'for'
+            // InternalPerl.g:60:7: ( 'flock' )
+            // InternalPerl.g:60:9: 'flock'
             {
-            match("for"); 
+            match("flock"); 
 
 
             }
@@ -1438,10 +1418,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:62:7: ( 'foreach' )
-            // InternalPerl.g:62:9: 'foreach'
+            // InternalPerl.g:61:7: ( 'for' )
+            // InternalPerl.g:61:9: 'for'
             {
-            match("foreach"); 
+            match("for"); 
 
 
             }
@@ -1459,10 +1439,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__76;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:63:7: ( 'fork' )
-            // InternalPerl.g:63:9: 'fork'
+            // InternalPerl.g:62:7: ( 'foreach' )
+            // InternalPerl.g:62:9: 'foreach'
             {
-            match("fork"); 
+            match("foreach"); 
 
 
             }
@@ -1480,10 +1460,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__77;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:64:7: ( 'format' )
-            // InternalPerl.g:64:9: 'format'
+            // InternalPerl.g:63:7: ( 'fork' )
+            // InternalPerl.g:63:9: 'fork'
             {
-            match("format"); 
+            match("fork"); 
 
 
             }
@@ -1501,10 +1481,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__78;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:65:7: ( 'formline' )
-            // InternalPerl.g:65:9: 'formline'
+            // InternalPerl.g:64:7: ( 'format' )
+            // InternalPerl.g:64:9: 'format'
             {
-            match("formline"); 
+            match("format"); 
 
 
             }
@@ -1522,10 +1502,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__79;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:66:7: ( 'getc' )
-            // InternalPerl.g:66:9: 'getc'
+            // InternalPerl.g:65:7: ( 'formline' )
+            // InternalPerl.g:65:9: 'formline'
             {
-            match("getc"); 
+            match("formline"); 
 
 
             }
@@ -1543,10 +1523,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__80;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:67:7: ( 'getgrent' )
-            // InternalPerl.g:67:9: 'getgrent'
+            // InternalPerl.g:66:7: ( 'getc' )
+            // InternalPerl.g:66:9: 'getc'
             {
-            match("getgrent"); 
+            match("getc"); 
 
 
             }
@@ -1564,10 +1544,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__81;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:68:7: ( 'getgrgid' )
-            // InternalPerl.g:68:9: 'getgrgid'
+            // InternalPerl.g:67:7: ( 'getgrent' )
+            // InternalPerl.g:67:9: 'getgrent'
             {
-            match("getgrgid"); 
+            match("getgrent"); 
 
 
             }
@@ -1585,10 +1565,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__82;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:69:7: ( 'getgrnam' )
-            // InternalPerl.g:69:9: 'getgrnam'
+            // InternalPerl.g:68:7: ( 'getgrgid' )
+            // InternalPerl.g:68:9: 'getgrgid'
             {
-            match("getgrnam"); 
+            match("getgrgid"); 
 
 
             }
@@ -1606,10 +1586,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__83;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:70:7: ( 'gethostbyaddr' )
-            // InternalPerl.g:70:9: 'gethostbyaddr'
+            // InternalPerl.g:69:7: ( 'getgrnam' )
+            // InternalPerl.g:69:9: 'getgrnam'
             {
-            match("gethostbyaddr"); 
+            match("getgrnam"); 
 
 
             }
@@ -1627,10 +1607,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__84;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:71:7: ( 'gethostbyname' )
-            // InternalPerl.g:71:9: 'gethostbyname'
+            // InternalPerl.g:70:7: ( 'gethostbyaddr' )
+            // InternalPerl.g:70:9: 'gethostbyaddr'
             {
-            match("gethostbyname"); 
+            match("gethostbyaddr"); 
 
 
             }
@@ -1648,10 +1628,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__85;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:72:7: ( 'gethostent' )
-            // InternalPerl.g:72:9: 'gethostent'
+            // InternalPerl.g:71:7: ( 'gethostbyname' )
+            // InternalPerl.g:71:9: 'gethostbyname'
             {
-            match("gethostent"); 
+            match("gethostbyname"); 
 
 
             }
@@ -1669,10 +1649,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__86;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:73:7: ( 'getlogin' )
-            // InternalPerl.g:73:9: 'getlogin'
+            // InternalPerl.g:72:7: ( 'gethostent' )
+            // InternalPerl.g:72:9: 'gethostent'
             {
-            match("getlogin"); 
+            match("gethostent"); 
 
 
             }
@@ -1690,10 +1670,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__87;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:74:7: ( 'getnetbyaddr' )
-            // InternalPerl.g:74:9: 'getnetbyaddr'
+            // InternalPerl.g:73:7: ( 'getlogin' )
+            // InternalPerl.g:73:9: 'getlogin'
             {
-            match("getnetbyaddr"); 
+            match("getlogin"); 
 
 
             }
@@ -1711,10 +1691,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__88;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:75:7: ( 'getnetbyname' )
-            // InternalPerl.g:75:9: 'getnetbyname'
+            // InternalPerl.g:74:7: ( 'getnetbyaddr' )
+            // InternalPerl.g:74:9: 'getnetbyaddr'
             {
-            match("getnetbyname"); 
+            match("getnetbyaddr"); 
 
 
             }
@@ -1732,10 +1712,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__89;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:76:7: ( 'getnetent' )
-            // InternalPerl.g:76:9: 'getnetent'
+            // InternalPerl.g:75:7: ( 'getnetbyname' )
+            // InternalPerl.g:75:9: 'getnetbyname'
             {
-            match("getnetent"); 
+            match("getnetbyname"); 
 
 
             }
@@ -1753,10 +1733,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__90;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:77:7: ( 'getpeername' )
-            // InternalPerl.g:77:9: 'getpeername'
+            // InternalPerl.g:76:7: ( 'getnetent' )
+            // InternalPerl.g:76:9: 'getnetent'
             {
-            match("getpeername"); 
+            match("getnetent"); 
 
 
             }
@@ -1774,10 +1754,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__91;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:78:7: ( 'getpgrp' )
-            // InternalPerl.g:78:9: 'getpgrp'
+            // InternalPerl.g:77:7: ( 'getpeername' )
+            // InternalPerl.g:77:9: 'getpeername'
             {
-            match("getpgrp"); 
+            match("getpeername"); 
 
 
             }
@@ -1795,10 +1775,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__92;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:79:7: ( 'getppid' )
-            // InternalPerl.g:79:9: 'getppid'
+            // InternalPerl.g:78:7: ( 'getpgrp' )
+            // InternalPerl.g:78:9: 'getpgrp'
             {
-            match("getppid"); 
+            match("getpgrp"); 
 
 
             }
@@ -1816,10 +1796,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__93;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:80:7: ( 'getpriority' )
-            // InternalPerl.g:80:9: 'getpriority'
+            // InternalPerl.g:79:7: ( 'getppid' )
+            // InternalPerl.g:79:9: 'getppid'
             {
-            match("getpriority"); 
+            match("getppid"); 
 
 
             }
@@ -1837,10 +1817,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__94;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:81:7: ( 'getprotobyname' )
-            // InternalPerl.g:81:9: 'getprotobyname'
+            // InternalPerl.g:80:7: ( 'getpriority' )
+            // InternalPerl.g:80:9: 'getpriority'
             {
-            match("getprotobyname"); 
+            match("getpriority"); 
 
 
             }
@@ -1858,10 +1838,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__95;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:82:7: ( 'getprotobynumber' )
-            // InternalPerl.g:82:9: 'getprotobynumber'
+            // InternalPerl.g:81:7: ( 'getprotobyname' )
+            // InternalPerl.g:81:9: 'getprotobyname'
             {
-            match("getprotobynumber"); 
+            match("getprotobyname"); 
 
 
             }
@@ -1879,10 +1859,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__96;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:83:7: ( 'getprotoent' )
-            // InternalPerl.g:83:9: 'getprotoent'
+            // InternalPerl.g:82:7: ( 'getprotobynumber' )
+            // InternalPerl.g:82:9: 'getprotobynumber'
             {
-            match("getprotoent"); 
+            match("getprotobynumber"); 
 
 
             }
@@ -1900,10 +1880,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__97;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:84:7: ( 'getpwent' )
-            // InternalPerl.g:84:9: 'getpwent'
+            // InternalPerl.g:83:7: ( 'getprotoent' )
+            // InternalPerl.g:83:9: 'getprotoent'
             {
-            match("getpwent"); 
+            match("getprotoent"); 
 
 
             }
@@ -1921,10 +1901,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__98;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:85:7: ( 'getpwnam' )
-            // InternalPerl.g:85:9: 'getpwnam'
+            // InternalPerl.g:84:7: ( 'getpwent' )
+            // InternalPerl.g:84:9: 'getpwent'
             {
-            match("getpwnam"); 
+            match("getpwent"); 
 
 
             }
@@ -1942,10 +1922,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__99;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:86:7: ( 'getpwuid' )
-            // InternalPerl.g:86:9: 'getpwuid'
+            // InternalPerl.g:85:7: ( 'getpwnam' )
+            // InternalPerl.g:85:9: 'getpwnam'
             {
-            match("getpwuid"); 
+            match("getpwnam"); 
 
 
             }
@@ -1963,10 +1943,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__100;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:87:8: ( 'getservbyname' )
-            // InternalPerl.g:87:10: 'getservbyname'
+            // InternalPerl.g:86:8: ( 'getpwuid' )
+            // InternalPerl.g:86:10: 'getpwuid'
             {
-            match("getservbyname"); 
+            match("getpwuid"); 
 
 
             }
@@ -1984,10 +1964,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__101;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:88:8: ( 'getservbyport' )
-            // InternalPerl.g:88:10: 'getservbyport'
+            // InternalPerl.g:87:8: ( 'getservbyname' )
+            // InternalPerl.g:87:10: 'getservbyname'
             {
-            match("getservbyport"); 
+            match("getservbyname"); 
 
 
             }
@@ -2005,10 +1985,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__102;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:89:8: ( 'getservent' )
-            // InternalPerl.g:89:10: 'getservent'
+            // InternalPerl.g:88:8: ( 'getservbyport' )
+            // InternalPerl.g:88:10: 'getservbyport'
             {
-            match("getservent"); 
+            match("getservbyport"); 
 
 
             }
@@ -2026,10 +2006,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__103;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:90:8: ( 'getsockname' )
-            // InternalPerl.g:90:10: 'getsockname'
+            // InternalPerl.g:89:8: ( 'getservent' )
+            // InternalPerl.g:89:10: 'getservent'
             {
-            match("getsockname"); 
+            match("getservent"); 
 
 
             }
@@ -2047,10 +2027,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__104;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:91:8: ( 'getsockopt' )
-            // InternalPerl.g:91:10: 'getsockopt'
+            // InternalPerl.g:90:8: ( 'getsockname' )
+            // InternalPerl.g:90:10: 'getsockname'
             {
-            match("getsockopt"); 
+            match("getsockname"); 
 
 
             }
@@ -2068,10 +2048,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__105;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:92:8: ( 'given' )
-            // InternalPerl.g:92:10: 'given'
+            // InternalPerl.g:91:8: ( 'getsockopt' )
+            // InternalPerl.g:91:10: 'getsockopt'
             {
-            match("given"); 
+            match("getsockopt"); 
 
 
             }
@@ -2089,10 +2069,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__106;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:93:8: ( 'glob' )
-            // InternalPerl.g:93:10: 'glob'
+            // InternalPerl.g:92:8: ( 'given' )
+            // InternalPerl.g:92:10: 'given'
             {
-            match("glob"); 
+            match("given"); 
 
 
             }
@@ -2110,10 +2090,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__107;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:94:8: ( 'gmtime' )
-            // InternalPerl.g:94:10: 'gmtime'
+            // InternalPerl.g:93:8: ( 'glob' )
+            // InternalPerl.g:93:10: 'glob'
             {
-            match("gmtime"); 
+            match("glob"); 
 
 
             }
@@ -2131,10 +2111,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__108;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:95:8: ( 'goto' )
-            // InternalPerl.g:95:10: 'goto'
+            // InternalPerl.g:94:8: ( 'gmtime' )
+            // InternalPerl.g:94:10: 'gmtime'
             {
-            match("goto"); 
+            match("gmtime"); 
 
 
             }
@@ -2152,10 +2132,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__109;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:96:8: ( 'grep' )
-            // InternalPerl.g:96:10: 'grep'
+            // InternalPerl.g:95:8: ( 'goto' )
+            // InternalPerl.g:95:10: 'goto'
             {
-            match("grep"); 
+            match("goto"); 
 
 
             }
@@ -2173,10 +2153,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__110;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:97:8: ( 'hex' )
-            // InternalPerl.g:97:10: 'hex'
+            // InternalPerl.g:96:8: ( 'grep' )
+            // InternalPerl.g:96:10: 'grep'
             {
-            match("hex"); 
+            match("grep"); 
 
 
             }
@@ -2194,10 +2174,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__111;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:98:8: ( 'if' )
-            // InternalPerl.g:98:10: 'if'
+            // InternalPerl.g:97:8: ( 'hex' )
+            // InternalPerl.g:97:10: 'hex'
             {
-            match("if"); 
+            match("hex"); 
 
 
             }
@@ -2215,10 +2195,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__112;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:99:8: ( 'index' )
-            // InternalPerl.g:99:10: 'index'
+            // InternalPerl.g:98:8: ( 'if' )
+            // InternalPerl.g:98:10: 'if'
             {
-            match("index"); 
+            match("if"); 
 
 
             }
@@ -2236,10 +2216,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__113;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:100:8: ( 'int' )
-            // InternalPerl.g:100:10: 'int'
+            // InternalPerl.g:99:8: ( 'index' )
+            // InternalPerl.g:99:10: 'index'
             {
-            match("int"); 
+            match("index"); 
 
 
             }
@@ -2257,10 +2237,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__114;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:101:8: ( 'ioctl' )
-            // InternalPerl.g:101:10: 'ioctl'
+            // InternalPerl.g:100:8: ( 'int' )
+            // InternalPerl.g:100:10: 'int'
             {
-            match("ioctl"); 
+            match("int"); 
 
 
             }
@@ -2278,10 +2258,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__115;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:102:8: ( 'join' )
-            // InternalPerl.g:102:10: 'join'
+            // InternalPerl.g:101:8: ( 'ioctl' )
+            // InternalPerl.g:101:10: 'ioctl'
             {
-            match("join"); 
+            match("ioctl"); 
 
 
             }
@@ -2299,10 +2279,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__116;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:103:8: ( 'keys' )
-            // InternalPerl.g:103:10: 'keys'
+            // InternalPerl.g:102:8: ( 'join' )
+            // InternalPerl.g:102:10: 'join'
             {
-            match("keys"); 
+            match("join"); 
 
 
             }
@@ -2320,10 +2300,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__117;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:104:8: ( 'kill' )
-            // InternalPerl.g:104:10: 'kill'
+            // InternalPerl.g:103:8: ( 'keys' )
+            // InternalPerl.g:103:10: 'keys'
             {
-            match("kill"); 
+            match("keys"); 
 
 
             }
@@ -2341,10 +2321,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__118;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:105:8: ( 'last' )
-            // InternalPerl.g:105:10: 'last'
+            // InternalPerl.g:104:8: ( 'kill' )
+            // InternalPerl.g:104:10: 'kill'
             {
-            match("last"); 
+            match("kill"); 
 
 
             }
@@ -2362,10 +2342,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__119;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:106:8: ( 'lc' )
-            // InternalPerl.g:106:10: 'lc'
+            // InternalPerl.g:105:8: ( 'last' )
+            // InternalPerl.g:105:10: 'last'
             {
-            match("lc"); 
+            match("last"); 
 
 
             }
@@ -2383,10 +2363,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__120;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:107:8: ( 'lcfirst' )
-            // InternalPerl.g:107:10: 'lcfirst'
+            // InternalPerl.g:106:8: ( 'lc' )
+            // InternalPerl.g:106:10: 'lc'
             {
-            match("lcfirst"); 
+            match("lc"); 
 
 
             }
@@ -2404,10 +2384,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__121;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:108:8: ( 'length' )
-            // InternalPerl.g:108:10: 'length'
+            // InternalPerl.g:107:8: ( 'lcfirst' )
+            // InternalPerl.g:107:10: 'lcfirst'
             {
-            match("length"); 
+            match("lcfirst"); 
 
 
             }
@@ -2425,10 +2405,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__122;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:109:8: ( 'link' )
-            // InternalPerl.g:109:10: 'link'
+            // InternalPerl.g:108:8: ( 'length' )
+            // InternalPerl.g:108:10: 'length'
             {
-            match("link"); 
+            match("length"); 
 
 
             }
@@ -2446,10 +2426,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__123;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:110:8: ( 'listen' )
-            // InternalPerl.g:110:10: 'listen'
+            // InternalPerl.g:109:8: ( 'link' )
+            // InternalPerl.g:109:10: 'link'
             {
-            match("listen"); 
+            match("link"); 
 
 
             }
@@ -2467,10 +2447,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__124;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:111:8: ( 'local' )
-            // InternalPerl.g:111:10: 'local'
+            // InternalPerl.g:110:8: ( 'listen' )
+            // InternalPerl.g:110:10: 'listen'
             {
-            match("local"); 
+            match("listen"); 
 
 
             }
@@ -2488,10 +2468,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__125;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:112:8: ( 'localtime' )
-            // InternalPerl.g:112:10: 'localtime'
+            // InternalPerl.g:111:8: ( 'local' )
+            // InternalPerl.g:111:10: 'local'
             {
-            match("localtime"); 
+            match("local"); 
 
 
             }
@@ -2509,10 +2489,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__126;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:113:8: ( 'lock' )
-            // InternalPerl.g:113:10: 'lock'
+            // InternalPerl.g:112:8: ( 'localtime' )
+            // InternalPerl.g:112:10: 'localtime'
             {
-            match("lock"); 
+            match("localtime"); 
 
 
             }
@@ -2530,10 +2510,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__127;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:114:8: ( 'log' )
-            // InternalPerl.g:114:10: 'log'
+            // InternalPerl.g:113:8: ( 'lock' )
+            // InternalPerl.g:113:10: 'lock'
             {
-            match("log"); 
+            match("lock"); 
 
 
             }
@@ -2551,10 +2531,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__128;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:115:8: ( 'lstat' )
-            // InternalPerl.g:115:10: 'lstat'
+            // InternalPerl.g:114:8: ( 'log' )
+            // InternalPerl.g:114:10: 'log'
             {
-            match("lstat"); 
+            match("log"); 
 
 
             }
@@ -2572,10 +2552,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__129;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:116:8: ( 'map' )
-            // InternalPerl.g:116:10: 'map'
+            // InternalPerl.g:115:8: ( 'lstat' )
+            // InternalPerl.g:115:10: 'lstat'
             {
-            match("map"); 
+            match("lstat"); 
 
 
             }
@@ -2593,10 +2573,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__130;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:117:8: ( 'mkdir' )
-            // InternalPerl.g:117:10: 'mkdir'
+            // InternalPerl.g:116:8: ( 'map' )
+            // InternalPerl.g:116:10: 'map'
             {
-            match("mkdir"); 
+            match("map"); 
 
 
             }
@@ -2614,10 +2594,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__131;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:118:8: ( 'msgctl' )
-            // InternalPerl.g:118:10: 'msgctl'
+            // InternalPerl.g:117:8: ( 'mkdir' )
+            // InternalPerl.g:117:10: 'mkdir'
             {
-            match("msgctl"); 
+            match("mkdir"); 
 
 
             }
@@ -2635,10 +2615,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__132;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:119:8: ( 'msgget' )
-            // InternalPerl.g:119:10: 'msgget'
+            // InternalPerl.g:118:8: ( 'msgctl' )
+            // InternalPerl.g:118:10: 'msgctl'
             {
-            match("msgget"); 
+            match("msgctl"); 
 
 
             }
@@ -2656,10 +2636,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__133;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:120:8: ( 'msgrcv' )
-            // InternalPerl.g:120:10: 'msgrcv'
+            // InternalPerl.g:119:8: ( 'msgget' )
+            // InternalPerl.g:119:10: 'msgget'
             {
-            match("msgrcv"); 
+            match("msgget"); 
 
 
             }
@@ -2677,10 +2657,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__134;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:121:8: ( 'msgsnd' )
-            // InternalPerl.g:121:10: 'msgsnd'
+            // InternalPerl.g:120:8: ( 'msgrcv' )
+            // InternalPerl.g:120:10: 'msgrcv'
             {
-            match("msgsnd"); 
+            match("msgrcv"); 
 
 
             }
@@ -2698,10 +2678,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__135;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:122:8: ( 'my' )
-            // InternalPerl.g:122:10: 'my'
+            // InternalPerl.g:121:8: ( 'msgsnd' )
+            // InternalPerl.g:121:10: 'msgsnd'
             {
-            match("my"); 
+            match("msgsnd"); 
 
 
             }
@@ -2719,10 +2699,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__136;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:123:8: ( 'next' )
-            // InternalPerl.g:123:10: 'next'
+            // InternalPerl.g:122:8: ( 'my' )
+            // InternalPerl.g:122:10: 'my'
             {
-            match("next"); 
+            match("my"); 
 
 
             }
@@ -2740,10 +2720,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__137;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:124:8: ( 'no' )
-            // InternalPerl.g:124:10: 'no'
+            // InternalPerl.g:123:8: ( 'next' )
+            // InternalPerl.g:123:10: 'next'
             {
-            match("no"); 
+            match("next"); 
 
 
             }
@@ -2761,10 +2741,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__138;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:125:8: ( 'oct' )
-            // InternalPerl.g:125:10: 'oct'
+            // InternalPerl.g:124:8: ( 'no' )
+            // InternalPerl.g:124:10: 'no'
             {
-            match("oct"); 
+            match("no"); 
 
 
             }
@@ -2782,10 +2762,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__139;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:126:8: ( 'open' )
-            // InternalPerl.g:126:10: 'open'
+            // InternalPerl.g:125:8: ( 'oct' )
+            // InternalPerl.g:125:10: 'oct'
             {
-            match("open"); 
+            match("oct"); 
 
 
             }
@@ -2803,10 +2783,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__140;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:127:8: ( 'opendir' )
-            // InternalPerl.g:127:10: 'opendir'
+            // InternalPerl.g:126:8: ( 'open' )
+            // InternalPerl.g:126:10: 'open'
             {
-            match("opendir"); 
+            match("open"); 
 
 
             }
@@ -2824,10 +2804,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__141;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:128:8: ( 'ord' )
-            // InternalPerl.g:128:10: 'ord'
+            // InternalPerl.g:127:8: ( 'opendir' )
+            // InternalPerl.g:127:10: 'opendir'
             {
-            match("ord"); 
+            match("opendir"); 
 
 
             }
@@ -2845,10 +2825,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__142;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:129:8: ( 'our' )
-            // InternalPerl.g:129:10: 'our'
+            // InternalPerl.g:128:8: ( 'ord' )
+            // InternalPerl.g:128:10: 'ord'
             {
-            match("our"); 
+            match("ord"); 
 
 
             }
@@ -2866,10 +2846,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__143;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:130:8: ( 'pack' )
-            // InternalPerl.g:130:10: 'pack'
+            // InternalPerl.g:129:8: ( 'our' )
+            // InternalPerl.g:129:10: 'our'
             {
-            match("pack"); 
+            match("our"); 
 
 
             }
@@ -2887,10 +2867,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__144;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:131:8: ( 'package' )
-            // InternalPerl.g:131:10: 'package'
+            // InternalPerl.g:130:8: ( 'pack' )
+            // InternalPerl.g:130:10: 'pack'
             {
-            match("package"); 
+            match("pack"); 
 
 
             }
@@ -2908,10 +2888,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__145;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:132:8: ( 'pipe' )
-            // InternalPerl.g:132:10: 'pipe'
+            // InternalPerl.g:131:8: ( 'package' )
+            // InternalPerl.g:131:10: 'package'
             {
-            match("pipe"); 
+            match("package"); 
 
 
             }
@@ -2929,10 +2909,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__146;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:133:8: ( 'pop' )
-            // InternalPerl.g:133:10: 'pop'
+            // InternalPerl.g:132:8: ( 'pipe' )
+            // InternalPerl.g:132:10: 'pipe'
             {
-            match("pop"); 
+            match("pipe"); 
 
 
             }
@@ -2950,10 +2930,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__147;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:134:8: ( 'pos' )
-            // InternalPerl.g:134:10: 'pos'
+            // InternalPerl.g:133:8: ( 'pop' )
+            // InternalPerl.g:133:10: 'pop'
             {
-            match("pos"); 
+            match("pop"); 
 
 
             }
@@ -2971,10 +2951,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__148;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:135:8: ( 'print' )
-            // InternalPerl.g:135:10: 'print'
+            // InternalPerl.g:134:8: ( 'pos' )
+            // InternalPerl.g:134:10: 'pos'
             {
-            match("print"); 
+            match("pos"); 
 
 
             }
@@ -2992,10 +2972,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__149;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:136:8: ( 'printf' )
-            // InternalPerl.g:136:10: 'printf'
+            // InternalPerl.g:135:8: ( 'print' )
+            // InternalPerl.g:135:10: 'print'
             {
-            match("printf"); 
+            match("print"); 
 
 
             }
@@ -3013,10 +2993,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__150;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:137:8: ( 'prototype' )
-            // InternalPerl.g:137:10: 'prototype'
+            // InternalPerl.g:136:8: ( 'printf' )
+            // InternalPerl.g:136:10: 'printf'
             {
-            match("prototype"); 
+            match("printf"); 
 
 
             }
@@ -3034,10 +3014,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__151;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:138:8: ( 'push' )
-            // InternalPerl.g:138:10: 'push'
+            // InternalPerl.g:137:8: ( 'prototype' )
+            // InternalPerl.g:137:10: 'prototype'
             {
-            match("push"); 
+            match("prototype"); 
 
 
             }
@@ -3055,10 +3035,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__152;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:139:8: ( 'quotemeta' )
-            // InternalPerl.g:139:10: 'quotemeta'
+            // InternalPerl.g:138:8: ( 'push' )
+            // InternalPerl.g:138:10: 'push'
             {
-            match("quotemeta"); 
+            match("push"); 
 
 
             }
@@ -3076,10 +3056,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__153;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:140:8: ( 'rand' )
-            // InternalPerl.g:140:10: 'rand'
+            // InternalPerl.g:139:8: ( 'quotemeta' )
+            // InternalPerl.g:139:10: 'quotemeta'
             {
-            match("rand"); 
+            match("quotemeta"); 
 
 
             }
@@ -3097,10 +3077,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__154;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:141:8: ( 'read' )
-            // InternalPerl.g:141:10: 'read'
+            // InternalPerl.g:140:8: ( 'rand' )
+            // InternalPerl.g:140:10: 'rand'
             {
-            match("read"); 
+            match("rand"); 
 
 
             }
@@ -3118,10 +3098,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__155;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:142:8: ( 'readdir' )
-            // InternalPerl.g:142:10: 'readdir'
+            // InternalPerl.g:141:8: ( 'read' )
+            // InternalPerl.g:141:10: 'read'
             {
-            match("readdir"); 
+            match("read"); 
 
 
             }
@@ -3139,10 +3119,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__156;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:143:8: ( 'readline' )
-            // InternalPerl.g:143:10: 'readline'
+            // InternalPerl.g:142:8: ( 'readdir' )
+            // InternalPerl.g:142:10: 'readdir'
             {
-            match("readline"); 
+            match("readdir"); 
 
 
             }
@@ -3160,10 +3140,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__157;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:144:8: ( 'readlink' )
-            // InternalPerl.g:144:10: 'readlink'
+            // InternalPerl.g:143:8: ( 'readline' )
+            // InternalPerl.g:143:10: 'readline'
             {
-            match("readlink"); 
+            match("readline"); 
 
 
             }
@@ -3181,10 +3161,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__158;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:145:8: ( 'readpipe' )
-            // InternalPerl.g:145:10: 'readpipe'
+            // InternalPerl.g:144:8: ( 'readlink' )
+            // InternalPerl.g:144:10: 'readlink'
             {
-            match("readpipe"); 
+            match("readlink"); 
 
 
             }
@@ -3202,10 +3182,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__159;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:146:8: ( 'recv' )
-            // InternalPerl.g:146:10: 'recv'
+            // InternalPerl.g:145:8: ( 'readpipe' )
+            // InternalPerl.g:145:10: 'readpipe'
             {
-            match("recv"); 
+            match("readpipe"); 
 
 
             }
@@ -3223,10 +3203,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__160;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:147:8: ( 'redo' )
-            // InternalPerl.g:147:10: 'redo'
+            // InternalPerl.g:146:8: ( 'recv' )
+            // InternalPerl.g:146:10: 'recv'
             {
-            match("redo"); 
+            match("recv"); 
 
 
             }
@@ -3244,10 +3224,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__161;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:148:8: ( 'ref' )
-            // InternalPerl.g:148:10: 'ref'
+            // InternalPerl.g:147:8: ( 'redo' )
+            // InternalPerl.g:147:10: 'redo'
             {
-            match("ref"); 
+            match("redo"); 
 
 
             }
@@ -3265,10 +3245,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__162;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:149:8: ( 'rename' )
-            // InternalPerl.g:149:10: 'rename'
+            // InternalPerl.g:148:8: ( 'ref' )
+            // InternalPerl.g:148:10: 'ref'
             {
-            match("rename"); 
+            match("ref"); 
 
 
             }
@@ -3286,10 +3266,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__163;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:150:8: ( 'require' )
-            // InternalPerl.g:150:10: 'require'
+            // InternalPerl.g:149:8: ( 'rename' )
+            // InternalPerl.g:149:10: 'rename'
             {
-            match("require"); 
+            match("rename"); 
 
 
             }
@@ -3307,10 +3287,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__164;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:151:8: ( 'reset' )
-            // InternalPerl.g:151:10: 'reset'
+            // InternalPerl.g:150:8: ( 'require' )
+            // InternalPerl.g:150:10: 'require'
             {
-            match("reset"); 
+            match("require"); 
 
 
             }
@@ -3328,10 +3308,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__165;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:152:8: ( 'return' )
-            // InternalPerl.g:152:10: 'return'
+            // InternalPerl.g:151:8: ( 'reset' )
+            // InternalPerl.g:151:10: 'reset'
             {
-            match("return"); 
+            match("reset"); 
 
 
             }
@@ -3349,10 +3329,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__166;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:153:8: ( 'reverse' )
-            // InternalPerl.g:153:10: 'reverse'
+            // InternalPerl.g:152:8: ( 'return' )
+            // InternalPerl.g:152:10: 'return'
             {
-            match("reverse"); 
+            match("return"); 
 
 
             }
@@ -3370,10 +3350,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__167;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:154:8: ( 'rewinddir' )
-            // InternalPerl.g:154:10: 'rewinddir'
+            // InternalPerl.g:153:8: ( 'reverse' )
+            // InternalPerl.g:153:10: 'reverse'
             {
-            match("rewinddir"); 
+            match("reverse"); 
 
 
             }
@@ -3391,10 +3371,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__168;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:155:8: ( 'rindex' )
-            // InternalPerl.g:155:10: 'rindex'
+            // InternalPerl.g:154:8: ( 'rewinddir' )
+            // InternalPerl.g:154:10: 'rewinddir'
             {
-            match("rindex"); 
+            match("rewinddir"); 
 
 
             }
@@ -3412,10 +3392,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__169;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:156:8: ( 'rmdir' )
-            // InternalPerl.g:156:10: 'rmdir'
+            // InternalPerl.g:155:8: ( 'rindex' )
+            // InternalPerl.g:155:10: 'rindex'
             {
-            match("rmdir"); 
+            match("rindex"); 
 
 
             }
@@ -3433,10 +3413,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__170;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:157:8: ( 'say' )
-            // InternalPerl.g:157:10: 'say'
+            // InternalPerl.g:156:8: ( 'rmdir' )
+            // InternalPerl.g:156:10: 'rmdir'
             {
-            match("say"); 
+            match("rmdir"); 
 
 
             }
@@ -3454,10 +3434,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__171;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:158:8: ( 'scalar' )
-            // InternalPerl.g:158:10: 'scalar'
+            // InternalPerl.g:157:8: ( 'say' )
+            // InternalPerl.g:157:10: 'say'
             {
-            match("scalar"); 
+            match("say"); 
 
 
             }
@@ -3475,10 +3455,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__172;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:159:8: ( 'seek' )
-            // InternalPerl.g:159:10: 'seek'
+            // InternalPerl.g:158:8: ( 'scalar' )
+            // InternalPerl.g:158:10: 'scalar'
             {
-            match("seek"); 
+            match("scalar"); 
 
 
             }
@@ -3496,10 +3476,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__173;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:160:8: ( 'seekdir' )
-            // InternalPerl.g:160:10: 'seekdir'
+            // InternalPerl.g:159:8: ( 'seek' )
+            // InternalPerl.g:159:10: 'seek'
             {
-            match("seekdir"); 
+            match("seek"); 
 
 
             }
@@ -3517,10 +3497,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__174;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:161:8: ( 'select' )
-            // InternalPerl.g:161:10: 'select'
+            // InternalPerl.g:160:8: ( 'seekdir' )
+            // InternalPerl.g:160:10: 'seekdir'
             {
-            match("select"); 
+            match("seekdir"); 
 
 
             }
@@ -3538,10 +3518,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__175;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:162:8: ( 'semctl' )
-            // InternalPerl.g:162:10: 'semctl'
+            // InternalPerl.g:161:8: ( 'select' )
+            // InternalPerl.g:161:10: 'select'
             {
-            match("semctl"); 
+            match("select"); 
 
 
             }
@@ -3559,10 +3539,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__176;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:163:8: ( 'semget' )
-            // InternalPerl.g:163:10: 'semget'
+            // InternalPerl.g:162:8: ( 'semctl' )
+            // InternalPerl.g:162:10: 'semctl'
             {
-            match("semget"); 
+            match("semctl"); 
 
 
             }
@@ -3580,10 +3560,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__177;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:164:8: ( 'semop' )
-            // InternalPerl.g:164:10: 'semop'
+            // InternalPerl.g:163:8: ( 'semget' )
+            // InternalPerl.g:163:10: 'semget'
             {
-            match("semop"); 
+            match("semget"); 
 
 
             }
@@ -3601,10 +3581,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__178;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:165:8: ( 'send' )
-            // InternalPerl.g:165:10: 'send'
+            // InternalPerl.g:164:8: ( 'semop' )
+            // InternalPerl.g:164:10: 'semop'
             {
-            match("send"); 
+            match("semop"); 
 
 
             }
@@ -3622,10 +3602,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__179;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:166:8: ( 'setgrent' )
-            // InternalPerl.g:166:10: 'setgrent'
+            // InternalPerl.g:165:8: ( 'send' )
+            // InternalPerl.g:165:10: 'send'
             {
-            match("setgrent"); 
+            match("send"); 
 
 
             }
@@ -3643,10 +3623,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__180;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:167:8: ( 'sethostent' )
-            // InternalPerl.g:167:10: 'sethostent'
+            // InternalPerl.g:166:8: ( 'setgrent' )
+            // InternalPerl.g:166:10: 'setgrent'
             {
-            match("sethostent"); 
+            match("setgrent"); 
 
 
             }
@@ -3664,10 +3644,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__181;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:168:8: ( 'setnetent' )
-            // InternalPerl.g:168:10: 'setnetent'
+            // InternalPerl.g:167:8: ( 'sethostent' )
+            // InternalPerl.g:167:10: 'sethostent'
             {
-            match("setnetent"); 
+            match("sethostent"); 
 
 
             }
@@ -3685,10 +3665,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__182;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:169:8: ( 'setpgrp' )
-            // InternalPerl.g:169:10: 'setpgrp'
+            // InternalPerl.g:168:8: ( 'setnetent' )
+            // InternalPerl.g:168:10: 'setnetent'
             {
-            match("setpgrp"); 
+            match("setnetent"); 
 
 
             }
@@ -3706,10 +3686,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__183;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:170:8: ( 'setpriority' )
-            // InternalPerl.g:170:10: 'setpriority'
+            // InternalPerl.g:169:8: ( 'setpgrp' )
+            // InternalPerl.g:169:10: 'setpgrp'
             {
-            match("setpriority"); 
+            match("setpgrp"); 
 
 
             }
@@ -3727,10 +3707,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__184;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:171:8: ( 'setprotoent' )
-            // InternalPerl.g:171:10: 'setprotoent'
+            // InternalPerl.g:170:8: ( 'setpriority' )
+            // InternalPerl.g:170:10: 'setpriority'
             {
-            match("setprotoent"); 
+            match("setpriority"); 
 
 
             }
@@ -3748,10 +3728,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__185;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:172:8: ( 'setpwent' )
-            // InternalPerl.g:172:10: 'setpwent'
+            // InternalPerl.g:171:8: ( 'setprotoent' )
+            // InternalPerl.g:171:10: 'setprotoent'
             {
-            match("setpwent"); 
+            match("setprotoent"); 
 
 
             }
@@ -3769,10 +3749,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__186;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:173:8: ( 'setservent' )
-            // InternalPerl.g:173:10: 'setservent'
+            // InternalPerl.g:172:8: ( 'setpwent' )
+            // InternalPerl.g:172:10: 'setpwent'
             {
-            match("setservent"); 
+            match("setpwent"); 
 
 
             }
@@ -3790,10 +3770,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__187;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:174:8: ( 'setsockopt' )
-            // InternalPerl.g:174:10: 'setsockopt'
+            // InternalPerl.g:173:8: ( 'setservent' )
+            // InternalPerl.g:173:10: 'setservent'
             {
-            match("setsockopt"); 
+            match("setservent"); 
 
 
             }
@@ -3811,10 +3791,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__188;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:175:8: ( 'shift' )
-            // InternalPerl.g:175:10: 'shift'
+            // InternalPerl.g:174:8: ( 'setsockopt' )
+            // InternalPerl.g:174:10: 'setsockopt'
             {
-            match("shift"); 
+            match("setsockopt"); 
 
 
             }
@@ -3832,10 +3812,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__189;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:176:8: ( 'shmctl' )
-            // InternalPerl.g:176:10: 'shmctl'
+            // InternalPerl.g:175:8: ( 'shift' )
+            // InternalPerl.g:175:10: 'shift'
             {
-            match("shmctl"); 
+            match("shift"); 
 
 
             }
@@ -3853,10 +3833,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__190;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:177:8: ( 'shmget' )
-            // InternalPerl.g:177:10: 'shmget'
+            // InternalPerl.g:176:8: ( 'shmctl' )
+            // InternalPerl.g:176:10: 'shmctl'
             {
-            match("shmget"); 
+            match("shmctl"); 
 
 
             }
@@ -3874,10 +3854,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__191;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:178:8: ( 'shmread' )
-            // InternalPerl.g:178:10: 'shmread'
+            // InternalPerl.g:177:8: ( 'shmget' )
+            // InternalPerl.g:177:10: 'shmget'
             {
-            match("shmread"); 
+            match("shmget"); 
 
 
             }
@@ -3895,10 +3875,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__192;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:179:8: ( 'shmwrite' )
-            // InternalPerl.g:179:10: 'shmwrite'
+            // InternalPerl.g:178:8: ( 'shmread' )
+            // InternalPerl.g:178:10: 'shmread'
             {
-            match("shmwrite"); 
+            match("shmread"); 
 
 
             }
@@ -3916,10 +3896,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__193;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:180:8: ( 'shutdown' )
-            // InternalPerl.g:180:10: 'shutdown'
+            // InternalPerl.g:179:8: ( 'shmwrite' )
+            // InternalPerl.g:179:10: 'shmwrite'
             {
-            match("shutdown"); 
+            match("shmwrite"); 
 
 
             }
@@ -3937,10 +3917,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__194;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:181:8: ( 'sin' )
-            // InternalPerl.g:181:10: 'sin'
+            // InternalPerl.g:180:8: ( 'shutdown' )
+            // InternalPerl.g:180:10: 'shutdown'
             {
-            match("sin"); 
+            match("shutdown"); 
 
 
             }
@@ -3958,10 +3938,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__195;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:182:8: ( 'sleep' )
-            // InternalPerl.g:182:10: 'sleep'
+            // InternalPerl.g:181:8: ( 'sin' )
+            // InternalPerl.g:181:10: 'sin'
             {
-            match("sleep"); 
+            match("sin"); 
 
 
             }
@@ -3979,10 +3959,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__196;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:183:8: ( 'socket' )
-            // InternalPerl.g:183:10: 'socket'
+            // InternalPerl.g:182:8: ( 'sleep' )
+            // InternalPerl.g:182:10: 'sleep'
             {
-            match("socket"); 
+            match("sleep"); 
 
 
             }
@@ -4000,10 +3980,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__197;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:184:8: ( 'socketpair' )
-            // InternalPerl.g:184:10: 'socketpair'
+            // InternalPerl.g:183:8: ( 'socket' )
+            // InternalPerl.g:183:10: 'socket'
             {
-            match("socketpair"); 
+            match("socket"); 
 
 
             }
@@ -4021,10 +4001,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__198;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:185:8: ( 'sort' )
-            // InternalPerl.g:185:10: 'sort'
+            // InternalPerl.g:184:8: ( 'socketpair' )
+            // InternalPerl.g:184:10: 'socketpair'
             {
-            match("sort"); 
+            match("socketpair"); 
 
 
             }
@@ -4042,10 +4022,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__199;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:186:8: ( 'splice' )
-            // InternalPerl.g:186:10: 'splice'
+            // InternalPerl.g:185:8: ( 'sort' )
+            // InternalPerl.g:185:10: 'sort'
             {
-            match("splice"); 
+            match("sort"); 
 
 
             }
@@ -4063,10 +4043,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__200;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:187:8: ( 'split' )
-            // InternalPerl.g:187:10: 'split'
+            // InternalPerl.g:186:8: ( 'splice' )
+            // InternalPerl.g:186:10: 'splice'
             {
-            match("split"); 
+            match("splice"); 
 
 
             }
@@ -4084,10 +4064,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__201;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:188:8: ( 'sprintf' )
-            // InternalPerl.g:188:10: 'sprintf'
+            // InternalPerl.g:187:8: ( 'split' )
+            // InternalPerl.g:187:10: 'split'
             {
-            match("sprintf"); 
+            match("split"); 
 
 
             }
@@ -4105,10 +4085,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__202;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:189:8: ( 'sqrt' )
-            // InternalPerl.g:189:10: 'sqrt'
+            // InternalPerl.g:188:8: ( 'sprintf' )
+            // InternalPerl.g:188:10: 'sprintf'
             {
-            match("sqrt"); 
+            match("sprintf"); 
 
 
             }
@@ -4126,10 +4106,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__203;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:190:8: ( 'srand' )
-            // InternalPerl.g:190:10: 'srand'
+            // InternalPerl.g:189:8: ( 'sqrt' )
+            // InternalPerl.g:189:10: 'sqrt'
             {
-            match("srand"); 
+            match("sqrt"); 
 
 
             }
@@ -4147,10 +4127,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__204;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:191:8: ( 'stat' )
-            // InternalPerl.g:191:10: 'stat'
+            // InternalPerl.g:190:8: ( 'srand' )
+            // InternalPerl.g:190:10: 'srand'
             {
-            match("stat"); 
+            match("srand"); 
 
 
             }
@@ -4168,10 +4148,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__205;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:192:8: ( 'state' )
-            // InternalPerl.g:192:10: 'state'
+            // InternalPerl.g:191:8: ( 'stat' )
+            // InternalPerl.g:191:10: 'stat'
             {
-            match("state"); 
+            match("stat"); 
 
 
             }
@@ -4189,10 +4169,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__206;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:193:8: ( 'study' )
-            // InternalPerl.g:193:10: 'study'
+            // InternalPerl.g:192:8: ( 'state' )
+            // InternalPerl.g:192:10: 'state'
             {
-            match("study"); 
+            match("state"); 
 
 
             }
@@ -4210,10 +4190,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__207;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:194:8: ( 'sub' )
-            // InternalPerl.g:194:10: 'sub'
+            // InternalPerl.g:193:8: ( 'study' )
+            // InternalPerl.g:193:10: 'study'
             {
-            match("sub"); 
+            match("study"); 
 
 
             }
@@ -4231,10 +4211,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__208;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:195:8: ( 'substr' )
-            // InternalPerl.g:195:10: 'substr'
+            // InternalPerl.g:194:8: ( 'sub' )
+            // InternalPerl.g:194:10: 'sub'
             {
-            match("substr"); 
+            match("sub"); 
 
 
             }
@@ -4252,10 +4232,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__209;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:196:8: ( 'symlink' )
-            // InternalPerl.g:196:10: 'symlink'
+            // InternalPerl.g:195:8: ( 'substr' )
+            // InternalPerl.g:195:10: 'substr'
             {
-            match("symlink"); 
+            match("substr"); 
 
 
             }
@@ -4273,10 +4253,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__210;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:197:8: ( 'syscall' )
-            // InternalPerl.g:197:10: 'syscall'
+            // InternalPerl.g:196:8: ( 'symlink' )
+            // InternalPerl.g:196:10: 'symlink'
             {
-            match("syscall"); 
+            match("symlink"); 
 
 
             }
@@ -4294,10 +4274,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__211;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:198:8: ( 'sysopen' )
-            // InternalPerl.g:198:10: 'sysopen'
+            // InternalPerl.g:197:8: ( 'syscall' )
+            // InternalPerl.g:197:10: 'syscall'
             {
-            match("sysopen"); 
+            match("syscall"); 
 
 
             }
@@ -4315,10 +4295,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__212;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:199:8: ( 'sysread' )
-            // InternalPerl.g:199:10: 'sysread'
+            // InternalPerl.g:198:8: ( 'sysopen' )
+            // InternalPerl.g:198:10: 'sysopen'
             {
-            match("sysread"); 
+            match("sysopen"); 
 
 
             }
@@ -4336,10 +4316,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__213;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:200:8: ( 'sysseek' )
-            // InternalPerl.g:200:10: 'sysseek'
+            // InternalPerl.g:199:8: ( 'sysread' )
+            // InternalPerl.g:199:10: 'sysread'
             {
-            match("sysseek"); 
+            match("sysread"); 
 
 
             }
@@ -4357,10 +4337,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__214;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:201:8: ( 'system' )
-            // InternalPerl.g:201:10: 'system'
+            // InternalPerl.g:200:8: ( 'sysseek' )
+            // InternalPerl.g:200:10: 'sysseek'
             {
-            match("system"); 
+            match("sysseek"); 
 
 
             }
@@ -4378,10 +4358,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__215;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:202:8: ( 'syswrite' )
-            // InternalPerl.g:202:10: 'syswrite'
+            // InternalPerl.g:201:8: ( 'system' )
+            // InternalPerl.g:201:10: 'system'
             {
-            match("syswrite"); 
+            match("system"); 
 
 
             }
@@ -4399,10 +4379,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__216;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:203:8: ( 'tell' )
-            // InternalPerl.g:203:10: 'tell'
+            // InternalPerl.g:202:8: ( 'syswrite' )
+            // InternalPerl.g:202:10: 'syswrite'
             {
-            match("tell"); 
+            match("syswrite"); 
 
 
             }
@@ -4420,10 +4400,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__217;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:204:8: ( 'telldir' )
-            // InternalPerl.g:204:10: 'telldir'
+            // InternalPerl.g:203:8: ( 'tell' )
+            // InternalPerl.g:203:10: 'tell'
             {
-            match("telldir"); 
+            match("tell"); 
 
 
             }
@@ -4441,10 +4421,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__218;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:205:8: ( 'tie' )
-            // InternalPerl.g:205:10: 'tie'
+            // InternalPerl.g:204:8: ( 'telldir' )
+            // InternalPerl.g:204:10: 'telldir'
             {
-            match("tie"); 
+            match("telldir"); 
 
 
             }
@@ -4462,10 +4442,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__219;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:206:8: ( 'tied' )
-            // InternalPerl.g:206:10: 'tied'
+            // InternalPerl.g:205:8: ( 'tie' )
+            // InternalPerl.g:205:10: 'tie'
             {
-            match("tied"); 
+            match("tie"); 
 
 
             }
@@ -4483,10 +4463,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__220;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:207:8: ( 'time' )
-            // InternalPerl.g:207:10: 'time'
+            // InternalPerl.g:206:8: ( 'tied' )
+            // InternalPerl.g:206:10: 'tied'
             {
-            match("time"); 
+            match("tied"); 
 
 
             }
@@ -4504,10 +4484,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__221;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:208:8: ( 'times' )
-            // InternalPerl.g:208:10: 'times'
+            // InternalPerl.g:207:8: ( 'time' )
+            // InternalPerl.g:207:10: 'time'
             {
-            match("times"); 
+            match("time"); 
 
 
             }
@@ -4525,10 +4505,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__222;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:209:8: ( 'tr' )
-            // InternalPerl.g:209:10: 'tr'
+            // InternalPerl.g:208:8: ( 'times' )
+            // InternalPerl.g:208:10: 'times'
             {
-            match("tr"); 
+            match("times"); 
 
 
             }
@@ -4546,10 +4526,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__223;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:210:8: ( 'truncate' )
-            // InternalPerl.g:210:10: 'truncate'
+            // InternalPerl.g:209:8: ( 'tr' )
+            // InternalPerl.g:209:10: 'tr'
             {
-            match("truncate"); 
+            match("tr"); 
 
 
             }
@@ -4567,10 +4547,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__224;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:211:8: ( 'uc' )
-            // InternalPerl.g:211:10: 'uc'
+            // InternalPerl.g:210:8: ( 'truncate' )
+            // InternalPerl.g:210:10: 'truncate'
             {
-            match("uc"); 
+            match("truncate"); 
 
 
             }
@@ -4588,10 +4568,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__225;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:212:8: ( 'ucfirst' )
-            // InternalPerl.g:212:10: 'ucfirst'
+            // InternalPerl.g:211:8: ( 'uc' )
+            // InternalPerl.g:211:10: 'uc'
             {
-            match("ucfirst"); 
+            match("uc"); 
 
 
             }
@@ -4609,10 +4589,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__226;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:213:8: ( 'umask' )
-            // InternalPerl.g:213:10: 'umask'
+            // InternalPerl.g:212:8: ( 'ucfirst' )
+            // InternalPerl.g:212:10: 'ucfirst'
             {
-            match("umask"); 
+            match("ucfirst"); 
 
 
             }
@@ -4630,10 +4610,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__227;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:214:8: ( 'undef' )
-            // InternalPerl.g:214:10: 'undef'
+            // InternalPerl.g:213:8: ( 'umask' )
+            // InternalPerl.g:213:10: 'umask'
             {
-            match("undef"); 
+            match("umask"); 
 
 
             }
@@ -4651,10 +4631,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__228;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:215:8: ( 'unless' )
-            // InternalPerl.g:215:10: 'unless'
+            // InternalPerl.g:214:8: ( 'undef' )
+            // InternalPerl.g:214:10: 'undef'
             {
-            match("unless"); 
+            match("undef"); 
 
 
             }
@@ -4672,10 +4652,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__229;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:216:8: ( 'unlink' )
-            // InternalPerl.g:216:10: 'unlink'
+            // InternalPerl.g:215:8: ( 'unless' )
+            // InternalPerl.g:215:10: 'unless'
             {
-            match("unlink"); 
+            match("unless"); 
 
 
             }
@@ -4693,10 +4673,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__230;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:217:8: ( 'unpack' )
-            // InternalPerl.g:217:10: 'unpack'
+            // InternalPerl.g:216:8: ( 'unlink' )
+            // InternalPerl.g:216:10: 'unlink'
             {
-            match("unpack"); 
+            match("unlink"); 
 
 
             }
@@ -4714,10 +4694,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__231;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:218:8: ( 'unshift' )
-            // InternalPerl.g:218:10: 'unshift'
+            // InternalPerl.g:217:8: ( 'unpack' )
+            // InternalPerl.g:217:10: 'unpack'
             {
-            match("unshift"); 
+            match("unpack"); 
 
 
             }
@@ -4735,10 +4715,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__232;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:219:8: ( 'untie' )
-            // InternalPerl.g:219:10: 'untie'
+            // InternalPerl.g:218:8: ( 'unshift' )
+            // InternalPerl.g:218:10: 'unshift'
             {
-            match("untie"); 
+            match("unshift"); 
 
 
             }
@@ -4756,10 +4736,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__233;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:220:8: ( 'until' )
-            // InternalPerl.g:220:10: 'until'
+            // InternalPerl.g:219:8: ( 'untie' )
+            // InternalPerl.g:219:10: 'untie'
             {
-            match("until"); 
+            match("untie"); 
 
 
             }
@@ -4777,10 +4757,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__234;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:221:8: ( 'use' )
-            // InternalPerl.g:221:10: 'use'
+            // InternalPerl.g:220:8: ( 'until' )
+            // InternalPerl.g:220:10: 'until'
             {
-            match("use"); 
+            match("until"); 
 
 
             }
@@ -4798,10 +4778,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__235;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:222:8: ( 'utime' )
-            // InternalPerl.g:222:10: 'utime'
+            // InternalPerl.g:221:8: ( 'use' )
+            // InternalPerl.g:221:10: 'use'
             {
-            match("utime"); 
+            match("use"); 
 
 
             }
@@ -4819,10 +4799,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__236;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:223:8: ( 'values' )
-            // InternalPerl.g:223:10: 'values'
+            // InternalPerl.g:222:8: ( 'utime' )
+            // InternalPerl.g:222:10: 'utime'
             {
-            match("values"); 
+            match("utime"); 
 
 
             }
@@ -4840,10 +4820,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__237;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:224:8: ( 'vec' )
-            // InternalPerl.g:224:10: 'vec'
+            // InternalPerl.g:223:8: ( 'values' )
+            // InternalPerl.g:223:10: 'values'
             {
-            match("vec"); 
+            match("values"); 
 
 
             }
@@ -4861,10 +4841,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__238;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:225:8: ( 'wait' )
-            // InternalPerl.g:225:10: 'wait'
+            // InternalPerl.g:224:8: ( 'vec' )
+            // InternalPerl.g:224:10: 'vec'
             {
-            match("wait"); 
+            match("vec"); 
 
 
             }
@@ -4882,10 +4862,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__239;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:226:8: ( 'waitpid' )
-            // InternalPerl.g:226:10: 'waitpid'
+            // InternalPerl.g:225:8: ( 'wait' )
+            // InternalPerl.g:225:10: 'wait'
             {
-            match("waitpid"); 
+            match("wait"); 
 
 
             }
@@ -4903,10 +4883,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__240;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:227:8: ( 'wantarray' )
-            // InternalPerl.g:227:10: 'wantarray'
+            // InternalPerl.g:226:8: ( 'waitpid' )
+            // InternalPerl.g:226:10: 'waitpid'
             {
-            match("wantarray"); 
+            match("waitpid"); 
 
 
             }
@@ -4924,10 +4904,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__241;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:228:8: ( 'warn' )
-            // InternalPerl.g:228:10: 'warn'
+            // InternalPerl.g:227:8: ( 'wantarray' )
+            // InternalPerl.g:227:10: 'wantarray'
             {
-            match("warn"); 
+            match("wantarray"); 
 
 
             }
@@ -4945,10 +4925,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__242;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:229:8: ( 'when' )
-            // InternalPerl.g:229:10: 'when'
+            // InternalPerl.g:228:8: ( 'warn' )
+            // InternalPerl.g:228:10: 'warn'
             {
-            match("when"); 
+            match("warn"); 
 
 
             }
@@ -4966,10 +4946,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__243;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:230:8: ( 'while' )
-            // InternalPerl.g:230:10: 'while'
+            // InternalPerl.g:229:8: ( 'when' )
+            // InternalPerl.g:229:10: 'when'
             {
-            match("while"); 
+            match("when"); 
 
 
             }
@@ -4987,10 +4967,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__244;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:231:8: ( 'write' )
-            // InternalPerl.g:231:10: 'write'
+            // InternalPerl.g:230:8: ( 'while' )
+            // InternalPerl.g:230:10: 'while'
             {
-            match("write"); 
+            match("while"); 
 
 
             }
@@ -5008,10 +4988,11 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__245;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:232:8: ( 'y' )
-            // InternalPerl.g:232:10: 'y'
+            // InternalPerl.g:231:8: ( 'write' )
+            // InternalPerl.g:231:10: 'write'
             {
-            match('y'); 
+            match("write"); 
+
 
             }
 
@@ -5028,11 +5009,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__246;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:233:8: ( '++' )
-            // InternalPerl.g:233:10: '++'
+            // InternalPerl.g:232:8: ( 'y' )
+            // InternalPerl.g:232:10: 'y'
             {
-            match("++"); 
-
+            match('y'); 
 
             }
 
@@ -5049,10 +5029,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__247;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:234:8: ( '--' )
-            // InternalPerl.g:234:10: '--'
+            // InternalPerl.g:233:8: ( '++' )
+            // InternalPerl.g:233:10: '++'
             {
-            match("--"); 
+            match("++"); 
 
 
             }
@@ -5070,10 +5050,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__248;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:235:8: ( '**' )
-            // InternalPerl.g:235:10: '**'
+            // InternalPerl.g:234:8: ( '--' )
+            // InternalPerl.g:234:10: '--'
             {
-            match("**"); 
+            match("--"); 
 
 
             }
@@ -5091,10 +5071,11 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__249;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:236:8: ( '!' )
-            // InternalPerl.g:236:10: '!'
+            // InternalPerl.g:235:8: ( '**' )
+            // InternalPerl.g:235:10: '**'
             {
-            match('!'); 
+            match("**"); 
+
 
             }
 
@@ -5111,10 +5092,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__250;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:237:8: ( '~' )
-            // InternalPerl.g:237:10: '~'
+            // InternalPerl.g:236:8: ( '!' )
+            // InternalPerl.g:236:10: '!'
             {
-            match('~'); 
+            match('!'); 
 
             }
 
@@ -5131,10 +5112,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__251;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:238:8: ( '+' )
-            // InternalPerl.g:238:10: '+'
+            // InternalPerl.g:237:8: ( '~' )
+            // InternalPerl.g:237:10: '~'
             {
-            match('+'); 
+            match('~'); 
 
             }
 
@@ -5151,10 +5132,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__252;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:239:8: ( '-' )
-            // InternalPerl.g:239:10: '-'
+            // InternalPerl.g:238:8: ( '+' )
+            // InternalPerl.g:238:10: '+'
             {
-            match('-'); 
+            match('+'); 
 
             }
 
@@ -5171,11 +5152,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__253;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:240:8: ( '=~' )
-            // InternalPerl.g:240:10: '=~'
+            // InternalPerl.g:239:8: ( '-' )
+            // InternalPerl.g:239:10: '-'
             {
-            match("=~"); 
-
+            match('-'); 
 
             }
 
@@ -5192,10 +5172,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__254;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:241:8: ( '!~' )
-            // InternalPerl.g:241:10: '!~'
+            // InternalPerl.g:240:8: ( '=~' )
+            // InternalPerl.g:240:10: '=~'
             {
-            match("!~"); 
+            match("=~"); 
 
 
             }
@@ -5213,10 +5193,11 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__255;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:242:8: ( '*' )
-            // InternalPerl.g:242:10: '*'
+            // InternalPerl.g:241:8: ( '!~' )
+            // InternalPerl.g:241:10: '!~'
             {
-            match('*'); 
+            match("!~"); 
+
 
             }
 
@@ -5233,10 +5214,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__256;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:243:8: ( '/' )
-            // InternalPerl.g:243:10: '/'
+            // InternalPerl.g:242:8: ( '*' )
+            // InternalPerl.g:242:10: '*'
             {
-            match('/'); 
+            match('*'); 
 
             }
 
@@ -5253,10 +5234,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__257;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:244:8: ( '%' )
-            // InternalPerl.g:244:10: '%'
+            // InternalPerl.g:243:8: ( '/' )
+            // InternalPerl.g:243:10: '/'
             {
-            match('%'); 
+            match('/'); 
 
             }
 
@@ -5273,10 +5254,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__258;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:245:8: ( 'x' )
-            // InternalPerl.g:245:10: 'x'
+            // InternalPerl.g:244:8: ( '%' )
+            // InternalPerl.g:244:10: '%'
             {
-            match('x'); 
+            match('%'); 
 
             }
 
@@ -5293,11 +5274,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__259;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:246:8: ( '<<' )
-            // InternalPerl.g:246:10: '<<'
+            // InternalPerl.g:245:8: ( 'x' )
+            // InternalPerl.g:245:10: 'x'
             {
-            match("<<"); 
-
+            match('x'); 
 
             }
 
@@ -5314,10 +5294,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__260;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:247:8: ( '>>' )
-            // InternalPerl.g:247:10: '>>'
+            // InternalPerl.g:246:8: ( '<<' )
+            // InternalPerl.g:246:10: '<<'
             {
-            match(">>"); 
+            match("<<"); 
 
 
             }
@@ -5335,10 +5315,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__261;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:248:8: ( 'lt' )
-            // InternalPerl.g:248:10: 'lt'
+            // InternalPerl.g:247:8: ( '>>' )
+            // InternalPerl.g:247:10: '>>'
             {
-            match("lt"); 
+            match(">>"); 
 
 
             }
@@ -5356,10 +5336,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__262;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:249:8: ( 'gt' )
-            // InternalPerl.g:249:10: 'gt'
+            // InternalPerl.g:248:8: ( 'lt' )
+            // InternalPerl.g:248:10: 'lt'
             {
-            match("gt"); 
+            match("lt"); 
 
 
             }
@@ -5377,10 +5357,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__263;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:250:8: ( 'le' )
-            // InternalPerl.g:250:10: 'le'
+            // InternalPerl.g:249:8: ( 'gt' )
+            // InternalPerl.g:249:10: 'gt'
             {
-            match("le"); 
+            match("gt"); 
 
 
             }
@@ -5398,10 +5378,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__264;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:251:8: ( 'ge' )
-            // InternalPerl.g:251:10: 'ge'
+            // InternalPerl.g:250:8: ( 'le' )
+            // InternalPerl.g:250:10: 'le'
             {
-            match("ge"); 
+            match("le"); 
 
 
             }
@@ -5419,10 +5399,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__265;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:252:8: ( 'cmp' )
-            // InternalPerl.g:252:10: 'cmp'
+            // InternalPerl.g:251:8: ( 'ge' )
+            // InternalPerl.g:251:10: 'ge'
             {
-            match("cmp"); 
+            match("ge"); 
 
 
             }
@@ -5440,10 +5420,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__266;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:253:8: ( '~~' )
-            // InternalPerl.g:253:10: '~~'
+            // InternalPerl.g:252:8: ( 'cmp' )
+            // InternalPerl.g:252:10: 'cmp'
             {
-            match("~~"); 
+            match("cmp"); 
 
 
             }
@@ -5461,10 +5441,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__267;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:254:8: ( '==' )
-            // InternalPerl.g:254:10: '=='
+            // InternalPerl.g:253:8: ( '~~' )
+            // InternalPerl.g:253:10: '~~'
             {
-            match("=="); 
+            match("~~"); 
 
 
             }
@@ -5482,10 +5462,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__268;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:255:8: ( '!=' )
-            // InternalPerl.g:255:10: '!='
+            // InternalPerl.g:254:8: ( '==' )
+            // InternalPerl.g:254:10: '=='
             {
-            match("!="); 
+            match("=="); 
 
 
             }
@@ -5503,10 +5483,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__269;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:256:8: ( '..' )
-            // InternalPerl.g:256:10: '..'
+            // InternalPerl.g:255:8: ( '!=' )
+            // InternalPerl.g:255:10: '!='
             {
-            match(".."); 
+            match("!="); 
 
 
             }
@@ -5524,10 +5504,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__270;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:257:8: ( '...' )
-            // InternalPerl.g:257:10: '...'
+            // InternalPerl.g:256:8: ( '..' )
+            // InternalPerl.g:256:10: '..'
             {
-            match("..."); 
+            match(".."); 
 
 
             }
@@ -5545,10 +5525,11 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__271;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:258:8: ( ',' )
-            // InternalPerl.g:258:10: ','
+            // InternalPerl.g:257:8: ( '...' )
+            // InternalPerl.g:257:10: '...'
             {
-            match(','); 
+            match("..."); 
+
 
             }
 
@@ -5565,10 +5546,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__272;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:259:8: ( '&' )
-            // InternalPerl.g:259:10: '&'
+            // InternalPerl.g:258:8: ( ',' )
+            // InternalPerl.g:258:10: ','
             {
-            match('&'); 
+            match(','); 
 
             }
 
@@ -5585,10 +5566,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__273;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:260:8: ( '|' )
-            // InternalPerl.g:260:10: '|'
+            // InternalPerl.g:259:8: ( '&' )
+            // InternalPerl.g:259:10: '&'
             {
-            match('|'); 
+            match('&'); 
 
             }
 
@@ -5605,10 +5586,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__274;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:261:8: ( '^' )
-            // InternalPerl.g:261:10: '^'
+            // InternalPerl.g:260:8: ( '|' )
+            // InternalPerl.g:260:10: '|'
             {
-            match('^'); 
+            match('|'); 
 
             }
 
@@ -5625,11 +5606,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__275;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:262:8: ( '&&' )
-            // InternalPerl.g:262:10: '&&'
+            // InternalPerl.g:261:8: ( '^' )
+            // InternalPerl.g:261:10: '^'
             {
-            match("&&"); 
-
+            match('^'); 
 
             }
 
@@ -5646,10 +5626,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__276;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:263:8: ( '||' )
-            // InternalPerl.g:263:10: '||'
+            // InternalPerl.g:262:8: ( '&&' )
+            // InternalPerl.g:262:10: '&&'
             {
-            match("||"); 
+            match("&&"); 
 
 
             }
@@ -5667,10 +5647,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__277;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:264:8: ( '//' )
-            // InternalPerl.g:264:10: '//'
+            // InternalPerl.g:263:8: ( '||' )
+            // InternalPerl.g:263:10: '||'
             {
-            match("//"); 
+            match("||"); 
 
 
             }
@@ -5688,10 +5668,11 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__278;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:265:8: ( '?' )
-            // InternalPerl.g:265:10: '?'
+            // InternalPerl.g:264:8: ( '//' )
+            // InternalPerl.g:264:10: '//'
             {
-            match('?'); 
+            match("//"); 
+
 
             }
 
@@ -5708,10 +5689,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__279;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:266:8: ( ':' )
-            // InternalPerl.g:266:10: ':'
+            // InternalPerl.g:265:8: ( '?' )
+            // InternalPerl.g:265:10: '?'
             {
-            match(':'); 
+            match('?'); 
 
             }
 
@@ -5728,11 +5709,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__280;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:267:8: ( '**=' )
-            // InternalPerl.g:267:10: '**='
+            // InternalPerl.g:266:8: ( ':' )
+            // InternalPerl.g:266:10: ':'
             {
-            match("**="); 
-
+            match(':'); 
 
             }
 
@@ -5749,10 +5729,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__281;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:268:8: ( '+=' )
-            // InternalPerl.g:268:10: '+='
+            // InternalPerl.g:267:8: ( '**=' )
+            // InternalPerl.g:267:10: '**='
             {
-            match("+="); 
+            match("**="); 
 
 
             }
@@ -5770,10 +5750,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__282;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:269:8: ( '-=' )
-            // InternalPerl.g:269:10: '-='
+            // InternalPerl.g:268:8: ( '+=' )
+            // InternalPerl.g:268:10: '+='
             {
-            match("-="); 
+            match("+="); 
 
 
             }
@@ -5791,10 +5771,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__283;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:270:8: ( '.=' )
-            // InternalPerl.g:270:10: '.='
+            // InternalPerl.g:269:8: ( '-=' )
+            // InternalPerl.g:269:10: '-='
             {
-            match(".="); 
+            match("-="); 
 
 
             }
@@ -5812,10 +5792,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__284;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:271:8: ( '*=' )
-            // InternalPerl.g:271:10: '*='
+            // InternalPerl.g:270:8: ( '.=' )
+            // InternalPerl.g:270:10: '.='
             {
-            match("*="); 
+            match(".="); 
 
 
             }
@@ -5833,10 +5813,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__285;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:272:8: ( '/=' )
-            // InternalPerl.g:272:10: '/='
+            // InternalPerl.g:271:8: ( '*=' )
+            // InternalPerl.g:271:10: '*='
             {
-            match("/="); 
+            match("*="); 
 
 
             }
@@ -5854,10 +5834,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__286;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:273:8: ( '%=' )
-            // InternalPerl.g:273:10: '%='
+            // InternalPerl.g:272:8: ( '/=' )
+            // InternalPerl.g:272:10: '/='
             {
-            match("%="); 
+            match("/="); 
 
 
             }
@@ -5875,10 +5855,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__287;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:274:8: ( 'x=' )
-            // InternalPerl.g:274:10: 'x='
+            // InternalPerl.g:273:8: ( '%=' )
+            // InternalPerl.g:273:10: '%='
             {
-            match("x="); 
+            match("%="); 
 
 
             }
@@ -5896,10 +5876,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__288;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:275:8: ( '&=' )
-            // InternalPerl.g:275:10: '&='
+            // InternalPerl.g:274:8: ( 'x=' )
+            // InternalPerl.g:274:10: 'x='
             {
-            match("&="); 
+            match("x="); 
 
 
             }
@@ -5917,10 +5897,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__289;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:276:8: ( '|=' )
-            // InternalPerl.g:276:10: '|='
+            // InternalPerl.g:275:8: ( '&=' )
+            // InternalPerl.g:275:10: '&='
             {
-            match("|="); 
+            match("&="); 
 
 
             }
@@ -5938,10 +5918,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__290;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:277:8: ( '^=' )
-            // InternalPerl.g:277:10: '^='
+            // InternalPerl.g:276:8: ( '|=' )
+            // InternalPerl.g:276:10: '|='
             {
-            match("^="); 
+            match("|="); 
 
 
             }
@@ -5959,10 +5939,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__291;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:278:8: ( '<<=' )
-            // InternalPerl.g:278:10: '<<='
+            // InternalPerl.g:277:8: ( '^=' )
+            // InternalPerl.g:277:10: '^='
             {
-            match("<<="); 
+            match("^="); 
 
 
             }
@@ -5980,10 +5960,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__292;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:279:8: ( '>>=' )
-            // InternalPerl.g:279:10: '>>='
+            // InternalPerl.g:278:8: ( '<<=' )
+            // InternalPerl.g:278:10: '<<='
             {
-            match(">>="); 
+            match("<<="); 
 
 
             }
@@ -6001,10 +5981,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__293;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:280:8: ( '&&=' )
-            // InternalPerl.g:280:10: '&&='
+            // InternalPerl.g:279:8: ( '>>=' )
+            // InternalPerl.g:279:10: '>>='
             {
-            match("&&="); 
+            match(">>="); 
 
 
             }
@@ -6022,10 +6002,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__294;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:281:8: ( '||=' )
-            // InternalPerl.g:281:10: '||='
+            // InternalPerl.g:280:8: ( '&&=' )
+            // InternalPerl.g:280:10: '&&='
             {
-            match("||="); 
+            match("&&="); 
 
 
             }
@@ -6043,10 +6023,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__295;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:282:8: ( '//=' )
-            // InternalPerl.g:282:10: '//='
+            // InternalPerl.g:281:8: ( '||=' )
+            // InternalPerl.g:281:10: '||='
             {
-            match("//="); 
+            match("||="); 
 
 
             }
@@ -6064,10 +6044,11 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__296;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:283:8: ( '<' )
-            // InternalPerl.g:283:10: '<'
+            // InternalPerl.g:282:8: ( '//=' )
+            // InternalPerl.g:282:10: '//='
             {
-            match('<'); 
+            match("//="); 
+
 
             }
 
@@ -6084,10 +6065,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__297;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:284:8: ( '>' )
-            // InternalPerl.g:284:10: '>'
+            // InternalPerl.g:283:8: ( '<' )
+            // InternalPerl.g:283:10: '<'
             {
-            match('>'); 
+            match('<'); 
 
             }
 
@@ -6104,11 +6085,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__298;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:285:8: ( '<=' )
-            // InternalPerl.g:285:10: '<='
+            // InternalPerl.g:284:8: ( '>' )
+            // InternalPerl.g:284:10: '>'
             {
-            match("<="); 
-
+            match('>'); 
 
             }
 
@@ -6125,10 +6105,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__299;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:286:8: ( '>=' )
-            // InternalPerl.g:286:10: '>='
+            // InternalPerl.g:285:8: ( '<=' )
+            // InternalPerl.g:285:10: '<='
             {
-            match(">="); 
+            match("<="); 
 
 
             }
@@ -6146,10 +6126,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__300;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:287:8: ( '<>' )
-            // InternalPerl.g:287:10: '<>'
+            // InternalPerl.g:286:8: ( '>=' )
+            // InternalPerl.g:286:10: '>='
             {
-            match("<>"); 
+            match(">="); 
 
 
             }
@@ -6167,10 +6147,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__301;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:288:8: ( '=>' )
-            // InternalPerl.g:288:10: '=>'
+            // InternalPerl.g:287:8: ( '<>' )
+            // InternalPerl.g:287:10: '<>'
             {
-            match("=>"); 
+            match("<>"); 
 
 
             }
@@ -6188,10 +6168,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__302;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:289:8: ( '->' )
-            // InternalPerl.g:289:10: '->'
+            // InternalPerl.g:288:8: ( '=>' )
+            // InternalPerl.g:288:10: '=>'
             {
-            match("->"); 
+            match("=>"); 
 
 
             }
@@ -6209,10 +6189,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__303;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:290:8: ( 'and' )
-            // InternalPerl.g:290:10: 'and'
+            // InternalPerl.g:289:8: ( '->' )
+            // InternalPerl.g:289:10: '->'
             {
-            match("and"); 
+            match("->"); 
 
 
             }
@@ -6230,10 +6210,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__304;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:291:8: ( 'or' )
-            // InternalPerl.g:291:10: 'or'
+            // InternalPerl.g:290:8: ( 'and' )
+            // InternalPerl.g:290:10: 'and'
             {
-            match("or"); 
+            match("and"); 
 
 
             }
@@ -6251,10 +6231,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__305;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:292:8: ( 'xor' )
-            // InternalPerl.g:292:10: 'xor'
+            // InternalPerl.g:291:8: ( 'or' )
+            // InternalPerl.g:291:10: 'or'
             {
-            match("xor"); 
+            match("or"); 
 
 
             }
@@ -6272,10 +6252,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__306;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:293:8: ( 'not' )
-            // InternalPerl.g:293:10: 'not'
+            // InternalPerl.g:292:8: ( 'xor' )
+            // InternalPerl.g:292:10: 'xor'
             {
-            match("not"); 
+            match("xor"); 
 
 
             }
@@ -6293,10 +6273,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__307;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:294:8: ( 'eq' )
-            // InternalPerl.g:294:10: 'eq'
+            // InternalPerl.g:293:8: ( 'not' )
+            // InternalPerl.g:293:10: 'not'
             {
-            match("eq"); 
+            match("not"); 
 
 
             }
@@ -6314,10 +6294,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__308;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:295:8: ( 'ne' )
-            // InternalPerl.g:295:10: 'ne'
+            // InternalPerl.g:294:8: ( 'eq' )
+            // InternalPerl.g:294:10: 'eq'
             {
-            match("ne"); 
+            match("eq"); 
 
 
             }
@@ -6335,10 +6315,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__309;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:296:8: ( '-r' )
-            // InternalPerl.g:296:10: '-r'
+            // InternalPerl.g:295:8: ( 'ne' )
+            // InternalPerl.g:295:10: 'ne'
             {
-            match("-r"); 
+            match("ne"); 
 
 
             }
@@ -6356,10 +6336,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__310;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:297:8: ( '-w' )
-            // InternalPerl.g:297:10: '-w'
+            // InternalPerl.g:296:8: ( '-r' )
+            // InternalPerl.g:296:10: '-r'
             {
-            match("-w"); 
+            match("-r"); 
 
 
             }
@@ -6377,10 +6357,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__311;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:298:8: ( '-x' )
-            // InternalPerl.g:298:10: '-x'
+            // InternalPerl.g:297:8: ( '-w' )
+            // InternalPerl.g:297:10: '-w'
             {
-            match("-x"); 
+            match("-w"); 
 
 
             }
@@ -6398,10 +6378,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__312;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:299:8: ( '-o' )
-            // InternalPerl.g:299:10: '-o'
+            // InternalPerl.g:298:8: ( '-x' )
+            // InternalPerl.g:298:10: '-x'
             {
-            match("-o"); 
+            match("-x"); 
 
 
             }
@@ -6419,10 +6399,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__313;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:300:8: ( '-R' )
-            // InternalPerl.g:300:10: '-R'
+            // InternalPerl.g:299:8: ( '-o' )
+            // InternalPerl.g:299:10: '-o'
             {
-            match("-R"); 
+            match("-o"); 
 
 
             }
@@ -6440,10 +6420,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__314;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:301:8: ( '-W' )
-            // InternalPerl.g:301:10: '-W'
+            // InternalPerl.g:300:8: ( '-R' )
+            // InternalPerl.g:300:10: '-R'
             {
-            match("-W"); 
+            match("-R"); 
 
 
             }
@@ -6461,10 +6441,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__315;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:302:8: ( '-X' )
-            // InternalPerl.g:302:10: '-X'
+            // InternalPerl.g:301:8: ( '-W' )
+            // InternalPerl.g:301:10: '-W'
             {
-            match("-X"); 
+            match("-W"); 
 
 
             }
@@ -6482,10 +6462,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__316;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:303:8: ( '-O' )
-            // InternalPerl.g:303:10: '-O'
+            // InternalPerl.g:302:8: ( '-X' )
+            // InternalPerl.g:302:10: '-X'
             {
-            match("-O"); 
+            match("-X"); 
 
 
             }
@@ -6503,10 +6483,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__317;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:304:8: ( '-e' )
-            // InternalPerl.g:304:10: '-e'
+            // InternalPerl.g:303:8: ( '-O' )
+            // InternalPerl.g:303:10: '-O'
             {
-            match("-e"); 
+            match("-O"); 
 
 
             }
@@ -6524,10 +6504,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__318;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:305:8: ( '-z' )
-            // InternalPerl.g:305:10: '-z'
+            // InternalPerl.g:304:8: ( '-e' )
+            // InternalPerl.g:304:10: '-e'
             {
-            match("-z"); 
+            match("-e"); 
 
 
             }
@@ -6545,10 +6525,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__319;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:306:8: ( '-s' )
-            // InternalPerl.g:306:10: '-s'
+            // InternalPerl.g:305:8: ( '-z' )
+            // InternalPerl.g:305:10: '-z'
             {
-            match("-s"); 
+            match("-z"); 
 
 
             }
@@ -6566,10 +6546,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__320;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:307:8: ( '-f' )
-            // InternalPerl.g:307:10: '-f'
+            // InternalPerl.g:306:8: ( '-s' )
+            // InternalPerl.g:306:10: '-s'
             {
-            match("-f"); 
+            match("-s"); 
 
 
             }
@@ -6587,10 +6567,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__321;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:308:8: ( '-d' )
-            // InternalPerl.g:308:10: '-d'
+            // InternalPerl.g:307:8: ( '-f' )
+            // InternalPerl.g:307:10: '-f'
             {
-            match("-d"); 
+            match("-f"); 
 
 
             }
@@ -6608,10 +6588,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__322;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:309:8: ( '-l' )
-            // InternalPerl.g:309:10: '-l'
+            // InternalPerl.g:308:8: ( '-d' )
+            // InternalPerl.g:308:10: '-d'
             {
-            match("-l"); 
+            match("-d"); 
 
 
             }
@@ -6629,10 +6609,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__323;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:310:8: ( '-p' )
-            // InternalPerl.g:310:10: '-p'
+            // InternalPerl.g:309:8: ( '-l' )
+            // InternalPerl.g:309:10: '-l'
             {
-            match("-p"); 
+            match("-l"); 
 
 
             }
@@ -6650,10 +6630,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__324;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:311:8: ( '-S' )
-            // InternalPerl.g:311:10: '-S'
+            // InternalPerl.g:310:8: ( '-p' )
+            // InternalPerl.g:310:10: '-p'
             {
-            match("-S"); 
+            match("-p"); 
 
 
             }
@@ -6671,10 +6651,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__325;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:312:8: ( '-b' )
-            // InternalPerl.g:312:10: '-b'
+            // InternalPerl.g:311:8: ( '-S' )
+            // InternalPerl.g:311:10: '-S'
             {
-            match("-b"); 
+            match("-S"); 
 
 
             }
@@ -6692,10 +6672,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__326;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:313:8: ( '-c' )
-            // InternalPerl.g:313:10: '-c'
+            // InternalPerl.g:312:8: ( '-b' )
+            // InternalPerl.g:312:10: '-b'
             {
-            match("-c"); 
+            match("-b"); 
 
 
             }
@@ -6713,10 +6693,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__327;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:314:8: ( '-t' )
-            // InternalPerl.g:314:10: '-t'
+            // InternalPerl.g:313:8: ( '-c' )
+            // InternalPerl.g:313:10: '-c'
             {
-            match("-t"); 
+            match("-c"); 
 
 
             }
@@ -6734,10 +6714,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__328;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:315:8: ( '-u' )
-            // InternalPerl.g:315:10: '-u'
+            // InternalPerl.g:314:8: ( '-t' )
+            // InternalPerl.g:314:10: '-t'
             {
-            match("-u"); 
+            match("-t"); 
 
 
             }
@@ -6755,10 +6735,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__329;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:316:8: ( '-g' )
-            // InternalPerl.g:316:10: '-g'
+            // InternalPerl.g:315:8: ( '-u' )
+            // InternalPerl.g:315:10: '-u'
             {
-            match("-g"); 
+            match("-u"); 
 
 
             }
@@ -6776,10 +6756,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__330;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:317:8: ( '-k' )
-            // InternalPerl.g:317:10: '-k'
+            // InternalPerl.g:316:8: ( '-g' )
+            // InternalPerl.g:316:10: '-g'
             {
-            match("-k"); 
+            match("-g"); 
 
 
             }
@@ -6797,10 +6777,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__331;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:318:8: ( '-T' )
-            // InternalPerl.g:318:10: '-T'
+            // InternalPerl.g:317:8: ( '-k' )
+            // InternalPerl.g:317:10: '-k'
             {
-            match("-T"); 
+            match("-k"); 
 
 
             }
@@ -6818,10 +6798,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__332;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:319:8: ( '-B' )
-            // InternalPerl.g:319:10: '-B'
+            // InternalPerl.g:318:8: ( '-T' )
+            // InternalPerl.g:318:10: '-T'
             {
-            match("-B"); 
+            match("-T"); 
 
 
             }
@@ -6839,10 +6819,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__333;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:320:8: ( '-M' )
-            // InternalPerl.g:320:10: '-M'
+            // InternalPerl.g:319:8: ( '-B' )
+            // InternalPerl.g:319:10: '-B'
             {
-            match("-M"); 
+            match("-B"); 
 
 
             }
@@ -6860,10 +6840,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__334;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:321:8: ( '-A' )
-            // InternalPerl.g:321:10: '-A'
+            // InternalPerl.g:320:8: ( '-M' )
+            // InternalPerl.g:320:10: '-M'
             {
-            match("-A"); 
+            match("-M"); 
 
 
             }
@@ -6881,10 +6861,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__335;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:322:8: ( '-C' )
-            // InternalPerl.g:322:10: '-C'
+            // InternalPerl.g:321:8: ( '-A' )
+            // InternalPerl.g:321:10: '-A'
             {
-            match("-C"); 
+            match("-A"); 
 
 
             }
@@ -6902,10 +6882,11 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__336;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:323:8: ( ';' )
-            // InternalPerl.g:323:10: ';'
+            // InternalPerl.g:322:8: ( '-C' )
+            // InternalPerl.g:322:10: '-C'
             {
-            match(';'); 
+            match("-C"); 
+
 
             }
 
@@ -6922,11 +6903,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__337;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:324:8: ( '<=>' )
-            // InternalPerl.g:324:10: '<=>'
+            // InternalPerl.g:323:8: ( ';' )
+            // InternalPerl.g:323:10: ';'
             {
-            match("<=>"); 
-
+            match(';'); 
 
             }
 
@@ -6943,6 +6923,27 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = T__338;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalPerl.g:324:8: ( '<=>' )
+            // InternalPerl.g:324:10: '<=>'
+            {
+            match("<=>"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__338"
+
+    // $ANTLR start "T__339"
+    public final void mT__339() throws RecognitionException {
+        try {
+            int _type = T__339;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
             // InternalPerl.g:325:8: ( '.' )
             // InternalPerl.g:325:10: '.'
             {
@@ -6956,29 +6957,122 @@ public class InternalPerlLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__338"
+    // $ANTLR end "T__339"
+
+    // $ANTLR start "RULE_NUMBER"
+    public final void mRULE_NUMBER() throws RecognitionException {
+        try {
+            int _type = RULE_NUMBER;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalPerl.g:4117:13: ( ( RULE_HEX | RULE_BIN | RULE_INT ) ( '.' RULE_INT )? )
+            // InternalPerl.g:4117:15: ( RULE_HEX | RULE_BIN | RULE_INT ) ( '.' RULE_INT )?
+            {
+            // InternalPerl.g:4117:15: ( RULE_HEX | RULE_BIN | RULE_INT )
+            int alt1=3;
+            int LA1_0 = input.LA(1);
+
+            if ( (LA1_0=='0') ) {
+                switch ( input.LA(2) ) {
+                case 'X':
+                case 'x':
+                    {
+                    alt1=1;
+                    }
+                    break;
+                case 'b':
+                    {
+                    alt1=2;
+                    }
+                    break;
+                default:
+                    alt1=3;}
+
+            }
+            else if ( ((LA1_0>='1' && LA1_0<='9')) ) {
+                alt1=3;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 1, 0, input);
+
+                throw nvae;
+            }
+            switch (alt1) {
+                case 1 :
+                    // InternalPerl.g:4117:16: RULE_HEX
+                    {
+                    mRULE_HEX(); 
+
+                    }
+                    break;
+                case 2 :
+                    // InternalPerl.g:4117:25: RULE_BIN
+                    {
+                    mRULE_BIN(); 
+
+                    }
+                    break;
+                case 3 :
+                    // InternalPerl.g:4117:34: RULE_INT
+                    {
+                    mRULE_INT(); 
+
+                    }
+                    break;
+
+            }
+
+            // InternalPerl.g:4117:44: ( '.' RULE_INT )?
+            int alt2=2;
+            int LA2_0 = input.LA(1);
+
+            if ( (LA2_0=='.') ) {
+                alt2=1;
+            }
+            switch (alt2) {
+                case 1 :
+                    // InternalPerl.g:4117:45: '.' RULE_INT
+                    {
+                    match('.'); 
+                    mRULE_INT(); 
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_NUMBER"
 
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4285:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )* )
-            // InternalPerl.g:4285:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )*
+            // InternalPerl.g:4119:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )* )
+            // InternalPerl.g:4119:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )*
             {
-            // InternalPerl.g:4285:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
-            int cnt1=0;
-            loop1:
+            // InternalPerl.g:4119:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
+            int cnt3=0;
+            loop3:
             do {
-                int alt1=2;
-                int LA1_0 = input.LA(1);
+                int alt3=2;
+                int LA3_0 = input.LA(1);
 
-                if ( ((LA1_0>='A' && LA1_0<='Z')||LA1_0=='_'||(LA1_0>='a' && LA1_0<='z')) ) {
-                    alt1=1;
+                if ( ((LA3_0>='A' && LA3_0<='Z')||LA3_0=='_'||(LA3_0>='a' && LA3_0<='z')) ) {
+                    alt3=1;
                 }
 
 
-                switch (alt1) {
+                switch (alt3) {
             	case 1 :
             	    // InternalPerl.g:
             	    {
@@ -6996,48 +7090,48 @@ public class InternalPerlLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt1 >= 1 ) break loop1;
+            	    if ( cnt3 >= 1 ) break loop3;
                         EarlyExitException eee =
-                            new EarlyExitException(1, input);
+                            new EarlyExitException(3, input);
                         throw eee;
                 }
-                cnt1++;
+                cnt3++;
             } while (true);
 
-            // InternalPerl.g:4285:36: ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )*
-            loop4:
+            // InternalPerl.g:4119:36: ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )*
+            loop6:
             do {
-                int alt4=2;
-                int LA4_0 = input.LA(1);
+                int alt6=2;
+                int LA6_0 = input.LA(1);
 
-                if ( (LA4_0=='\''||LA4_0==':') ) {
-                    alt4=1;
+                if ( (LA6_0=='\''||LA6_0==':') ) {
+                    alt6=1;
                 }
 
 
-                switch (alt4) {
+                switch (alt6) {
             	case 1 :
-            	    // InternalPerl.g:4285:37: ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
+            	    // InternalPerl.g:4119:37: ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
             	    {
-            	    // InternalPerl.g:4285:37: ( '::' | '\\'' )
-            	    int alt2=2;
-            	    int LA2_0 = input.LA(1);
+            	    // InternalPerl.g:4119:37: ( '::' | '\\'' )
+            	    int alt4=2;
+            	    int LA4_0 = input.LA(1);
 
-            	    if ( (LA2_0==':') ) {
-            	        alt2=1;
+            	    if ( (LA4_0==':') ) {
+            	        alt4=1;
             	    }
-            	    else if ( (LA2_0=='\'') ) {
-            	        alt2=2;
+            	    else if ( (LA4_0=='\'') ) {
+            	        alt4=2;
             	    }
             	    else {
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 2, 0, input);
+            	            new NoViableAltException("", 4, 0, input);
 
             	        throw nvae;
             	    }
-            	    switch (alt2) {
+            	    switch (alt4) {
             	        case 1 :
-            	            // InternalPerl.g:4285:38: '::'
+            	            // InternalPerl.g:4119:38: '::'
             	            {
             	            match("::"); 
 
@@ -7045,7 +7139,7 @@ public class InternalPerlLexer extends Lexer {
             	            }
             	            break;
             	        case 2 :
-            	            // InternalPerl.g:4285:43: '\\''
+            	            // InternalPerl.g:4119:43: '\\''
             	            {
             	            match('\''); 
 
@@ -7054,19 +7148,19 @@ public class InternalPerlLexer extends Lexer {
 
             	    }
 
-            	    // InternalPerl.g:4285:49: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
-            	    int cnt3=0;
-            	    loop3:
+            	    // InternalPerl.g:4119:49: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
+            	    int cnt5=0;
+            	    loop5:
             	    do {
-            	        int alt3=2;
-            	        int LA3_0 = input.LA(1);
+            	        int alt5=2;
+            	        int LA5_0 = input.LA(1);
 
-            	        if ( ((LA3_0>='A' && LA3_0<='Z')||LA3_0=='_'||(LA3_0>='a' && LA3_0<='z')) ) {
-            	            alt3=1;
+            	        if ( ((LA5_0>='A' && LA5_0<='Z')||LA5_0=='_'||(LA5_0>='a' && LA5_0<='z')) ) {
+            	            alt5=1;
             	        }
 
 
-            	        switch (alt3) {
+            	        switch (alt5) {
             	    	case 1 :
             	    	    // InternalPerl.g:
             	    	    {
@@ -7084,12 +7178,12 @@ public class InternalPerlLexer extends Lexer {
             	    	    break;
 
             	    	default :
-            	    	    if ( cnt3 >= 1 ) break loop3;
+            	    	    if ( cnt5 >= 1 ) break loop5;
             	                EarlyExitException eee =
-            	                    new EarlyExitException(3, input);
+            	                    new EarlyExitException(5, input);
             	                throw eee;
             	        }
-            	        cnt3++;
+            	        cnt5++;
             	    } while (true);
 
 
@@ -7097,7 +7191,7 @@ public class InternalPerlLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop4;
+            	    break loop6;
                 }
             } while (true);
 
@@ -7117,8 +7211,8 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_SYMBOL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4287:13: ( ( '$' | '%' | '@' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )* )
-            // InternalPerl.g:4287:15: ( '$' | '%' | '@' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )*
+            // InternalPerl.g:4121:13: ( ( '$' | '%' | '@' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )* )
+            // InternalPerl.g:4121:15: ( '$' | '%' | '@' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )*
             {
             if ( (input.LA(1)>='$' && input.LA(1)<='%')||input.LA(1)=='@' ) {
                 input.consume();
@@ -7129,19 +7223,19 @@ public class InternalPerlLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalPerl.g:4287:29: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
-            int cnt5=0;
-            loop5:
+            // InternalPerl.g:4121:29: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
+            int cnt7=0;
+            loop7:
             do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-                if ( ((LA5_0>='A' && LA5_0<='Z')||LA5_0=='_'||(LA5_0>='a' && LA5_0<='z')) ) {
-                    alt5=1;
+                if ( ((LA7_0>='A' && LA7_0<='Z')||LA7_0=='_'||(LA7_0>='a' && LA7_0<='z')) ) {
+                    alt7=1;
                 }
 
 
-                switch (alt5) {
+                switch (alt7) {
             	case 1 :
             	    // InternalPerl.g:
             	    {
@@ -7159,48 +7253,48 @@ public class InternalPerlLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt5 >= 1 ) break loop5;
+            	    if ( cnt7 >= 1 ) break loop7;
                         EarlyExitException eee =
-                            new EarlyExitException(5, input);
+                            new EarlyExitException(7, input);
                         throw eee;
                 }
-                cnt5++;
+                cnt7++;
             } while (true);
 
-            // InternalPerl.g:4287:54: ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )*
-            loop8:
+            // InternalPerl.g:4121:54: ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )*
+            loop10:
             do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( (LA8_0=='\''||LA8_0==':') ) {
-                    alt8=1;
+                if ( (LA10_0=='\''||LA10_0==':') ) {
+                    alt10=1;
                 }
 
 
-                switch (alt8) {
+                switch (alt10) {
             	case 1 :
-            	    // InternalPerl.g:4287:55: ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
+            	    // InternalPerl.g:4121:55: ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
             	    {
-            	    // InternalPerl.g:4287:55: ( '::' | '\\'' )
-            	    int alt6=2;
-            	    int LA6_0 = input.LA(1);
+            	    // InternalPerl.g:4121:55: ( '::' | '\\'' )
+            	    int alt8=2;
+            	    int LA8_0 = input.LA(1);
 
-            	    if ( (LA6_0==':') ) {
-            	        alt6=1;
+            	    if ( (LA8_0==':') ) {
+            	        alt8=1;
             	    }
-            	    else if ( (LA6_0=='\'') ) {
-            	        alt6=2;
+            	    else if ( (LA8_0=='\'') ) {
+            	        alt8=2;
             	    }
             	    else {
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 6, 0, input);
+            	            new NoViableAltException("", 8, 0, input);
 
             	        throw nvae;
             	    }
-            	    switch (alt6) {
+            	    switch (alt8) {
             	        case 1 :
-            	            // InternalPerl.g:4287:56: '::'
+            	            // InternalPerl.g:4121:56: '::'
             	            {
             	            match("::"); 
 
@@ -7208,7 +7302,7 @@ public class InternalPerlLexer extends Lexer {
             	            }
             	            break;
             	        case 2 :
-            	            // InternalPerl.g:4287:61: '\\''
+            	            // InternalPerl.g:4121:61: '\\''
             	            {
             	            match('\''); 
 
@@ -7217,19 +7311,19 @@ public class InternalPerlLexer extends Lexer {
 
             	    }
 
-            	    // InternalPerl.g:4287:67: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
-            	    int cnt7=0;
-            	    loop7:
+            	    // InternalPerl.g:4121:67: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
+            	    int cnt9=0;
+            	    loop9:
             	    do {
-            	        int alt7=2;
-            	        int LA7_0 = input.LA(1);
+            	        int alt9=2;
+            	        int LA9_0 = input.LA(1);
 
-            	        if ( ((LA7_0>='A' && LA7_0<='Z')||LA7_0=='_'||(LA7_0>='a' && LA7_0<='z')) ) {
-            	            alt7=1;
+            	        if ( ((LA9_0>='A' && LA9_0<='Z')||LA9_0=='_'||(LA9_0>='a' && LA9_0<='z')) ) {
+            	            alt9=1;
             	        }
 
 
-            	        switch (alt7) {
+            	        switch (alt9) {
             	    	case 1 :
             	    	    // InternalPerl.g:
             	    	    {
@@ -7247,12 +7341,12 @@ public class InternalPerlLexer extends Lexer {
             	    	    break;
 
             	    	default :
-            	    	    if ( cnt7 >= 1 ) break loop7;
+            	    	    if ( cnt9 >= 1 ) break loop9;
             	                EarlyExitException eee =
-            	                    new EarlyExitException(7, input);
+            	                    new EarlyExitException(9, input);
             	                throw eee;
             	        }
-            	        cnt7++;
+            	        cnt9++;
             	    } while (true);
 
 
@@ -7260,7 +7354,7 @@ public class InternalPerlLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop8;
+            	    break loop10;
                 }
             } while (true);
 
@@ -7280,19 +7374,19 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_VERSION;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4289:14: ( ( 'v' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )* )
-            // InternalPerl.g:4289:16: ( 'v' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )*
+            // InternalPerl.g:4123:14: ( ( 'v' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )* )
+            // InternalPerl.g:4123:16: ( 'v' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )*
             {
-            // InternalPerl.g:4289:16: ( 'v' )?
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            // InternalPerl.g:4123:16: ( 'v' )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-            if ( (LA9_0=='v') ) {
-                alt9=1;
+            if ( (LA11_0=='v') ) {
+                alt11=1;
             }
-            switch (alt9) {
+            switch (alt11) {
                 case 1 :
-                    // InternalPerl.g:4289:16: 'v'
+                    // InternalPerl.g:4123:16: 'v'
                     {
                     match('v'); 
 
@@ -7301,21 +7395,21 @@ public class InternalPerlLexer extends Lexer {
 
             }
 
-            // InternalPerl.g:4289:21: ( '0' .. '9' )+
-            int cnt10=0;
-            loop10:
+            // InternalPerl.g:4123:21: ( '0' .. '9' )+
+            int cnt12=0;
+            loop12:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt12=2;
+                int LA12_0 = input.LA(1);
 
-                if ( ((LA10_0>='0' && LA10_0<='9')) ) {
-                    alt10=1;
+                if ( ((LA12_0>='0' && LA12_0<='9')) ) {
+                    alt12=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt12) {
             	case 1 :
-            	    // InternalPerl.g:4289:22: '0' .. '9'
+            	    // InternalPerl.g:4123:22: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -7323,45 +7417,45 @@ public class InternalPerlLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt10 >= 1 ) break loop10;
+            	    if ( cnt12 >= 1 ) break loop12;
                         EarlyExitException eee =
-                            new EarlyExitException(10, input);
+                            new EarlyExitException(12, input);
                         throw eee;
                 }
-                cnt10++;
+                cnt12++;
             } while (true);
 
-            // InternalPerl.g:4289:33: ( '.' ( '0' .. '9' )+ )*
-            loop12:
+            // InternalPerl.g:4123:33: ( '.' ( '0' .. '9' )+ )*
+            loop14:
             do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
+                int alt14=2;
+                int LA14_0 = input.LA(1);
 
-                if ( (LA12_0=='.') ) {
-                    alt12=1;
+                if ( (LA14_0=='.') ) {
+                    alt14=1;
                 }
 
 
-                switch (alt12) {
+                switch (alt14) {
             	case 1 :
-            	    // InternalPerl.g:4289:34: '.' ( '0' .. '9' )+
+            	    // InternalPerl.g:4123:34: '.' ( '0' .. '9' )+
             	    {
             	    match('.'); 
-            	    // InternalPerl.g:4289:38: ( '0' .. '9' )+
-            	    int cnt11=0;
-            	    loop11:
+            	    // InternalPerl.g:4123:38: ( '0' .. '9' )+
+            	    int cnt13=0;
+            	    loop13:
             	    do {
-            	        int alt11=2;
-            	        int LA11_0 = input.LA(1);
+            	        int alt13=2;
+            	        int LA13_0 = input.LA(1);
 
-            	        if ( ((LA11_0>='0' && LA11_0<='9')) ) {
-            	            alt11=1;
+            	        if ( ((LA13_0>='0' && LA13_0<='9')) ) {
+            	            alt13=1;
             	        }
 
 
-            	        switch (alt11) {
+            	        switch (alt13) {
             	    	case 1 :
-            	    	    // InternalPerl.g:4289:39: '0' .. '9'
+            	    	    // InternalPerl.g:4123:39: '0' .. '9'
             	    	    {
             	    	    matchRange('0','9'); 
 
@@ -7369,12 +7463,12 @@ public class InternalPerlLexer extends Lexer {
             	    	    break;
 
             	    	default :
-            	    	    if ( cnt11 >= 1 ) break loop11;
+            	    	    if ( cnt13 >= 1 ) break loop13;
             	                EarlyExitException eee =
-            	                    new EarlyExitException(11, input);
+            	                    new EarlyExitException(13, input);
             	                throw eee;
             	        }
-            	        cnt11++;
+            	        cnt13++;
             	    } while (true);
 
 
@@ -7382,7 +7476,7 @@ public class InternalPerlLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop12;
+            	    break loop14;
                 }
             } while (true);
 
@@ -7400,40 +7494,38 @@ public class InternalPerlLexer extends Lexer {
     // $ANTLR start "RULE_HEX"
     public final void mRULE_HEX() throws RecognitionException {
         try {
-            int _type = RULE_HEX;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4291:10: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ )
-            // InternalPerl.g:4291:12: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
+            // InternalPerl.g:4125:19: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ )
+            // InternalPerl.g:4125:21: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
             {
-            // InternalPerl.g:4291:12: ( '0x' | '0X' )
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // InternalPerl.g:4125:21: ( '0x' | '0X' )
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA13_0=='0') ) {
-                int LA13_1 = input.LA(2);
+            if ( (LA15_0=='0') ) {
+                int LA15_1 = input.LA(2);
 
-                if ( (LA13_1=='x') ) {
-                    alt13=1;
+                if ( (LA15_1=='x') ) {
+                    alt15=1;
                 }
-                else if ( (LA13_1=='X') ) {
-                    alt13=2;
+                else if ( (LA15_1=='X') ) {
+                    alt15=2;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 13, 1, input);
+                        new NoViableAltException("", 15, 1, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 13, 0, input);
+                    new NoViableAltException("", 15, 0, input);
 
                 throw nvae;
             }
-            switch (alt13) {
+            switch (alt15) {
                 case 1 :
-                    // InternalPerl.g:4291:13: '0x'
+                    // InternalPerl.g:4125:22: '0x'
                     {
                     match("0x"); 
 
@@ -7441,7 +7533,7 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:4291:18: '0X'
+                    // InternalPerl.g:4125:27: '0X'
                     {
                     match("0X"); 
 
@@ -7451,19 +7543,19 @@ public class InternalPerlLexer extends Lexer {
 
             }
 
-            // InternalPerl.g:4291:24: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
-            int cnt14=0;
-            loop14:
+            // InternalPerl.g:4125:33: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
+            int cnt16=0;
+            loop16:
             do {
-                int alt14=2;
-                int LA14_0 = input.LA(1);
+                int alt16=2;
+                int LA16_0 = input.LA(1);
 
-                if ( ((LA14_0>='0' && LA14_0<='9')||(LA14_0>='A' && LA14_0<='F')||LA14_0=='_'||(LA14_0>='a' && LA14_0<='f')) ) {
-                    alt14=1;
+                if ( ((LA16_0>='0' && LA16_0<='9')||(LA16_0>='A' && LA16_0<='F')||LA16_0=='_'||(LA16_0>='a' && LA16_0<='f')) ) {
+                    alt16=1;
                 }
 
 
-                switch (alt14) {
+                switch (alt16) {
             	case 1 :
             	    // InternalPerl.g:
             	    {
@@ -7481,19 +7573,17 @@ public class InternalPerlLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt14 >= 1 ) break loop14;
+            	    if ( cnt16 >= 1 ) break loop16;
                         EarlyExitException eee =
-                            new EarlyExitException(14, input);
+                            new EarlyExitException(16, input);
                         throw eee;
                 }
-                cnt14++;
+                cnt16++;
             } while (true);
 
 
             }
 
-            state.type = _type;
-            state.channel = _channel;
         }
         finally {
         }
@@ -7503,26 +7593,24 @@ public class InternalPerlLexer extends Lexer {
     // $ANTLR start "RULE_BIN"
     public final void mRULE_BIN() throws RecognitionException {
         try {
-            int _type = RULE_BIN;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4293:10: ( '0b' ( '0' .. '1' | '_' )+ )
-            // InternalPerl.g:4293:12: '0b' ( '0' .. '1' | '_' )+
+            // InternalPerl.g:4127:19: ( '0b' ( '0' .. '1' | '_' )+ )
+            // InternalPerl.g:4127:21: '0b' ( '0' .. '1' | '_' )+
             {
             match("0b"); 
 
-            // InternalPerl.g:4293:17: ( '0' .. '1' | '_' )+
-            int cnt15=0;
-            loop15:
+            // InternalPerl.g:4127:26: ( '0' .. '1' | '_' )+
+            int cnt17=0;
+            loop17:
             do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
+                int alt17=2;
+                int LA17_0 = input.LA(1);
 
-                if ( ((LA15_0>='0' && LA15_0<='1')||LA15_0=='_') ) {
-                    alt15=1;
+                if ( ((LA17_0>='0' && LA17_0<='1')||LA17_0=='_') ) {
+                    alt17=1;
                 }
 
 
-                switch (alt15) {
+                switch (alt17) {
             	case 1 :
             	    // InternalPerl.g:
             	    {
@@ -7540,19 +7628,17 @@ public class InternalPerlLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt15 >= 1 ) break loop15;
+            	    if ( cnt17 >= 1 ) break loop17;
                         EarlyExitException eee =
-                            new EarlyExitException(15, input);
+                            new EarlyExitException(17, input);
                         throw eee;
                 }
-                cnt15++;
+                cnt17++;
             } while (true);
 
 
             }
 
-            state.type = _type;
-            state.channel = _channel;
         }
         finally {
         }
@@ -7562,24 +7648,22 @@ public class InternalPerlLexer extends Lexer {
     // $ANTLR start "RULE_INT"
     public final void mRULE_INT() throws RecognitionException {
         try {
-            int _type = RULE_INT;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4295:10: ( '0' .. '9' ( '0' .. '9' | '_' )* )
-            // InternalPerl.g:4295:12: '0' .. '9' ( '0' .. '9' | '_' )*
+            // InternalPerl.g:4129:19: ( '0' .. '9' ( '0' .. '9' | '_' )* )
+            // InternalPerl.g:4129:21: '0' .. '9' ( '0' .. '9' | '_' )*
             {
             matchRange('0','9'); 
-            // InternalPerl.g:4295:21: ( '0' .. '9' | '_' )*
-            loop16:
+            // InternalPerl.g:4129:30: ( '0' .. '9' | '_' )*
+            loop18:
             do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
+                int alt18=2;
+                int LA18_0 = input.LA(1);
 
-                if ( ((LA16_0>='0' && LA16_0<='9')||LA16_0=='_') ) {
-                    alt16=1;
+                if ( ((LA18_0>='0' && LA18_0<='9')||LA18_0=='_') ) {
+                    alt18=1;
                 }
 
 
-                switch (alt16) {
+                switch (alt18) {
             	case 1 :
             	    // InternalPerl.g:
             	    {
@@ -7597,15 +7681,13 @@ public class InternalPerlLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop16;
+            	    break loop18;
                 }
             } while (true);
 
 
             }
 
-            state.type = _type;
-            state.channel = _channel;
         }
         finally {
         }
@@ -7617,47 +7699,47 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4297:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalPerl.g:4297:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalPerl.g:4131:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalPerl.g:4131:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalPerl.g:4297:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // InternalPerl.g:4131:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA19_0=='\"') ) {
-                alt19=1;
+            if ( (LA21_0=='\"') ) {
+                alt21=1;
             }
-            else if ( (LA19_0=='\'') ) {
-                alt19=2;
+            else if ( (LA21_0=='\'') ) {
+                alt21=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 19, 0, input);
+                    new NoViableAltException("", 21, 0, input);
 
                 throw nvae;
             }
-            switch (alt19) {
+            switch (alt21) {
                 case 1 :
-                    // InternalPerl.g:4297:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalPerl.g:4131:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalPerl.g:4297:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
-                    loop17:
+                    // InternalPerl.g:4131:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    loop19:
                     do {
-                        int alt17=3;
-                        int LA17_0 = input.LA(1);
+                        int alt19=3;
+                        int LA19_0 = input.LA(1);
 
-                        if ( (LA17_0=='\\') ) {
-                            alt17=1;
+                        if ( (LA19_0=='\\') ) {
+                            alt19=1;
                         }
-                        else if ( ((LA17_0>='\u0000' && LA17_0<='!')||(LA17_0>='#' && LA17_0<='[')||(LA17_0>=']' && LA17_0<='\uFFFF')) ) {
-                            alt17=2;
+                        else if ( ((LA19_0>='\u0000' && LA19_0<='!')||(LA19_0>='#' && LA19_0<='[')||(LA19_0>=']' && LA19_0<='\uFFFF')) ) {
+                            alt19=2;
                         }
 
 
-                        switch (alt17) {
+                        switch (alt19) {
                     	case 1 :
-                    	    // InternalPerl.g:4297:21: '\\\\' .
+                    	    // InternalPerl.g:4131:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -7665,7 +7747,7 @@ public class InternalPerlLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalPerl.g:4297:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalPerl.g:4131:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -7681,7 +7763,7 @@ public class InternalPerlLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop17;
+                    	    break loop19;
                         }
                     } while (true);
 
@@ -7690,26 +7772,26 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:4297:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalPerl.g:4131:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalPerl.g:4297:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
-                    loop18:
+                    // InternalPerl.g:4131:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    loop20:
                     do {
-                        int alt18=3;
-                        int LA18_0 = input.LA(1);
+                        int alt20=3;
+                        int LA20_0 = input.LA(1);
 
-                        if ( (LA18_0=='\\') ) {
-                            alt18=1;
+                        if ( (LA20_0=='\\') ) {
+                            alt20=1;
                         }
-                        else if ( ((LA18_0>='\u0000' && LA18_0<='&')||(LA18_0>='(' && LA18_0<='[')||(LA18_0>=']' && LA18_0<='\uFFFF')) ) {
-                            alt18=2;
+                        else if ( ((LA20_0>='\u0000' && LA20_0<='&')||(LA20_0>='(' && LA20_0<='[')||(LA20_0>=']' && LA20_0<='\uFFFF')) ) {
+                            alt20=2;
                         }
 
 
-                        switch (alt18) {
+                        switch (alt20) {
                     	case 1 :
-                    	    // InternalPerl.g:4297:54: '\\\\' .
+                    	    // InternalPerl.g:4131:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -7717,7 +7799,7 @@ public class InternalPerlLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalPerl.g:4297:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalPerl.g:4131:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -7733,7 +7815,7 @@ public class InternalPerlLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop18;
+                    	    break loop20;
                         }
                     } while (true);
 
@@ -7760,24 +7842,24 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_BACKTICK_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4299:22: ( '`' (~ ( '`' ) )* '`' )
-            // InternalPerl.g:4299:24: '`' (~ ( '`' ) )* '`'
+            // InternalPerl.g:4133:22: ( '`' (~ ( '`' ) )* '`' )
+            // InternalPerl.g:4133:24: '`' (~ ( '`' ) )* '`'
             {
             match('`'); 
-            // InternalPerl.g:4299:28: (~ ( '`' ) )*
-            loop20:
+            // InternalPerl.g:4133:28: (~ ( '`' ) )*
+            loop22:
             do {
-                int alt20=2;
-                int LA20_0 = input.LA(1);
+                int alt22=2;
+                int LA22_0 = input.LA(1);
 
-                if ( ((LA20_0>='\u0000' && LA20_0<='_')||(LA20_0>='a' && LA20_0<='\uFFFF')) ) {
-                    alt20=1;
+                if ( ((LA22_0>='\u0000' && LA22_0<='_')||(LA22_0>='a' && LA22_0<='\uFFFF')) ) {
+                    alt22=1;
                 }
 
 
-                switch (alt20) {
+                switch (alt22) {
             	case 1 :
-            	    // InternalPerl.g:4299:28: ~ ( '`' )
+            	    // InternalPerl.g:4133:28: ~ ( '`' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='_')||(input.LA(1)>='a' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -7793,7 +7875,7 @@ public class InternalPerlLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop20;
+            	    break loop22;
                 }
             } while (true);
 
@@ -7814,171 +7896,81 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_INTERPOLATE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4301:18: ( 'qq' ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
-            // InternalPerl.g:4301:20: 'qq' ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            // InternalPerl.g:4135:18: ( 'qq' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
+            // InternalPerl.g:4135:20: 'qq' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
             {
             match("qq"); 
 
-            // InternalPerl.g:4301:25: ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
-            int alt25=4;
+            // InternalPerl.g:4135:25: ( RULE_WS )?
+            int alt23=2;
+            int LA23_0 = input.LA(1);
+
+            if ( ((LA23_0>='\t' && LA23_0<='\n')||LA23_0=='\r'||LA23_0==' ') ) {
+                alt23=1;
+            }
+            switch (alt23) {
+                case 1 :
+                    // InternalPerl.g:4135:25: RULE_WS
+                    {
+                    mRULE_WS(); 
+
+                    }
+                    break;
+
+            }
+
+            // InternalPerl.g:4135:34: ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            int alt28=4;
             switch ( input.LA(1) ) {
             case '{':
                 {
-                alt25=1;
+                alt28=1;
                 }
                 break;
             case '|':
                 {
-                alt25=2;
+                alt28=2;
                 }
                 break;
             case '/':
                 {
-                alt25=3;
+                alt28=3;
                 }
                 break;
             case '<':
                 {
-                alt25=4;
+                alt28=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 25, 0, input);
+                    new NoViableAltException("", 28, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt25) {
+            switch (alt28) {
                 case 1 :
-                    // InternalPerl.g:4301:26: '{' ( options {greedy=false; } : . )* '}'
+                    // InternalPerl.g:4135:35: '{' ( options {greedy=false; } : . )* '}'
                     {
                     match('{'); 
-                    // InternalPerl.g:4301:30: ( options {greedy=false; } : . )*
-                    loop21:
-                    do {
-                        int alt21=2;
-                        int LA21_0 = input.LA(1);
-
-                        if ( (LA21_0=='}') ) {
-                            alt21=2;
-                        }
-                        else if ( ((LA21_0>='\u0000' && LA21_0<='|')||(LA21_0>='~' && LA21_0<='\uFFFF')) ) {
-                            alt21=1;
-                        }
-
-
-                        switch (alt21) {
-                    	case 1 :
-                    	    // InternalPerl.g:4301:58: .
-                    	    {
-                    	    matchAny(); 
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop21;
-                        }
-                    } while (true);
-
-                    match('}'); 
-
-                    }
-                    break;
-                case 2 :
-                    // InternalPerl.g:4301:66: '|' ( options {greedy=false; } : . )* '|'
-                    {
-                    match('|'); 
-                    // InternalPerl.g:4301:70: ( options {greedy=false; } : . )*
-                    loop22:
-                    do {
-                        int alt22=2;
-                        int LA22_0 = input.LA(1);
-
-                        if ( (LA22_0=='|') ) {
-                            alt22=2;
-                        }
-                        else if ( ((LA22_0>='\u0000' && LA22_0<='{')||(LA22_0>='}' && LA22_0<='\uFFFF')) ) {
-                            alt22=1;
-                        }
-
-
-                        switch (alt22) {
-                    	case 1 :
-                    	    // InternalPerl.g:4301:98: .
-                    	    {
-                    	    matchAny(); 
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop22;
-                        }
-                    } while (true);
-
-                    match('|'); 
-
-                    }
-                    break;
-                case 3 :
-                    // InternalPerl.g:4301:106: '/' ( options {greedy=false; } : . )* '/'
-                    {
-                    match('/'); 
-                    // InternalPerl.g:4301:110: ( options {greedy=false; } : . )*
-                    loop23:
-                    do {
-                        int alt23=2;
-                        int LA23_0 = input.LA(1);
-
-                        if ( (LA23_0=='/') ) {
-                            alt23=2;
-                        }
-                        else if ( ((LA23_0>='\u0000' && LA23_0<='.')||(LA23_0>='0' && LA23_0<='\uFFFF')) ) {
-                            alt23=1;
-                        }
-
-
-                        switch (alt23) {
-                    	case 1 :
-                    	    // InternalPerl.g:4301:138: .
-                    	    {
-                    	    matchAny(); 
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop23;
-                        }
-                    } while (true);
-
-                    match('/'); 
-
-                    }
-                    break;
-                case 4 :
-                    // InternalPerl.g:4301:146: '<' ( options {greedy=false; } : . )* '>'
-                    {
-                    match('<'); 
-                    // InternalPerl.g:4301:150: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4135:39: ( options {greedy=false; } : . )*
                     loop24:
                     do {
                         int alt24=2;
                         int LA24_0 = input.LA(1);
 
-                        if ( (LA24_0=='>') ) {
+                        if ( (LA24_0=='}') ) {
                             alt24=2;
                         }
-                        else if ( ((LA24_0>='\u0000' && LA24_0<='=')||(LA24_0>='?' && LA24_0<='\uFFFF')) ) {
+                        else if ( ((LA24_0>='\u0000' && LA24_0<='|')||(LA24_0>='~' && LA24_0<='\uFFFF')) ) {
                             alt24=1;
                         }
 
 
                         switch (alt24) {
                     	case 1 :
-                    	    // InternalPerl.g:4301:178: .
+                    	    // InternalPerl.g:4135:67: .
                     	    {
                     	    matchAny(); 
 
@@ -7987,6 +7979,114 @@ public class InternalPerlLexer extends Lexer {
 
                     	default :
                     	    break loop24;
+                        }
+                    } while (true);
+
+                    match('}'); 
+
+                    }
+                    break;
+                case 2 :
+                    // InternalPerl.g:4135:75: '|' ( options {greedy=false; } : . )* '|'
+                    {
+                    match('|'); 
+                    // InternalPerl.g:4135:79: ( options {greedy=false; } : . )*
+                    loop25:
+                    do {
+                        int alt25=2;
+                        int LA25_0 = input.LA(1);
+
+                        if ( (LA25_0=='|') ) {
+                            alt25=2;
+                        }
+                        else if ( ((LA25_0>='\u0000' && LA25_0<='{')||(LA25_0>='}' && LA25_0<='\uFFFF')) ) {
+                            alt25=1;
+                        }
+
+
+                        switch (alt25) {
+                    	case 1 :
+                    	    // InternalPerl.g:4135:107: .
+                    	    {
+                    	    matchAny(); 
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop25;
+                        }
+                    } while (true);
+
+                    match('|'); 
+
+                    }
+                    break;
+                case 3 :
+                    // InternalPerl.g:4135:115: '/' ( options {greedy=false; } : . )* '/'
+                    {
+                    match('/'); 
+                    // InternalPerl.g:4135:119: ( options {greedy=false; } : . )*
+                    loop26:
+                    do {
+                        int alt26=2;
+                        int LA26_0 = input.LA(1);
+
+                        if ( (LA26_0=='/') ) {
+                            alt26=2;
+                        }
+                        else if ( ((LA26_0>='\u0000' && LA26_0<='.')||(LA26_0>='0' && LA26_0<='\uFFFF')) ) {
+                            alt26=1;
+                        }
+
+
+                        switch (alt26) {
+                    	case 1 :
+                    	    // InternalPerl.g:4135:147: .
+                    	    {
+                    	    matchAny(); 
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop26;
+                        }
+                    } while (true);
+
+                    match('/'); 
+
+                    }
+                    break;
+                case 4 :
+                    // InternalPerl.g:4135:155: '<' ( options {greedy=false; } : . )* '>'
+                    {
+                    match('<'); 
+                    // InternalPerl.g:4135:159: ( options {greedy=false; } : . )*
+                    loop27:
+                    do {
+                        int alt27=2;
+                        int LA27_0 = input.LA(1);
+
+                        if ( (LA27_0=='>') ) {
+                            alt27=2;
+                        }
+                        else if ( ((LA27_0>='\u0000' && LA27_0<='=')||(LA27_0>='?' && LA27_0<='\uFFFF')) ) {
+                            alt27=1;
+                        }
+
+
+                        switch (alt27) {
+                    	case 1 :
+                    	    // InternalPerl.g:4135:187: .
+                    	    {
+                    	    matchAny(); 
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop27;
                         }
                     } while (true);
 
@@ -8013,211 +8113,85 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4303:14: ( 'q' ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
-            // InternalPerl.g:4303:16: 'q' ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            // InternalPerl.g:4137:14: ( 'q' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
+            // InternalPerl.g:4137:16: 'q' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
             {
             match('q'); 
-            // InternalPerl.g:4303:20: ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
-            int alt31=5;
+            // InternalPerl.g:4137:20: ( RULE_WS )?
+            int alt29=2;
+            int LA29_0 = input.LA(1);
+
+            if ( ((LA29_0>='\t' && LA29_0<='\n')||LA29_0=='\r'||LA29_0==' ') ) {
+                alt29=1;
+            }
+            switch (alt29) {
+                case 1 :
+                    // InternalPerl.g:4137:20: RULE_WS
+                    {
+                    mRULE_WS(); 
+
+                    }
+                    break;
+
+            }
+
+            // InternalPerl.g:4137:29: ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            int alt35=5;
             switch ( input.LA(1) ) {
             case '{':
                 {
-                alt31=1;
+                alt35=1;
                 }
                 break;
             case '(':
                 {
-                alt31=2;
+                alt35=2;
                 }
                 break;
             case '|':
                 {
-                alt31=3;
+                alt35=3;
                 }
                 break;
             case '/':
                 {
-                alt31=4;
+                alt35=4;
                 }
                 break;
             case '<':
                 {
-                alt31=5;
+                alt35=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 31, 0, input);
+                    new NoViableAltException("", 35, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt31) {
+            switch (alt35) {
                 case 1 :
-                    // InternalPerl.g:4303:21: '{' ( options {greedy=false; } : . )* '}'
+                    // InternalPerl.g:4137:30: '{' ( options {greedy=false; } : . )* '}'
                     {
                     match('{'); 
-                    // InternalPerl.g:4303:25: ( options {greedy=false; } : . )*
-                    loop26:
-                    do {
-                        int alt26=2;
-                        int LA26_0 = input.LA(1);
-
-                        if ( (LA26_0=='}') ) {
-                            alt26=2;
-                        }
-                        else if ( ((LA26_0>='\u0000' && LA26_0<='|')||(LA26_0>='~' && LA26_0<='\uFFFF')) ) {
-                            alt26=1;
-                        }
-
-
-                        switch (alt26) {
-                    	case 1 :
-                    	    // InternalPerl.g:4303:53: .
-                    	    {
-                    	    matchAny(); 
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop26;
-                        }
-                    } while (true);
-
-                    match('}'); 
-
-                    }
-                    break;
-                case 2 :
-                    // InternalPerl.g:4303:61: '(' ( options {greedy=false; } : . )* ')'
-                    {
-                    match('('); 
-                    // InternalPerl.g:4303:65: ( options {greedy=false; } : . )*
-                    loop27:
-                    do {
-                        int alt27=2;
-                        int LA27_0 = input.LA(1);
-
-                        if ( (LA27_0==')') ) {
-                            alt27=2;
-                        }
-                        else if ( ((LA27_0>='\u0000' && LA27_0<='(')||(LA27_0>='*' && LA27_0<='\uFFFF')) ) {
-                            alt27=1;
-                        }
-
-
-                        switch (alt27) {
-                    	case 1 :
-                    	    // InternalPerl.g:4303:93: .
-                    	    {
-                    	    matchAny(); 
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop27;
-                        }
-                    } while (true);
-
-                    match(')'); 
-
-                    }
-                    break;
-                case 3 :
-                    // InternalPerl.g:4303:101: '|' ( options {greedy=false; } : . )* '|'
-                    {
-                    match('|'); 
-                    // InternalPerl.g:4303:105: ( options {greedy=false; } : . )*
-                    loop28:
-                    do {
-                        int alt28=2;
-                        int LA28_0 = input.LA(1);
-
-                        if ( (LA28_0=='|') ) {
-                            alt28=2;
-                        }
-                        else if ( ((LA28_0>='\u0000' && LA28_0<='{')||(LA28_0>='}' && LA28_0<='\uFFFF')) ) {
-                            alt28=1;
-                        }
-
-
-                        switch (alt28) {
-                    	case 1 :
-                    	    // InternalPerl.g:4303:133: .
-                    	    {
-                    	    matchAny(); 
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop28;
-                        }
-                    } while (true);
-
-                    match('|'); 
-
-                    }
-                    break;
-                case 4 :
-                    // InternalPerl.g:4303:141: '/' ( options {greedy=false; } : . )* '/'
-                    {
-                    match('/'); 
-                    // InternalPerl.g:4303:145: ( options {greedy=false; } : . )*
-                    loop29:
-                    do {
-                        int alt29=2;
-                        int LA29_0 = input.LA(1);
-
-                        if ( (LA29_0=='/') ) {
-                            alt29=2;
-                        }
-                        else if ( ((LA29_0>='\u0000' && LA29_0<='.')||(LA29_0>='0' && LA29_0<='\uFFFF')) ) {
-                            alt29=1;
-                        }
-
-
-                        switch (alt29) {
-                    	case 1 :
-                    	    // InternalPerl.g:4303:173: .
-                    	    {
-                    	    matchAny(); 
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop29;
-                        }
-                    } while (true);
-
-                    match('/'); 
-
-                    }
-                    break;
-                case 5 :
-                    // InternalPerl.g:4303:181: '<' ( options {greedy=false; } : . )* '>'
-                    {
-                    match('<'); 
-                    // InternalPerl.g:4303:185: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4137:34: ( options {greedy=false; } : . )*
                     loop30:
                     do {
                         int alt30=2;
                         int LA30_0 = input.LA(1);
 
-                        if ( (LA30_0=='>') ) {
+                        if ( (LA30_0=='}') ) {
                             alt30=2;
                         }
-                        else if ( ((LA30_0>='\u0000' && LA30_0<='=')||(LA30_0>='?' && LA30_0<='\uFFFF')) ) {
+                        else if ( ((LA30_0>='\u0000' && LA30_0<='|')||(LA30_0>='~' && LA30_0<='\uFFFF')) ) {
                             alt30=1;
                         }
 
 
                         switch (alt30) {
                     	case 1 :
-                    	    // InternalPerl.g:4303:213: .
+                    	    // InternalPerl.g:4137:62: .
                     	    {
                     	    matchAny(); 
 
@@ -8226,6 +8200,150 @@ public class InternalPerlLexer extends Lexer {
 
                     	default :
                     	    break loop30;
+                        }
+                    } while (true);
+
+                    match('}'); 
+
+                    }
+                    break;
+                case 2 :
+                    // InternalPerl.g:4137:70: '(' ( options {greedy=false; } : . )* ')'
+                    {
+                    match('('); 
+                    // InternalPerl.g:4137:74: ( options {greedy=false; } : . )*
+                    loop31:
+                    do {
+                        int alt31=2;
+                        int LA31_0 = input.LA(1);
+
+                        if ( (LA31_0==')') ) {
+                            alt31=2;
+                        }
+                        else if ( ((LA31_0>='\u0000' && LA31_0<='(')||(LA31_0>='*' && LA31_0<='\uFFFF')) ) {
+                            alt31=1;
+                        }
+
+
+                        switch (alt31) {
+                    	case 1 :
+                    	    // InternalPerl.g:4137:102: .
+                    	    {
+                    	    matchAny(); 
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop31;
+                        }
+                    } while (true);
+
+                    match(')'); 
+
+                    }
+                    break;
+                case 3 :
+                    // InternalPerl.g:4137:110: '|' ( options {greedy=false; } : . )* '|'
+                    {
+                    match('|'); 
+                    // InternalPerl.g:4137:114: ( options {greedy=false; } : . )*
+                    loop32:
+                    do {
+                        int alt32=2;
+                        int LA32_0 = input.LA(1);
+
+                        if ( (LA32_0=='|') ) {
+                            alt32=2;
+                        }
+                        else if ( ((LA32_0>='\u0000' && LA32_0<='{')||(LA32_0>='}' && LA32_0<='\uFFFF')) ) {
+                            alt32=1;
+                        }
+
+
+                        switch (alt32) {
+                    	case 1 :
+                    	    // InternalPerl.g:4137:142: .
+                    	    {
+                    	    matchAny(); 
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop32;
+                        }
+                    } while (true);
+
+                    match('|'); 
+
+                    }
+                    break;
+                case 4 :
+                    // InternalPerl.g:4137:150: '/' ( options {greedy=false; } : . )* '/'
+                    {
+                    match('/'); 
+                    // InternalPerl.g:4137:154: ( options {greedy=false; } : . )*
+                    loop33:
+                    do {
+                        int alt33=2;
+                        int LA33_0 = input.LA(1);
+
+                        if ( (LA33_0=='/') ) {
+                            alt33=2;
+                        }
+                        else if ( ((LA33_0>='\u0000' && LA33_0<='.')||(LA33_0>='0' && LA33_0<='\uFFFF')) ) {
+                            alt33=1;
+                        }
+
+
+                        switch (alt33) {
+                    	case 1 :
+                    	    // InternalPerl.g:4137:182: .
+                    	    {
+                    	    matchAny(); 
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop33;
+                        }
+                    } while (true);
+
+                    match('/'); 
+
+                    }
+                    break;
+                case 5 :
+                    // InternalPerl.g:4137:190: '<' ( options {greedy=false; } : . )* '>'
+                    {
+                    match('<'); 
+                    // InternalPerl.g:4137:194: ( options {greedy=false; } : . )*
+                    loop34:
+                    do {
+                        int alt34=2;
+                        int LA34_0 = input.LA(1);
+
+                        if ( (LA34_0=='>') ) {
+                            alt34=2;
+                        }
+                        else if ( ((LA34_0>='\u0000' && LA34_0<='=')||(LA34_0>='?' && LA34_0<='\uFFFF')) ) {
+                            alt34=1;
+                        }
+
+
+                        switch (alt34) {
+                    	case 1 :
+                    	    // InternalPerl.g:4137:222: .
+                    	    {
+                    	    matchAny(); 
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop34;
                         }
                     } while (true);
 
@@ -8252,68 +8370,86 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_WORDS_QUOTE_LIKE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4305:23: ( 'qw' ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
-            // InternalPerl.g:4305:25: 'qw' ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            // InternalPerl.g:4139:23: ( 'qw' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
+            // InternalPerl.g:4139:25: 'qw' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
             {
             match("qw"); 
 
-            // InternalPerl.g:4305:30: ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
-            int alt37=5;
+            // InternalPerl.g:4139:30: ( RULE_WS )?
+            int alt36=2;
+            int LA36_0 = input.LA(1);
+
+            if ( ((LA36_0>='\t' && LA36_0<='\n')||LA36_0=='\r'||LA36_0==' ') ) {
+                alt36=1;
+            }
+            switch (alt36) {
+                case 1 :
+                    // InternalPerl.g:4139:30: RULE_WS
+                    {
+                    mRULE_WS(); 
+
+                    }
+                    break;
+
+            }
+
+            // InternalPerl.g:4139:39: ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            int alt42=5;
             switch ( input.LA(1) ) {
             case '{':
                 {
-                alt37=1;
+                alt42=1;
                 }
                 break;
             case '(':
                 {
-                alt37=2;
+                alt42=2;
                 }
                 break;
             case '|':
                 {
-                alt37=3;
+                alt42=3;
                 }
                 break;
             case '/':
                 {
-                alt37=4;
+                alt42=4;
                 }
                 break;
             case '<':
                 {
-                alt37=5;
+                alt42=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 37, 0, input);
+                    new NoViableAltException("", 42, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt37) {
+            switch (alt42) {
                 case 1 :
-                    // InternalPerl.g:4305:31: '{' ( options {greedy=false; } : . )* '}'
+                    // InternalPerl.g:4139:40: '{' ( options {greedy=false; } : . )* '}'
                     {
                     match('{'); 
-                    // InternalPerl.g:4305:35: ( options {greedy=false; } : . )*
-                    loop32:
+                    // InternalPerl.g:4139:44: ( options {greedy=false; } : . )*
+                    loop37:
                     do {
-                        int alt32=2;
-                        int LA32_0 = input.LA(1);
+                        int alt37=2;
+                        int LA37_0 = input.LA(1);
 
-                        if ( (LA32_0=='}') ) {
-                            alt32=2;
+                        if ( (LA37_0=='}') ) {
+                            alt37=2;
                         }
-                        else if ( ((LA32_0>='\u0000' && LA32_0<='|')||(LA32_0>='~' && LA32_0<='\uFFFF')) ) {
-                            alt32=1;
+                        else if ( ((LA37_0>='\u0000' && LA37_0<='|')||(LA37_0>='~' && LA37_0<='\uFFFF')) ) {
+                            alt37=1;
                         }
 
 
-                        switch (alt32) {
+                        switch (alt37) {
                     	case 1 :
-                    	    // InternalPerl.g:4305:63: .
+                    	    // InternalPerl.g:4139:72: .
                     	    {
                     	    matchAny(); 
 
@@ -8321,7 +8457,7 @@ public class InternalPerlLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop32;
+                    	    break loop37;
                         }
                     } while (true);
 
@@ -8330,26 +8466,26 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:4305:71: '(' ( options {greedy=false; } : . )* ')'
+                    // InternalPerl.g:4139:80: '(' ( options {greedy=false; } : . )* ')'
                     {
                     match('('); 
-                    // InternalPerl.g:4305:75: ( options {greedy=false; } : . )*
-                    loop33:
+                    // InternalPerl.g:4139:84: ( options {greedy=false; } : . )*
+                    loop38:
                     do {
-                        int alt33=2;
-                        int LA33_0 = input.LA(1);
+                        int alt38=2;
+                        int LA38_0 = input.LA(1);
 
-                        if ( (LA33_0==')') ) {
-                            alt33=2;
+                        if ( (LA38_0==')') ) {
+                            alt38=2;
                         }
-                        else if ( ((LA33_0>='\u0000' && LA33_0<='(')||(LA33_0>='*' && LA33_0<='\uFFFF')) ) {
-                            alt33=1;
+                        else if ( ((LA38_0>='\u0000' && LA38_0<='(')||(LA38_0>='*' && LA38_0<='\uFFFF')) ) {
+                            alt38=1;
                         }
 
 
-                        switch (alt33) {
+                        switch (alt38) {
                     	case 1 :
-                    	    // InternalPerl.g:4305:103: .
+                    	    // InternalPerl.g:4139:112: .
                     	    {
                     	    matchAny(); 
 
@@ -8357,7 +8493,7 @@ public class InternalPerlLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop33;
+                    	    break loop38;
                         }
                     } while (true);
 
@@ -8366,26 +8502,26 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:4305:111: '|' ( options {greedy=false; } : . )* '|'
+                    // InternalPerl.g:4139:120: '|' ( options {greedy=false; } : . )* '|'
                     {
                     match('|'); 
-                    // InternalPerl.g:4305:115: ( options {greedy=false; } : . )*
-                    loop34:
+                    // InternalPerl.g:4139:124: ( options {greedy=false; } : . )*
+                    loop39:
                     do {
-                        int alt34=2;
-                        int LA34_0 = input.LA(1);
+                        int alt39=2;
+                        int LA39_0 = input.LA(1);
 
-                        if ( (LA34_0=='|') ) {
-                            alt34=2;
+                        if ( (LA39_0=='|') ) {
+                            alt39=2;
                         }
-                        else if ( ((LA34_0>='\u0000' && LA34_0<='{')||(LA34_0>='}' && LA34_0<='\uFFFF')) ) {
-                            alt34=1;
+                        else if ( ((LA39_0>='\u0000' && LA39_0<='{')||(LA39_0>='}' && LA39_0<='\uFFFF')) ) {
+                            alt39=1;
                         }
 
 
-                        switch (alt34) {
+                        switch (alt39) {
                     	case 1 :
-                    	    // InternalPerl.g:4305:143: .
+                    	    // InternalPerl.g:4139:152: .
                     	    {
                     	    matchAny(); 
 
@@ -8393,7 +8529,7 @@ public class InternalPerlLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop34;
+                    	    break loop39;
                         }
                     } while (true);
 
@@ -8402,26 +8538,26 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // InternalPerl.g:4305:151: '/' ( options {greedy=false; } : . )* '/'
+                    // InternalPerl.g:4139:160: '/' ( options {greedy=false; } : . )* '/'
                     {
                     match('/'); 
-                    // InternalPerl.g:4305:155: ( options {greedy=false; } : . )*
-                    loop35:
+                    // InternalPerl.g:4139:164: ( options {greedy=false; } : . )*
+                    loop40:
                     do {
-                        int alt35=2;
-                        int LA35_0 = input.LA(1);
+                        int alt40=2;
+                        int LA40_0 = input.LA(1);
 
-                        if ( (LA35_0=='/') ) {
-                            alt35=2;
+                        if ( (LA40_0=='/') ) {
+                            alt40=2;
                         }
-                        else if ( ((LA35_0>='\u0000' && LA35_0<='.')||(LA35_0>='0' && LA35_0<='\uFFFF')) ) {
-                            alt35=1;
+                        else if ( ((LA40_0>='\u0000' && LA40_0<='.')||(LA40_0>='0' && LA40_0<='\uFFFF')) ) {
+                            alt40=1;
                         }
 
 
-                        switch (alt35) {
+                        switch (alt40) {
                     	case 1 :
-                    	    // InternalPerl.g:4305:183: .
+                    	    // InternalPerl.g:4139:192: .
                     	    {
                     	    matchAny(); 
 
@@ -8429,7 +8565,7 @@ public class InternalPerlLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop35;
+                    	    break loop40;
                         }
                     } while (true);
 
@@ -8438,26 +8574,26 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 5 :
-                    // InternalPerl.g:4305:191: '<' ( options {greedy=false; } : . )* '>'
+                    // InternalPerl.g:4139:200: '<' ( options {greedy=false; } : . )* '>'
                     {
                     match('<'); 
-                    // InternalPerl.g:4305:195: ( options {greedy=false; } : . )*
-                    loop36:
+                    // InternalPerl.g:4139:204: ( options {greedy=false; } : . )*
+                    loop41:
                     do {
-                        int alt36=2;
-                        int LA36_0 = input.LA(1);
+                        int alt41=2;
+                        int LA41_0 = input.LA(1);
 
-                        if ( (LA36_0=='>') ) {
-                            alt36=2;
+                        if ( (LA41_0=='>') ) {
+                            alt41=2;
                         }
-                        else if ( ((LA36_0>='\u0000' && LA36_0<='=')||(LA36_0>='?' && LA36_0<='\uFFFF')) ) {
-                            alt36=1;
+                        else if ( ((LA41_0>='\u0000' && LA41_0<='=')||(LA41_0>='?' && LA41_0<='\uFFFF')) ) {
+                            alt41=1;
                         }
 
 
-                        switch (alt36) {
+                        switch (alt41) {
                     	case 1 :
-                    	    // InternalPerl.g:4305:223: .
+                    	    // InternalPerl.g:4139:232: .
                     	    {
                     	    matchAny(); 
 
@@ -8465,7 +8601,7 @@ public class InternalPerlLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop36;
+                    	    break loop41;
                         }
                     } while (true);
 
@@ -8492,68 +8628,86 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_COMMAND_QUOTE_LIKE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4307:25: ( 'qx' ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
-            // InternalPerl.g:4307:27: 'qx' ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            // InternalPerl.g:4141:25: ( 'qx' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
+            // InternalPerl.g:4141:27: 'qx' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
             {
             match("qx"); 
 
-            // InternalPerl.g:4307:32: ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
-            int alt43=5;
+            // InternalPerl.g:4141:32: ( RULE_WS )?
+            int alt43=2;
+            int LA43_0 = input.LA(1);
+
+            if ( ((LA43_0>='\t' && LA43_0<='\n')||LA43_0=='\r'||LA43_0==' ') ) {
+                alt43=1;
+            }
+            switch (alt43) {
+                case 1 :
+                    // InternalPerl.g:4141:32: RULE_WS
+                    {
+                    mRULE_WS(); 
+
+                    }
+                    break;
+
+            }
+
+            // InternalPerl.g:4141:41: ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            int alt49=5;
             switch ( input.LA(1) ) {
             case '{':
                 {
-                alt43=1;
+                alt49=1;
                 }
                 break;
             case '(':
                 {
-                alt43=2;
+                alt49=2;
                 }
                 break;
             case '|':
                 {
-                alt43=3;
+                alt49=3;
                 }
                 break;
             case '/':
                 {
-                alt43=4;
+                alt49=4;
                 }
                 break;
             case '<':
                 {
-                alt43=5;
+                alt49=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 43, 0, input);
+                    new NoViableAltException("", 49, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt43) {
+            switch (alt49) {
                 case 1 :
-                    // InternalPerl.g:4307:33: '{' ( options {greedy=false; } : . )* '}'
+                    // InternalPerl.g:4141:42: '{' ( options {greedy=false; } : . )* '}'
                     {
                     match('{'); 
-                    // InternalPerl.g:4307:37: ( options {greedy=false; } : . )*
-                    loop38:
+                    // InternalPerl.g:4141:46: ( options {greedy=false; } : . )*
+                    loop44:
                     do {
-                        int alt38=2;
-                        int LA38_0 = input.LA(1);
+                        int alt44=2;
+                        int LA44_0 = input.LA(1);
 
-                        if ( (LA38_0=='}') ) {
-                            alt38=2;
+                        if ( (LA44_0=='}') ) {
+                            alt44=2;
                         }
-                        else if ( ((LA38_0>='\u0000' && LA38_0<='|')||(LA38_0>='~' && LA38_0<='\uFFFF')) ) {
-                            alt38=1;
+                        else if ( ((LA44_0>='\u0000' && LA44_0<='|')||(LA44_0>='~' && LA44_0<='\uFFFF')) ) {
+                            alt44=1;
                         }
 
 
-                        switch (alt38) {
+                        switch (alt44) {
                     	case 1 :
-                    	    // InternalPerl.g:4307:65: .
+                    	    // InternalPerl.g:4141:74: .
                     	    {
                     	    matchAny(); 
 
@@ -8561,7 +8715,7 @@ public class InternalPerlLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop38;
+                    	    break loop44;
                         }
                     } while (true);
 
@@ -8570,26 +8724,26 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:4307:73: '(' ( options {greedy=false; } : . )* ')'
+                    // InternalPerl.g:4141:82: '(' ( options {greedy=false; } : . )* ')'
                     {
                     match('('); 
-                    // InternalPerl.g:4307:77: ( options {greedy=false; } : . )*
-                    loop39:
+                    // InternalPerl.g:4141:86: ( options {greedy=false; } : . )*
+                    loop45:
                     do {
-                        int alt39=2;
-                        int LA39_0 = input.LA(1);
+                        int alt45=2;
+                        int LA45_0 = input.LA(1);
 
-                        if ( (LA39_0==')') ) {
-                            alt39=2;
+                        if ( (LA45_0==')') ) {
+                            alt45=2;
                         }
-                        else if ( ((LA39_0>='\u0000' && LA39_0<='(')||(LA39_0>='*' && LA39_0<='\uFFFF')) ) {
-                            alt39=1;
+                        else if ( ((LA45_0>='\u0000' && LA45_0<='(')||(LA45_0>='*' && LA45_0<='\uFFFF')) ) {
+                            alt45=1;
                         }
 
 
-                        switch (alt39) {
+                        switch (alt45) {
                     	case 1 :
-                    	    // InternalPerl.g:4307:105: .
+                    	    // InternalPerl.g:4141:114: .
                     	    {
                     	    matchAny(); 
 
@@ -8597,7 +8751,7 @@ public class InternalPerlLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop39;
+                    	    break loop45;
                         }
                     } while (true);
 
@@ -8606,26 +8760,26 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:4307:113: '|' ( options {greedy=false; } : . )* '|'
+                    // InternalPerl.g:4141:122: '|' ( options {greedy=false; } : . )* '|'
                     {
                     match('|'); 
-                    // InternalPerl.g:4307:117: ( options {greedy=false; } : . )*
-                    loop40:
+                    // InternalPerl.g:4141:126: ( options {greedy=false; } : . )*
+                    loop46:
                     do {
-                        int alt40=2;
-                        int LA40_0 = input.LA(1);
+                        int alt46=2;
+                        int LA46_0 = input.LA(1);
 
-                        if ( (LA40_0=='|') ) {
-                            alt40=2;
+                        if ( (LA46_0=='|') ) {
+                            alt46=2;
                         }
-                        else if ( ((LA40_0>='\u0000' && LA40_0<='{')||(LA40_0>='}' && LA40_0<='\uFFFF')) ) {
-                            alt40=1;
+                        else if ( ((LA46_0>='\u0000' && LA46_0<='{')||(LA46_0>='}' && LA46_0<='\uFFFF')) ) {
+                            alt46=1;
                         }
 
 
-                        switch (alt40) {
+                        switch (alt46) {
                     	case 1 :
-                    	    // InternalPerl.g:4307:145: .
+                    	    // InternalPerl.g:4141:154: .
                     	    {
                     	    matchAny(); 
 
@@ -8633,7 +8787,7 @@ public class InternalPerlLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop40;
+                    	    break loop46;
                         }
                     } while (true);
 
@@ -8642,26 +8796,26 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // InternalPerl.g:4307:153: '/' ( options {greedy=false; } : . )* '/'
+                    // InternalPerl.g:4141:162: '/' ( options {greedy=false; } : . )* '/'
                     {
                     match('/'); 
-                    // InternalPerl.g:4307:157: ( options {greedy=false; } : . )*
-                    loop41:
+                    // InternalPerl.g:4141:166: ( options {greedy=false; } : . )*
+                    loop47:
                     do {
-                        int alt41=2;
-                        int LA41_0 = input.LA(1);
+                        int alt47=2;
+                        int LA47_0 = input.LA(1);
 
-                        if ( (LA41_0=='/') ) {
-                            alt41=2;
+                        if ( (LA47_0=='/') ) {
+                            alt47=2;
                         }
-                        else if ( ((LA41_0>='\u0000' && LA41_0<='.')||(LA41_0>='0' && LA41_0<='\uFFFF')) ) {
-                            alt41=1;
+                        else if ( ((LA47_0>='\u0000' && LA47_0<='.')||(LA47_0>='0' && LA47_0<='\uFFFF')) ) {
+                            alt47=1;
                         }
 
 
-                        switch (alt41) {
+                        switch (alt47) {
                     	case 1 :
-                    	    // InternalPerl.g:4307:185: .
+                    	    // InternalPerl.g:4141:194: .
                     	    {
                     	    matchAny(); 
 
@@ -8669,7 +8823,7 @@ public class InternalPerlLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop41;
+                    	    break loop47;
                         }
                     } while (true);
 
@@ -8678,26 +8832,26 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 5 :
-                    // InternalPerl.g:4307:193: '<' ( options {greedy=false; } : . )* '>'
+                    // InternalPerl.g:4141:202: '<' ( options {greedy=false; } : . )* '>'
                     {
                     match('<'); 
-                    // InternalPerl.g:4307:197: ( options {greedy=false; } : . )*
-                    loop42:
+                    // InternalPerl.g:4141:206: ( options {greedy=false; } : . )*
+                    loop48:
                     do {
-                        int alt42=2;
-                        int LA42_0 = input.LA(1);
+                        int alt48=2;
+                        int LA48_0 = input.LA(1);
 
-                        if ( (LA42_0=='>') ) {
-                            alt42=2;
+                        if ( (LA48_0=='>') ) {
+                            alt48=2;
                         }
-                        else if ( ((LA42_0>='\u0000' && LA42_0<='=')||(LA42_0>='?' && LA42_0<='\uFFFF')) ) {
-                            alt42=1;
+                        else if ( ((LA48_0>='\u0000' && LA48_0<='=')||(LA48_0>='?' && LA48_0<='\uFFFF')) ) {
+                            alt48=1;
                         }
 
 
-                        switch (alt42) {
+                        switch (alt48) {
                     	case 1 :
-                    	    // InternalPerl.g:4307:225: .
+                    	    // InternalPerl.g:4141:234: .
                     	    {
                     	    matchAny(); 
 
@@ -8705,7 +8859,7 @@ public class InternalPerlLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop42;
+                    	    break loop48;
                         }
                     } while (true);
 
@@ -8732,63 +8886,81 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_REGEX_QUOTE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4309:18: ( 'qr' ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
-            // InternalPerl.g:4309:20: 'qr' ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            // InternalPerl.g:4143:18: ( 'qr' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
+            // InternalPerl.g:4143:20: 'qr' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
             {
             match("qr"); 
 
-            // InternalPerl.g:4309:25: ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
-            int alt48=4;
+            // InternalPerl.g:4143:25: ( RULE_WS )?
+            int alt50=2;
+            int LA50_0 = input.LA(1);
+
+            if ( ((LA50_0>='\t' && LA50_0<='\n')||LA50_0=='\r'||LA50_0==' ') ) {
+                alt50=1;
+            }
+            switch (alt50) {
+                case 1 :
+                    // InternalPerl.g:4143:25: RULE_WS
+                    {
+                    mRULE_WS(); 
+
+                    }
+                    break;
+
+            }
+
+            // InternalPerl.g:4143:34: ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            int alt55=4;
             switch ( input.LA(1) ) {
             case '{':
                 {
-                alt48=1;
+                alt55=1;
                 }
                 break;
             case '|':
                 {
-                alt48=2;
+                alt55=2;
                 }
                 break;
             case '/':
                 {
-                alt48=3;
+                alt55=3;
                 }
                 break;
             case '<':
                 {
-                alt48=4;
+                alt55=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 48, 0, input);
+                    new NoViableAltException("", 55, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt48) {
+            switch (alt55) {
                 case 1 :
-                    // InternalPerl.g:4309:26: '{' ( options {greedy=false; } : . )* '}'
+                    // InternalPerl.g:4143:35: '{' ( options {greedy=false; } : . )* '}'
                     {
                     match('{'); 
-                    // InternalPerl.g:4309:30: ( options {greedy=false; } : . )*
-                    loop44:
+                    // InternalPerl.g:4143:39: ( options {greedy=false; } : . )*
+                    loop51:
                     do {
-                        int alt44=2;
-                        int LA44_0 = input.LA(1);
+                        int alt51=2;
+                        int LA51_0 = input.LA(1);
 
-                        if ( (LA44_0=='}') ) {
-                            alt44=2;
+                        if ( (LA51_0=='}') ) {
+                            alt51=2;
                         }
-                        else if ( ((LA44_0>='\u0000' && LA44_0<='|')||(LA44_0>='~' && LA44_0<='\uFFFF')) ) {
-                            alt44=1;
+                        else if ( ((LA51_0>='\u0000' && LA51_0<='|')||(LA51_0>='~' && LA51_0<='\uFFFF')) ) {
+                            alt51=1;
                         }
 
 
-                        switch (alt44) {
+                        switch (alt51) {
                     	case 1 :
-                    	    // InternalPerl.g:4309:58: .
+                    	    // InternalPerl.g:4143:67: .
                     	    {
                     	    matchAny(); 
 
@@ -8796,7 +8968,7 @@ public class InternalPerlLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop44;
+                    	    break loop51;
                         }
                     } while (true);
 
@@ -8805,26 +8977,26 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:4309:66: '|' ( options {greedy=false; } : . )* '|'
+                    // InternalPerl.g:4143:75: '|' ( options {greedy=false; } : . )* '|'
                     {
                     match('|'); 
-                    // InternalPerl.g:4309:70: ( options {greedy=false; } : . )*
-                    loop45:
+                    // InternalPerl.g:4143:79: ( options {greedy=false; } : . )*
+                    loop52:
                     do {
-                        int alt45=2;
-                        int LA45_0 = input.LA(1);
+                        int alt52=2;
+                        int LA52_0 = input.LA(1);
 
-                        if ( (LA45_0=='|') ) {
-                            alt45=2;
+                        if ( (LA52_0=='|') ) {
+                            alt52=2;
                         }
-                        else if ( ((LA45_0>='\u0000' && LA45_0<='{')||(LA45_0>='}' && LA45_0<='\uFFFF')) ) {
-                            alt45=1;
+                        else if ( ((LA52_0>='\u0000' && LA52_0<='{')||(LA52_0>='}' && LA52_0<='\uFFFF')) ) {
+                            alt52=1;
                         }
 
 
-                        switch (alt45) {
+                        switch (alt52) {
                     	case 1 :
-                    	    // InternalPerl.g:4309:98: .
+                    	    // InternalPerl.g:4143:107: .
                     	    {
                     	    matchAny(); 
 
@@ -8832,7 +9004,7 @@ public class InternalPerlLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop45;
+                    	    break loop52;
                         }
                     } while (true);
 
@@ -8841,26 +9013,26 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:4309:106: '/' ( options {greedy=false; } : . )* '/'
+                    // InternalPerl.g:4143:115: '/' ( options {greedy=false; } : . )* '/'
                     {
                     match('/'); 
-                    // InternalPerl.g:4309:110: ( options {greedy=false; } : . )*
-                    loop46:
+                    // InternalPerl.g:4143:119: ( options {greedy=false; } : . )*
+                    loop53:
                     do {
-                        int alt46=2;
-                        int LA46_0 = input.LA(1);
+                        int alt53=2;
+                        int LA53_0 = input.LA(1);
 
-                        if ( (LA46_0=='/') ) {
-                            alt46=2;
+                        if ( (LA53_0=='/') ) {
+                            alt53=2;
                         }
-                        else if ( ((LA46_0>='\u0000' && LA46_0<='.')||(LA46_0>='0' && LA46_0<='\uFFFF')) ) {
-                            alt46=1;
+                        else if ( ((LA53_0>='\u0000' && LA53_0<='.')||(LA53_0>='0' && LA53_0<='\uFFFF')) ) {
+                            alt53=1;
                         }
 
 
-                        switch (alt46) {
+                        switch (alt53) {
                     	case 1 :
-                    	    // InternalPerl.g:4309:138: .
+                    	    // InternalPerl.g:4143:147: .
                     	    {
                     	    matchAny(); 
 
@@ -8868,7 +9040,7 @@ public class InternalPerlLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop46;
+                    	    break loop53;
                         }
                     } while (true);
 
@@ -8877,26 +9049,26 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // InternalPerl.g:4309:146: '<' ( options {greedy=false; } : . )* '>'
+                    // InternalPerl.g:4143:155: '<' ( options {greedy=false; } : . )* '>'
                     {
                     match('<'); 
-                    // InternalPerl.g:4309:150: ( options {greedy=false; } : . )*
-                    loop47:
+                    // InternalPerl.g:4143:159: ( options {greedy=false; } : . )*
+                    loop54:
                     do {
-                        int alt47=2;
-                        int LA47_0 = input.LA(1);
+                        int alt54=2;
+                        int LA54_0 = input.LA(1);
 
-                        if ( (LA47_0=='>') ) {
-                            alt47=2;
+                        if ( (LA54_0=='>') ) {
+                            alt54=2;
                         }
-                        else if ( ((LA47_0>='\u0000' && LA47_0<='=')||(LA47_0>='?' && LA47_0<='\uFFFF')) ) {
-                            alt47=1;
+                        else if ( ((LA54_0>='\u0000' && LA54_0<='=')||(LA54_0>='?' && LA54_0<='\uFFFF')) ) {
+                            alt54=1;
                         }
 
 
-                        switch (alt47) {
+                        switch (alt54) {
                     	case 1 :
-                    	    // InternalPerl.g:4309:178: .
+                    	    // InternalPerl.g:4143:187: .
                     	    {
                     	    matchAny(); 
 
@@ -8904,7 +9076,7 @@ public class InternalPerlLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop47;
+                    	    break loop54;
                         }
                     } while (true);
 
@@ -8931,65 +9103,43 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_READLINE_QUOTE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4311:21: ( '<' ( '$' )? ( 'a' .. 'z' | 'A' .. 'Z' )+ '>' )
-            // InternalPerl.g:4311:23: '<' ( '$' )? ( 'a' .. 'z' | 'A' .. 'Z' )+ '>'
+            // InternalPerl.g:4145:21: ( '<' ( RULE_ID | RULE_SYMBOL ) '>' )
+            // InternalPerl.g:4145:23: '<' ( RULE_ID | RULE_SYMBOL ) '>'
             {
             match('<'); 
-            // InternalPerl.g:4311:27: ( '$' )?
-            int alt49=2;
-            int LA49_0 = input.LA(1);
+            // InternalPerl.g:4145:27: ( RULE_ID | RULE_SYMBOL )
+            int alt56=2;
+            int LA56_0 = input.LA(1);
 
-            if ( (LA49_0=='$') ) {
-                alt49=1;
+            if ( ((LA56_0>='A' && LA56_0<='Z')||LA56_0=='_'||(LA56_0>='a' && LA56_0<='z')) ) {
+                alt56=1;
             }
-            switch (alt49) {
+            else if ( ((LA56_0>='$' && LA56_0<='%')||LA56_0=='@') ) {
+                alt56=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 56, 0, input);
+
+                throw nvae;
+            }
+            switch (alt56) {
                 case 1 :
-                    // InternalPerl.g:4311:27: '$'
+                    // InternalPerl.g:4145:28: RULE_ID
                     {
-                    match('$'); 
+                    mRULE_ID(); 
+
+                    }
+                    break;
+                case 2 :
+                    // InternalPerl.g:4145:36: RULE_SYMBOL
+                    {
+                    mRULE_SYMBOL(); 
 
                     }
                     break;
 
             }
-
-            // InternalPerl.g:4311:32: ( 'a' .. 'z' | 'A' .. 'Z' )+
-            int cnt50=0;
-            loop50:
-            do {
-                int alt50=2;
-                int LA50_0 = input.LA(1);
-
-                if ( ((LA50_0>='A' && LA50_0<='Z')||(LA50_0>='a' && LA50_0<='z')) ) {
-                    alt50=1;
-                }
-
-
-                switch (alt50) {
-            	case 1 :
-            	    // InternalPerl.g:
-            	    {
-            	    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
-            	        input.consume();
-
-            	    }
-            	    else {
-            	        MismatchedSetException mse = new MismatchedSetException(null,input);
-            	        recover(mse);
-            	        throw mse;}
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt50 >= 1 ) break loop50;
-                        EarlyExitException eee =
-                            new EarlyExitException(50, input);
-                        throw eee;
-                }
-                cnt50++;
-            } while (true);
 
             match('>'); 
 
@@ -9008,55 +9158,55 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_POD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4313:10: ( '=pod' ( options {greedy=false; } : . )* '=cut' )
-            // InternalPerl.g:4313:12: '=pod' ( options {greedy=false; } : . )* '=cut'
+            // InternalPerl.g:4147:10: ( '=pod' ( options {greedy=false; } : . )* '=cut' )
+            // InternalPerl.g:4147:12: '=pod' ( options {greedy=false; } : . )* '=cut'
             {
             match("=pod"); 
 
-            // InternalPerl.g:4313:19: ( options {greedy=false; } : . )*
-            loop51:
+            // InternalPerl.g:4147:19: ( options {greedy=false; } : . )*
+            loop57:
             do {
-                int alt51=2;
-                int LA51_0 = input.LA(1);
+                int alt57=2;
+                int LA57_0 = input.LA(1);
 
-                if ( (LA51_0=='=') ) {
-                    int LA51_1 = input.LA(2);
+                if ( (LA57_0=='=') ) {
+                    int LA57_1 = input.LA(2);
 
-                    if ( (LA51_1=='c') ) {
-                        int LA51_3 = input.LA(3);
+                    if ( (LA57_1=='c') ) {
+                        int LA57_3 = input.LA(3);
 
-                        if ( (LA51_3=='u') ) {
-                            int LA51_4 = input.LA(4);
+                        if ( (LA57_3=='u') ) {
+                            int LA57_4 = input.LA(4);
 
-                            if ( (LA51_4=='t') ) {
-                                alt51=2;
+                            if ( (LA57_4=='t') ) {
+                                alt57=2;
                             }
-                            else if ( ((LA51_4>='\u0000' && LA51_4<='s')||(LA51_4>='u' && LA51_4<='\uFFFF')) ) {
-                                alt51=1;
+                            else if ( ((LA57_4>='\u0000' && LA57_4<='s')||(LA57_4>='u' && LA57_4<='\uFFFF')) ) {
+                                alt57=1;
                             }
 
 
                         }
-                        else if ( ((LA51_3>='\u0000' && LA51_3<='t')||(LA51_3>='v' && LA51_3<='\uFFFF')) ) {
-                            alt51=1;
+                        else if ( ((LA57_3>='\u0000' && LA57_3<='t')||(LA57_3>='v' && LA57_3<='\uFFFF')) ) {
+                            alt57=1;
                         }
 
 
                     }
-                    else if ( ((LA51_1>='\u0000' && LA51_1<='b')||(LA51_1>='d' && LA51_1<='\uFFFF')) ) {
-                        alt51=1;
+                    else if ( ((LA57_1>='\u0000' && LA57_1<='b')||(LA57_1>='d' && LA57_1<='\uFFFF')) ) {
+                        alt57=1;
                     }
 
 
                 }
-                else if ( ((LA51_0>='\u0000' && LA51_0<='<')||(LA51_0>='>' && LA51_0<='\uFFFF')) ) {
-                    alt51=1;
+                else if ( ((LA57_0>='\u0000' && LA57_0<='<')||(LA57_0>='>' && LA57_0<='\uFFFF')) ) {
+                    alt57=1;
                 }
 
 
-                switch (alt51) {
+                switch (alt57) {
             	case 1 :
-            	    // InternalPerl.g:4313:47: .
+            	    // InternalPerl.g:4147:47: .
             	    {
             	    matchAny(); 
 
@@ -9064,7 +9214,7 @@ public class InternalPerlLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop51;
+            	    break loop57;
                 }
             } while (true);
 
@@ -9086,25 +9236,25 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_DATA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4315:11: ( '__DATA__' ( RULE_ANY_OTHER )* EOF )
-            // InternalPerl.g:4315:13: '__DATA__' ( RULE_ANY_OTHER )* EOF
+            // InternalPerl.g:4149:11: ( '__DATA__' ( RULE_ANY_OTHER )* EOF )
+            // InternalPerl.g:4149:13: '__DATA__' ( RULE_ANY_OTHER )* EOF
             {
             match("__DATA__"); 
 
-            // InternalPerl.g:4315:24: ( RULE_ANY_OTHER )*
-            loop52:
+            // InternalPerl.g:4149:24: ( RULE_ANY_OTHER )*
+            loop58:
             do {
-                int alt52=2;
-                int LA52_0 = input.LA(1);
+                int alt58=2;
+                int LA58_0 = input.LA(1);
 
-                if ( ((LA52_0>='\u0000' && LA52_0<='\uFFFF')) ) {
-                    alt52=1;
+                if ( ((LA58_0>='\u0000' && LA58_0<='\uFFFF')) ) {
+                    alt58=1;
                 }
 
 
-                switch (alt52) {
+                switch (alt58) {
             	case 1 :
-            	    // InternalPerl.g:4315:24: RULE_ANY_OTHER
+            	    // InternalPerl.g:4149:24: RULE_ANY_OTHER
             	    {
             	    mRULE_ANY_OTHER(); 
 
@@ -9112,7 +9262,7 @@ public class InternalPerlLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop52;
+            	    break loop58;
                 }
             } while (true);
 
@@ -9133,25 +9283,25 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_END;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4317:10: ( '__END__' ( RULE_ANY_OTHER )* EOF )
-            // InternalPerl.g:4317:12: '__END__' ( RULE_ANY_OTHER )* EOF
+            // InternalPerl.g:4151:10: ( '__END__' ( RULE_ANY_OTHER )* EOF )
+            // InternalPerl.g:4151:12: '__END__' ( RULE_ANY_OTHER )* EOF
             {
             match("__END__"); 
 
-            // InternalPerl.g:4317:22: ( RULE_ANY_OTHER )*
-            loop53:
+            // InternalPerl.g:4151:22: ( RULE_ANY_OTHER )*
+            loop59:
             do {
-                int alt53=2;
-                int LA53_0 = input.LA(1);
+                int alt59=2;
+                int LA59_0 = input.LA(1);
 
-                if ( ((LA53_0>='\u0000' && LA53_0<='\uFFFF')) ) {
-                    alt53=1;
+                if ( ((LA59_0>='\u0000' && LA59_0<='\uFFFF')) ) {
+                    alt59=1;
                 }
 
 
-                switch (alt53) {
+                switch (alt59) {
             	case 1 :
-            	    // InternalPerl.g:4317:22: RULE_ANY_OTHER
+            	    // InternalPerl.g:4151:22: RULE_ANY_OTHER
             	    {
             	    mRULE_ANY_OTHER(); 
 
@@ -9159,7 +9309,7 @@ public class InternalPerlLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop53;
+            	    break loop59;
                 }
             } while (true);
 
@@ -9180,24 +9330,24 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4319:17: ( '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalPerl.g:4319:19: '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalPerl.g:4153:17: ( '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalPerl.g:4153:19: '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match('#'); 
-            // InternalPerl.g:4319:23: (~ ( ( '\\n' | '\\r' ) ) )*
-            loop54:
+            // InternalPerl.g:4153:23: (~ ( ( '\\n' | '\\r' ) ) )*
+            loop60:
             do {
-                int alt54=2;
-                int LA54_0 = input.LA(1);
+                int alt60=2;
+                int LA60_0 = input.LA(1);
 
-                if ( ((LA54_0>='\u0000' && LA54_0<='\t')||(LA54_0>='\u000B' && LA54_0<='\f')||(LA54_0>='\u000E' && LA54_0<='\uFFFF')) ) {
-                    alt54=1;
+                if ( ((LA60_0>='\u0000' && LA60_0<='\t')||(LA60_0>='\u000B' && LA60_0<='\f')||(LA60_0>='\u000E' && LA60_0<='\uFFFF')) ) {
+                    alt60=1;
                 }
 
 
-                switch (alt54) {
+                switch (alt60) {
             	case 1 :
-            	    // InternalPerl.g:4319:23: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalPerl.g:4153:23: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -9213,31 +9363,31 @@ public class InternalPerlLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop54;
+            	    break loop60;
                 }
             } while (true);
 
-            // InternalPerl.g:4319:39: ( ( '\\r' )? '\\n' )?
-            int alt56=2;
-            int LA56_0 = input.LA(1);
+            // InternalPerl.g:4153:39: ( ( '\\r' )? '\\n' )?
+            int alt62=2;
+            int LA62_0 = input.LA(1);
 
-            if ( (LA56_0=='\n'||LA56_0=='\r') ) {
-                alt56=1;
+            if ( (LA62_0=='\n'||LA62_0=='\r') ) {
+                alt62=1;
             }
-            switch (alt56) {
+            switch (alt62) {
                 case 1 :
-                    // InternalPerl.g:4319:40: ( '\\r' )? '\\n'
+                    // InternalPerl.g:4153:40: ( '\\r' )? '\\n'
                     {
-                    // InternalPerl.g:4319:40: ( '\\r' )?
-                    int alt55=2;
-                    int LA55_0 = input.LA(1);
+                    // InternalPerl.g:4153:40: ( '\\r' )?
+                    int alt61=2;
+                    int LA61_0 = input.LA(1);
 
-                    if ( (LA55_0=='\r') ) {
-                        alt55=1;
+                    if ( (LA61_0=='\r') ) {
+                        alt61=1;
                     }
-                    switch (alt55) {
+                    switch (alt61) {
                         case 1 :
-                            // InternalPerl.g:4319:40: '\\r'
+                            // InternalPerl.g:4153:40: '\\r'
                             {
                             match('\r'); 
 
@@ -9269,22 +9419,22 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4321:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalPerl.g:4321:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalPerl.g:4155:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalPerl.g:4155:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalPerl.g:4321:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
-            int cnt57=0;
-            loop57:
+            // InternalPerl.g:4155:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            int cnt63=0;
+            loop63:
             do {
-                int alt57=2;
-                int LA57_0 = input.LA(1);
+                int alt63=2;
+                int LA63_0 = input.LA(1);
 
-                if ( ((LA57_0>='\t' && LA57_0<='\n')||LA57_0=='\r'||LA57_0==' ') ) {
-                    alt57=1;
+                if ( ((LA63_0>='\t' && LA63_0<='\n')||LA63_0=='\r'||LA63_0==' ') ) {
+                    alt63=1;
                 }
 
 
-                switch (alt57) {
+                switch (alt63) {
             	case 1 :
             	    // InternalPerl.g:
             	    {
@@ -9302,12 +9452,12 @@ public class InternalPerlLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt57 >= 1 ) break loop57;
+            	    if ( cnt63 >= 1 ) break loop63;
                         EarlyExitException eee =
-                            new EarlyExitException(57, input);
+                            new EarlyExitException(63, input);
                         throw eee;
                 }
-                cnt57++;
+                cnt63++;
             } while (true);
 
 
@@ -9324,8 +9474,8 @@ public class InternalPerlLexer extends Lexer {
     // $ANTLR start "RULE_ANY_OTHER"
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
-            // InternalPerl.g:4323:25: ( . )
-            // InternalPerl.g:4323:27: .
+            // InternalPerl.g:4157:25: ( . )
+            // InternalPerl.g:4157:27: .
             {
             matchAny(); 
 
@@ -9338,2343 +9488,2329 @@ public class InternalPerlLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalPerl.g:1:8: ( T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | T__116 | T__117 | T__118 | T__119 | T__120 | T__121 | T__122 | T__123 | T__124 | T__125 | T__126 | T__127 | T__128 | T__129 | T__130 | T__131 | T__132 | T__133 | T__134 | T__135 | T__136 | T__137 | T__138 | T__139 | T__140 | T__141 | T__142 | T__143 | T__144 | T__145 | T__146 | T__147 | T__148 | T__149 | T__150 | T__151 | T__152 | T__153 | T__154 | T__155 | T__156 | T__157 | T__158 | T__159 | T__160 | T__161 | T__162 | T__163 | T__164 | T__165 | T__166 | T__167 | T__168 | T__169 | T__170 | T__171 | T__172 | T__173 | T__174 | T__175 | T__176 | T__177 | T__178 | T__179 | T__180 | T__181 | T__182 | T__183 | T__184 | T__185 | T__186 | T__187 | T__188 | T__189 | T__190 | T__191 | T__192 | T__193 | T__194 | T__195 | T__196 | T__197 | T__198 | T__199 | T__200 | T__201 | T__202 | T__203 | T__204 | T__205 | T__206 | T__207 | T__208 | T__209 | T__210 | T__211 | T__212 | T__213 | T__214 | T__215 | T__216 | T__217 | T__218 | T__219 | T__220 | T__221 | T__222 | T__223 | T__224 | T__225 | T__226 | T__227 | T__228 | T__229 | T__230 | T__231 | T__232 | T__233 | T__234 | T__235 | T__236 | T__237 | T__238 | T__239 | T__240 | T__241 | T__242 | T__243 | T__244 | T__245 | T__246 | T__247 | T__248 | T__249 | T__250 | T__251 | T__252 | T__253 | T__254 | T__255 | T__256 | T__257 | T__258 | T__259 | T__260 | T__261 | T__262 | T__263 | T__264 | T__265 | T__266 | T__267 | T__268 | T__269 | T__270 | T__271 | T__272 | T__273 | T__274 | T__275 | T__276 | T__277 | T__278 | T__279 | T__280 | T__281 | T__282 | T__283 | T__284 | T__285 | T__286 | T__287 | T__288 | T__289 | T__290 | T__291 | T__292 | T__293 | T__294 | T__295 | T__296 | T__297 | T__298 | T__299 | T__300 | T__301 | T__302 | T__303 | T__304 | T__305 | T__306 | T__307 | T__308 | T__309 | T__310 | T__311 | T__312 | T__313 | T__314 | T__315 | T__316 | T__317 | T__318 | T__319 | T__320 | T__321 | T__322 | T__323 | T__324 | T__325 | T__326 | T__327 | T__328 | T__329 | T__330 | T__331 | T__332 | T__333 | T__334 | T__335 | T__336 | T__337 | T__338 | RULE_ID | RULE_SYMBOL | RULE_VERSION | RULE_HEX | RULE_BIN | RULE_INT | RULE_STRING | RULE_BACKTICK_STRING | RULE_INTERPOLATE | RULE_LITERAL | RULE_WORDS_QUOTE_LIKE | RULE_COMMAND_QUOTE_LIKE | RULE_REGEX_QUOTE | RULE_READLINE_QUOTE | RULE_POD | RULE_DATA | RULE_END | RULE_SL_COMMENT | RULE_WS )
-        int alt58=334;
-        alt58 = dfa58.predict(input);
-        switch (alt58) {
+        // InternalPerl.g:1:8: ( T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | T__116 | T__117 | T__118 | T__119 | T__120 | T__121 | T__122 | T__123 | T__124 | T__125 | T__126 | T__127 | T__128 | T__129 | T__130 | T__131 | T__132 | T__133 | T__134 | T__135 | T__136 | T__137 | T__138 | T__139 | T__140 | T__141 | T__142 | T__143 | T__144 | T__145 | T__146 | T__147 | T__148 | T__149 | T__150 | T__151 | T__152 | T__153 | T__154 | T__155 | T__156 | T__157 | T__158 | T__159 | T__160 | T__161 | T__162 | T__163 | T__164 | T__165 | T__166 | T__167 | T__168 | T__169 | T__170 | T__171 | T__172 | T__173 | T__174 | T__175 | T__176 | T__177 | T__178 | T__179 | T__180 | T__181 | T__182 | T__183 | T__184 | T__185 | T__186 | T__187 | T__188 | T__189 | T__190 | T__191 | T__192 | T__193 | T__194 | T__195 | T__196 | T__197 | T__198 | T__199 | T__200 | T__201 | T__202 | T__203 | T__204 | T__205 | T__206 | T__207 | T__208 | T__209 | T__210 | T__211 | T__212 | T__213 | T__214 | T__215 | T__216 | T__217 | T__218 | T__219 | T__220 | T__221 | T__222 | T__223 | T__224 | T__225 | T__226 | T__227 | T__228 | T__229 | T__230 | T__231 | T__232 | T__233 | T__234 | T__235 | T__236 | T__237 | T__238 | T__239 | T__240 | T__241 | T__242 | T__243 | T__244 | T__245 | T__246 | T__247 | T__248 | T__249 | T__250 | T__251 | T__252 | T__253 | T__254 | T__255 | T__256 | T__257 | T__258 | T__259 | T__260 | T__261 | T__262 | T__263 | T__264 | T__265 | T__266 | T__267 | T__268 | T__269 | T__270 | T__271 | T__272 | T__273 | T__274 | T__275 | T__276 | T__277 | T__278 | T__279 | T__280 | T__281 | T__282 | T__283 | T__284 | T__285 | T__286 | T__287 | T__288 | T__289 | T__290 | T__291 | T__292 | T__293 | T__294 | T__295 | T__296 | T__297 | T__298 | T__299 | T__300 | T__301 | T__302 | T__303 | T__304 | T__305 | T__306 | T__307 | T__308 | T__309 | T__310 | T__311 | T__312 | T__313 | T__314 | T__315 | T__316 | T__317 | T__318 | T__319 | T__320 | T__321 | T__322 | T__323 | T__324 | T__325 | T__326 | T__327 | T__328 | T__329 | T__330 | T__331 | T__332 | T__333 | T__334 | T__335 | T__336 | T__337 | T__338 | T__339 | RULE_NUMBER | RULE_ID | RULE_SYMBOL | RULE_VERSION | RULE_STRING | RULE_BACKTICK_STRING | RULE_INTERPOLATE | RULE_LITERAL | RULE_WORDS_QUOTE_LIKE | RULE_COMMAND_QUOTE_LIKE | RULE_REGEX_QUOTE | RULE_READLINE_QUOTE | RULE_POD | RULE_DATA | RULE_END | RULE_SL_COMMENT | RULE_WS )
+        int alt64=332;
+        alt64 = dfa64.predict(input);
+        switch (alt64) {
             case 1 :
-                // InternalPerl.g:1:10: T__24
-                {
-                mT__24(); 
-
-                }
-                break;
-            case 2 :
-                // InternalPerl.g:1:16: T__25
+                // InternalPerl.g:1:10: T__25
                 {
                 mT__25(); 
 
                 }
                 break;
-            case 3 :
-                // InternalPerl.g:1:22: T__26
+            case 2 :
+                // InternalPerl.g:1:16: T__26
                 {
                 mT__26(); 
 
                 }
                 break;
-            case 4 :
-                // InternalPerl.g:1:28: T__27
+            case 3 :
+                // InternalPerl.g:1:22: T__27
                 {
                 mT__27(); 
 
                 }
                 break;
-            case 5 :
-                // InternalPerl.g:1:34: T__28
+            case 4 :
+                // InternalPerl.g:1:28: T__28
                 {
                 mT__28(); 
 
                 }
                 break;
-            case 6 :
-                // InternalPerl.g:1:40: T__29
+            case 5 :
+                // InternalPerl.g:1:34: T__29
                 {
                 mT__29(); 
 
                 }
                 break;
-            case 7 :
-                // InternalPerl.g:1:46: T__30
+            case 6 :
+                // InternalPerl.g:1:40: T__30
                 {
                 mT__30(); 
 
                 }
                 break;
-            case 8 :
-                // InternalPerl.g:1:52: T__31
+            case 7 :
+                // InternalPerl.g:1:46: T__31
                 {
                 mT__31(); 
 
                 }
                 break;
-            case 9 :
-                // InternalPerl.g:1:58: T__32
+            case 8 :
+                // InternalPerl.g:1:52: T__32
                 {
                 mT__32(); 
 
                 }
                 break;
-            case 10 :
-                // InternalPerl.g:1:64: T__33
+            case 9 :
+                // InternalPerl.g:1:58: T__33
                 {
                 mT__33(); 
 
                 }
                 break;
-            case 11 :
-                // InternalPerl.g:1:70: T__34
+            case 10 :
+                // InternalPerl.g:1:64: T__34
                 {
                 mT__34(); 
 
                 }
                 break;
-            case 12 :
-                // InternalPerl.g:1:76: T__35
+            case 11 :
+                // InternalPerl.g:1:70: T__35
                 {
                 mT__35(); 
 
                 }
                 break;
-            case 13 :
-                // InternalPerl.g:1:82: T__36
+            case 12 :
+                // InternalPerl.g:1:76: T__36
                 {
                 mT__36(); 
 
                 }
                 break;
-            case 14 :
-                // InternalPerl.g:1:88: T__37
+            case 13 :
+                // InternalPerl.g:1:82: T__37
                 {
                 mT__37(); 
 
                 }
                 break;
-            case 15 :
-                // InternalPerl.g:1:94: T__38
+            case 14 :
+                // InternalPerl.g:1:88: T__38
                 {
                 mT__38(); 
 
                 }
                 break;
-            case 16 :
-                // InternalPerl.g:1:100: T__39
+            case 15 :
+                // InternalPerl.g:1:94: T__39
                 {
                 mT__39(); 
 
                 }
                 break;
-            case 17 :
-                // InternalPerl.g:1:106: T__40
+            case 16 :
+                // InternalPerl.g:1:100: T__40
                 {
                 mT__40(); 
 
                 }
                 break;
-            case 18 :
-                // InternalPerl.g:1:112: T__41
+            case 17 :
+                // InternalPerl.g:1:106: T__41
                 {
                 mT__41(); 
 
                 }
                 break;
-            case 19 :
-                // InternalPerl.g:1:118: T__42
+            case 18 :
+                // InternalPerl.g:1:112: T__42
                 {
                 mT__42(); 
 
                 }
                 break;
-            case 20 :
-                // InternalPerl.g:1:124: T__43
+            case 19 :
+                // InternalPerl.g:1:118: T__43
                 {
                 mT__43(); 
 
                 }
                 break;
-            case 21 :
-                // InternalPerl.g:1:130: T__44
+            case 20 :
+                // InternalPerl.g:1:124: T__44
                 {
                 mT__44(); 
 
                 }
                 break;
-            case 22 :
-                // InternalPerl.g:1:136: T__45
+            case 21 :
+                // InternalPerl.g:1:130: T__45
                 {
                 mT__45(); 
 
                 }
                 break;
-            case 23 :
-                // InternalPerl.g:1:142: T__46
+            case 22 :
+                // InternalPerl.g:1:136: T__46
                 {
                 mT__46(); 
 
                 }
                 break;
-            case 24 :
-                // InternalPerl.g:1:148: T__47
+            case 23 :
+                // InternalPerl.g:1:142: T__47
                 {
                 mT__47(); 
 
                 }
                 break;
-            case 25 :
-                // InternalPerl.g:1:154: T__48
+            case 24 :
+                // InternalPerl.g:1:148: T__48
                 {
                 mT__48(); 
 
                 }
                 break;
-            case 26 :
-                // InternalPerl.g:1:160: T__49
+            case 25 :
+                // InternalPerl.g:1:154: T__49
                 {
                 mT__49(); 
 
                 }
                 break;
-            case 27 :
-                // InternalPerl.g:1:166: T__50
+            case 26 :
+                // InternalPerl.g:1:160: T__50
                 {
                 mT__50(); 
 
                 }
                 break;
-            case 28 :
-                // InternalPerl.g:1:172: T__51
+            case 27 :
+                // InternalPerl.g:1:166: T__51
                 {
                 mT__51(); 
 
                 }
                 break;
-            case 29 :
-                // InternalPerl.g:1:178: T__52
+            case 28 :
+                // InternalPerl.g:1:172: T__52
                 {
                 mT__52(); 
 
                 }
                 break;
-            case 30 :
-                // InternalPerl.g:1:184: T__53
+            case 29 :
+                // InternalPerl.g:1:178: T__53
                 {
                 mT__53(); 
 
                 }
                 break;
-            case 31 :
-                // InternalPerl.g:1:190: T__54
+            case 30 :
+                // InternalPerl.g:1:184: T__54
                 {
                 mT__54(); 
 
                 }
                 break;
-            case 32 :
-                // InternalPerl.g:1:196: T__55
+            case 31 :
+                // InternalPerl.g:1:190: T__55
                 {
                 mT__55(); 
 
                 }
                 break;
-            case 33 :
-                // InternalPerl.g:1:202: T__56
+            case 32 :
+                // InternalPerl.g:1:196: T__56
                 {
                 mT__56(); 
 
                 }
                 break;
-            case 34 :
-                // InternalPerl.g:1:208: T__57
+            case 33 :
+                // InternalPerl.g:1:202: T__57
                 {
                 mT__57(); 
 
                 }
                 break;
-            case 35 :
-                // InternalPerl.g:1:214: T__58
+            case 34 :
+                // InternalPerl.g:1:208: T__58
                 {
                 mT__58(); 
 
                 }
                 break;
-            case 36 :
-                // InternalPerl.g:1:220: T__59
+            case 35 :
+                // InternalPerl.g:1:214: T__59
                 {
                 mT__59(); 
 
                 }
                 break;
-            case 37 :
-                // InternalPerl.g:1:226: T__60
+            case 36 :
+                // InternalPerl.g:1:220: T__60
                 {
                 mT__60(); 
 
                 }
                 break;
-            case 38 :
-                // InternalPerl.g:1:232: T__61
+            case 37 :
+                // InternalPerl.g:1:226: T__61
                 {
                 mT__61(); 
 
                 }
                 break;
-            case 39 :
-                // InternalPerl.g:1:238: T__62
+            case 38 :
+                // InternalPerl.g:1:232: T__62
                 {
                 mT__62(); 
 
                 }
                 break;
-            case 40 :
-                // InternalPerl.g:1:244: T__63
+            case 39 :
+                // InternalPerl.g:1:238: T__63
                 {
                 mT__63(); 
 
                 }
                 break;
-            case 41 :
-                // InternalPerl.g:1:250: T__64
+            case 40 :
+                // InternalPerl.g:1:244: T__64
                 {
                 mT__64(); 
 
                 }
                 break;
-            case 42 :
-                // InternalPerl.g:1:256: T__65
+            case 41 :
+                // InternalPerl.g:1:250: T__65
                 {
                 mT__65(); 
 
                 }
                 break;
-            case 43 :
-                // InternalPerl.g:1:262: T__66
+            case 42 :
+                // InternalPerl.g:1:256: T__66
                 {
                 mT__66(); 
 
                 }
                 break;
-            case 44 :
-                // InternalPerl.g:1:268: T__67
+            case 43 :
+                // InternalPerl.g:1:262: T__67
                 {
                 mT__67(); 
 
                 }
                 break;
-            case 45 :
-                // InternalPerl.g:1:274: T__68
+            case 44 :
+                // InternalPerl.g:1:268: T__68
                 {
                 mT__68(); 
 
                 }
                 break;
-            case 46 :
-                // InternalPerl.g:1:280: T__69
+            case 45 :
+                // InternalPerl.g:1:274: T__69
                 {
                 mT__69(); 
 
                 }
                 break;
-            case 47 :
-                // InternalPerl.g:1:286: T__70
+            case 46 :
+                // InternalPerl.g:1:280: T__70
                 {
                 mT__70(); 
 
                 }
                 break;
-            case 48 :
-                // InternalPerl.g:1:292: T__71
+            case 47 :
+                // InternalPerl.g:1:286: T__71
                 {
                 mT__71(); 
 
                 }
                 break;
-            case 49 :
-                // InternalPerl.g:1:298: T__72
+            case 48 :
+                // InternalPerl.g:1:292: T__72
                 {
                 mT__72(); 
 
                 }
                 break;
-            case 50 :
-                // InternalPerl.g:1:304: T__73
+            case 49 :
+                // InternalPerl.g:1:298: T__73
                 {
                 mT__73(); 
 
                 }
                 break;
-            case 51 :
-                // InternalPerl.g:1:310: T__74
+            case 50 :
+                // InternalPerl.g:1:304: T__74
                 {
                 mT__74(); 
 
                 }
                 break;
-            case 52 :
-                // InternalPerl.g:1:316: T__75
+            case 51 :
+                // InternalPerl.g:1:310: T__75
                 {
                 mT__75(); 
 
                 }
                 break;
-            case 53 :
-                // InternalPerl.g:1:322: T__76
+            case 52 :
+                // InternalPerl.g:1:316: T__76
                 {
                 mT__76(); 
 
                 }
                 break;
-            case 54 :
-                // InternalPerl.g:1:328: T__77
+            case 53 :
+                // InternalPerl.g:1:322: T__77
                 {
                 mT__77(); 
 
                 }
                 break;
-            case 55 :
-                // InternalPerl.g:1:334: T__78
+            case 54 :
+                // InternalPerl.g:1:328: T__78
                 {
                 mT__78(); 
 
                 }
                 break;
-            case 56 :
-                // InternalPerl.g:1:340: T__79
+            case 55 :
+                // InternalPerl.g:1:334: T__79
                 {
                 mT__79(); 
 
                 }
                 break;
-            case 57 :
-                // InternalPerl.g:1:346: T__80
+            case 56 :
+                // InternalPerl.g:1:340: T__80
                 {
                 mT__80(); 
 
                 }
                 break;
-            case 58 :
-                // InternalPerl.g:1:352: T__81
+            case 57 :
+                // InternalPerl.g:1:346: T__81
                 {
                 mT__81(); 
 
                 }
                 break;
-            case 59 :
-                // InternalPerl.g:1:358: T__82
+            case 58 :
+                // InternalPerl.g:1:352: T__82
                 {
                 mT__82(); 
 
                 }
                 break;
-            case 60 :
-                // InternalPerl.g:1:364: T__83
+            case 59 :
+                // InternalPerl.g:1:358: T__83
                 {
                 mT__83(); 
 
                 }
                 break;
-            case 61 :
-                // InternalPerl.g:1:370: T__84
+            case 60 :
+                // InternalPerl.g:1:364: T__84
                 {
                 mT__84(); 
 
                 }
                 break;
-            case 62 :
-                // InternalPerl.g:1:376: T__85
+            case 61 :
+                // InternalPerl.g:1:370: T__85
                 {
                 mT__85(); 
 
                 }
                 break;
-            case 63 :
-                // InternalPerl.g:1:382: T__86
+            case 62 :
+                // InternalPerl.g:1:376: T__86
                 {
                 mT__86(); 
 
                 }
                 break;
-            case 64 :
-                // InternalPerl.g:1:388: T__87
+            case 63 :
+                // InternalPerl.g:1:382: T__87
                 {
                 mT__87(); 
 
                 }
                 break;
-            case 65 :
-                // InternalPerl.g:1:394: T__88
+            case 64 :
+                // InternalPerl.g:1:388: T__88
                 {
                 mT__88(); 
 
                 }
                 break;
-            case 66 :
-                // InternalPerl.g:1:400: T__89
+            case 65 :
+                // InternalPerl.g:1:394: T__89
                 {
                 mT__89(); 
 
                 }
                 break;
-            case 67 :
-                // InternalPerl.g:1:406: T__90
+            case 66 :
+                // InternalPerl.g:1:400: T__90
                 {
                 mT__90(); 
 
                 }
                 break;
-            case 68 :
-                // InternalPerl.g:1:412: T__91
+            case 67 :
+                // InternalPerl.g:1:406: T__91
                 {
                 mT__91(); 
 
                 }
                 break;
-            case 69 :
-                // InternalPerl.g:1:418: T__92
+            case 68 :
+                // InternalPerl.g:1:412: T__92
                 {
                 mT__92(); 
 
                 }
                 break;
-            case 70 :
-                // InternalPerl.g:1:424: T__93
+            case 69 :
+                // InternalPerl.g:1:418: T__93
                 {
                 mT__93(); 
 
                 }
                 break;
-            case 71 :
-                // InternalPerl.g:1:430: T__94
+            case 70 :
+                // InternalPerl.g:1:424: T__94
                 {
                 mT__94(); 
 
                 }
                 break;
-            case 72 :
-                // InternalPerl.g:1:436: T__95
+            case 71 :
+                // InternalPerl.g:1:430: T__95
                 {
                 mT__95(); 
 
                 }
                 break;
-            case 73 :
-                // InternalPerl.g:1:442: T__96
+            case 72 :
+                // InternalPerl.g:1:436: T__96
                 {
                 mT__96(); 
 
                 }
                 break;
-            case 74 :
-                // InternalPerl.g:1:448: T__97
+            case 73 :
+                // InternalPerl.g:1:442: T__97
                 {
                 mT__97(); 
 
                 }
                 break;
-            case 75 :
-                // InternalPerl.g:1:454: T__98
+            case 74 :
+                // InternalPerl.g:1:448: T__98
                 {
                 mT__98(); 
 
                 }
                 break;
-            case 76 :
-                // InternalPerl.g:1:460: T__99
+            case 75 :
+                // InternalPerl.g:1:454: T__99
                 {
                 mT__99(); 
 
                 }
                 break;
-            case 77 :
-                // InternalPerl.g:1:466: T__100
+            case 76 :
+                // InternalPerl.g:1:460: T__100
                 {
                 mT__100(); 
 
                 }
                 break;
-            case 78 :
-                // InternalPerl.g:1:473: T__101
+            case 77 :
+                // InternalPerl.g:1:467: T__101
                 {
                 mT__101(); 
 
                 }
                 break;
-            case 79 :
-                // InternalPerl.g:1:480: T__102
+            case 78 :
+                // InternalPerl.g:1:474: T__102
                 {
                 mT__102(); 
 
                 }
                 break;
-            case 80 :
-                // InternalPerl.g:1:487: T__103
+            case 79 :
+                // InternalPerl.g:1:481: T__103
                 {
                 mT__103(); 
 
                 }
                 break;
-            case 81 :
-                // InternalPerl.g:1:494: T__104
+            case 80 :
+                // InternalPerl.g:1:488: T__104
                 {
                 mT__104(); 
 
                 }
                 break;
-            case 82 :
-                // InternalPerl.g:1:501: T__105
+            case 81 :
+                // InternalPerl.g:1:495: T__105
                 {
                 mT__105(); 
 
                 }
                 break;
-            case 83 :
-                // InternalPerl.g:1:508: T__106
+            case 82 :
+                // InternalPerl.g:1:502: T__106
                 {
                 mT__106(); 
 
                 }
                 break;
-            case 84 :
-                // InternalPerl.g:1:515: T__107
+            case 83 :
+                // InternalPerl.g:1:509: T__107
                 {
                 mT__107(); 
 
                 }
                 break;
-            case 85 :
-                // InternalPerl.g:1:522: T__108
+            case 84 :
+                // InternalPerl.g:1:516: T__108
                 {
                 mT__108(); 
 
                 }
                 break;
-            case 86 :
-                // InternalPerl.g:1:529: T__109
+            case 85 :
+                // InternalPerl.g:1:523: T__109
                 {
                 mT__109(); 
 
                 }
                 break;
-            case 87 :
-                // InternalPerl.g:1:536: T__110
+            case 86 :
+                // InternalPerl.g:1:530: T__110
                 {
                 mT__110(); 
 
                 }
                 break;
-            case 88 :
-                // InternalPerl.g:1:543: T__111
+            case 87 :
+                // InternalPerl.g:1:537: T__111
                 {
                 mT__111(); 
 
                 }
                 break;
-            case 89 :
-                // InternalPerl.g:1:550: T__112
+            case 88 :
+                // InternalPerl.g:1:544: T__112
                 {
                 mT__112(); 
 
                 }
                 break;
-            case 90 :
-                // InternalPerl.g:1:557: T__113
+            case 89 :
+                // InternalPerl.g:1:551: T__113
                 {
                 mT__113(); 
 
                 }
                 break;
-            case 91 :
-                // InternalPerl.g:1:564: T__114
+            case 90 :
+                // InternalPerl.g:1:558: T__114
                 {
                 mT__114(); 
 
                 }
                 break;
-            case 92 :
-                // InternalPerl.g:1:571: T__115
+            case 91 :
+                // InternalPerl.g:1:565: T__115
                 {
                 mT__115(); 
 
                 }
                 break;
-            case 93 :
-                // InternalPerl.g:1:578: T__116
+            case 92 :
+                // InternalPerl.g:1:572: T__116
                 {
                 mT__116(); 
 
                 }
                 break;
-            case 94 :
-                // InternalPerl.g:1:585: T__117
+            case 93 :
+                // InternalPerl.g:1:579: T__117
                 {
                 mT__117(); 
 
                 }
                 break;
-            case 95 :
-                // InternalPerl.g:1:592: T__118
+            case 94 :
+                // InternalPerl.g:1:586: T__118
                 {
                 mT__118(); 
 
                 }
                 break;
-            case 96 :
-                // InternalPerl.g:1:599: T__119
+            case 95 :
+                // InternalPerl.g:1:593: T__119
                 {
                 mT__119(); 
 
                 }
                 break;
-            case 97 :
-                // InternalPerl.g:1:606: T__120
+            case 96 :
+                // InternalPerl.g:1:600: T__120
                 {
                 mT__120(); 
 
                 }
                 break;
-            case 98 :
-                // InternalPerl.g:1:613: T__121
+            case 97 :
+                // InternalPerl.g:1:607: T__121
                 {
                 mT__121(); 
 
                 }
                 break;
-            case 99 :
-                // InternalPerl.g:1:620: T__122
+            case 98 :
+                // InternalPerl.g:1:614: T__122
                 {
                 mT__122(); 
 
                 }
                 break;
-            case 100 :
-                // InternalPerl.g:1:627: T__123
+            case 99 :
+                // InternalPerl.g:1:621: T__123
                 {
                 mT__123(); 
 
                 }
                 break;
-            case 101 :
-                // InternalPerl.g:1:634: T__124
+            case 100 :
+                // InternalPerl.g:1:628: T__124
                 {
                 mT__124(); 
 
                 }
                 break;
-            case 102 :
-                // InternalPerl.g:1:641: T__125
+            case 101 :
+                // InternalPerl.g:1:635: T__125
                 {
                 mT__125(); 
 
                 }
                 break;
-            case 103 :
-                // InternalPerl.g:1:648: T__126
+            case 102 :
+                // InternalPerl.g:1:642: T__126
                 {
                 mT__126(); 
 
                 }
                 break;
-            case 104 :
-                // InternalPerl.g:1:655: T__127
+            case 103 :
+                // InternalPerl.g:1:649: T__127
                 {
                 mT__127(); 
 
                 }
                 break;
-            case 105 :
-                // InternalPerl.g:1:662: T__128
+            case 104 :
+                // InternalPerl.g:1:656: T__128
                 {
                 mT__128(); 
 
                 }
                 break;
-            case 106 :
-                // InternalPerl.g:1:669: T__129
+            case 105 :
+                // InternalPerl.g:1:663: T__129
                 {
                 mT__129(); 
 
                 }
                 break;
-            case 107 :
-                // InternalPerl.g:1:676: T__130
+            case 106 :
+                // InternalPerl.g:1:670: T__130
                 {
                 mT__130(); 
 
                 }
                 break;
-            case 108 :
-                // InternalPerl.g:1:683: T__131
+            case 107 :
+                // InternalPerl.g:1:677: T__131
                 {
                 mT__131(); 
 
                 }
                 break;
-            case 109 :
-                // InternalPerl.g:1:690: T__132
+            case 108 :
+                // InternalPerl.g:1:684: T__132
                 {
                 mT__132(); 
 
                 }
                 break;
-            case 110 :
-                // InternalPerl.g:1:697: T__133
+            case 109 :
+                // InternalPerl.g:1:691: T__133
                 {
                 mT__133(); 
 
                 }
                 break;
-            case 111 :
-                // InternalPerl.g:1:704: T__134
+            case 110 :
+                // InternalPerl.g:1:698: T__134
                 {
                 mT__134(); 
 
                 }
                 break;
-            case 112 :
-                // InternalPerl.g:1:711: T__135
+            case 111 :
+                // InternalPerl.g:1:705: T__135
                 {
                 mT__135(); 
 
                 }
                 break;
-            case 113 :
-                // InternalPerl.g:1:718: T__136
+            case 112 :
+                // InternalPerl.g:1:712: T__136
                 {
                 mT__136(); 
 
                 }
                 break;
-            case 114 :
-                // InternalPerl.g:1:725: T__137
+            case 113 :
+                // InternalPerl.g:1:719: T__137
                 {
                 mT__137(); 
 
                 }
                 break;
-            case 115 :
-                // InternalPerl.g:1:732: T__138
+            case 114 :
+                // InternalPerl.g:1:726: T__138
                 {
                 mT__138(); 
 
                 }
                 break;
-            case 116 :
-                // InternalPerl.g:1:739: T__139
+            case 115 :
+                // InternalPerl.g:1:733: T__139
                 {
                 mT__139(); 
 
                 }
                 break;
-            case 117 :
-                // InternalPerl.g:1:746: T__140
+            case 116 :
+                // InternalPerl.g:1:740: T__140
                 {
                 mT__140(); 
 
                 }
                 break;
-            case 118 :
-                // InternalPerl.g:1:753: T__141
+            case 117 :
+                // InternalPerl.g:1:747: T__141
                 {
                 mT__141(); 
 
                 }
                 break;
-            case 119 :
-                // InternalPerl.g:1:760: T__142
+            case 118 :
+                // InternalPerl.g:1:754: T__142
                 {
                 mT__142(); 
 
                 }
                 break;
-            case 120 :
-                // InternalPerl.g:1:767: T__143
+            case 119 :
+                // InternalPerl.g:1:761: T__143
                 {
                 mT__143(); 
 
                 }
                 break;
-            case 121 :
-                // InternalPerl.g:1:774: T__144
+            case 120 :
+                // InternalPerl.g:1:768: T__144
                 {
                 mT__144(); 
 
                 }
                 break;
-            case 122 :
-                // InternalPerl.g:1:781: T__145
+            case 121 :
+                // InternalPerl.g:1:775: T__145
                 {
                 mT__145(); 
 
                 }
                 break;
-            case 123 :
-                // InternalPerl.g:1:788: T__146
+            case 122 :
+                // InternalPerl.g:1:782: T__146
                 {
                 mT__146(); 
 
                 }
                 break;
-            case 124 :
-                // InternalPerl.g:1:795: T__147
+            case 123 :
+                // InternalPerl.g:1:789: T__147
                 {
                 mT__147(); 
 
                 }
                 break;
-            case 125 :
-                // InternalPerl.g:1:802: T__148
+            case 124 :
+                // InternalPerl.g:1:796: T__148
                 {
                 mT__148(); 
 
                 }
                 break;
-            case 126 :
-                // InternalPerl.g:1:809: T__149
+            case 125 :
+                // InternalPerl.g:1:803: T__149
                 {
                 mT__149(); 
 
                 }
                 break;
-            case 127 :
-                // InternalPerl.g:1:816: T__150
+            case 126 :
+                // InternalPerl.g:1:810: T__150
                 {
                 mT__150(); 
 
                 }
                 break;
-            case 128 :
-                // InternalPerl.g:1:823: T__151
+            case 127 :
+                // InternalPerl.g:1:817: T__151
                 {
                 mT__151(); 
 
                 }
                 break;
-            case 129 :
-                // InternalPerl.g:1:830: T__152
+            case 128 :
+                // InternalPerl.g:1:824: T__152
                 {
                 mT__152(); 
 
                 }
                 break;
-            case 130 :
-                // InternalPerl.g:1:837: T__153
+            case 129 :
+                // InternalPerl.g:1:831: T__153
                 {
                 mT__153(); 
 
                 }
                 break;
-            case 131 :
-                // InternalPerl.g:1:844: T__154
+            case 130 :
+                // InternalPerl.g:1:838: T__154
                 {
                 mT__154(); 
 
                 }
                 break;
-            case 132 :
-                // InternalPerl.g:1:851: T__155
+            case 131 :
+                // InternalPerl.g:1:845: T__155
                 {
                 mT__155(); 
 
                 }
                 break;
-            case 133 :
-                // InternalPerl.g:1:858: T__156
+            case 132 :
+                // InternalPerl.g:1:852: T__156
                 {
                 mT__156(); 
 
                 }
                 break;
-            case 134 :
-                // InternalPerl.g:1:865: T__157
+            case 133 :
+                // InternalPerl.g:1:859: T__157
                 {
                 mT__157(); 
 
                 }
                 break;
-            case 135 :
-                // InternalPerl.g:1:872: T__158
+            case 134 :
+                // InternalPerl.g:1:866: T__158
                 {
                 mT__158(); 
 
                 }
                 break;
-            case 136 :
-                // InternalPerl.g:1:879: T__159
+            case 135 :
+                // InternalPerl.g:1:873: T__159
                 {
                 mT__159(); 
 
                 }
                 break;
-            case 137 :
-                // InternalPerl.g:1:886: T__160
+            case 136 :
+                // InternalPerl.g:1:880: T__160
                 {
                 mT__160(); 
 
                 }
                 break;
-            case 138 :
-                // InternalPerl.g:1:893: T__161
+            case 137 :
+                // InternalPerl.g:1:887: T__161
                 {
                 mT__161(); 
 
                 }
                 break;
-            case 139 :
-                // InternalPerl.g:1:900: T__162
+            case 138 :
+                // InternalPerl.g:1:894: T__162
                 {
                 mT__162(); 
 
                 }
                 break;
-            case 140 :
-                // InternalPerl.g:1:907: T__163
+            case 139 :
+                // InternalPerl.g:1:901: T__163
                 {
                 mT__163(); 
 
                 }
                 break;
-            case 141 :
-                // InternalPerl.g:1:914: T__164
+            case 140 :
+                // InternalPerl.g:1:908: T__164
                 {
                 mT__164(); 
 
                 }
                 break;
-            case 142 :
-                // InternalPerl.g:1:921: T__165
+            case 141 :
+                // InternalPerl.g:1:915: T__165
                 {
                 mT__165(); 
 
                 }
                 break;
-            case 143 :
-                // InternalPerl.g:1:928: T__166
+            case 142 :
+                // InternalPerl.g:1:922: T__166
                 {
                 mT__166(); 
 
                 }
                 break;
-            case 144 :
-                // InternalPerl.g:1:935: T__167
+            case 143 :
+                // InternalPerl.g:1:929: T__167
                 {
                 mT__167(); 
 
                 }
                 break;
-            case 145 :
-                // InternalPerl.g:1:942: T__168
+            case 144 :
+                // InternalPerl.g:1:936: T__168
                 {
                 mT__168(); 
 
                 }
                 break;
-            case 146 :
-                // InternalPerl.g:1:949: T__169
+            case 145 :
+                // InternalPerl.g:1:943: T__169
                 {
                 mT__169(); 
 
                 }
                 break;
-            case 147 :
-                // InternalPerl.g:1:956: T__170
+            case 146 :
+                // InternalPerl.g:1:950: T__170
                 {
                 mT__170(); 
 
                 }
                 break;
-            case 148 :
-                // InternalPerl.g:1:963: T__171
+            case 147 :
+                // InternalPerl.g:1:957: T__171
                 {
                 mT__171(); 
 
                 }
                 break;
-            case 149 :
-                // InternalPerl.g:1:970: T__172
+            case 148 :
+                // InternalPerl.g:1:964: T__172
                 {
                 mT__172(); 
 
                 }
                 break;
-            case 150 :
-                // InternalPerl.g:1:977: T__173
+            case 149 :
+                // InternalPerl.g:1:971: T__173
                 {
                 mT__173(); 
 
                 }
                 break;
-            case 151 :
-                // InternalPerl.g:1:984: T__174
+            case 150 :
+                // InternalPerl.g:1:978: T__174
                 {
                 mT__174(); 
 
                 }
                 break;
-            case 152 :
-                // InternalPerl.g:1:991: T__175
+            case 151 :
+                // InternalPerl.g:1:985: T__175
                 {
                 mT__175(); 
 
                 }
                 break;
-            case 153 :
-                // InternalPerl.g:1:998: T__176
+            case 152 :
+                // InternalPerl.g:1:992: T__176
                 {
                 mT__176(); 
 
                 }
                 break;
-            case 154 :
-                // InternalPerl.g:1:1005: T__177
+            case 153 :
+                // InternalPerl.g:1:999: T__177
                 {
                 mT__177(); 
 
                 }
                 break;
-            case 155 :
-                // InternalPerl.g:1:1012: T__178
+            case 154 :
+                // InternalPerl.g:1:1006: T__178
                 {
                 mT__178(); 
 
                 }
                 break;
-            case 156 :
-                // InternalPerl.g:1:1019: T__179
+            case 155 :
+                // InternalPerl.g:1:1013: T__179
                 {
                 mT__179(); 
 
                 }
                 break;
-            case 157 :
-                // InternalPerl.g:1:1026: T__180
+            case 156 :
+                // InternalPerl.g:1:1020: T__180
                 {
                 mT__180(); 
 
                 }
                 break;
-            case 158 :
-                // InternalPerl.g:1:1033: T__181
+            case 157 :
+                // InternalPerl.g:1:1027: T__181
                 {
                 mT__181(); 
 
                 }
                 break;
-            case 159 :
-                // InternalPerl.g:1:1040: T__182
+            case 158 :
+                // InternalPerl.g:1:1034: T__182
                 {
                 mT__182(); 
 
                 }
                 break;
-            case 160 :
-                // InternalPerl.g:1:1047: T__183
+            case 159 :
+                // InternalPerl.g:1:1041: T__183
                 {
                 mT__183(); 
 
                 }
                 break;
-            case 161 :
-                // InternalPerl.g:1:1054: T__184
+            case 160 :
+                // InternalPerl.g:1:1048: T__184
                 {
                 mT__184(); 
 
                 }
                 break;
-            case 162 :
-                // InternalPerl.g:1:1061: T__185
+            case 161 :
+                // InternalPerl.g:1:1055: T__185
                 {
                 mT__185(); 
 
                 }
                 break;
-            case 163 :
-                // InternalPerl.g:1:1068: T__186
+            case 162 :
+                // InternalPerl.g:1:1062: T__186
                 {
                 mT__186(); 
 
                 }
                 break;
-            case 164 :
-                // InternalPerl.g:1:1075: T__187
+            case 163 :
+                // InternalPerl.g:1:1069: T__187
                 {
                 mT__187(); 
 
                 }
                 break;
-            case 165 :
-                // InternalPerl.g:1:1082: T__188
+            case 164 :
+                // InternalPerl.g:1:1076: T__188
                 {
                 mT__188(); 
 
                 }
                 break;
-            case 166 :
-                // InternalPerl.g:1:1089: T__189
+            case 165 :
+                // InternalPerl.g:1:1083: T__189
                 {
                 mT__189(); 
 
                 }
                 break;
-            case 167 :
-                // InternalPerl.g:1:1096: T__190
+            case 166 :
+                // InternalPerl.g:1:1090: T__190
                 {
                 mT__190(); 
 
                 }
                 break;
-            case 168 :
-                // InternalPerl.g:1:1103: T__191
+            case 167 :
+                // InternalPerl.g:1:1097: T__191
                 {
                 mT__191(); 
 
                 }
                 break;
-            case 169 :
-                // InternalPerl.g:1:1110: T__192
+            case 168 :
+                // InternalPerl.g:1:1104: T__192
                 {
                 mT__192(); 
 
                 }
                 break;
-            case 170 :
-                // InternalPerl.g:1:1117: T__193
+            case 169 :
+                // InternalPerl.g:1:1111: T__193
                 {
                 mT__193(); 
 
                 }
                 break;
-            case 171 :
-                // InternalPerl.g:1:1124: T__194
+            case 170 :
+                // InternalPerl.g:1:1118: T__194
                 {
                 mT__194(); 
 
                 }
                 break;
-            case 172 :
-                // InternalPerl.g:1:1131: T__195
+            case 171 :
+                // InternalPerl.g:1:1125: T__195
                 {
                 mT__195(); 
 
                 }
                 break;
-            case 173 :
-                // InternalPerl.g:1:1138: T__196
+            case 172 :
+                // InternalPerl.g:1:1132: T__196
                 {
                 mT__196(); 
 
                 }
                 break;
-            case 174 :
-                // InternalPerl.g:1:1145: T__197
+            case 173 :
+                // InternalPerl.g:1:1139: T__197
                 {
                 mT__197(); 
 
                 }
                 break;
-            case 175 :
-                // InternalPerl.g:1:1152: T__198
+            case 174 :
+                // InternalPerl.g:1:1146: T__198
                 {
                 mT__198(); 
 
                 }
                 break;
-            case 176 :
-                // InternalPerl.g:1:1159: T__199
+            case 175 :
+                // InternalPerl.g:1:1153: T__199
                 {
                 mT__199(); 
 
                 }
                 break;
-            case 177 :
-                // InternalPerl.g:1:1166: T__200
+            case 176 :
+                // InternalPerl.g:1:1160: T__200
                 {
                 mT__200(); 
 
                 }
                 break;
-            case 178 :
-                // InternalPerl.g:1:1173: T__201
+            case 177 :
+                // InternalPerl.g:1:1167: T__201
                 {
                 mT__201(); 
 
                 }
                 break;
-            case 179 :
-                // InternalPerl.g:1:1180: T__202
+            case 178 :
+                // InternalPerl.g:1:1174: T__202
                 {
                 mT__202(); 
 
                 }
                 break;
-            case 180 :
-                // InternalPerl.g:1:1187: T__203
+            case 179 :
+                // InternalPerl.g:1:1181: T__203
                 {
                 mT__203(); 
 
                 }
                 break;
-            case 181 :
-                // InternalPerl.g:1:1194: T__204
+            case 180 :
+                // InternalPerl.g:1:1188: T__204
                 {
                 mT__204(); 
 
                 }
                 break;
-            case 182 :
-                // InternalPerl.g:1:1201: T__205
+            case 181 :
+                // InternalPerl.g:1:1195: T__205
                 {
                 mT__205(); 
 
                 }
                 break;
-            case 183 :
-                // InternalPerl.g:1:1208: T__206
+            case 182 :
+                // InternalPerl.g:1:1202: T__206
                 {
                 mT__206(); 
 
                 }
                 break;
-            case 184 :
-                // InternalPerl.g:1:1215: T__207
+            case 183 :
+                // InternalPerl.g:1:1209: T__207
                 {
                 mT__207(); 
 
                 }
                 break;
-            case 185 :
-                // InternalPerl.g:1:1222: T__208
+            case 184 :
+                // InternalPerl.g:1:1216: T__208
                 {
                 mT__208(); 
 
                 }
                 break;
-            case 186 :
-                // InternalPerl.g:1:1229: T__209
+            case 185 :
+                // InternalPerl.g:1:1223: T__209
                 {
                 mT__209(); 
 
                 }
                 break;
-            case 187 :
-                // InternalPerl.g:1:1236: T__210
+            case 186 :
+                // InternalPerl.g:1:1230: T__210
                 {
                 mT__210(); 
 
                 }
                 break;
-            case 188 :
-                // InternalPerl.g:1:1243: T__211
+            case 187 :
+                // InternalPerl.g:1:1237: T__211
                 {
                 mT__211(); 
 
                 }
                 break;
-            case 189 :
-                // InternalPerl.g:1:1250: T__212
+            case 188 :
+                // InternalPerl.g:1:1244: T__212
                 {
                 mT__212(); 
 
                 }
                 break;
-            case 190 :
-                // InternalPerl.g:1:1257: T__213
+            case 189 :
+                // InternalPerl.g:1:1251: T__213
                 {
                 mT__213(); 
 
                 }
                 break;
-            case 191 :
-                // InternalPerl.g:1:1264: T__214
+            case 190 :
+                // InternalPerl.g:1:1258: T__214
                 {
                 mT__214(); 
 
                 }
                 break;
-            case 192 :
-                // InternalPerl.g:1:1271: T__215
+            case 191 :
+                // InternalPerl.g:1:1265: T__215
                 {
                 mT__215(); 
 
                 }
                 break;
-            case 193 :
-                // InternalPerl.g:1:1278: T__216
+            case 192 :
+                // InternalPerl.g:1:1272: T__216
                 {
                 mT__216(); 
 
                 }
                 break;
-            case 194 :
-                // InternalPerl.g:1:1285: T__217
+            case 193 :
+                // InternalPerl.g:1:1279: T__217
                 {
                 mT__217(); 
 
                 }
                 break;
-            case 195 :
-                // InternalPerl.g:1:1292: T__218
+            case 194 :
+                // InternalPerl.g:1:1286: T__218
                 {
                 mT__218(); 
 
                 }
                 break;
-            case 196 :
-                // InternalPerl.g:1:1299: T__219
+            case 195 :
+                // InternalPerl.g:1:1293: T__219
                 {
                 mT__219(); 
 
                 }
                 break;
-            case 197 :
-                // InternalPerl.g:1:1306: T__220
+            case 196 :
+                // InternalPerl.g:1:1300: T__220
                 {
                 mT__220(); 
 
                 }
                 break;
-            case 198 :
-                // InternalPerl.g:1:1313: T__221
+            case 197 :
+                // InternalPerl.g:1:1307: T__221
                 {
                 mT__221(); 
 
                 }
                 break;
-            case 199 :
-                // InternalPerl.g:1:1320: T__222
+            case 198 :
+                // InternalPerl.g:1:1314: T__222
                 {
                 mT__222(); 
 
                 }
                 break;
-            case 200 :
-                // InternalPerl.g:1:1327: T__223
+            case 199 :
+                // InternalPerl.g:1:1321: T__223
                 {
                 mT__223(); 
 
                 }
                 break;
-            case 201 :
-                // InternalPerl.g:1:1334: T__224
+            case 200 :
+                // InternalPerl.g:1:1328: T__224
                 {
                 mT__224(); 
 
                 }
                 break;
-            case 202 :
-                // InternalPerl.g:1:1341: T__225
+            case 201 :
+                // InternalPerl.g:1:1335: T__225
                 {
                 mT__225(); 
 
                 }
                 break;
-            case 203 :
-                // InternalPerl.g:1:1348: T__226
+            case 202 :
+                // InternalPerl.g:1:1342: T__226
                 {
                 mT__226(); 
 
                 }
                 break;
-            case 204 :
-                // InternalPerl.g:1:1355: T__227
+            case 203 :
+                // InternalPerl.g:1:1349: T__227
                 {
                 mT__227(); 
 
                 }
                 break;
-            case 205 :
-                // InternalPerl.g:1:1362: T__228
+            case 204 :
+                // InternalPerl.g:1:1356: T__228
                 {
                 mT__228(); 
 
                 }
                 break;
-            case 206 :
-                // InternalPerl.g:1:1369: T__229
+            case 205 :
+                // InternalPerl.g:1:1363: T__229
                 {
                 mT__229(); 
 
                 }
                 break;
-            case 207 :
-                // InternalPerl.g:1:1376: T__230
+            case 206 :
+                // InternalPerl.g:1:1370: T__230
                 {
                 mT__230(); 
 
                 }
                 break;
-            case 208 :
-                // InternalPerl.g:1:1383: T__231
+            case 207 :
+                // InternalPerl.g:1:1377: T__231
                 {
                 mT__231(); 
 
                 }
                 break;
-            case 209 :
-                // InternalPerl.g:1:1390: T__232
+            case 208 :
+                // InternalPerl.g:1:1384: T__232
                 {
                 mT__232(); 
 
                 }
                 break;
-            case 210 :
-                // InternalPerl.g:1:1397: T__233
+            case 209 :
+                // InternalPerl.g:1:1391: T__233
                 {
                 mT__233(); 
 
                 }
                 break;
-            case 211 :
-                // InternalPerl.g:1:1404: T__234
+            case 210 :
+                // InternalPerl.g:1:1398: T__234
                 {
                 mT__234(); 
 
                 }
                 break;
-            case 212 :
-                // InternalPerl.g:1:1411: T__235
+            case 211 :
+                // InternalPerl.g:1:1405: T__235
                 {
                 mT__235(); 
 
                 }
                 break;
-            case 213 :
-                // InternalPerl.g:1:1418: T__236
+            case 212 :
+                // InternalPerl.g:1:1412: T__236
                 {
                 mT__236(); 
 
                 }
                 break;
-            case 214 :
-                // InternalPerl.g:1:1425: T__237
+            case 213 :
+                // InternalPerl.g:1:1419: T__237
                 {
                 mT__237(); 
 
                 }
                 break;
-            case 215 :
-                // InternalPerl.g:1:1432: T__238
+            case 214 :
+                // InternalPerl.g:1:1426: T__238
                 {
                 mT__238(); 
 
                 }
                 break;
-            case 216 :
-                // InternalPerl.g:1:1439: T__239
+            case 215 :
+                // InternalPerl.g:1:1433: T__239
                 {
                 mT__239(); 
 
                 }
                 break;
-            case 217 :
-                // InternalPerl.g:1:1446: T__240
+            case 216 :
+                // InternalPerl.g:1:1440: T__240
                 {
                 mT__240(); 
 
                 }
                 break;
-            case 218 :
-                // InternalPerl.g:1:1453: T__241
+            case 217 :
+                // InternalPerl.g:1:1447: T__241
                 {
                 mT__241(); 
 
                 }
                 break;
-            case 219 :
-                // InternalPerl.g:1:1460: T__242
+            case 218 :
+                // InternalPerl.g:1:1454: T__242
                 {
                 mT__242(); 
 
                 }
                 break;
-            case 220 :
-                // InternalPerl.g:1:1467: T__243
+            case 219 :
+                // InternalPerl.g:1:1461: T__243
                 {
                 mT__243(); 
 
                 }
                 break;
-            case 221 :
-                // InternalPerl.g:1:1474: T__244
+            case 220 :
+                // InternalPerl.g:1:1468: T__244
                 {
                 mT__244(); 
 
                 }
                 break;
-            case 222 :
-                // InternalPerl.g:1:1481: T__245
+            case 221 :
+                // InternalPerl.g:1:1475: T__245
                 {
                 mT__245(); 
 
                 }
                 break;
-            case 223 :
-                // InternalPerl.g:1:1488: T__246
+            case 222 :
+                // InternalPerl.g:1:1482: T__246
                 {
                 mT__246(); 
 
                 }
                 break;
-            case 224 :
-                // InternalPerl.g:1:1495: T__247
+            case 223 :
+                // InternalPerl.g:1:1489: T__247
                 {
                 mT__247(); 
 
                 }
                 break;
-            case 225 :
-                // InternalPerl.g:1:1502: T__248
+            case 224 :
+                // InternalPerl.g:1:1496: T__248
                 {
                 mT__248(); 
 
                 }
                 break;
-            case 226 :
-                // InternalPerl.g:1:1509: T__249
+            case 225 :
+                // InternalPerl.g:1:1503: T__249
                 {
                 mT__249(); 
 
                 }
                 break;
-            case 227 :
-                // InternalPerl.g:1:1516: T__250
+            case 226 :
+                // InternalPerl.g:1:1510: T__250
                 {
                 mT__250(); 
 
                 }
                 break;
-            case 228 :
-                // InternalPerl.g:1:1523: T__251
+            case 227 :
+                // InternalPerl.g:1:1517: T__251
                 {
                 mT__251(); 
 
                 }
                 break;
-            case 229 :
-                // InternalPerl.g:1:1530: T__252
+            case 228 :
+                // InternalPerl.g:1:1524: T__252
                 {
                 mT__252(); 
 
                 }
                 break;
-            case 230 :
-                // InternalPerl.g:1:1537: T__253
+            case 229 :
+                // InternalPerl.g:1:1531: T__253
                 {
                 mT__253(); 
 
                 }
                 break;
-            case 231 :
-                // InternalPerl.g:1:1544: T__254
+            case 230 :
+                // InternalPerl.g:1:1538: T__254
                 {
                 mT__254(); 
 
                 }
                 break;
-            case 232 :
-                // InternalPerl.g:1:1551: T__255
+            case 231 :
+                // InternalPerl.g:1:1545: T__255
                 {
                 mT__255(); 
 
                 }
                 break;
-            case 233 :
-                // InternalPerl.g:1:1558: T__256
+            case 232 :
+                // InternalPerl.g:1:1552: T__256
                 {
                 mT__256(); 
 
                 }
                 break;
-            case 234 :
-                // InternalPerl.g:1:1565: T__257
+            case 233 :
+                // InternalPerl.g:1:1559: T__257
                 {
                 mT__257(); 
 
                 }
                 break;
-            case 235 :
-                // InternalPerl.g:1:1572: T__258
+            case 234 :
+                // InternalPerl.g:1:1566: T__258
                 {
                 mT__258(); 
 
                 }
                 break;
-            case 236 :
-                // InternalPerl.g:1:1579: T__259
+            case 235 :
+                // InternalPerl.g:1:1573: T__259
                 {
                 mT__259(); 
 
                 }
                 break;
-            case 237 :
-                // InternalPerl.g:1:1586: T__260
+            case 236 :
+                // InternalPerl.g:1:1580: T__260
                 {
                 mT__260(); 
 
                 }
                 break;
-            case 238 :
-                // InternalPerl.g:1:1593: T__261
+            case 237 :
+                // InternalPerl.g:1:1587: T__261
                 {
                 mT__261(); 
 
                 }
                 break;
-            case 239 :
-                // InternalPerl.g:1:1600: T__262
+            case 238 :
+                // InternalPerl.g:1:1594: T__262
                 {
                 mT__262(); 
 
                 }
                 break;
-            case 240 :
-                // InternalPerl.g:1:1607: T__263
+            case 239 :
+                // InternalPerl.g:1:1601: T__263
                 {
                 mT__263(); 
 
                 }
                 break;
-            case 241 :
-                // InternalPerl.g:1:1614: T__264
+            case 240 :
+                // InternalPerl.g:1:1608: T__264
                 {
                 mT__264(); 
 
                 }
                 break;
-            case 242 :
-                // InternalPerl.g:1:1621: T__265
+            case 241 :
+                // InternalPerl.g:1:1615: T__265
                 {
                 mT__265(); 
 
                 }
                 break;
-            case 243 :
-                // InternalPerl.g:1:1628: T__266
+            case 242 :
+                // InternalPerl.g:1:1622: T__266
                 {
                 mT__266(); 
 
                 }
                 break;
-            case 244 :
-                // InternalPerl.g:1:1635: T__267
+            case 243 :
+                // InternalPerl.g:1:1629: T__267
                 {
                 mT__267(); 
 
                 }
                 break;
-            case 245 :
-                // InternalPerl.g:1:1642: T__268
+            case 244 :
+                // InternalPerl.g:1:1636: T__268
                 {
                 mT__268(); 
 
                 }
                 break;
-            case 246 :
-                // InternalPerl.g:1:1649: T__269
+            case 245 :
+                // InternalPerl.g:1:1643: T__269
                 {
                 mT__269(); 
 
                 }
                 break;
-            case 247 :
-                // InternalPerl.g:1:1656: T__270
+            case 246 :
+                // InternalPerl.g:1:1650: T__270
                 {
                 mT__270(); 
 
                 }
                 break;
-            case 248 :
-                // InternalPerl.g:1:1663: T__271
+            case 247 :
+                // InternalPerl.g:1:1657: T__271
                 {
                 mT__271(); 
 
                 }
                 break;
-            case 249 :
-                // InternalPerl.g:1:1670: T__272
+            case 248 :
+                // InternalPerl.g:1:1664: T__272
                 {
                 mT__272(); 
 
                 }
                 break;
-            case 250 :
-                // InternalPerl.g:1:1677: T__273
+            case 249 :
+                // InternalPerl.g:1:1671: T__273
                 {
                 mT__273(); 
 
                 }
                 break;
-            case 251 :
-                // InternalPerl.g:1:1684: T__274
+            case 250 :
+                // InternalPerl.g:1:1678: T__274
                 {
                 mT__274(); 
 
                 }
                 break;
-            case 252 :
-                // InternalPerl.g:1:1691: T__275
+            case 251 :
+                // InternalPerl.g:1:1685: T__275
                 {
                 mT__275(); 
 
                 }
                 break;
-            case 253 :
-                // InternalPerl.g:1:1698: T__276
+            case 252 :
+                // InternalPerl.g:1:1692: T__276
                 {
                 mT__276(); 
 
                 }
                 break;
-            case 254 :
-                // InternalPerl.g:1:1705: T__277
+            case 253 :
+                // InternalPerl.g:1:1699: T__277
                 {
                 mT__277(); 
 
                 }
                 break;
-            case 255 :
-                // InternalPerl.g:1:1712: T__278
+            case 254 :
+                // InternalPerl.g:1:1706: T__278
                 {
                 mT__278(); 
 
                 }
                 break;
-            case 256 :
-                // InternalPerl.g:1:1719: T__279
+            case 255 :
+                // InternalPerl.g:1:1713: T__279
                 {
                 mT__279(); 
 
                 }
                 break;
-            case 257 :
-                // InternalPerl.g:1:1726: T__280
+            case 256 :
+                // InternalPerl.g:1:1720: T__280
                 {
                 mT__280(); 
 
                 }
                 break;
-            case 258 :
-                // InternalPerl.g:1:1733: T__281
+            case 257 :
+                // InternalPerl.g:1:1727: T__281
                 {
                 mT__281(); 
 
                 }
                 break;
-            case 259 :
-                // InternalPerl.g:1:1740: T__282
+            case 258 :
+                // InternalPerl.g:1:1734: T__282
                 {
                 mT__282(); 
 
                 }
                 break;
-            case 260 :
-                // InternalPerl.g:1:1747: T__283
+            case 259 :
+                // InternalPerl.g:1:1741: T__283
                 {
                 mT__283(); 
 
                 }
                 break;
-            case 261 :
-                // InternalPerl.g:1:1754: T__284
+            case 260 :
+                // InternalPerl.g:1:1748: T__284
                 {
                 mT__284(); 
 
                 }
                 break;
-            case 262 :
-                // InternalPerl.g:1:1761: T__285
+            case 261 :
+                // InternalPerl.g:1:1755: T__285
                 {
                 mT__285(); 
 
                 }
                 break;
-            case 263 :
-                // InternalPerl.g:1:1768: T__286
+            case 262 :
+                // InternalPerl.g:1:1762: T__286
                 {
                 mT__286(); 
 
                 }
                 break;
-            case 264 :
-                // InternalPerl.g:1:1775: T__287
+            case 263 :
+                // InternalPerl.g:1:1769: T__287
                 {
                 mT__287(); 
 
                 }
                 break;
-            case 265 :
-                // InternalPerl.g:1:1782: T__288
+            case 264 :
+                // InternalPerl.g:1:1776: T__288
                 {
                 mT__288(); 
 
                 }
                 break;
-            case 266 :
-                // InternalPerl.g:1:1789: T__289
+            case 265 :
+                // InternalPerl.g:1:1783: T__289
                 {
                 mT__289(); 
 
                 }
                 break;
-            case 267 :
-                // InternalPerl.g:1:1796: T__290
+            case 266 :
+                // InternalPerl.g:1:1790: T__290
                 {
                 mT__290(); 
 
                 }
                 break;
-            case 268 :
-                // InternalPerl.g:1:1803: T__291
+            case 267 :
+                // InternalPerl.g:1:1797: T__291
                 {
                 mT__291(); 
 
                 }
                 break;
-            case 269 :
-                // InternalPerl.g:1:1810: T__292
+            case 268 :
+                // InternalPerl.g:1:1804: T__292
                 {
                 mT__292(); 
 
                 }
                 break;
-            case 270 :
-                // InternalPerl.g:1:1817: T__293
+            case 269 :
+                // InternalPerl.g:1:1811: T__293
                 {
                 mT__293(); 
 
                 }
                 break;
-            case 271 :
-                // InternalPerl.g:1:1824: T__294
+            case 270 :
+                // InternalPerl.g:1:1818: T__294
                 {
                 mT__294(); 
 
                 }
                 break;
-            case 272 :
-                // InternalPerl.g:1:1831: T__295
+            case 271 :
+                // InternalPerl.g:1:1825: T__295
                 {
                 mT__295(); 
 
                 }
                 break;
-            case 273 :
-                // InternalPerl.g:1:1838: T__296
+            case 272 :
+                // InternalPerl.g:1:1832: T__296
                 {
                 mT__296(); 
 
                 }
                 break;
-            case 274 :
-                // InternalPerl.g:1:1845: T__297
+            case 273 :
+                // InternalPerl.g:1:1839: T__297
                 {
                 mT__297(); 
 
                 }
                 break;
-            case 275 :
-                // InternalPerl.g:1:1852: T__298
+            case 274 :
+                // InternalPerl.g:1:1846: T__298
                 {
                 mT__298(); 
 
                 }
                 break;
-            case 276 :
-                // InternalPerl.g:1:1859: T__299
+            case 275 :
+                // InternalPerl.g:1:1853: T__299
                 {
                 mT__299(); 
 
                 }
                 break;
-            case 277 :
-                // InternalPerl.g:1:1866: T__300
+            case 276 :
+                // InternalPerl.g:1:1860: T__300
                 {
                 mT__300(); 
 
                 }
                 break;
-            case 278 :
-                // InternalPerl.g:1:1873: T__301
+            case 277 :
+                // InternalPerl.g:1:1867: T__301
                 {
                 mT__301(); 
 
                 }
                 break;
-            case 279 :
-                // InternalPerl.g:1:1880: T__302
+            case 278 :
+                // InternalPerl.g:1:1874: T__302
                 {
                 mT__302(); 
 
                 }
                 break;
-            case 280 :
-                // InternalPerl.g:1:1887: T__303
+            case 279 :
+                // InternalPerl.g:1:1881: T__303
                 {
                 mT__303(); 
 
                 }
                 break;
-            case 281 :
-                // InternalPerl.g:1:1894: T__304
+            case 280 :
+                // InternalPerl.g:1:1888: T__304
                 {
                 mT__304(); 
 
                 }
                 break;
-            case 282 :
-                // InternalPerl.g:1:1901: T__305
+            case 281 :
+                // InternalPerl.g:1:1895: T__305
                 {
                 mT__305(); 
 
                 }
                 break;
-            case 283 :
-                // InternalPerl.g:1:1908: T__306
+            case 282 :
+                // InternalPerl.g:1:1902: T__306
                 {
                 mT__306(); 
 
                 }
                 break;
-            case 284 :
-                // InternalPerl.g:1:1915: T__307
+            case 283 :
+                // InternalPerl.g:1:1909: T__307
                 {
                 mT__307(); 
 
                 }
                 break;
-            case 285 :
-                // InternalPerl.g:1:1922: T__308
+            case 284 :
+                // InternalPerl.g:1:1916: T__308
                 {
                 mT__308(); 
 
                 }
                 break;
-            case 286 :
-                // InternalPerl.g:1:1929: T__309
+            case 285 :
+                // InternalPerl.g:1:1923: T__309
                 {
                 mT__309(); 
 
                 }
                 break;
-            case 287 :
-                // InternalPerl.g:1:1936: T__310
+            case 286 :
+                // InternalPerl.g:1:1930: T__310
                 {
                 mT__310(); 
 
                 }
                 break;
-            case 288 :
-                // InternalPerl.g:1:1943: T__311
+            case 287 :
+                // InternalPerl.g:1:1937: T__311
                 {
                 mT__311(); 
 
                 }
                 break;
-            case 289 :
-                // InternalPerl.g:1:1950: T__312
+            case 288 :
+                // InternalPerl.g:1:1944: T__312
                 {
                 mT__312(); 
 
                 }
                 break;
-            case 290 :
-                // InternalPerl.g:1:1957: T__313
+            case 289 :
+                // InternalPerl.g:1:1951: T__313
                 {
                 mT__313(); 
 
                 }
                 break;
-            case 291 :
-                // InternalPerl.g:1:1964: T__314
+            case 290 :
+                // InternalPerl.g:1:1958: T__314
                 {
                 mT__314(); 
 
                 }
                 break;
-            case 292 :
-                // InternalPerl.g:1:1971: T__315
+            case 291 :
+                // InternalPerl.g:1:1965: T__315
                 {
                 mT__315(); 
 
                 }
                 break;
-            case 293 :
-                // InternalPerl.g:1:1978: T__316
+            case 292 :
+                // InternalPerl.g:1:1972: T__316
                 {
                 mT__316(); 
 
                 }
                 break;
-            case 294 :
-                // InternalPerl.g:1:1985: T__317
+            case 293 :
+                // InternalPerl.g:1:1979: T__317
                 {
                 mT__317(); 
 
                 }
                 break;
-            case 295 :
-                // InternalPerl.g:1:1992: T__318
+            case 294 :
+                // InternalPerl.g:1:1986: T__318
                 {
                 mT__318(); 
 
                 }
                 break;
-            case 296 :
-                // InternalPerl.g:1:1999: T__319
+            case 295 :
+                // InternalPerl.g:1:1993: T__319
                 {
                 mT__319(); 
 
                 }
                 break;
-            case 297 :
-                // InternalPerl.g:1:2006: T__320
+            case 296 :
+                // InternalPerl.g:1:2000: T__320
                 {
                 mT__320(); 
 
                 }
                 break;
-            case 298 :
-                // InternalPerl.g:1:2013: T__321
+            case 297 :
+                // InternalPerl.g:1:2007: T__321
                 {
                 mT__321(); 
 
                 }
                 break;
-            case 299 :
-                // InternalPerl.g:1:2020: T__322
+            case 298 :
+                // InternalPerl.g:1:2014: T__322
                 {
                 mT__322(); 
 
                 }
                 break;
-            case 300 :
-                // InternalPerl.g:1:2027: T__323
+            case 299 :
+                // InternalPerl.g:1:2021: T__323
                 {
                 mT__323(); 
 
                 }
                 break;
-            case 301 :
-                // InternalPerl.g:1:2034: T__324
+            case 300 :
+                // InternalPerl.g:1:2028: T__324
                 {
                 mT__324(); 
 
                 }
                 break;
-            case 302 :
-                // InternalPerl.g:1:2041: T__325
+            case 301 :
+                // InternalPerl.g:1:2035: T__325
                 {
                 mT__325(); 
 
                 }
                 break;
-            case 303 :
-                // InternalPerl.g:1:2048: T__326
+            case 302 :
+                // InternalPerl.g:1:2042: T__326
                 {
                 mT__326(); 
 
                 }
                 break;
-            case 304 :
-                // InternalPerl.g:1:2055: T__327
+            case 303 :
+                // InternalPerl.g:1:2049: T__327
                 {
                 mT__327(); 
 
                 }
                 break;
-            case 305 :
-                // InternalPerl.g:1:2062: T__328
+            case 304 :
+                // InternalPerl.g:1:2056: T__328
                 {
                 mT__328(); 
 
                 }
                 break;
-            case 306 :
-                // InternalPerl.g:1:2069: T__329
+            case 305 :
+                // InternalPerl.g:1:2063: T__329
                 {
                 mT__329(); 
 
                 }
                 break;
-            case 307 :
-                // InternalPerl.g:1:2076: T__330
+            case 306 :
+                // InternalPerl.g:1:2070: T__330
                 {
                 mT__330(); 
 
                 }
                 break;
-            case 308 :
-                // InternalPerl.g:1:2083: T__331
+            case 307 :
+                // InternalPerl.g:1:2077: T__331
                 {
                 mT__331(); 
 
                 }
                 break;
-            case 309 :
-                // InternalPerl.g:1:2090: T__332
+            case 308 :
+                // InternalPerl.g:1:2084: T__332
                 {
                 mT__332(); 
 
                 }
                 break;
-            case 310 :
-                // InternalPerl.g:1:2097: T__333
+            case 309 :
+                // InternalPerl.g:1:2091: T__333
                 {
                 mT__333(); 
 
                 }
                 break;
-            case 311 :
-                // InternalPerl.g:1:2104: T__334
+            case 310 :
+                // InternalPerl.g:1:2098: T__334
                 {
                 mT__334(); 
 
                 }
                 break;
-            case 312 :
-                // InternalPerl.g:1:2111: T__335
+            case 311 :
+                // InternalPerl.g:1:2105: T__335
                 {
                 mT__335(); 
 
                 }
                 break;
-            case 313 :
-                // InternalPerl.g:1:2118: T__336
+            case 312 :
+                // InternalPerl.g:1:2112: T__336
                 {
                 mT__336(); 
 
                 }
                 break;
-            case 314 :
-                // InternalPerl.g:1:2125: T__337
+            case 313 :
+                // InternalPerl.g:1:2119: T__337
                 {
                 mT__337(); 
 
                 }
                 break;
-            case 315 :
-                // InternalPerl.g:1:2132: T__338
+            case 314 :
+                // InternalPerl.g:1:2126: T__338
                 {
                 mT__338(); 
 
                 }
                 break;
+            case 315 :
+                // InternalPerl.g:1:2133: T__339
+                {
+                mT__339(); 
+
+                }
+                break;
             case 316 :
-                // InternalPerl.g:1:2139: RULE_ID
+                // InternalPerl.g:1:2140: RULE_NUMBER
+                {
+                mRULE_NUMBER(); 
+
+                }
+                break;
+            case 317 :
+                // InternalPerl.g:1:2152: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 317 :
-                // InternalPerl.g:1:2147: RULE_SYMBOL
+            case 318 :
+                // InternalPerl.g:1:2160: RULE_SYMBOL
                 {
                 mRULE_SYMBOL(); 
 
                 }
                 break;
-            case 318 :
-                // InternalPerl.g:1:2159: RULE_VERSION
+            case 319 :
+                // InternalPerl.g:1:2172: RULE_VERSION
                 {
                 mRULE_VERSION(); 
 
                 }
                 break;
-            case 319 :
-                // InternalPerl.g:1:2172: RULE_HEX
-                {
-                mRULE_HEX(); 
-
-                }
-                break;
             case 320 :
-                // InternalPerl.g:1:2181: RULE_BIN
-                {
-                mRULE_BIN(); 
-
-                }
-                break;
-            case 321 :
-                // InternalPerl.g:1:2190: RULE_INT
-                {
-                mRULE_INT(); 
-
-                }
-                break;
-            case 322 :
-                // InternalPerl.g:1:2199: RULE_STRING
+                // InternalPerl.g:1:2185: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 323 :
-                // InternalPerl.g:1:2211: RULE_BACKTICK_STRING
+            case 321 :
+                // InternalPerl.g:1:2197: RULE_BACKTICK_STRING
                 {
                 mRULE_BACKTICK_STRING(); 
 
                 }
                 break;
-            case 324 :
-                // InternalPerl.g:1:2232: RULE_INTERPOLATE
+            case 322 :
+                // InternalPerl.g:1:2218: RULE_INTERPOLATE
                 {
                 mRULE_INTERPOLATE(); 
 
                 }
                 break;
-            case 325 :
-                // InternalPerl.g:1:2249: RULE_LITERAL
+            case 323 :
+                // InternalPerl.g:1:2235: RULE_LITERAL
                 {
                 mRULE_LITERAL(); 
 
                 }
                 break;
-            case 326 :
-                // InternalPerl.g:1:2262: RULE_WORDS_QUOTE_LIKE
+            case 324 :
+                // InternalPerl.g:1:2248: RULE_WORDS_QUOTE_LIKE
                 {
                 mRULE_WORDS_QUOTE_LIKE(); 
 
                 }
                 break;
-            case 327 :
-                // InternalPerl.g:1:2284: RULE_COMMAND_QUOTE_LIKE
+            case 325 :
+                // InternalPerl.g:1:2270: RULE_COMMAND_QUOTE_LIKE
                 {
                 mRULE_COMMAND_QUOTE_LIKE(); 
 
                 }
                 break;
-            case 328 :
-                // InternalPerl.g:1:2308: RULE_REGEX_QUOTE
+            case 326 :
+                // InternalPerl.g:1:2294: RULE_REGEX_QUOTE
                 {
                 mRULE_REGEX_QUOTE(); 
 
                 }
                 break;
-            case 329 :
-                // InternalPerl.g:1:2325: RULE_READLINE_QUOTE
+            case 327 :
+                // InternalPerl.g:1:2311: RULE_READLINE_QUOTE
                 {
                 mRULE_READLINE_QUOTE(); 
 
                 }
                 break;
-            case 330 :
-                // InternalPerl.g:1:2345: RULE_POD
+            case 328 :
+                // InternalPerl.g:1:2331: RULE_POD
                 {
                 mRULE_POD(); 
 
                 }
                 break;
-            case 331 :
-                // InternalPerl.g:1:2354: RULE_DATA
+            case 329 :
+                // InternalPerl.g:1:2340: RULE_DATA
                 {
                 mRULE_DATA(); 
 
                 }
                 break;
-            case 332 :
-                // InternalPerl.g:1:2364: RULE_END
+            case 330 :
+                // InternalPerl.g:1:2350: RULE_END
                 {
                 mRULE_END(); 
 
                 }
                 break;
-            case 333 :
-                // InternalPerl.g:1:2373: RULE_SL_COMMENT
+            case 331 :
+                // InternalPerl.g:1:2359: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 334 :
-                // InternalPerl.g:1:2389: RULE_WS
+            case 332 :
+                // InternalPerl.g:1:2375: RULE_WS
                 {
                 mRULE_WS(); 
 
@@ -11686,21 +11822,21 @@ public class InternalPerlLexer extends Lexer {
     }
 
 
-    protected DFA58 dfa58 = new DFA58(this);
-    static final String DFA58_eotS =
-        "\1\uffff\27\62\1\u009c\1\u009f\1\u00be\1\u00c1\1\u00c4\1\u00c6\1\uffff\1\u00cd\1\u00cf\1\u00d2\1\u00d7\1\u00da\1\u00dd\1\uffff\1\u00e0\1\u00e3\1\u00e5\3\uffff\1\62\1\uffff\2\u0098\5\uffff\21\62\1\u0101\7\62\1\u010b\1\u010d\3\62\1\u0112\5\62\1\u0118\1\62\1\u011a\6\62\1\u0123\1\u0125\3\62\1\u012b\3\62\1\u012f\1\u0131\1\u0133\2\62\1\u0137\13\62\1\uffff\23\62\1\u016d\1\u016f\6\62\1\uffff\3\62\43\uffff\1\u0181\13\uffff\1\u0183\5\uffff\1\62\1\uffff\1\u0186\1\u0188\3\uffff\1\u018a\2\uffff\1\u018c\2\uffff\1\u018e\2\uffff\1\u0190\4\uffff\1\62\2\uffff\1\u0098\1\uffff\1\u0193\3\62\1\u0197\7\62\1\u01a3\2\62\1\u01a7\1\62\1\u01a9\3\62\1\u01af\1\uffff\4\62\1\u01b9\3\62\1\u01be\1\uffff\1\62\1\uffff\2\62\1\u01c5\1\62\1\uffff\5\62\1\uffff\1\u01d2\1\uffff\1\62\1\u01d4\6\62\1\uffff\1\62\1\uffff\3\62\1\u01e0\1\62\1\uffff\1\u01e2\2\62\1\uffff\1\62\1\uffff\1\u01e9\1\uffff\1\u01ea\1\62\1\u01ec\1\uffff\1\u01ed\2\62\1\u01f0\1\u01f1\4\62\4\uffff\4\62\1\u01fa\10\62\1\u0203\11\62\1\u0216\11\62\1\u0221\3\62\1\u022b\2\62\1\uffff\1\62\1\uffff\6\62\1\u0236\2\62\1\u0239\6\62\4\uffff\1\u0240\14\uffff\2\62\1\uffff\3\62\1\uffff\1\u0246\7\62\1\u024e\2\62\1\uffff\3\62\1\uffff\1\62\1\uffff\5\62\1\uffff\1\u025a\1\u025b\1\u025c\6\62\1\uffff\1\u0265\1\u0266\1\62\1\u0268\1\uffff\4\62\1\u026d\1\62\1\uffff\1\u0270\7\62\1\u027d\1\62\1\u027f\1\u0280\1\uffff\1\62\1\uffff\1\62\1\u0283\1\u0284\1\u0285\1\u0286\2\62\1\u0289\2\62\1\u028c\1\uffff\1\62\1\uffff\5\62\1\u0293\2\uffff\1\u0295\2\uffff\1\u0297\1\u0298\2\uffff\2\62\1\u029b\1\62\1\u029d\1\u02a1\1\u02a2\1\u02a3\1\uffff\10\62\1\uffff\1\62\1\u02ae\4\62\1\u02b3\13\62\1\uffff\2\62\1\u02c4\2\62\1\u02c8\1\62\1\u02cb\2\62\1\uffff\7\62\1\u02d6\1\u02d7\1\uffff\1\u02d9\11\62\1\uffff\2\62\1\uffff\1\u02e7\1\62\1\u02e9\1\u02ea\2\62\1\uffff\3\62\1\u02f0\2\uffff\1\62\1\u02f2\1\u02f3\1\62\1\u02f5\1\u02f6\1\u02f7\1\uffff\1\u02f8\1\62\1\u02fb\2\62\1\u02fe\5\62\3\uffff\1\u0304\7\62\2\uffff\1\62\1\uffff\1\u030d\1\62\1\u030f\1\62\1\uffff\2\62\1\uffff\13\62\1\u0323\1\uffff\1\62\2\uffff\1\u0325\1\u0326\4\uffff\2\62\1\uffff\1\62\1\u032b\1\uffff\1\u032c\1\u032d\4\62\1\uffff\1\62\1\uffff\1\62\2\uffff\1\u0335\1\62\1\uffff\1\62\1\uffff\3\62\3\uffff\2\62\1\u033d\4\62\1\u0342\2\62\1\uffff\3\62\1\u0348\1\uffff\10\62\1\u0352\5\62\1\u0358\1\62\1\uffff\1\62\1\u035b\1\62\1\uffff\1\u035d\1\u035e\1\uffff\1\u035f\11\62\2\uffff\1\u0369\1\uffff\2\62\1\u036c\1\u036d\4\62\1\u0372\1\u0373\1\u0374\2\62\1\uffff\1\62\2\uffff\1\u0378\1\u0379\2\62\1\u037c\1\uffff\1\62\2\uffff\1\u037e\4\uffff\1\u037f\1\62\1\uffff\2\62\1\uffff\4\62\1\u0387\1\uffff\7\62\1\u038f\1\uffff\1\u0390\1\uffff\1\62\1\u0392\21\62\1\uffff\1\u03a5\2\uffff\1\62\1\u03a7\1\u03a8\1\62\3\uffff\1\u03aa\1\u03ab\1\u03ac\1\u03ad\2\62\1\u03b0\1\uffff\5\62\1\u03b6\1\62\1\uffff\1\u03b8\2\62\1\u03bb\1\uffff\1\u03bc\1\62\1\u03be\1\u03bf\1\u03c0\1\uffff\11\62\1\uffff\1\u03ca\1\u03cb\3\62\1\uffff\1\u03d0\1\u03d1\1\uffff\1\62\3\uffff\1\u03d3\5\62\1\u03d9\2\62\1\uffff\2\62\2\uffff\1\u03de\1\u03df\1\u03e0\1\62\3\uffff\1\u03e2\2\62\2\uffff\2\62\1\uffff\1\u03e7\2\uffff\1\62\1\u03e9\2\62\1\u03ec\1\u03ed\1\u03ee\1\uffff\7\62\2\uffff\1\u03f6\1\uffff\11\62\1\u0401\1\u0402\7\62\1\uffff\1\u040c\2\uffff\1\62\4\uffff\1\u040e\1\u040f\1\uffff\2\62\1\u0412\2\62\1\uffff\1\u0416\1\uffff\1\u0417\1\62\2\uffff\1\u0419\3\uffff\3\62\1\u041d\5\62\2\uffff\1\u0423\3\62\2\uffff\1\u0427\1\uffff\1\u0428\1\u0429\1\u042a\1\u042b\1\u042c\1\uffff\1\62\1\u042e\1\62\1\u0430\3\uffff\1\u0431\1\uffff\1\u0432\3\62\1\uffff\1\u0439\1\uffff\1\u043a\1\u043b\3\uffff\1\u043c\3\62\1\u0440\2\62\1\uffff\1\u0443\1\u0444\1\u0445\1\u0446\2\62\1\u0449\3\62\2\uffff\2\62\1\u0451\1\u0452\1\u0453\4\62\1\uffff\1\62\2\uffff\2\62\1\uffff\1\u045b\1\u045c\1\u045d\2\uffff\1\62\1\uffff\1\u045f\2\62\1\uffff\2\62\1\u0464\2\62\1\uffff\1\u0467\1\u0468\1\62\6\uffff\1\u046a\1\uffff\1\u046b\3\uffff\2\62\2\u0438\1\62\5\uffff\1\62\1\u0474\1\62\1\uffff\1\62\1\u0477\4\uffff\2\62\1\uffff\2\62\1\u047d\4\62\3\uffff\4\62\1\u0487\1\u0488\1\u0489\3\uffff\1\u048a\1\uffff\1\62\1\u048c\2\62\1\uffff\2\62\2\uffff\1\62\2\uffff\1\u0492\2\u0470\1\62\1\uffff\1\u0438\1\62\1\u0495\1\uffff\1\62\1\u0497\1\uffff\2\62\1\u049a\2\62\1\uffff\6\62\1\u04a3\1\62\1\u04a5\4\uffff\1\u04a6\1\uffff\2\62\1\u04a9\1\u04aa\1\u04ab\1\uffff\1\u0470\1\62\1\uffff\1\u04ac\1\uffff\2\62\1\uffff\2\62\1\u04b1\1\u04b2\1\62\1\u04b5\2\62\1\uffff\1\u04b8\2\uffff\1\u04b9\1\u04ba\4\uffff\2\62\1\u04bd\1\u04be\2\uffff\2\62\1\uffff\2\62\3\uffff\1\u04c3\1\u04c4\2\uffff\2\62\1\u04c7\1\u04c8\2\uffff\1\u04c9\1\62\3\uffff\1\62\1\u04cc\1\uffff";
-    static final String DFA58_eofS =
-        "\u04cd\uffff";
-    static final String DFA58_minS =
-        "\1\11\1\142\1\151\1\141\1\142\1\141\1\143\2\145\1\146\1\157\1\145\2\141\1\145\1\143\1\141\1\50\2\141\1\145\1\143\1\60\1\141\1\47\1\53\1\55\1\52\1\75\1\176\1\75\1\57\1\75\1\47\1\44\1\75\1\56\1\uffff\1\46\2\75\3\uffff\1\137\1\uffff\2\60\5\uffff\1\163\1\143\2\141\1\144\1\156\2\145\1\154\1\144\1\157\1\156\1\171\1\160\1\155\1\146\1\145\1\47\1\155\1\143\1\163\1\144\1\146\1\141\1\145\2\47\1\154\1\157\1\162\1\47\1\166\1\157\2\164\1\145\1\47\1\170\1\47\1\144\1\143\1\151\1\171\1\154\1\163\2\47\1\156\1\143\1\164\1\47\1\160\1\144\1\147\3\47\1\164\1\145\1\47\1\162\1\143\2\160\1\151\1\163\1\157\1\57\2\50\1\57\1\uffff\1\156\1\141\1\156\1\144\1\171\1\141\1\145\1\151\1\156\1\145\1\143\1\154\1\162\2\141\1\142\1\155\1\154\1\145\2\47\1\141\1\144\1\145\1\151\1\154\1\143\1\uffff\1\151\1\145\1\151\43\uffff\1\75\13\uffff\1\75\5\uffff\1\162\1\uffff\1\75\1\76\3\uffff\1\75\2\uffff\1\56\2\uffff\1\75\2\uffff\1\75\4\uffff\1\104\2\uffff\1\60\1\uffff\1\47\1\145\1\162\1\156\1\47\1\144\1\163\1\141\1\154\1\151\1\157\1\155\1\47\1\163\1\156\1\47\1\160\1\47\1\143\1\141\1\145\1\47\1\uffff\1\160\1\150\1\145\1\147\1\47\1\154\1\143\1\163\1\47\1\uffff\1\164\1\uffff\1\145\1\143\1\47\1\143\1\uffff\1\145\1\142\1\151\1\157\1\160\1\uffff\1\47\1\uffff\1\145\1\47\1\164\1\156\1\163\1\154\1\164\1\151\1\uffff\1\147\1\uffff\1\153\1\164\1\141\1\47\1\141\1\uffff\1\47\1\151\1\143\1\uffff\1\164\1\uffff\1\47\1\uffff\1\47\1\156\1\47\1\uffff\1\47\1\153\1\145\2\47\1\156\1\164\1\150\1\164\4\uffff\2\144\1\166\1\157\1\47\1\141\1\165\1\145\1\165\1\145\1\151\1\144\1\151\1\47\1\154\1\153\1\145\1\143\1\144\1\147\1\146\1\143\1\164\1\47\1\145\1\153\1\164\2\151\1\164\1\156\1\164\1\144\1\47\1\154\1\143\1\154\1\47\1\145\1\156\1\uffff\1\151\1\uffff\1\163\2\145\1\141\1\150\1\151\1\47\1\155\1\165\1\47\2\164\2\156\1\154\1\164\4\uffff\1\47\14\uffff\1\101\1\116\1\uffff\1\160\1\155\1\62\1\uffff\1\47\1\157\1\163\1\153\1\145\1\162\1\144\1\160\1\47\1\156\1\157\1\uffff\2\145\1\151\1\uffff\1\164\1\uffff\1\154\1\160\1\165\1\156\1\164\1\uffff\3\47\1\146\1\162\1\157\1\145\1\162\1\145\1\uffff\2\47\1\164\1\47\1\uffff\1\154\1\156\1\153\1\141\1\47\1\141\1\uffff\1\47\1\162\2\157\3\145\1\156\1\47\1\155\2\47\1\uffff\1\170\1\uffff\1\154\4\47\1\162\1\164\1\47\1\145\1\154\1\47\1\uffff\1\164\1\uffff\1\162\1\164\1\145\1\143\1\156\1\47\2\uffff\1\47\2\uffff\2\47\2\uffff\1\164\1\157\1\47\1\145\4\47\1\uffff\1\155\1\151\1\164\2\162\1\156\1\145\1\162\1\uffff\1\141\1\47\1\143\1\164\1\145\1\160\1\47\1\162\1\157\1\145\1\147\1\145\2\164\2\145\1\162\1\144\1\uffff\1\160\1\145\1\47\1\143\1\156\1\47\1\144\1\47\1\171\1\164\1\uffff\1\151\1\141\1\160\3\145\1\162\2\47\1\uffff\1\47\1\143\1\162\1\153\1\146\1\163\1\156\1\143\1\151\1\145\1\uffff\2\145\1\uffff\1\47\1\141\2\47\2\145\1\uffff\1\124\1\104\1\164\1\47\2\uffff\1\144\2\47\1\162\3\47\1\uffff\1\47\1\164\1\47\1\143\1\156\1\47\1\157\1\145\1\154\2\145\3\uffff\1\47\1\145\1\163\1\164\1\157\1\145\1\162\1\171\2\uffff\1\163\1\uffff\1\47\1\157\1\47\1\143\1\uffff\1\164\1\151\1\uffff\1\145\1\163\1\147\1\164\1\145\1\162\2\151\1\145\1\162\1\143\1\47\1\uffff\1\145\2\uffff\2\47\4\uffff\1\163\1\150\1\uffff\1\156\1\47\1\uffff\2\47\1\154\1\164\1\166\1\144\1\uffff\1\151\1\uffff\1\147\2\uffff\1\47\1\164\1\uffff\1\155\1\uffff\3\151\3\uffff\1\145\1\162\1\47\1\156\1\163\1\144\1\170\1\47\1\162\1\151\1\uffff\1\164\1\154\1\164\1\47\1\uffff\1\145\1\163\1\164\1\162\1\151\1\145\1\162\1\143\1\47\1\154\1\164\1\141\1\151\1\157\1\47\1\164\1\uffff\1\145\1\47\1\164\1\uffff\2\47\1\uffff\1\47\1\162\1\156\1\154\1\145\1\141\1\145\1\155\2\151\2\uffff\1\47\1\uffff\1\141\1\163\2\47\1\163\2\153\1\146\3\47\1\163\1\151\1\uffff\1\162\2\uffff\2\47\1\101\1\137\1\47\1\uffff\1\145\2\uffff\1\47\4\uffff\1\47\1\151\1\uffff\1\164\1\165\1\uffff\1\163\1\156\1\164\1\144\1\47\1\uffff\1\156\1\164\1\145\1\164\1\156\1\166\1\164\1\47\1\uffff\1\47\1\uffff\1\150\1\47\2\156\1\151\1\141\1\164\1\151\1\142\1\162\1\160\1\144\1\157\1\164\1\156\1\141\1\151\1\166\1\153\1\uffff\1\47\2\uffff\1\164\2\47\1\151\3\uffff\4\47\1\162\1\145\1\47\1\uffff\1\171\1\145\1\162\1\156\1\160\1\47\1\145\1\uffff\1\47\1\145\1\144\1\47\1\uffff\1\47\1\162\3\47\1\uffff\1\156\1\164\1\145\1\160\1\157\1\164\1\156\1\166\1\153\1\uffff\2\47\1\144\1\164\1\167\1\uffff\2\47\1\uffff\1\146\3\uffff\1\47\1\153\1\154\1\156\1\144\1\153\1\47\1\164\1\162\1\uffff\2\164\2\uffff\3\47\1\164\3\uffff\1\47\1\144\1\162\2\uffff\2\137\1\uffff\1\47\2\uffff\1\162\1\47\2\145\3\47\1\uffff\1\164\1\145\1\156\1\157\1\164\2\145\2\uffff\1\47\1\uffff\1\145\1\164\1\144\1\155\1\142\1\156\1\171\2\156\2\47\1\162\1\157\1\164\1\155\1\144\1\142\1\156\1\uffff\1\47\2\uffff\1\155\4\uffff\2\47\1\uffff\1\160\1\164\1\47\2\145\1\uffff\1\47\1\uffff\1\47\1\151\2\uffff\1\47\3\uffff\1\164\1\145\1\156\1\47\1\162\1\157\1\164\1\145\1\157\2\uffff\1\47\1\145\1\156\1\141\2\uffff\1\47\1\uffff\5\47\1\uffff\1\145\1\47\1\145\1\47\3\uffff\1\47\1\uffff\1\47\1\141\1\137\1\0\1\uffff\1\47\1\uffff\2\47\3\uffff\1\47\1\156\1\164\1\145\1\47\1\156\1\163\1\uffff\4\47\1\171\1\156\1\47\1\141\1\164\1\141\2\uffff\1\151\1\142\3\47\1\171\1\156\1\141\1\160\1\uffff\1\145\2\uffff\1\145\1\141\1\uffff\3\47\2\uffff\1\162\1\uffff\1\47\1\156\1\164\1\uffff\1\151\1\145\1\47\1\156\1\160\1\uffff\2\47\1\151\6\uffff\1\47\1\uffff\1\47\3\uffff\1\171\1\0\1\72\1\101\1\0\5\uffff\1\164\1\47\1\156\1\uffff\1\164\1\47\4\uffff\1\141\1\164\1\uffff\1\144\1\141\1\47\1\155\1\164\1\171\1\156\3\uffff\1\156\1\164\1\155\1\164\3\47\3\uffff\1\47\1\uffff\1\164\1\47\1\164\1\156\1\uffff\2\164\2\uffff\1\162\2\uffff\1\47\1\72\1\101\1\0\1\uffff\1\101\1\0\1\47\1\uffff\1\164\1\47\1\uffff\1\144\1\141\1\47\1\144\1\155\1\uffff\1\145\1\171\1\156\1\164\1\141\1\157\1\47\1\145\1\47\4\uffff\1\47\1\uffff\1\171\1\164\3\47\1\uffff\1\101\1\0\1\uffff\1\47\1\uffff\1\144\1\155\1\uffff\1\162\1\145\2\47\1\141\1\47\1\155\1\162\1\uffff\1\47\2\uffff\2\47\4\uffff\1\162\1\145\2\47\2\uffff\2\155\1\uffff\1\145\1\164\3\uffff\2\47\2\uffff\1\145\1\142\2\47\2\uffff\1\47\1\145\3\uffff\1\162\1\47\1\uffff";
-    static final String DFA58_maxS =
-        "\1\176\1\164\2\162\1\165\1\170\1\157\1\164\1\145\2\157\1\151\1\164\1\171\1\157\2\165\1\174\1\155\1\171\1\162\1\164\1\145\1\162\1\172\1\75\1\172\1\75\3\176\1\75\3\172\1\76\1\75\1\uffff\1\75\1\174\1\75\3\uffff\1\137\1\uffff\1\170\1\137\5\uffff\1\163\1\143\2\141\1\144\1\156\2\145\1\154\1\162\1\157\1\163\1\171\1\160\1\155\1\154\1\145\1\172\1\155\1\143\1\163\1\144\1\146\1\141\1\160\2\172\1\154\1\157\1\162\1\172\1\166\1\157\2\164\1\145\1\172\1\170\1\172\1\164\1\143\1\151\1\171\1\154\1\163\2\172\1\163\1\147\1\164\1\172\1\160\1\144\1\147\3\172\1\164\1\145\1\172\1\162\1\143\1\160\1\163\1\157\1\163\1\157\4\174\1\uffff\1\156\1\167\1\156\1\144\1\171\1\141\1\164\1\165\1\156\1\145\3\162\1\141\1\165\1\142\1\163\1\154\1\155\2\172\1\141\1\164\1\145\1\151\1\154\1\143\1\uffff\1\162\2\151\43\uffff\1\75\13\uffff\1\75\5\uffff\1\162\1\uffff\1\75\1\76\3\uffff\1\75\2\uffff\1\56\2\uffff\1\75\2\uffff\1\75\4\uffff\1\105\2\uffff\1\137\1\uffff\1\172\1\145\1\162\1\156\1\172\1\155\1\163\1\141\1\154\1\151\1\157\1\167\1\172\1\163\1\164\1\172\1\160\1\172\1\157\1\151\1\145\1\172\1\uffff\1\160\1\150\1\151\1\163\1\172\1\154\1\143\1\164\1\172\1\uffff\1\164\1\uffff\1\145\1\143\1\172\1\163\1\uffff\1\145\1\142\1\151\1\157\1\160\1\uffff\1\172\1\uffff\1\145\1\172\1\164\1\156\1\163\1\154\1\164\1\151\1\uffff\1\147\1\uffff\1\153\1\164\1\153\1\172\1\141\1\uffff\1\172\1\151\1\163\1\uffff\1\164\1\uffff\1\172\1\uffff\1\172\1\156\1\172\1\uffff\1\172\1\153\1\145\2\172\1\156\1\164\1\150\1\164\4\uffff\2\144\1\166\1\157\1\172\1\141\1\165\1\145\1\165\1\145\1\151\1\144\1\151\1\172\1\154\1\153\1\145\1\157\1\144\1\163\1\146\1\167\1\164\1\172\1\145\1\153\1\164\2\151\1\164\1\156\1\164\1\144\1\172\1\154\1\167\1\154\1\172\1\145\1\156\1\uffff\1\151\1\uffff\1\163\1\145\1\151\1\141\1\150\1\151\1\172\1\155\1\165\1\172\2\164\2\156\1\154\1\164\4\uffff\1\172\14\uffff\1\101\1\116\1\uffff\1\160\1\155\1\62\1\uffff\1\172\1\157\1\163\1\153\1\145\1\162\1\144\1\160\1\172\1\156\1\157\1\uffff\2\145\1\151\1\uffff\1\164\1\uffff\1\154\1\160\1\165\1\156\1\164\1\uffff\3\172\1\146\1\162\1\157\1\145\1\167\1\145\1\uffff\2\172\1\164\1\172\1\uffff\1\154\1\156\1\153\1\141\1\172\1\154\1\uffff\1\172\1\162\2\157\1\145\1\167\1\157\1\156\1\172\1\155\2\172\1\uffff\1\170\1\uffff\1\154\4\172\1\162\1\164\1\172\1\145\1\154\1\172\1\uffff\1\164\1\uffff\1\162\1\164\1\145\1\143\1\156\1\172\2\uffff\1\172\2\uffff\2\172\2\uffff\1\164\1\157\1\172\1\145\4\172\1\uffff\1\155\1\151\1\164\2\162\1\156\1\145\1\162\1\uffff\1\141\1\172\1\143\1\164\1\145\1\160\1\172\1\162\1\157\1\145\1\167\1\157\2\164\2\145\1\162\1\144\1\uffff\1\160\1\145\1\172\1\164\1\156\1\172\1\144\1\172\1\171\1\164\1\uffff\1\151\1\141\1\160\3\145\1\162\2\172\1\uffff\1\172\1\143\1\162\1\153\1\146\1\163\1\156\1\143\1\151\1\154\1\uffff\2\145\1\uffff\1\172\1\141\2\172\2\145\1\uffff\1\124\1\104\1\164\1\172\2\uffff\1\144\2\172\1\162\3\172\1\uffff\1\172\1\164\1\172\1\143\1\156\1\172\1\157\1\145\1\154\2\145\3\uffff\1\172\1\145\1\163\1\164\1\157\1\145\1\162\1\171\2\uffff\1\163\1\uffff\1\172\1\157\1\172\1\143\1\uffff\1\164\1\151\1\uffff\1\156\1\163\1\147\1\164\1\145\1\162\1\151\1\157\1\165\1\162\1\143\1\172\1\uffff\1\145\2\uffff\2\172\4\uffff\1\163\1\150\1\uffff\1\156\1\172\1\uffff\2\172\1\154\1\164\1\166\1\144\1\uffff\1\151\1\uffff\1\147\2\uffff\1\172\1\164\1\uffff\1\155\1\uffff\3\151\3\uffff\1\145\1\162\1\172\1\156\1\163\1\144\1\170\1\172\1\162\1\151\1\uffff\1\164\1\154\1\164\1\172\1\uffff\1\145\1\163\1\164\1\162\1\157\1\145\1\162\1\143\1\172\1\154\1\164\1\141\1\151\1\157\1\172\1\164\1\uffff\1\145\1\172\1\164\1\uffff\2\172\1\uffff\1\172\1\162\1\156\1\154\1\145\1\141\1\145\1\155\2\151\2\uffff\1\172\1\uffff\1\141\1\163\2\172\1\163\2\153\1\146\3\172\1\163\1\151\1\uffff\1\162\2\uffff\2\172\1\101\1\137\1\172\1\uffff\1\145\2\uffff\1\172\4\uffff\1\172\1\151\1\uffff\1\164\1\165\1\uffff\1\163\1\156\1\164\1\144\1\172\1\uffff\1\156\1\164\1\145\1\164\1\156\1\166\1\164\1\172\1\uffff\1\172\1\uffff\1\150\1\172\2\156\1\151\1\141\1\164\1\151\1\145\1\162\1\160\1\144\1\157\1\164\1\156\1\141\1\151\1\166\1\153\1\uffff\1\172\2\uffff\1\164\2\172\1\151\3\uffff\4\172\1\162\1\145\1\172\1\uffff\1\171\1\145\1\162\1\156\1\160\1\172\1\145\1\uffff\1\172\1\145\1\144\1\172\1\uffff\1\172\1\162\3\172\1\uffff\1\156\1\164\1\145\1\160\1\157\1\164\1\156\1\166\1\153\1\uffff\2\172\1\144\1\164\1\167\1\uffff\2\172\1\uffff\1\146\3\uffff\1\172\1\153\1\154\1\156\1\144\1\153\1\172\1\164\1\162\1\uffff\2\164\2\uffff\3\172\1\164\3\uffff\1\172\1\144\1\162\2\uffff\2\137\1\uffff\1\172\2\uffff\1\162\1\172\2\145\3\172\1\uffff\1\164\1\145\1\156\1\157\1\164\2\145\2\uffff\1\172\1\uffff\1\145\1\164\1\144\1\155\1\145\1\156\1\171\2\156\2\172\1\162\1\157\1\164\1\155\1\144\1\145\1\157\1\uffff\1\172\2\uffff\1\155\4\uffff\2\172\1\uffff\1\160\1\164\1\172\1\153\1\145\1\uffff\1\172\1\uffff\1\172\1\151\2\uffff\1\172\3\uffff\1\164\1\145\1\156\1\172\1\162\1\157\1\164\1\145\1\157\2\uffff\1\172\1\145\1\156\1\141\2\uffff\1\172\1\uffff\5\172\1\uffff\1\145\1\172\1\145\1\172\3\uffff\1\172\1\uffff\1\172\1\141\1\137\1\uffff\1\uffff\1\172\1\uffff\2\172\3\uffff\1\172\1\156\1\164\1\145\1\172\1\156\1\163\1\uffff\4\172\1\171\1\156\1\172\1\156\1\164\1\141\2\uffff\1\151\1\145\3\172\1\171\1\156\1\141\1\160\1\uffff\1\145\2\uffff\1\145\1\141\1\uffff\3\172\2\uffff\1\162\1\uffff\1\172\1\156\1\164\1\uffff\1\151\1\145\1\172\1\156\1\160\1\uffff\2\172\1\151\6\uffff\1\172\1\uffff\1\172\3\uffff\1\171\1\uffff\1\72\1\172\1\uffff\5\uffff\1\164\1\172\1\156\1\uffff\1\164\1\172\4\uffff\1\156\1\164\1\uffff\1\144\1\141\1\172\1\155\1\164\1\171\1\156\3\uffff\1\160\1\164\1\155\1\164\3\172\3\uffff\1\172\1\uffff\1\164\1\172\1\164\1\156\1\uffff\2\164\2\uffff\1\162\2\uffff\1\172\1\72\1\172\1\uffff\1\uffff\1\172\1\uffff\1\172\1\uffff\1\164\1\172\1\uffff\1\144\1\141\1\172\1\144\1\155\1\uffff\1\145\1\171\1\156\1\164\1\141\1\157\1\172\1\145\1\172\4\uffff\1\172\1\uffff\1\171\1\164\3\172\1\uffff\1\172\1\uffff\1\uffff\1\172\1\uffff\1\144\1\155\1\uffff\1\162\1\145\2\172\1\165\1\172\1\155\1\162\1\uffff\1\172\2\uffff\2\172\4\uffff\1\162\1\145\2\172\2\uffff\2\155\1\uffff\1\145\1\164\3\uffff\2\172\2\uffff\1\145\1\142\2\172\2\uffff\1\172\1\145\3\uffff\1\162\1\172\1\uffff";
-    static final String DFA58_acceptS =
-        "\45\uffff\1\u00f8\3\uffff\1\u00ff\1\u0100\1\u0139\1\uffff\1\u013d\2\uffff\1\u0142\1\u0143\1\u013c\1\u014d\1\u014e\107\uffff\1\u0145\33\uffff\1\u013e\3\uffff\1\u00de\1\u00df\1\u0102\1\u00e4\1\u00e0\1\u0103\1\u0117\1\u011e\1\u011f\1\u0120\1\u0121\1\u0122\1\u0123\1\u0124\1\u0125\1\u0126\1\u0127\1\u0128\1\u0129\1\u012a\1\u012b\1\u012c\1\u012d\1\u012e\1\u012f\1\u0130\1\u0131\1\u0132\1\u0133\1\u0134\1\u0135\1\u0136\1\u0137\1\u0138\1\u00e5\1\uffff\1\u0105\1\u00e8\1\u00e7\1\u00f5\1\u00e2\1\u00f3\1\u00e3\1\u00e6\1\u00f4\1\u0116\1\u014a\1\uffff\1\u0106\1\u00e9\1\u0107\1\u00ea\1\u0108\1\uffff\1\u00eb\2\uffff\1\u0115\1\u0149\1\u0111\1\uffff\1\u0114\1\u0112\1\uffff\1\u0104\1\u013b\1\uffff\1\u0109\1\u00f9\1\uffff\1\u010a\1\u00fa\1\u010b\1\u00fb\1\uffff\1\u013f\1\u0140\1\uffff\1\u0141\26\uffff\1\35\11\uffff\1\u011c\1\uffff\1\57\4\uffff\1\u00f1\5\uffff\1\u00ef\1\uffff\1\130\10\uffff\1\140\1\uffff\1\u00f0\5\uffff\1\u00ee\3\uffff\1\160\1\uffff\1\u011d\1\uffff\1\162\3\uffff\1\u0119\11\uffff\1\u0144\1\u0146\1\u0147\1\u0148\50\uffff\1\u00c7\1\uffff\1\u00c9\20\uffff\1\u0101\1\u00e1\1\u0110\1\u00fe\1\uffff\1\u010c\1\u00ec\1\u013a\1\u0113\1\u010d\1\u00ed\1\u00f7\1\u00f6\1\u010e\1\u00fc\1\u010f\1\u00fd\2\uffff\1\1\3\uffff\1\u0118\13\uffff\1\17\3\uffff\1\25\1\uffff\1\u00f2\5\uffff\1\34\11\uffff\1\50\4\uffff\1\56\6\uffff\1\63\14\uffff\1\127\1\uffff\1\132\13\uffff\1\150\1\uffff\1\152\6\uffff\1\u011b\1\163\1\uffff\1\166\1\167\2\uffff\1\173\1\174\10\uffff\1\u008a\10\uffff\1\u0093\22\uffff\1\u00ab\12\uffff\1\u00b8\11\uffff\1\u00c3\12\uffff\1\u00d3\2\uffff\1\u00d6\6\uffff\1\u011a\4\uffff\1\4\1\5\7\uffff\1\15\13\uffff\1\36\1\37\1\40\10\uffff\1\51\1\53\1\uffff\1\55\4\uffff\1\65\2\uffff\1\70\14\uffff\1\123\1\uffff\1\125\1\126\2\uffff\1\134\1\135\1\136\1\137\2\uffff\1\143\2\uffff\1\147\6\uffff\1\161\1\uffff\1\164\1\uffff\1\170\1\172\2\uffff\1\u0080\1\uffff\1\u0082\3\uffff\1\u0083\1\u0088\1\u0089\12\uffff\1\u0095\4\uffff\1\u009b\20\uffff\1\u00af\3\uffff\1\u00b3\2\uffff\1\u00b5\12\uffff\1\u00c1\1\u00c4\1\uffff\1\u00c5\15\uffff\1\u00d7\1\uffff\1\u00da\1\u00db\5\uffff\1\3\1\uffff\1\7\1\10\1\uffff\1\12\1\13\1\14\1\16\2\uffff\1\21\2\uffff\1\26\5\uffff\1\41\10\uffff\1\60\1\uffff\1\62\23\uffff\1\122\1\uffff\1\131\1\133\4\uffff\1\145\1\151\1\153\7\uffff\1\175\7\uffff\1\u008d\4\uffff\1\u0092\5\uffff\1\u009a\11\uffff\1\u00a5\5\uffff\1\u00ac\2\uffff\1\u00b1\1\uffff\1\u00b4\1\u00b6\1\u00b7\11\uffff\1\u00c6\2\uffff\1\u00cb\1\u00cc\4\uffff\1\u00d1\1\u00d2\1\u00d4\3\uffff\1\u00dc\1\u00dd\2\uffff\1\2\1\uffff\1\11\1\20\7\uffff\1\33\7\uffff\1\54\1\61\1\uffff\1\66\22\uffff\1\124\1\uffff\1\142\1\144\1\uffff\1\154\1\155\1\156\1\157\2\uffff\1\176\5\uffff\1\u008b\1\uffff\1\u008e\2\uffff\1\u0091\1\u0094\1\uffff\1\u0097\1\u0098\1\u0099\11\uffff\1\u00a6\1\u00a7\4\uffff\1\u00ad\1\u00b0\1\uffff\1\u00b9\5\uffff\1\u00bf\4\uffff\1\u00cd\1\u00ce\1\u00cf\1\uffff\1\u00d5\4\uffff\1\6\1\uffff\1\23\2\uffff\1\30\1\31\1\32\7\uffff\1\64\12\uffff\1\104\1\105\11\uffff\1\141\1\uffff\1\165\1\171\2\uffff\1\u0084\3\uffff\1\u008c\1\u008f\1\uffff\1\u0096\3\uffff\1\u009f\5\uffff\1\u00a8\3\uffff\1\u00b2\1\u00ba\1\u00bb\1\u00bc\1\u00bd\1\u00be\1\uffff\1\u00c2\1\uffff\1\u00ca\1\u00d0\1\u00d8\5\uffff\1\u014c\1\22\1\24\1\27\1\42\3\uffff\1\46\2\uffff\1\67\1\71\1\72\1\73\2\uffff\1\77\7\uffff\1\112\1\113\1\114\7\uffff\1\u0085\1\u0086\1\u0087\1\uffff\1\u009c\4\uffff\1\u00a2\2\uffff\1\u00a9\1\u00aa\1\uffff\1\u00c0\1\u00c8\4\uffff\1\u014b\3\uffff\1\44\2\uffff\1\52\5\uffff\1\102\11\uffff\1\146\1\177\1\u0081\1\u0090\1\uffff\1\u009e\5\uffff\1\u00d9\2\uffff\1\43\1\uffff\1\47\2\uffff\1\76\10\uffff\1\117\1\uffff\1\121\1\u009d\2\uffff\1\u00a3\1\u00a4\1\u00ae\1\45\4\uffff\1\103\1\106\2\uffff\1\111\2\uffff\1\120\1\u00a0\1\u00a1\2\uffff\1\100\1\101\4\uffff\1\74\1\75\2\uffff\1\115\1\116\1\107\2\uffff\1\110";
-    static final String DFA58_specialS =
-        "\u03e6\uffff\1\3\115\uffff\1\2\2\uffff\1\1\67\uffff\1\0\2\uffff\1\5\41\uffff\1\4\70\uffff}>";
-    static final String[] DFA58_transitionS = {
-            "\2\64\2\uffff\1\64\22\uffff\1\64\1\34\1\60\1\63\1\55\1\40\1\46\1\60\2\uffff\1\33\1\31\1\45\1\32\1\44\1\37\1\56\11\57\1\52\1\53\1\42\1\36\1\43\1\51\1\55\32\62\3\uffff\1\50\1\54\1\61\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\41\1\30\1\62\1\uffff\1\47\1\uffff\1\35",
+    protected DFA64 dfa64 = new DFA64(this);
+    static final String DFA64_eotS =
+        "\1\uffff\27\62\1\u009c\1\u009f\1\u00be\1\u00c1\1\u00c4\1\u00c6\1\uffff\1\u00cd\1\u00cf\1\u00d2\1\u00d6\1\u00da\1\u00dd\1\uffff\1\u00e0\1\u00e3\1\u00e5\3\uffff\2\u00e6\1\62\6\uffff\21\62\1\u0100\7\62\1\u010a\1\u010c\3\62\1\u0111\5\62\1\u0117\1\62\1\u0119\6\62\1\u0122\1\u0124\3\62\1\u012a\3\62\1\u012e\1\u0130\1\u0132\2\62\1\u0136\13\62\1\uffff\23\62\1\u016c\1\u016e\6\62\1\uffff\3\62\43\uffff\1\u0180\13\uffff\1\u0182\5\uffff\1\62\1\uffff\1\u0185\1\u0187\3\uffff\1\u0189\2\uffff\1\u018b\2\uffff\1\u018d\2\uffff\1\u018f\6\uffff\1\u00e6\1\62\1\u0193\3\62\1\u0197\7\62\1\u01a3\2\62\1\u01a7\1\62\1\u01a9\3\62\1\u01af\1\uffff\4\62\1\u01b9\3\62\1\u01be\1\uffff\1\62\1\uffff\2\62\1\u01c5\1\62\1\uffff\5\62\1\uffff\1\u01d2\1\uffff\1\62\1\u01d4\6\62\1\uffff\1\62\1\uffff\3\62\1\u01e0\1\62\1\uffff\1\u01e2\2\62\1\uffff\1\62\1\uffff\1\u01e9\1\uffff\1\u01ea\1\62\1\u01ec\1\uffff\1\u01ed\2\62\1\u01f0\1\u01f1\4\62\4\uffff\4\62\1\u01fa\10\62\1\u0203\11\62\1\u0216\11\62\1\u0221\3\62\1\u022b\2\62\1\uffff\1\62\1\uffff\6\62\1\u0236\2\62\1\u0239\6\62\4\uffff\1\u0240\14\uffff\1\u00e6\2\62\1\uffff\3\62\1\uffff\1\u0247\7\62\1\u024f\2\62\1\uffff\3\62\1\uffff\1\62\1\uffff\5\62\1\uffff\1\u025b\1\u025c\1\u025d\6\62\1\uffff\1\u0266\1\u0267\1\62\1\u0269\1\uffff\4\62\1\u026e\1\62\1\uffff\1\u0271\7\62\1\u027e\1\62\1\u0280\1\u0281\1\uffff\1\62\1\uffff\1\62\1\u0284\1\u0285\1\u0286\1\u0287\2\62\1\u028a\2\62\1\u028d\1\uffff\1\62\1\uffff\5\62\1\u0294\2\uffff\1\u0296\2\uffff\1\u0298\1\u0299\2\uffff\2\62\1\u029c\1\62\1\u029e\1\u02a2\1\u02a3\1\u02a4\1\uffff\10\62\1\uffff\1\62\1\u02af\4\62\1\u02b4\13\62\1\uffff\2\62\1\u02c5\2\62\1\u02c9\1\62\1\u02cc\2\62\1\uffff\7\62\1\u02d7\1\u02d8\1\uffff\1\u02da\11\62\1\uffff\2\62\1\uffff\1\u02e8\1\62\1\u02ea\1\u02eb\2\62\1\uffff\1\u00e6\3\62\1\u02f1\2\uffff\1\62\1\u02f3\1\u02f4\1\62\1\u02f6\1\u02f7\1\u02f8\1\uffff\1\u02f9\1\62\1\u02fc\2\62\1\u02ff\5\62\3\uffff\1\u0305\7\62\2\uffff\1\62\1\uffff\1\u030e\1\62\1\u0310\1\62\1\uffff\2\62\1\uffff\13\62\1\u0324\1\uffff\1\62\2\uffff\1\u0326\1\u0327\4\uffff\2\62\1\uffff\1\62\1\u032c\1\uffff\1\u032d\1\u032e\4\62\1\uffff\1\62\1\uffff\1\62\2\uffff\1\u0336\1\62\1\uffff\1\62\1\uffff\3\62\3\uffff\2\62\1\u033e\4\62\1\u0343\2\62\1\uffff\3\62\1\u0349\1\uffff\10\62\1\u0353\5\62\1\u0359\1\62\1\uffff\1\62\1\u035c\1\62\1\uffff\1\u035e\1\u035f\1\uffff\1\u0360\11\62\2\uffff\1\u036a\1\uffff\2\62\1\u036d\1\u036e\4\62\1\u0373\1\u0374\1\u0375\2\62\1\uffff\1\62\2\uffff\1\u0379\1\u037a\2\62\1\u037d\1\uffff\1\62\2\uffff\1\u037f\4\uffff\1\u0380\1\62\1\uffff\2\62\1\uffff\4\62\1\u0388\1\uffff\7\62\1\u0390\1\uffff\1\u0391\1\uffff\1\62\1\u0393\21\62\1\uffff\1\u03a6\2\uffff\1\62\1\u03a8\1\u03a9\1\62\3\uffff\1\u03ab\1\u03ac\1\u03ad\1\u03ae\2\62\1\u03b1\1\uffff\5\62\1\u03b7\1\62\1\uffff\1\u03b9\2\62\1\u03bc\1\uffff\1\u03bd\1\62\1\u03bf\1\u03c0\1\u03c1\1\uffff\11\62\1\uffff\1\u03cb\1\u03cc\3\62\1\uffff\1\u03d1\1\u03d2\1\uffff\1\62\3\uffff\1\u03d4\5\62\1\u03da\2\62\1\uffff\2\62\2\uffff\1\u03df\1\u03e0\1\u03e1\1\62\3\uffff\1\u03e3\2\62\2\uffff\2\62\1\uffff\1\u03e8\2\uffff\1\62\1\u03ea\2\62\1\u03ed\1\u03ee\1\u03ef\1\uffff\7\62\2\uffff\1\u03f7\1\uffff\11\62\1\u0402\1\u0403\7\62\1\uffff\1\u040d\2\uffff\1\62\4\uffff\1\u040f\1\u0410\1\uffff\2\62\1\u0413\2\62\1\uffff\1\u0417\1\uffff\1\u0418\1\62\2\uffff\1\u041a\3\uffff\3\62\1\u041e\5\62\2\uffff\1\u0424\3\62\2\uffff\1\u0428\1\uffff\1\u0429\1\u042a\1\u042b\1\u042c\1\u042d\1\uffff\1\62\1\u042f\1\62\1\u0431\3\uffff\1\u0432\1\uffff\1\u0433\3\62\1\uffff\1\u043a\1\uffff\1\u043b\1\u043c\3\uffff\1\u043d\3\62\1\u0441\2\62\1\uffff\1\u0444\1\u0445\1\u0446\1\u0447\2\62\1\u044a\3\62\2\uffff\2\62\1\u0452\1\u0453\1\u0454\4\62\1\uffff\1\62\2\uffff\2\62\1\uffff\1\u045c\1\u045d\1\u045e\2\uffff\1\62\1\uffff\1\u0460\2\62\1\uffff\2\62\1\u0465\2\62\1\uffff\1\u0468\1\u0469\1\62\6\uffff\1\u046b\1\uffff\1\u046c\3\uffff\2\62\2\u0439\1\62\5\uffff\1\62\1\u0475\1\62\1\uffff\1\62\1\u0478\4\uffff\2\62\1\uffff\2\62\1\u047e\4\62\3\uffff\4\62\1\u0488\1\u0489\1\u048a\3\uffff\1\u048b\1\uffff\1\62\1\u048d\2\62\1\uffff\2\62\2\uffff\1\62\2\uffff\1\u0493\2\u0471\1\62\1\uffff\1\u0439\1\62\1\u0496\1\uffff\1\62\1\u0498\1\uffff\2\62\1\u049b\2\62\1\uffff\6\62\1\u04a4\1\62\1\u04a6\4\uffff\1\u04a7\1\uffff\2\62\1\u04aa\1\u04ab\1\u04ac\1\uffff\1\u0471\1\62\1\uffff\1\u04ad\1\uffff\2\62\1\uffff\2\62\1\u04b2\1\u04b3\1\62\1\u04b6\2\62\1\uffff\1\u04b9\2\uffff\1\u04ba\1\u04bb\4\uffff\2\62\1\u04be\1\u04bf\2\uffff\2\62\1\uffff\2\62\3\uffff\1\u04c4\1\u04c5\2\uffff\2\62\1\u04c8\1\u04c9\2\uffff\1\u04ca\1\62\3\uffff\1\62\1\u04cd\1\uffff";
+    static final String DFA64_eofS =
+        "\u04ce\uffff";
+    static final String DFA64_minS =
+        "\1\11\1\142\1\151\1\141\1\142\1\141\1\143\2\145\1\146\1\157\1\145\2\141\1\145\1\143\1\141\1\11\2\141\1\145\1\143\1\60\1\141\1\47\1\53\1\55\1\52\1\75\1\176\1\75\1\57\1\75\1\47\1\44\1\75\1\56\1\uffff\1\46\2\75\3\uffff\2\56\1\137\6\uffff\1\163\1\143\2\141\1\144\1\156\2\145\1\154\1\144\1\157\1\156\1\171\1\160\1\155\1\146\1\145\1\47\1\155\1\143\1\163\1\144\1\146\1\141\1\145\2\47\1\154\1\157\1\162\1\47\1\166\1\157\2\164\1\145\1\47\1\170\1\47\1\144\1\143\1\151\1\171\1\154\1\163\2\47\1\156\1\143\1\164\1\47\1\160\1\144\1\147\3\47\1\164\1\145\1\47\1\162\1\143\2\160\1\151\1\163\1\157\4\11\1\uffff\1\156\1\141\1\156\1\144\1\171\1\141\1\145\1\151\1\156\1\145\1\143\1\154\1\162\2\141\1\142\1\155\1\154\1\145\2\47\1\141\1\144\1\145\1\151\1\154\1\143\1\uffff\1\151\1\145\1\151\43\uffff\1\75\13\uffff\1\75\5\uffff\1\162\1\uffff\1\75\1\76\3\uffff\1\75\2\uffff\1\56\2\uffff\1\75\2\uffff\1\75\5\uffff\1\60\1\56\1\104\1\47\1\145\1\162\1\156\1\47\1\144\1\163\1\141\1\154\1\151\1\157\1\155\1\47\1\163\1\156\1\47\1\160\1\47\1\143\1\141\1\145\1\47\1\uffff\1\160\1\150\1\145\1\147\1\47\1\154\1\143\1\163\1\47\1\uffff\1\164\1\uffff\1\145\1\143\1\47\1\143\1\uffff\1\145\1\142\1\151\1\157\1\160\1\uffff\1\47\1\uffff\1\145\1\47\1\164\1\156\1\163\1\154\1\164\1\151\1\uffff\1\147\1\uffff\1\153\1\164\1\141\1\47\1\141\1\uffff\1\47\1\151\1\143\1\uffff\1\164\1\uffff\1\47\1\uffff\1\47\1\156\1\47\1\uffff\1\47\1\153\1\145\2\47\1\156\1\164\1\150\1\164\4\uffff\2\144\1\166\1\157\1\47\1\141\1\165\1\145\1\165\1\145\1\151\1\144\1\151\1\47\1\154\1\153\1\145\1\143\1\144\1\147\1\146\1\143\1\164\1\47\1\145\1\153\1\164\2\151\1\164\1\156\1\164\1\144\1\47\1\154\1\143\1\154\1\47\1\145\1\156\1\uffff\1\151\1\uffff\1\163\2\145\1\141\1\150\1\151\1\47\1\155\1\165\1\47\2\164\2\156\1\154\1\164\4\uffff\1\47\14\uffff\1\56\1\101\1\116\1\uffff\1\160\1\155\1\62\1\uffff\1\47\1\157\1\163\1\153\1\145\1\162\1\144\1\160\1\47\1\156\1\157\1\uffff\2\145\1\151\1\uffff\1\164\1\uffff\1\154\1\160\1\165\1\156\1\164\1\uffff\3\47\1\146\1\162\1\157\1\145\1\162\1\145\1\uffff\2\47\1\164\1\47\1\uffff\1\154\1\156\1\153\1\141\1\47\1\141\1\uffff\1\47\1\162\2\157\3\145\1\156\1\47\1\155\2\47\1\uffff\1\170\1\uffff\1\154\4\47\1\162\1\164\1\47\1\145\1\154\1\47\1\uffff\1\164\1\uffff\1\162\1\164\1\145\1\143\1\156\1\47\2\uffff\1\47\2\uffff\2\47\2\uffff\1\164\1\157\1\47\1\145\4\47\1\uffff\1\155\1\151\1\164\2\162\1\156\1\145\1\162\1\uffff\1\141\1\47\1\143\1\164\1\145\1\160\1\47\1\162\1\157\1\145\1\147\1\145\2\164\2\145\1\162\1\144\1\uffff\1\160\1\145\1\47\1\143\1\156\1\47\1\144\1\47\1\171\1\164\1\uffff\1\151\1\141\1\160\3\145\1\162\2\47\1\uffff\1\47\1\143\1\162\1\153\1\146\1\163\1\156\1\143\1\151\1\145\1\uffff\2\145\1\uffff\1\47\1\141\2\47\2\145\1\uffff\1\56\1\124\1\104\1\164\1\47\2\uffff\1\144\2\47\1\162\3\47\1\uffff\1\47\1\164\1\47\1\143\1\156\1\47\1\157\1\145\1\154\2\145\3\uffff\1\47\1\145\1\163\1\164\1\157\1\145\1\162\1\171\2\uffff\1\163\1\uffff\1\47\1\157\1\47\1\143\1\uffff\1\164\1\151\1\uffff\1\145\1\163\1\147\1\164\1\145\1\162\2\151\1\145\1\162\1\143\1\47\1\uffff\1\145\2\uffff\2\47\4\uffff\1\163\1\150\1\uffff\1\156\1\47\1\uffff\2\47\1\154\1\164\1\166\1\144\1\uffff\1\151\1\uffff\1\147\2\uffff\1\47\1\164\1\uffff\1\155\1\uffff\3\151\3\uffff\1\145\1\162\1\47\1\156\1\163\1\144\1\170\1\47\1\162\1\151\1\uffff\1\164\1\154\1\164\1\47\1\uffff\1\145\1\163\1\164\1\162\1\151\1\145\1\162\1\143\1\47\1\154\1\164\1\141\1\151\1\157\1\47\1\164\1\uffff\1\145\1\47\1\164\1\uffff\2\47\1\uffff\1\47\1\162\1\156\1\154\1\145\1\141\1\145\1\155\2\151\2\uffff\1\47\1\uffff\1\141\1\163\2\47\1\163\2\153\1\146\3\47\1\163\1\151\1\uffff\1\162\2\uffff\2\47\1\101\1\137\1\47\1\uffff\1\145\2\uffff\1\47\4\uffff\1\47\1\151\1\uffff\1\164\1\165\1\uffff\1\163\1\156\1\164\1\144\1\47\1\uffff\1\156\1\164\1\145\1\164\1\156\1\166\1\164\1\47\1\uffff\1\47\1\uffff\1\150\1\47\2\156\1\151\1\141\1\164\1\151\1\142\1\162\1\160\1\144\1\157\1\164\1\156\1\141\1\151\1\166\1\153\1\uffff\1\47\2\uffff\1\164\2\47\1\151\3\uffff\4\47\1\162\1\145\1\47\1\uffff\1\171\1\145\1\162\1\156\1\160\1\47\1\145\1\uffff\1\47\1\145\1\144\1\47\1\uffff\1\47\1\162\3\47\1\uffff\1\156\1\164\1\145\1\160\1\157\1\164\1\156\1\166\1\153\1\uffff\2\47\1\144\1\164\1\167\1\uffff\2\47\1\uffff\1\146\3\uffff\1\47\1\153\1\154\1\156\1\144\1\153\1\47\1\164\1\162\1\uffff\2\164\2\uffff\3\47\1\164\3\uffff\1\47\1\144\1\162\2\uffff\2\137\1\uffff\1\47\2\uffff\1\162\1\47\2\145\3\47\1\uffff\1\164\1\145\1\156\1\157\1\164\2\145\2\uffff\1\47\1\uffff\1\145\1\164\1\144\1\155\1\142\1\156\1\171\2\156\2\47\1\162\1\157\1\164\1\155\1\144\1\142\1\156\1\uffff\1\47\2\uffff\1\155\4\uffff\2\47\1\uffff\1\160\1\164\1\47\2\145\1\uffff\1\47\1\uffff\1\47\1\151\2\uffff\1\47\3\uffff\1\164\1\145\1\156\1\47\1\162\1\157\1\164\1\145\1\157\2\uffff\1\47\1\145\1\156\1\141\2\uffff\1\47\1\uffff\5\47\1\uffff\1\145\1\47\1\145\1\47\3\uffff\1\47\1\uffff\1\47\1\141\1\137\1\0\1\uffff\1\47\1\uffff\2\47\3\uffff\1\47\1\156\1\164\1\145\1\47\1\156\1\163\1\uffff\4\47\1\171\1\156\1\47\1\141\1\164\1\141\2\uffff\1\151\1\142\3\47\1\171\1\156\1\141\1\160\1\uffff\1\145\2\uffff\1\145\1\141\1\uffff\3\47\2\uffff\1\162\1\uffff\1\47\1\156\1\164\1\uffff\1\151\1\145\1\47\1\156\1\160\1\uffff\2\47\1\151\6\uffff\1\47\1\uffff\1\47\3\uffff\1\171\1\0\1\72\1\101\1\0\5\uffff\1\164\1\47\1\156\1\uffff\1\164\1\47\4\uffff\1\141\1\164\1\uffff\1\144\1\141\1\47\1\155\1\164\1\171\1\156\3\uffff\1\156\1\164\1\155\1\164\3\47\3\uffff\1\47\1\uffff\1\164\1\47\1\164\1\156\1\uffff\2\164\2\uffff\1\162\2\uffff\1\47\1\72\1\101\1\0\1\uffff\1\101\1\0\1\47\1\uffff\1\164\1\47\1\uffff\1\144\1\141\1\47\1\144\1\155\1\uffff\1\145\1\171\1\156\1\164\1\141\1\157\1\47\1\145\1\47\4\uffff\1\47\1\uffff\1\171\1\164\3\47\1\uffff\1\101\1\0\1\uffff\1\47\1\uffff\1\144\1\155\1\uffff\1\162\1\145\2\47\1\141\1\47\1\155\1\162\1\uffff\1\47\2\uffff\2\47\4\uffff\1\162\1\145\2\47\2\uffff\2\155\1\uffff\1\145\1\164\3\uffff\2\47\2\uffff\1\145\1\142\2\47\2\uffff\1\47\1\145\3\uffff\1\162\1\47\1\uffff";
+    static final String DFA64_maxS =
+        "\1\176\1\164\2\162\1\165\1\170\1\157\1\164\1\145\2\157\1\151\1\164\1\171\1\157\2\165\1\174\1\155\1\171\1\162\1\164\1\145\1\162\1\172\1\75\1\172\1\75\3\176\1\75\3\172\1\76\1\75\1\uffff\1\75\1\174\1\75\3\uffff\2\71\1\137\6\uffff\1\163\1\143\2\141\1\144\1\156\2\145\1\154\1\162\1\157\1\163\1\171\1\160\1\155\1\154\1\145\1\172\1\155\1\143\1\163\1\144\1\146\1\141\1\160\2\172\1\154\1\157\1\162\1\172\1\166\1\157\2\164\1\145\1\172\1\170\1\172\1\164\1\143\1\151\1\171\1\154\1\163\2\172\1\163\1\147\1\164\1\172\1\160\1\144\1\147\3\172\1\164\1\145\1\172\1\162\1\143\1\160\1\163\1\157\1\163\1\157\4\174\1\uffff\1\156\1\167\1\156\1\144\1\171\1\141\1\164\1\165\1\156\1\145\3\162\1\141\1\165\1\142\1\163\1\154\1\155\2\172\1\141\1\164\1\145\1\151\1\154\1\143\1\uffff\1\162\2\151\43\uffff\1\75\13\uffff\1\75\5\uffff\1\162\1\uffff\1\75\1\76\3\uffff\1\75\2\uffff\1\56\2\uffff\1\75\2\uffff\1\75\5\uffff\2\71\1\105\1\172\1\145\1\162\1\156\1\172\1\155\1\163\1\141\1\154\1\151\1\157\1\167\1\172\1\163\1\164\1\172\1\160\1\172\1\157\1\151\1\145\1\172\1\uffff\1\160\1\150\1\151\1\163\1\172\1\154\1\143\1\164\1\172\1\uffff\1\164\1\uffff\1\145\1\143\1\172\1\163\1\uffff\1\145\1\142\1\151\1\157\1\160\1\uffff\1\172\1\uffff\1\145\1\172\1\164\1\156\1\163\1\154\1\164\1\151\1\uffff\1\147\1\uffff\1\153\1\164\1\153\1\172\1\141\1\uffff\1\172\1\151\1\163\1\uffff\1\164\1\uffff\1\172\1\uffff\1\172\1\156\1\172\1\uffff\1\172\1\153\1\145\2\172\1\156\1\164\1\150\1\164\4\uffff\2\144\1\166\1\157\1\172\1\141\1\165\1\145\1\165\1\145\1\151\1\144\1\151\1\172\1\154\1\153\1\145\1\157\1\144\1\163\1\146\1\167\1\164\1\172\1\145\1\153\1\164\2\151\1\164\1\156\1\164\1\144\1\172\1\154\1\167\1\154\1\172\1\145\1\156\1\uffff\1\151\1\uffff\1\163\1\145\1\151\1\141\1\150\1\151\1\172\1\155\1\165\1\172\2\164\2\156\1\154\1\164\4\uffff\1\172\14\uffff\1\71\1\101\1\116\1\uffff\1\160\1\155\1\62\1\uffff\1\172\1\157\1\163\1\153\1\145\1\162\1\144\1\160\1\172\1\156\1\157\1\uffff\2\145\1\151\1\uffff\1\164\1\uffff\1\154\1\160\1\165\1\156\1\164\1\uffff\3\172\1\146\1\162\1\157\1\145\1\167\1\145\1\uffff\2\172\1\164\1\172\1\uffff\1\154\1\156\1\153\1\141\1\172\1\154\1\uffff\1\172\1\162\2\157\1\145\1\167\1\157\1\156\1\172\1\155\2\172\1\uffff\1\170\1\uffff\1\154\4\172\1\162\1\164\1\172\1\145\1\154\1\172\1\uffff\1\164\1\uffff\1\162\1\164\1\145\1\143\1\156\1\172\2\uffff\1\172\2\uffff\2\172\2\uffff\1\164\1\157\1\172\1\145\4\172\1\uffff\1\155\1\151\1\164\2\162\1\156\1\145\1\162\1\uffff\1\141\1\172\1\143\1\164\1\145\1\160\1\172\1\162\1\157\1\145\1\167\1\157\2\164\2\145\1\162\1\144\1\uffff\1\160\1\145\1\172\1\164\1\156\1\172\1\144\1\172\1\171\1\164\1\uffff\1\151\1\141\1\160\3\145\1\162\2\172\1\uffff\1\172\1\143\1\162\1\153\1\146\1\163\1\156\1\143\1\151\1\154\1\uffff\2\145\1\uffff\1\172\1\141\2\172\2\145\1\uffff\1\71\1\124\1\104\1\164\1\172\2\uffff\1\144\2\172\1\162\3\172\1\uffff\1\172\1\164\1\172\1\143\1\156\1\172\1\157\1\145\1\154\2\145\3\uffff\1\172\1\145\1\163\1\164\1\157\1\145\1\162\1\171\2\uffff\1\163\1\uffff\1\172\1\157\1\172\1\143\1\uffff\1\164\1\151\1\uffff\1\156\1\163\1\147\1\164\1\145\1\162\1\151\1\157\1\165\1\162\1\143\1\172\1\uffff\1\145\2\uffff\2\172\4\uffff\1\163\1\150\1\uffff\1\156\1\172\1\uffff\2\172\1\154\1\164\1\166\1\144\1\uffff\1\151\1\uffff\1\147\2\uffff\1\172\1\164\1\uffff\1\155\1\uffff\3\151\3\uffff\1\145\1\162\1\172\1\156\1\163\1\144\1\170\1\172\1\162\1\151\1\uffff\1\164\1\154\1\164\1\172\1\uffff\1\145\1\163\1\164\1\162\1\157\1\145\1\162\1\143\1\172\1\154\1\164\1\141\1\151\1\157\1\172\1\164\1\uffff\1\145\1\172\1\164\1\uffff\2\172\1\uffff\1\172\1\162\1\156\1\154\1\145\1\141\1\145\1\155\2\151\2\uffff\1\172\1\uffff\1\141\1\163\2\172\1\163\2\153\1\146\3\172\1\163\1\151\1\uffff\1\162\2\uffff\2\172\1\101\1\137\1\172\1\uffff\1\145\2\uffff\1\172\4\uffff\1\172\1\151\1\uffff\1\164\1\165\1\uffff\1\163\1\156\1\164\1\144\1\172\1\uffff\1\156\1\164\1\145\1\164\1\156\1\166\1\164\1\172\1\uffff\1\172\1\uffff\1\150\1\172\2\156\1\151\1\141\1\164\1\151\1\145\1\162\1\160\1\144\1\157\1\164\1\156\1\141\1\151\1\166\1\153\1\uffff\1\172\2\uffff\1\164\2\172\1\151\3\uffff\4\172\1\162\1\145\1\172\1\uffff\1\171\1\145\1\162\1\156\1\160\1\172\1\145\1\uffff\1\172\1\145\1\144\1\172\1\uffff\1\172\1\162\3\172\1\uffff\1\156\1\164\1\145\1\160\1\157\1\164\1\156\1\166\1\153\1\uffff\2\172\1\144\1\164\1\167\1\uffff\2\172\1\uffff\1\146\3\uffff\1\172\1\153\1\154\1\156\1\144\1\153\1\172\1\164\1\162\1\uffff\2\164\2\uffff\3\172\1\164\3\uffff\1\172\1\144\1\162\2\uffff\2\137\1\uffff\1\172\2\uffff\1\162\1\172\2\145\3\172\1\uffff\1\164\1\145\1\156\1\157\1\164\2\145\2\uffff\1\172\1\uffff\1\145\1\164\1\144\1\155\1\145\1\156\1\171\2\156\2\172\1\162\1\157\1\164\1\155\1\144\1\145\1\157\1\uffff\1\172\2\uffff\1\155\4\uffff\2\172\1\uffff\1\160\1\164\1\172\1\153\1\145\1\uffff\1\172\1\uffff\1\172\1\151\2\uffff\1\172\3\uffff\1\164\1\145\1\156\1\172\1\162\1\157\1\164\1\145\1\157\2\uffff\1\172\1\145\1\156\1\141\2\uffff\1\172\1\uffff\5\172\1\uffff\1\145\1\172\1\145\1\172\3\uffff\1\172\1\uffff\1\172\1\141\1\137\1\uffff\1\uffff\1\172\1\uffff\2\172\3\uffff\1\172\1\156\1\164\1\145\1\172\1\156\1\163\1\uffff\4\172\1\171\1\156\1\172\1\156\1\164\1\141\2\uffff\1\151\1\145\3\172\1\171\1\156\1\141\1\160\1\uffff\1\145\2\uffff\1\145\1\141\1\uffff\3\172\2\uffff\1\162\1\uffff\1\172\1\156\1\164\1\uffff\1\151\1\145\1\172\1\156\1\160\1\uffff\2\172\1\151\6\uffff\1\172\1\uffff\1\172\3\uffff\1\171\1\uffff\1\72\1\172\1\uffff\5\uffff\1\164\1\172\1\156\1\uffff\1\164\1\172\4\uffff\1\156\1\164\1\uffff\1\144\1\141\1\172\1\155\1\164\1\171\1\156\3\uffff\1\160\1\164\1\155\1\164\3\172\3\uffff\1\172\1\uffff\1\164\1\172\1\164\1\156\1\uffff\2\164\2\uffff\1\162\2\uffff\1\172\1\72\1\172\1\uffff\1\uffff\1\172\1\uffff\1\172\1\uffff\1\164\1\172\1\uffff\1\144\1\141\1\172\1\144\1\155\1\uffff\1\145\1\171\1\156\1\164\1\141\1\157\1\172\1\145\1\172\4\uffff\1\172\1\uffff\1\171\1\164\3\172\1\uffff\1\172\1\uffff\1\uffff\1\172\1\uffff\1\144\1\155\1\uffff\1\162\1\145\2\172\1\165\1\172\1\155\1\162\1\uffff\1\172\2\uffff\2\172\4\uffff\1\162\1\145\2\172\2\uffff\2\155\1\uffff\1\145\1\164\3\uffff\2\172\2\uffff\1\145\1\142\2\172\2\uffff\1\172\1\145\3\uffff\1\162\1\172\1\uffff";
+    static final String DFA64_acceptS =
+        "\45\uffff\1\u00f8\3\uffff\1\u00ff\1\u0100\1\u0139\3\uffff\1\u013e\1\u0140\1\u0141\1\u013d\1\u014b\1\u014c\107\uffff\1\u0143\33\uffff\1\u013f\3\uffff\1\u00de\1\u00df\1\u0102\1\u00e4\1\u00e0\1\u0103\1\u0117\1\u011e\1\u011f\1\u0120\1\u0121\1\u0122\1\u0123\1\u0124\1\u0125\1\u0126\1\u0127\1\u0128\1\u0129\1\u012a\1\u012b\1\u012c\1\u012d\1\u012e\1\u012f\1\u0130\1\u0131\1\u0132\1\u0133\1\u0134\1\u0135\1\u0136\1\u0137\1\u0138\1\u00e5\1\uffff\1\u0105\1\u00e8\1\u00e7\1\u00f5\1\u00e2\1\u00f3\1\u00e3\1\u00e6\1\u00f4\1\u0116\1\u0148\1\uffff\1\u0106\1\u00e9\1\u0107\1\u00ea\1\u0108\1\uffff\1\u00eb\2\uffff\1\u0115\1\u0111\1\u0147\1\uffff\1\u0114\1\u0112\1\uffff\1\u0104\1\u013b\1\uffff\1\u0109\1\u00f9\1\uffff\1\u010a\1\u00fa\1\u010b\1\u00fb\1\u013c\31\uffff\1\35\11\uffff\1\u011c\1\uffff\1\57\4\uffff\1\u00f1\5\uffff\1\u00ef\1\uffff\1\130\10\uffff\1\140\1\uffff\1\u00f0\5\uffff\1\u00ee\3\uffff\1\160\1\uffff\1\u011d\1\uffff\1\162\3\uffff\1\u0119\11\uffff\1\u0142\1\u0144\1\u0145\1\u0146\50\uffff\1\u00c7\1\uffff\1\u00c9\20\uffff\1\u0101\1\u00e1\1\u0110\1\u00fe\1\uffff\1\u010c\1\u00ec\1\u013a\1\u0113\1\u010d\1\u00ed\1\u00f7\1\u00f6\1\u010e\1\u00fc\1\u010f\1\u00fd\3\uffff\1\1\3\uffff\1\u0118\13\uffff\1\17\3\uffff\1\25\1\uffff\1\u00f2\5\uffff\1\34\11\uffff\1\50\4\uffff\1\56\6\uffff\1\63\14\uffff\1\127\1\uffff\1\132\13\uffff\1\150\1\uffff\1\152\6\uffff\1\u011b\1\163\1\uffff\1\166\1\167\2\uffff\1\173\1\174\10\uffff\1\u008a\10\uffff\1\u0093\22\uffff\1\u00ab\12\uffff\1\u00b8\11\uffff\1\u00c3\12\uffff\1\u00d3\2\uffff\1\u00d6\6\uffff\1\u011a\5\uffff\1\4\1\5\7\uffff\1\15\13\uffff\1\36\1\37\1\40\10\uffff\1\51\1\53\1\uffff\1\55\4\uffff\1\65\2\uffff\1\70\14\uffff\1\123\1\uffff\1\125\1\126\2\uffff\1\134\1\135\1\136\1\137\2\uffff\1\143\2\uffff\1\147\6\uffff\1\161\1\uffff\1\164\1\uffff\1\170\1\172\2\uffff\1\u0080\1\uffff\1\u0082\3\uffff\1\u0083\1\u0088\1\u0089\12\uffff\1\u0095\4\uffff\1\u009b\20\uffff\1\u00af\3\uffff\1\u00b3\2\uffff\1\u00b5\12\uffff\1\u00c1\1\u00c4\1\uffff\1\u00c5\15\uffff\1\u00d7\1\uffff\1\u00da\1\u00db\5\uffff\1\3\1\uffff\1\7\1\10\1\uffff\1\12\1\13\1\14\1\16\2\uffff\1\21\2\uffff\1\26\5\uffff\1\41\10\uffff\1\60\1\uffff\1\62\23\uffff\1\122\1\uffff\1\131\1\133\4\uffff\1\145\1\151\1\153\7\uffff\1\175\7\uffff\1\u008d\4\uffff\1\u0092\5\uffff\1\u009a\11\uffff\1\u00a5\5\uffff\1\u00ac\2\uffff\1\u00b1\1\uffff\1\u00b4\1\u00b6\1\u00b7\11\uffff\1\u00c6\2\uffff\1\u00cb\1\u00cc\4\uffff\1\u00d1\1\u00d2\1\u00d4\3\uffff\1\u00dc\1\u00dd\2\uffff\1\2\1\uffff\1\11\1\20\7\uffff\1\33\7\uffff\1\54\1\61\1\uffff\1\66\22\uffff\1\124\1\uffff\1\142\1\144\1\uffff\1\154\1\155\1\156\1\157\2\uffff\1\176\5\uffff\1\u008b\1\uffff\1\u008e\2\uffff\1\u0091\1\u0094\1\uffff\1\u0097\1\u0098\1\u0099\11\uffff\1\u00a6\1\u00a7\4\uffff\1\u00ad\1\u00b0\1\uffff\1\u00b9\5\uffff\1\u00bf\4\uffff\1\u00cd\1\u00ce\1\u00cf\1\uffff\1\u00d5\4\uffff\1\6\1\uffff\1\23\2\uffff\1\30\1\31\1\32\7\uffff\1\64\12\uffff\1\104\1\105\11\uffff\1\141\1\uffff\1\165\1\171\2\uffff\1\u0084\3\uffff\1\u008c\1\u008f\1\uffff\1\u0096\3\uffff\1\u009f\5\uffff\1\u00a8\3\uffff\1\u00b2\1\u00ba\1\u00bb\1\u00bc\1\u00bd\1\u00be\1\uffff\1\u00c2\1\uffff\1\u00ca\1\u00d0\1\u00d8\5\uffff\1\u014a\1\22\1\24\1\27\1\42\3\uffff\1\46\2\uffff\1\67\1\71\1\72\1\73\2\uffff\1\77\7\uffff\1\112\1\113\1\114\7\uffff\1\u0085\1\u0086\1\u0087\1\uffff\1\u009c\4\uffff\1\u00a2\2\uffff\1\u00a9\1\u00aa\1\uffff\1\u00c0\1\u00c8\4\uffff\1\u0149\3\uffff\1\44\2\uffff\1\52\5\uffff\1\102\11\uffff\1\146\1\177\1\u0081\1\u0090\1\uffff\1\u009e\5\uffff\1\u00d9\2\uffff\1\43\1\uffff\1\47\2\uffff\1\76\10\uffff\1\117\1\uffff\1\121\1\u009d\2\uffff\1\u00a3\1\u00a4\1\u00ae\1\45\4\uffff\1\103\1\106\2\uffff\1\111\2\uffff\1\120\1\u00a0\1\u00a1\2\uffff\1\100\1\101\4\uffff\1\74\1\75\2\uffff\1\115\1\116\1\107\2\uffff\1\110";
+    static final String DFA64_specialS =
+        "\u03e7\uffff\1\5\115\uffff\1\4\2\uffff\1\3\67\uffff\1\2\2\uffff\1\1\41\uffff\1\0\70\uffff}>";
+    static final String[] DFA64_transitionS = {
+            "\2\64\2\uffff\1\64\22\uffff\1\64\1\34\1\60\1\63\1\57\1\40\1\46\1\60\2\uffff\1\33\1\31\1\45\1\32\1\44\1\37\1\54\11\55\1\52\1\53\1\42\1\36\1\43\1\51\1\57\32\62\3\uffff\1\50\1\56\1\61\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\41\1\30\1\62\1\uffff\1\47\1\uffff\1\35",
             "\1\65\1\66\10\uffff\1\67\1\uffff\1\71\5\uffff\1\70",
             "\1\72\2\uffff\1\73\5\uffff\1\74",
             "\1\75\6\uffff\1\76\3\uffff\1\77\1\102\1\uffff\1\100\2\uffff\1\101",
@@ -11717,7 +11853,7 @@ public class InternalPerlLexer extends Lexer {
             "\1\154\11\uffff\1\155",
             "\1\156\14\uffff\1\157\1\uffff\1\160\2\uffff\1\161",
             "\1\162\7\uffff\1\163\5\uffff\1\164\2\uffff\1\165\2\uffff\1\166",
-            "\1\174\6\uffff\1\174\14\uffff\1\174\64\uffff\1\170\1\173\2\uffff\1\167\1\uffff\1\171\1\172\2\uffff\2\174",
+            "\2\174\2\uffff\1\174\22\uffff\1\174\7\uffff\1\174\6\uffff\1\174\14\uffff\1\174\64\uffff\1\170\1\173\2\uffff\1\167\1\uffff\1\171\1\172\2\uffff\2\174",
             "\1\175\3\uffff\1\176\3\uffff\1\177\3\uffff\1\u0080",
             "\1\u0081\1\uffff\1\u0082\1\uffff\1\u0083\2\uffff\1\u0084\1\u0085\2\uffff\1\u0086\2\uffff\1\u0087\1\u0088\1\u0089\1\u008a\1\uffff\1\u008b\1\u008c\3\uffff\1\u008d",
             "\1\u008e\3\uffff\1\u008f\10\uffff\1\u0090",
@@ -11732,9 +11868,9 @@ public class InternalPerlLexer extends Lexer {
             "\1\u00c5",
             "\1\u00c8\1\u00c9\61\uffff\1\u00ca\15\uffff\1\u00c7",
             "\1\u00cb\15\uffff\1\u00cc",
-            "\1\u00ce\3\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "\1\u00ce\3\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
             "\1\62\22\uffff\1\62\2\uffff\1\u00d0\3\uffff\32\62\4\uffff\1\62\1\uffff\16\62\1\u00d1\13\62",
-            "\1\u00d6\27\uffff\1\u00d3\1\u00d4\1\u00d5\2\uffff\32\u00d6\6\uffff\32\u00d6",
+            "\2\u00d7\26\uffff\1\u00d3\1\u00d4\1\u00d5\1\uffff\33\u00d7\4\uffff\1\u00d7\1\uffff\32\u00d7",
             "\1\u00d9\1\u00d8",
             "\1\u00db\16\uffff\1\u00dc",
             "",
@@ -11744,15 +11880,16 @@ public class InternalPerlLexer extends Lexer {
             "",
             "",
             "",
-            "\1\u00e6",
-            "",
-            "\12\u00e9\36\uffff\1\u00e7\6\uffff\1\u00ea\2\uffff\1\u00e8\25\uffff\1\u00e7",
-            "\12\u00e9\45\uffff\1\u00ea",
-            "",
+            "\1\u00e7\1\uffff\12\u00e8",
+            "\1\u00e7\1\uffff\12\u00e8",
+            "\1\u00e9",
             "",
             "",
             "",
             "",
+            "",
+            "",
+            "\1\u00ea",
             "\1\u00eb",
             "\1\u00ec",
             "\1\u00ed",
@@ -11761,100 +11898,135 @@ public class InternalPerlLexer extends Lexer {
             "\1\u00f0",
             "\1\u00f1",
             "\1\u00f2",
-            "\1\u00f3",
-            "\1\u00f4\10\uffff\1\u00f5\1\uffff\1\u00f6\2\uffff\1\u00f7",
-            "\1\u00f8",
-            "\1\u00f9\4\uffff\1\u00fa",
+            "\1\u00f3\10\uffff\1\u00f4\1\uffff\1\u00f5\2\uffff\1\u00f6",
+            "\1\u00f7",
+            "\1\u00f8\4\uffff\1\u00f9",
+            "\1\u00fa",
             "\1\u00fb",
             "\1\u00fc",
-            "\1\u00fd",
-            "\1\u00fe\5\uffff\1\u00ff",
-            "\1\u0100",
+            "\1\u00fd\5\uffff\1\u00fe",
+            "\1\u00ff",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\u0101",
             "\1\u0102",
             "\1\u0103",
             "\1\u0104",
             "\1\u0105",
             "\1\u0106",
-            "\1\u0107",
-            "\1\u0108\3\uffff\1\u0109\6\uffff\1\u010a",
+            "\1\u0107\3\uffff\1\u0108\6\uffff\1\u0109",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\15\62\1\u010c\14\62",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\15\62\1\u010b\14\62",
+            "\1\u010d",
             "\1\u010e",
             "\1\u010f",
-            "\1\u0110",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\23\62\1\u0111\6\62",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\23\62\1\u0110\6\62",
+            "\1\u0112",
             "\1\u0113",
             "\1\u0114",
             "\1\u0115",
             "\1\u0116",
-            "\1\u0117",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0119",
+            "\1\u0118",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u011b\17\uffff\1\u011c",
+            "\1\u011a\17\uffff\1\u011b",
+            "\1\u011c",
             "\1\u011d",
             "\1\u011e",
             "\1\u011f",
             "\1\u0120",
-            "\1\u0121",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\5\62\1\u0122\24\62",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\15\62\1\u0124\14\62",
-            "\1\u0126\4\uffff\1\u0127",
-            "\1\u0128\3\uffff\1\u0129",
-            "\1\u012a",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\5\62\1\u0121\24\62",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\15\62\1\u0123\14\62",
+            "\1\u0125\4\uffff\1\u0126",
+            "\1\u0127\3\uffff\1\u0128",
+            "\1\u0129",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\u012b",
             "\1\u012c",
             "\1\u012d",
-            "\1\u012e",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\27\62\1\u0130\2\62",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\23\62\1\u0132\6\62",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\27\62\1\u012f\2\62",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\23\62\1\u0131\6\62",
+            "\1\u0133",
             "\1\u0134",
-            "\1\u0135",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\3\62\1\u0136\26\62",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\3\62\1\u0135\26\62",
+            "\1\u0137",
             "\1\u0138",
             "\1\u0139",
-            "\1\u013a",
-            "\1\u013b\2\uffff\1\u013c",
-            "\1\u013d\5\uffff\1\u013e",
+            "\1\u013a\2\uffff\1\u013b",
+            "\1\u013c\5\uffff\1\u013d",
+            "\1\u013e",
             "\1\u013f",
-            "\1\u0140",
-            "\1\u0141\14\uffff\1\u0141\76\uffff\2\u0141",
-            "\1\u0142\6\uffff\1\u0142\14\uffff\1\u0142\76\uffff\2\u0142",
-            "\1\u0143\6\uffff\1\u0143\14\uffff\1\u0143\76\uffff\2\u0143",
-            "\1\u0144\14\uffff\1\u0144\76\uffff\2\u0144",
+            "\2\u0140\2\uffff\1\u0140\22\uffff\1\u0140\16\uffff\1\u0140\14\uffff\1\u0140\76\uffff\2\u0140",
+            "\2\u0141\2\uffff\1\u0141\22\uffff\1\u0141\7\uffff\1\u0141\6\uffff\1\u0141\14\uffff\1\u0141\76\uffff\2\u0141",
+            "\2\u0142\2\uffff\1\u0142\22\uffff\1\u0142\7\uffff\1\u0142\6\uffff\1\u0142\14\uffff\1\u0142\76\uffff\2\u0142",
+            "\2\u0143\2\uffff\1\u0143\22\uffff\1\u0143\16\uffff\1\u0143\14\uffff\1\u0143\76\uffff\2\u0143",
             "",
-            "\1\u0145",
-            "\1\u0146\1\uffff\1\u0147\1\u0148\1\uffff\1\u0149\7\uffff\1\u014a\2\uffff\1\u014b\1\uffff\1\u014c\1\u014d\1\uffff\1\u014e\1\u014f",
+            "\1\u0144",
+            "\1\u0145\1\uffff\1\u0146\1\u0147\1\uffff\1\u0148\7\uffff\1\u0149\2\uffff\1\u014a\1\uffff\1\u014b\1\u014c\1\uffff\1\u014d\1\u014e",
+            "\1\u014f",
             "\1\u0150",
             "\1\u0151",
             "\1\u0152",
-            "\1\u0153",
-            "\1\u0154\6\uffff\1\u0155\1\u0156\1\u0157\5\uffff\1\u0158",
-            "\1\u0159\3\uffff\1\u015a\7\uffff\1\u015b",
+            "\1\u0153\6\uffff\1\u0154\1\u0155\1\u0156\5\uffff\1\u0157",
+            "\1\u0158\3\uffff\1\u0159\7\uffff\1\u015a",
+            "\1\u015b",
             "\1\u015c",
-            "\1\u015d",
-            "\1\u015e\16\uffff\1\u015f",
-            "\1\u0160\5\uffff\1\u0161",
+            "\1\u015d\16\uffff\1\u015e",
+            "\1\u015f\5\uffff\1\u0160",
+            "\1\u0161",
             "\1\u0162",
-            "\1\u0163",
-            "\1\u0164\23\uffff\1\u0165",
-            "\1\u0166",
-            "\1\u0167\5\uffff\1\u0168",
-            "\1\u0169",
-            "\1\u016a\7\uffff\1\u016b",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\24\62\1\u016c\5\62",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\5\62\1\u016e\24\62",
-            "\1\u0170",
-            "\1\u0171\7\uffff\1\u0172\3\uffff\1\u0173\2\uffff\1\u0174\1\u0175",
+            "\1\u0163\23\uffff\1\u0164",
+            "\1\u0165",
+            "\1\u0166\5\uffff\1\u0167",
+            "\1\u0168",
+            "\1\u0169\7\uffff\1\u016a",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\24\62\1\u016b\5\62",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\5\62\1\u016d\24\62",
+            "\1\u016f",
+            "\1\u0170\7\uffff\1\u0171\3\uffff\1\u0172\2\uffff\1\u0173\1\u0174",
+            "\1\u0175",
             "\1\u0176",
             "\1\u0177",
             "\1\u0178",
-            "\1\u0179",
             "",
-            "\1\u017a\4\uffff\1\u017b\3\uffff\1\u017c",
-            "\1\u017d\3\uffff\1\u017e",
+            "\1\u0179\4\uffff\1\u017a\3\uffff\1\u017b",
+            "\1\u017c\3\uffff\1\u017d",
+            "\1\u017e",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\u017f",
             "",
             "",
@@ -11867,74 +12039,37 @@ public class InternalPerlLexer extends Lexer {
             "",
             "",
             "",
+            "\1\u0181",
             "",
             "",
             "",
             "",
             "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\u0180",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\u0182",
-            "",
-            "",
-            "",
-            "",
+            "\1\u0183",
             "",
             "\1\u0184",
-            "",
-            "\1\u0185",
-            "\1\u0187",
+            "\1\u0186",
             "",
             "",
             "",
-            "\1\u0189",
+            "\1\u0188",
             "",
             "",
-            "\1\u018b",
+            "\1\u018a",
             "",
             "",
-            "\1\u018d",
+            "\1\u018c",
             "",
             "",
-            "\1\u018f",
+            "\1\u018e",
             "",
             "",
             "",
             "",
+            "",
+            "\12\u0190",
+            "\1\u00e7\1\uffff\12\u00e8",
             "\1\u0191\1\u0192",
-            "",
-            "",
-            "\12\u00e9\45\uffff\1\u00ea",
-            "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u0194",
             "\1\u0195",
@@ -12101,113 +12236,113 @@ public class InternalPerlLexer extends Lexer {
             "",
             "",
             "",
-            "\1\u0241",
+            "\1\u0098\1\uffff\12\u0241",
             "\1\u0242",
-            "",
             "\1\u0243",
+            "",
             "\1\u0244",
             "\1\u0245",
+            "\1\u0246",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0247",
             "\1\u0248",
             "\1\u0249",
             "\1\u024a",
             "\1\u024b",
             "\1\u024c",
             "\1\u024d",
+            "\1\u024e",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u024f",
             "\1\u0250",
-            "",
             "\1\u0251",
+            "",
             "\1\u0252",
             "\1\u0253",
-            "",
             "\1\u0254",
             "",
             "\1\u0255",
+            "",
             "\1\u0256",
             "\1\u0257",
             "\1\u0258",
             "\1\u0259",
+            "\1\u025a",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u025d",
             "\1\u025e",
             "\1\u025f",
             "\1\u0260",
-            "\1\u0261\4\uffff\1\u0262",
-            "\1\u0263",
+            "\1\u0261",
+            "\1\u0262\4\uffff\1\u0263",
+            "\1\u0264",
             "",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\1\62\1\u0264\30\62",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\1\62\1\u0265\30\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0267",
+            "\1\u0268",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u0269",
             "\1\u026a",
             "\1\u026b",
             "\1\u026c",
+            "\1\u026d",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u026e\12\uffff\1\u026f",
+            "\1\u026f\12\uffff\1\u0270",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0271",
             "\1\u0272",
             "\1\u0273",
             "\1\u0274",
-            "\1\u0275\1\uffff\1\u0276\10\uffff\1\u0277\1\uffff\1\u0278\4\uffff\1\u0279",
-            "\1\u027a\11\uffff\1\u027b",
-            "\1\u027c",
+            "\1\u0275",
+            "\1\u0276\1\uffff\1\u0277\10\uffff\1\u0278\1\uffff\1\u0279\4\uffff\1\u027a",
+            "\1\u027b\11\uffff\1\u027c",
+            "\1\u027d",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u027e",
+            "\1\u027f",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "",
-            "\1\u0281",
             "",
             "\1\u0282",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0287",
-            "\1\u0288",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u028a",
-            "\1\u028b",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u028d",
+            "\1\u0283",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\u0288",
+            "\1\u0289",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\u028b",
+            "\1\u028c",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             "\1\u028e",
+            "",
             "\1\u028f",
             "\1\u0290",
             "\1\u0291",
             "\1\u0292",
+            "\1\u0293",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             "",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\3\62\1\u0294\26\62",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\3\62\1\u0295\26\62",
             "",
             "",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\1\u0296\31\62",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\1\u0297\31\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             "",
-            "\1\u0299",
             "\1\u029a",
+            "\1\u029b",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u029c",
+            "\1\u029d",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\3\62\1\u029e\7\62\1\u029f\3\62\1\u02a0\12\62",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\3\62\1\u029f\7\62\1\u02a0\3\62\1\u02a1\12\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u02a4",
             "\1\u02a5",
             "\1\u02a6",
             "\1\u02a7",
@@ -12215,49 +12350,49 @@ public class InternalPerlLexer extends Lexer {
             "\1\u02a9",
             "\1\u02aa",
             "\1\u02ab",
-            "",
             "\1\u02ac",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\3\62\1\u02ad\26\62",
-            "\1\u02af",
+            "",
+            "\1\u02ad",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\3\62\1\u02ae\26\62",
             "\1\u02b0",
             "\1\u02b1",
             "\1\u02b2",
+            "\1\u02b3",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u02b4",
             "\1\u02b5",
             "\1\u02b6",
-            "\1\u02b7\12\uffff\1\u02b8\4\uffff\1\u02b9",
-            "\1\u02ba\11\uffff\1\u02bb",
-            "\1\u02bc",
+            "\1\u02b7",
+            "\1\u02b8\12\uffff\1\u02b9\4\uffff\1\u02ba",
+            "\1\u02bb\11\uffff\1\u02bc",
             "\1\u02bd",
             "\1\u02be",
             "\1\u02bf",
             "\1\u02c0",
             "\1\u02c1",
-            "",
             "\1\u02c2",
-            "\1\u02c3",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u02c5\20\uffff\1\u02c6",
-            "\1\u02c7",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u02c9",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\4\62\1\u02ca\25\62",
-            "\1\u02cc",
-            "\1\u02cd",
             "",
+            "\1\u02c3",
+            "\1\u02c4",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\u02c6\20\uffff\1\u02c7",
+            "\1\u02c8",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\u02ca",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\4\62\1\u02cb\25\62",
+            "\1\u02cd",
             "\1\u02ce",
+            "",
             "\1\u02cf",
             "\1\u02d0",
             "\1\u02d1",
             "\1\u02d2",
             "\1\u02d3",
             "\1\u02d4",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\3\62\1\u02d5\26\62",
+            "\1\u02d5",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\3\62\1\u02d6\26\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\22\62\1\u02d8\7\62",
-            "\1\u02da",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\22\62\1\u02d9\7\62",
             "\1\u02db",
             "\1\u02dc",
             "\1\u02dd",
@@ -12265,80 +12400,82 @@ public class InternalPerlLexer extends Lexer {
             "\1\u02df",
             "\1\u02e0",
             "\1\u02e1",
-            "\1\u02e2\6\uffff\1\u02e3",
+            "\1\u02e2",
+            "\1\u02e3\6\uffff\1\u02e4",
             "",
-            "\1\u02e4",
             "\1\u02e5",
+            "\1\u02e6",
             "",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\17\62\1\u02e6\12\62",
-            "\1\u02e8",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\17\62\1\u02e7\12\62",
+            "\1\u02e9",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u02eb",
             "\1\u02ec",
-            "",
             "\1\u02ed",
+            "",
+            "\1\u0098\1\uffff\12\u0241",
             "\1\u02ee",
             "\1\u02ef",
+            "\1\u02f0",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             "",
-            "\1\u02f1",
+            "\1\u02f2",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u02f4",
+            "\1\u02f5",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u02f9",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\3\62\1\u02fa\26\62",
-            "\1\u02fc",
+            "\1\u02fa",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\3\62\1\u02fb\26\62",
             "\1\u02fd",
+            "\1\u02fe",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u02ff",
             "\1\u0300",
             "\1\u0301",
             "\1\u0302",
             "\1\u0303",
+            "\1\u0304",
             "",
             "",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0305",
             "\1\u0306",
             "\1\u0307",
             "\1\u0308",
             "\1\u0309",
             "\1\u030a",
             "\1\u030b",
-            "",
-            "",
             "\1\u030c",
             "",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u030e",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0310",
             "",
+            "\1\u030d",
+            "",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\u030f",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u0311",
-            "\1\u0312",
             "",
-            "\1\u0313\1\uffff\1\u0314\6\uffff\1\u0315",
-            "\1\u0316",
+            "\1\u0312",
+            "\1\u0313",
+            "",
+            "\1\u0314\1\uffff\1\u0315\6\uffff\1\u0316",
             "\1\u0317",
             "\1\u0318",
             "\1\u0319",
             "\1\u031a",
             "\1\u031b",
-            "\1\u031c\5\uffff\1\u031d",
-            "\1\u031e\10\uffff\1\u031f\6\uffff\1\u0320",
-            "\1\u0321",
+            "\1\u031c",
+            "\1\u031d\5\uffff\1\u031e",
+            "\1\u031f\10\uffff\1\u0320\6\uffff\1\u0321",
             "\1\u0322",
+            "\1\u0323",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u0324",
+            "\1\u0325",
             "",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
@@ -12347,77 +12484,76 @@ public class InternalPerlLexer extends Lexer {
             "",
             "",
             "",
-            "\1\u0327",
             "\1\u0328",
-            "",
             "\1\u0329",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\23\62\1\u032a\6\62",
+            "",
+            "\1\u032a",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\23\62\1\u032b\6\62",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u032e",
             "\1\u032f",
             "\1\u0330",
             "\1\u0331",
-            "",
             "\1\u0332",
             "",
             "\1\u0333",
             "",
+            "\1\u0334",
             "",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\5\62\1\u0334\24\62",
-            "\1\u0336",
             "",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\5\62\1\u0335\24\62",
             "\1\u0337",
             "",
             "\1\u0338",
+            "",
             "\1\u0339",
             "\1\u033a",
-            "",
-            "",
-            "",
             "\1\u033b",
+            "",
+            "",
+            "",
             "\1\u033c",
+            "\1\u033d",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u033e",
             "\1\u033f",
             "\1\u0340",
             "\1\u0341",
+            "\1\u0342",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0343",
             "\1\u0344",
-            "",
             "\1\u0345",
+            "",
             "\1\u0346",
             "\1\u0347",
+            "\1\u0348",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u0349",
             "\1\u034a",
             "\1\u034b",
             "\1\u034c",
-            "\1\u034d\5\uffff\1\u034e",
-            "\1\u034f",
+            "\1\u034d",
+            "\1\u034e\5\uffff\1\u034f",
             "\1\u0350",
             "\1\u0351",
+            "\1\u0352",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0353",
             "\1\u0354",
             "\1\u0355",
             "\1\u0356",
             "\1\u0357",
+            "\1\u0358",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0359",
-            "",
             "\1\u035a",
+            "",
+            "\1\u035b",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u035c",
+            "\1\u035d",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0360",
             "\1\u0361",
             "\1\u0362",
             "\1\u0363",
@@ -12426,74 +12562,74 @@ public class InternalPerlLexer extends Lexer {
             "\1\u0366",
             "\1\u0367",
             "\1\u0368",
+            "\1\u0369",
             "",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u036a",
             "\1\u036b",
+            "\1\u036c",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u036e",
             "\1\u036f",
             "\1\u0370",
             "\1\u0371",
+            "\1\u0372",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0375",
             "\1\u0376",
-            "",
             "\1\u0377",
             "",
+            "\1\u0378",
+            "",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u037a",
             "\1\u037b",
+            "\1\u037c",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u037d",
-            "",
-            "",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "",
-            "",
+            "\1\u037e",
             "",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0380",
             "",
+            "",
+            "",
+            "",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u0381",
-            "\1\u0382",
             "",
+            "\1\u0382",
             "\1\u0383",
+            "",
             "\1\u0384",
             "\1\u0385",
             "\1\u0386",
+            "\1\u0387",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u0388",
             "\1\u0389",
             "\1\u038a",
             "\1\u038b",
             "\1\u038c",
             "\1\u038d",
             "\1\u038e",
+            "\1\u038f",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u0391",
+            "\1\u0392",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0393",
             "\1\u0394",
             "\1\u0395",
             "\1\u0396",
             "\1\u0397",
             "\1\u0398",
-            "\1\u0399\2\uffff\1\u039a",
-            "\1\u039b",
+            "\1\u0399",
+            "\1\u039a\2\uffff\1\u039b",
             "\1\u039c",
             "\1\u039d",
             "\1\u039e",
@@ -12503,14 +12639,15 @@ public class InternalPerlLexer extends Lexer {
             "\1\u03a2",
             "\1\u03a3",
             "\1\u03a4",
+            "\1\u03a5",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             "",
-            "\1\u03a6",
+            "\1\u03a7",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u03a9",
+            "\1\u03aa",
             "",
             "",
             "",
@@ -12518,30 +12655,29 @@ public class InternalPerlLexer extends Lexer {
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u03ae",
             "\1\u03af",
+            "\1\u03b0",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u03b1",
             "\1\u03b2",
             "\1\u03b3",
             "\1\u03b4",
             "\1\u03b5",
+            "\1\u03b6",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u03b7",
+            "\1\u03b8",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u03b9",
             "\1\u03ba",
+            "\1\u03bb",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u03bd",
+            "\1\u03be",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u03c1",
             "\1\u03c2",
             "\1\u03c3",
             "\1\u03c4",
@@ -12550,94 +12686,95 @@ public class InternalPerlLexer extends Lexer {
             "\1\u03c7",
             "\1\u03c8",
             "\1\u03c9",
+            "\1\u03ca",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u03cc",
             "\1\u03cd",
             "\1\u03ce",
+            "\1\u03cf",
             "",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\17\62\1\u03cf\12\62",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\17\62\1\u03d0\12\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u03d2",
+            "\1\u03d3",
             "",
             "",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u03d4",
             "\1\u03d5",
             "\1\u03d6",
             "\1\u03d7",
             "\1\u03d8",
+            "\1\u03d9",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u03da",
             "\1\u03db",
-            "",
             "\1\u03dc",
+            "",
             "\1\u03dd",
+            "\1\u03de",
             "",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u03e1",
+            "\1\u03e2",
             "",
             "",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u03e3",
             "\1\u03e4",
-            "",
-            "",
             "\1\u03e5",
+            "",
+            "",
             "\1\u03e6",
+            "\1\u03e7",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             "",
-            "\1\u03e8",
+            "\1\u03e9",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u03ea",
             "\1\u03eb",
+            "\1\u03ec",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u03ef",
             "\1\u03f0",
             "\1\u03f1",
             "\1\u03f2",
             "\1\u03f3",
             "\1\u03f4",
             "\1\u03f5",
+            "\1\u03f6",
             "",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u03f7",
             "\1\u03f8",
             "\1\u03f9",
             "\1\u03fa",
-            "\1\u03fb\2\uffff\1\u03fc",
-            "\1\u03fd",
+            "\1\u03fb",
+            "\1\u03fc\2\uffff\1\u03fd",
             "\1\u03fe",
             "\1\u03ff",
             "\1\u0400",
+            "\1\u0401",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0403",
             "\1\u0404",
             "\1\u0405",
             "\1\u0406",
             "\1\u0407",
-            "\1\u0408\2\uffff\1\u0409",
-            "\1\u040a\1\u040b",
+            "\1\u0408",
+            "\1\u0409\2\uffff\1\u040a",
+            "\1\u040b\1\u040c",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             "",
-            "\1\u040d",
+            "\1\u040e",
             "",
             "",
             "",
@@ -12645,37 +12782,37 @@ public class InternalPerlLexer extends Lexer {
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u0410",
             "\1\u0411",
+            "\1\u0412",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0413\5\uffff\1\u0414",
-            "\1\u0415",
-            "",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0418",
-            "",
+            "\1\u0414\5\uffff\1\u0415",
+            "\1\u0416",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\u0419",
             "",
             "",
-            "\1\u041a",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "",
+            "",
+            "",
             "\1\u041b",
             "\1\u041c",
+            "\1\u041d",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u041e",
             "\1\u041f",
             "\1\u0420",
             "\1\u0421",
             "\1\u0422",
+            "\1\u0423",
             "",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0424",
             "\1\u0425",
             "\1\u0426",
+            "\1\u0427",
             "",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
@@ -12686,19 +12823,19 @@ public class InternalPerlLexer extends Lexer {
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u042d",
+            "\1\u042e",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u042f",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "",
-            "",
-            "",
+            "\1\u0430",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
+            "",
+            "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0433",
+            "",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u0434",
-            "\47\u0438\1\u0436\22\u0438\1\u0435\6\u0438\32\u0437\4\u0438\1\u0437\1\u0438\32\u0437\uff85\u0438",
+            "\1\u0435",
+            "\47\u0439\1\u0437\22\u0439\1\u0436\6\u0439\32\u0438\4\u0439\1\u0438\1\u0439\32\u0438\uff85\u0439",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
@@ -12708,61 +12845,61 @@ public class InternalPerlLexer extends Lexer {
             "",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u043d",
             "\1\u043e",
             "\1\u043f",
+            "\1\u0440",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0441",
             "\1\u0442",
+            "\1\u0443",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0447",
             "\1\u0448",
+            "\1\u0449",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u044a\14\uffff\1\u044b",
-            "\1\u044c",
+            "\1\u044b\14\uffff\1\u044c",
             "\1\u044d",
-            "",
-            "",
             "\1\u044e",
-            "\1\u044f\2\uffff\1\u0450",
+            "",
+            "",
+            "\1\u044f",
+            "\1\u0450\2\uffff\1\u0451",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0454",
             "\1\u0455",
             "\1\u0456",
             "\1\u0457",
-            "",
             "\1\u0458",
             "",
-            "",
             "\1\u0459",
+            "",
+            "",
             "\1\u045a",
+            "\1\u045b",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             "",
-            "\1\u045e",
+            "\1\u045f",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0460",
             "\1\u0461",
-            "",
             "\1\u0462",
+            "",
             "\1\u0463",
+            "\1\u0464",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0465",
             "\1\u0466",
+            "\1\u0467",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0469",
+            "\1\u046a",
             "",
             "",
             "",
@@ -12775,43 +12912,43 @@ public class InternalPerlLexer extends Lexer {
             "",
             "",
             "",
-            "\1\u046c",
-            "\47\u0470\1\u046e\22\u0470\1\u046d\6\u0470\32\u046f\4\u0470\1\u046f\1\u0470\32\u046f\uff85\u0470",
-            "\1\u0471",
-            "\32\u0472\4\uffff\1\u0472\1\uffff\32\u0472",
-            "\47\u0438\1\u0436\22\u0438\1\u0435\6\u0438\32\u0437\4\u0438\1\u0437\1\u0438\32\u0437\uff85\u0438",
+            "\1\u046d",
+            "\47\u0471\1\u046f\22\u0471\1\u046e\6\u0471\32\u0470\4\u0471\1\u0470\1\u0471\32\u0470\uff85\u0471",
+            "\1\u0472",
+            "\32\u0473\4\uffff\1\u0473\1\uffff\32\u0473",
+            "\47\u0439\1\u0437\22\u0439\1\u0436\6\u0439\32\u0438\4\u0439\1\u0438\1\u0439\32\u0438\uff85\u0439",
             "",
             "",
             "",
             "",
             "",
-            "\1\u0473",
+            "\1\u0474",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0475",
-            "",
             "\1\u0476",
+            "",
+            "\1\u0477",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             "",
             "",
             "",
-            "\1\u0478\14\uffff\1\u0479",
-            "\1\u047a",
-            "",
+            "\1\u0479\14\uffff\1\u047a",
             "\1\u047b",
+            "",
             "\1\u047c",
+            "\1\u047d",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u047e",
             "\1\u047f",
             "\1\u0480",
             "\1\u0481",
+            "\1\u0482",
             "",
             "",
             "",
-            "\1\u0482\1\uffff\1\u0483",
-            "\1\u0484",
+            "\1\u0483\1\uffff\1\u0484",
             "\1\u0485",
             "\1\u0486",
+            "\1\u0487",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
@@ -12820,73 +12957,73 @@ public class InternalPerlLexer extends Lexer {
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u048b",
+            "\1\u048c",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u048d",
             "\1\u048e",
-            "",
             "\1\u048f",
+            "",
             "\1\u0490",
-            "",
-            "",
             "\1\u0491",
             "",
             "",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u0493",
-            "\32\u0494\4\uffff\1\u0494\1\uffff\32\u0494",
-            "\47\u0470\1\u046e\22\u0470\1\u046d\6\u0470\32\u046f\4\u0470\1\u046f\1\u0470\32\u046f\uff85\u0470",
+            "\1\u0492",
             "",
-            "\32\u0472\4\uffff\1\u0472\1\uffff\32\u0472",
-            "\47\u0438\1\u0436\22\u0438\1\u0435\6\u0438\32\u0472\4\u0438\1\u0472\1\u0438\32\u0472\uff85\u0438",
+            "",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\u0494",
+            "\32\u0495\4\uffff\1\u0495\1\uffff\32\u0495",
+            "\47\u0471\1\u046f\22\u0471\1\u046e\6\u0471\32\u0470\4\u0471\1\u0470\1\u0471\32\u0470\uff85\u0471",
+            "",
+            "\32\u0473\4\uffff\1\u0473\1\uffff\32\u0473",
+            "\47\u0439\1\u0437\22\u0439\1\u0436\6\u0439\32\u0473\4\u0439\1\u0473\1\u0439\32\u0473\uff85\u0439",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u0496",
+            "\1\u0497",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u0498",
             "\1\u0499",
+            "\1\u049a",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u049b",
             "\1\u049c",
-            "",
             "\1\u049d",
+            "",
             "\1\u049e",
             "\1\u049f",
             "\1\u04a0",
             "\1\u04a1",
             "\1\u04a2",
+            "\1\u04a3",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u04a4",
-            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "",
-            "",
-            "",
-            "",
+            "\1\u04a5",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u04a7",
+            "",
+            "",
+            "",
+            "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "",
             "\1\u04a8",
+            "\1\u04a9",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\32\u0494\4\uffff\1\u0494\1\uffff\32\u0494",
-            "\47\u0470\1\u046e\22\u0470\1\u046d\6\u0470\32\u0494\4\u0470\1\u0494\1\u0470\32\u0494\uff85\u0470",
+            "\32\u0495\4\uffff\1\u0495\1\uffff\32\u0495",
+            "\47\u0471\1\u046f\22\u0471\1\u046e\6\u0471\32\u0495\4\u0471\1\u0495\1\u0471\32\u0495\uff85\u0471",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\1\u04ad",
             "\1\u04ae",
-            "",
             "\1\u04af",
+            "",
             "\1\u04b0",
+            "\1\u04b1",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u04b3\23\uffff\1\u04b4",
+            "\1\u04b4\23\uffff\1\u04b5",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u04b6",
             "\1\u04b7",
+            "\1\u04b8",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
@@ -12897,17 +13034,17 @@ public class InternalPerlLexer extends Lexer {
             "",
             "",
             "",
-            "\1\u04bb",
             "\1\u04bc",
+            "\1\u04bd",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             "",
-            "\1\u04bf",
             "\1\u04c0",
-            "",
             "\1\u04c1",
+            "",
             "\1\u04c2",
+            "\1\u04c3",
             "",
             "",
             "",
@@ -12915,149 +13052,149 @@ public class InternalPerlLexer extends Lexer {
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             "",
-            "\1\u04c5",
             "\1\u04c6",
+            "\1\u04c7",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             "",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\u04ca",
-            "",
-            "",
-            "",
             "\1\u04cb",
+            "",
+            "",
+            "",
+            "\1\u04cc",
             "\1\62\22\uffff\1\62\6\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             ""
     };
 
-    static final short[] DFA58_eot = DFA.unpackEncodedString(DFA58_eotS);
-    static final short[] DFA58_eof = DFA.unpackEncodedString(DFA58_eofS);
-    static final char[] DFA58_min = DFA.unpackEncodedStringToUnsignedChars(DFA58_minS);
-    static final char[] DFA58_max = DFA.unpackEncodedStringToUnsignedChars(DFA58_maxS);
-    static final short[] DFA58_accept = DFA.unpackEncodedString(DFA58_acceptS);
-    static final short[] DFA58_special = DFA.unpackEncodedString(DFA58_specialS);
-    static final short[][] DFA58_transition;
+    static final short[] DFA64_eot = DFA.unpackEncodedString(DFA64_eotS);
+    static final short[] DFA64_eof = DFA.unpackEncodedString(DFA64_eofS);
+    static final char[] DFA64_min = DFA.unpackEncodedStringToUnsignedChars(DFA64_minS);
+    static final char[] DFA64_max = DFA.unpackEncodedStringToUnsignedChars(DFA64_maxS);
+    static final short[] DFA64_accept = DFA.unpackEncodedString(DFA64_acceptS);
+    static final short[] DFA64_special = DFA.unpackEncodedString(DFA64_specialS);
+    static final short[][] DFA64_transition;
 
     static {
-        int numStates = DFA58_transitionS.length;
-        DFA58_transition = new short[numStates][];
+        int numStates = DFA64_transitionS.length;
+        DFA64_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA58_transition[i] = DFA.unpackEncodedString(DFA58_transitionS[i]);
+            DFA64_transition[i] = DFA.unpackEncodedString(DFA64_transitionS[i]);
         }
     }
 
-    class DFA58 extends DFA {
+    class DFA64 extends DFA {
 
-        public DFA58(BaseRecognizer recognizer) {
+        public DFA64(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 58;
-            this.eot = DFA58_eot;
-            this.eof = DFA58_eof;
-            this.min = DFA58_min;
-            this.max = DFA58_max;
-            this.accept = DFA58_accept;
-            this.special = DFA58_special;
-            this.transition = DFA58_transition;
+            this.decisionNumber = 64;
+            this.eot = DFA64_eot;
+            this.eof = DFA64_eof;
+            this.min = DFA64_min;
+            this.max = DFA64_max;
+            this.accept = DFA64_accept;
+            this.special = DFA64_special;
+            this.transition = DFA64_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | T__116 | T__117 | T__118 | T__119 | T__120 | T__121 | T__122 | T__123 | T__124 | T__125 | T__126 | T__127 | T__128 | T__129 | T__130 | T__131 | T__132 | T__133 | T__134 | T__135 | T__136 | T__137 | T__138 | T__139 | T__140 | T__141 | T__142 | T__143 | T__144 | T__145 | T__146 | T__147 | T__148 | T__149 | T__150 | T__151 | T__152 | T__153 | T__154 | T__155 | T__156 | T__157 | T__158 | T__159 | T__160 | T__161 | T__162 | T__163 | T__164 | T__165 | T__166 | T__167 | T__168 | T__169 | T__170 | T__171 | T__172 | T__173 | T__174 | T__175 | T__176 | T__177 | T__178 | T__179 | T__180 | T__181 | T__182 | T__183 | T__184 | T__185 | T__186 | T__187 | T__188 | T__189 | T__190 | T__191 | T__192 | T__193 | T__194 | T__195 | T__196 | T__197 | T__198 | T__199 | T__200 | T__201 | T__202 | T__203 | T__204 | T__205 | T__206 | T__207 | T__208 | T__209 | T__210 | T__211 | T__212 | T__213 | T__214 | T__215 | T__216 | T__217 | T__218 | T__219 | T__220 | T__221 | T__222 | T__223 | T__224 | T__225 | T__226 | T__227 | T__228 | T__229 | T__230 | T__231 | T__232 | T__233 | T__234 | T__235 | T__236 | T__237 | T__238 | T__239 | T__240 | T__241 | T__242 | T__243 | T__244 | T__245 | T__246 | T__247 | T__248 | T__249 | T__250 | T__251 | T__252 | T__253 | T__254 | T__255 | T__256 | T__257 | T__258 | T__259 | T__260 | T__261 | T__262 | T__263 | T__264 | T__265 | T__266 | T__267 | T__268 | T__269 | T__270 | T__271 | T__272 | T__273 | T__274 | T__275 | T__276 | T__277 | T__278 | T__279 | T__280 | T__281 | T__282 | T__283 | T__284 | T__285 | T__286 | T__287 | T__288 | T__289 | T__290 | T__291 | T__292 | T__293 | T__294 | T__295 | T__296 | T__297 | T__298 | T__299 | T__300 | T__301 | T__302 | T__303 | T__304 | T__305 | T__306 | T__307 | T__308 | T__309 | T__310 | T__311 | T__312 | T__313 | T__314 | T__315 | T__316 | T__317 | T__318 | T__319 | T__320 | T__321 | T__322 | T__323 | T__324 | T__325 | T__326 | T__327 | T__328 | T__329 | T__330 | T__331 | T__332 | T__333 | T__334 | T__335 | T__336 | T__337 | T__338 | RULE_ID | RULE_SYMBOL | RULE_VERSION | RULE_HEX | RULE_BIN | RULE_INT | RULE_STRING | RULE_BACKTICK_STRING | RULE_INTERPOLATE | RULE_LITERAL | RULE_WORDS_QUOTE_LIKE | RULE_COMMAND_QUOTE_LIKE | RULE_REGEX_QUOTE | RULE_READLINE_QUOTE | RULE_POD | RULE_DATA | RULE_END | RULE_SL_COMMENT | RULE_WS );";
+            return "1:1: Tokens : ( T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | T__116 | T__117 | T__118 | T__119 | T__120 | T__121 | T__122 | T__123 | T__124 | T__125 | T__126 | T__127 | T__128 | T__129 | T__130 | T__131 | T__132 | T__133 | T__134 | T__135 | T__136 | T__137 | T__138 | T__139 | T__140 | T__141 | T__142 | T__143 | T__144 | T__145 | T__146 | T__147 | T__148 | T__149 | T__150 | T__151 | T__152 | T__153 | T__154 | T__155 | T__156 | T__157 | T__158 | T__159 | T__160 | T__161 | T__162 | T__163 | T__164 | T__165 | T__166 | T__167 | T__168 | T__169 | T__170 | T__171 | T__172 | T__173 | T__174 | T__175 | T__176 | T__177 | T__178 | T__179 | T__180 | T__181 | T__182 | T__183 | T__184 | T__185 | T__186 | T__187 | T__188 | T__189 | T__190 | T__191 | T__192 | T__193 | T__194 | T__195 | T__196 | T__197 | T__198 | T__199 | T__200 | T__201 | T__202 | T__203 | T__204 | T__205 | T__206 | T__207 | T__208 | T__209 | T__210 | T__211 | T__212 | T__213 | T__214 | T__215 | T__216 | T__217 | T__218 | T__219 | T__220 | T__221 | T__222 | T__223 | T__224 | T__225 | T__226 | T__227 | T__228 | T__229 | T__230 | T__231 | T__232 | T__233 | T__234 | T__235 | T__236 | T__237 | T__238 | T__239 | T__240 | T__241 | T__242 | T__243 | T__244 | T__245 | T__246 | T__247 | T__248 | T__249 | T__250 | T__251 | T__252 | T__253 | T__254 | T__255 | T__256 | T__257 | T__258 | T__259 | T__260 | T__261 | T__262 | T__263 | T__264 | T__265 | T__266 | T__267 | T__268 | T__269 | T__270 | T__271 | T__272 | T__273 | T__274 | T__275 | T__276 | T__277 | T__278 | T__279 | T__280 | T__281 | T__282 | T__283 | T__284 | T__285 | T__286 | T__287 | T__288 | T__289 | T__290 | T__291 | T__292 | T__293 | T__294 | T__295 | T__296 | T__297 | T__298 | T__299 | T__300 | T__301 | T__302 | T__303 | T__304 | T__305 | T__306 | T__307 | T__308 | T__309 | T__310 | T__311 | T__312 | T__313 | T__314 | T__315 | T__316 | T__317 | T__318 | T__319 | T__320 | T__321 | T__322 | T__323 | T__324 | T__325 | T__326 | T__327 | T__328 | T__329 | T__330 | T__331 | T__332 | T__333 | T__334 | T__335 | T__336 | T__337 | T__338 | T__339 | RULE_NUMBER | RULE_ID | RULE_SYMBOL | RULE_VERSION | RULE_STRING | RULE_BACKTICK_STRING | RULE_INTERPOLATE | RULE_LITERAL | RULE_WORDS_QUOTE_LIKE | RULE_COMMAND_QUOTE_LIKE | RULE_REGEX_QUOTE | RULE_READLINE_QUOTE | RULE_POD | RULE_DATA | RULE_END | RULE_SL_COMMENT | RULE_WS );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA58_1135 = input.LA(1);
+                        int LA64_1173 = input.LA(1);
 
                         s = -1;
-                        if ( (LA58_1135==':') ) {s = 1133;}
+                        if ( (LA64_1173==':') ) {s = 1134;}
 
-                        else if ( (LA58_1135=='\'') ) {s = 1134;}
+                        else if ( (LA64_1173=='\'') ) {s = 1135;}
 
-                        else if ( ((LA58_1135>='A' && LA58_1135<='Z')||LA58_1135=='_'||(LA58_1135>='a' && LA58_1135<='z')) ) {s = 1135;}
+                        else if ( ((LA64_1173>='A' && LA64_1173<='Z')||LA64_1173=='_'||(LA64_1173>='a' && LA64_1173<='z')) ) {s = 1173;}
 
-                        else if ( ((LA58_1135>='\u0000' && LA58_1135<='&')||(LA58_1135>='(' && LA58_1135<='9')||(LA58_1135>=';' && LA58_1135<='@')||(LA58_1135>='[' && LA58_1135<='^')||LA58_1135=='`'||(LA58_1135>='{' && LA58_1135<='\uFFFF')) ) {s = 1136;}
+                        else if ( ((LA64_1173>='\u0000' && LA64_1173<='&')||(LA64_1173>='(' && LA64_1173<='9')||(LA64_1173>=';' && LA64_1173<='@')||(LA64_1173>='[' && LA64_1173<='^')||LA64_1173=='`'||(LA64_1173>='{' && LA64_1173<='\uFFFF')) ) {s = 1137;}
 
                         else s = 50;
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA58_1079 = input.LA(1);
+                        int LA64_1139 = input.LA(1);
 
                         s = -1;
-                        if ( (LA58_1079==':') ) {s = 1077;}
+                        if ( (LA64_1139==':') ) {s = 1078;}
 
-                        else if ( (LA58_1079=='\'') ) {s = 1078;}
+                        else if ( (LA64_1139=='\'') ) {s = 1079;}
 
-                        else if ( ((LA58_1079>='A' && LA58_1079<='Z')||LA58_1079=='_'||(LA58_1079>='a' && LA58_1079<='z')) ) {s = 1079;}
+                        else if ( ((LA64_1139>='A' && LA64_1139<='Z')||LA64_1139=='_'||(LA64_1139>='a' && LA64_1139<='z')) ) {s = 1139;}
 
-                        else if ( ((LA58_1079>='\u0000' && LA58_1079<='&')||(LA58_1079>='(' && LA58_1079<='9')||(LA58_1079>=';' && LA58_1079<='@')||(LA58_1079>='[' && LA58_1079<='^')||LA58_1079=='`'||(LA58_1079>='{' && LA58_1079<='\uFFFF')) ) {s = 1080;}
+                        else if ( ((LA64_1139>='\u0000' && LA64_1139<='&')||(LA64_1139>='(' && LA64_1139<='9')||(LA64_1139>=';' && LA64_1139<='@')||(LA64_1139>='[' && LA64_1139<='^')||LA64_1139=='`'||(LA64_1139>='{' && LA64_1139<='\uFFFF')) ) {s = 1081;}
 
                         else s = 50;
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA58_1076 = input.LA(1);
+                        int LA64_1136 = input.LA(1);
 
                         s = -1;
-                        if ( (LA58_1076==':') ) {s = 1133;}
+                        if ( (LA64_1136==':') ) {s = 1134;}
 
-                        else if ( (LA58_1076=='\'') ) {s = 1134;}
+                        else if ( (LA64_1136=='\'') ) {s = 1135;}
 
-                        else if ( ((LA58_1076>='A' && LA58_1076<='Z')||LA58_1076=='_'||(LA58_1076>='a' && LA58_1076<='z')) ) {s = 1135;}
+                        else if ( ((LA64_1136>='A' && LA64_1136<='Z')||LA64_1136=='_'||(LA64_1136>='a' && LA64_1136<='z')) ) {s = 1136;}
 
-                        else if ( ((LA58_1076>='\u0000' && LA58_1076<='&')||(LA58_1076>='(' && LA58_1076<='9')||(LA58_1076>=';' && LA58_1076<='@')||(LA58_1076>='[' && LA58_1076<='^')||LA58_1076=='`'||(LA58_1076>='{' && LA58_1076<='\uFFFF')) ) {s = 1136;}
+                        else if ( ((LA64_1136>='\u0000' && LA64_1136<='&')||(LA64_1136>='(' && LA64_1136<='9')||(LA64_1136>=';' && LA64_1136<='@')||(LA64_1136>='[' && LA64_1136<='^')||LA64_1136=='`'||(LA64_1136>='{' && LA64_1136<='\uFFFF')) ) {s = 1137;}
 
                         else s = 50;
 
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA58_998 = input.LA(1);
+                        int LA64_1080 = input.LA(1);
 
                         s = -1;
-                        if ( (LA58_998==':') ) {s = 1077;}
+                        if ( (LA64_1080==':') ) {s = 1078;}
 
-                        else if ( (LA58_998=='\'') ) {s = 1078;}
+                        else if ( (LA64_1080=='\'') ) {s = 1079;}
 
-                        else if ( ((LA58_998>='A' && LA58_998<='Z')||LA58_998=='_'||(LA58_998>='a' && LA58_998<='z')) ) {s = 1079;}
+                        else if ( ((LA64_1080>='A' && LA64_1080<='Z')||LA64_1080=='_'||(LA64_1080>='a' && LA64_1080<='z')) ) {s = 1080;}
 
-                        else if ( ((LA58_998>='\u0000' && LA58_998<='&')||(LA58_998>='(' && LA58_998<='9')||(LA58_998>=';' && LA58_998<='@')||(LA58_998>='[' && LA58_998<='^')||LA58_998=='`'||(LA58_998>='{' && LA58_998<='\uFFFF')) ) {s = 1080;}
+                        else if ( ((LA64_1080>='\u0000' && LA64_1080<='&')||(LA64_1080>='(' && LA64_1080<='9')||(LA64_1080>=';' && LA64_1080<='@')||(LA64_1080>='[' && LA64_1080<='^')||LA64_1080=='`'||(LA64_1080>='{' && LA64_1080<='\uFFFF')) ) {s = 1081;}
 
                         else s = 50;
 
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
-                        int LA58_1172 = input.LA(1);
+                        int LA64_1077 = input.LA(1);
 
                         s = -1;
-                        if ( (LA58_1172==':') ) {s = 1133;}
+                        if ( (LA64_1077==':') ) {s = 1134;}
 
-                        else if ( (LA58_1172=='\'') ) {s = 1134;}
+                        else if ( (LA64_1077=='\'') ) {s = 1135;}
 
-                        else if ( ((LA58_1172>='A' && LA58_1172<='Z')||LA58_1172=='_'||(LA58_1172>='a' && LA58_1172<='z')) ) {s = 1172;}
+                        else if ( ((LA64_1077>='A' && LA64_1077<='Z')||LA64_1077=='_'||(LA64_1077>='a' && LA64_1077<='z')) ) {s = 1136;}
 
-                        else if ( ((LA58_1172>='\u0000' && LA58_1172<='&')||(LA58_1172>='(' && LA58_1172<='9')||(LA58_1172>=';' && LA58_1172<='@')||(LA58_1172>='[' && LA58_1172<='^')||LA58_1172=='`'||(LA58_1172>='{' && LA58_1172<='\uFFFF')) ) {s = 1136;}
+                        else if ( ((LA64_1077>='\u0000' && LA64_1077<='&')||(LA64_1077>='(' && LA64_1077<='9')||(LA64_1077>=';' && LA64_1077<='@')||(LA64_1077>='[' && LA64_1077<='^')||LA64_1077=='`'||(LA64_1077>='{' && LA64_1077<='\uFFFF')) ) {s = 1137;}
 
                         else s = 50;
 
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA58_1138 = input.LA(1);
+                        int LA64_999 = input.LA(1);
 
                         s = -1;
-                        if ( (LA58_1138==':') ) {s = 1077;}
+                        if ( (LA64_999==':') ) {s = 1078;}
 
-                        else if ( (LA58_1138=='\'') ) {s = 1078;}
+                        else if ( (LA64_999=='\'') ) {s = 1079;}
 
-                        else if ( ((LA58_1138>='A' && LA58_1138<='Z')||LA58_1138=='_'||(LA58_1138>='a' && LA58_1138<='z')) ) {s = 1138;}
+                        else if ( ((LA64_999>='A' && LA64_999<='Z')||LA64_999=='_'||(LA64_999>='a' && LA64_999<='z')) ) {s = 1080;}
 
-                        else if ( ((LA58_1138>='\u0000' && LA58_1138<='&')||(LA58_1138>='(' && LA58_1138<='9')||(LA58_1138>=';' && LA58_1138<='@')||(LA58_1138>='[' && LA58_1138<='^')||LA58_1138=='`'||(LA58_1138>='{' && LA58_1138<='\uFFFF')) ) {s = 1080;}
+                        else if ( ((LA64_999>='\u0000' && LA64_999<='&')||(LA64_999>='(' && LA64_999<='9')||(LA64_999>=';' && LA64_999<='@')||(LA64_999>='[' && LA64_999<='^')||LA64_999=='`'||(LA64_999>='{' && LA64_999<='\uFFFF')) ) {s = 1081;}
 
                         else s = 50;
 
@@ -13065,7 +13202,7 @@ public class InternalPerlLexer extends Lexer {
                         break;
             }
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 58, _s, input);
+                new NoViableAltException(getDescription(), 64, _s, input);
             error(nvae);
             throw nvae;
         }

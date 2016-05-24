@@ -145,14 +145,14 @@ public class TokenParserTest {
   @Test
   public void wordsQuoteLike() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("qw{a b c}");
+    _builder.append("qw {a b c}");
     _builder.newLine();
     PerlDocument __parseDocument = this._parseDocument(_builder.toString());
     EList<Element> _elements = __parseDocument.getElements();
     Element _head = IterableExtensions.<Element>head(_elements);
     final WordsQuoteLikeToken token = ((WordsQuoteLikeToken) _head);
     String _content = token.getContent();
-    Assert.assertEquals("qw{a b c}", _content);
+    Assert.assertEquals("qw {a b c}", _content);
   }
   
   @Test
@@ -184,14 +184,27 @@ public class TokenParserTest {
   @Test
   public void readlineQuoteLike() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<$file>");
+    _builder.append("<FILE>");
     _builder.newLine();
     PerlDocument __parseDocument = this._parseDocument(_builder.toString());
     EList<Element> _elements = __parseDocument.getElements();
     Element _head = IterableExtensions.<Element>head(_elements);
     final ReadLineQuoteLikeToken token = ((ReadLineQuoteLikeToken) _head);
     String _content = token.getContent();
-    Assert.assertEquals("<$file>", _content);
+    Assert.assertEquals("<FILE>", _content);
+  }
+  
+  @Test
+  public void readlineQuoteLikeWithVar() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<$FILE>");
+    _builder.newLine();
+    PerlDocument __parseDocument = this._parseDocument(_builder.toString());
+    EList<Element> _elements = __parseDocument.getElements();
+    Element _head = IterableExtensions.<Element>head(_elements);
+    final ReadLineQuoteLikeToken token = ((ReadLineQuoteLikeToken) _head);
+    String _content = token.getContent();
+    Assert.assertEquals("<$FILE>", _content);
   }
   
   @Test

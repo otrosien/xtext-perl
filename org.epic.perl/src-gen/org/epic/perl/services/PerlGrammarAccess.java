@@ -307,7 +307,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Action cNumberTokenAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cContentAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cContentNumberParserRuleCall_1_1_0 = (RuleCall)cContentAssignment_1_1.eContents().get(0);
+		private final RuleCall cContentNUMBERTerminalRuleCall_1_1_0 = (RuleCall)cContentAssignment_1_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Action cWordTokenAction_2_0 = (Action)cGroup_2.eContents().get(0);
 		private final Assignment cContentAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
@@ -337,7 +337,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Token:
 		//	{PodToken} content=POD
-		//	| {NumberToken} content=Number
+		//	| {NumberToken} content=NUMBER
 		//	//	| {VersionToken}   content=VERSION
 		//	| {WordToken} content=Word
 		//	//	| DashedWord 
@@ -360,7 +360,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PodToken} content=POD | {NumberToken} content=Number //	| {VersionToken}   content=VERSION
+		//{PodToken} content=POD | {NumberToken} content=NUMBER //	| {VersionToken}   content=VERSION
 		//| {WordToken} content=Word //	| DashedWord 
 		//| {SymbolToken} content=SYMBOL //	| ArrayIndex 
 		//| QuoteLikeToken | {OperatorToken} content=FileTestOperator | {OperatorToken} content=Operator | QuoteToken //	| HereDoc 
@@ -383,17 +383,17 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//POD
 		public RuleCall getContentPODTerminalRuleCall_0_1_0() { return cContentPODTerminalRuleCall_0_1_0; }
 		
-		//{NumberToken} content=Number
+		//{NumberToken} content=NUMBER
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{NumberToken}
 		public Action getNumberTokenAction_1_0() { return cNumberTokenAction_1_0; }
 		
-		//content=Number
+		//content=NUMBER
 		public Assignment getContentAssignment_1_1() { return cContentAssignment_1_1; }
 		
-		//Number
-		public RuleCall getContentNumberParserRuleCall_1_1_0() { return cContentNumberParserRuleCall_1_1_0; }
+		//NUMBER
+		public RuleCall getContentNUMBERTerminalRuleCall_1_1_0() { return cContentNUMBERTerminalRuleCall_1_1_0; }
 		
 		//{WordToken} content=Word
 		public Group getGroup_2() { return cGroup_2; }
@@ -1973,45 +1973,6 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//'-C'
 		public Keyword getCKeyword_26() { return cCKeyword_26; }
 	}
-	public class NumberElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Number");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final RuleCall cHEXTerminalRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
-		private final RuleCall cBINTerminalRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_0_2 = (RuleCall)cAlternatives_0.eContents().get(2);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final RuleCall cINTTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		
-		//Number hidden():
-		//	(HEX | BIN | INT) ('.' INT)?;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//(HEX | BIN | INT) ('.' INT)?
-		public Group getGroup() { return cGroup; }
-		
-		//(HEX | BIN | INT)
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
-		
-		//HEX
-		public RuleCall getHEXTerminalRuleCall_0_0() { return cHEXTerminalRuleCall_0_0; }
-		
-		//BIN
-		public RuleCall getBINTerminalRuleCall_0_1() { return cBINTerminalRuleCall_0_1; }
-		
-		//INT
-		public RuleCall getINTTerminalRuleCall_0_2() { return cINTTerminalRuleCall_0_2; }
-		
-		//('.' INT)?
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'.'
-		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
-		
-		//INT
-		public RuleCall getINTTerminalRuleCall_1_1() { return cINTTerminalRuleCall_1_1; }
-	}
 	
 	
 	private final PerlDocumentElements pPerlDocument;
@@ -2029,7 +1990,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	private final KeywordElements pKeyword;
 	private final OperatorElements pOperator;
 	private final FileTestOperatorElements pFileTestOperator;
-	private final NumberElements pNumber;
+	private final TerminalRule tNUMBER;
 	private final TerminalRule tID;
 	private final TerminalRule tSYMBOL;
 	private final TerminalRule tVERSION;
@@ -2071,7 +2032,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pKeyword = new KeywordElements();
 		this.pOperator = new OperatorElements();
 		this.pFileTestOperator = new FileTestOperatorElements();
-		this.pNumber = new NumberElements();
+		this.tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.NUMBER");
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.ID");
 		this.tSYMBOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.SYMBOL");
 		this.tVERSION = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.VERSION");
@@ -2232,7 +2193,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Token:
 	//	{PodToken} content=POD
-	//	| {NumberToken} content=Number
+	//	| {NumberToken} content=NUMBER
 	//	//	| {VersionToken}   content=VERSION
 	//	| {WordToken} content=Word
 	//	//	| DashedWord 
@@ -2364,14 +2325,10 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		return getFileTestOperatorAccess().getRule();
 	}
 	
-	//Number hidden():
+	//terminal NUMBER:
 	//	(HEX | BIN | INT) ('.' INT)?;
-	public NumberElements getNumberAccess() {
-		return pNumber;
-	}
-	
-	public ParserRule getNumberRule() {
-		return getNumberAccess().getRule();
+	public TerminalRule getNUMBERRule() {
+		return tNUMBER;
 	}
 	
 	//terminal ID:
@@ -2424,37 +2381,37 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal INTERPOLATE:
-	//	'qq' ('{'->'}' | '|'->'|' | '/'->'/' | '<'->'>');
+	//	'qq' WS? ('{'->'}' | '|'->'|' | '/'->'/' | '<'->'>');
 	public TerminalRule getINTERPOLATERule() {
 		return tINTERPOLATE;
 	}
 	
 	//terminal LITERAL:
-	//	'q' ('{'->'}' | '('->')' | '|'->'|' | '/'->'/' | '<'->'>');
+	//	'q' WS? ('{'->'}' | '('->')' | '|'->'|' | '/'->'/' | '<'->'>');
 	public TerminalRule getLITERALRule() {
 		return tLITERAL;
 	}
 	
 	//terminal WORDS_QUOTE_LIKE:
-	//	'qw' ('{'->'}' | '('->')' | '|'->'|' | '/'->'/' | '<'->'>');
+	//	'qw' WS? ('{'->'}' | '('->')' | '|'->'|' | '/'->'/' | '<'->'>');
 	public TerminalRule getWORDS_QUOTE_LIKERule() {
 		return tWORDS_QUOTE_LIKE;
 	}
 	
 	//terminal COMMAND_QUOTE_LIKE:
-	//	'qx' ('{'->'}' | '('->')' | '|'->'|' | '/'->'/' | '<'->'>');
+	//	'qx' WS? ('{'->'}' | '('->')' | '|'->'|' | '/'->'/' | '<'->'>');
 	public TerminalRule getCOMMAND_QUOTE_LIKERule() {
 		return tCOMMAND_QUOTE_LIKE;
 	}
 	
 	//terminal REGEX_QUOTE:
-	//	'qr' ('{'->'}' | '|'->'|' | '/'->'/' | '<'->'>');
+	//	'qr' WS? ('{'->'}' | '|'->'|' | '/'->'/' | '<'->'>');
 	public TerminalRule getREGEX_QUOTERule() {
 		return tREGEX_QUOTE;
 	}
 	
 	//terminal READLINE_QUOTE:
-	//	'<' '$'? ('a'..'z' | 'A'..'Z')+ '>';
+	//	'<' (ID | SYMBOL) '>';
 	public TerminalRule getREADLINE_QUOTERule() {
 		return tREADLINE_QUOTE;
 	}

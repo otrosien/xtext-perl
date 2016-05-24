@@ -424,39 +424,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleNumber
-entryRuleNumber
-@init { 
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-}
-:
-{ before(grammarAccess.getNumberRule()); }
-	 ruleNumber
-{ after(grammarAccess.getNumberRule()); } 
-	 EOF 
-;
-finally {
-	myHiddenTokenState.restore();
-}
-
-// Rule Number
-ruleNumber 
-	@init {
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-		int stackSize = keepStackSize();
-	}
-	:
-	(
-		{ before(grammarAccess.getNumberAccess().getGroup()); }
-		(rule__Number__Group__0)
-		{ after(grammarAccess.getNumberAccess().getGroup()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-	myHiddenTokenState.restore();
-}
-
 rule__Element__Alternatives
 	@init {
 		int stackSize = keepStackSize();
@@ -2602,33 +2569,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Number__Alternatives_0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getNumberAccess().getHEXTerminalRuleCall_0_0()); }
-		RULE_HEX
-		{ after(grammarAccess.getNumberAccess().getHEXTerminalRuleCall_0_0()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getNumberAccess().getBINTerminalRuleCall_0_1()); }
-		RULE_BIN
-		{ after(grammarAccess.getNumberAccess().getBINTerminalRuleCall_0_1()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getNumberAccess().getINTTerminalRuleCall_0_2()); }
-		RULE_INT
-		{ after(grammarAccess.getNumberAccess().getINTTerminalRuleCall_0_2()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 rule__PerlDocument__Group__0
 	@init {
 		int stackSize = keepStackSize();
@@ -3844,114 +3784,6 @@ finally {
 }
 
 
-rule__Number__Group__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Number__Group__0__Impl
-	rule__Number__Group__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Number__Group__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getNumberAccess().getAlternatives_0()); }
-	(rule__Number__Alternatives_0)
-	{ after(grammarAccess.getNumberAccess().getAlternatives_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Number__Group__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Number__Group__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Number__Group__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getNumberAccess().getGroup_1()); }
-	(rule__Number__Group_1__0)?
-	{ after(grammarAccess.getNumberAccess().getGroup_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__Number__Group_1__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Number__Group_1__0__Impl
-	rule__Number__Group_1__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Number__Group_1__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getNumberAccess().getFullStopKeyword_1_0()); }
-	'.'
-	{ after(grammarAccess.getNumberAccess().getFullStopKeyword_1_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Number__Group_1__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Number__Group_1__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Number__Group_1__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getNumberAccess().getINTTerminalRuleCall_1_1()); }
-	RULE_INT
-	{ after(grammarAccess.getNumberAccess().getINTTerminalRuleCall_1_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
 rule__PerlDocument__ElementsAssignment_1
 	@init {
 		int stackSize = keepStackSize();
@@ -4093,9 +3925,9 @@ rule__Token__ContentAssignment_1_1
 	}
 :
 	(
-		{ before(grammarAccess.getTokenAccess().getContentNumberParserRuleCall_1_1_0()); }
-		ruleNumber
-		{ after(grammarAccess.getTokenAccess().getContentNumberParserRuleCall_1_1_0()); }
+		{ before(grammarAccess.getTokenAccess().getContentNUMBERTerminalRuleCall_1_1_0()); }
+		RULE_NUMBER
+		{ after(grammarAccess.getTokenAccess().getContentNUMBERTerminalRuleCall_1_1_0()); }
 	)
 ;
 finally {
@@ -4282,33 +4114,35 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+RULE_NUMBER : (RULE_HEX|RULE_BIN|RULE_INT) ('.' RULE_INT)?;
+
 RULE_ID : ('a'..'z'|'A'..'Z'|'_')+ (('::'|'\'') ('a'..'z'|'A'..'Z'|'_')+)*;
 
 RULE_SYMBOL : ('$'|'%'|'@') ('a'..'z'|'A'..'Z'|'_')+ (('::'|'\'') ('a'..'z'|'A'..'Z'|'_')+)*;
 
 RULE_VERSION : 'v'? ('0'..'9')+ ('.' ('0'..'9')+)*;
 
-RULE_HEX : ('0x'|'0X') ('0'..'9'|'a'..'f'|'A'..'F'|'_')+;
+fragment RULE_HEX : ('0x'|'0X') ('0'..'9'|'a'..'f'|'A'..'F'|'_')+;
 
-RULE_BIN : '0b' ('0'..'1'|'_')+;
+fragment RULE_BIN : '0b' ('0'..'1'|'_')+;
 
-RULE_INT : '0'..'9' ('0'..'9'|'_')*;
+fragment RULE_INT : '0'..'9' ('0'..'9'|'_')*;
 
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 
 RULE_BACKTICK_STRING : '`' ~('`')* '`';
 
-RULE_INTERPOLATE : 'qq' ('{' ( options {greedy=false;} : . )*'}'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
+RULE_INTERPOLATE : 'qq' RULE_WS? ('{' ( options {greedy=false;} : . )*'}'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
 
-RULE_LITERAL : 'q' ('{' ( options {greedy=false;} : . )*'}'|'(' ( options {greedy=false;} : . )*')'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
+RULE_LITERAL : 'q' RULE_WS? ('{' ( options {greedy=false;} : . )*'}'|'(' ( options {greedy=false;} : . )*')'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
 
-RULE_WORDS_QUOTE_LIKE : 'qw' ('{' ( options {greedy=false;} : . )*'}'|'(' ( options {greedy=false;} : . )*')'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
+RULE_WORDS_QUOTE_LIKE : 'qw' RULE_WS? ('{' ( options {greedy=false;} : . )*'}'|'(' ( options {greedy=false;} : . )*')'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
 
-RULE_COMMAND_QUOTE_LIKE : 'qx' ('{' ( options {greedy=false;} : . )*'}'|'(' ( options {greedy=false;} : . )*')'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
+RULE_COMMAND_QUOTE_LIKE : 'qx' RULE_WS? ('{' ( options {greedy=false;} : . )*'}'|'(' ( options {greedy=false;} : . )*')'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
 
-RULE_REGEX_QUOTE : 'qr' ('{' ( options {greedy=false;} : . )*'}'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
+RULE_REGEX_QUOTE : 'qr' RULE_WS? ('{' ( options {greedy=false;} : . )*'}'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
 
-RULE_READLINE_QUOTE : '<' '$'? ('a'..'z'|'A'..'Z')+ '>';
+RULE_READLINE_QUOTE : '<' (RULE_ID|RULE_SYMBOL) '>';
 
 RULE_POD : '=pod' ( options {greedy=false;} : . )*'=cut';
 

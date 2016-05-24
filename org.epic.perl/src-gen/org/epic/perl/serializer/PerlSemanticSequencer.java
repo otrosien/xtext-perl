@@ -311,7 +311,7 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Token returns NumberToken
 	 *
 	 * Constraint:
-	 *     content=Number
+	 *     content=NUMBER
 	 */
 	protected void sequence_Token(ISerializationContext context, NumberToken semanticObject) {
 		if (errorAcceptor != null) {
@@ -319,7 +319,7 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.TOKEN__CONTENT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTokenAccess().getContentNumberParserRuleCall_1_1_0(), semanticObject.getContent());
+		feeder.accept(grammarAccess.getTokenAccess().getContentNUMBERTerminalRuleCall_1_1_0(), semanticObject.getContent());
 		feeder.finish();
 	}
 	

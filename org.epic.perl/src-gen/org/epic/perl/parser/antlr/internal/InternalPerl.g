@@ -516,20 +516,19 @@ ruleToken returns [EObject current=null]
 			)
 			(
 				(
+					lv_content_3_0=RULE_NUMBER
 					{
-						newCompositeNode(grammarAccess.getTokenAccess().getContentNumberParserRuleCall_1_1_0());
+						newLeafNode(lv_content_3_0, grammarAccess.getTokenAccess().getContentNUMBERTerminalRuleCall_1_1_0());
 					}
-					lv_content_3_0=ruleNumber
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTokenRule());
+							$current = createModelElement(grammarAccess.getTokenRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"content",
 							lv_content_3_0,
-							"org.epic.perl.Perl.Number");
-						afterParserOrEnumRuleCall();
+							"org.epic.perl.Perl.NUMBER");
 					}
 				)
 			)
@@ -2926,72 +2925,7 @@ ruleFileTestOperator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRu
 	)
 ;
 
-// Entry rule entryRuleNumber
-entryRuleNumber returns [String current=null]@init {
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-}:
-	{ newCompositeNode(grammarAccess.getNumberRule()); }
-	iv_ruleNumber=ruleNumber
-	{ $current=$iv_ruleNumber.current.getText(); }
-	EOF;
-finally {
-	myHiddenTokenState.restore();
-}
-
-// Rule Number
-ruleNumber returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			this_HEX_0=RULE_HEX
-			{
-				$current.merge(this_HEX_0);
-			}
-			{
-				newLeafNode(this_HEX_0, grammarAccess.getNumberAccess().getHEXTerminalRuleCall_0_0());
-			}
-			    |
-			this_BIN_1=RULE_BIN
-			{
-				$current.merge(this_BIN_1);
-			}
-			{
-				newLeafNode(this_BIN_1, grammarAccess.getNumberAccess().getBINTerminalRuleCall_0_1());
-			}
-			    |
-			this_INT_2=RULE_INT
-			{
-				$current.merge(this_INT_2);
-			}
-			{
-				newLeafNode(this_INT_2, grammarAccess.getNumberAccess().getINTTerminalRuleCall_0_2());
-			}
-		)
-		(
-			kw='.'
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getNumberAccess().getFullStopKeyword_1_0());
-			}
-			this_INT_4=RULE_INT
-			{
-				$current.merge(this_INT_4);
-			}
-			{
-				newLeafNode(this_INT_4, grammarAccess.getNumberAccess().getINTTerminalRuleCall_1_1());
-			}
-		)?
-	)
-;
-finally {
-	myHiddenTokenState.restore();
-}
+RULE_NUMBER : (RULE_HEX|RULE_BIN|RULE_INT) ('.' RULE_INT)?;
 
 RULE_ID : ('a'..'z'|'A'..'Z'|'_')+ (('::'|'\'') ('a'..'z'|'A'..'Z'|'_')+)*;
 
@@ -2999,27 +2933,27 @@ RULE_SYMBOL : ('$'|'%'|'@') ('a'..'z'|'A'..'Z'|'_')+ (('::'|'\'') ('a'..'z'|'A'.
 
 RULE_VERSION : 'v'? ('0'..'9')+ ('.' ('0'..'9')+)*;
 
-RULE_HEX : ('0x'|'0X') ('0'..'9'|'a'..'f'|'A'..'F'|'_')+;
+fragment RULE_HEX : ('0x'|'0X') ('0'..'9'|'a'..'f'|'A'..'F'|'_')+;
 
-RULE_BIN : '0b' ('0'..'1'|'_')+;
+fragment RULE_BIN : '0b' ('0'..'1'|'_')+;
 
-RULE_INT : '0'..'9' ('0'..'9'|'_')*;
+fragment RULE_INT : '0'..'9' ('0'..'9'|'_')*;
 
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 
 RULE_BACKTICK_STRING : '`' ~('`')* '`';
 
-RULE_INTERPOLATE : 'qq' ('{' ( options {greedy=false;} : . )*'}'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
+RULE_INTERPOLATE : 'qq' RULE_WS? ('{' ( options {greedy=false;} : . )*'}'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
 
-RULE_LITERAL : 'q' ('{' ( options {greedy=false;} : . )*'}'|'(' ( options {greedy=false;} : . )*')'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
+RULE_LITERAL : 'q' RULE_WS? ('{' ( options {greedy=false;} : . )*'}'|'(' ( options {greedy=false;} : . )*')'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
 
-RULE_WORDS_QUOTE_LIKE : 'qw' ('{' ( options {greedy=false;} : . )*'}'|'(' ( options {greedy=false;} : . )*')'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
+RULE_WORDS_QUOTE_LIKE : 'qw' RULE_WS? ('{' ( options {greedy=false;} : . )*'}'|'(' ( options {greedy=false;} : . )*')'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
 
-RULE_COMMAND_QUOTE_LIKE : 'qx' ('{' ( options {greedy=false;} : . )*'}'|'(' ( options {greedy=false;} : . )*')'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
+RULE_COMMAND_QUOTE_LIKE : 'qx' RULE_WS? ('{' ( options {greedy=false;} : . )*'}'|'(' ( options {greedy=false;} : . )*')'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
 
-RULE_REGEX_QUOTE : 'qr' ('{' ( options {greedy=false;} : . )*'}'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
+RULE_REGEX_QUOTE : 'qr' RULE_WS? ('{' ( options {greedy=false;} : . )*'}'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
 
-RULE_READLINE_QUOTE : '<' '$'? ('a'..'z'|'A'..'Z')+ '>';
+RULE_READLINE_QUOTE : '<' (RULE_ID|RULE_SYMBOL) '>';
 
 RULE_POD : '=pod' ( options {greedy=false;} : . )*'=cut';
 
