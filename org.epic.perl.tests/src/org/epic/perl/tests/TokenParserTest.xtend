@@ -8,17 +8,16 @@ import org.eclipse.xtext.junit4.validation.ValidationTestHelper
 import org.epic.perl.perl.BacktickQuoteLikeToken
 import org.epic.perl.perl.NumberToken
 import org.epic.perl.perl.PerlDocument
+import org.epic.perl.perl.PodToken
 import org.epic.perl.perl.QuoteToken
+import org.epic.perl.perl.ReadLineQuoteLikeToken
+import org.epic.perl.perl.RegexpQuoteLikeToken
+import org.epic.perl.perl.SymbolToken
 import org.epic.perl.perl.WordToken
 import org.epic.perl.perl.WordsQuoteLikeToken
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.epic.perl.perl.RegexpQuoteLikeToken
-import org.epic.perl.perl.ReadLineQuoteLikeToken
-import org.epic.perl.perl.PodToken
-import org.epic.perl.perl.SymbolToken
-import org.epic.perl.perl.VersionToken
 
 @RunWith(XtextRunner)
 @InjectWith(PerlInjectorProvider)
@@ -158,15 +157,6 @@ class TokenParserTest{
 		Assert.assertEquals('$Some::Package::Var', token.content)
 	}
 
-
-	@Test
-	def void versionSymbol() {
-		val token = _parseDocument('''
-			v5.12.0
-		''').elements.head as VersionToken
-		Assert.assertEquals('v5.12.0', token.content)
-	}
-	
 	private def PerlDocument _parseDocument(String str) {
 		val result = parse(str)
 		result.assertNoErrors

@@ -5,24 +5,24 @@ package org.epic.perl.perl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.epic.perl.perl.IncludeStatement;
 import org.epic.perl.perl.PerlPackage;
-import org.epic.perl.perl.VersionToken;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Version Token</b></em>'.
+ * An implementation of the model object '<em><b>Include Statement</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class VersionTokenImpl extends TokenImpl implements VersionToken
+public class IncludeStatementImpl extends StatementNodeImpl implements IncludeStatement
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected VersionTokenImpl()
+  protected IncludeStatementImpl()
   {
     super();
   }
@@ -35,7 +35,7 @@ public class VersionTokenImpl extends TokenImpl implements VersionToken
   @Override
   protected EClass eStaticClass()
   {
-    return PerlPackage.Literals.VERSION_TOKEN;
+    return PerlPackage.Literals.INCLUDE_STATEMENT;
   }
 
-} //VersionTokenImpl
+} //IncludeStatementImpl

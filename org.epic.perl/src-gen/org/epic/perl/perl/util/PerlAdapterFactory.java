@@ -101,6 +101,21 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
         return createPackageStatementAdapter();
       }
       @Override
+      public Adapter caseIncludeStatement(IncludeStatement object)
+      {
+        return createIncludeStatementAdapter();
+      }
+      @Override
+      public Adapter caseRequireInclude(RequireInclude object)
+      {
+        return createRequireIncludeAdapter();
+      }
+      @Override
+      public Adapter caseUseInclude(UseInclude object)
+      {
+        return createUseIncludeAdapter();
+      }
+      @Override
       public Adapter caseToken(Token object)
       {
         return createTokenAdapter();
@@ -124,11 +139,6 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
       public Adapter caseNumberToken(NumberToken object)
       {
         return createNumberTokenAdapter();
-      }
-      @Override
-      public Adapter caseVersionToken(VersionToken object)
-      {
-        return createVersionTokenAdapter();
       }
       @Override
       public Adapter caseWordToken(WordToken object)
@@ -278,6 +288,51 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.IncludeStatement <em>Include Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.IncludeStatement
+   * @generated
+   */
+  public Adapter createIncludeStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.RequireInclude <em>Require Include</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.RequireInclude
+   * @generated
+   */
+  public Adapter createRequireIncludeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.UseInclude <em>Use Include</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.UseInclude
+   * @generated
+   */
+  public Adapter createUseIncludeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.epic.perl.perl.Token <em>Token</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -348,21 +403,6 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNumberTokenAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.VersionToken <em>Version Token</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.epic.perl.perl.VersionToken
-   * @generated
-   */
-  public Adapter createVersionTokenAdapter()
   {
     return null;
   }

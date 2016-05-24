@@ -134,13 +134,22 @@ public interface PerlPackage extends EPackage
   int STATEMENT_NODE = 3;
 
   /**
+   * The feature id for the '<em><b>Version</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_NODE__VERSION = NODE_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Statement Node</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 0;
+  int STATEMENT_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.epic.perl.perl.impl.PackageStatementImpl <em>Package Statement</em>}' class.
@@ -153,6 +162,15 @@ public interface PerlPackage extends EPackage
   int PACKAGE_STATEMENT = 4;
 
   /**
+   * The feature id for the '<em><b>Version</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE_STATEMENT__VERSION = STATEMENT_NODE__VERSION;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -162,22 +180,124 @@ public interface PerlPackage extends EPackage
   int PACKAGE_STATEMENT__NAME = STATEMENT_NODE_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Version</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PACKAGE_STATEMENT__VERSION = STATEMENT_NODE_FEATURE_COUNT + 1;
-
-  /**
    * The number of structural features of the '<em>Package Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PACKAGE_STATEMENT_FEATURE_COUNT = STATEMENT_NODE_FEATURE_COUNT + 2;
+  int PACKAGE_STATEMENT_FEATURE_COUNT = STATEMENT_NODE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.IncludeStatementImpl <em>Include Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.IncludeStatementImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getIncludeStatement()
+   * @generated
+   */
+  int INCLUDE_STATEMENT = 5;
+
+  /**
+   * The feature id for the '<em><b>Version</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INCLUDE_STATEMENT__VERSION = STATEMENT_NODE__VERSION;
+
+  /**
+   * The number of structural features of the '<em>Include Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INCLUDE_STATEMENT_FEATURE_COUNT = STATEMENT_NODE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.RequireIncludeImpl <em>Require Include</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.RequireIncludeImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getRequireInclude()
+   * @generated
+   */
+  int REQUIRE_INCLUDE = 6;
+
+  /**
+   * The feature id for the '<em><b>Version</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIRE_INCLUDE__VERSION = INCLUDE_STATEMENT__VERSION;
+
+  /**
+   * The number of structural features of the '<em>Require Include</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIRE_INCLUDE_FEATURE_COUNT = INCLUDE_STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.UseIncludeImpl <em>Use Include</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.UseIncludeImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getUseInclude()
+   * @generated
+   */
+  int USE_INCLUDE = 7;
+
+  /**
+   * The feature id for the '<em><b>Version</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_INCLUDE__VERSION = INCLUDE_STATEMENT__VERSION;
+
+  /**
+   * The feature id for the '<em><b>Pragma Or Package</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_INCLUDE__PRAGMA_OR_PACKAGE = INCLUDE_STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>String Argument</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_INCLUDE__STRING_ARGUMENT = INCLUDE_STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Qw Argument</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_INCLUDE__QW_ARGUMENT = INCLUDE_STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Use Include</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_INCLUDE_FEATURE_COUNT = INCLUDE_STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.epic.perl.perl.impl.TokenImpl <em>Token</em>}' class.
@@ -187,7 +307,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getToken()
    * @generated
    */
-  int TOKEN = 5;
+  int TOKEN = 8;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -215,7 +335,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getQuoteToken()
    * @generated
    */
-  int QUOTE_TOKEN = 6;
+  int QUOTE_TOKEN = 9;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -243,7 +363,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getQuoteLikeToken()
    * @generated
    */
-  int QUOTE_LIKE_TOKEN = 7;
+  int QUOTE_LIKE_TOKEN = 10;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -271,7 +391,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getPodToken()
    * @generated
    */
-  int POD_TOKEN = 8;
+  int POD_TOKEN = 11;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -299,7 +419,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getNumberToken()
    * @generated
    */
-  int NUMBER_TOKEN = 9;
+  int NUMBER_TOKEN = 12;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -320,34 +440,6 @@ public interface PerlPackage extends EPackage
   int NUMBER_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.VersionTokenImpl <em>Version Token</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.VersionTokenImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getVersionToken()
-   * @generated
-   */
-  int VERSION_TOKEN = 10;
-
-  /**
-   * The feature id for the '<em><b>Content</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VERSION_TOKEN__CONTENT = TOKEN__CONTENT;
-
-  /**
-   * The number of structural features of the '<em>Version Token</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VERSION_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
-
-  /**
    * The meta object id for the '{@link org.epic.perl.perl.impl.WordTokenImpl <em>Word Token</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -355,7 +447,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getWordToken()
    * @generated
    */
-  int WORD_TOKEN = 11;
+  int WORD_TOKEN = 13;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -383,7 +475,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getSymbolToken()
    * @generated
    */
-  int SYMBOL_TOKEN = 12;
+  int SYMBOL_TOKEN = 14;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -411,7 +503,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getOperatorToken()
    * @generated
    */
-  int OPERATOR_TOKEN = 13;
+  int OPERATOR_TOKEN = 15;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -439,7 +531,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getDataToken()
    * @generated
    */
-  int DATA_TOKEN = 14;
+  int DATA_TOKEN = 16;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -467,7 +559,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getEndToken()
    * @generated
    */
-  int END_TOKEN = 15;
+  int END_TOKEN = 17;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -495,7 +587,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getBacktickQuoteLikeToken()
    * @generated
    */
-  int BACKTICK_QUOTE_LIKE_TOKEN = 16;
+  int BACKTICK_QUOTE_LIKE_TOKEN = 18;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -523,7 +615,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getWordsQuoteLikeToken()
    * @generated
    */
-  int WORDS_QUOTE_LIKE_TOKEN = 17;
+  int WORDS_QUOTE_LIKE_TOKEN = 19;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -551,7 +643,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getCommandQuoteLikeToken()
    * @generated
    */
-  int COMMAND_QUOTE_LIKE_TOKEN = 18;
+  int COMMAND_QUOTE_LIKE_TOKEN = 20;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -579,7 +671,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getRegexpQuoteLikeToken()
    * @generated
    */
-  int REGEXP_QUOTE_LIKE_TOKEN = 19;
+  int REGEXP_QUOTE_LIKE_TOKEN = 21;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -607,7 +699,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getReadLineQuoteLikeToken()
    * @generated
    */
-  int READ_LINE_QUOTE_LIKE_TOKEN = 20;
+  int READ_LINE_QUOTE_LIKE_TOKEN = 22;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -680,6 +772,17 @@ public interface PerlPackage extends EPackage
   EClass getStatementNode();
 
   /**
+   * Returns the meta object for the attribute '{@link org.epic.perl.perl.StatementNode#getVersion <em>Version</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Version</em>'.
+   * @see org.epic.perl.perl.StatementNode#getVersion()
+   * @see #getStatementNode()
+   * @generated
+   */
+  EAttribute getStatementNode_Version();
+
+  /**
    * Returns the meta object for class '{@link org.epic.perl.perl.PackageStatement <em>Package Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -701,15 +804,67 @@ public interface PerlPackage extends EPackage
   EAttribute getPackageStatement_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.epic.perl.perl.PackageStatement#getVersion <em>Version</em>}'.
+   * Returns the meta object for class '{@link org.epic.perl.perl.IncludeStatement <em>Include Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Version</em>'.
-   * @see org.epic.perl.perl.PackageStatement#getVersion()
-   * @see #getPackageStatement()
+   * @return the meta object for class '<em>Include Statement</em>'.
+   * @see org.epic.perl.perl.IncludeStatement
    * @generated
    */
-  EAttribute getPackageStatement_Version();
+  EClass getIncludeStatement();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.RequireInclude <em>Require Include</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Require Include</em>'.
+   * @see org.epic.perl.perl.RequireInclude
+   * @generated
+   */
+  EClass getRequireInclude();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.UseInclude <em>Use Include</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Use Include</em>'.
+   * @see org.epic.perl.perl.UseInclude
+   * @generated
+   */
+  EClass getUseInclude();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.epic.perl.perl.UseInclude#getPragmaOrPackage <em>Pragma Or Package</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Pragma Or Package</em>'.
+   * @see org.epic.perl.perl.UseInclude#getPragmaOrPackage()
+   * @see #getUseInclude()
+   * @generated
+   */
+  EAttribute getUseInclude_PragmaOrPackage();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.epic.perl.perl.UseInclude#getStringArgument <em>String Argument</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>String Argument</em>'.
+   * @see org.epic.perl.perl.UseInclude#getStringArgument()
+   * @see #getUseInclude()
+   * @generated
+   */
+  EReference getUseInclude_StringArgument();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.epic.perl.perl.UseInclude#getQwArgument <em>Qw Argument</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Qw Argument</em>'.
+   * @see org.epic.perl.perl.UseInclude#getQwArgument()
+   * @see #getUseInclude()
+   * @generated
+   */
+  EAttribute getUseInclude_QwArgument();
 
   /**
    * Returns the meta object for class '{@link org.epic.perl.perl.Token <em>Token</em>}'.
@@ -771,16 +926,6 @@ public interface PerlPackage extends EPackage
    * @generated
    */
   EClass getNumberToken();
-
-  /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.VersionToken <em>Version Token</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Version Token</em>'.
-   * @see org.epic.perl.perl.VersionToken
-   * @generated
-   */
-  EClass getVersionToken();
 
   /**
    * Returns the meta object for class '{@link org.epic.perl.perl.WordToken <em>Word Token</em>}'.
@@ -954,6 +1099,14 @@ public interface PerlPackage extends EPackage
     EClass STATEMENT_NODE = eINSTANCE.getStatementNode();
 
     /**
+     * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATEMENT_NODE__VERSION = eINSTANCE.getStatementNode_Version();
+
+    /**
      * The meta object literal for the '{@link org.epic.perl.perl.impl.PackageStatementImpl <em>Package Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -972,12 +1125,58 @@ public interface PerlPackage extends EPackage
     EAttribute PACKAGE_STATEMENT__NAME = eINSTANCE.getPackageStatement_Name();
 
     /**
-     * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.IncludeStatementImpl <em>Include Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.IncludeStatementImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getIncludeStatement()
+     * @generated
+     */
+    EClass INCLUDE_STATEMENT = eINSTANCE.getIncludeStatement();
+
+    /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.RequireIncludeImpl <em>Require Include</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.RequireIncludeImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getRequireInclude()
+     * @generated
+     */
+    EClass REQUIRE_INCLUDE = eINSTANCE.getRequireInclude();
+
+    /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.UseIncludeImpl <em>Use Include</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.UseIncludeImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getUseInclude()
+     * @generated
+     */
+    EClass USE_INCLUDE = eINSTANCE.getUseInclude();
+
+    /**
+     * The meta object literal for the '<em><b>Pragma Or Package</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PACKAGE_STATEMENT__VERSION = eINSTANCE.getPackageStatement_Version();
+    EAttribute USE_INCLUDE__PRAGMA_OR_PACKAGE = eINSTANCE.getUseInclude_PragmaOrPackage();
+
+    /**
+     * The meta object literal for the '<em><b>String Argument</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USE_INCLUDE__STRING_ARGUMENT = eINSTANCE.getUseInclude_StringArgument();
+
+    /**
+     * The meta object literal for the '<em><b>Qw Argument</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute USE_INCLUDE__QW_ARGUMENT = eINSTANCE.getUseInclude_QwArgument();
 
     /**
      * The meta object literal for the '{@link org.epic.perl.perl.impl.TokenImpl <em>Token</em>}' class.
@@ -1036,16 +1235,6 @@ public interface PerlPackage extends EPackage
      * @generated
      */
     EClass NUMBER_TOKEN = eINSTANCE.getNumberToken();
-
-    /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.VersionTokenImpl <em>Version Token</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.VersionTokenImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getVersionToken()
-     * @generated
-     */
-    EClass VERSION_TOKEN = eINSTANCE.getVersionToken();
 
     /**
      * The meta object literal for the '{@link org.epic.perl.perl.impl.WordTokenImpl <em>Word Token</em>}' class.

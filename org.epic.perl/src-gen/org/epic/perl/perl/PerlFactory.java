@@ -69,6 +69,33 @@ public interface PerlFactory extends EFactory
   PackageStatement createPackageStatement();
 
   /**
+   * Returns a new object of class '<em>Include Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Include Statement</em>'.
+   * @generated
+   */
+  IncludeStatement createIncludeStatement();
+
+  /**
+   * Returns a new object of class '<em>Require Include</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Require Include</em>'.
+   * @generated
+   */
+  RequireInclude createRequireInclude();
+
+  /**
+   * Returns a new object of class '<em>Use Include</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Use Include</em>'.
+   * @generated
+   */
+  UseInclude createUseInclude();
+
+  /**
    * Returns a new object of class '<em>Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -112,15 +139,6 @@ public interface PerlFactory extends EFactory
    * @generated
    */
   NumberToken createNumberToken();
-
-  /**
-   * Returns a new object of class '<em>Version Token</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Version Token</em>'.
-   * @generated
-   */
-  VersionToken createVersionToken();
 
   /**
    * Returns a new object of class '<em>Word Token</em>'.

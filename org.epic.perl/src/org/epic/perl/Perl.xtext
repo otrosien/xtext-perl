@@ -11,18 +11,17 @@ PerlDocument:
 
 Element:
 	Node 
-	| 
-	Token
+	| Token
 ;
 
 Node:
 	StatementNode
-	| StructureNode
+//	| StructureNode
 ;
 
 StatementNode:
-	PackageStatement
-//	| IncludeStatement
+	( PackageStatement
+	| IncludeStatement
 //	| SubStatement
 //	| CompoundStatement
 //	| BreakStatement
@@ -34,9 +33,10 @@ StatementNode:
 //	| NullStatement
 //	| UnmatchedBraceStatement
 //	| UnknownStatement
+    ) ';'
 ;
 
-StructureNode:
+//StructureNode:
 //	BlockStructure
 //    | SubscriptStructure
 //    | ConstructorStructure
@@ -46,24 +46,37 @@ StructureNode:
 //    | GivenStructure
 //    | WhenStructure
 //    | UnknownStructure
-	';'
-;
+//;
 
 //ExpressionStatement:
 //	VariableExpression
 //;
 
 PackageStatement:
-	'package' name=ID =>(version=VERSION)?
+	{PackageStatement}
+	'package' name=ID version=VERSION ?
 ;
 
+IncludeStatement:
+	RequireInclude
+	| UseInclude
+;
+
+RequireInclude:
+	'require' version=VERSION
+;
+
+UseInclude:
+	{UseInclude}
+	'use' (version=VERSION | ( pragmaOrPackage=ID (stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE )?))
+;
 
 Token:
 	// hidden:
 //	  {CommentToken}   content=SL_COMMENT
 	  {PodToken}       content=POD 
 	| {NumberToken}    content=Number
-	| {VersionToken}   content=VERSION
+//	| {VersionToken}   content=VERSION
 	| {WordToken}      content=Word 
 //	| DashedWord 
     | {SymbolToken}    content=SYMBOL
@@ -85,7 +98,7 @@ Token:
 ;
 
 QuoteToken:
-	{QuoteToken} content=( STRING | INTERPOLATE | LITERAL)
+	{QuoteToken} content=( STRING | INTERPOLATE | LITERAL )
 ;
 
 QuoteLikeToken:
@@ -150,6 +163,10 @@ FileTestOperator:
 	'-c' | '-t' | '-u' | '-g' | '-k' | '-T' | '-B' | '-M' | '-A' | '-C')
 ;
 
+Number hidden():
+	(HEX | BIN | INT) ('.' INT)?
+;
+
 terminal ID:
 	('a'..'z' | 'A'..'Z' | '_')+ (('::'|"'") ('a'..'z' | 'A'..'Z' | '_')+ )*
 ;
@@ -158,12 +175,8 @@ terminal SYMBOL:
 	('$'|'%'|'@') ('a'..'z' | 'A'..'Z' | '_')+ (('::'|"'") ('a'..'z' | 'A'..'Z' | '_')+ )*
 ;
 
-Number hidden():
-	(HEX | BIN | INT) ('.' INT)?
-;
-
 terminal VERSION:
-	'v' ('0'..'9')+ ('.' ('0'..'9')+ )*
+	'v'? ('0'..'9')+ ('.' ('0'..'9')+ )*
 ;
 
 //terminal PRAGMA:
@@ -198,6 +211,7 @@ terminal INTERPOLATE:
 terminal LITERAL:
 	'q' (
 		('{' -> '}') |
+		('(' -> ')') |
 		('|' -> '|') |
 		('/' -> '/') |
 		('<' -> '>'))
@@ -206,6 +220,7 @@ terminal LITERAL:
 terminal WORDS_QUOTE_LIKE:
 	'qw' (
 		('{' -> '}') |
+		('(' -> ')') |
 		('|' -> '|') |
 		('/' -> '/') |
 		('<' -> '>')
@@ -215,6 +230,7 @@ terminal WORDS_QUOTE_LIKE:
 terminal COMMAND_QUOTE_LIKE:
 	'qx' (
 		('{' -> '}') |
+		('(' -> ')') |
 		('|' -> '|') |
 		('/' -> '/') |
 		('<' -> '>')

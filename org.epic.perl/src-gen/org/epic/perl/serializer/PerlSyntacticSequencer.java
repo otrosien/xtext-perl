@@ -26,21 +26,9 @@ public class PerlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getStructureNodeRule())
-			return getStructureNodeToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * StructureNode:
-	 * 	';'
-	 * ;
-	 */
-	protected String getStructureNodeToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return ";";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {

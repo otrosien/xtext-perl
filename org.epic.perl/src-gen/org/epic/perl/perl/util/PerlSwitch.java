@@ -114,6 +114,38 @@ public class PerlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case PerlPackage.INCLUDE_STATEMENT:
+      {
+        IncludeStatement includeStatement = (IncludeStatement)theEObject;
+        T result = caseIncludeStatement(includeStatement);
+        if (result == null) result = caseStatementNode(includeStatement);
+        if (result == null) result = caseNode(includeStatement);
+        if (result == null) result = caseElement(includeStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.REQUIRE_INCLUDE:
+      {
+        RequireInclude requireInclude = (RequireInclude)theEObject;
+        T result = caseRequireInclude(requireInclude);
+        if (result == null) result = caseIncludeStatement(requireInclude);
+        if (result == null) result = caseStatementNode(requireInclude);
+        if (result == null) result = caseNode(requireInclude);
+        if (result == null) result = caseElement(requireInclude);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.USE_INCLUDE:
+      {
+        UseInclude useInclude = (UseInclude)theEObject;
+        T result = caseUseInclude(useInclude);
+        if (result == null) result = caseIncludeStatement(useInclude);
+        if (result == null) result = caseStatementNode(useInclude);
+        if (result == null) result = caseNode(useInclude);
+        if (result == null) result = caseElement(useInclude);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case PerlPackage.TOKEN:
       {
         Token token = (Token)theEObject;
@@ -155,15 +187,6 @@ public class PerlSwitch<T> extends Switch<T>
         T result = caseNumberToken(numberToken);
         if (result == null) result = caseToken(numberToken);
         if (result == null) result = caseElement(numberToken);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PerlPackage.VERSION_TOKEN:
-      {
-        VersionToken versionToken = (VersionToken)theEObject;
-        T result = caseVersionToken(versionToken);
-        if (result == null) result = caseToken(versionToken);
-        if (result == null) result = caseElement(versionToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -347,6 +370,54 @@ public class PerlSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Include Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Include Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIncludeStatement(IncludeStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Require Include</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Require Include</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRequireInclude(RequireInclude object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Use Include</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Use Include</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUseInclude(UseInclude object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Token</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -422,22 +493,6 @@ public class PerlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseNumberToken(NumberToken object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Version Token</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Version Token</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVersionToken(VersionToken object)
   {
     return null;
   }

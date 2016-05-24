@@ -14,6 +14,8 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.epic.perl.perl.Element;
 import org.epic.perl.perl.PackageStatement;
 import org.epic.perl.perl.PerlDocument;
+import org.epic.perl.perl.QuoteToken;
+import org.epic.perl.perl.UseInclude;
 import org.epic.perl.tests.DumpUtil;
 import org.epic.perl.tests.PerlInjectorProvider;
 import org.junit.Assert;
@@ -60,6 +62,63 @@ public class StructureParserTest {
     final PackageStatement token = ((PackageStatement) _head);
     String _version = token.getVersion();
     Assert.assertEquals("v4.12.0", _version);
+  }
+  
+  @Test
+  public void useVersion() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("use v5.12.0;");
+    _builder.newLine();
+    PerlDocument __parseDocument = this._parseDocument(_builder.toString());
+    EList<Element> _elements = __parseDocument.getElements();
+    Element _head = IterableExtensions.<Element>head(_elements);
+    final UseInclude token = ((UseInclude) _head);
+    String _version = token.getVersion();
+    Assert.assertEquals("v5.12.0", _version);
+  }
+  
+  @Test
+  public void usePragma() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("use feature \'say\';");
+    _builder.newLine();
+    PerlDocument __parseDocument = this._parseDocument(_builder.toString());
+    EList<Element> _elements = __parseDocument.getElements();
+    Element _head = IterableExtensions.<Element>head(_elements);
+    final UseInclude token = ((UseInclude) _head);
+    String _pragmaOrPackage = token.getPragmaOrPackage();
+    Assert.assertEquals("feature", _pragmaOrPackage);
+    QuoteToken _stringArgument = token.getStringArgument();
+    String _content = _stringArgument.getContent();
+    Assert.assertEquals("say", _content);
+  }
+  
+  @Test
+  public void useModule() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("use URI::URL;");
+    _builder.newLine();
+    PerlDocument __parseDocument = this._parseDocument(_builder.toString());
+    EList<Element> _elements = __parseDocument.getElements();
+    Element _head = IterableExtensions.<Element>head(_elements);
+    final UseInclude token = ((UseInclude) _head);
+    String _pragmaOrPackage = token.getPragmaOrPackage();
+    Assert.assertEquals("URI::URL", _pragmaOrPackage);
+  }
+  
+  @Test
+  public void useModuleWithQuoteWords() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("use URI::URL qw( test );");
+    _builder.newLine();
+    PerlDocument __parseDocument = this._parseDocument(_builder.toString());
+    EList<Element> _elements = __parseDocument.getElements();
+    Element _head = IterableExtensions.<Element>head(_elements);
+    final UseInclude token = ((UseInclude) _head);
+    String _pragmaOrPackage = token.getPragmaOrPackage();
+    Assert.assertEquals("URI::URL", _pragmaOrPackage);
+    String _qwArgument = token.getQwArgument();
+    Assert.assertEquals("qw( test )", _qwArgument);
   }
   
   private PerlDocument _parseDocument(final String str) {

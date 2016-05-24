@@ -10,6 +10,7 @@ import org.epic.perl.perl.PerlDocument
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.epic.perl.perl.UseInclude
 
 @RunWith(XtextRunner)
 @InjectWith(PerlInjectorProvider)
@@ -38,6 +39,40 @@ class StructureParserTest {
 			package My::Module::Test v4.12.0;
 		''').elements.head as PackageStatement
 		Assert.assertEquals('v4.12.0', token.version)
+	}
+
+	@Test
+	def void useVersion() {
+		val token = _parseDocument('''
+			use v5.12.0;
+		''').elements.head as UseInclude
+		Assert.assertEquals('v5.12.0', token.version)
+	}
+
+	@Test
+	def void usePragma() {
+		val token = _parseDocument('''
+			use feature 'say';
+		''').elements.head as UseInclude
+		Assert.assertEquals('feature', token.pragmaOrPackage)
+		Assert.assertEquals('say', token.stringArgument.content)
+	}
+	
+	@Test
+	def void useModule() {
+		val token = _parseDocument('''
+			use URI::URL;
+		''').elements.head as UseInclude
+		Assert.assertEquals('URI::URL', token.pragmaOrPackage)
+	}
+	
+	@Test
+	def void useModuleWithQuoteWords() {
+		val token = _parseDocument('''
+			use URI::URL qw( test );
+		''').elements.head as UseInclude
+		Assert.assertEquals('URI::URL', token.pragmaOrPackage)
+		Assert.assertEquals('qw( test )', token.qwArgument)
 	}
 	
 	private def PerlDocument _parseDocument(String str) {

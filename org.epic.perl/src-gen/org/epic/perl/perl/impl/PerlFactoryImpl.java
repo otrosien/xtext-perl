@@ -70,12 +70,14 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
       case PerlPackage.NODE: return createNode();
       case PerlPackage.STATEMENT_NODE: return createStatementNode();
       case PerlPackage.PACKAGE_STATEMENT: return createPackageStatement();
+      case PerlPackage.INCLUDE_STATEMENT: return createIncludeStatement();
+      case PerlPackage.REQUIRE_INCLUDE: return createRequireInclude();
+      case PerlPackage.USE_INCLUDE: return createUseInclude();
       case PerlPackage.TOKEN: return createToken();
       case PerlPackage.QUOTE_TOKEN: return createQuoteToken();
       case PerlPackage.QUOTE_LIKE_TOKEN: return createQuoteLikeToken();
       case PerlPackage.POD_TOKEN: return createPodToken();
       case PerlPackage.NUMBER_TOKEN: return createNumberToken();
-      case PerlPackage.VERSION_TOKEN: return createVersionToken();
       case PerlPackage.WORD_TOKEN: return createWordToken();
       case PerlPackage.SYMBOL_TOKEN: return createSymbolToken();
       case PerlPackage.OPERATOR_TOKEN: return createOperatorToken();
@@ -151,6 +153,39 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public IncludeStatement createIncludeStatement()
+  {
+    IncludeStatementImpl includeStatement = new IncludeStatementImpl();
+    return includeStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RequireInclude createRequireInclude()
+  {
+    RequireIncludeImpl requireInclude = new RequireIncludeImpl();
+    return requireInclude;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UseInclude createUseInclude()
+  {
+    UseIncludeImpl useInclude = new UseIncludeImpl();
+    return useInclude;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Token createToken()
   {
     TokenImpl token = new TokenImpl();
@@ -199,17 +234,6 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
   {
     NumberTokenImpl numberToken = new NumberTokenImpl();
     return numberToken;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public VersionToken createVersionToken()
-  {
-    VersionTokenImpl versionToken = new VersionTokenImpl();
-    return versionToken;
   }
 
   /**

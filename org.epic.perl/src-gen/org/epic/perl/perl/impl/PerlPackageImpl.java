@@ -15,6 +15,7 @@ import org.epic.perl.perl.CommandQuoteLikeToken;
 import org.epic.perl.perl.DataToken;
 import org.epic.perl.perl.Element;
 import org.epic.perl.perl.EndToken;
+import org.epic.perl.perl.IncludeStatement;
 import org.epic.perl.perl.Node;
 import org.epic.perl.perl.NumberToken;
 import org.epic.perl.perl.OperatorToken;
@@ -27,10 +28,11 @@ import org.epic.perl.perl.QuoteLikeToken;
 import org.epic.perl.perl.QuoteToken;
 import org.epic.perl.perl.ReadLineQuoteLikeToken;
 import org.epic.perl.perl.RegexpQuoteLikeToken;
+import org.epic.perl.perl.RequireInclude;
 import org.epic.perl.perl.StatementNode;
 import org.epic.perl.perl.SymbolToken;
 import org.epic.perl.perl.Token;
-import org.epic.perl.perl.VersionToken;
+import org.epic.perl.perl.UseInclude;
 import org.epic.perl.perl.WordToken;
 import org.epic.perl.perl.WordsQuoteLikeToken;
 
@@ -82,6 +84,27 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass includeStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass requireIncludeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass useIncludeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass tokenEClass = null;
 
   /**
@@ -111,13 +134,6 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * @generated
    */
   private EClass numberTokenEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass versionTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -307,6 +323,16 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getStatementNode_Version()
+  {
+    return (EAttribute)statementNodeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPackageStatement()
   {
     return packageStatementEClass;
@@ -327,9 +353,59 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPackageStatement_Version()
+  public EClass getIncludeStatement()
   {
-    return (EAttribute)packageStatementEClass.getEStructuralFeatures().get(1);
+    return includeStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRequireInclude()
+  {
+    return requireIncludeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUseInclude()
+  {
+    return useIncludeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUseInclude_PragmaOrPackage()
+  {
+    return (EAttribute)useIncludeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUseInclude_StringArgument()
+  {
+    return (EReference)useIncludeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUseInclude_QwArgument()
+  {
+    return (EAttribute)useIncludeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -390,16 +466,6 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
   public EClass getNumberToken()
   {
     return numberTokenEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getVersionToken()
-  {
-    return versionTokenEClass;
   }
 
   /**
@@ -540,10 +606,19 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     nodeEClass = createEClass(NODE);
 
     statementNodeEClass = createEClass(STATEMENT_NODE);
+    createEAttribute(statementNodeEClass, STATEMENT_NODE__VERSION);
 
     packageStatementEClass = createEClass(PACKAGE_STATEMENT);
     createEAttribute(packageStatementEClass, PACKAGE_STATEMENT__NAME);
-    createEAttribute(packageStatementEClass, PACKAGE_STATEMENT__VERSION);
+
+    includeStatementEClass = createEClass(INCLUDE_STATEMENT);
+
+    requireIncludeEClass = createEClass(REQUIRE_INCLUDE);
+
+    useIncludeEClass = createEClass(USE_INCLUDE);
+    createEAttribute(useIncludeEClass, USE_INCLUDE__PRAGMA_OR_PACKAGE);
+    createEReference(useIncludeEClass, USE_INCLUDE__STRING_ARGUMENT);
+    createEAttribute(useIncludeEClass, USE_INCLUDE__QW_ARGUMENT);
 
     tokenEClass = createEClass(TOKEN);
     createEAttribute(tokenEClass, TOKEN__CONTENT);
@@ -555,8 +630,6 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     podTokenEClass = createEClass(POD_TOKEN);
 
     numberTokenEClass = createEClass(NUMBER_TOKEN);
-
-    versionTokenEClass = createEClass(VERSION_TOKEN);
 
     wordTokenEClass = createEClass(WORD_TOKEN);
 
@@ -611,12 +684,14 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     nodeEClass.getESuperTypes().add(this.getElement());
     statementNodeEClass.getESuperTypes().add(this.getNode());
     packageStatementEClass.getESuperTypes().add(this.getStatementNode());
+    includeStatementEClass.getESuperTypes().add(this.getStatementNode());
+    requireIncludeEClass.getESuperTypes().add(this.getIncludeStatement());
+    useIncludeEClass.getESuperTypes().add(this.getIncludeStatement());
     tokenEClass.getESuperTypes().add(this.getElement());
     quoteTokenEClass.getESuperTypes().add(this.getToken());
     quoteLikeTokenEClass.getESuperTypes().add(this.getToken());
     podTokenEClass.getESuperTypes().add(this.getToken());
     numberTokenEClass.getESuperTypes().add(this.getToken());
-    versionTokenEClass.getESuperTypes().add(this.getToken());
     wordTokenEClass.getESuperTypes().add(this.getToken());
     symbolTokenEClass.getESuperTypes().add(this.getToken());
     operatorTokenEClass.getESuperTypes().add(this.getToken());
@@ -637,10 +712,19 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(statementNodeEClass, StatementNode.class, "StatementNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStatementNode_Version(), ecorePackage.getEString(), "version", null, 0, 1, StatementNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(packageStatementEClass, PackageStatement.class, "PackageStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPackageStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, PackageStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPackageStatement_Version(), ecorePackage.getEString(), "version", null, 0, 1, PackageStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(includeStatementEClass, IncludeStatement.class, "IncludeStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(requireIncludeEClass, RequireInclude.class, "RequireInclude", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(useIncludeEClass, UseInclude.class, "UseInclude", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUseInclude_PragmaOrPackage(), ecorePackage.getEString(), "pragmaOrPackage", null, 0, 1, UseInclude.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUseInclude_StringArgument(), this.getQuoteToken(), null, "stringArgument", null, 0, 1, UseInclude.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUseInclude_QwArgument(), ecorePackage.getEString(), "qwArgument", null, 0, 1, UseInclude.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(tokenEClass, Token.class, "Token", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getToken_Content(), ecorePackage.getEString(), "content", null, 0, 1, Token.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -652,8 +736,6 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     initEClass(podTokenEClass, PodToken.class, "PodToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(numberTokenEClass, NumberToken.class, "NumberToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(versionTokenEClass, VersionToken.class, "VersionToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(wordTokenEClass, WordToken.class, "WordToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
