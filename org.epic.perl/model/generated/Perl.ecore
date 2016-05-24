@@ -6,16 +6,23 @@
         eType="#//Element" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StatementNode" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PackageStatement" eSuperTypes="#//StatementNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Token" eSuperTypes="#//Element">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QuoteToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="QuoteLikeToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="PodToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="NumberToken" eSuperTypes="#//Token"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VersionToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="WordToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="SymbolToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="OperatorToken" eSuperTypes="#//Token"/>
-  <eClassifiers xsi:type="ecore:EClass" name="QuoteToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="DataToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="EndToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="BacktickQuoteLikeToken" eSuperTypes="#//QuoteLikeToken"/>

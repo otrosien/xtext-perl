@@ -15,8 +15,10 @@ import org.epic.perl.perl.CommandQuoteLikeToken;
 import org.epic.perl.perl.DataToken;
 import org.epic.perl.perl.Element;
 import org.epic.perl.perl.EndToken;
+import org.epic.perl.perl.Node;
 import org.epic.perl.perl.NumberToken;
 import org.epic.perl.perl.OperatorToken;
+import org.epic.perl.perl.PackageStatement;
 import org.epic.perl.perl.PerlDocument;
 import org.epic.perl.perl.PerlFactory;
 import org.epic.perl.perl.PerlPackage;
@@ -25,8 +27,10 @@ import org.epic.perl.perl.QuoteLikeToken;
 import org.epic.perl.perl.QuoteToken;
 import org.epic.perl.perl.ReadLineQuoteLikeToken;
 import org.epic.perl.perl.RegexpQuoteLikeToken;
+import org.epic.perl.perl.StatementNode;
 import org.epic.perl.perl.SymbolToken;
 import org.epic.perl.perl.Token;
+import org.epic.perl.perl.VersionToken;
 import org.epic.perl.perl.WordToken;
 import org.epic.perl.perl.WordsQuoteLikeToken;
 
@@ -57,7 +61,35 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass nodeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass statementNodeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass packageStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass tokenEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass quoteTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -85,6 +117,13 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass versionTokenEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass wordTokenEClass = null;
 
   /**
@@ -100,13 +139,6 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * @generated
    */
   private EClass operatorTokenEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass quoteTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -255,6 +287,56 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getNode()
+  {
+    return nodeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStatementNode()
+  {
+    return statementNodeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPackageStatement()
+  {
+    return packageStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPackageStatement_Name()
+  {
+    return (EAttribute)packageStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPackageStatement_Version()
+  {
+    return (EAttribute)packageStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getToken()
   {
     return tokenEClass;
@@ -268,6 +350,16 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
   public EAttribute getToken_Content()
   {
     return (EAttribute)tokenEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getQuoteToken()
+  {
+    return quoteTokenEClass;
   }
 
   /**
@@ -305,6 +397,16 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getVersionToken()
+  {
+    return versionTokenEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getWordToken()
   {
     return wordTokenEClass;
@@ -328,16 +430,6 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
   public EClass getOperatorToken()
   {
     return operatorTokenEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getQuoteToken()
-  {
-    return quoteTokenEClass;
   }
 
   /**
@@ -445,8 +537,18 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
 
     elementEClass = createEClass(ELEMENT);
 
+    nodeEClass = createEClass(NODE);
+
+    statementNodeEClass = createEClass(STATEMENT_NODE);
+
+    packageStatementEClass = createEClass(PACKAGE_STATEMENT);
+    createEAttribute(packageStatementEClass, PACKAGE_STATEMENT__NAME);
+    createEAttribute(packageStatementEClass, PACKAGE_STATEMENT__VERSION);
+
     tokenEClass = createEClass(TOKEN);
     createEAttribute(tokenEClass, TOKEN__CONTENT);
+
+    quoteTokenEClass = createEClass(QUOTE_TOKEN);
 
     quoteLikeTokenEClass = createEClass(QUOTE_LIKE_TOKEN);
 
@@ -454,13 +556,13 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
 
     numberTokenEClass = createEClass(NUMBER_TOKEN);
 
+    versionTokenEClass = createEClass(VERSION_TOKEN);
+
     wordTokenEClass = createEClass(WORD_TOKEN);
 
     symbolTokenEClass = createEClass(SYMBOL_TOKEN);
 
     operatorTokenEClass = createEClass(OPERATOR_TOKEN);
-
-    quoteTokenEClass = createEClass(QUOTE_TOKEN);
 
     dataTokenEClass = createEClass(DATA_TOKEN);
 
@@ -506,14 +608,18 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    nodeEClass.getESuperTypes().add(this.getElement());
+    statementNodeEClass.getESuperTypes().add(this.getNode());
+    packageStatementEClass.getESuperTypes().add(this.getStatementNode());
     tokenEClass.getESuperTypes().add(this.getElement());
+    quoteTokenEClass.getESuperTypes().add(this.getToken());
     quoteLikeTokenEClass.getESuperTypes().add(this.getToken());
     podTokenEClass.getESuperTypes().add(this.getToken());
     numberTokenEClass.getESuperTypes().add(this.getToken());
+    versionTokenEClass.getESuperTypes().add(this.getToken());
     wordTokenEClass.getESuperTypes().add(this.getToken());
     symbolTokenEClass.getESuperTypes().add(this.getToken());
     operatorTokenEClass.getESuperTypes().add(this.getToken());
-    quoteTokenEClass.getESuperTypes().add(this.getToken());
     dataTokenEClass.getESuperTypes().add(this.getToken());
     endTokenEClass.getESuperTypes().add(this.getToken());
     backtickQuoteLikeTokenEClass.getESuperTypes().add(this.getQuoteLikeToken());
@@ -528,8 +634,18 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
 
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(statementNodeEClass, StatementNode.class, "StatementNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(packageStatementEClass, PackageStatement.class, "PackageStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPackageStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, PackageStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPackageStatement_Version(), ecorePackage.getEString(), "version", null, 0, 1, PackageStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(tokenEClass, Token.class, "Token", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getToken_Content(), ecorePackage.getEString(), "content", null, 0, 1, Token.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(quoteTokenEClass, QuoteToken.class, "QuoteToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(quoteLikeTokenEClass, QuoteLikeToken.class, "QuoteLikeToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -537,13 +653,13 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
 
     initEClass(numberTokenEClass, NumberToken.class, "NumberToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(versionTokenEClass, VersionToken.class, "VersionToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(wordTokenEClass, WordToken.class, "WordToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(symbolTokenEClass, SymbolToken.class, "SymbolToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(operatorTokenEClass, OperatorToken.class, "OperatorToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(quoteTokenEClass, QuoteToken.class, "QuoteToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(dataTokenEClass, DataToken.class, "DataToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

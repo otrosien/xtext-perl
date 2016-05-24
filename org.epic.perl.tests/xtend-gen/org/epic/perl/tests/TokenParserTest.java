@@ -20,6 +20,7 @@ import org.epic.perl.perl.QuoteToken;
 import org.epic.perl.perl.ReadLineQuoteLikeToken;
 import org.epic.perl.perl.RegexpQuoteLikeToken;
 import org.epic.perl.perl.SymbolToken;
+import org.epic.perl.perl.VersionToken;
 import org.epic.perl.perl.WordToken;
 import org.epic.perl.perl.WordsQuoteLikeToken;
 import org.epic.perl.tests.DumpUtil;
@@ -246,6 +247,19 @@ public class TokenParserTest {
     final SymbolToken token = ((SymbolToken) _head);
     String _content = token.getContent();
     Assert.assertEquals("$Some::Package::Var", _content);
+  }
+  
+  @Test
+  public void versionSymbol() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("v5.12.0");
+    _builder.newLine();
+    PerlDocument __parseDocument = this._parseDocument(_builder.toString());
+    EList<Element> _elements = __parseDocument.getElements();
+    Element _head = IterableExtensions.<Element>head(_elements);
+    final VersionToken token = ((VersionToken) _head);
+    String _content = token.getContent();
+    Assert.assertEquals("v5.12.0", _content);
   }
   
   private PerlDocument _parseDocument(final String str) {

@@ -18,6 +18,7 @@ import org.epic.perl.perl.RegexpQuoteLikeToken
 import org.epic.perl.perl.ReadLineQuoteLikeToken
 import org.epic.perl.perl.PodToken
 import org.epic.perl.perl.SymbolToken
+import org.epic.perl.perl.VersionToken
 
 @RunWith(XtextRunner)
 @InjectWith(PerlInjectorProvider)
@@ -157,6 +158,14 @@ class TokenParserTest{
 		Assert.assertEquals('$Some::Package::Var', token.content)
 	}
 
+
+	@Test
+	def void versionSymbol() {
+		val token = _parseDocument('''
+			v5.12.0
+		''').elements.head as VersionToken
+		Assert.assertEquals('v5.12.0', token.content)
+	}
 	
 	private def PerlDocument _parseDocument(String str) {
 		val result = parse(str)

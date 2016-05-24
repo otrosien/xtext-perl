@@ -42,6 +42,33 @@ public interface PerlFactory extends EFactory
   Element createElement();
 
   /**
+   * Returns a new object of class '<em>Node</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Node</em>'.
+   * @generated
+   */
+  Node createNode();
+
+  /**
+   * Returns a new object of class '<em>Statement Node</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Statement Node</em>'.
+   * @generated
+   */
+  StatementNode createStatementNode();
+
+  /**
+   * Returns a new object of class '<em>Package Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package Statement</em>'.
+   * @generated
+   */
+  PackageStatement createPackageStatement();
+
+  /**
    * Returns a new object of class '<em>Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -49,6 +76,15 @@ public interface PerlFactory extends EFactory
    * @generated
    */
   Token createToken();
+
+  /**
+   * Returns a new object of class '<em>Quote Token</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Quote Token</em>'.
+   * @generated
+   */
+  QuoteToken createQuoteToken();
 
   /**
    * Returns a new object of class '<em>Quote Like Token</em>'.
@@ -78,6 +114,15 @@ public interface PerlFactory extends EFactory
   NumberToken createNumberToken();
 
   /**
+   * Returns a new object of class '<em>Version Token</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Version Token</em>'.
+   * @generated
+   */
+  VersionToken createVersionToken();
+
+  /**
    * Returns a new object of class '<em>Word Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -103,15 +148,6 @@ public interface PerlFactory extends EFactory
    * @generated
    */
   OperatorToken createOperatorToken();
-
-  /**
-   * Returns a new object of class '<em>Quote Token</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Quote Token</em>'.
-   * @generated
-   */
-  QuoteToken createQuoteToken();
 
   /**
    * Returns a new object of class '<em>Data Token</em>'.

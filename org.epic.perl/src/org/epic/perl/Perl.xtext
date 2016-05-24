@@ -10,18 +10,18 @@ PerlDocument:
 ;
 
 Element:
-//	Node 
-//	| 
+	Node 
+	| 
 	Token
 ;
 
-//Node:
-//	StatementNode
-//	| StructureNode
-//;
+Node:
+	StatementNode
+	| StructureNode
+;
 
-//StatementNode:
-//	PackageStatement
+StatementNode:
+	PackageStatement
 //	| IncludeStatement
 //	| SubStatement
 //	| CompoundStatement
@@ -34,9 +34,9 @@ Element:
 //	| NullStatement
 //	| UnmatchedBraceStatement
 //	| UnknownStatement
-//;
+;
 
-//StructureNode:
+StructureNode:
 //	BlockStructure
 //    | SubscriptStructure
 //    | ConstructorStructure
@@ -46,17 +46,24 @@ Element:
 //    | GivenStructure
 //    | WhenStructure
 //    | UnknownStructure
-//;
+	';'
+;
 
 //ExpressionStatement:
 //	VariableExpression
 //;
+
+PackageStatement:
+	'package' name=ID =>(version=VERSION)?
+;
+
 
 Token:
 	// hidden:
 //	  {CommentToken}   content=SL_COMMENT
 	  {PodToken}       content=POD 
 	| {NumberToken}    content=Number
+	| {VersionToken}   content=VERSION
 	| {WordToken}      content=Word 
 //	| DashedWord 
     | {SymbolToken}    content=SYMBOL
@@ -64,9 +71,7 @@ Token:
 	| QuoteLikeToken 
 	| {OperatorToken} content=FileTestOperator
 	| {OperatorToken} content=Operator
-    | {QuoteToken}    content=STRING
-    | {QuoteToken}    content=INTERPOLATE
-    | {QuoteToken}    content=LITERAL
+	| QuoteToken
 //	| HereDoc 
 //	| Cast 
 //	| Structure 
@@ -79,20 +84,16 @@ Token:
 //	| UnknownToken
 ;
 
+QuoteToken:
+	{QuoteToken} content=( STRING | INTERPOLATE | LITERAL)
+;
+
 QuoteLikeToken:
 	{BacktickQuoteLikeToken}   content=BACKTICK_STRING
 	| {WordsQuoteLikeToken}    content=WORDS_QUOTE_LIKE
 	| {CommandQuoteLikeToken}  content=COMMAND_QUOTE_LIKE
 	| {RegexpQuoteLikeToken}   content=REGEX_QUOTE
   	| {ReadLineQuoteLikeToken} content=READLINE_QUOTE
-;
-
-terminal SYMBOL:
-	('$'|'%'|'@') ('a'..'z' | 'A'..'Z' | '_')+ (('::'|"'") ('a'..'z' | 'A'..'Z' | '_')+ )*
-;
-
-Number hidden():
-	(HEX | BIN | INT) ('.' INT)?
 ;
 
 Word:
@@ -148,6 +149,26 @@ FileTestOperator:
 	('-r' | '-w' | '-x' | '-o' | '-R' | '-W' | '-X' | '-O' | '-e' | '-z' | '-s' | '-f' | '-d' | '-l' | '-p' | '-S' | '-b' |
 	'-c' | '-t' | '-u' | '-g' | '-k' | '-T' | '-B' | '-M' | '-A' | '-C')
 ;
+
+terminal ID:
+	('a'..'z' | 'A'..'Z' | '_')+ (('::'|"'") ('a'..'z' | 'A'..'Z' | '_')+ )*
+;
+
+terminal SYMBOL:
+	('$'|'%'|'@') ('a'..'z' | 'A'..'Z' | '_')+ (('::'|"'") ('a'..'z' | 'A'..'Z' | '_')+ )*
+;
+
+Number hidden():
+	(HEX | BIN | INT) ('.' INT)?
+;
+
+terminal VERSION:
+	'v' ('0'..'9')+ ('.' ('0'..'9')+ )*
+;
+
+//terminal PRAGMA:
+//	('a'..'z' '0'..'9')+
+//;
 
 terminal HEX:
 	("0x"|"0X") ('0'..'9'|'a'..'f'|'A'..'F'|'_')+ ;

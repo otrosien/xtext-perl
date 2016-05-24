@@ -87,11 +87,47 @@ public class PerlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case PerlPackage.NODE:
+      {
+        Node node = (Node)theEObject;
+        T result = caseNode(node);
+        if (result == null) result = caseElement(node);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.STATEMENT_NODE:
+      {
+        StatementNode statementNode = (StatementNode)theEObject;
+        T result = caseStatementNode(statementNode);
+        if (result == null) result = caseNode(statementNode);
+        if (result == null) result = caseElement(statementNode);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.PACKAGE_STATEMENT:
+      {
+        PackageStatement packageStatement = (PackageStatement)theEObject;
+        T result = casePackageStatement(packageStatement);
+        if (result == null) result = caseStatementNode(packageStatement);
+        if (result == null) result = caseNode(packageStatement);
+        if (result == null) result = caseElement(packageStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case PerlPackage.TOKEN:
       {
         Token token = (Token)theEObject;
         T result = caseToken(token);
         if (result == null) result = caseElement(token);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.QUOTE_TOKEN:
+      {
+        QuoteToken quoteToken = (QuoteToken)theEObject;
+        T result = caseQuoteToken(quoteToken);
+        if (result == null) result = caseToken(quoteToken);
+        if (result == null) result = caseElement(quoteToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -122,6 +158,15 @@ public class PerlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case PerlPackage.VERSION_TOKEN:
+      {
+        VersionToken versionToken = (VersionToken)theEObject;
+        T result = caseVersionToken(versionToken);
+        if (result == null) result = caseToken(versionToken);
+        if (result == null) result = caseElement(versionToken);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case PerlPackage.WORD_TOKEN:
       {
         WordToken wordToken = (WordToken)theEObject;
@@ -146,15 +191,6 @@ public class PerlSwitch<T> extends Switch<T>
         T result = caseOperatorToken(operatorToken);
         if (result == null) result = caseToken(operatorToken);
         if (result == null) result = caseElement(operatorToken);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PerlPackage.QUOTE_TOKEN:
-      {
-        QuoteToken quoteToken = (QuoteToken)theEObject;
-        T result = caseQuoteToken(quoteToken);
-        if (result == null) result = caseToken(quoteToken);
-        if (result == null) result = caseElement(quoteToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -263,6 +299,54 @@ public class PerlSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Node</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Node</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNode(Node object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Statement Node</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Statement Node</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStatementNode(StatementNode object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Package Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Package Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePackageStatement(PackageStatement object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Token</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -274,6 +358,22 @@ public class PerlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseToken(Token object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Quote Token</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Quote Token</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseQuoteToken(QuoteToken object)
   {
     return null;
   }
@@ -327,6 +427,22 @@ public class PerlSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Version Token</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Version Token</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVersionToken(VersionToken object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Word Token</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -370,22 +486,6 @@ public class PerlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseOperatorToken(OperatorToken object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Quote Token</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Quote Token</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseQuoteToken(QuoteToken object)
   {
     return null;
   }

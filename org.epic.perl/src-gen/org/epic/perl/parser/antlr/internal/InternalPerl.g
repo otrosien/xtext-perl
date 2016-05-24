@@ -120,14 +120,174 @@ ruleElement returns [EObject current=null]
 @after {
 	leaveRule();
 }:
+	(
+		{
+			newCompositeNode(grammarAccess.getElementAccess().getNodeParserRuleCall_0());
+		}
+		this_Node_0=ruleNode
+		{
+			$current = $this_Node_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getElementAccess().getTokenParserRuleCall_1());
+		}
+		this_Token_1=ruleToken
+		{
+			$current = $this_Token_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleNode
+entryRuleNode returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNodeRule()); }
+	iv_ruleNode=ruleNode
+	{ $current=$iv_ruleNode.current; }
+	EOF;
+
+// Rule Node
+ruleNode returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getNodeAccess().getStatementNodeParserRuleCall_0());
+		}
+		this_StatementNode_0=ruleStatementNode
+		{
+			$current = $this_StatementNode_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getNodeAccess().getStructureNodeParserRuleCall_1());
+		}
+		ruleStructureNode
+		{
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleStatementNode
+entryRuleStatementNode returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getStatementNodeRule()); }
+	iv_ruleStatementNode=ruleStatementNode
+	{ $current=$iv_ruleStatementNode.current; }
+	EOF;
+
+// Rule StatementNode
+ruleStatementNode returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
 	{
-		newCompositeNode(grammarAccess.getElementAccess().getTokenParserRuleCall());
+		newCompositeNode(grammarAccess.getStatementNodeAccess().getPackageStatementParserRuleCall());
 	}
-	this_Token_0=ruleToken
+	this_PackageStatement_0=rulePackageStatement
 	{
-		$current = $this_Token_0.current;
+		$current = $this_PackageStatement_0.current;
 		afterParserOrEnumRuleCall();
 	}
+;
+
+// Entry rule entryRuleStructureNode
+entryRuleStructureNode returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getStructureNodeRule()); }
+	iv_ruleStructureNode=ruleStructureNode
+	{ $current=$iv_ruleStructureNode.current.getText(); }
+	EOF;
+
+// Rule StructureNode
+ruleStructureNode returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	kw=';'
+	{
+		$current.merge(kw);
+		newLeafNode(kw, grammarAccess.getStructureNodeAccess().getSemicolonKeyword());
+	}
+;
+
+// Entry rule entryRulePackageStatement
+entryRulePackageStatement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPackageStatementRule()); }
+	iv_rulePackageStatement=rulePackageStatement
+	{ $current=$iv_rulePackageStatement.current; }
+	EOF;
+
+// Rule PackageStatement
+rulePackageStatement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='package'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getPackageStatementAccess().getPackageKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getPackageStatementAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getPackageStatementRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.epic.perl.Perl.ID");
+				}
+			)
+		)
+		(
+			((
+				(
+					RULE_VERSION
+				)
+			)
+			)=>
+			(
+				(
+					lv_version_2_0=RULE_VERSION
+					{
+						newLeafNode(lv_version_2_0, grammarAccess.getPackageStatementAccess().getVersionVERSIONTerminalRuleCall_2_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getPackageStatementRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"version",
+							lv_version_2_0,
+							"org.epic.perl.Perl.VERSION");
+					}
+				)
+			)
+		)?
+	)
 ;
 
 // Entry rule entryRuleToken
@@ -207,16 +367,44 @@ ruleToken returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getTokenAccess().getWordTokenAction_2_0(),
+						grammarAccess.getTokenAccess().getVersionTokenAction_2_0(),
+						$current);
+				}
+			)
+			(
+				(
+					lv_content_5_0=RULE_VERSION
+					{
+						newLeafNode(lv_content_5_0, grammarAccess.getTokenAccess().getContentVERSIONTerminalRuleCall_2_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getTokenRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"content",
+							lv_content_5_0,
+							"org.epic.perl.Perl.VERSION");
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getTokenAccess().getWordTokenAction_3_0(),
 						$current);
 				}
 			)
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTokenAccess().getContentWordParserRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getTokenAccess().getContentWordParserRuleCall_3_1_0());
 					}
-					lv_content_5_0=ruleWord
+					lv_content_7_0=ruleWord
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTokenRule());
@@ -224,7 +412,7 @@ ruleToken returns [EObject current=null]
 						set(
 							$current,
 							"content",
-							lv_content_5_0,
+							lv_content_7_0,
 							"org.epic.perl.Perl.Word");
 						afterParserOrEnumRuleCall();
 					}
@@ -236,15 +424,15 @@ ruleToken returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getTokenAccess().getSymbolTokenAction_3_0(),
+						grammarAccess.getTokenAccess().getSymbolTokenAction_4_0(),
 						$current);
 				}
 			)
 			(
 				(
-					lv_content_7_0=RULE_SYMBOL
+					lv_content_9_0=RULE_SYMBOL
 					{
-						newLeafNode(lv_content_7_0, grammarAccess.getTokenAccess().getContentSYMBOLTerminalRuleCall_3_1_0());
+						newLeafNode(lv_content_9_0, grammarAccess.getTokenAccess().getContentSYMBOLTerminalRuleCall_4_1_0());
 					}
 					{
 						if ($current==null) {
@@ -253,7 +441,7 @@ ruleToken returns [EObject current=null]
 						setWithLastConsumed(
 							$current,
 							"content",
-							lv_content_7_0,
+							lv_content_9_0,
 							"org.epic.perl.Perl.SYMBOL");
 					}
 				)
@@ -261,42 +449,13 @@ ruleToken returns [EObject current=null]
 		)
 		    |
 		{
-			newCompositeNode(grammarAccess.getTokenAccess().getQuoteLikeTokenParserRuleCall_4());
+			newCompositeNode(grammarAccess.getTokenAccess().getQuoteLikeTokenParserRuleCall_5());
 		}
-		this_QuoteLikeToken_8=ruleQuoteLikeToken
+		this_QuoteLikeToken_10=ruleQuoteLikeToken
 		{
-			$current = $this_QuoteLikeToken_8.current;
+			$current = $this_QuoteLikeToken_10.current;
 			afterParserOrEnumRuleCall();
 		}
-		    |
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getTokenAccess().getOperatorTokenAction_5_0(),
-						$current);
-				}
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTokenAccess().getContentFileTestOperatorParserRuleCall_5_1_0());
-					}
-					lv_content_10_0=ruleFileTestOperator
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTokenRule());
-						}
-						set(
-							$current,
-							"content",
-							lv_content_10_0,
-							"org.epic.perl.Perl.FileTestOperator");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)
 		    |
 		(
 			(
@@ -309,9 +468,9 @@ ruleToken returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTokenAccess().getContentOperatorParserRuleCall_6_1_0());
+						newCompositeNode(grammarAccess.getTokenAccess().getContentFileTestOperatorParserRuleCall_6_1_0());
 					}
-					lv_content_12_0=ruleOperator
+					lv_content_12_0=ruleFileTestOperator
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTokenRule());
@@ -320,7 +479,7 @@ ruleToken returns [EObject current=null]
 							$current,
 							"content",
 							lv_content_12_0,
-							"org.epic.perl.Perl.Operator");
+							"org.epic.perl.Perl.FileTestOperator");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -331,43 +490,53 @@ ruleToken returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getTokenAccess().getQuoteTokenAction_7_0(),
+						grammarAccess.getTokenAccess().getOperatorTokenAction_7_0(),
 						$current);
 				}
 			)
 			(
 				(
-					lv_content_14_0=RULE_STRING
 					{
-						newLeafNode(lv_content_14_0, grammarAccess.getTokenAccess().getContentSTRINGTerminalRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getTokenAccess().getContentOperatorParserRuleCall_7_1_0());
 					}
+					lv_content_14_0=ruleOperator
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getTokenRule());
+							$current = createModelElementForParent(grammarAccess.getTokenRule());
 						}
-						setWithLastConsumed(
+						set(
 							$current,
 							"content",
 							lv_content_14_0,
-							"org.epic.perl.Perl.STRING");
+							"org.epic.perl.Perl.Operator");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)
 		    |
+		{
+			newCompositeNode(grammarAccess.getTokenAccess().getQuoteTokenParserRuleCall_8());
+		}
+		this_QuoteToken_15=ruleQuoteToken
+		{
+			$current = $this_QuoteToken_15.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
 		(
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getTokenAccess().getQuoteTokenAction_8_0(),
+						grammarAccess.getTokenAccess().getDataTokenAction_9_0(),
 						$current);
 				}
 			)
 			(
 				(
-					lv_content_16_0=RULE_INTERPOLATE
+					lv_content_17_0=RULE_DATA
 					{
-						newLeafNode(lv_content_16_0, grammarAccess.getTokenAccess().getContentINTERPOLATETerminalRuleCall_8_1_0());
+						newLeafNode(lv_content_17_0, grammarAccess.getTokenAccess().getContentDATATerminalRuleCall_9_1_0());
 					}
 					{
 						if ($current==null) {
@@ -376,63 +545,7 @@ ruleToken returns [EObject current=null]
 						setWithLastConsumed(
 							$current,
 							"content",
-							lv_content_16_0,
-							"org.epic.perl.Perl.INTERPOLATE");
-					}
-				)
-			)
-		)
-		    |
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getTokenAccess().getQuoteTokenAction_9_0(),
-						$current);
-				}
-			)
-			(
-				(
-					lv_content_18_0=RULE_LITERAL
-					{
-						newLeafNode(lv_content_18_0, grammarAccess.getTokenAccess().getContentLITERALTerminalRuleCall_9_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getTokenRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"content",
-							lv_content_18_0,
-							"org.epic.perl.Perl.LITERAL");
-					}
-				)
-			)
-		)
-		    |
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getTokenAccess().getDataTokenAction_10_0(),
-						$current);
-				}
-			)
-			(
-				(
-					lv_content_20_0=RULE_DATA
-					{
-						newLeafNode(lv_content_20_0, grammarAccess.getTokenAccess().getContentDATATerminalRuleCall_10_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getTokenRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"content",
-							lv_content_20_0,
+							lv_content_17_0,
 							"org.epic.perl.Perl.DATA");
 					}
 				)
@@ -443,15 +556,15 @@ ruleToken returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getTokenAccess().getEndTokenAction_11_0(),
+						grammarAccess.getTokenAccess().getEndTokenAction_10_0(),
 						$current);
 				}
 			)
 			(
 				(
-					lv_content_22_0=RULE_END
+					lv_content_19_0=RULE_END
 					{
-						newLeafNode(lv_content_22_0, grammarAccess.getTokenAccess().getContentENDTerminalRuleCall_11_1_0());
+						newLeafNode(lv_content_19_0, grammarAccess.getTokenAccess().getContentENDTerminalRuleCall_10_1_0());
 					}
 					{
 						if ($current==null) {
@@ -460,8 +573,84 @@ ruleToken returns [EObject current=null]
 						setWithLastConsumed(
 							$current,
 							"content",
-							lv_content_22_0,
+							lv_content_19_0,
 							"org.epic.perl.Perl.END");
+					}
+				)
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleQuoteToken
+entryRuleQuoteToken returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getQuoteTokenRule()); }
+	iv_ruleQuoteToken=ruleQuoteToken
+	{ $current=$iv_ruleQuoteToken.current; }
+	EOF;
+
+// Rule QuoteToken
+ruleQuoteToken returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getQuoteTokenAccess().getQuoteTokenAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				(
+					lv_content_1_1=RULE_STRING
+					{
+						newLeafNode(lv_content_1_1, grammarAccess.getQuoteTokenAccess().getContentSTRINGTerminalRuleCall_1_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getQuoteTokenRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"content",
+							lv_content_1_1,
+							"org.epic.perl.Perl.STRING");
+					}
+					    |
+					lv_content_1_2=RULE_INTERPOLATE
+					{
+						newLeafNode(lv_content_1_2, grammarAccess.getQuoteTokenAccess().getContentINTERPOLATETerminalRuleCall_1_0_1());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getQuoteTokenRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"content",
+							lv_content_1_2,
+							"org.epic.perl.Perl.INTERPOLATE");
+					}
+					    |
+					lv_content_1_3=RULE_LITERAL
+					{
+						newLeafNode(lv_content_1_3, grammarAccess.getQuoteTokenAccess().getContentLITERALTerminalRuleCall_1_0_2());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getQuoteTokenRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"content",
+							lv_content_1_3,
+							"org.epic.perl.Perl.LITERAL");
 					}
 				)
 			)
@@ -626,73 +815,6 @@ ruleQuoteLikeToken returns [EObject current=null]
 		)
 	)
 ;
-
-// Entry rule entryRuleNumber
-entryRuleNumber returns [String current=null]@init {
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-}:
-	{ newCompositeNode(grammarAccess.getNumberRule()); }
-	iv_ruleNumber=ruleNumber
-	{ $current=$iv_ruleNumber.current.getText(); }
-	EOF;
-finally {
-	myHiddenTokenState.restore();
-}
-
-// Rule Number
-ruleNumber returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			this_HEX_0=RULE_HEX
-			{
-				$current.merge(this_HEX_0);
-			}
-			{
-				newLeafNode(this_HEX_0, grammarAccess.getNumberAccess().getHEXTerminalRuleCall_0_0());
-			}
-			    |
-			this_BIN_1=RULE_BIN
-			{
-				$current.merge(this_BIN_1);
-			}
-			{
-				newLeafNode(this_BIN_1, grammarAccess.getNumberAccess().getBINTerminalRuleCall_0_1());
-			}
-			    |
-			this_INT_2=RULE_INT
-			{
-				$current.merge(this_INT_2);
-			}
-			{
-				newLeafNode(this_INT_2, grammarAccess.getNumberAccess().getINTTerminalRuleCall_0_2());
-			}
-		)
-		(
-			kw='.'
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getNumberAccess().getFullStopKeyword_1_0());
-			}
-			this_INT_4=RULE_INT
-			{
-				$current.merge(this_INT_4);
-			}
-			{
-				newLeafNode(this_INT_4, grammarAccess.getNumberAccess().getINTTerminalRuleCall_1_1());
-			}
-		)?
-	)
-;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Entry rule entryRuleWord
 entryRuleWord returns [String current=null]:
@@ -2660,7 +2782,78 @@ ruleFileTestOperator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRu
 	)
 ;
 
+// Entry rule entryRuleNumber
+entryRuleNumber returns [String current=null]@init {
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+}:
+	{ newCompositeNode(grammarAccess.getNumberRule()); }
+	iv_ruleNumber=ruleNumber
+	{ $current=$iv_ruleNumber.current.getText(); }
+	EOF;
+finally {
+	myHiddenTokenState.restore();
+}
+
+// Rule Number
+ruleNumber returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			this_HEX_0=RULE_HEX
+			{
+				$current.merge(this_HEX_0);
+			}
+			{
+				newLeafNode(this_HEX_0, grammarAccess.getNumberAccess().getHEXTerminalRuleCall_0_0());
+			}
+			    |
+			this_BIN_1=RULE_BIN
+			{
+				$current.merge(this_BIN_1);
+			}
+			{
+				newLeafNode(this_BIN_1, grammarAccess.getNumberAccess().getBINTerminalRuleCall_0_1());
+			}
+			    |
+			this_INT_2=RULE_INT
+			{
+				$current.merge(this_INT_2);
+			}
+			{
+				newLeafNode(this_INT_2, grammarAccess.getNumberAccess().getINTTerminalRuleCall_0_2());
+			}
+		)
+		(
+			kw='.'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getNumberAccess().getFullStopKeyword_1_0());
+			}
+			this_INT_4=RULE_INT
+			{
+				$current.merge(this_INT_4);
+			}
+			{
+				newLeafNode(this_INT_4, grammarAccess.getNumberAccess().getINTTerminalRuleCall_1_1());
+			}
+		)?
+	)
+;
+finally {
+	myHiddenTokenState.restore();
+}
+
+RULE_ID : ('a'..'z'|'A'..'Z'|'_')+ (('::'|'\'') ('a'..'z'|'A'..'Z'|'_')+)*;
+
 RULE_SYMBOL : ('$'|'%'|'@') ('a'..'z'|'A'..'Z'|'_')+ (('::'|'\'') ('a'..'z'|'A'..'Z'|'_')+)*;
+
+RULE_VERSION : 'v' ('0'..'9')+ ('.' ('0'..'9')+)*;
 
 RULE_HEX : ('0x'|'0X') ('0'..'9'|'a'..'f'|'A'..'F'|'_')+;
 

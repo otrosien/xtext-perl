@@ -67,14 +67,18 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
     {
       case PerlPackage.PERL_DOCUMENT: return createPerlDocument();
       case PerlPackage.ELEMENT: return createElement();
+      case PerlPackage.NODE: return createNode();
+      case PerlPackage.STATEMENT_NODE: return createStatementNode();
+      case PerlPackage.PACKAGE_STATEMENT: return createPackageStatement();
       case PerlPackage.TOKEN: return createToken();
+      case PerlPackage.QUOTE_TOKEN: return createQuoteToken();
       case PerlPackage.QUOTE_LIKE_TOKEN: return createQuoteLikeToken();
       case PerlPackage.POD_TOKEN: return createPodToken();
       case PerlPackage.NUMBER_TOKEN: return createNumberToken();
+      case PerlPackage.VERSION_TOKEN: return createVersionToken();
       case PerlPackage.WORD_TOKEN: return createWordToken();
       case PerlPackage.SYMBOL_TOKEN: return createSymbolToken();
       case PerlPackage.OPERATOR_TOKEN: return createOperatorToken();
-      case PerlPackage.QUOTE_TOKEN: return createQuoteToken();
       case PerlPackage.DATA_TOKEN: return createDataToken();
       case PerlPackage.END_TOKEN: return createEndToken();
       case PerlPackage.BACKTICK_QUOTE_LIKE_TOKEN: return createBacktickQuoteLikeToken();
@@ -114,10 +118,54 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Node createNode()
+  {
+    NodeImpl node = new NodeImpl();
+    return node;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StatementNode createStatementNode()
+  {
+    StatementNodeImpl statementNode = new StatementNodeImpl();
+    return statementNode;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PackageStatement createPackageStatement()
+  {
+    PackageStatementImpl packageStatement = new PackageStatementImpl();
+    return packageStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Token createToken()
   {
     TokenImpl token = new TokenImpl();
     return token;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public QuoteToken createQuoteToken()
+  {
+    QuoteTokenImpl quoteToken = new QuoteTokenImpl();
+    return quoteToken;
   }
 
   /**
@@ -158,6 +206,17 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public VersionToken createVersionToken()
+  {
+    VersionTokenImpl versionToken = new VersionTokenImpl();
+    return versionToken;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public WordToken createWordToken()
   {
     WordTokenImpl wordToken = new WordTokenImpl();
@@ -184,17 +243,6 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
   {
     OperatorTokenImpl operatorToken = new OperatorTokenImpl();
     return operatorToken;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public QuoteToken createQuoteToken()
-  {
-    QuoteTokenImpl quoteToken = new QuoteTokenImpl();
-    return quoteToken;
   }
 
   /**
