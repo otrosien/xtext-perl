@@ -50,15 +50,10 @@ class TokenParserTest {
 
     @Test
     def void singleQuoteStringToken() {
-        val result = parse('''
+        val token = _parseDocument('''
             'test'
-        ''')
-        result.assertNoErrors
-        println(result.dump)
-        Assert.assertTrue(result.class.name, result instanceof PerlDocument)
-        val token = (result as PerlDocument).elements.head
-        Assert.assertTrue(token.class.name, token instanceof QuoteToken)
-        Assert.assertEquals('test', (token as QuoteToken).content)
+        ''').elements.head as QuoteToken
+        Assert.assertEquals('test', token.content)
     }
 
     @Test
@@ -186,7 +181,6 @@ class TokenParserTest {
         val result = parse(str)
         result.assertNoErrors
         println(result.dump)
-        Assert.assertTrue(result.class.name, result instanceof PerlDocument)
         return result
     }
 }

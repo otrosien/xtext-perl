@@ -109,7 +109,6 @@ class StructureParserTest {
         val result = parse(str)
         result.assertNoErrors
         println(result.dump)
-        Assert.assertTrue(result.class.name, result instanceof PerlDocument)
         return result
     }
 }
