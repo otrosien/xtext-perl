@@ -62,7 +62,7 @@ StructureNode:
 
 PackageStatement:
     {PackageStatement}
-    'package' name=ID version=VERSION?
+    'package' name=QUALIFIED_ID version=VERSION?
 ;
 
 IncludeStatement:
@@ -76,12 +76,62 @@ RequireInclude:
 
 UseInclude:
     {UseInclude}
-    'use' (version=VERSION | ( pragmaOrPackage=ID (stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE )?))
+    'use' (version=VERSION | (pragma=Pragma | Package=[PackageStatement|QUALIFIED_ID]) (stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE )?)
+;
+
+/*
+ * 
+
+    attributes - get/set subroutine or variable attributes
+    autodie - Replace functions with ones that succeed or die with lexical scope
+    autouse - postpone load of modules until a function is used
+    base - Establish an ISA relationship with base classes at compile time
+    bigint - Transparent BigInteger support for Perl
+    bignum - Transparent BigNumber support for Perl
+    bigrat - Transparent BigNumber/BigRational support for Perl
+    blib - Use MakeMaker's uninstalled version of a package
+    bytes - Perl pragma to expose the individual bytes of characters
+    charnames - access to Unicode character names and named character sequences; also define character names
+    constant - Perl pragma to declare constants
+    diagnostics - produce verbose warning diagnostics
+    encoding - allows you to write your script in non-ASCII and non-UTF-8
+    feature - Perl pragma to enable new features
+    fields - compile-time class fields
+    filetest - Perl pragma to control the filetest permission operators
+    if - use a Perl module if a condition holds (also can no a module)
+    integer - Perl pragma to use integer arithmetic instead of floating point
+    less - perl pragma to request less of something
+    lib - manipulate @INC at compile time
+    locale - Perl pragma to use or avoid POSIX locales for built-in operations
+    mro - Method Resolution Order
+    open - perl pragma to set default PerlIO layers for input and output
+    ops - Perl pragma to restrict unsafe operations when compiling
+    overload - Package for overloading Perl operations
+    overloading - perl pragma to lexically control overloading
+    parent - Establish an ISA relationship with base classes at compile time
+    re - Perl pragma to alter regular expression behaviour
+    sigtrap - Perl pragma to enable simple signal handling
+    sort - perl pragma to control sort() behaviour
+    strict - Perl pragma to restrict unsafe constructs
+    subs - Perl pragma to predeclare sub names
+    threads - Perl interpreter-based threads
+    threads::shared - Perl extension for sharing data structures between threads
+    utf8 - Perl pragma to enable/disable UTF-8 (or UTF-EBCDIC) in source code
+    vars - Perl pragma to predeclare global variable names
+    vmsish - Perl pragma to control VMS-specific language features
+    warnings - Perl pragma to control optional warnings
+    warnings::register - warnings import function 
+ */
+Pragma:
+    'attributes' | 'autodie' | 'autouse' | 'base' | 'bigint' | 'bignum' | 'bigrat' | 'blib' | 'bytes' | 
+    'charnames' | 'constant' | 'diagnostics' | 'encoding' | 'feature' | 'fields' | 'filetest' | 'if' | 'integer' | 
+    'less' | 'lib' | 'locale' | 'mro' | 'open' | 'ops' | 'overload' | 'overloading' | 'parent' | 're' | 'sigtrap' |
+    'sort' | 'strict' | 'subs' | 'threads::shared' | 'threads' | 'utf8' | 'vars' | 'vmsish' | 'warnings::register' | 'warnings' 
 ;
 
 SubStatement:
     {SubStatement}
-    'sub' name=ID prototype=Prototype? (';' | block=BlockStructure)
+    'sub' name=ID prototype=Prototype? (block=BlockStructure | ';')
 ;
 
 BlockStructure:
@@ -191,13 +241,22 @@ FileTestOperator:
     '-c' | '-t' | '-u' | '-g' | '-k' | '-T' | '-B' | '-M' | '-A' | '-C')
 ;
 
+QUALIFIED_ID:
+    ID (('::'|"'") ID)*
+;
+
 terminal NUMBER:
     (HEX | BIN | INT) ('.' INT)?
 ;
 
 terminal ID:
-    ('a'..'z' | 'A'..'Z' | '_')+ (('::'|"'") ('a'..'z' | 'A'..'Z' | '_')+ )*
+    ( 'a'..'z' | 'A'..'Z' | '_'  ) ( 'a'..'z' | 'A'..'Z' | '0'..'9' | '_' )*
 ;
+
+//terminal PRAGMA:
+//    ('a'..'z' )+ ('0'..'9')*
+//;
+
 
 terminal SYMBOL:
     ('$'|'%'|'@') ('a'..'z' | 'A'..'Z' | '_')+ (('::'|"'") ('a'..'z' | 'A'..'Z' | '_')+ )*

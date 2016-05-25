@@ -19,7 +19,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="IncludeStatement" eSuperTypes="#//ExpressionStatement"/>
   <eClassifiers xsi:type="ecore:EClass" name="RequireInclude" eSuperTypes="#//IncludeStatement"/>
   <eClassifiers xsi:type="ecore:EClass" name="UseInclude" eSuperTypes="#//IncludeStatement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pragmaOrPackage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pragma" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Package" eType="#//PackageStatement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stringArgument" eType="#//QuoteToken"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="qwArgument" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

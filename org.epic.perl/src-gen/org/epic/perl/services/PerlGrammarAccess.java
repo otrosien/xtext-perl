@@ -9,6 +9,7 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -201,7 +202,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cPackageStatementAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cPackageKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cNameQUALIFIED_IDParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Assignment cVersionAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cVersionVERSIONTerminalRuleCall_3_0 = (RuleCall)cVersionAssignment_3.eContents().get(0);
 		
@@ -210,10 +211,10 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		////;
 		//PackageStatement:
 		//	{PackageStatement}
-		//	'package' name=ID version=VERSION?;
+		//	'package' name=QUALIFIED_ID version=VERSION?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PackageStatement} 'package' name=ID version=VERSION?
+		//{PackageStatement} 'package' name=QUALIFIED_ID version=VERSION?
 		public Group getGroup() { return cGroup; }
 		
 		//{PackageStatement}
@@ -222,11 +223,11 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//'package'
 		public Keyword getPackageKeyword_1() { return cPackageKeyword_1; }
 		
-		//name=ID
+		//name=QUALIFIED_ID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		//QUALIFIED_ID
+		public RuleCall getNameQUALIFIED_IDParserRuleCall_2_0() { return cNameQUALIFIED_IDParserRuleCall_2_0; }
 		
 		//version=VERSION?
 		public Assignment getVersionAssignment_3() { return cVersionAssignment_3; }
@@ -286,8 +287,12 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cVersionAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
 		private final RuleCall cVersionVERSIONTerminalRuleCall_2_0_0 = (RuleCall)cVersionAssignment_2_0.eContents().get(0);
 		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
-		private final Assignment cPragmaOrPackageAssignment_2_1_0 = (Assignment)cGroup_2_1.eContents().get(0);
-		private final RuleCall cPragmaOrPackageIDTerminalRuleCall_2_1_0_0 = (RuleCall)cPragmaOrPackageAssignment_2_1_0.eContents().get(0);
+		private final Alternatives cAlternatives_2_1_0 = (Alternatives)cGroup_2_1.eContents().get(0);
+		private final Assignment cPragmaAssignment_2_1_0_0 = (Assignment)cAlternatives_2_1_0.eContents().get(0);
+		private final RuleCall cPragmaPragmaParserRuleCall_2_1_0_0_0 = (RuleCall)cPragmaAssignment_2_1_0_0.eContents().get(0);
+		private final Assignment cPackageAssignment_2_1_0_1 = (Assignment)cAlternatives_2_1_0.eContents().get(1);
+		private final CrossReference cPackagePackageStatementCrossReference_2_1_0_1_0 = (CrossReference)cPackageAssignment_2_1_0_1.eContents().get(0);
+		private final RuleCall cPackagePackageStatementQUALIFIED_IDParserRuleCall_2_1_0_1_0_1 = (RuleCall)cPackagePackageStatementCrossReference_2_1_0_1_0.eContents().get(1);
 		private final Alternatives cAlternatives_2_1_1 = (Alternatives)cGroup_2_1.eContents().get(1);
 		private final Assignment cStringArgumentAssignment_2_1_1_0 = (Assignment)cAlternatives_2_1_1.eContents().get(0);
 		private final RuleCall cStringArgumentQuoteTokenParserRuleCall_2_1_1_0_0 = (RuleCall)cStringArgumentAssignment_2_1_1_0.eContents().get(0);
@@ -296,10 +301,12 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//UseInclude:
 		//	{UseInclude}
-		//	'use' (version=VERSION | pragmaOrPackage=ID (stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE)?);
+		//	'use' (version=VERSION | (pragma=Pragma | Package=[PackageStatement|QUALIFIED_ID]) (stringArgument=QuoteToken |
+		//	qwArgument=WORDS_QUOTE_LIKE)?);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{UseInclude} 'use' (version=VERSION | pragmaOrPackage=ID (stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE)?)
+		//{UseInclude} 'use' (version=VERSION | (pragma=Pragma | Package=[PackageStatement|QUALIFIED_ID])
+		//(stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE)?)
 		public Group getGroup() { return cGroup; }
 		
 		//{UseInclude}
@@ -308,7 +315,8 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//'use'
 		public Keyword getUseKeyword_1() { return cUseKeyword_1; }
 		
-		//(version=VERSION | pragmaOrPackage=ID (stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE)?)
+		//(version=VERSION | (pragma=Pragma | Package=[PackageStatement|QUALIFIED_ID]) (stringArgument=QuoteToken |
+		//qwArgument=WORDS_QUOTE_LIKE)?)
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
 		//version=VERSION
@@ -317,14 +325,26 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//VERSION
 		public RuleCall getVersionVERSIONTerminalRuleCall_2_0_0() { return cVersionVERSIONTerminalRuleCall_2_0_0; }
 		
-		//pragmaOrPackage=ID (stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE)?
+		//(pragma=Pragma | Package=[PackageStatement|QUALIFIED_ID]) (stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE)?
 		public Group getGroup_2_1() { return cGroup_2_1; }
 		
-		//pragmaOrPackage=ID
-		public Assignment getPragmaOrPackageAssignment_2_1_0() { return cPragmaOrPackageAssignment_2_1_0; }
+		//(pragma=Pragma | Package=[PackageStatement|QUALIFIED_ID])
+		public Alternatives getAlternatives_2_1_0() { return cAlternatives_2_1_0; }
 		
-		//ID
-		public RuleCall getPragmaOrPackageIDTerminalRuleCall_2_1_0_0() { return cPragmaOrPackageIDTerminalRuleCall_2_1_0_0; }
+		//pragma=Pragma
+		public Assignment getPragmaAssignment_2_1_0_0() { return cPragmaAssignment_2_1_0_0; }
+		
+		//Pragma
+		public RuleCall getPragmaPragmaParserRuleCall_2_1_0_0_0() { return cPragmaPragmaParserRuleCall_2_1_0_0_0; }
+		
+		//Package=[PackageStatement|QUALIFIED_ID]
+		public Assignment getPackageAssignment_2_1_0_1() { return cPackageAssignment_2_1_0_1; }
+		
+		//[PackageStatement|QUALIFIED_ID]
+		public CrossReference getPackagePackageStatementCrossReference_2_1_0_1_0() { return cPackagePackageStatementCrossReference_2_1_0_1_0; }
+		
+		//QUALIFIED_ID
+		public RuleCall getPackagePackageStatementQUALIFIED_IDParserRuleCall_2_1_0_1_0_1() { return cPackagePackageStatementQUALIFIED_IDParserRuleCall_2_1_0_1_0_1; }
 		
 		//(stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE)?
 		public Alternatives getAlternatives_2_1_1() { return cAlternatives_2_1_1; }
@@ -341,6 +361,222 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//WORDS_QUOTE_LIKE
 		public RuleCall getQwArgumentWORDS_QUOTE_LIKETerminalRuleCall_2_1_1_1_0() { return cQwArgumentWORDS_QUOTE_LIKETerminalRuleCall_2_1_1_1_0; }
 	}
+	public class PragmaElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Pragma");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cAttributesKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cAutodieKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cAutouseKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cBaseKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cBigintKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cBignumKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cBigratKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cBlibKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		private final Keyword cBytesKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		private final Keyword cCharnamesKeyword_9 = (Keyword)cAlternatives.eContents().get(9);
+		private final Keyword cConstantKeyword_10 = (Keyword)cAlternatives.eContents().get(10);
+		private final Keyword cDiagnosticsKeyword_11 = (Keyword)cAlternatives.eContents().get(11);
+		private final Keyword cEncodingKeyword_12 = (Keyword)cAlternatives.eContents().get(12);
+		private final Keyword cFeatureKeyword_13 = (Keyword)cAlternatives.eContents().get(13);
+		private final Keyword cFieldsKeyword_14 = (Keyword)cAlternatives.eContents().get(14);
+		private final Keyword cFiletestKeyword_15 = (Keyword)cAlternatives.eContents().get(15);
+		private final Keyword cIfKeyword_16 = (Keyword)cAlternatives.eContents().get(16);
+		private final Keyword cIntegerKeyword_17 = (Keyword)cAlternatives.eContents().get(17);
+		private final Keyword cLessKeyword_18 = (Keyword)cAlternatives.eContents().get(18);
+		private final Keyword cLibKeyword_19 = (Keyword)cAlternatives.eContents().get(19);
+		private final Keyword cLocaleKeyword_20 = (Keyword)cAlternatives.eContents().get(20);
+		private final Keyword cMroKeyword_21 = (Keyword)cAlternatives.eContents().get(21);
+		private final Keyword cOpenKeyword_22 = (Keyword)cAlternatives.eContents().get(22);
+		private final Keyword cOpsKeyword_23 = (Keyword)cAlternatives.eContents().get(23);
+		private final Keyword cOverloadKeyword_24 = (Keyword)cAlternatives.eContents().get(24);
+		private final Keyword cOverloadingKeyword_25 = (Keyword)cAlternatives.eContents().get(25);
+		private final Keyword cParentKeyword_26 = (Keyword)cAlternatives.eContents().get(26);
+		private final Keyword cReKeyword_27 = (Keyword)cAlternatives.eContents().get(27);
+		private final Keyword cSigtrapKeyword_28 = (Keyword)cAlternatives.eContents().get(28);
+		private final Keyword cSortKeyword_29 = (Keyword)cAlternatives.eContents().get(29);
+		private final Keyword cStrictKeyword_30 = (Keyword)cAlternatives.eContents().get(30);
+		private final Keyword cSubsKeyword_31 = (Keyword)cAlternatives.eContents().get(31);
+		private final Keyword cThreadsSharedKeyword_32 = (Keyword)cAlternatives.eContents().get(32);
+		private final Keyword cThreadsKeyword_33 = (Keyword)cAlternatives.eContents().get(33);
+		private final Keyword cUtf8Keyword_34 = (Keyword)cAlternatives.eContents().get(34);
+		private final Keyword cVarsKeyword_35 = (Keyword)cAlternatives.eContents().get(35);
+		private final Keyword cVmsishKeyword_36 = (Keyword)cAlternatives.eContents().get(36);
+		private final Keyword cWarningsRegisterKeyword_37 = (Keyword)cAlternatives.eContents().get(37);
+		private final Keyword cWarningsKeyword_38 = (Keyword)cAlternatives.eContents().get(38);
+		
+		/// *
+		// * 
+		//
+		//    attributes - get/set subroutine or variable attributes
+		//    autodie - Replace functions with ones that succeed or die with lexical scope
+		//    autouse - postpone load of modules until a function is used
+		//    base - Establish an ISA relationship with base classes at compile time
+		//    bigint - Transparent BigInteger support for Perl
+		//    bignum - Transparent BigNumber support for Perl
+		//    bigrat - Transparent BigNumber/BigRational support for Perl
+		//    blib - Use MakeMaker's uninstalled version of a package
+		//    bytes - Perl pragma to expose the individual bytes of characters
+		//    charnames - access to Unicode character names and named character sequences; also define character names
+		//    constant - Perl pragma to declare constants
+		//    diagnostics - produce verbose warning diagnostics
+		//    encoding - allows you to write your script in non-ASCII and non-UTF-8
+		//    feature - Perl pragma to enable new features
+		//    fields - compile-time class fields
+		//    filetest - Perl pragma to control the filetest permission operators
+		//    if - use a Perl module if a condition holds (also can no a module)
+		//    integer - Perl pragma to use integer arithmetic instead of floating point
+		//    less - perl pragma to request less of something
+		//    lib - manipulate @INC at compile time
+		//    locale - Perl pragma to use or avoid POSIX locales for built-in operations
+		//    mro - Method Resolution Order
+		//    open - perl pragma to set default PerlIO layers for input and output
+		//    ops - Perl pragma to restrict unsafe operations when compiling
+		//    overload - Package for overloading Perl operations
+		//    overloading - perl pragma to lexically control overloading
+		//    parent - Establish an ISA relationship with base classes at compile time
+		//    re - Perl pragma to alter regular expression behaviour
+		//    sigtrap - Perl pragma to enable simple signal handling
+		//    sort - perl pragma to control sort() behaviour
+		//    strict - Perl pragma to restrict unsafe constructs
+		//    subs - Perl pragma to predeclare sub names
+		//    threads - Perl interpreter-based threads
+		//    threads::shared - Perl extension for sharing data structures between threads
+		//    utf8 - Perl pragma to enable/disable UTF-8 (or UTF-EBCDIC) in source code
+		//    vars - Perl pragma to predeclare global variable names
+		//    vmsish - Perl pragma to control VMS-specific language features
+		//    warnings - Perl pragma to control optional warnings
+		//    warnings::register - warnings import function 
+		// * / Pragma:
+		//	'attributes' | 'autodie' | 'autouse' | 'base' | 'bigint' | 'bignum' | 'bigrat' | 'blib' | 'bytes' |
+		//	'charnames' | 'constant' | 'diagnostics' | 'encoding' | 'feature' | 'fields' | 'filetest' | 'if' | 'integer' |
+		//	'less' | 'lib' | 'locale' | 'mro' | 'open' | 'ops' | 'overload' | 'overloading' | 'parent' | 're' | 'sigtrap' |
+		//	'sort' | 'strict' | 'subs' | 'threads::shared' | 'threads' | 'utf8' | 'vars' | 'vmsish' | 'warnings::register' |
+		//	'warnings';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'attributes' | 'autodie' | 'autouse' | 'base' | 'bigint' | 'bignum' | 'bigrat' | 'blib' | 'bytes' | 'charnames' |
+		//'constant' | 'diagnostics' | 'encoding' | 'feature' | 'fields' | 'filetest' | 'if' | 'integer' | 'less' | 'lib' |
+		//'locale' | 'mro' | 'open' | 'ops' | 'overload' | 'overloading' | 'parent' | 're' | 'sigtrap' | 'sort' | 'strict' |
+		//'subs' | 'threads::shared' | 'threads' | 'utf8' | 'vars' | 'vmsish' | 'warnings::register' | 'warnings'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'attributes'
+		public Keyword getAttributesKeyword_0() { return cAttributesKeyword_0; }
+		
+		//'autodie'
+		public Keyword getAutodieKeyword_1() { return cAutodieKeyword_1; }
+		
+		//'autouse'
+		public Keyword getAutouseKeyword_2() { return cAutouseKeyword_2; }
+		
+		//'base'
+		public Keyword getBaseKeyword_3() { return cBaseKeyword_3; }
+		
+		//'bigint'
+		public Keyword getBigintKeyword_4() { return cBigintKeyword_4; }
+		
+		//'bignum'
+		public Keyword getBignumKeyword_5() { return cBignumKeyword_5; }
+		
+		//'bigrat'
+		public Keyword getBigratKeyword_6() { return cBigratKeyword_6; }
+		
+		//'blib'
+		public Keyword getBlibKeyword_7() { return cBlibKeyword_7; }
+		
+		//'bytes'
+		public Keyword getBytesKeyword_8() { return cBytesKeyword_8; }
+		
+		//'charnames'
+		public Keyword getCharnamesKeyword_9() { return cCharnamesKeyword_9; }
+		
+		//'constant'
+		public Keyword getConstantKeyword_10() { return cConstantKeyword_10; }
+		
+		//'diagnostics'
+		public Keyword getDiagnosticsKeyword_11() { return cDiagnosticsKeyword_11; }
+		
+		//'encoding'
+		public Keyword getEncodingKeyword_12() { return cEncodingKeyword_12; }
+		
+		//'feature'
+		public Keyword getFeatureKeyword_13() { return cFeatureKeyword_13; }
+		
+		//'fields'
+		public Keyword getFieldsKeyword_14() { return cFieldsKeyword_14; }
+		
+		//'filetest'
+		public Keyword getFiletestKeyword_15() { return cFiletestKeyword_15; }
+		
+		//'if'
+		public Keyword getIfKeyword_16() { return cIfKeyword_16; }
+		
+		//'integer'
+		public Keyword getIntegerKeyword_17() { return cIntegerKeyword_17; }
+		
+		//'less'
+		public Keyword getLessKeyword_18() { return cLessKeyword_18; }
+		
+		//'lib'
+		public Keyword getLibKeyword_19() { return cLibKeyword_19; }
+		
+		//'locale'
+		public Keyword getLocaleKeyword_20() { return cLocaleKeyword_20; }
+		
+		//'mro'
+		public Keyword getMroKeyword_21() { return cMroKeyword_21; }
+		
+		//'open'
+		public Keyword getOpenKeyword_22() { return cOpenKeyword_22; }
+		
+		//'ops'
+		public Keyword getOpsKeyword_23() { return cOpsKeyword_23; }
+		
+		//'overload'
+		public Keyword getOverloadKeyword_24() { return cOverloadKeyword_24; }
+		
+		//'overloading'
+		public Keyword getOverloadingKeyword_25() { return cOverloadingKeyword_25; }
+		
+		//'parent'
+		public Keyword getParentKeyword_26() { return cParentKeyword_26; }
+		
+		//'re'
+		public Keyword getReKeyword_27() { return cReKeyword_27; }
+		
+		//'sigtrap'
+		public Keyword getSigtrapKeyword_28() { return cSigtrapKeyword_28; }
+		
+		//'sort'
+		public Keyword getSortKeyword_29() { return cSortKeyword_29; }
+		
+		//'strict'
+		public Keyword getStrictKeyword_30() { return cStrictKeyword_30; }
+		
+		//'subs'
+		public Keyword getSubsKeyword_31() { return cSubsKeyword_31; }
+		
+		//'threads::shared'
+		public Keyword getThreadsSharedKeyword_32() { return cThreadsSharedKeyword_32; }
+		
+		//'threads'
+		public Keyword getThreadsKeyword_33() { return cThreadsKeyword_33; }
+		
+		//'utf8'
+		public Keyword getUtf8Keyword_34() { return cUtf8Keyword_34; }
+		
+		//'vars'
+		public Keyword getVarsKeyword_35() { return cVarsKeyword_35; }
+		
+		//'vmsish'
+		public Keyword getVmsishKeyword_36() { return cVmsishKeyword_36; }
+		
+		//'warnings::register'
+		public Keyword getWarningsRegisterKeyword_37() { return cWarningsRegisterKeyword_37; }
+		
+		//'warnings'
+		public Keyword getWarningsKeyword_38() { return cWarningsKeyword_38; }
+	}
 	public class SubStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.SubStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -351,16 +587,16 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPrototypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cPrototypePrototypeParserRuleCall_3_0 = (RuleCall)cPrototypeAssignment_3.eContents().get(0);
 		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Keyword cSemicolonKeyword_4_0 = (Keyword)cAlternatives_4.eContents().get(0);
-		private final Assignment cBlockAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final RuleCall cBlockBlockStructureParserRuleCall_4_1_0 = (RuleCall)cBlockAssignment_4_1.eContents().get(0);
+		private final Assignment cBlockAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
+		private final RuleCall cBlockBlockStructureParserRuleCall_4_0_0 = (RuleCall)cBlockAssignment_4_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4_1 = (Keyword)cAlternatives_4.eContents().get(1);
 		
 		//SubStatement:
 		//	{SubStatement}
-		//	'sub' name=ID prototype=Prototype? (';' | block=BlockStructure);
+		//	'sub' name=ID prototype=Prototype? (block=BlockStructure | ';');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SubStatement} 'sub' name=ID prototype=Prototype? (';' | block=BlockStructure)
+		//{SubStatement} 'sub' name=ID prototype=Prototype? (block=BlockStructure | ';')
 		public Group getGroup() { return cGroup; }
 		
 		//{SubStatement}
@@ -381,17 +617,17 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//Prototype
 		public RuleCall getPrototypePrototypeParserRuleCall_3_0() { return cPrototypePrototypeParserRuleCall_3_0; }
 		
-		//(';' | block=BlockStructure)
+		//(block=BlockStructure | ';')
 		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 		
-		//';'
-		public Keyword getSemicolonKeyword_4_0() { return cSemicolonKeyword_4_0; }
-		
 		//block=BlockStructure
-		public Assignment getBlockAssignment_4_1() { return cBlockAssignment_4_1; }
+		public Assignment getBlockAssignment_4_0() { return cBlockAssignment_4_0; }
 		
 		//BlockStructure
-		public RuleCall getBlockBlockStructureParserRuleCall_4_1_0() { return cBlockBlockStructureParserRuleCall_4_1_0; }
+		public RuleCall getBlockBlockStructureParserRuleCall_4_0_0() { return cBlockBlockStructureParserRuleCall_4_0_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_4_1() { return cSemicolonKeyword_4_1; }
 	}
 	public class BlockStructureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.BlockStructure");
@@ -2185,6 +2421,41 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//'-C'
 		public Keyword getCKeyword_26() { return cCKeyword_26; }
 	}
+	public class QUALIFIED_IDElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.QUALIFIED_ID");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
+		private final Keyword cColonColonKeyword_1_0_0 = (Keyword)cAlternatives_1_0.eContents().get(0);
+		private final Keyword cApostropheKeyword_1_0_1 = (Keyword)cAlternatives_1_0.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//QUALIFIED_ID:
+		//	ID (('::' | "'") ID)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ID (('::' | "'") ID)*
+		public Group getGroup() { return cGroup; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		
+		//(('::' | "'") ID)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//('::' | "'")
+		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
+		
+		//'::'
+		public Keyword getColonColonKeyword_1_0_0() { return cColonColonKeyword_1_0_0; }
+		
+		//"'"
+		public Keyword getApostropheKeyword_1_0_1() { return cApostropheKeyword_1_0_1; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
+	}
 	
 	
 	private final PerlDocumentElements pPerlDocument;
@@ -2198,6 +2469,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	private final IncludeStatementElements pIncludeStatement;
 	private final RequireIncludeElements pRequireInclude;
 	private final UseIncludeElements pUseInclude;
+	private final PragmaElements pPragma;
 	private final SubStatementElements pSubStatement;
 	private final BlockStructureElements pBlockStructure;
 	private final PrototypeElements pPrototype;
@@ -2209,6 +2481,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	private final KeywordElements pKeyword;
 	private final OperatorElements pOperator;
 	private final FileTestOperatorElements pFileTestOperator;
+	private final QUALIFIED_IDElements pQUALIFIED_ID;
 	private final TerminalRule tNUMBER;
 	private final TerminalRule tID;
 	private final TerminalRule tSYMBOL;
@@ -2250,6 +2523,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pIncludeStatement = new IncludeStatementElements();
 		this.pRequireInclude = new RequireIncludeElements();
 		this.pUseInclude = new UseIncludeElements();
+		this.pPragma = new PragmaElements();
 		this.pSubStatement = new SubStatementElements();
 		this.pBlockStructure = new BlockStructureElements();
 		this.pPrototype = new PrototypeElements();
@@ -2261,6 +2535,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pKeyword = new KeywordElements();
 		this.pOperator = new OperatorElements();
 		this.pFileTestOperator = new FileTestOperatorElements();
+		this.pQUALIFIED_ID = new QUALIFIED_IDElements();
 		this.tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.NUMBER");
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.ID");
 		this.tSYMBOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.SYMBOL");
@@ -2409,7 +2684,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	////;
 	//PackageStatement:
 	//	{PackageStatement}
-	//	'package' name=ID version=VERSION?;
+	//	'package' name=QUALIFIED_ID version=VERSION?;
 	public PackageStatementElements getPackageStatementAccess() {
 		return pPackageStatement;
 	}
@@ -2441,7 +2716,8 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//UseInclude:
 	//	{UseInclude}
-	//	'use' (version=VERSION | pragmaOrPackage=ID (stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE)?);
+	//	'use' (version=VERSION | (pragma=Pragma | Package=[PackageStatement|QUALIFIED_ID]) (stringArgument=QuoteToken |
+	//	qwArgument=WORDS_QUOTE_LIKE)?);
 	public UseIncludeElements getUseIncludeAccess() {
 		return pUseInclude;
 	}
@@ -2450,9 +2726,65 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		return getUseIncludeAccess().getRule();
 	}
 	
+	/// *
+	// * 
+	//
+	//    attributes - get/set subroutine or variable attributes
+	//    autodie - Replace functions with ones that succeed or die with lexical scope
+	//    autouse - postpone load of modules until a function is used
+	//    base - Establish an ISA relationship with base classes at compile time
+	//    bigint - Transparent BigInteger support for Perl
+	//    bignum - Transparent BigNumber support for Perl
+	//    bigrat - Transparent BigNumber/BigRational support for Perl
+	//    blib - Use MakeMaker's uninstalled version of a package
+	//    bytes - Perl pragma to expose the individual bytes of characters
+	//    charnames - access to Unicode character names and named character sequences; also define character names
+	//    constant - Perl pragma to declare constants
+	//    diagnostics - produce verbose warning diagnostics
+	//    encoding - allows you to write your script in non-ASCII and non-UTF-8
+	//    feature - Perl pragma to enable new features
+	//    fields - compile-time class fields
+	//    filetest - Perl pragma to control the filetest permission operators
+	//    if - use a Perl module if a condition holds (also can no a module)
+	//    integer - Perl pragma to use integer arithmetic instead of floating point
+	//    less - perl pragma to request less of something
+	//    lib - manipulate @INC at compile time
+	//    locale - Perl pragma to use or avoid POSIX locales for built-in operations
+	//    mro - Method Resolution Order
+	//    open - perl pragma to set default PerlIO layers for input and output
+	//    ops - Perl pragma to restrict unsafe operations when compiling
+	//    overload - Package for overloading Perl operations
+	//    overloading - perl pragma to lexically control overloading
+	//    parent - Establish an ISA relationship with base classes at compile time
+	//    re - Perl pragma to alter regular expression behaviour
+	//    sigtrap - Perl pragma to enable simple signal handling
+	//    sort - perl pragma to control sort() behaviour
+	//    strict - Perl pragma to restrict unsafe constructs
+	//    subs - Perl pragma to predeclare sub names
+	//    threads - Perl interpreter-based threads
+	//    threads::shared - Perl extension for sharing data structures between threads
+	//    utf8 - Perl pragma to enable/disable UTF-8 (or UTF-EBCDIC) in source code
+	//    vars - Perl pragma to predeclare global variable names
+	//    vmsish - Perl pragma to control VMS-specific language features
+	//    warnings - Perl pragma to control optional warnings
+	//    warnings::register - warnings import function 
+	// * / Pragma:
+	//	'attributes' | 'autodie' | 'autouse' | 'base' | 'bigint' | 'bignum' | 'bigrat' | 'blib' | 'bytes' |
+	//	'charnames' | 'constant' | 'diagnostics' | 'encoding' | 'feature' | 'fields' | 'filetest' | 'if' | 'integer' |
+	//	'less' | 'lib' | 'locale' | 'mro' | 'open' | 'ops' | 'overload' | 'overloading' | 'parent' | 're' | 'sigtrap' |
+	//	'sort' | 'strict' | 'subs' | 'threads::shared' | 'threads' | 'utf8' | 'vars' | 'vmsish' | 'warnings::register' |
+	//	'warnings';
+	public PragmaElements getPragmaAccess() {
+		return pPragma;
+	}
+	
+	public ParserRule getPragmaRule() {
+		return getPragmaAccess().getRule();
+	}
+	
 	//SubStatement:
 	//	{SubStatement}
-	//	'sub' name=ID prototype=Prototype? (';' | block=BlockStructure);
+	//	'sub' name=ID prototype=Prototype? (block=BlockStructure | ';');
 	public SubStatementElements getSubStatementAccess() {
 		return pSubStatement;
 	}
@@ -2628,6 +2960,16 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		return getFileTestOperatorAccess().getRule();
 	}
 	
+	//QUALIFIED_ID:
+	//	ID (('::' | "'") ID)*;
+	public QUALIFIED_IDElements getQUALIFIED_IDAccess() {
+		return pQUALIFIED_ID;
+	}
+	
+	public ParserRule getQUALIFIED_IDRule() {
+		return getQUALIFIED_IDAccess().getRule();
+	}
+	
 	//terminal NUMBER:
 	//	(HEX | BIN | INT) ('.' INT)?;
 	public TerminalRule getNUMBERRule() {
@@ -2635,7 +2977,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal ID:
-	//	('a'..'z' | 'A'..'Z' | '_')+ (('::' | "'") ('a'..'z' | 'A'..'Z' | '_')+)*;
+	//	('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '0'..'9' | '_')*;
 	public TerminalRule getIDRule() {
 		return tID;
 	}

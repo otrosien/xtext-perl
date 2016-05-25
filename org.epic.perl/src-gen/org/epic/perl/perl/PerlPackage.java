@@ -321,13 +321,22 @@ public interface PerlPackage extends EPackage
   int USE_INCLUDE__VERSION = INCLUDE_STATEMENT__VERSION;
 
   /**
-   * The feature id for the '<em><b>Pragma Or Package</b></em>' attribute.
+   * The feature id for the '<em><b>Pragma</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USE_INCLUDE__PRAGMA_OR_PACKAGE = INCLUDE_STATEMENT_FEATURE_COUNT + 0;
+  int USE_INCLUDE__PRAGMA = INCLUDE_STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Package</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_INCLUDE__PACKAGE = INCLUDE_STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>String Argument</b></em>' containment reference.
@@ -336,7 +345,7 @@ public interface PerlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_INCLUDE__STRING_ARGUMENT = INCLUDE_STATEMENT_FEATURE_COUNT + 1;
+  int USE_INCLUDE__STRING_ARGUMENT = INCLUDE_STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Qw Argument</b></em>' attribute.
@@ -345,7 +354,7 @@ public interface PerlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_INCLUDE__QW_ARGUMENT = INCLUDE_STATEMENT_FEATURE_COUNT + 2;
+  int USE_INCLUDE__QW_ARGUMENT = INCLUDE_STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Use Include</em>' class.
@@ -354,7 +363,7 @@ public interface PerlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_INCLUDE_FEATURE_COUNT = INCLUDE_STATEMENT_FEATURE_COUNT + 3;
+  int USE_INCLUDE_FEATURE_COUNT = INCLUDE_STATEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.epic.perl.perl.impl.SubStatementImpl <em>Sub Statement</em>}' class.
@@ -1023,15 +1032,26 @@ public interface PerlPackage extends EPackage
   EClass getUseInclude();
 
   /**
-   * Returns the meta object for the attribute '{@link org.epic.perl.perl.UseInclude#getPragmaOrPackage <em>Pragma Or Package</em>}'.
+   * Returns the meta object for the attribute '{@link org.epic.perl.perl.UseInclude#getPragma <em>Pragma</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Pragma Or Package</em>'.
-   * @see org.epic.perl.perl.UseInclude#getPragmaOrPackage()
+   * @return the meta object for the attribute '<em>Pragma</em>'.
+   * @see org.epic.perl.perl.UseInclude#getPragma()
    * @see #getUseInclude()
    * @generated
    */
-  EAttribute getUseInclude_PragmaOrPackage();
+  EAttribute getUseInclude_Pragma();
+
+  /**
+   * Returns the meta object for the reference '{@link org.epic.perl.perl.UseInclude#getPackage <em>Package</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Package</em>'.
+   * @see org.epic.perl.perl.UseInclude#getPackage()
+   * @see #getUseInclude()
+   * @generated
+   */
+  EReference getUseInclude_Package();
 
   /**
    * Returns the meta object for the containment reference '{@link org.epic.perl.perl.UseInclude#getStringArgument <em>String Argument</em>}'.
@@ -1448,12 +1468,20 @@ public interface PerlPackage extends EPackage
     EClass USE_INCLUDE = eINSTANCE.getUseInclude();
 
     /**
-     * The meta object literal for the '<em><b>Pragma Or Package</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Pragma</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute USE_INCLUDE__PRAGMA_OR_PACKAGE = eINSTANCE.getUseInclude_PragmaOrPackage();
+    EAttribute USE_INCLUDE__PRAGMA = eINSTANCE.getUseInclude_Pragma();
+
+    /**
+     * The meta object literal for the '<em><b>Package</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USE_INCLUDE__PACKAGE = eINSTANCE.getUseInclude_Package();
 
     /**
      * The meta object literal for the '<em><b>String Argument</b></em>' containment reference feature.

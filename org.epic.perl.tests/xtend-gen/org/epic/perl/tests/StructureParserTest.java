@@ -89,8 +89,8 @@ public class StructureParserTest {
     EList<Element> _elements = __parseDocument.getElements();
     Element _head = IterableExtensions.<Element>head(_elements);
     final UseInclude token = ((UseInclude) _head);
-    String _pragmaOrPackage = token.getPragmaOrPackage();
-    Assert.assertEquals("feature", _pragmaOrPackage);
+    String _pragma = token.getPragma();
+    Assert.assertEquals("feature", _pragma);
     QuoteToken _stringArgument = token.getStringArgument();
     String _content = _stringArgument.getContent();
     Assert.assertEquals("say", _content);
@@ -99,27 +99,33 @@ public class StructureParserTest {
   @Test
   public void useModule() {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package URI::URL; # declare package (required for cross-ref)");
+    _builder.newLine();
     _builder.append("use URI::URL;");
     _builder.newLine();
     PerlDocument __parseDocument = this._parseDocument(_builder.toString());
     EList<Element> _elements = __parseDocument.getElements();
-    Element _head = IterableExtensions.<Element>head(_elements);
-    final UseInclude token = ((UseInclude) _head);
-    String _pragmaOrPackage = token.getPragmaOrPackage();
-    Assert.assertEquals("URI::URL", _pragmaOrPackage);
+    Element _get = _elements.get(1);
+    final UseInclude token = ((UseInclude) _get);
+    PackageStatement _package = token.getPackage();
+    String _name = _package.getName();
+    Assert.assertEquals("URI::URL", _name);
   }
   
   @Test
   public void useModuleWithQuoteWords() {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package URI::URL; # declare package (required for cross-ref)");
+    _builder.newLine();
     _builder.append("use URI::URL qw( test );");
     _builder.newLine();
     PerlDocument __parseDocument = this._parseDocument(_builder.toString());
     EList<Element> _elements = __parseDocument.getElements();
-    Element _head = IterableExtensions.<Element>head(_elements);
-    final UseInclude token = ((UseInclude) _head);
-    String _pragmaOrPackage = token.getPragmaOrPackage();
-    Assert.assertEquals("URI::URL", _pragmaOrPackage);
+    Element _get = _elements.get(1);
+    final UseInclude token = ((UseInclude) _get);
+    PackageStatement _package = token.getPackage();
+    String _name = _package.getName();
+    Assert.assertEquals("URI::URL", _name);
     String _qwArgument = token.getQwArgument();
     Assert.assertEquals("qw( test )", _qwArgument);
   }

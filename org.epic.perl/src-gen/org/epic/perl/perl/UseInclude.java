@@ -13,7 +13,8 @@ package org.epic.perl.perl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.epic.perl.perl.UseInclude#getPragmaOrPackage <em>Pragma Or Package</em>}</li>
+ *   <li>{@link org.epic.perl.perl.UseInclude#getPragma <em>Pragma</em>}</li>
+ *   <li>{@link org.epic.perl.perl.UseInclude#getPackage <em>Package</em>}</li>
  *   <li>{@link org.epic.perl.perl.UseInclude#getStringArgument <em>String Argument</em>}</li>
  *   <li>{@link org.epic.perl.perl.UseInclude#getQwArgument <em>Qw Argument</em>}</li>
  * </ul>
@@ -25,30 +26,56 @@ package org.epic.perl.perl;
 public interface UseInclude extends IncludeStatement
 {
   /**
-   * Returns the value of the '<em><b>Pragma Or Package</b></em>' attribute.
+   * Returns the value of the '<em><b>Pragma</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Pragma Or Package</em>' attribute isn't clear,
+   * If the meaning of the '<em>Pragma</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Pragma Or Package</em>' attribute.
-   * @see #setPragmaOrPackage(String)
-   * @see org.epic.perl.perl.PerlPackage#getUseInclude_PragmaOrPackage()
+   * @return the value of the '<em>Pragma</em>' attribute.
+   * @see #setPragma(String)
+   * @see org.epic.perl.perl.PerlPackage#getUseInclude_Pragma()
    * @model
    * @generated
    */
-  String getPragmaOrPackage();
+  String getPragma();
 
   /**
-   * Sets the value of the '{@link org.epic.perl.perl.UseInclude#getPragmaOrPackage <em>Pragma Or Package</em>}' attribute.
+   * Sets the value of the '{@link org.epic.perl.perl.UseInclude#getPragma <em>Pragma</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Pragma Or Package</em>' attribute.
-   * @see #getPragmaOrPackage()
+   * @param value the new value of the '<em>Pragma</em>' attribute.
+   * @see #getPragma()
    * @generated
    */
-  void setPragmaOrPackage(String value);
+  void setPragma(String value);
+
+  /**
+   * Returns the value of the '<em><b>Package</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Package</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Package</em>' reference.
+   * @see #setPackage(PackageStatement)
+   * @see org.epic.perl.perl.PerlPackage#getUseInclude_Package()
+   * @model
+   * @generated
+   */
+  PackageStatement getPackage();
+
+  /**
+   * Sets the value of the '{@link org.epic.perl.perl.UseInclude#getPackage <em>Package</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Package</em>' reference.
+   * @see #getPackage()
+   * @generated
+   */
+  void setPackage(PackageStatement value);
 
   /**
    * Returns the value of the '<em><b>String Argument</b></em>' containment reference.

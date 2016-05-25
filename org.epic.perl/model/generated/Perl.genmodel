@@ -23,7 +23,8 @@
     <genClasses ecoreClass="Perl.ecore#//IncludeStatement"/>
     <genClasses ecoreClass="Perl.ecore#//RequireInclude"/>
     <genClasses ecoreClass="Perl.ecore#//UseInclude">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//UseInclude/pragmaOrPackage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//UseInclude/pragma"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Perl.ecore#//UseInclude/Package"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//UseInclude/stringArgument"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//UseInclude/qwArgument"/>
     </genClasses>

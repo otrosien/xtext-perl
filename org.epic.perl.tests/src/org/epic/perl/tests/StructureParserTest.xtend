@@ -55,24 +55,26 @@ class StructureParserTest {
         val token = _parseDocument('''
             use feature 'say';
         ''').elements.head as UseInclude
-        Assert.assertEquals('feature', token.pragmaOrPackage)
+        Assert.assertEquals('feature', token.pragma)
         Assert.assertEquals('say', token.stringArgument.content)
     }
 
     @Test
     def void useModule() {
         val token = _parseDocument('''
+            package URI::URL; # declare package (required for cross-ref)
             use URI::URL;
-        ''').elements.head as UseInclude
-        Assert.assertEquals('URI::URL', token.pragmaOrPackage)
+        ''').elements.get(1) as UseInclude
+        Assert.assertEquals('URI::URL', token.package.name)
     }
 
     @Test
     def void useModuleWithQuoteWords() {
         val token = _parseDocument('''
+            package URI::URL; # declare package (required for cross-ref)
             use URI::URL qw( test );
-        ''').elements.head as UseInclude
-        Assert.assertEquals('URI::URL', token.pragmaOrPackage)
+        ''').elements.get(1) as UseInclude
+        Assert.assertEquals('URI::URL', token.package.name)
         Assert.assertEquals('qw( test )', token.qwArgument)
     }
 

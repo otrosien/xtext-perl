@@ -461,7 +461,7 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getUseInclude_PragmaOrPackage()
+  public EAttribute getUseInclude_Pragma()
   {
     return (EAttribute)useIncludeEClass.getEStructuralFeatures().get(0);
   }
@@ -471,7 +471,7 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getUseInclude_StringArgument()
+  public EReference getUseInclude_Package()
   {
     return (EReference)useIncludeEClass.getEStructuralFeatures().get(1);
   }
@@ -481,9 +481,19 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getUseInclude_StringArgument()
+  {
+    return (EReference)useIncludeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getUseInclude_QwArgument()
   {
-    return (EAttribute)useIncludeEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)useIncludeEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -770,7 +780,8 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     requireIncludeEClass = createEClass(REQUIRE_INCLUDE);
 
     useIncludeEClass = createEClass(USE_INCLUDE);
-    createEAttribute(useIncludeEClass, USE_INCLUDE__PRAGMA_OR_PACKAGE);
+    createEAttribute(useIncludeEClass, USE_INCLUDE__PRAGMA);
+    createEReference(useIncludeEClass, USE_INCLUDE__PACKAGE);
     createEReference(useIncludeEClass, USE_INCLUDE__STRING_ARGUMENT);
     createEAttribute(useIncludeEClass, USE_INCLUDE__QW_ARGUMENT);
 
@@ -898,7 +909,8 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     initEClass(requireIncludeEClass, RequireInclude.class, "RequireInclude", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(useIncludeEClass, UseInclude.class, "UseInclude", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getUseInclude_PragmaOrPackage(), ecorePackage.getEString(), "pragmaOrPackage", null, 0, 1, UseInclude.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUseInclude_Pragma(), ecorePackage.getEString(), "pragma", null, 0, 1, UseInclude.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUseInclude_Package(), this.getPackageStatement(), null, "Package", null, 0, 1, UseInclude.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUseInclude_StringArgument(), this.getQuoteToken(), null, "stringArgument", null, 0, 1, UseInclude.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUseInclude_QwArgument(), ecorePackage.getEString(), "qwArgument", null, 0, 1, UseInclude.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

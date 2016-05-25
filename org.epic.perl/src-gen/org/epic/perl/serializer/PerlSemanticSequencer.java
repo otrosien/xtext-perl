@@ -140,7 +140,7 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PackageStatement returns PackageStatement
 	 *
 	 * Constraint:
-	 *     (name=ID version=VERSION?)
+	 *     (name=QUALIFIED_ID version=VERSION?)
 	 */
 	protected void sequence_PackageStatement(ISerializationContext context, PackageStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -463,7 +463,7 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     UseInclude returns UseInclude
 	 *
 	 * Constraint:
-	 *     (version=VERSION | (pragmaOrPackage=ID (stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE)?))
+	 *     (version=VERSION | ((pragma=Pragma | Package=[PackageStatement|QUALIFIED_ID]) (stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE)?))
 	 */
 	protected void sequence_UseInclude(ISerializationContext context, UseInclude semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.epic.perl.perl.PackageStatement;
 import org.epic.perl.perl.PerlPackage;
 import org.epic.perl.perl.QuoteToken;
 import org.epic.perl.perl.UseInclude;
@@ -23,7 +24,8 @@ import org.epic.perl.perl.UseInclude;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.epic.perl.perl.impl.UseIncludeImpl#getPragmaOrPackage <em>Pragma Or Package</em>}</li>
+ *   <li>{@link org.epic.perl.perl.impl.UseIncludeImpl#getPragma <em>Pragma</em>}</li>
+ *   <li>{@link org.epic.perl.perl.impl.UseIncludeImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link org.epic.perl.perl.impl.UseIncludeImpl#getStringArgument <em>String Argument</em>}</li>
  *   <li>{@link org.epic.perl.perl.impl.UseIncludeImpl#getQwArgument <em>Qw Argument</em>}</li>
  * </ul>
@@ -33,24 +35,34 @@ import org.epic.perl.perl.UseInclude;
 public class UseIncludeImpl extends IncludeStatementImpl implements UseInclude
 {
   /**
-   * The default value of the '{@link #getPragmaOrPackage() <em>Pragma Or Package</em>}' attribute.
+   * The default value of the '{@link #getPragma() <em>Pragma</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPragmaOrPackage()
+   * @see #getPragma()
    * @generated
    * @ordered
    */
-  protected static final String PRAGMA_OR_PACKAGE_EDEFAULT = null;
+  protected static final String PRAGMA_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getPragmaOrPackage() <em>Pragma Or Package</em>}' attribute.
+   * The cached value of the '{@link #getPragma() <em>Pragma</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPragmaOrPackage()
+   * @see #getPragma()
    * @generated
    * @ordered
    */
-  protected String pragmaOrPackage = PRAGMA_OR_PACKAGE_EDEFAULT;
+  protected String pragma = PRAGMA_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getPackage() <em>Package</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPackage()
+   * @generated
+   * @ordered
+   */
+  protected PackageStatement package_;
 
   /**
    * The cached value of the '{@link #getStringArgument() <em>String Argument</em>}' containment reference.
@@ -108,9 +120,9 @@ public class UseIncludeImpl extends IncludeStatementImpl implements UseInclude
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPragmaOrPackage()
+  public String getPragma()
   {
-    return pragmaOrPackage;
+    return pragma;
   }
 
   /**
@@ -118,12 +130,55 @@ public class UseIncludeImpl extends IncludeStatementImpl implements UseInclude
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPragmaOrPackage(String newPragmaOrPackage)
+  public void setPragma(String newPragma)
   {
-    String oldPragmaOrPackage = pragmaOrPackage;
-    pragmaOrPackage = newPragmaOrPackage;
+    String oldPragma = pragma;
+    pragma = newPragma;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PerlPackage.USE_INCLUDE__PRAGMA_OR_PACKAGE, oldPragmaOrPackage, pragmaOrPackage));
+      eNotify(new ENotificationImpl(this, Notification.SET, PerlPackage.USE_INCLUDE__PRAGMA, oldPragma, pragma));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PackageStatement getPackage()
+  {
+    if (package_ != null && package_.eIsProxy())
+    {
+      InternalEObject oldPackage = (InternalEObject)package_;
+      package_ = (PackageStatement)eResolveProxy(oldPackage);
+      if (package_ != oldPackage)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, PerlPackage.USE_INCLUDE__PACKAGE, oldPackage, package_));
+      }
+    }
+    return package_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PackageStatement basicGetPackage()
+  {
+    return package_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPackage(PackageStatement newPackage)
+  {
+    PackageStatement oldPackage = package_;
+    package_ = newPackage;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PerlPackage.USE_INCLUDE__PACKAGE, oldPackage, package_));
   }
 
   /**
@@ -223,8 +278,11 @@ public class UseIncludeImpl extends IncludeStatementImpl implements UseInclude
   {
     switch (featureID)
     {
-      case PerlPackage.USE_INCLUDE__PRAGMA_OR_PACKAGE:
-        return getPragmaOrPackage();
+      case PerlPackage.USE_INCLUDE__PRAGMA:
+        return getPragma();
+      case PerlPackage.USE_INCLUDE__PACKAGE:
+        if (resolve) return getPackage();
+        return basicGetPackage();
       case PerlPackage.USE_INCLUDE__STRING_ARGUMENT:
         return getStringArgument();
       case PerlPackage.USE_INCLUDE__QW_ARGUMENT:
@@ -243,8 +301,11 @@ public class UseIncludeImpl extends IncludeStatementImpl implements UseInclude
   {
     switch (featureID)
     {
-      case PerlPackage.USE_INCLUDE__PRAGMA_OR_PACKAGE:
-        setPragmaOrPackage((String)newValue);
+      case PerlPackage.USE_INCLUDE__PRAGMA:
+        setPragma((String)newValue);
+        return;
+      case PerlPackage.USE_INCLUDE__PACKAGE:
+        setPackage((PackageStatement)newValue);
         return;
       case PerlPackage.USE_INCLUDE__STRING_ARGUMENT:
         setStringArgument((QuoteToken)newValue);
@@ -266,8 +327,11 @@ public class UseIncludeImpl extends IncludeStatementImpl implements UseInclude
   {
     switch (featureID)
     {
-      case PerlPackage.USE_INCLUDE__PRAGMA_OR_PACKAGE:
-        setPragmaOrPackage(PRAGMA_OR_PACKAGE_EDEFAULT);
+      case PerlPackage.USE_INCLUDE__PRAGMA:
+        setPragma(PRAGMA_EDEFAULT);
+        return;
+      case PerlPackage.USE_INCLUDE__PACKAGE:
+        setPackage((PackageStatement)null);
         return;
       case PerlPackage.USE_INCLUDE__STRING_ARGUMENT:
         setStringArgument((QuoteToken)null);
@@ -289,8 +353,10 @@ public class UseIncludeImpl extends IncludeStatementImpl implements UseInclude
   {
     switch (featureID)
     {
-      case PerlPackage.USE_INCLUDE__PRAGMA_OR_PACKAGE:
-        return PRAGMA_OR_PACKAGE_EDEFAULT == null ? pragmaOrPackage != null : !PRAGMA_OR_PACKAGE_EDEFAULT.equals(pragmaOrPackage);
+      case PerlPackage.USE_INCLUDE__PRAGMA:
+        return PRAGMA_EDEFAULT == null ? pragma != null : !PRAGMA_EDEFAULT.equals(pragma);
+      case PerlPackage.USE_INCLUDE__PACKAGE:
+        return package_ != null;
       case PerlPackage.USE_INCLUDE__STRING_ARGUMENT:
         return stringArgument != null;
       case PerlPackage.USE_INCLUDE__QW_ARGUMENT:
@@ -310,8 +376,8 @@ public class UseIncludeImpl extends IncludeStatementImpl implements UseInclude
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (pragmaOrPackage: ");
-    result.append(pragmaOrPackage);
+    result.append(" (pragma: ");
+    result.append(pragma);
     result.append(", qwArgument: ");
     result.append(qwArgument);
     result.append(')');
