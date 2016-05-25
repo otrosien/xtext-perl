@@ -18,6 +18,7 @@ import org.epic.perl.perl.WordsQuoteLikeToken
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.epic.perl.perl.RegexToken
 
 @RunWith(XtextRunner)
 @InjectWith(PerlInjectorProvider)
@@ -163,6 +164,22 @@ class TokenParserTest {
             $Some::Package::Var
         ''').elements.head as SymbolToken
         Assert.assertEquals('$Some::Package::Var', token.content)
+    }
+
+    @Test
+    def void regexSubstitute() {
+        val token = _parseDocument('''
+            s/a/b/
+        ''').elements.head as RegexToken
+        Assert.assertEquals('s/a/b/', token.content)
+    }
+
+    @Test
+    def void regexMatch() {
+        val token = _parseDocument('''
+            m/.*?/
+        ''').elements.head as RegexToken
+        Assert.assertEquals('m/.*?/', token.content)
     }
 
     private def PerlDocument _parseDocument(String str) {

@@ -26,6 +26,7 @@ import org.epic.perl.perl.PerlPackage;
 import org.epic.perl.perl.PodToken;
 import org.epic.perl.perl.QuoteToken;
 import org.epic.perl.perl.ReadLineQuoteLikeToken;
+import org.epic.perl.perl.RegexToken;
 import org.epic.perl.perl.RegexpQuoteLikeToken;
 import org.epic.perl.perl.RequireInclude;
 import org.epic.perl.perl.StatementBlock;
@@ -82,6 +83,9 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case PerlPackage.READ_LINE_QUOTE_LIKE_TOKEN:
 				sequence_QuoteLikeToken(context, (ReadLineQuoteLikeToken) semanticObject); 
+				return; 
+			case PerlPackage.REGEX_TOKEN:
+				sequence_RegexToken(context, (RegexToken) semanticObject); 
 				return; 
 			case PerlPackage.REGEXP_QUOTE_LIKE_TOKEN:
 				sequence_QuoteLikeToken(context, (RegexpQuoteLikeToken) semanticObject); 
@@ -256,6 +260,20 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Element returns RegexToken
+	 *     Token returns RegexToken
+	 *     RegexToken returns RegexToken
+	 *
+	 * Constraint:
+	 *     (content=REGEX_SUBSTITUTE | content=REGEX_TRANSLITERATE | content=REGEX_MATCH)
+	 */
+	protected void sequence_RegexToken(ISerializationContext context, RegexToken semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Element returns RequireInclude
 	 *     Node returns RequireInclude
 	 *     StatementNode returns RequireInclude
@@ -319,7 +337,7 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.TOKEN__CONTENT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTokenAccess().getContentDATATerminalRuleCall_8_1_0(), semanticObject.getContent());
+		feeder.accept(grammarAccess.getTokenAccess().getContentDATATerminalRuleCall_9_1_0(), semanticObject.getContent());
 		feeder.finish();
 	}
 	
@@ -338,7 +356,7 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.TOKEN__CONTENT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTokenAccess().getContentENDTerminalRuleCall_9_1_0(), semanticObject.getContent());
+		feeder.accept(grammarAccess.getTokenAccess().getContentENDTerminalRuleCall_10_1_0(), semanticObject.getContent());
 		feeder.finish();
 	}
 	

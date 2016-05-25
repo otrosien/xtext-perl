@@ -7,11 +7,11 @@ import org.eclipse.xtext.junit4.util.ParseHelper
 import org.eclipse.xtext.junit4.validation.ValidationTestHelper
 import org.epic.perl.perl.PackageStatement
 import org.epic.perl.perl.PerlDocument
+import org.epic.perl.perl.SubStatement
+import org.epic.perl.perl.UseInclude
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.epic.perl.perl.UseInclude
-import org.epic.perl.perl.SubStatement
 
 @RunWith(XtextRunner)
 @InjectWith(PerlInjectorProvider)

@@ -18,6 +18,7 @@ import org.epic.perl.perl.PerlDocument;
 import org.epic.perl.perl.PodToken;
 import org.epic.perl.perl.QuoteToken;
 import org.epic.perl.perl.ReadLineQuoteLikeToken;
+import org.epic.perl.perl.RegexToken;
 import org.epic.perl.perl.RegexpQuoteLikeToken;
 import org.epic.perl.perl.SymbolToken;
 import org.epic.perl.perl.WordToken;
@@ -259,6 +260,32 @@ public class TokenParserTest {
     final SymbolToken token = ((SymbolToken) _head);
     String _content = token.getContent();
     Assert.assertEquals("$Some::Package::Var", _content);
+  }
+  
+  @Test
+  public void regexSubstitute() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("s/a/b/");
+    _builder.newLine();
+    PerlDocument __parseDocument = this._parseDocument(_builder.toString());
+    EList<Element> _elements = __parseDocument.getElements();
+    Element _head = IterableExtensions.<Element>head(_elements);
+    final RegexToken token = ((RegexToken) _head);
+    String _content = token.getContent();
+    Assert.assertEquals("s/a/b/", _content);
+  }
+  
+  @Test
+  public void regexMatch() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("m/.*?/");
+    _builder.newLine();
+    PerlDocument __parseDocument = this._parseDocument(_builder.toString());
+    EList<Element> _elements = __parseDocument.getElements();
+    Element _head = IterableExtensions.<Element>head(_elements);
+    final RegexToken token = ((RegexToken) _head);
+    String _content = token.getContent();
+    Assert.assertEquals("m/.*?/", _content);
   }
   
   private PerlDocument _parseDocument(final String str) {

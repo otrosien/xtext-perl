@@ -29,6 +29,7 @@ import org.epic.perl.perl.PodToken;
 import org.epic.perl.perl.QuoteLikeToken;
 import org.epic.perl.perl.QuoteToken;
 import org.epic.perl.perl.ReadLineQuoteLikeToken;
+import org.epic.perl.perl.RegexToken;
 import org.epic.perl.perl.RegexpQuoteLikeToken;
 import org.epic.perl.perl.RequireInclude;
 import org.epic.perl.perl.StatementBlock;
@@ -138,6 +139,13 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * @generated
    */
   private EClass tokenEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass regexTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -545,6 +553,16 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getRegexToken()
+  {
+    return regexTokenEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getQuoteToken()
   {
     return quoteTokenEClass;
@@ -747,6 +765,8 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     tokenEClass = createEClass(TOKEN);
     createEAttribute(tokenEClass, TOKEN__CONTENT);
 
+    regexTokenEClass = createEClass(REGEX_TOKEN);
+
     quoteTokenEClass = createEClass(QUOTE_TOKEN);
 
     quoteLikeTokenEClass = createEClass(QUOTE_LIKE_TOKEN);
@@ -815,6 +835,7 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     useIncludeEClass.getESuperTypes().add(this.getIncludeStatement());
     subStatementEClass.getESuperTypes().add(this.getBlockStatement());
     tokenEClass.getESuperTypes().add(this.getElement());
+    regexTokenEClass.getESuperTypes().add(this.getToken());
     quoteTokenEClass.getESuperTypes().add(this.getToken());
     quoteLikeTokenEClass.getESuperTypes().add(this.getToken());
     podTokenEClass.getESuperTypes().add(this.getToken());
@@ -867,6 +888,8 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
 
     initEClass(tokenEClass, Token.class, "Token", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getToken_Content(), ecorePackage.getEString(), "content", null, 0, 1, Token.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(regexTokenEClass, RegexToken.class, "RegexToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(quoteTokenEClass, QuoteToken.class, "QuoteToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

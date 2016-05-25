@@ -78,6 +78,7 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
       case PerlPackage.SUB_STATEMENT: return createSubStatement();
       case PerlPackage.STATEMENT_BLOCK: return createStatementBlock();
       case PerlPackage.TOKEN: return createToken();
+      case PerlPackage.REGEX_TOKEN: return createRegexToken();
       case PerlPackage.QUOTE_TOKEN: return createQuoteToken();
       case PerlPackage.QUOTE_LIKE_TOKEN: return createQuoteLikeToken();
       case PerlPackage.POD_TOKEN: return createPodToken();
@@ -238,6 +239,17 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
   {
     TokenImpl token = new TokenImpl();
     return token;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RegexToken createRegexToken()
+  {
+    RegexTokenImpl regexToken = new RegexTokenImpl();
+    return regexToken;
   }
 
   /**

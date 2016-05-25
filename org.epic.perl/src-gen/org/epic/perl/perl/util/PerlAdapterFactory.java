@@ -141,6 +141,11 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
         return createTokenAdapter();
       }
       @Override
+      public Adapter caseRegexToken(RegexToken object)
+      {
+        return createRegexTokenAdapter();
+      }
+      @Override
       public Adapter caseQuoteToken(QuoteToken object)
       {
         return createQuoteTokenAdapter();
@@ -423,6 +428,21 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTokenAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.RegexToken <em>Regex Token</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.RegexToken
+   * @generated
+   */
+  public Adapter createRegexTokenAdapter()
   {
     return null;
   }

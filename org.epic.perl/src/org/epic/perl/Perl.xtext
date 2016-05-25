@@ -5,47 +5,47 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 generate perl "http://www.epic.org/perl/Perl"
 
 PerlDocument:
-	{PerlDocument}
-	elements += Element*
+    {PerlDocument}
+    elements += Element*
 ;
 
 Element:
-	Node 
-	| Token
+    Node 
+    | Token
 ;
 
 Node:
-	StatementNode
-//	| StructureNode
+    StatementNode
+//    | StructureNode
 ;
 
 StatementNode:
-		BlockStatement
-	|   ExpressionStatement
+        BlockStatement
+    |   ExpressionStatement
 ;
 
 BlockStatement:
-	SubStatement
+    SubStatement
 ;
 
 ExpressionStatement:
-	( PackageStatement
-	| IncludeStatement
-//	| CompoundStatement
-//	| BreakStatement
-//	| GivenStatement
-//	| WhenStatement
-//	| DataStatement
-//	| EndStatement
-//	| ExpressionStatement
-//	| NullStatement
-//	| UnmatchedBraceStatement
-//	| UnknownStatement
+    ( PackageStatement
+    | IncludeStatement
+//    | CompoundStatement
+//    | BreakStatement
+//    | GivenStatement
+//    | WhenStatement
+//    | DataStatement
+//    | EndStatement
+//    | ExpressionStatement
+//    | NullStatement
+//    | UnmatchedBraceStatement
+//    | UnknownStatement
     ) ';'
 ;
 
 //StructureNode:
-//	BlockStructure
+//    BlockStructure
 //    | SubscriptStructure
 //    | ConstructorStructure
 //    | ConditionStructure
@@ -57,83 +57,88 @@ ExpressionStatement:
 //;
 
 //ExpressionStatement:
-//	VariableExpression
+//    VariableExpression
 //;
 
 PackageStatement:
-	{PackageStatement}
-	'package' name=ID version=VERSION?
+    {PackageStatement}
+    'package' name=ID version=VERSION?
 ;
 
 IncludeStatement:
-	RequireInclude
-	| UseInclude
+    RequireInclude
+    | UseInclude
 ;
 
 RequireInclude:
-	'require' version=VERSION
+    'require' version=VERSION
 ;
 
 UseInclude:
-	{UseInclude}
-	'use' (version=VERSION | ( pragmaOrPackage=ID (stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE )?))
+    {UseInclude}
+    'use' (version=VERSION | ( pragmaOrPackage=ID (stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE )?))
 ;
 
 SubStatement:
-	{SubStatement}
-	'sub' name=ID prototype=Prototype? (';' | block=StatementBlock)
+    {SubStatement}
+    'sub' name=ID prototype=Prototype? (';' | block=StatementBlock)
 ;
 
 StatementBlock:
-	{StatementBlock} '{'
-		statements += StatementNode*
-	'}'
+    {StatementBlock} '{'
+        statements += StatementNode*
+    '}'
 ;
 
 Prototype:
-	'(' ('$'|'%'|'@'|'&'|';')* ')'
+    '(' ('$'|'%'|'@'|'&'|';')* ')'
 ;
 
 Token:
-	// hidden:
-//	  {CommentToken}   content=SL_COMMENT
-	  {PodToken}       content=POD 
-	| {NumberToken}    content=NUMBER
-//	| {VersionToken}   content=VERSION
-	| {WordToken}      content=Word 
-//	| DashedWord 
+    // hidden:
+//      {CommentToken}   content=SL_COMMENT
+      {PodToken}       content=POD 
+    | {NumberToken}    content=NUMBER
+//    | {VersionToken}   content=VERSION
+    | {WordToken}      content=Word 
+//    | DashedWord 
     | {SymbolToken}    content=SYMBOL
-//	| ArrayIndex 
-	| QuoteLikeToken 
-	| {OperatorToken} content=FileTestOperator
-	| {OperatorToken} content=Operator
-	| QuoteToken
-//	| HereDoc 
-//	| Cast 
-//	| Structure 
-//	| Label
-//	| Separator
-	| {DataToken} content=DATA
-	| {EndToken}  content=END
-//	| Prototype
-//	| Attribute 
-//	| UnknownToken
+//    | ArrayIndex 
+    | QuoteLikeToken 
+    | {OperatorToken} content=FileTestOperator
+    | {OperatorToken} content=Operator
+    | QuoteToken
+    | RegexToken
+//    | HereDoc 
+//    | Cast 
+//    | Structure 
+//    | Label
+//    | Separator
+    | {DataToken} content=DATA
+    | {EndToken}  content=END
+//    | Prototype
+//    | Attribute 
+//    | UnknownToken
 ;
 
 QuoteToken:
-	{QuoteToken} content=( STRING | INTERPOLATE | LITERAL )
+    {QuoteToken} content=( STRING | INTERPOLATE | LITERAL )
+;
+
+RegexToken:
+    {RegexToken} content=(REGEX_SUBSTITUTE | REGEX_TRANSLITERATE | REGEX_MATCH)
 ;
 
 QuoteLikeToken:
-	{BacktickQuoteLikeToken}   content=BACKTICK_STRING
-	| {WordsQuoteLikeToken}    content=WORDS_QUOTE_LIKE
-	| {CommandQuoteLikeToken}  content=COMMAND_QUOTE_LIKE
-	| {RegexpQuoteLikeToken}   content=REGEX_QUOTE
-  	| {ReadLineQuoteLikeToken} content=READLINE_QUOTE
+    {BacktickQuoteLikeToken}   content=BACKTICK_STRING
+    | {WordsQuoteLikeToken}    content=WORDS_QUOTE_LIKE
+    | {CommandQuoteLikeToken}  content=COMMAND_QUOTE_LIKE
+    | {RegexpQuoteLikeToken}   content=REGEX_QUOTE
+      | {ReadLineQuoteLikeToken} content=READLINE_QUOTE
 ;
 
 Word:
-	Keyword
+    Keyword
 ;
 
 Keyword:
@@ -182,122 +187,130 @@ Operator:
 ;
 
 FileTestOperator:
-	('-r' | '-w' | '-x' | '-o' | '-R' | '-W' | '-X' | '-O' | '-e' | '-z' | '-s' | '-f' | '-d' | '-l' | '-p' | '-S' | '-b' |
-	'-c' | '-t' | '-u' | '-g' | '-k' | '-T' | '-B' | '-M' | '-A' | '-C')
+    ('-r' | '-w' | '-x' | '-o' | '-R' | '-W' | '-X' | '-O' | '-e' | '-z' | '-s' | '-f' | '-d' | '-l' | '-p' | '-S' | '-b' |
+    '-c' | '-t' | '-u' | '-g' | '-k' | '-T' | '-B' | '-M' | '-A' | '-C')
 ;
 
 terminal NUMBER:
-	(HEX | BIN | INT) ('.' INT)?
+    (HEX | BIN | INT) ('.' INT)?
 ;
 
 terminal ID:
-	('a'..'z' | 'A'..'Z' | '_')+ (('::'|"'") ('a'..'z' | 'A'..'Z' | '_')+ )*
+    ('a'..'z' | 'A'..'Z' | '_')+ (('::'|"'") ('a'..'z' | 'A'..'Z' | '_')+ )*
 ;
 
 terminal SYMBOL:
-	('$'|'%'|'@') ('a'..'z' | 'A'..'Z' | '_')+ (('::'|"'") ('a'..'z' | 'A'..'Z' | '_')+ )*
+    ('$'|'%'|'@') ('a'..'z' | 'A'..'Z' | '_')+ (('::'|"'") ('a'..'z' | 'A'..'Z' | '_')+ )*
 ;
 
 terminal VERSION:
-	'v'? ('0'..'9')+ ('.' ('0'..'9')+ )*
+    'v'? ('0'..'9')+ ('.' ('0'..'9')+ )*
 ;
 
 terminal HEX:
-	("0x"|"0X") ('0'..'9'|'a'..'f'|'A'..'F'|'_')+ ;
+    ("0x"|"0X") ('0'..'9'|'a'..'f'|'A'..'F'|'_')+ ;
 
 terminal BIN:
-	("0b") ('0'..'1'|'_')+ ;
+    ("0b") ('0'..'1'|'_')+ ;
 
 terminal INT: '0'..'9' ('0'..'9'|'_')*;
 
-terminal STRING	: 
-			'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"' |
-			"'" ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|"'") )* "'"
+terminal STRING    : 
+            '"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"' |
+            "'" ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|"'") )* "'"
 ;
 
 terminal BACKTICK_STRING:
-	'`'  !('`')* '`'
+    '`'  !('`')* '`'
 ;
 
 terminal INTERPOLATE:
-	'qq' WS? (
-		('{' -> '}') |
-		('|' -> '|') |
-		('/' -> '/') |
-		('<' -> '>'))
+    'qq' WS? (
+        ('{' -> '}') |
+        ('|' -> '|') |
+        ('/' -> '/') |
+        ('<' -> '>'))
 ;
 
 terminal LITERAL:
-	'q' WS? (
-		('{' -> '}') |
-		('(' -> ')') |
-		('|' -> '|') |
-		('/' -> '/') |
-		('<' -> '>'))
+    'q' WS? (
+        ('{' -> '}') |
+        ('(' -> ')') |
+        ('|' -> '|') |
+        ('/' -> '/') |
+        ('<' -> '>'))
 ;
 
 terminal WORDS_QUOTE_LIKE:
-	'qw' WS? (
-		('{' -> '}') |
-		('(' -> ')') |
-		('|' -> '|') |
-		('/' -> '/') |
-		('<' -> '>')
-	)
+    'qw' WS? (
+        ('{' -> '}') |
+        ('(' -> ')') |
+        ('|' -> '|') |
+        ('/' -> '/') |
+        ('<' -> '>')
+    )
 ;
 
 terminal COMMAND_QUOTE_LIKE:
-	'qx' WS? (
-		('{' -> '}') |
-		('(' -> ')') |
-		('|' -> '|') |
-		('/' -> '/') |
-		('<' -> '>')
-	)
+    'qx' WS? (
+        ('{' -> '}') |
+        ('(' -> ')') |
+        ('|' -> '|') |
+        ('/' -> '/') |
+        ('<' -> '>')
+    )
 ;
 
 terminal REGEX_QUOTE:
-	'qr' WS? (
-		('{' -> '}') |
-		('|' -> '|') |
-		('/' -> '/') |
-		('<' -> '>')
-	)
+    'qr' WS? (
+        ('{' -> '}') |
+        ('|' -> '|') |
+        ('/' -> '/') |
+        ('<' -> '>')
+    )
 ;
 
 
 terminal REGEX_SUBSTITUTE:
-	's' WS? (
-		('|' -> '|' -> '|') |
-		('/' -> '/' -> '/')
-	)
+    's' (
+        ('|' -> '|' -> '|') |
+        ('/' -> '/' -> '/')
+    )
 ;
 
 terminal REGEX_TRANSLITERATE:
-	'tr' WS? (
-		('|' -> '|' -> '|') |
-		('/' -> '/' -> '/')
-	)
+    'tr' (
+        ('|' -> '|' -> '|') |
+        ('/' -> '/' -> '/')
+    )
+;
+
+
+terminal REGEX_MATCH:
+    'm' (
+        ('|' -> '|') |
+        ('/' -> '/')
+    )
 ;
 
 terminal READLINE_QUOTE:
-	'<' ( ID | SYMBOL ) '>'	
+    '<' ( ID | SYMBOL ) '>'    
 ;
 
 terminal POD:
-	'=pod' -> '=cut'
+    '=pod' -> '=cut'
 ;
 
 terminal DATA:
-	'__DATA__' ANY_OTHER* EOF
+    '__DATA__' ANY_OTHER* EOF
 ;
 
 terminal END:
-	'__END__' ANY_OTHER* EOF
+    '__END__' ANY_OTHER* EOF
 ;
 
-terminal SL_COMMENT 	: '#' !('\n'|'\r')* ('\r'? '\n')?;
+terminal SL_COMMENT     : '#' !('\n'|'\r')* ('\r'? '\n')?;
 
-terminal WS			: (' '|'\t'|'\r'|'\n')+;
+terminal WS            : (' '|'\t'|'\r'|'\n')+;
 
 terminal ANY_OTHER: .;

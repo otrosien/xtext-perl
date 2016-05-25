@@ -141,6 +141,15 @@ public interface PerlFactory extends EFactory
   Token createToken();
 
   /**
+   * Returns a new object of class '<em>Regex Token</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Regex Token</em>'.
+   * @generated
+   */
+  RegexToken createRegexToken();
+
+  /**
    * Returns a new object of class '<em>Quote Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -934,19 +934,28 @@ ruleToken returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
+		{
+			newCompositeNode(grammarAccess.getTokenAccess().getRegexTokenParserRuleCall_8());
+		}
+		this_RegexToken_14=ruleRegexToken
+		{
+			$current = $this_RegexToken_14.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
 		(
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getTokenAccess().getDataTokenAction_8_0(),
+						grammarAccess.getTokenAccess().getDataTokenAction_9_0(),
 						$current);
 				}
 			)
 			(
 				(
-					lv_content_15_0=RULE_DATA
+					lv_content_16_0=RULE_DATA
 					{
-						newLeafNode(lv_content_15_0, grammarAccess.getTokenAccess().getContentDATATerminalRuleCall_8_1_0());
+						newLeafNode(lv_content_16_0, grammarAccess.getTokenAccess().getContentDATATerminalRuleCall_9_1_0());
 					}
 					{
 						if ($current==null) {
@@ -955,7 +964,7 @@ ruleToken returns [EObject current=null]
 						setWithLastConsumed(
 							$current,
 							"content",
-							lv_content_15_0,
+							lv_content_16_0,
 							"org.epic.perl.Perl.DATA");
 					}
 				)
@@ -966,15 +975,15 @@ ruleToken returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getTokenAccess().getEndTokenAction_9_0(),
+						grammarAccess.getTokenAccess().getEndTokenAction_10_0(),
 						$current);
 				}
 			)
 			(
 				(
-					lv_content_17_0=RULE_END
+					lv_content_18_0=RULE_END
 					{
-						newLeafNode(lv_content_17_0, grammarAccess.getTokenAccess().getContentENDTerminalRuleCall_9_1_0());
+						newLeafNode(lv_content_18_0, grammarAccess.getTokenAccess().getContentENDTerminalRuleCall_10_1_0());
 					}
 					{
 						if ($current==null) {
@@ -983,8 +992,84 @@ ruleToken returns [EObject current=null]
 						setWithLastConsumed(
 							$current,
 							"content",
-							lv_content_17_0,
+							lv_content_18_0,
 							"org.epic.perl.Perl.END");
+					}
+				)
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleRegexToken
+entryRuleRegexToken returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getRegexTokenRule()); }
+	iv_ruleRegexToken=ruleRegexToken
+	{ $current=$iv_ruleRegexToken.current; }
+	EOF;
+
+// Rule RegexToken
+ruleRegexToken returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getRegexTokenAccess().getRegexTokenAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				(
+					lv_content_1_1=RULE_REGEX_SUBSTITUTE
+					{
+						newLeafNode(lv_content_1_1, grammarAccess.getRegexTokenAccess().getContentREGEX_SUBSTITUTETerminalRuleCall_1_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getRegexTokenRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"content",
+							lv_content_1_1,
+							"org.epic.perl.Perl.REGEX_SUBSTITUTE");
+					}
+					    |
+					lv_content_1_2=RULE_REGEX_TRANSLITERATE
+					{
+						newLeafNode(lv_content_1_2, grammarAccess.getRegexTokenAccess().getContentREGEX_TRANSLITERATETerminalRuleCall_1_0_1());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getRegexTokenRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"content",
+							lv_content_1_2,
+							"org.epic.perl.Perl.REGEX_TRANSLITERATE");
+					}
+					    |
+					lv_content_1_3=RULE_REGEX_MATCH
+					{
+						newLeafNode(lv_content_1_3, grammarAccess.getRegexTokenAccess().getContentREGEX_MATCHTerminalRuleCall_1_0_2());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getRegexTokenRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"content",
+							lv_content_1_3,
+							"org.epic.perl.Perl.REGEX_MATCH");
 					}
 				)
 			)
@@ -3220,9 +3305,11 @@ RULE_COMMAND_QUOTE_LIKE : 'qx' RULE_WS? ('{' ( options {greedy=false;} : . )*'}'
 
 RULE_REGEX_QUOTE : 'qr' RULE_WS? ('{' ( options {greedy=false;} : . )*'}'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
 
-RULE_REGEX_SUBSTITUTE : 's' RULE_WS? ('|' ( options {greedy=false;} : . )*'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/' ( options {greedy=false;} : . )*'/');
+RULE_REGEX_SUBSTITUTE : 's' ('|' ( options {greedy=false;} : . )*'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/' ( options {greedy=false;} : . )*'/');
 
-RULE_REGEX_TRANSLITERATE : 'tr' RULE_WS? ('|' ( options {greedy=false;} : . )*'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/' ( options {greedy=false;} : . )*'/');
+RULE_REGEX_TRANSLITERATE : 'tr' ('|' ( options {greedy=false;} : . )*'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/' ( options {greedy=false;} : . )*'/');
+
+RULE_REGEX_MATCH : 'm' ('|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/');
 
 RULE_READLINE_QUOTE : '<' (RULE_ID|RULE_SYMBOL) '>';
 

@@ -36,6 +36,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Token" eSuperTypes="#//Element">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RegexToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="QuoteToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="QuoteLikeToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="PodToken" eSuperTypes="#//Token"/>

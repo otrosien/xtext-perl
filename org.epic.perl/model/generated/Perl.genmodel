@@ -37,6 +37,7 @@
     <genClasses ecoreClass="Perl.ecore#//Token">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//Token/content"/>
     </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//RegexToken"/>
     <genClasses ecoreClass="Perl.ecore#//QuoteToken"/>
     <genClasses ecoreClass="Perl.ecore#//QuoteLikeToken"/>
     <genClasses ecoreClass="Perl.ecore#//PodToken"/>

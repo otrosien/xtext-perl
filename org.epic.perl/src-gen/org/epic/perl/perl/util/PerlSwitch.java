@@ -196,6 +196,15 @@ public class PerlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case PerlPackage.REGEX_TOKEN:
+      {
+        RegexToken regexToken = (RegexToken)theEObject;
+        T result = caseRegexToken(regexToken);
+        if (result == null) result = caseToken(regexToken);
+        if (result == null) result = caseElement(regexToken);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case PerlPackage.QUOTE_TOKEN:
       {
         QuoteToken quoteToken = (QuoteToken)theEObject;
@@ -535,6 +544,22 @@ public class PerlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseToken(Token object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Regex Token</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Regex Token</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRegexToken(RegexToken object)
   {
     return null;
   }

@@ -71,7 +71,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Node:
 		//	StatementNode
-		//	//	| StructureNode
+		//	//    | StructureNode
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -120,42 +120,42 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//ExpressionStatement:
 		//	(PackageStatement
 		//	| IncludeStatement
-		//	//	| CompoundStatement
-		//	//	| BreakStatement
-		//	//	| GivenStatement
-		//	//	| WhenStatement
-		//	//	| DataStatement
-		//	//	| EndStatement
-		//	//	| ExpressionStatement
-		//	//	| NullStatement
-		//	//	| UnmatchedBraceStatement
-		//	//	| UnknownStatement
+		//	//    | CompoundStatement
+		//	//    | BreakStatement
+		//	//    | GivenStatement
+		//	//    | WhenStatement
+		//	//    | DataStatement
+		//	//    | EndStatement
+		//	//    | ExpressionStatement
+		//	//    | NullStatement
+		//	//    | UnmatchedBraceStatement
+		//	//    | UnknownStatement
 		//) ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(PackageStatement | IncludeStatement //	| CompoundStatement
-		////	| BreakStatement
-		////	| GivenStatement
-		////	| WhenStatement
-		////	| DataStatement
-		////	| EndStatement
-		////	| ExpressionStatement
-		////	| NullStatement
-		////	| UnmatchedBraceStatement
-		////	| UnknownStatement
+		//(PackageStatement | IncludeStatement //    | CompoundStatement
+		////    | BreakStatement
+		////    | GivenStatement
+		////    | WhenStatement
+		////    | DataStatement
+		////    | EndStatement
+		////    | ExpressionStatement
+		////    | NullStatement
+		////    | UnmatchedBraceStatement
+		////    | UnknownStatement
 		//) ';'
 		public Group getGroup() { return cGroup; }
 		
-		//(PackageStatement | IncludeStatement //	| CompoundStatement
-		////	| BreakStatement
-		////	| GivenStatement
-		////	| WhenStatement
-		////	| DataStatement
-		////	| EndStatement
-		////	| ExpressionStatement
-		////	| NullStatement
-		////	| UnmatchedBraceStatement
-		////	| UnknownStatement
+		//(PackageStatement | IncludeStatement //    | CompoundStatement
+		////    | BreakStatement
+		////    | GivenStatement
+		////    | WhenStatement
+		////    | DataStatement
+		////    | EndStatement
+		////    | ExpressionStatement
+		////    | NullStatement
+		////    | UnmatchedBraceStatement
+		////    | UnknownStatement
 		//)
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
@@ -179,7 +179,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cVersionVERSIONTerminalRuleCall_3_0 = (RuleCall)cVersionAssignment_3.eContents().get(0);
 		
 		////StructureNode:
-		////	BlockStructure
+		////    BlockStructure
 		////    | SubscriptStructure
 		////    | ConstructorStructure
 		////    | ConditionStructure
@@ -190,7 +190,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		////    | UnknownStructure
 		////;
 		////ExpressionStatement:
-		////	VariableExpression
+		////    VariableExpression
 		////;
 		//PackageStatement:
 		//	{PackageStatement}
@@ -482,48 +482,50 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cContentAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
 		private final RuleCall cContentOperatorParserRuleCall_6_1_0 = (RuleCall)cContentAssignment_6_1.eContents().get(0);
 		private final RuleCall cQuoteTokenParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
-		private final Group cGroup_8 = (Group)cAlternatives.eContents().get(8);
-		private final Action cDataTokenAction_8_0 = (Action)cGroup_8.eContents().get(0);
-		private final Assignment cContentAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cContentDATATerminalRuleCall_8_1_0 = (RuleCall)cContentAssignment_8_1.eContents().get(0);
+		private final RuleCall cRegexTokenParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
 		private final Group cGroup_9 = (Group)cAlternatives.eContents().get(9);
-		private final Action cEndTokenAction_9_0 = (Action)cGroup_9.eContents().get(0);
+		private final Action cDataTokenAction_9_0 = (Action)cGroup_9.eContents().get(0);
 		private final Assignment cContentAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cContentENDTerminalRuleCall_9_1_0 = (RuleCall)cContentAssignment_9_1.eContents().get(0);
+		private final RuleCall cContentDATATerminalRuleCall_9_1_0 = (RuleCall)cContentAssignment_9_1.eContents().get(0);
+		private final Group cGroup_10 = (Group)cAlternatives.eContents().get(10);
+		private final Action cEndTokenAction_10_0 = (Action)cGroup_10.eContents().get(0);
+		private final Assignment cContentAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cContentENDTerminalRuleCall_10_1_0 = (RuleCall)cContentAssignment_10_1.eContents().get(0);
 		
 		//Token:
 		//	{PodToken} content=POD
 		//	| {NumberToken} content=NUMBER
-		//	//	| {VersionToken}   content=VERSION
+		//	//    | {VersionToken}   content=VERSION
 		//	| {WordToken} content=Word
-		//	//	| DashedWord 
+		//	//    | DashedWord 
 		//	| {SymbolToken} content=SYMBOL
-		//	//	| ArrayIndex 
+		//	//    | ArrayIndex 
 		//	| QuoteLikeToken
 		//	| {OperatorToken} content=FileTestOperator
 		//	| {OperatorToken} content=Operator
 		//	| QuoteToken
-		//	//	| HereDoc 
-		//	//	| Cast 
-		//	//	| Structure 
-		//	//	| Label
-		//	//	| Separator
+		//	| RegexToken
+		//	//    | HereDoc 
+		//	//    | Cast 
+		//	//    | Structure 
+		//	//    | Label
+		//	//    | Separator
 		//	| {DataToken} content=DATA
 		//	| {EndToken} content=END
-		//	//	| Prototype
-		//	//	| Attribute 
-		//	//	| UnknownToken
+		//	//    | Prototype
+		//	//    | Attribute 
+		//	//    | UnknownToken
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PodToken} content=POD | {NumberToken} content=NUMBER //	| {VersionToken}   content=VERSION
-		//| {WordToken} content=Word //	| DashedWord 
-		//| {SymbolToken} content=SYMBOL //	| ArrayIndex 
-		//| QuoteLikeToken | {OperatorToken} content=FileTestOperator | {OperatorToken} content=Operator | QuoteToken //	| HereDoc 
-		////	| Cast 
-		////	| Structure 
-		////	| Label
-		////	| Separator
+		//{PodToken} content=POD | {NumberToken} content=NUMBER //    | {VersionToken}   content=VERSION
+		//| {WordToken} content=Word //    | DashedWord 
+		//| {SymbolToken} content=SYMBOL //    | ArrayIndex 
+		//| QuoteLikeToken | {OperatorToken} content=FileTestOperator | {OperatorToken} content=Operator | QuoteToken | RegexToken //    | HereDoc 
+		////    | Cast 
+		////    | Structure 
+		////    | Label
+		////    | Separator
 		//| {DataToken} content=DATA | {EndToken} content=END
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
@@ -605,29 +607,67 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//QuoteToken
 		public RuleCall getQuoteTokenParserRuleCall_7() { return cQuoteTokenParserRuleCall_7; }
 		
+		//RegexToken
+		public RuleCall getRegexTokenParserRuleCall_8() { return cRegexTokenParserRuleCall_8; }
+		
 		//{DataToken} content=DATA
-		public Group getGroup_8() { return cGroup_8; }
-		
-		//{DataToken}
-		public Action getDataTokenAction_8_0() { return cDataTokenAction_8_0; }
-		
-		//content=DATA
-		public Assignment getContentAssignment_8_1() { return cContentAssignment_8_1; }
-		
-		//DATA
-		public RuleCall getContentDATATerminalRuleCall_8_1_0() { return cContentDATATerminalRuleCall_8_1_0; }
-		
-		//{EndToken} content=END
 		public Group getGroup_9() { return cGroup_9; }
 		
-		//{EndToken}
-		public Action getEndTokenAction_9_0() { return cEndTokenAction_9_0; }
+		//{DataToken}
+		public Action getDataTokenAction_9_0() { return cDataTokenAction_9_0; }
 		
-		//content=END
+		//content=DATA
 		public Assignment getContentAssignment_9_1() { return cContentAssignment_9_1; }
 		
+		//DATA
+		public RuleCall getContentDATATerminalRuleCall_9_1_0() { return cContentDATATerminalRuleCall_9_1_0; }
+		
+		//{EndToken} content=END
+		public Group getGroup_10() { return cGroup_10; }
+		
+		//{EndToken}
+		public Action getEndTokenAction_10_0() { return cEndTokenAction_10_0; }
+		
+		//content=END
+		public Assignment getContentAssignment_10_1() { return cContentAssignment_10_1; }
+		
 		//END
-		public RuleCall getContentENDTerminalRuleCall_9_1_0() { return cContentENDTerminalRuleCall_9_1_0; }
+		public RuleCall getContentENDTerminalRuleCall_10_1_0() { return cContentENDTerminalRuleCall_10_1_0; }
+	}
+	public class RegexTokenElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.RegexToken");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cRegexTokenAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cContentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cContentAlternatives_1_0 = (Alternatives)cContentAssignment_1.eContents().get(0);
+		private final RuleCall cContentREGEX_SUBSTITUTETerminalRuleCall_1_0_0 = (RuleCall)cContentAlternatives_1_0.eContents().get(0);
+		private final RuleCall cContentREGEX_TRANSLITERATETerminalRuleCall_1_0_1 = (RuleCall)cContentAlternatives_1_0.eContents().get(1);
+		private final RuleCall cContentREGEX_MATCHTerminalRuleCall_1_0_2 = (RuleCall)cContentAlternatives_1_0.eContents().get(2);
+		
+		//RegexToken:
+		//	{RegexToken} content=(REGEX_SUBSTITUTE | REGEX_TRANSLITERATE | REGEX_MATCH);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{RegexToken} content=(REGEX_SUBSTITUTE | REGEX_TRANSLITERATE | REGEX_MATCH)
+		public Group getGroup() { return cGroup; }
+		
+		//{RegexToken}
+		public Action getRegexTokenAction_0() { return cRegexTokenAction_0; }
+		
+		//content=(REGEX_SUBSTITUTE | REGEX_TRANSLITERATE | REGEX_MATCH)
+		public Assignment getContentAssignment_1() { return cContentAssignment_1; }
+		
+		//(REGEX_SUBSTITUTE | REGEX_TRANSLITERATE | REGEX_MATCH)
+		public Alternatives getContentAlternatives_1_0() { return cContentAlternatives_1_0; }
+		
+		//REGEX_SUBSTITUTE
+		public RuleCall getContentREGEX_SUBSTITUTETerminalRuleCall_1_0_0() { return cContentREGEX_SUBSTITUTETerminalRuleCall_1_0_0; }
+		
+		//REGEX_TRANSLITERATE
+		public RuleCall getContentREGEX_TRANSLITERATETerminalRuleCall_1_0_1() { return cContentREGEX_TRANSLITERATETerminalRuleCall_1_0_1; }
+		
+		//REGEX_MATCH
+		public RuleCall getContentREGEX_MATCHTerminalRuleCall_1_0_2() { return cContentREGEX_MATCHTerminalRuleCall_1_0_2; }
 	}
 	public class QuoteTokenElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.QuoteToken");
@@ -2145,6 +2185,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	private final StatementBlockElements pStatementBlock;
 	private final PrototypeElements pPrototype;
 	private final TokenElements pToken;
+	private final RegexTokenElements pRegexToken;
 	private final QuoteTokenElements pQuoteToken;
 	private final QuoteLikeTokenElements pQuoteLikeToken;
 	private final WordElements pWord;
@@ -2167,6 +2208,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tREGEX_QUOTE;
 	private final TerminalRule tREGEX_SUBSTITUTE;
 	private final TerminalRule tREGEX_TRANSLITERATE;
+	private final TerminalRule tREGEX_MATCH;
 	private final TerminalRule tREADLINE_QUOTE;
 	private final TerminalRule tPOD;
 	private final TerminalRule tDATA;
@@ -2194,6 +2236,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pStatementBlock = new StatementBlockElements();
 		this.pPrototype = new PrototypeElements();
 		this.pToken = new TokenElements();
+		this.pRegexToken = new RegexTokenElements();
 		this.pQuoteToken = new QuoteTokenElements();
 		this.pQuoteLikeToken = new QuoteLikeTokenElements();
 		this.pWord = new WordElements();
@@ -2216,6 +2259,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		this.tREGEX_QUOTE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.REGEX_QUOTE");
 		this.tREGEX_SUBSTITUTE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.REGEX_SUBSTITUTE");
 		this.tREGEX_TRANSLITERATE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.REGEX_TRANSLITERATE");
+		this.tREGEX_MATCH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.REGEX_MATCH");
 		this.tREADLINE_QUOTE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.READLINE_QUOTE");
 		this.tPOD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.POD");
 		this.tDATA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.DATA");
@@ -2271,7 +2315,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Node:
 	//	StatementNode
-	//	//	| StructureNode
+	//	//    | StructureNode
 	//;
 	public NodeElements getNodeAccess() {
 		return pNode;
@@ -2305,16 +2349,16 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	//ExpressionStatement:
 	//	(PackageStatement
 	//	| IncludeStatement
-	//	//	| CompoundStatement
-	//	//	| BreakStatement
-	//	//	| GivenStatement
-	//	//	| WhenStatement
-	//	//	| DataStatement
-	//	//	| EndStatement
-	//	//	| ExpressionStatement
-	//	//	| NullStatement
-	//	//	| UnmatchedBraceStatement
-	//	//	| UnknownStatement
+	//	//    | CompoundStatement
+	//	//    | BreakStatement
+	//	//    | GivenStatement
+	//	//    | WhenStatement
+	//	//    | DataStatement
+	//	//    | EndStatement
+	//	//    | ExpressionStatement
+	//	//    | NullStatement
+	//	//    | UnmatchedBraceStatement
+	//	//    | UnknownStatement
 	//) ';';
 	public ExpressionStatementElements getExpressionStatementAccess() {
 		return pExpressionStatement;
@@ -2325,7 +2369,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	////StructureNode:
-	////	BlockStructure
+	////    BlockStructure
 	////    | SubscriptStructure
 	////    | ConstructorStructure
 	////    | ConditionStructure
@@ -2336,7 +2380,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	////    | UnknownStructure
 	////;
 	////ExpressionStatement:
-	////	VariableExpression
+	////    VariableExpression
 	////;
 	//PackageStatement:
 	//	{PackageStatement}
@@ -2417,25 +2461,26 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	//Token:
 	//	{PodToken} content=POD
 	//	| {NumberToken} content=NUMBER
-	//	//	| {VersionToken}   content=VERSION
+	//	//    | {VersionToken}   content=VERSION
 	//	| {WordToken} content=Word
-	//	//	| DashedWord 
+	//	//    | DashedWord 
 	//	| {SymbolToken} content=SYMBOL
-	//	//	| ArrayIndex 
+	//	//    | ArrayIndex 
 	//	| QuoteLikeToken
 	//	| {OperatorToken} content=FileTestOperator
 	//	| {OperatorToken} content=Operator
 	//	| QuoteToken
-	//	//	| HereDoc 
-	//	//	| Cast 
-	//	//	| Structure 
-	//	//	| Label
-	//	//	| Separator
+	//	| RegexToken
+	//	//    | HereDoc 
+	//	//    | Cast 
+	//	//    | Structure 
+	//	//    | Label
+	//	//    | Separator
 	//	| {DataToken} content=DATA
 	//	| {EndToken} content=END
-	//	//	| Prototype
-	//	//	| Attribute 
-	//	//	| UnknownToken
+	//	//    | Prototype
+	//	//    | Attribute 
+	//	//    | UnknownToken
 	//;
 	public TokenElements getTokenAccess() {
 		return pToken;
@@ -2443,6 +2488,16 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getTokenRule() {
 		return getTokenAccess().getRule();
+	}
+	
+	//RegexToken:
+	//	{RegexToken} content=(REGEX_SUBSTITUTE | REGEX_TRANSLITERATE | REGEX_MATCH);
+	public RegexTokenElements getRegexTokenAccess() {
+		return pRegexToken;
+	}
+	
+	public ParserRule getRegexTokenRule() {
+		return getRegexTokenAccess().getRule();
 	}
 	
 	//QuoteToken:
@@ -2634,15 +2689,21 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal REGEX_SUBSTITUTE:
-	//	's' WS? ('|'->'|'->'|' | '/'->'/'->'/');
+	//	's' ('|'->'|'->'|' | '/'->'/'->'/');
 	public TerminalRule getREGEX_SUBSTITUTERule() {
 		return tREGEX_SUBSTITUTE;
 	}
 	
 	//terminal REGEX_TRANSLITERATE:
-	//	'tr' WS? ('|'->'|'->'|' | '/'->'/'->'/');
+	//	'tr' ('|'->'|'->'|' | '/'->'/'->'/');
 	public TerminalRule getREGEX_TRANSLITERATERule() {
 		return tREGEX_TRANSLITERATE;
+	}
+	
+	//terminal REGEX_MATCH:
+	//	'm' ('|'->'|' | '/'->'/');
+	public TerminalRule getREGEX_MATCHRule() {
+		return tREGEX_MATCH;
 	}
 	
 	//terminal READLINE_QUOTE:
