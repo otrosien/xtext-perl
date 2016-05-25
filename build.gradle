@@ -1,10 +1,5 @@
-buildscript {
-	repositories {
-		jcenter()
-	}
-	dependencies {
-		classpath 'org.xtext:xtext-gradle-plugin:1.0.1'
-	}
+plugins {
+    id "org.xtext.builder" version "1.0.5"
 }
 
 subprojects {
@@ -12,7 +7,7 @@ subprojects {
 	repositories {
 		jcenter()
 	}
-	
+
 	apply plugin: 'java'
 	apply plugin: 'org.xtext.xtend'
 	apply from: "${rootDir}/gradle/source-layout.gradle"
@@ -22,10 +17,10 @@ subprojects {
 	
 	group = 'org.epic.perl'
 	version = '1.0.0-SNAPSHOT'
-	
+
 	sourceCompatibility = '1.8'
 	targetCompatibility = '1.8'
-	
+
 	configurations.all {
 		exclude group: 'asm'
 	}

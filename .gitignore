@@ -10,3 +10,4 @@ xtend-gen/
 src-gen/
 !.gitignore
 !.gitkeep
+build/
