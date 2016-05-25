@@ -11,3 +11,4 @@ src-gen/
 !.gitignore
 !.gitkeep
 build/
+org.epic.perl/model/generated/
