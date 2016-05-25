@@ -16,7 +16,7 @@ Element:
 
 Node:
     StatementNode
-//    | StructureNode
+    | StructureNode
 ;
 
 StatementNode:
@@ -44,8 +44,8 @@ ExpressionStatement:
     ) ';'
 ;
 
-//StructureNode:
-//    BlockStructure
+StructureNode:
+    BlockStructure
 //    | SubscriptStructure
 //    | ConstructorStructure
 //    | ConditionStructure
@@ -54,7 +54,7 @@ ExpressionStatement:
 //    | GivenStructure
 //    | WhenStructure
 //    | UnknownStructure
-//;
+;
 
 //ExpressionStatement:
 //    VariableExpression
@@ -81,11 +81,11 @@ UseInclude:
 
 SubStatement:
     {SubStatement}
-    'sub' name=ID prototype=Prototype? (';' | block=StatementBlock)
+    'sub' name=ID prototype=Prototype? (';' | block=BlockStructure)
 ;
 
-StatementBlock:
-    {StatementBlock} '{'
+BlockStructure:
+    {BlockStructure} '{'
         statements += StatementNode*
     '}'
 ;

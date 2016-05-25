@@ -16,6 +16,7 @@
     <genClasses ecoreClass="Perl.ecore#//ExpressionStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//ExpressionStatement/version"/>
     </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//StructureNode"/>
     <genClasses ecoreClass="Perl.ecore#//PackageStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PackageStatement/name"/>
     </genClasses>
@@ -31,14 +32,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//SubStatement/prototype"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//SubStatement/block"/>
     </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//StatementBlock">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//StatementBlock/statements"/>
+    <genClasses ecoreClass="Perl.ecore#//BlockStructure">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//BlockStructure/statements"/>
     </genClasses>
     <genClasses ecoreClass="Perl.ecore#//Token">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//Token/content"/>
     </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//RegexToken"/>
     <genClasses ecoreClass="Perl.ecore#//QuoteToken"/>
+    <genClasses ecoreClass="Perl.ecore#//RegexToken"/>
     <genClasses ecoreClass="Perl.ecore#//QuoteLikeToken"/>
     <genClasses ecoreClass="Perl.ecore#//PodToken"/>
     <genClasses ecoreClass="Perl.ecore#//NumberToken"/>

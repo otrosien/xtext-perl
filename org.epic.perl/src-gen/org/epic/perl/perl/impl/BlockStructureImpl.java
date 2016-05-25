@@ -12,29 +12,27 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.epic.perl.perl.BlockStructure;
 import org.epic.perl.perl.PerlPackage;
-import org.epic.perl.perl.StatementBlock;
 import org.epic.perl.perl.StatementNode;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Statement Block</b></em>'.
+ * An implementation of the model object '<em><b>Block Structure</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.epic.perl.perl.impl.StatementBlockImpl#getStatements <em>Statements</em>}</li>
+ *   <li>{@link org.epic.perl.perl.impl.BlockStructureImpl#getStatements <em>Statements</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StatementBlockImpl extends MinimalEObjectImpl.Container implements StatementBlock
+public class BlockStructureImpl extends StructureNodeImpl implements BlockStructure
 {
   /**
    * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
@@ -51,7 +49,7 @@ public class StatementBlockImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StatementBlockImpl()
+  protected BlockStructureImpl()
   {
     super();
   }
@@ -64,7 +62,7 @@ public class StatementBlockImpl extends MinimalEObjectImpl.Container implements 
   @Override
   protected EClass eStaticClass()
   {
-    return PerlPackage.Literals.STATEMENT_BLOCK;
+    return PerlPackage.Literals.BLOCK_STRUCTURE;
   }
 
   /**
@@ -76,7 +74,7 @@ public class StatementBlockImpl extends MinimalEObjectImpl.Container implements 
   {
     if (statements == null)
     {
-      statements = new EObjectContainmentEList<StatementNode>(StatementNode.class, this, PerlPackage.STATEMENT_BLOCK__STATEMENTS);
+      statements = new EObjectContainmentEList<StatementNode>(StatementNode.class, this, PerlPackage.BLOCK_STRUCTURE__STATEMENTS);
     }
     return statements;
   }
@@ -91,7 +89,7 @@ public class StatementBlockImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case PerlPackage.STATEMENT_BLOCK__STATEMENTS:
+      case PerlPackage.BLOCK_STRUCTURE__STATEMENTS:
         return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -107,7 +105,7 @@ public class StatementBlockImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case PerlPackage.STATEMENT_BLOCK__STATEMENTS:
+      case PerlPackage.BLOCK_STRUCTURE__STATEMENTS:
         return getStatements();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -124,7 +122,7 @@ public class StatementBlockImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case PerlPackage.STATEMENT_BLOCK__STATEMENTS:
+      case PerlPackage.BLOCK_STRUCTURE__STATEMENTS:
         getStatements().clear();
         getStatements().addAll((Collection<? extends StatementNode>)newValue);
         return;
@@ -142,7 +140,7 @@ public class StatementBlockImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case PerlPackage.STATEMENT_BLOCK__STATEMENTS:
+      case PerlPackage.BLOCK_STRUCTURE__STATEMENTS:
         getStatements().clear();
         return;
     }
@@ -159,10 +157,10 @@ public class StatementBlockImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case PerlPackage.STATEMENT_BLOCK__STATEMENTS:
+      case PerlPackage.BLOCK_STRUCTURE__STATEMENTS:
         return statements != null && !statements.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //StatementBlockImpl
+} //BlockStructureImpl

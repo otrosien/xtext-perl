@@ -15,6 +15,7 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.epic.perl.perl.BacktickQuoteLikeToken;
+import org.epic.perl.perl.BlockStructure;
 import org.epic.perl.perl.CommandQuoteLikeToken;
 import org.epic.perl.perl.DataToken;
 import org.epic.perl.perl.EndToken;
@@ -29,7 +30,6 @@ import org.epic.perl.perl.ReadLineQuoteLikeToken;
 import org.epic.perl.perl.RegexToken;
 import org.epic.perl.perl.RegexpQuoteLikeToken;
 import org.epic.perl.perl.RequireInclude;
-import org.epic.perl.perl.StatementBlock;
 import org.epic.perl.perl.SubStatement;
 import org.epic.perl.perl.SymbolToken;
 import org.epic.perl.perl.UseInclude;
@@ -53,6 +53,9 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			switch (semanticObject.eClass().getClassifierID()) {
 			case PerlPackage.BACKTICK_QUOTE_LIKE_TOKEN:
 				sequence_QuoteLikeToken(context, (BacktickQuoteLikeToken) semanticObject); 
+				return; 
+			case PerlPackage.BLOCK_STRUCTURE:
+				sequence_BlockStructure(context, (BlockStructure) semanticObject); 
 				return; 
 			case PerlPackage.COMMAND_QUOTE_LIKE_TOKEN:
 				sequence_QuoteLikeToken(context, (CommandQuoteLikeToken) semanticObject); 
@@ -93,9 +96,6 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case PerlPackage.REQUIRE_INCLUDE:
 				sequence_RequireInclude(context, (RequireInclude) semanticObject); 
 				return; 
-			case PerlPackage.STATEMENT_BLOCK:
-				sequence_StatementBlock(context, (StatementBlock) semanticObject); 
-				return; 
 			case PerlPackage.SUB_STATEMENT:
 				sequence_SubStatement(context, (SubStatement) semanticObject); 
 				return; 
@@ -115,6 +115,21 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     Element returns BlockStructure
+	 *     Node returns BlockStructure
+	 *     StructureNode returns BlockStructure
+	 *     BlockStructure returns BlockStructure
+	 *
+	 * Constraint:
+	 *     statements+=StatementNode*
+	 */
+	protected void sequence_BlockStructure(ISerializationContext context, BlockStructure semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -297,18 +312,6 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     StatementBlock returns StatementBlock
-	 *
-	 * Constraint:
-	 *     statements+=StatementNode*
-	 */
-	protected void sequence_StatementBlock(ISerializationContext context, StatementBlock semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Element returns SubStatement
 	 *     Node returns SubStatement
 	 *     StatementNode returns SubStatement
@@ -316,7 +319,7 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SubStatement returns SubStatement
 	 *
 	 * Constraint:
-	 *     (name=ID prototype=Prototype? block=StatementBlock?)
+	 *     (name=ID prototype=Prototype? block=BlockStructure?)
 	 */
 	protected void sequence_SubStatement(ISerializationContext context, SubStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

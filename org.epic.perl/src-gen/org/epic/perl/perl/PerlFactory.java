@@ -78,6 +78,15 @@ public interface PerlFactory extends EFactory
   ExpressionStatement createExpressionStatement();
 
   /**
+   * Returns a new object of class '<em>Structure Node</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Structure Node</em>'.
+   * @generated
+   */
+  StructureNode createStructureNode();
+
+  /**
    * Returns a new object of class '<em>Package Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -123,13 +132,13 @@ public interface PerlFactory extends EFactory
   SubStatement createSubStatement();
 
   /**
-   * Returns a new object of class '<em>Statement Block</em>'.
+   * Returns a new object of class '<em>Block Structure</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Statement Block</em>'.
+   * @return a new object of class '<em>Block Structure</em>'.
    * @generated
    */
-  StatementBlock createStatementBlock();
+  BlockStructure createBlockStructure();
 
   /**
    * Returns a new object of class '<em>Token</em>'.
@@ -141,15 +150,6 @@ public interface PerlFactory extends EFactory
   Token createToken();
 
   /**
-   * Returns a new object of class '<em>Regex Token</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Regex Token</em>'.
-   * @generated
-   */
-  RegexToken createRegexToken();
-
-  /**
    * Returns a new object of class '<em>Quote Token</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -157,6 +157,15 @@ public interface PerlFactory extends EFactory
    * @generated
    */
   QuoteToken createQuoteToken();
+
+  /**
+   * Returns a new object of class '<em>Regex Token</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Regex Token</em>'.
+   * @generated
+   */
+  RegexToken createRegexToken();
 
   /**
    * Returns a new object of class '<em>Quote Like Token</em>'.

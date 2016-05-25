@@ -85,12 +85,12 @@ public interface SubStatement extends BlockStatement
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Block</em>' containment reference.
-   * @see #setBlock(StatementBlock)
+   * @see #setBlock(BlockStructure)
    * @see org.epic.perl.perl.PerlPackage#getSubStatement_Block()
    * @model containment="true"
    * @generated
    */
-  StatementBlock getBlock();
+  BlockStructure getBlock();
 
   /**
    * Sets the value of the '{@link org.epic.perl.perl.SubStatement#getBlock <em>Block</em>}' containment reference.
@@ -100,6 +100,6 @@ public interface SubStatement extends BlockStatement
    * @see #getBlock()
    * @generated
    */
-  void setBlock(StatementBlock value);
+  void setBlock(BlockStructure value);
 
 } // SubStatement

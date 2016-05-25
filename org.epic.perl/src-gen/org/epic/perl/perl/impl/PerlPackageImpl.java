@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.epic.perl.perl.BacktickQuoteLikeToken;
 import org.epic.perl.perl.BlockStatement;
+import org.epic.perl.perl.BlockStructure;
 import org.epic.perl.perl.CommandQuoteLikeToken;
 import org.epic.perl.perl.DataToken;
 import org.epic.perl.perl.Element;
@@ -32,8 +33,8 @@ import org.epic.perl.perl.ReadLineQuoteLikeToken;
 import org.epic.perl.perl.RegexToken;
 import org.epic.perl.perl.RegexpQuoteLikeToken;
 import org.epic.perl.perl.RequireInclude;
-import org.epic.perl.perl.StatementBlock;
 import org.epic.perl.perl.StatementNode;
+import org.epic.perl.perl.StructureNode;
 import org.epic.perl.perl.SubStatement;
 import org.epic.perl.perl.SymbolToken;
 import org.epic.perl.perl.Token;
@@ -96,6 +97,13 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass structureNodeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass packageStatementEClass = null;
 
   /**
@@ -131,7 +139,7 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass statementBlockEClass = null;
+  private EClass blockStructureEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -145,14 +153,14 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass regexTokenEClass = null;
+  private EClass quoteTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass quoteTokenEClass = null;
+  private EClass regexTokenEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -393,6 +401,16 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getStructureNode()
+  {
+    return structureNodeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPackageStatement()
   {
     return packageStatementEClass;
@@ -513,9 +531,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getStatementBlock()
+  public EClass getBlockStructure()
   {
-    return statementBlockEClass;
+    return blockStructureEClass;
   }
 
   /**
@@ -523,9 +541,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStatementBlock_Statements()
+  public EReference getBlockStructure_Statements()
   {
-    return (EReference)statementBlockEClass.getEStructuralFeatures().get(0);
+    return (EReference)blockStructureEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -553,9 +571,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getRegexToken()
+  public EClass getQuoteToken()
   {
-    return regexTokenEClass;
+    return quoteTokenEClass;
   }
 
   /**
@@ -563,9 +581,9 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getQuoteToken()
+  public EClass getRegexToken()
   {
-    return quoteTokenEClass;
+    return regexTokenEClass;
   }
 
   /**
@@ -742,6 +760,8 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     expressionStatementEClass = createEClass(EXPRESSION_STATEMENT);
     createEAttribute(expressionStatementEClass, EXPRESSION_STATEMENT__VERSION);
 
+    structureNodeEClass = createEClass(STRUCTURE_NODE);
+
     packageStatementEClass = createEClass(PACKAGE_STATEMENT);
     createEAttribute(packageStatementEClass, PACKAGE_STATEMENT__NAME);
 
@@ -759,15 +779,15 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     createEAttribute(subStatementEClass, SUB_STATEMENT__PROTOTYPE);
     createEReference(subStatementEClass, SUB_STATEMENT__BLOCK);
 
-    statementBlockEClass = createEClass(STATEMENT_BLOCK);
-    createEReference(statementBlockEClass, STATEMENT_BLOCK__STATEMENTS);
+    blockStructureEClass = createEClass(BLOCK_STRUCTURE);
+    createEReference(blockStructureEClass, BLOCK_STRUCTURE__STATEMENTS);
 
     tokenEClass = createEClass(TOKEN);
     createEAttribute(tokenEClass, TOKEN__CONTENT);
 
-    regexTokenEClass = createEClass(REGEX_TOKEN);
-
     quoteTokenEClass = createEClass(QUOTE_TOKEN);
+
+    regexTokenEClass = createEClass(REGEX_TOKEN);
 
     quoteLikeTokenEClass = createEClass(QUOTE_LIKE_TOKEN);
 
@@ -829,14 +849,16 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     statementNodeEClass.getESuperTypes().add(this.getNode());
     blockStatementEClass.getESuperTypes().add(this.getStatementNode());
     expressionStatementEClass.getESuperTypes().add(this.getStatementNode());
+    structureNodeEClass.getESuperTypes().add(this.getNode());
     packageStatementEClass.getESuperTypes().add(this.getExpressionStatement());
     includeStatementEClass.getESuperTypes().add(this.getExpressionStatement());
     requireIncludeEClass.getESuperTypes().add(this.getIncludeStatement());
     useIncludeEClass.getESuperTypes().add(this.getIncludeStatement());
     subStatementEClass.getESuperTypes().add(this.getBlockStatement());
+    blockStructureEClass.getESuperTypes().add(this.getStructureNode());
     tokenEClass.getESuperTypes().add(this.getElement());
-    regexTokenEClass.getESuperTypes().add(this.getToken());
     quoteTokenEClass.getESuperTypes().add(this.getToken());
+    regexTokenEClass.getESuperTypes().add(this.getToken());
     quoteLikeTokenEClass.getESuperTypes().add(this.getToken());
     podTokenEClass.getESuperTypes().add(this.getToken());
     numberTokenEClass.getESuperTypes().add(this.getToken());
@@ -866,6 +888,8 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     initEClass(expressionStatementEClass, ExpressionStatement.class, "ExpressionStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExpressionStatement_Version(), ecorePackage.getEString(), "version", null, 0, 1, ExpressionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(structureNodeEClass, StructureNode.class, "StructureNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(packageStatementEClass, PackageStatement.class, "PackageStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPackageStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, PackageStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -881,17 +905,17 @@ public class PerlPackageImpl extends EPackageImpl implements PerlPackage
     initEClass(subStatementEClass, SubStatement.class, "SubStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSubStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, SubStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSubStatement_Prototype(), ecorePackage.getEString(), "prototype", null, 0, 1, SubStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSubStatement_Block(), this.getStatementBlock(), null, "block", null, 0, 1, SubStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSubStatement_Block(), this.getBlockStructure(), null, "block", null, 0, 1, SubStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(statementBlockEClass, StatementBlock.class, "StatementBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getStatementBlock_Statements(), this.getStatementNode(), null, "statements", null, 0, -1, StatementBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(blockStructureEClass, BlockStructure.class, "BlockStructure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBlockStructure_Statements(), this.getStatementNode(), null, "statements", null, 0, -1, BlockStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(tokenEClass, Token.class, "Token", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getToken_Content(), ecorePackage.getEString(), "content", null, 0, 1, Token.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(regexTokenEClass, RegexToken.class, "RegexToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
     initEClass(quoteTokenEClass, QuoteToken.class, "QuoteToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(regexTokenEClass, RegexToken.class, "RegexToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(quoteLikeTokenEClass, QuoteLikeToken.class, "QuoteLikeToken", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

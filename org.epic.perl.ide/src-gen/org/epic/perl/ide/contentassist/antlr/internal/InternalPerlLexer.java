@@ -131,7 +131,7 @@ public class InternalPerlLexer extends Lexer {
     public static final int T__152=152;
     public static final int T__273=273;
     public static final int T__270=270;
-    public static final int RULE_REGEX_TRANSLITERATE=5;
+    public static final int RULE_REGEX_TRANSLITERATE=8;
     public static final int T__48=48;
     public static final int T__49=49;
     public static final int T__44=44;
@@ -166,7 +166,7 @@ public class InternalPerlLexer extends Lexer {
     public static final int T__219=219;
     public static final int T__214=214;
     public static final int T__335=335;
-    public static final int RULE_REGEX_SUBSTITUTE=4;
+    public static final int RULE_REGEX_SUBSTITUTE=7;
     public static final int T__213=213;
     public static final int T__334=334;
     public static final int T__216=216;
@@ -252,10 +252,10 @@ public class InternalPerlLexer extends Lexer {
     public static final int T__300=300;
     public static final int RULE_HEX=22;
     public static final int RULE_VERSION=11;
-    public static final int RULE_LITERAL=9;
+    public static final int RULE_LITERAL=6;
     public static final int RULE_BIN=23;
-    public static final int RULE_REGEX_MATCH=6;
-    public static final int RULE_INTERPOLATE=8;
+    public static final int RULE_REGEX_MATCH=9;
+    public static final int RULE_INTERPOLATE=5;
     public static final int T__320=320;
     public static final int T__201=201;
     public static final int T__322=322;
@@ -326,7 +326,7 @@ public class InternalPerlLexer extends Lexer {
     public static final int T__70=70;
     public static final int T__71=71;
     public static final int T__72=72;
-    public static final int RULE_STRING=7;
+    public static final int RULE_STRING=4;
     public static final int T__77=77;
     public static final int T__78=78;
     public static final int T__79=79;
@@ -7093,10 +7093,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_NUMBER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4834:13: ( ( RULE_HEX | RULE_BIN | RULE_INT ) ( '.' RULE_INT )? )
-            // InternalPerl.g:4834:15: ( RULE_HEX | RULE_BIN | RULE_INT ) ( '.' RULE_INT )?
+            // InternalPerl.g:4880:13: ( ( RULE_HEX | RULE_BIN | RULE_INT ) ( '.' RULE_INT )? )
+            // InternalPerl.g:4880:15: ( RULE_HEX | RULE_BIN | RULE_INT ) ( '.' RULE_INT )?
             {
-            // InternalPerl.g:4834:15: ( RULE_HEX | RULE_BIN | RULE_INT )
+            // InternalPerl.g:4880:15: ( RULE_HEX | RULE_BIN | RULE_INT )
             int alt1=3;
             int LA1_0 = input.LA(1);
 
@@ -7128,21 +7128,21 @@ public class InternalPerlLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalPerl.g:4834:16: RULE_HEX
+                    // InternalPerl.g:4880:16: RULE_HEX
                     {
                     mRULE_HEX(); 
 
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:4834:25: RULE_BIN
+                    // InternalPerl.g:4880:25: RULE_BIN
                     {
                     mRULE_BIN(); 
 
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:4834:34: RULE_INT
+                    // InternalPerl.g:4880:34: RULE_INT
                     {
                     mRULE_INT(); 
 
@@ -7151,7 +7151,7 @@ public class InternalPerlLexer extends Lexer {
 
             }
 
-            // InternalPerl.g:4834:44: ( '.' RULE_INT )?
+            // InternalPerl.g:4880:44: ( '.' RULE_INT )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -7160,7 +7160,7 @@ public class InternalPerlLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // InternalPerl.g:4834:45: '.' RULE_INT
+                    // InternalPerl.g:4880:45: '.' RULE_INT
                     {
                     match('.'); 
                     mRULE_INT(); 
@@ -7186,10 +7186,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4836:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )* )
-            // InternalPerl.g:4836:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )*
+            // InternalPerl.g:4882:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )* )
+            // InternalPerl.g:4882:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )*
             {
-            // InternalPerl.g:4836:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
+            // InternalPerl.g:4882:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
             int cnt3=0;
             loop3:
             do {
@@ -7227,7 +7227,7 @@ public class InternalPerlLexer extends Lexer {
                 cnt3++;
             } while (true);
 
-            // InternalPerl.g:4836:36: ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )*
+            // InternalPerl.g:4882:36: ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )*
             loop6:
             do {
                 int alt6=2;
@@ -7240,9 +7240,9 @@ public class InternalPerlLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalPerl.g:4836:37: ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
+            	    // InternalPerl.g:4882:37: ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
             	    {
-            	    // InternalPerl.g:4836:37: ( '::' | '\\'' )
+            	    // InternalPerl.g:4882:37: ( '::' | '\\'' )
             	    int alt4=2;
             	    int LA4_0 = input.LA(1);
 
@@ -7260,7 +7260,7 @@ public class InternalPerlLexer extends Lexer {
             	    }
             	    switch (alt4) {
             	        case 1 :
-            	            // InternalPerl.g:4836:38: '::'
+            	            // InternalPerl.g:4882:38: '::'
             	            {
             	            match("::"); 
 
@@ -7268,7 +7268,7 @@ public class InternalPerlLexer extends Lexer {
             	            }
             	            break;
             	        case 2 :
-            	            // InternalPerl.g:4836:43: '\\''
+            	            // InternalPerl.g:4882:43: '\\''
             	            {
             	            match('\''); 
 
@@ -7277,7 +7277,7 @@ public class InternalPerlLexer extends Lexer {
 
             	    }
 
-            	    // InternalPerl.g:4836:49: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
+            	    // InternalPerl.g:4882:49: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
             	    int cnt5=0;
             	    loop5:
             	    do {
@@ -7340,8 +7340,8 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_SYMBOL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4838:13: ( ( '$' | '%' | '@' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )* )
-            // InternalPerl.g:4838:15: ( '$' | '%' | '@' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )*
+            // InternalPerl.g:4884:13: ( ( '$' | '%' | '@' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )* )
+            // InternalPerl.g:4884:15: ( '$' | '%' | '@' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )*
             {
             if ( (input.LA(1)>='$' && input.LA(1)<='%')||input.LA(1)=='@' ) {
                 input.consume();
@@ -7352,7 +7352,7 @@ public class InternalPerlLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalPerl.g:4838:29: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
+            // InternalPerl.g:4884:29: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
             int cnt7=0;
             loop7:
             do {
@@ -7390,7 +7390,7 @@ public class InternalPerlLexer extends Lexer {
                 cnt7++;
             } while (true);
 
-            // InternalPerl.g:4838:54: ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )*
+            // InternalPerl.g:4884:54: ( ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )*
             loop10:
             do {
                 int alt10=2;
@@ -7403,9 +7403,9 @@ public class InternalPerlLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalPerl.g:4838:55: ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
+            	    // InternalPerl.g:4884:55: ( '::' | '\\'' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
             	    {
-            	    // InternalPerl.g:4838:55: ( '::' | '\\'' )
+            	    // InternalPerl.g:4884:55: ( '::' | '\\'' )
             	    int alt8=2;
             	    int LA8_0 = input.LA(1);
 
@@ -7423,7 +7423,7 @@ public class InternalPerlLexer extends Lexer {
             	    }
             	    switch (alt8) {
             	        case 1 :
-            	            // InternalPerl.g:4838:56: '::'
+            	            // InternalPerl.g:4884:56: '::'
             	            {
             	            match("::"); 
 
@@ -7431,7 +7431,7 @@ public class InternalPerlLexer extends Lexer {
             	            }
             	            break;
             	        case 2 :
-            	            // InternalPerl.g:4838:61: '\\''
+            	            // InternalPerl.g:4884:61: '\\''
             	            {
             	            match('\''); 
 
@@ -7440,7 +7440,7 @@ public class InternalPerlLexer extends Lexer {
 
             	    }
 
-            	    // InternalPerl.g:4838:67: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
+            	    // InternalPerl.g:4884:67: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
             	    int cnt9=0;
             	    loop9:
             	    do {
@@ -7503,10 +7503,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_VERSION;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4840:14: ( ( 'v' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )* )
-            // InternalPerl.g:4840:16: ( 'v' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )*
+            // InternalPerl.g:4886:14: ( ( 'v' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )* )
+            // InternalPerl.g:4886:16: ( 'v' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )*
             {
-            // InternalPerl.g:4840:16: ( 'v' )?
+            // InternalPerl.g:4886:16: ( 'v' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -7515,7 +7515,7 @@ public class InternalPerlLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // InternalPerl.g:4840:16: 'v'
+                    // InternalPerl.g:4886:16: 'v'
                     {
                     match('v'); 
 
@@ -7524,7 +7524,7 @@ public class InternalPerlLexer extends Lexer {
 
             }
 
-            // InternalPerl.g:4840:21: ( '0' .. '9' )+
+            // InternalPerl.g:4886:21: ( '0' .. '9' )+
             int cnt12=0;
             loop12:
             do {
@@ -7538,7 +7538,7 @@ public class InternalPerlLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // InternalPerl.g:4840:22: '0' .. '9'
+            	    // InternalPerl.g:4886:22: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -7554,7 +7554,7 @@ public class InternalPerlLexer extends Lexer {
                 cnt12++;
             } while (true);
 
-            // InternalPerl.g:4840:33: ( '.' ( '0' .. '9' )+ )*
+            // InternalPerl.g:4886:33: ( '.' ( '0' .. '9' )+ )*
             loop14:
             do {
                 int alt14=2;
@@ -7567,10 +7567,10 @@ public class InternalPerlLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // InternalPerl.g:4840:34: '.' ( '0' .. '9' )+
+            	    // InternalPerl.g:4886:34: '.' ( '0' .. '9' )+
             	    {
             	    match('.'); 
-            	    // InternalPerl.g:4840:38: ( '0' .. '9' )+
+            	    // InternalPerl.g:4886:38: ( '0' .. '9' )+
             	    int cnt13=0;
             	    loop13:
             	    do {
@@ -7584,7 +7584,7 @@ public class InternalPerlLexer extends Lexer {
 
             	        switch (alt13) {
             	    	case 1 :
-            	    	    // InternalPerl.g:4840:39: '0' .. '9'
+            	    	    // InternalPerl.g:4886:39: '0' .. '9'
             	    	    {
             	    	    matchRange('0','9'); 
 
@@ -7623,10 +7623,10 @@ public class InternalPerlLexer extends Lexer {
     // $ANTLR start "RULE_HEX"
     public final void mRULE_HEX() throws RecognitionException {
         try {
-            // InternalPerl.g:4842:19: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ )
-            // InternalPerl.g:4842:21: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
+            // InternalPerl.g:4888:19: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ )
+            // InternalPerl.g:4888:21: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
             {
-            // InternalPerl.g:4842:21: ( '0x' | '0X' )
+            // InternalPerl.g:4888:21: ( '0x' | '0X' )
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -7654,7 +7654,7 @@ public class InternalPerlLexer extends Lexer {
             }
             switch (alt15) {
                 case 1 :
-                    // InternalPerl.g:4842:22: '0x'
+                    // InternalPerl.g:4888:22: '0x'
                     {
                     match("0x"); 
 
@@ -7662,7 +7662,7 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:4842:27: '0X'
+                    // InternalPerl.g:4888:27: '0X'
                     {
                     match("0X"); 
 
@@ -7672,7 +7672,7 @@ public class InternalPerlLexer extends Lexer {
 
             }
 
-            // InternalPerl.g:4842:33: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
+            // InternalPerl.g:4888:33: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
             int cnt16=0;
             loop16:
             do {
@@ -7722,12 +7722,12 @@ public class InternalPerlLexer extends Lexer {
     // $ANTLR start "RULE_BIN"
     public final void mRULE_BIN() throws RecognitionException {
         try {
-            // InternalPerl.g:4844:19: ( '0b' ( '0' .. '1' | '_' )+ )
-            // InternalPerl.g:4844:21: '0b' ( '0' .. '1' | '_' )+
+            // InternalPerl.g:4890:19: ( '0b' ( '0' .. '1' | '_' )+ )
+            // InternalPerl.g:4890:21: '0b' ( '0' .. '1' | '_' )+
             {
             match("0b"); 
 
-            // InternalPerl.g:4844:26: ( '0' .. '1' | '_' )+
+            // InternalPerl.g:4890:26: ( '0' .. '1' | '_' )+
             int cnt17=0;
             loop17:
             do {
@@ -7777,11 +7777,11 @@ public class InternalPerlLexer extends Lexer {
     // $ANTLR start "RULE_INT"
     public final void mRULE_INT() throws RecognitionException {
         try {
-            // InternalPerl.g:4846:19: ( '0' .. '9' ( '0' .. '9' | '_' )* )
-            // InternalPerl.g:4846:21: '0' .. '9' ( '0' .. '9' | '_' )*
+            // InternalPerl.g:4892:19: ( '0' .. '9' ( '0' .. '9' | '_' )* )
+            // InternalPerl.g:4892:21: '0' .. '9' ( '0' .. '9' | '_' )*
             {
             matchRange('0','9'); 
-            // InternalPerl.g:4846:30: ( '0' .. '9' | '_' )*
+            // InternalPerl.g:4892:30: ( '0' .. '9' | '_' )*
             loop18:
             do {
                 int alt18=2;
@@ -7828,10 +7828,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4848:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalPerl.g:4848:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalPerl.g:4894:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalPerl.g:4894:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalPerl.g:4848:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalPerl.g:4894:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -7849,10 +7849,10 @@ public class InternalPerlLexer extends Lexer {
             }
             switch (alt21) {
                 case 1 :
-                    // InternalPerl.g:4848:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalPerl.g:4894:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalPerl.g:4848:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalPerl.g:4894:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop19:
                     do {
                         int alt19=3;
@@ -7868,7 +7868,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt19) {
                     	case 1 :
-                    	    // InternalPerl.g:4848:21: '\\\\' .
+                    	    // InternalPerl.g:4894:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -7876,7 +7876,7 @@ public class InternalPerlLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalPerl.g:4848:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalPerl.g:4894:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -7901,10 +7901,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:4848:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalPerl.g:4894:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalPerl.g:4848:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalPerl.g:4894:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop20:
                     do {
                         int alt20=3;
@@ -7920,7 +7920,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt20) {
                     	case 1 :
-                    	    // InternalPerl.g:4848:54: '\\\\' .
+                    	    // InternalPerl.g:4894:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -7928,7 +7928,7 @@ public class InternalPerlLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalPerl.g:4848:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalPerl.g:4894:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -7971,11 +7971,11 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_BACKTICK_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4850:22: ( '`' (~ ( '`' ) )* '`' )
-            // InternalPerl.g:4850:24: '`' (~ ( '`' ) )* '`'
+            // InternalPerl.g:4896:22: ( '`' (~ ( '`' ) )* '`' )
+            // InternalPerl.g:4896:24: '`' (~ ( '`' ) )* '`'
             {
             match('`'); 
-            // InternalPerl.g:4850:28: (~ ( '`' ) )*
+            // InternalPerl.g:4896:28: (~ ( '`' ) )*
             loop22:
             do {
                 int alt22=2;
@@ -7988,7 +7988,7 @@ public class InternalPerlLexer extends Lexer {
 
                 switch (alt22) {
             	case 1 :
-            	    // InternalPerl.g:4850:28: ~ ( '`' )
+            	    // InternalPerl.g:4896:28: ~ ( '`' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='_')||(input.LA(1)>='a' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -8025,12 +8025,12 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_INTERPOLATE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4852:18: ( 'qq' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
-            // InternalPerl.g:4852:20: 'qq' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            // InternalPerl.g:4898:18: ( 'qq' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
+            // InternalPerl.g:4898:20: 'qq' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
             {
             match("qq"); 
 
-            // InternalPerl.g:4852:25: ( RULE_WS )?
+            // InternalPerl.g:4898:25: ( RULE_WS )?
             int alt23=2;
             int LA23_0 = input.LA(1);
 
@@ -8039,7 +8039,7 @@ public class InternalPerlLexer extends Lexer {
             }
             switch (alt23) {
                 case 1 :
-                    // InternalPerl.g:4852:25: RULE_WS
+                    // InternalPerl.g:4898:25: RULE_WS
                     {
                     mRULE_WS(); 
 
@@ -8048,7 +8048,7 @@ public class InternalPerlLexer extends Lexer {
 
             }
 
-            // InternalPerl.g:4852:34: ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            // InternalPerl.g:4898:34: ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
             int alt28=4;
             switch ( input.LA(1) ) {
             case '{':
@@ -8080,10 +8080,10 @@ public class InternalPerlLexer extends Lexer {
 
             switch (alt28) {
                 case 1 :
-                    // InternalPerl.g:4852:35: '{' ( options {greedy=false; } : . )* '}'
+                    // InternalPerl.g:4898:35: '{' ( options {greedy=false; } : . )* '}'
                     {
                     match('{'); 
-                    // InternalPerl.g:4852:39: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4898:39: ( options {greedy=false; } : . )*
                     loop24:
                     do {
                         int alt24=2;
@@ -8099,7 +8099,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt24) {
                     	case 1 :
-                    	    // InternalPerl.g:4852:67: .
+                    	    // InternalPerl.g:4898:67: .
                     	    {
                     	    matchAny(); 
 
@@ -8116,10 +8116,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:4852:75: '|' ( options {greedy=false; } : . )* '|'
+                    // InternalPerl.g:4898:75: '|' ( options {greedy=false; } : . )* '|'
                     {
                     match('|'); 
-                    // InternalPerl.g:4852:79: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4898:79: ( options {greedy=false; } : . )*
                     loop25:
                     do {
                         int alt25=2;
@@ -8135,7 +8135,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt25) {
                     	case 1 :
-                    	    // InternalPerl.g:4852:107: .
+                    	    // InternalPerl.g:4898:107: .
                     	    {
                     	    matchAny(); 
 
@@ -8152,10 +8152,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:4852:115: '/' ( options {greedy=false; } : . )* '/'
+                    // InternalPerl.g:4898:115: '/' ( options {greedy=false; } : . )* '/'
                     {
                     match('/'); 
-                    // InternalPerl.g:4852:119: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4898:119: ( options {greedy=false; } : . )*
                     loop26:
                     do {
                         int alt26=2;
@@ -8171,7 +8171,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt26) {
                     	case 1 :
-                    	    // InternalPerl.g:4852:147: .
+                    	    // InternalPerl.g:4898:147: .
                     	    {
                     	    matchAny(); 
 
@@ -8188,10 +8188,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // InternalPerl.g:4852:155: '<' ( options {greedy=false; } : . )* '>'
+                    // InternalPerl.g:4898:155: '<' ( options {greedy=false; } : . )* '>'
                     {
                     match('<'); 
-                    // InternalPerl.g:4852:159: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4898:159: ( options {greedy=false; } : . )*
                     loop27:
                     do {
                         int alt27=2;
@@ -8207,7 +8207,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt27) {
                     	case 1 :
-                    	    // InternalPerl.g:4852:187: .
+                    	    // InternalPerl.g:4898:187: .
                     	    {
                     	    matchAny(); 
 
@@ -8242,11 +8242,11 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4854:14: ( 'q' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
-            // InternalPerl.g:4854:16: 'q' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            // InternalPerl.g:4900:14: ( 'q' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
+            // InternalPerl.g:4900:16: 'q' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
             {
             match('q'); 
-            // InternalPerl.g:4854:20: ( RULE_WS )?
+            // InternalPerl.g:4900:20: ( RULE_WS )?
             int alt29=2;
             int LA29_0 = input.LA(1);
 
@@ -8255,7 +8255,7 @@ public class InternalPerlLexer extends Lexer {
             }
             switch (alt29) {
                 case 1 :
-                    // InternalPerl.g:4854:20: RULE_WS
+                    // InternalPerl.g:4900:20: RULE_WS
                     {
                     mRULE_WS(); 
 
@@ -8264,7 +8264,7 @@ public class InternalPerlLexer extends Lexer {
 
             }
 
-            // InternalPerl.g:4854:29: ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            // InternalPerl.g:4900:29: ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
             int alt35=5;
             switch ( input.LA(1) ) {
             case '{':
@@ -8301,10 +8301,10 @@ public class InternalPerlLexer extends Lexer {
 
             switch (alt35) {
                 case 1 :
-                    // InternalPerl.g:4854:30: '{' ( options {greedy=false; } : . )* '}'
+                    // InternalPerl.g:4900:30: '{' ( options {greedy=false; } : . )* '}'
                     {
                     match('{'); 
-                    // InternalPerl.g:4854:34: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4900:34: ( options {greedy=false; } : . )*
                     loop30:
                     do {
                         int alt30=2;
@@ -8320,7 +8320,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt30) {
                     	case 1 :
-                    	    // InternalPerl.g:4854:62: .
+                    	    // InternalPerl.g:4900:62: .
                     	    {
                     	    matchAny(); 
 
@@ -8337,10 +8337,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:4854:70: '(' ( options {greedy=false; } : . )* ')'
+                    // InternalPerl.g:4900:70: '(' ( options {greedy=false; } : . )* ')'
                     {
                     match('('); 
-                    // InternalPerl.g:4854:74: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4900:74: ( options {greedy=false; } : . )*
                     loop31:
                     do {
                         int alt31=2;
@@ -8356,7 +8356,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt31) {
                     	case 1 :
-                    	    // InternalPerl.g:4854:102: .
+                    	    // InternalPerl.g:4900:102: .
                     	    {
                     	    matchAny(); 
 
@@ -8373,10 +8373,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:4854:110: '|' ( options {greedy=false; } : . )* '|'
+                    // InternalPerl.g:4900:110: '|' ( options {greedy=false; } : . )* '|'
                     {
                     match('|'); 
-                    // InternalPerl.g:4854:114: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4900:114: ( options {greedy=false; } : . )*
                     loop32:
                     do {
                         int alt32=2;
@@ -8392,7 +8392,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt32) {
                     	case 1 :
-                    	    // InternalPerl.g:4854:142: .
+                    	    // InternalPerl.g:4900:142: .
                     	    {
                     	    matchAny(); 
 
@@ -8409,10 +8409,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // InternalPerl.g:4854:150: '/' ( options {greedy=false; } : . )* '/'
+                    // InternalPerl.g:4900:150: '/' ( options {greedy=false; } : . )* '/'
                     {
                     match('/'); 
-                    // InternalPerl.g:4854:154: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4900:154: ( options {greedy=false; } : . )*
                     loop33:
                     do {
                         int alt33=2;
@@ -8428,7 +8428,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt33) {
                     	case 1 :
-                    	    // InternalPerl.g:4854:182: .
+                    	    // InternalPerl.g:4900:182: .
                     	    {
                     	    matchAny(); 
 
@@ -8445,10 +8445,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 5 :
-                    // InternalPerl.g:4854:190: '<' ( options {greedy=false; } : . )* '>'
+                    // InternalPerl.g:4900:190: '<' ( options {greedy=false; } : . )* '>'
                     {
                     match('<'); 
-                    // InternalPerl.g:4854:194: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4900:194: ( options {greedy=false; } : . )*
                     loop34:
                     do {
                         int alt34=2;
@@ -8464,7 +8464,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt34) {
                     	case 1 :
-                    	    // InternalPerl.g:4854:222: .
+                    	    // InternalPerl.g:4900:222: .
                     	    {
                     	    matchAny(); 
 
@@ -8499,12 +8499,12 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_WORDS_QUOTE_LIKE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4856:23: ( 'qw' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
-            // InternalPerl.g:4856:25: 'qw' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            // InternalPerl.g:4902:23: ( 'qw' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
+            // InternalPerl.g:4902:25: 'qw' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
             {
             match("qw"); 
 
-            // InternalPerl.g:4856:30: ( RULE_WS )?
+            // InternalPerl.g:4902:30: ( RULE_WS )?
             int alt36=2;
             int LA36_0 = input.LA(1);
 
@@ -8513,7 +8513,7 @@ public class InternalPerlLexer extends Lexer {
             }
             switch (alt36) {
                 case 1 :
-                    // InternalPerl.g:4856:30: RULE_WS
+                    // InternalPerl.g:4902:30: RULE_WS
                     {
                     mRULE_WS(); 
 
@@ -8522,7 +8522,7 @@ public class InternalPerlLexer extends Lexer {
 
             }
 
-            // InternalPerl.g:4856:39: ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            // InternalPerl.g:4902:39: ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
             int alt42=5;
             switch ( input.LA(1) ) {
             case '{':
@@ -8559,10 +8559,10 @@ public class InternalPerlLexer extends Lexer {
 
             switch (alt42) {
                 case 1 :
-                    // InternalPerl.g:4856:40: '{' ( options {greedy=false; } : . )* '}'
+                    // InternalPerl.g:4902:40: '{' ( options {greedy=false; } : . )* '}'
                     {
                     match('{'); 
-                    // InternalPerl.g:4856:44: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4902:44: ( options {greedy=false; } : . )*
                     loop37:
                     do {
                         int alt37=2;
@@ -8578,7 +8578,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt37) {
                     	case 1 :
-                    	    // InternalPerl.g:4856:72: .
+                    	    // InternalPerl.g:4902:72: .
                     	    {
                     	    matchAny(); 
 
@@ -8595,10 +8595,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:4856:80: '(' ( options {greedy=false; } : . )* ')'
+                    // InternalPerl.g:4902:80: '(' ( options {greedy=false; } : . )* ')'
                     {
                     match('('); 
-                    // InternalPerl.g:4856:84: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4902:84: ( options {greedy=false; } : . )*
                     loop38:
                     do {
                         int alt38=2;
@@ -8614,7 +8614,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt38) {
                     	case 1 :
-                    	    // InternalPerl.g:4856:112: .
+                    	    // InternalPerl.g:4902:112: .
                     	    {
                     	    matchAny(); 
 
@@ -8631,10 +8631,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:4856:120: '|' ( options {greedy=false; } : . )* '|'
+                    // InternalPerl.g:4902:120: '|' ( options {greedy=false; } : . )* '|'
                     {
                     match('|'); 
-                    // InternalPerl.g:4856:124: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4902:124: ( options {greedy=false; } : . )*
                     loop39:
                     do {
                         int alt39=2;
@@ -8650,7 +8650,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt39) {
                     	case 1 :
-                    	    // InternalPerl.g:4856:152: .
+                    	    // InternalPerl.g:4902:152: .
                     	    {
                     	    matchAny(); 
 
@@ -8667,10 +8667,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // InternalPerl.g:4856:160: '/' ( options {greedy=false; } : . )* '/'
+                    // InternalPerl.g:4902:160: '/' ( options {greedy=false; } : . )* '/'
                     {
                     match('/'); 
-                    // InternalPerl.g:4856:164: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4902:164: ( options {greedy=false; } : . )*
                     loop40:
                     do {
                         int alt40=2;
@@ -8686,7 +8686,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt40) {
                     	case 1 :
-                    	    // InternalPerl.g:4856:192: .
+                    	    // InternalPerl.g:4902:192: .
                     	    {
                     	    matchAny(); 
 
@@ -8703,10 +8703,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 5 :
-                    // InternalPerl.g:4856:200: '<' ( options {greedy=false; } : . )* '>'
+                    // InternalPerl.g:4902:200: '<' ( options {greedy=false; } : . )* '>'
                     {
                     match('<'); 
-                    // InternalPerl.g:4856:204: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4902:204: ( options {greedy=false; } : . )*
                     loop41:
                     do {
                         int alt41=2;
@@ -8722,7 +8722,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt41) {
                     	case 1 :
-                    	    // InternalPerl.g:4856:232: .
+                    	    // InternalPerl.g:4902:232: .
                     	    {
                     	    matchAny(); 
 
@@ -8757,12 +8757,12 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_COMMAND_QUOTE_LIKE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4858:25: ( 'qx' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
-            // InternalPerl.g:4858:27: 'qx' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            // InternalPerl.g:4904:25: ( 'qx' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
+            // InternalPerl.g:4904:27: 'qx' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
             {
             match("qx"); 
 
-            // InternalPerl.g:4858:32: ( RULE_WS )?
+            // InternalPerl.g:4904:32: ( RULE_WS )?
             int alt43=2;
             int LA43_0 = input.LA(1);
 
@@ -8771,7 +8771,7 @@ public class InternalPerlLexer extends Lexer {
             }
             switch (alt43) {
                 case 1 :
-                    // InternalPerl.g:4858:32: RULE_WS
+                    // InternalPerl.g:4904:32: RULE_WS
                     {
                     mRULE_WS(); 
 
@@ -8780,7 +8780,7 @@ public class InternalPerlLexer extends Lexer {
 
             }
 
-            // InternalPerl.g:4858:41: ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            // InternalPerl.g:4904:41: ( '{' ( options {greedy=false; } : . )* '}' | '(' ( options {greedy=false; } : . )* ')' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
             int alt49=5;
             switch ( input.LA(1) ) {
             case '{':
@@ -8817,10 +8817,10 @@ public class InternalPerlLexer extends Lexer {
 
             switch (alt49) {
                 case 1 :
-                    // InternalPerl.g:4858:42: '{' ( options {greedy=false; } : . )* '}'
+                    // InternalPerl.g:4904:42: '{' ( options {greedy=false; } : . )* '}'
                     {
                     match('{'); 
-                    // InternalPerl.g:4858:46: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4904:46: ( options {greedy=false; } : . )*
                     loop44:
                     do {
                         int alt44=2;
@@ -8836,7 +8836,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt44) {
                     	case 1 :
-                    	    // InternalPerl.g:4858:74: .
+                    	    // InternalPerl.g:4904:74: .
                     	    {
                     	    matchAny(); 
 
@@ -8853,10 +8853,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:4858:82: '(' ( options {greedy=false; } : . )* ')'
+                    // InternalPerl.g:4904:82: '(' ( options {greedy=false; } : . )* ')'
                     {
                     match('('); 
-                    // InternalPerl.g:4858:86: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4904:86: ( options {greedy=false; } : . )*
                     loop45:
                     do {
                         int alt45=2;
@@ -8872,7 +8872,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt45) {
                     	case 1 :
-                    	    // InternalPerl.g:4858:114: .
+                    	    // InternalPerl.g:4904:114: .
                     	    {
                     	    matchAny(); 
 
@@ -8889,10 +8889,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:4858:122: '|' ( options {greedy=false; } : . )* '|'
+                    // InternalPerl.g:4904:122: '|' ( options {greedy=false; } : . )* '|'
                     {
                     match('|'); 
-                    // InternalPerl.g:4858:126: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4904:126: ( options {greedy=false; } : . )*
                     loop46:
                     do {
                         int alt46=2;
@@ -8908,7 +8908,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt46) {
                     	case 1 :
-                    	    // InternalPerl.g:4858:154: .
+                    	    // InternalPerl.g:4904:154: .
                     	    {
                     	    matchAny(); 
 
@@ -8925,10 +8925,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // InternalPerl.g:4858:162: '/' ( options {greedy=false; } : . )* '/'
+                    // InternalPerl.g:4904:162: '/' ( options {greedy=false; } : . )* '/'
                     {
                     match('/'); 
-                    // InternalPerl.g:4858:166: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4904:166: ( options {greedy=false; } : . )*
                     loop47:
                     do {
                         int alt47=2;
@@ -8944,7 +8944,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt47) {
                     	case 1 :
-                    	    // InternalPerl.g:4858:194: .
+                    	    // InternalPerl.g:4904:194: .
                     	    {
                     	    matchAny(); 
 
@@ -8961,10 +8961,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 5 :
-                    // InternalPerl.g:4858:202: '<' ( options {greedy=false; } : . )* '>'
+                    // InternalPerl.g:4904:202: '<' ( options {greedy=false; } : . )* '>'
                     {
                     match('<'); 
-                    // InternalPerl.g:4858:206: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4904:206: ( options {greedy=false; } : . )*
                     loop48:
                     do {
                         int alt48=2;
@@ -8980,7 +8980,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt48) {
                     	case 1 :
-                    	    // InternalPerl.g:4858:234: .
+                    	    // InternalPerl.g:4904:234: .
                     	    {
                     	    matchAny(); 
 
@@ -9015,12 +9015,12 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_REGEX_QUOTE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4860:18: ( 'qr' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
-            // InternalPerl.g:4860:20: 'qr' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            // InternalPerl.g:4906:18: ( 'qr' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' ) )
+            // InternalPerl.g:4906:20: 'qr' ( RULE_WS )? ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
             {
             match("qr"); 
 
-            // InternalPerl.g:4860:25: ( RULE_WS )?
+            // InternalPerl.g:4906:25: ( RULE_WS )?
             int alt50=2;
             int LA50_0 = input.LA(1);
 
@@ -9029,7 +9029,7 @@ public class InternalPerlLexer extends Lexer {
             }
             switch (alt50) {
                 case 1 :
-                    // InternalPerl.g:4860:25: RULE_WS
+                    // InternalPerl.g:4906:25: RULE_WS
                     {
                     mRULE_WS(); 
 
@@ -9038,7 +9038,7 @@ public class InternalPerlLexer extends Lexer {
 
             }
 
-            // InternalPerl.g:4860:34: ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
+            // InternalPerl.g:4906:34: ( '{' ( options {greedy=false; } : . )* '}' | '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' | '<' ( options {greedy=false; } : . )* '>' )
             int alt55=4;
             switch ( input.LA(1) ) {
             case '{':
@@ -9070,10 +9070,10 @@ public class InternalPerlLexer extends Lexer {
 
             switch (alt55) {
                 case 1 :
-                    // InternalPerl.g:4860:35: '{' ( options {greedy=false; } : . )* '}'
+                    // InternalPerl.g:4906:35: '{' ( options {greedy=false; } : . )* '}'
                     {
                     match('{'); 
-                    // InternalPerl.g:4860:39: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4906:39: ( options {greedy=false; } : . )*
                     loop51:
                     do {
                         int alt51=2;
@@ -9089,7 +9089,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt51) {
                     	case 1 :
-                    	    // InternalPerl.g:4860:67: .
+                    	    // InternalPerl.g:4906:67: .
                     	    {
                     	    matchAny(); 
 
@@ -9106,10 +9106,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:4860:75: '|' ( options {greedy=false; } : . )* '|'
+                    // InternalPerl.g:4906:75: '|' ( options {greedy=false; } : . )* '|'
                     {
                     match('|'); 
-                    // InternalPerl.g:4860:79: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4906:79: ( options {greedy=false; } : . )*
                     loop52:
                     do {
                         int alt52=2;
@@ -9125,7 +9125,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt52) {
                     	case 1 :
-                    	    // InternalPerl.g:4860:107: .
+                    	    // InternalPerl.g:4906:107: .
                     	    {
                     	    matchAny(); 
 
@@ -9142,10 +9142,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:4860:115: '/' ( options {greedy=false; } : . )* '/'
+                    // InternalPerl.g:4906:115: '/' ( options {greedy=false; } : . )* '/'
                     {
                     match('/'); 
-                    // InternalPerl.g:4860:119: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4906:119: ( options {greedy=false; } : . )*
                     loop53:
                     do {
                         int alt53=2;
@@ -9161,7 +9161,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt53) {
                     	case 1 :
-                    	    // InternalPerl.g:4860:147: .
+                    	    // InternalPerl.g:4906:147: .
                     	    {
                     	    matchAny(); 
 
@@ -9178,10 +9178,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // InternalPerl.g:4860:155: '<' ( options {greedy=false; } : . )* '>'
+                    // InternalPerl.g:4906:155: '<' ( options {greedy=false; } : . )* '>'
                     {
                     match('<'); 
-                    // InternalPerl.g:4860:159: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4906:159: ( options {greedy=false; } : . )*
                     loop54:
                     do {
                         int alt54=2;
@@ -9197,7 +9197,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt54) {
                     	case 1 :
-                    	    // InternalPerl.g:4860:187: .
+                    	    // InternalPerl.g:4906:187: .
                     	    {
                     	    matchAny(); 
 
@@ -9232,11 +9232,11 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_REGEX_SUBSTITUTE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4862:23: ( 's' ( '|' ( options {greedy=false; } : . )* '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' ( options {greedy=false; } : . )* '/' ) )
-            // InternalPerl.g:4862:25: 's' ( '|' ( options {greedy=false; } : . )* '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' ( options {greedy=false; } : . )* '/' )
+            // InternalPerl.g:4908:23: ( 's' ( '|' ( options {greedy=false; } : . )* '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' ( options {greedy=false; } : . )* '/' ) )
+            // InternalPerl.g:4908:25: 's' ( '|' ( options {greedy=false; } : . )* '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' ( options {greedy=false; } : . )* '/' )
             {
             match('s'); 
-            // InternalPerl.g:4862:29: ( '|' ( options {greedy=false; } : . )* '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' ( options {greedy=false; } : . )* '/' )
+            // InternalPerl.g:4908:29: ( '|' ( options {greedy=false; } : . )* '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' ( options {greedy=false; } : . )* '/' )
             int alt60=2;
             int LA60_0 = input.LA(1);
 
@@ -9254,17 +9254,17 @@ public class InternalPerlLexer extends Lexer {
             }
             switch (alt60) {
                 case 1 :
-                    // InternalPerl.g:4862:30: '|' ( options {greedy=false; } : . )* '|' ( options {greedy=false; } : . )* '|'
+                    // InternalPerl.g:4908:30: '|' ( options {greedy=false; } : . )* '|' ( options {greedy=false; } : . )* '|'
                     {
                     match('|'); 
-                    // InternalPerl.g:4862:34: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4908:34: ( options {greedy=false; } : . )*
                     loop56:
                     do {
                         int alt56=2;
                         alt56 = dfa56.predict(input);
                         switch (alt56) {
                     	case 1 :
-                    	    // InternalPerl.g:4862:62: .
+                    	    // InternalPerl.g:4908:62: .
                     	    {
                     	    matchAny(); 
 
@@ -9277,7 +9277,7 @@ public class InternalPerlLexer extends Lexer {
                     } while (true);
 
                     match('|'); 
-                    // InternalPerl.g:4862:70: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4908:70: ( options {greedy=false; } : . )*
                     loop57:
                     do {
                         int alt57=2;
@@ -9293,7 +9293,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt57) {
                     	case 1 :
-                    	    // InternalPerl.g:4862:98: .
+                    	    // InternalPerl.g:4908:98: .
                     	    {
                     	    matchAny(); 
 
@@ -9310,17 +9310,17 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:4862:106: '/' ( options {greedy=false; } : . )* '/' ( options {greedy=false; } : . )* '/'
+                    // InternalPerl.g:4908:106: '/' ( options {greedy=false; } : . )* '/' ( options {greedy=false; } : . )* '/'
                     {
                     match('/'); 
-                    // InternalPerl.g:4862:110: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4908:110: ( options {greedy=false; } : . )*
                     loop58:
                     do {
                         int alt58=2;
                         alt58 = dfa58.predict(input);
                         switch (alt58) {
                     	case 1 :
-                    	    // InternalPerl.g:4862:138: .
+                    	    // InternalPerl.g:4908:138: .
                     	    {
                     	    matchAny(); 
 
@@ -9333,7 +9333,7 @@ public class InternalPerlLexer extends Lexer {
                     } while (true);
 
                     match('/'); 
-                    // InternalPerl.g:4862:146: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4908:146: ( options {greedy=false; } : . )*
                     loop59:
                     do {
                         int alt59=2;
@@ -9349,7 +9349,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt59) {
                     	case 1 :
-                    	    // InternalPerl.g:4862:174: .
+                    	    // InternalPerl.g:4908:174: .
                     	    {
                     	    matchAny(); 
 
@@ -9384,12 +9384,12 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_REGEX_TRANSLITERATE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4864:26: ( 'tr' ( '|' ( options {greedy=false; } : . )* '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' ( options {greedy=false; } : . )* '/' ) )
-            // InternalPerl.g:4864:28: 'tr' ( '|' ( options {greedy=false; } : . )* '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' ( options {greedy=false; } : . )* '/' )
+            // InternalPerl.g:4910:26: ( 'tr' ( '|' ( options {greedy=false; } : . )* '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' ( options {greedy=false; } : . )* '/' ) )
+            // InternalPerl.g:4910:28: 'tr' ( '|' ( options {greedy=false; } : . )* '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' ( options {greedy=false; } : . )* '/' )
             {
             match("tr"); 
 
-            // InternalPerl.g:4864:33: ( '|' ( options {greedy=false; } : . )* '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' ( options {greedy=false; } : . )* '/' )
+            // InternalPerl.g:4910:33: ( '|' ( options {greedy=false; } : . )* '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' ( options {greedy=false; } : . )* '/' )
             int alt65=2;
             int LA65_0 = input.LA(1);
 
@@ -9407,17 +9407,17 @@ public class InternalPerlLexer extends Lexer {
             }
             switch (alt65) {
                 case 1 :
-                    // InternalPerl.g:4864:34: '|' ( options {greedy=false; } : . )* '|' ( options {greedy=false; } : . )* '|'
+                    // InternalPerl.g:4910:34: '|' ( options {greedy=false; } : . )* '|' ( options {greedy=false; } : . )* '|'
                     {
                     match('|'); 
-                    // InternalPerl.g:4864:38: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4910:38: ( options {greedy=false; } : . )*
                     loop61:
                     do {
                         int alt61=2;
                         alt61 = dfa61.predict(input);
                         switch (alt61) {
                     	case 1 :
-                    	    // InternalPerl.g:4864:66: .
+                    	    // InternalPerl.g:4910:66: .
                     	    {
                     	    matchAny(); 
 
@@ -9430,7 +9430,7 @@ public class InternalPerlLexer extends Lexer {
                     } while (true);
 
                     match('|'); 
-                    // InternalPerl.g:4864:74: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4910:74: ( options {greedy=false; } : . )*
                     loop62:
                     do {
                         int alt62=2;
@@ -9446,7 +9446,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt62) {
                     	case 1 :
-                    	    // InternalPerl.g:4864:102: .
+                    	    // InternalPerl.g:4910:102: .
                     	    {
                     	    matchAny(); 
 
@@ -9463,17 +9463,17 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:4864:110: '/' ( options {greedy=false; } : . )* '/' ( options {greedy=false; } : . )* '/'
+                    // InternalPerl.g:4910:110: '/' ( options {greedy=false; } : . )* '/' ( options {greedy=false; } : . )* '/'
                     {
                     match('/'); 
-                    // InternalPerl.g:4864:114: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4910:114: ( options {greedy=false; } : . )*
                     loop63:
                     do {
                         int alt63=2;
                         alt63 = dfa63.predict(input);
                         switch (alt63) {
                     	case 1 :
-                    	    // InternalPerl.g:4864:142: .
+                    	    // InternalPerl.g:4910:142: .
                     	    {
                     	    matchAny(); 
 
@@ -9486,7 +9486,7 @@ public class InternalPerlLexer extends Lexer {
                     } while (true);
 
                     match('/'); 
-                    // InternalPerl.g:4864:150: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4910:150: ( options {greedy=false; } : . )*
                     loop64:
                     do {
                         int alt64=2;
@@ -9502,7 +9502,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt64) {
                     	case 1 :
-                    	    // InternalPerl.g:4864:178: .
+                    	    // InternalPerl.g:4910:178: .
                     	    {
                     	    matchAny(); 
 
@@ -9537,11 +9537,11 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_REGEX_MATCH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4866:18: ( 'm' ( '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' ) )
-            // InternalPerl.g:4866:20: 'm' ( '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' )
+            // InternalPerl.g:4912:18: ( 'm' ( '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' ) )
+            // InternalPerl.g:4912:20: 'm' ( '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' )
             {
             match('m'); 
-            // InternalPerl.g:4866:24: ( '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' )
+            // InternalPerl.g:4912:24: ( '|' ( options {greedy=false; } : . )* '|' | '/' ( options {greedy=false; } : . )* '/' )
             int alt68=2;
             int LA68_0 = input.LA(1);
 
@@ -9559,10 +9559,10 @@ public class InternalPerlLexer extends Lexer {
             }
             switch (alt68) {
                 case 1 :
-                    // InternalPerl.g:4866:25: '|' ( options {greedy=false; } : . )* '|'
+                    // InternalPerl.g:4912:25: '|' ( options {greedy=false; } : . )* '|'
                     {
                     match('|'); 
-                    // InternalPerl.g:4866:29: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4912:29: ( options {greedy=false; } : . )*
                     loop66:
                     do {
                         int alt66=2;
@@ -9578,7 +9578,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt66) {
                     	case 1 :
-                    	    // InternalPerl.g:4866:57: .
+                    	    // InternalPerl.g:4912:57: .
                     	    {
                     	    matchAny(); 
 
@@ -9595,10 +9595,10 @@ public class InternalPerlLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:4866:65: '/' ( options {greedy=false; } : . )* '/'
+                    // InternalPerl.g:4912:65: '/' ( options {greedy=false; } : . )* '/'
                     {
                     match('/'); 
-                    // InternalPerl.g:4866:69: ( options {greedy=false; } : . )*
+                    // InternalPerl.g:4912:69: ( options {greedy=false; } : . )*
                     loop67:
                     do {
                         int alt67=2;
@@ -9614,7 +9614,7 @@ public class InternalPerlLexer extends Lexer {
 
                         switch (alt67) {
                     	case 1 :
-                    	    // InternalPerl.g:4866:97: .
+                    	    // InternalPerl.g:4912:97: .
                     	    {
                     	    matchAny(); 
 
@@ -9649,11 +9649,11 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_READLINE_QUOTE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4868:21: ( '<' ( RULE_ID | RULE_SYMBOL ) '>' )
-            // InternalPerl.g:4868:23: '<' ( RULE_ID | RULE_SYMBOL ) '>'
+            // InternalPerl.g:4914:21: ( '<' ( RULE_ID | RULE_SYMBOL ) '>' )
+            // InternalPerl.g:4914:23: '<' ( RULE_ID | RULE_SYMBOL ) '>'
             {
             match('<'); 
-            // InternalPerl.g:4868:27: ( RULE_ID | RULE_SYMBOL )
+            // InternalPerl.g:4914:27: ( RULE_ID | RULE_SYMBOL )
             int alt69=2;
             int LA69_0 = input.LA(1);
 
@@ -9671,14 +9671,14 @@ public class InternalPerlLexer extends Lexer {
             }
             switch (alt69) {
                 case 1 :
-                    // InternalPerl.g:4868:28: RULE_ID
+                    // InternalPerl.g:4914:28: RULE_ID
                     {
                     mRULE_ID(); 
 
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:4868:36: RULE_SYMBOL
+                    // InternalPerl.g:4914:36: RULE_SYMBOL
                     {
                     mRULE_SYMBOL(); 
 
@@ -9704,12 +9704,12 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_POD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4870:10: ( '=pod' ( options {greedy=false; } : . )* '=cut' )
-            // InternalPerl.g:4870:12: '=pod' ( options {greedy=false; } : . )* '=cut'
+            // InternalPerl.g:4916:10: ( '=pod' ( options {greedy=false; } : . )* '=cut' )
+            // InternalPerl.g:4916:12: '=pod' ( options {greedy=false; } : . )* '=cut'
             {
             match("=pod"); 
 
-            // InternalPerl.g:4870:19: ( options {greedy=false; } : . )*
+            // InternalPerl.g:4916:19: ( options {greedy=false; } : . )*
             loop70:
             do {
                 int alt70=2;
@@ -9752,7 +9752,7 @@ public class InternalPerlLexer extends Lexer {
 
                 switch (alt70) {
             	case 1 :
-            	    // InternalPerl.g:4870:47: .
+            	    // InternalPerl.g:4916:47: .
             	    {
             	    matchAny(); 
 
@@ -9782,12 +9782,12 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_DATA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4872:11: ( '__DATA__' ( RULE_ANY_OTHER )* EOF )
-            // InternalPerl.g:4872:13: '__DATA__' ( RULE_ANY_OTHER )* EOF
+            // InternalPerl.g:4918:11: ( '__DATA__' ( RULE_ANY_OTHER )* EOF )
+            // InternalPerl.g:4918:13: '__DATA__' ( RULE_ANY_OTHER )* EOF
             {
             match("__DATA__"); 
 
-            // InternalPerl.g:4872:24: ( RULE_ANY_OTHER )*
+            // InternalPerl.g:4918:24: ( RULE_ANY_OTHER )*
             loop71:
             do {
                 int alt71=2;
@@ -9800,7 +9800,7 @@ public class InternalPerlLexer extends Lexer {
 
                 switch (alt71) {
             	case 1 :
-            	    // InternalPerl.g:4872:24: RULE_ANY_OTHER
+            	    // InternalPerl.g:4918:24: RULE_ANY_OTHER
             	    {
             	    mRULE_ANY_OTHER(); 
 
@@ -9829,12 +9829,12 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_END;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4874:10: ( '__END__' ( RULE_ANY_OTHER )* EOF )
-            // InternalPerl.g:4874:12: '__END__' ( RULE_ANY_OTHER )* EOF
+            // InternalPerl.g:4920:10: ( '__END__' ( RULE_ANY_OTHER )* EOF )
+            // InternalPerl.g:4920:12: '__END__' ( RULE_ANY_OTHER )* EOF
             {
             match("__END__"); 
 
-            // InternalPerl.g:4874:22: ( RULE_ANY_OTHER )*
+            // InternalPerl.g:4920:22: ( RULE_ANY_OTHER )*
             loop72:
             do {
                 int alt72=2;
@@ -9847,7 +9847,7 @@ public class InternalPerlLexer extends Lexer {
 
                 switch (alt72) {
             	case 1 :
-            	    // InternalPerl.g:4874:22: RULE_ANY_OTHER
+            	    // InternalPerl.g:4920:22: RULE_ANY_OTHER
             	    {
             	    mRULE_ANY_OTHER(); 
 
@@ -9876,11 +9876,11 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4876:17: ( '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalPerl.g:4876:19: '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalPerl.g:4922:17: ( '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalPerl.g:4922:19: '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match('#'); 
-            // InternalPerl.g:4876:23: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalPerl.g:4922:23: (~ ( ( '\\n' | '\\r' ) ) )*
             loop73:
             do {
                 int alt73=2;
@@ -9893,7 +9893,7 @@ public class InternalPerlLexer extends Lexer {
 
                 switch (alt73) {
             	case 1 :
-            	    // InternalPerl.g:4876:23: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalPerl.g:4922:23: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -9913,7 +9913,7 @@ public class InternalPerlLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalPerl.g:4876:39: ( ( '\\r' )? '\\n' )?
+            // InternalPerl.g:4922:39: ( ( '\\r' )? '\\n' )?
             int alt75=2;
             int LA75_0 = input.LA(1);
 
@@ -9922,9 +9922,9 @@ public class InternalPerlLexer extends Lexer {
             }
             switch (alt75) {
                 case 1 :
-                    // InternalPerl.g:4876:40: ( '\\r' )? '\\n'
+                    // InternalPerl.g:4922:40: ( '\\r' )? '\\n'
                     {
-                    // InternalPerl.g:4876:40: ( '\\r' )?
+                    // InternalPerl.g:4922:40: ( '\\r' )?
                     int alt74=2;
                     int LA74_0 = input.LA(1);
 
@@ -9933,7 +9933,7 @@ public class InternalPerlLexer extends Lexer {
                     }
                     switch (alt74) {
                         case 1 :
-                            // InternalPerl.g:4876:40: '\\r'
+                            // InternalPerl.g:4922:40: '\\r'
                             {
                             match('\r'); 
 
@@ -9965,10 +9965,10 @@ public class InternalPerlLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPerl.g:4878:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalPerl.g:4878:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalPerl.g:4924:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalPerl.g:4924:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalPerl.g:4878:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalPerl.g:4924:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt76=0;
             loop76:
             do {
@@ -10020,8 +10020,8 @@ public class InternalPerlLexer extends Lexer {
     // $ANTLR start "RULE_ANY_OTHER"
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
-            // InternalPerl.g:4880:25: ( . )
-            // InternalPerl.g:4880:27: .
+            // InternalPerl.g:4926:25: ( . )
+            // InternalPerl.g:4926:27: .
             {
             matchAny(); 
 
@@ -12486,7 +12486,7 @@ public class InternalPerlLexer extends Lexer {
             this.transition = DFA56_transition;
         }
         public String getDescription() {
-            return "()* loopback of 4862:34: ( options {greedy=false; } : . )*";
+            return "()* loopback of 4908:34: ( options {greedy=false; } : . )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
@@ -12579,7 +12579,7 @@ public class InternalPerlLexer extends Lexer {
             this.transition = DFA58_transition;
         }
         public String getDescription() {
-            return "()* loopback of 4862:110: ( options {greedy=false; } : . )*";
+            return "()* loopback of 4908:110: ( options {greedy=false; } : . )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
@@ -12672,7 +12672,7 @@ public class InternalPerlLexer extends Lexer {
             this.transition = DFA61_transition;
         }
         public String getDescription() {
-            return "()* loopback of 4864:38: ( options {greedy=false; } : . )*";
+            return "()* loopback of 4910:38: ( options {greedy=false; } : . )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
@@ -12765,7 +12765,7 @@ public class InternalPerlLexer extends Lexer {
             this.transition = DFA63_transition;
         }
         public String getDescription() {
-            return "()* loopback of 4864:114: ( options {greedy=false; } : . )*";
+            return "()* loopback of 4910:114: ( options {greedy=false; } : . )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;

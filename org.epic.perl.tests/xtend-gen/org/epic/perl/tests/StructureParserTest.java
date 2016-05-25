@@ -11,11 +11,11 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.epic.perl.perl.BlockStructure;
 import org.epic.perl.perl.Element;
 import org.epic.perl.perl.PackageStatement;
 import org.epic.perl.perl.PerlDocument;
 import org.epic.perl.perl.QuoteToken;
-import org.epic.perl.perl.StatementBlock;
 import org.epic.perl.perl.StatementNode;
 import org.epic.perl.perl.SubStatement;
 import org.epic.perl.perl.UseInclude;
@@ -135,7 +135,7 @@ public class StructureParserTest {
     final SubStatement token = ((SubStatement) _head);
     String _name = token.getName();
     Assert.assertEquals("abc", _name);
-    StatementBlock _block = token.getBlock();
+    BlockStructure _block = token.getBlock();
     EList<StatementNode> _statements = _block.getStatements();
     int _size = _statements.size();
     Assert.assertEquals(0, _size);
@@ -167,7 +167,7 @@ public class StructureParserTest {
     final SubStatement token = ((SubStatement) _head);
     String _name = token.getName();
     Assert.assertEquals("someFunc", _name);
-    StatementBlock _block = token.getBlock();
+    BlockStructure _block = token.getBlock();
     Assert.assertNull(_block);
   }
   

@@ -67,16 +67,23 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class NodeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.Node");
-		private final RuleCall cStatementNodeParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cStatementNodeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cStructureNodeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Node:
 		//	StatementNode
-		//	//    | StructureNode
-		//;
+		//	| StructureNode;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//StatementNode | StructureNode
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
 		//StatementNode
-		public RuleCall getStatementNodeParserRuleCall() { return cStatementNodeParserRuleCall; }
+		public RuleCall getStatementNodeParserRuleCall_0() { return cStatementNodeParserRuleCall_0; }
+		
+		//StructureNode
+		public RuleCall getStructureNodeParserRuleCall_1() { return cStructureNodeParserRuleCall_1; }
 	}
 	public class StatementNodeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.StatementNode");
@@ -168,6 +175,26 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//';'
 		public Keyword getSemicolonKeyword_1() { return cSemicolonKeyword_1; }
 	}
+	public class StructureNodeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.StructureNode");
+		private final RuleCall cBlockStructureParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//StructureNode:
+		//	BlockStructure
+		//	//    | SubscriptStructure
+		//	//    | ConstructorStructure
+		//	//    | ConditionStructure
+		//	//    | ListStructure
+		//	//    | ForStructure
+		//	//    | GivenStructure
+		//	//    | WhenStructure
+		//	//    | UnknownStructure
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//BlockStructure
+		public RuleCall getBlockStructureParserRuleCall() { return cBlockStructureParserRuleCall; }
+	}
 	public class PackageStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.PackageStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -178,17 +205,6 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cVersionAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cVersionVERSIONTerminalRuleCall_3_0 = (RuleCall)cVersionAssignment_3.eContents().get(0);
 		
-		////StructureNode:
-		////    BlockStructure
-		////    | SubscriptStructure
-		////    | ConstructorStructure
-		////    | ConditionStructure
-		////    | ListStructure
-		////    | ForStructure
-		////    | GivenStructure
-		////    | WhenStructure
-		////    | UnknownStructure
-		////;
 		////ExpressionStatement:
 		////    VariableExpression
 		////;
@@ -337,14 +353,14 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
 		private final Keyword cSemicolonKeyword_4_0 = (Keyword)cAlternatives_4.eContents().get(0);
 		private final Assignment cBlockAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final RuleCall cBlockStatementBlockParserRuleCall_4_1_0 = (RuleCall)cBlockAssignment_4_1.eContents().get(0);
+		private final RuleCall cBlockBlockStructureParserRuleCall_4_1_0 = (RuleCall)cBlockAssignment_4_1.eContents().get(0);
 		
 		//SubStatement:
 		//	{SubStatement}
-		//	'sub' name=ID prototype=Prototype? (';' | block=StatementBlock);
+		//	'sub' name=ID prototype=Prototype? (';' | block=BlockStructure);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SubStatement} 'sub' name=ID prototype=Prototype? (';' | block=StatementBlock)
+		//{SubStatement} 'sub' name=ID prototype=Prototype? (';' | block=BlockStructure)
 		public Group getGroup() { return cGroup; }
 		
 		//{SubStatement}
@@ -365,38 +381,38 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//Prototype
 		public RuleCall getPrototypePrototypeParserRuleCall_3_0() { return cPrototypePrototypeParserRuleCall_3_0; }
 		
-		//(';' | block=StatementBlock)
+		//(';' | block=BlockStructure)
 		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_4_0() { return cSemicolonKeyword_4_0; }
 		
-		//block=StatementBlock
+		//block=BlockStructure
 		public Assignment getBlockAssignment_4_1() { return cBlockAssignment_4_1; }
 		
-		//StatementBlock
-		public RuleCall getBlockStatementBlockParserRuleCall_4_1_0() { return cBlockStatementBlockParserRuleCall_4_1_0; }
+		//BlockStructure
+		public RuleCall getBlockBlockStructureParserRuleCall_4_1_0() { return cBlockBlockStructureParserRuleCall_4_1_0; }
 	}
-	public class StatementBlockElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.StatementBlock");
+	public class BlockStructureElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.BlockStructure");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cStatementBlockAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cBlockStructureAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cStatementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cStatementsStatementNodeParserRuleCall_2_0 = (RuleCall)cStatementsAssignment_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//StatementBlock:
-		//	{StatementBlock} '{'
+		//BlockStructure:
+		//	{BlockStructure} '{'
 		//	statements+=StatementNode*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{StatementBlock} '{' statements+=StatementNode* '}'
+		//{BlockStructure} '{' statements+=StatementNode* '}'
 		public Group getGroup() { return cGroup; }
 		
-		//{StatementBlock}
-		public Action getStatementBlockAction_0() { return cStatementBlockAction_0; }
+		//{BlockStructure}
+		public Action getBlockStructureAction_0() { return cBlockStructureAction_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
@@ -634,41 +650,6 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		//END
 		public RuleCall getContentENDTerminalRuleCall_10_1_0() { return cContentENDTerminalRuleCall_10_1_0; }
 	}
-	public class RegexTokenElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.RegexToken");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cRegexTokenAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cContentAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cContentAlternatives_1_0 = (Alternatives)cContentAssignment_1.eContents().get(0);
-		private final RuleCall cContentREGEX_SUBSTITUTETerminalRuleCall_1_0_0 = (RuleCall)cContentAlternatives_1_0.eContents().get(0);
-		private final RuleCall cContentREGEX_TRANSLITERATETerminalRuleCall_1_0_1 = (RuleCall)cContentAlternatives_1_0.eContents().get(1);
-		private final RuleCall cContentREGEX_MATCHTerminalRuleCall_1_0_2 = (RuleCall)cContentAlternatives_1_0.eContents().get(2);
-		
-		//RegexToken:
-		//	{RegexToken} content=(REGEX_SUBSTITUTE | REGEX_TRANSLITERATE | REGEX_MATCH);
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{RegexToken} content=(REGEX_SUBSTITUTE | REGEX_TRANSLITERATE | REGEX_MATCH)
-		public Group getGroup() { return cGroup; }
-		
-		//{RegexToken}
-		public Action getRegexTokenAction_0() { return cRegexTokenAction_0; }
-		
-		//content=(REGEX_SUBSTITUTE | REGEX_TRANSLITERATE | REGEX_MATCH)
-		public Assignment getContentAssignment_1() { return cContentAssignment_1; }
-		
-		//(REGEX_SUBSTITUTE | REGEX_TRANSLITERATE | REGEX_MATCH)
-		public Alternatives getContentAlternatives_1_0() { return cContentAlternatives_1_0; }
-		
-		//REGEX_SUBSTITUTE
-		public RuleCall getContentREGEX_SUBSTITUTETerminalRuleCall_1_0_0() { return cContentREGEX_SUBSTITUTETerminalRuleCall_1_0_0; }
-		
-		//REGEX_TRANSLITERATE
-		public RuleCall getContentREGEX_TRANSLITERATETerminalRuleCall_1_0_1() { return cContentREGEX_TRANSLITERATETerminalRuleCall_1_0_1; }
-		
-		//REGEX_MATCH
-		public RuleCall getContentREGEX_MATCHTerminalRuleCall_1_0_2() { return cContentREGEX_MATCHTerminalRuleCall_1_0_2; }
-	}
 	public class QuoteTokenElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.QuoteToken");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -703,6 +684,41 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//LITERAL
 		public RuleCall getContentLITERALTerminalRuleCall_1_0_2() { return cContentLITERALTerminalRuleCall_1_0_2; }
+	}
+	public class RegexTokenElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.RegexToken");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cRegexTokenAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cContentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cContentAlternatives_1_0 = (Alternatives)cContentAssignment_1.eContents().get(0);
+		private final RuleCall cContentREGEX_SUBSTITUTETerminalRuleCall_1_0_0 = (RuleCall)cContentAlternatives_1_0.eContents().get(0);
+		private final RuleCall cContentREGEX_TRANSLITERATETerminalRuleCall_1_0_1 = (RuleCall)cContentAlternatives_1_0.eContents().get(1);
+		private final RuleCall cContentREGEX_MATCHTerminalRuleCall_1_0_2 = (RuleCall)cContentAlternatives_1_0.eContents().get(2);
+		
+		//RegexToken:
+		//	{RegexToken} content=(REGEX_SUBSTITUTE | REGEX_TRANSLITERATE | REGEX_MATCH);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{RegexToken} content=(REGEX_SUBSTITUTE | REGEX_TRANSLITERATE | REGEX_MATCH)
+		public Group getGroup() { return cGroup; }
+		
+		//{RegexToken}
+		public Action getRegexTokenAction_0() { return cRegexTokenAction_0; }
+		
+		//content=(REGEX_SUBSTITUTE | REGEX_TRANSLITERATE | REGEX_MATCH)
+		public Assignment getContentAssignment_1() { return cContentAssignment_1; }
+		
+		//(REGEX_SUBSTITUTE | REGEX_TRANSLITERATE | REGEX_MATCH)
+		public Alternatives getContentAlternatives_1_0() { return cContentAlternatives_1_0; }
+		
+		//REGEX_SUBSTITUTE
+		public RuleCall getContentREGEX_SUBSTITUTETerminalRuleCall_1_0_0() { return cContentREGEX_SUBSTITUTETerminalRuleCall_1_0_0; }
+		
+		//REGEX_TRANSLITERATE
+		public RuleCall getContentREGEX_TRANSLITERATETerminalRuleCall_1_0_1() { return cContentREGEX_TRANSLITERATETerminalRuleCall_1_0_1; }
+		
+		//REGEX_MATCH
+		public RuleCall getContentREGEX_MATCHTerminalRuleCall_1_0_2() { return cContentREGEX_MATCHTerminalRuleCall_1_0_2; }
 	}
 	public class QuoteLikeTokenElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.epic.perl.Perl.QuoteLikeToken");
@@ -2177,16 +2193,17 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	private final StatementNodeElements pStatementNode;
 	private final BlockStatementElements pBlockStatement;
 	private final ExpressionStatementElements pExpressionStatement;
+	private final StructureNodeElements pStructureNode;
 	private final PackageStatementElements pPackageStatement;
 	private final IncludeStatementElements pIncludeStatement;
 	private final RequireIncludeElements pRequireInclude;
 	private final UseIncludeElements pUseInclude;
 	private final SubStatementElements pSubStatement;
-	private final StatementBlockElements pStatementBlock;
+	private final BlockStructureElements pBlockStructure;
 	private final PrototypeElements pPrototype;
 	private final TokenElements pToken;
-	private final RegexTokenElements pRegexToken;
 	private final QuoteTokenElements pQuoteToken;
+	private final RegexTokenElements pRegexToken;
 	private final QuoteLikeTokenElements pQuoteLikeToken;
 	private final WordElements pWord;
 	private final KeywordElements pKeyword;
@@ -2228,16 +2245,17 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pStatementNode = new StatementNodeElements();
 		this.pBlockStatement = new BlockStatementElements();
 		this.pExpressionStatement = new ExpressionStatementElements();
+		this.pStructureNode = new StructureNodeElements();
 		this.pPackageStatement = new PackageStatementElements();
 		this.pIncludeStatement = new IncludeStatementElements();
 		this.pRequireInclude = new RequireIncludeElements();
 		this.pUseInclude = new UseIncludeElements();
 		this.pSubStatement = new SubStatementElements();
-		this.pStatementBlock = new StatementBlockElements();
+		this.pBlockStructure = new BlockStructureElements();
 		this.pPrototype = new PrototypeElements();
 		this.pToken = new TokenElements();
-		this.pRegexToken = new RegexTokenElements();
 		this.pQuoteToken = new QuoteTokenElements();
+		this.pRegexToken = new RegexTokenElements();
 		this.pQuoteLikeToken = new QuoteLikeTokenElements();
 		this.pWord = new WordElements();
 		this.pKeyword = new KeywordElements();
@@ -2315,8 +2333,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Node:
 	//	StatementNode
-	//	//    | StructureNode
-	//;
+	//	| StructureNode;
 	public NodeElements getNodeAccess() {
 		return pNode;
 	}
@@ -2368,17 +2385,25 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		return getExpressionStatementAccess().getRule();
 	}
 	
-	////StructureNode:
-	////    BlockStructure
-	////    | SubscriptStructure
-	////    | ConstructorStructure
-	////    | ConditionStructure
-	////    | ListStructure
-	////    | ForStructure
-	////    | GivenStructure
-	////    | WhenStructure
-	////    | UnknownStructure
-	////;
+	//StructureNode:
+	//	BlockStructure
+	//	//    | SubscriptStructure
+	//	//    | ConstructorStructure
+	//	//    | ConditionStructure
+	//	//    | ListStructure
+	//	//    | ForStructure
+	//	//    | GivenStructure
+	//	//    | WhenStructure
+	//	//    | UnknownStructure
+	//;
+	public StructureNodeElements getStructureNodeAccess() {
+		return pStructureNode;
+	}
+	
+	public ParserRule getStructureNodeRule() {
+		return getStructureNodeAccess().getRule();
+	}
+	
 	////ExpressionStatement:
 	////    VariableExpression
 	////;
@@ -2427,7 +2452,7 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//SubStatement:
 	//	{SubStatement}
-	//	'sub' name=ID prototype=Prototype? (';' | block=StatementBlock);
+	//	'sub' name=ID prototype=Prototype? (';' | block=BlockStructure);
 	public SubStatementElements getSubStatementAccess() {
 		return pSubStatement;
 	}
@@ -2436,16 +2461,16 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		return getSubStatementAccess().getRule();
 	}
 	
-	//StatementBlock:
-	//	{StatementBlock} '{'
+	//BlockStructure:
+	//	{BlockStructure} '{'
 	//	statements+=StatementNode*
 	//	'}';
-	public StatementBlockElements getStatementBlockAccess() {
-		return pStatementBlock;
+	public BlockStructureElements getBlockStructureAccess() {
+		return pBlockStructure;
 	}
 	
-	public ParserRule getStatementBlockRule() {
-		return getStatementBlockAccess().getRule();
+	public ParserRule getBlockStructureRule() {
+		return getBlockStructureAccess().getRule();
 	}
 	
 	//Prototype:
@@ -2490,16 +2515,6 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 		return getTokenAccess().getRule();
 	}
 	
-	//RegexToken:
-	//	{RegexToken} content=(REGEX_SUBSTITUTE | REGEX_TRANSLITERATE | REGEX_MATCH);
-	public RegexTokenElements getRegexTokenAccess() {
-		return pRegexToken;
-	}
-	
-	public ParserRule getRegexTokenRule() {
-		return getRegexTokenAccess().getRule();
-	}
-	
 	//QuoteToken:
 	//	{QuoteToken} content=(STRING | INTERPOLATE | LITERAL);
 	public QuoteTokenElements getQuoteTokenAccess() {
@@ -2508,6 +2523,16 @@ public class PerlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getQuoteTokenRule() {
 		return getQuoteTokenAccess().getRule();
+	}
+	
+	//RegexToken:
+	//	{RegexToken} content=(REGEX_SUBSTITUTE | REGEX_TRANSLITERATE | REGEX_MATCH);
+	public RegexTokenElements getRegexTokenAccess() {
+		return pRegexToken;
+	}
+	
+	public ParserRule getRegexTokenRule() {
+		return getRegexTokenAccess().getRule();
 	}
 	
 	//QuoteLikeToken:

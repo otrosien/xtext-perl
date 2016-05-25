@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalPerlParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_REGEX_SUBSTITUTE", "RULE_REGEX_TRANSLITERATE", "RULE_REGEX_MATCH", "RULE_STRING", "RULE_INTERPOLATE", "RULE_LITERAL", "RULE_ID", "RULE_VERSION", "RULE_WORDS_QUOTE_LIKE", "RULE_POD", "RULE_NUMBER", "RULE_SYMBOL", "RULE_DATA", "RULE_END", "RULE_BACKTICK_STRING", "RULE_COMMAND_QUOTE_LIKE", "RULE_REGEX_QUOTE", "RULE_READLINE_QUOTE", "RULE_HEX", "RULE_BIN", "RULE_INT", "RULE_WS", "RULE_ANY_OTHER", "RULE_SL_COMMENT", "';'", "'$'", "'%'", "'@'", "'&'", "'abs'", "'accept'", "'alarm'", "'atan2'", "'bind'", "'binmode'", "'bless'", "'break'", "'caller'", "'chdir'", "'chmod'", "'chomp'", "'chop'", "'chown'", "'chr'", "'chroot'", "'close'", "'closedir'", "'connect'", "'continue'", "'cos'", "'crypt'", "'dbmclose'", "'dbmopen'", "'default'", "'defined'", "'delete'", "'die'", "'do'", "'dump'", "'each'", "'else'", "'elsif'", "'endgrent'", "'endhostent'", "'endnetent'", "'endprotoent'", "'endpwent'", "'endservent'", "'eof'", "'eval'", "'evalbytes'", "'exec'", "'exists'", "'exit'", "'exp'", "'fc'", "'fcntl'", "'fileno'", "'flock'", "'for'", "'foreach'", "'fork'", "'format'", "'formline'", "'getc'", "'getgrent'", "'getgrgid'", "'getgrnam'", "'gethostbyaddr'", "'gethostbyname'", "'gethostent'", "'getlogin'", "'getnetbyaddr'", "'getnetbyname'", "'getnetent'", "'getpeername'", "'getpgrp'", "'getppid'", "'getpriority'", "'getprotobyname'", "'getprotobynumber'", "'getprotoent'", "'getpwent'", "'getpwnam'", "'getpwuid'", "'getservbyname'", "'getservbyport'", "'getservent'", "'getsockname'", "'getsockopt'", "'given'", "'glob'", "'gmtime'", "'goto'", "'grep'", "'hex'", "'if'", "'index'", "'int'", "'ioctl'", "'join'", "'keys'", "'kill'", "'last'", "'lc'", "'lcfirst'", "'length'", "'link'", "'listen'", "'local'", "'localtime'", "'lock'", "'log'", "'lstat'", "'map'", "'mkdir'", "'msgctl'", "'msgget'", "'msgrcv'", "'msgsnd'", "'my'", "'next'", "'no'", "'oct'", "'open'", "'opendir'", "'ord'", "'our'", "'pack'", "'package'", "'pipe'", "'pop'", "'pos'", "'print'", "'printf'", "'prototype'", "'push'", "'quotemeta'", "'rand'", "'read'", "'readdir'", "'readline'", "'readlink'", "'readpipe'", "'recv'", "'redo'", "'ref'", "'rename'", "'require'", "'reset'", "'return'", "'reverse'", "'rewinddir'", "'rindex'", "'rmdir'", "'say'", "'scalar'", "'seek'", "'seekdir'", "'select'", "'semctl'", "'semget'", "'semop'", "'send'", "'setgrent'", "'sethostent'", "'setnetent'", "'setpgrp'", "'setpriority'", "'setprotoent'", "'setpwent'", "'setservent'", "'setsockopt'", "'shift'", "'shmctl'", "'shmget'", "'shmread'", "'shmwrite'", "'shutdown'", "'sin'", "'sleep'", "'socket'", "'socketpair'", "'sort'", "'splice'", "'split'", "'sprintf'", "'sqrt'", "'srand'", "'stat'", "'state'", "'study'", "'sub'", "'substr'", "'symlink'", "'syscall'", "'sysopen'", "'sysread'", "'sysseek'", "'system'", "'syswrite'", "'tell'", "'telldir'", "'tie'", "'tied'", "'time'", "'times'", "'tr'", "'truncate'", "'uc'", "'ucfirst'", "'umask'", "'undef'", "'unless'", "'unlink'", "'unpack'", "'unshift'", "'untie'", "'until'", "'use'", "'utime'", "'values'", "'vec'", "'wait'", "'waitpid'", "'wantarray'", "'warn'", "'when'", "'while'", "'write'", "'y'", "'++'", "'--'", "'**'", "'!'", "'~'", "'+'", "'-'", "'=~'", "'!~'", "'*'", "'/'", "'x'", "'<<'", "'>>'", "'lt'", "'gt'", "'le'", "'ge'", "'cmp'", "'~~'", "'=='", "'!='", "'..'", "'...'", "','", "'|'", "'^'", "'&&'", "'||'", "'//'", "'?'", "':'", "'**='", "'+='", "'-='", "'.='", "'*='", "'/='", "'%='", "'x='", "'&='", "'|='", "'^='", "'<<='", "'>>='", "'&&='", "'||='", "'//='", "'<'", "'>'", "'<='", "'>='", "'<>'", "'=>'", "'->'", "'and'", "'or'", "'xor'", "'not'", "'eq'", "'ne'", "'-r'", "'-w'", "'-x'", "'-o'", "'-R'", "'-W'", "'-X'", "'-O'", "'-e'", "'-z'", "'-s'", "'-f'", "'-d'", "'-l'", "'-p'", "'-S'", "'-b'", "'-c'", "'-t'", "'-u'", "'-g'", "'-k'", "'-T'", "'-B'", "'-M'", "'-A'", "'-C'", "'{'", "'}'", "'('", "')'", "'<=>'", "'.'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_INTERPOLATE", "RULE_LITERAL", "RULE_REGEX_SUBSTITUTE", "RULE_REGEX_TRANSLITERATE", "RULE_REGEX_MATCH", "RULE_ID", "RULE_VERSION", "RULE_WORDS_QUOTE_LIKE", "RULE_POD", "RULE_NUMBER", "RULE_SYMBOL", "RULE_DATA", "RULE_END", "RULE_BACKTICK_STRING", "RULE_COMMAND_QUOTE_LIKE", "RULE_REGEX_QUOTE", "RULE_READLINE_QUOTE", "RULE_HEX", "RULE_BIN", "RULE_INT", "RULE_WS", "RULE_ANY_OTHER", "RULE_SL_COMMENT", "';'", "'$'", "'%'", "'@'", "'&'", "'abs'", "'accept'", "'alarm'", "'atan2'", "'bind'", "'binmode'", "'bless'", "'break'", "'caller'", "'chdir'", "'chmod'", "'chomp'", "'chop'", "'chown'", "'chr'", "'chroot'", "'close'", "'closedir'", "'connect'", "'continue'", "'cos'", "'crypt'", "'dbmclose'", "'dbmopen'", "'default'", "'defined'", "'delete'", "'die'", "'do'", "'dump'", "'each'", "'else'", "'elsif'", "'endgrent'", "'endhostent'", "'endnetent'", "'endprotoent'", "'endpwent'", "'endservent'", "'eof'", "'eval'", "'evalbytes'", "'exec'", "'exists'", "'exit'", "'exp'", "'fc'", "'fcntl'", "'fileno'", "'flock'", "'for'", "'foreach'", "'fork'", "'format'", "'formline'", "'getc'", "'getgrent'", "'getgrgid'", "'getgrnam'", "'gethostbyaddr'", "'gethostbyname'", "'gethostent'", "'getlogin'", "'getnetbyaddr'", "'getnetbyname'", "'getnetent'", "'getpeername'", "'getpgrp'", "'getppid'", "'getpriority'", "'getprotobyname'", "'getprotobynumber'", "'getprotoent'", "'getpwent'", "'getpwnam'", "'getpwuid'", "'getservbyname'", "'getservbyport'", "'getservent'", "'getsockname'", "'getsockopt'", "'given'", "'glob'", "'gmtime'", "'goto'", "'grep'", "'hex'", "'if'", "'index'", "'int'", "'ioctl'", "'join'", "'keys'", "'kill'", "'last'", "'lc'", "'lcfirst'", "'length'", "'link'", "'listen'", "'local'", "'localtime'", "'lock'", "'log'", "'lstat'", "'map'", "'mkdir'", "'msgctl'", "'msgget'", "'msgrcv'", "'msgsnd'", "'my'", "'next'", "'no'", "'oct'", "'open'", "'opendir'", "'ord'", "'our'", "'pack'", "'package'", "'pipe'", "'pop'", "'pos'", "'print'", "'printf'", "'prototype'", "'push'", "'quotemeta'", "'rand'", "'read'", "'readdir'", "'readline'", "'readlink'", "'readpipe'", "'recv'", "'redo'", "'ref'", "'rename'", "'require'", "'reset'", "'return'", "'reverse'", "'rewinddir'", "'rindex'", "'rmdir'", "'say'", "'scalar'", "'seek'", "'seekdir'", "'select'", "'semctl'", "'semget'", "'semop'", "'send'", "'setgrent'", "'sethostent'", "'setnetent'", "'setpgrp'", "'setpriority'", "'setprotoent'", "'setpwent'", "'setservent'", "'setsockopt'", "'shift'", "'shmctl'", "'shmget'", "'shmread'", "'shmwrite'", "'shutdown'", "'sin'", "'sleep'", "'socket'", "'socketpair'", "'sort'", "'splice'", "'split'", "'sprintf'", "'sqrt'", "'srand'", "'stat'", "'state'", "'study'", "'sub'", "'substr'", "'symlink'", "'syscall'", "'sysopen'", "'sysread'", "'sysseek'", "'system'", "'syswrite'", "'tell'", "'telldir'", "'tie'", "'tied'", "'time'", "'times'", "'tr'", "'truncate'", "'uc'", "'ucfirst'", "'umask'", "'undef'", "'unless'", "'unlink'", "'unpack'", "'unshift'", "'untie'", "'until'", "'use'", "'utime'", "'values'", "'vec'", "'wait'", "'waitpid'", "'wantarray'", "'warn'", "'when'", "'while'", "'write'", "'y'", "'++'", "'--'", "'**'", "'!'", "'~'", "'+'", "'-'", "'=~'", "'!~'", "'*'", "'/'", "'x'", "'<<'", "'>>'", "'lt'", "'gt'", "'le'", "'ge'", "'cmp'", "'~~'", "'=='", "'!='", "'..'", "'...'", "','", "'|'", "'^'", "'&&'", "'||'", "'//'", "'?'", "':'", "'**='", "'+='", "'-='", "'.='", "'*='", "'/='", "'%='", "'x='", "'&='", "'|='", "'^='", "'<<='", "'>>='", "'&&='", "'||='", "'//='", "'<'", "'>'", "'<='", "'>='", "'<>'", "'=>'", "'->'", "'and'", "'or'", "'xor'", "'not'", "'eq'", "'ne'", "'-r'", "'-w'", "'-x'", "'-o'", "'-R'", "'-W'", "'-X'", "'-O'", "'-e'", "'-z'", "'-s'", "'-f'", "'-d'", "'-l'", "'-p'", "'-S'", "'-b'", "'-c'", "'-t'", "'-u'", "'-g'", "'-k'", "'-T'", "'-B'", "'-M'", "'-A'", "'-C'", "'{'", "'}'", "'('", "')'", "'<=>'", "'.'"
     };
     public static final int T__144=144;
     public static final int T__265=265;
@@ -143,7 +143,7 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
     public static final int T__152=152;
     public static final int T__273=273;
     public static final int T__270=270;
-    public static final int RULE_REGEX_TRANSLITERATE=5;
+    public static final int RULE_REGEX_TRANSLITERATE=8;
     public static final int T__48=48;
     public static final int T__49=49;
     public static final int T__44=44;
@@ -178,7 +178,7 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
     public static final int T__219=219;
     public static final int T__214=214;
     public static final int T__335=335;
-    public static final int RULE_REGEX_SUBSTITUTE=4;
+    public static final int RULE_REGEX_SUBSTITUTE=7;
     public static final int T__213=213;
     public static final int T__334=334;
     public static final int T__216=216;
@@ -264,10 +264,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
     public static final int T__300=300;
     public static final int RULE_HEX=22;
     public static final int RULE_VERSION=11;
-    public static final int RULE_LITERAL=9;
+    public static final int RULE_LITERAL=6;
     public static final int RULE_BIN=23;
-    public static final int RULE_REGEX_MATCH=6;
-    public static final int RULE_INTERPOLATE=8;
+    public static final int RULE_REGEX_MATCH=9;
+    public static final int RULE_INTERPOLATE=5;
     public static final int T__320=320;
     public static final int T__201=201;
     public static final int T__322=322;
@@ -338,7 +338,7 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
     public static final int T__70=70;
     public static final int T__71=71;
     public static final int T__72=72;
-    public static final int RULE_STRING=7;
+    public static final int RULE_STRING=4;
     public static final int T__77=77;
     public static final int T__78=78;
     public static final int T__79=79;
@@ -591,25 +591,31 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleNode"
-    // InternalPerl.g:112:1: ruleNode : ( ruleStatementNode ) ;
+    // InternalPerl.g:112:1: ruleNode : ( ( rule__Node__Alternatives ) ) ;
     public final void ruleNode() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:116:2: ( ( ruleStatementNode ) )
-            // InternalPerl.g:117:2: ( ruleStatementNode )
+            // InternalPerl.g:116:2: ( ( ( rule__Node__Alternatives ) ) )
+            // InternalPerl.g:117:2: ( ( rule__Node__Alternatives ) )
             {
-            // InternalPerl.g:117:2: ( ruleStatementNode )
-            // InternalPerl.g:118:3: ruleStatementNode
+            // InternalPerl.g:117:2: ( ( rule__Node__Alternatives ) )
+            // InternalPerl.g:118:3: ( rule__Node__Alternatives )
             {
-             before(grammarAccess.getNodeAccess().getStatementNodeParserRuleCall()); 
+             before(grammarAccess.getNodeAccess().getAlternatives()); 
+            // InternalPerl.g:119:3: ( rule__Node__Alternatives )
+            // InternalPerl.g:119:4: rule__Node__Alternatives
+            {
             pushFollow(FOLLOW_2);
-            ruleStatementNode();
+            rule__Node__Alternatives();
 
             state._fsp--;
 
-             after(grammarAccess.getNodeAccess().getStatementNodeParserRuleCall()); 
+
+            }
+
+             after(grammarAccess.getNodeAccess().getAlternatives()); 
 
             }
 
@@ -856,12 +862,83 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleExpressionStatement"
 
 
+    // $ANTLR start "entryRuleStructureNode"
+    // InternalPerl.g:203:1: entryRuleStructureNode : ruleStructureNode EOF ;
+    public final void entryRuleStructureNode() throws RecognitionException {
+        try {
+            // InternalPerl.g:204:1: ( ruleStructureNode EOF )
+            // InternalPerl.g:205:1: ruleStructureNode EOF
+            {
+             before(grammarAccess.getStructureNodeRule()); 
+            pushFollow(FOLLOW_1);
+            ruleStructureNode();
+
+            state._fsp--;
+
+             after(grammarAccess.getStructureNodeRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleStructureNode"
+
+
+    // $ANTLR start "ruleStructureNode"
+    // InternalPerl.g:212:1: ruleStructureNode : ( ruleBlockStructure ) ;
+    public final void ruleStructureNode() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPerl.g:216:2: ( ( ruleBlockStructure ) )
+            // InternalPerl.g:217:2: ( ruleBlockStructure )
+            {
+            // InternalPerl.g:217:2: ( ruleBlockStructure )
+            // InternalPerl.g:218:3: ruleBlockStructure
+            {
+             before(grammarAccess.getStructureNodeAccess().getBlockStructureParserRuleCall()); 
+            pushFollow(FOLLOW_2);
+            ruleBlockStructure();
+
+            state._fsp--;
+
+             after(grammarAccess.getStructureNodeAccess().getBlockStructureParserRuleCall()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleStructureNode"
+
+
     // $ANTLR start "entryRulePackageStatement"
-    // InternalPerl.g:203:1: entryRulePackageStatement : rulePackageStatement EOF ;
+    // InternalPerl.g:228:1: entryRulePackageStatement : rulePackageStatement EOF ;
     public final void entryRulePackageStatement() throws RecognitionException {
         try {
-            // InternalPerl.g:204:1: ( rulePackageStatement EOF )
-            // InternalPerl.g:205:1: rulePackageStatement EOF
+            // InternalPerl.g:229:1: ( rulePackageStatement EOF )
+            // InternalPerl.g:230:1: rulePackageStatement EOF
             {
              before(grammarAccess.getPackageStatementRule()); 
             pushFollow(FOLLOW_1);
@@ -887,21 +964,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rulePackageStatement"
-    // InternalPerl.g:212:1: rulePackageStatement : ( ( rule__PackageStatement__Group__0 ) ) ;
+    // InternalPerl.g:237:1: rulePackageStatement : ( ( rule__PackageStatement__Group__0 ) ) ;
     public final void rulePackageStatement() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:216:2: ( ( ( rule__PackageStatement__Group__0 ) ) )
-            // InternalPerl.g:217:2: ( ( rule__PackageStatement__Group__0 ) )
+            // InternalPerl.g:241:2: ( ( ( rule__PackageStatement__Group__0 ) ) )
+            // InternalPerl.g:242:2: ( ( rule__PackageStatement__Group__0 ) )
             {
-            // InternalPerl.g:217:2: ( ( rule__PackageStatement__Group__0 ) )
-            // InternalPerl.g:218:3: ( rule__PackageStatement__Group__0 )
+            // InternalPerl.g:242:2: ( ( rule__PackageStatement__Group__0 ) )
+            // InternalPerl.g:243:3: ( rule__PackageStatement__Group__0 )
             {
              before(grammarAccess.getPackageStatementAccess().getGroup()); 
-            // InternalPerl.g:219:3: ( rule__PackageStatement__Group__0 )
-            // InternalPerl.g:219:4: rule__PackageStatement__Group__0
+            // InternalPerl.g:244:3: ( rule__PackageStatement__Group__0 )
+            // InternalPerl.g:244:4: rule__PackageStatement__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__PackageStatement__Group__0();
@@ -934,11 +1011,11 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleIncludeStatement"
-    // InternalPerl.g:228:1: entryRuleIncludeStatement : ruleIncludeStatement EOF ;
+    // InternalPerl.g:253:1: entryRuleIncludeStatement : ruleIncludeStatement EOF ;
     public final void entryRuleIncludeStatement() throws RecognitionException {
         try {
-            // InternalPerl.g:229:1: ( ruleIncludeStatement EOF )
-            // InternalPerl.g:230:1: ruleIncludeStatement EOF
+            // InternalPerl.g:254:1: ( ruleIncludeStatement EOF )
+            // InternalPerl.g:255:1: ruleIncludeStatement EOF
             {
              before(grammarAccess.getIncludeStatementRule()); 
             pushFollow(FOLLOW_1);
@@ -964,21 +1041,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleIncludeStatement"
-    // InternalPerl.g:237:1: ruleIncludeStatement : ( ( rule__IncludeStatement__Alternatives ) ) ;
+    // InternalPerl.g:262:1: ruleIncludeStatement : ( ( rule__IncludeStatement__Alternatives ) ) ;
     public final void ruleIncludeStatement() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:241:2: ( ( ( rule__IncludeStatement__Alternatives ) ) )
-            // InternalPerl.g:242:2: ( ( rule__IncludeStatement__Alternatives ) )
+            // InternalPerl.g:266:2: ( ( ( rule__IncludeStatement__Alternatives ) ) )
+            // InternalPerl.g:267:2: ( ( rule__IncludeStatement__Alternatives ) )
             {
-            // InternalPerl.g:242:2: ( ( rule__IncludeStatement__Alternatives ) )
-            // InternalPerl.g:243:3: ( rule__IncludeStatement__Alternatives )
+            // InternalPerl.g:267:2: ( ( rule__IncludeStatement__Alternatives ) )
+            // InternalPerl.g:268:3: ( rule__IncludeStatement__Alternatives )
             {
              before(grammarAccess.getIncludeStatementAccess().getAlternatives()); 
-            // InternalPerl.g:244:3: ( rule__IncludeStatement__Alternatives )
-            // InternalPerl.g:244:4: rule__IncludeStatement__Alternatives
+            // InternalPerl.g:269:3: ( rule__IncludeStatement__Alternatives )
+            // InternalPerl.g:269:4: rule__IncludeStatement__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__IncludeStatement__Alternatives();
@@ -1011,11 +1088,11 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleRequireInclude"
-    // InternalPerl.g:253:1: entryRuleRequireInclude : ruleRequireInclude EOF ;
+    // InternalPerl.g:278:1: entryRuleRequireInclude : ruleRequireInclude EOF ;
     public final void entryRuleRequireInclude() throws RecognitionException {
         try {
-            // InternalPerl.g:254:1: ( ruleRequireInclude EOF )
-            // InternalPerl.g:255:1: ruleRequireInclude EOF
+            // InternalPerl.g:279:1: ( ruleRequireInclude EOF )
+            // InternalPerl.g:280:1: ruleRequireInclude EOF
             {
              before(grammarAccess.getRequireIncludeRule()); 
             pushFollow(FOLLOW_1);
@@ -1041,21 +1118,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleRequireInclude"
-    // InternalPerl.g:262:1: ruleRequireInclude : ( ( rule__RequireInclude__Group__0 ) ) ;
+    // InternalPerl.g:287:1: ruleRequireInclude : ( ( rule__RequireInclude__Group__0 ) ) ;
     public final void ruleRequireInclude() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:266:2: ( ( ( rule__RequireInclude__Group__0 ) ) )
-            // InternalPerl.g:267:2: ( ( rule__RequireInclude__Group__0 ) )
+            // InternalPerl.g:291:2: ( ( ( rule__RequireInclude__Group__0 ) ) )
+            // InternalPerl.g:292:2: ( ( rule__RequireInclude__Group__0 ) )
             {
-            // InternalPerl.g:267:2: ( ( rule__RequireInclude__Group__0 ) )
-            // InternalPerl.g:268:3: ( rule__RequireInclude__Group__0 )
+            // InternalPerl.g:292:2: ( ( rule__RequireInclude__Group__0 ) )
+            // InternalPerl.g:293:3: ( rule__RequireInclude__Group__0 )
             {
              before(grammarAccess.getRequireIncludeAccess().getGroup()); 
-            // InternalPerl.g:269:3: ( rule__RequireInclude__Group__0 )
-            // InternalPerl.g:269:4: rule__RequireInclude__Group__0
+            // InternalPerl.g:294:3: ( rule__RequireInclude__Group__0 )
+            // InternalPerl.g:294:4: rule__RequireInclude__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__RequireInclude__Group__0();
@@ -1088,11 +1165,11 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleUseInclude"
-    // InternalPerl.g:278:1: entryRuleUseInclude : ruleUseInclude EOF ;
+    // InternalPerl.g:303:1: entryRuleUseInclude : ruleUseInclude EOF ;
     public final void entryRuleUseInclude() throws RecognitionException {
         try {
-            // InternalPerl.g:279:1: ( ruleUseInclude EOF )
-            // InternalPerl.g:280:1: ruleUseInclude EOF
+            // InternalPerl.g:304:1: ( ruleUseInclude EOF )
+            // InternalPerl.g:305:1: ruleUseInclude EOF
             {
              before(grammarAccess.getUseIncludeRule()); 
             pushFollow(FOLLOW_1);
@@ -1118,21 +1195,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleUseInclude"
-    // InternalPerl.g:287:1: ruleUseInclude : ( ( rule__UseInclude__Group__0 ) ) ;
+    // InternalPerl.g:312:1: ruleUseInclude : ( ( rule__UseInclude__Group__0 ) ) ;
     public final void ruleUseInclude() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:291:2: ( ( ( rule__UseInclude__Group__0 ) ) )
-            // InternalPerl.g:292:2: ( ( rule__UseInclude__Group__0 ) )
+            // InternalPerl.g:316:2: ( ( ( rule__UseInclude__Group__0 ) ) )
+            // InternalPerl.g:317:2: ( ( rule__UseInclude__Group__0 ) )
             {
-            // InternalPerl.g:292:2: ( ( rule__UseInclude__Group__0 ) )
-            // InternalPerl.g:293:3: ( rule__UseInclude__Group__0 )
+            // InternalPerl.g:317:2: ( ( rule__UseInclude__Group__0 ) )
+            // InternalPerl.g:318:3: ( rule__UseInclude__Group__0 )
             {
              before(grammarAccess.getUseIncludeAccess().getGroup()); 
-            // InternalPerl.g:294:3: ( rule__UseInclude__Group__0 )
-            // InternalPerl.g:294:4: rule__UseInclude__Group__0
+            // InternalPerl.g:319:3: ( rule__UseInclude__Group__0 )
+            // InternalPerl.g:319:4: rule__UseInclude__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__UseInclude__Group__0();
@@ -1165,11 +1242,11 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleSubStatement"
-    // InternalPerl.g:303:1: entryRuleSubStatement : ruleSubStatement EOF ;
+    // InternalPerl.g:328:1: entryRuleSubStatement : ruleSubStatement EOF ;
     public final void entryRuleSubStatement() throws RecognitionException {
         try {
-            // InternalPerl.g:304:1: ( ruleSubStatement EOF )
-            // InternalPerl.g:305:1: ruleSubStatement EOF
+            // InternalPerl.g:329:1: ( ruleSubStatement EOF )
+            // InternalPerl.g:330:1: ruleSubStatement EOF
             {
              before(grammarAccess.getSubStatementRule()); 
             pushFollow(FOLLOW_1);
@@ -1195,21 +1272,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleSubStatement"
-    // InternalPerl.g:312:1: ruleSubStatement : ( ( rule__SubStatement__Group__0 ) ) ;
+    // InternalPerl.g:337:1: ruleSubStatement : ( ( rule__SubStatement__Group__0 ) ) ;
     public final void ruleSubStatement() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:316:2: ( ( ( rule__SubStatement__Group__0 ) ) )
-            // InternalPerl.g:317:2: ( ( rule__SubStatement__Group__0 ) )
+            // InternalPerl.g:341:2: ( ( ( rule__SubStatement__Group__0 ) ) )
+            // InternalPerl.g:342:2: ( ( rule__SubStatement__Group__0 ) )
             {
-            // InternalPerl.g:317:2: ( ( rule__SubStatement__Group__0 ) )
-            // InternalPerl.g:318:3: ( rule__SubStatement__Group__0 )
+            // InternalPerl.g:342:2: ( ( rule__SubStatement__Group__0 ) )
+            // InternalPerl.g:343:3: ( rule__SubStatement__Group__0 )
             {
              before(grammarAccess.getSubStatementAccess().getGroup()); 
-            // InternalPerl.g:319:3: ( rule__SubStatement__Group__0 )
-            // InternalPerl.g:319:4: rule__SubStatement__Group__0
+            // InternalPerl.g:344:3: ( rule__SubStatement__Group__0 )
+            // InternalPerl.g:344:4: rule__SubStatement__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__SubStatement__Group__0();
@@ -1241,20 +1318,20 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleSubStatement"
 
 
-    // $ANTLR start "entryRuleStatementBlock"
-    // InternalPerl.g:328:1: entryRuleStatementBlock : ruleStatementBlock EOF ;
-    public final void entryRuleStatementBlock() throws RecognitionException {
+    // $ANTLR start "entryRuleBlockStructure"
+    // InternalPerl.g:353:1: entryRuleBlockStructure : ruleBlockStructure EOF ;
+    public final void entryRuleBlockStructure() throws RecognitionException {
         try {
-            // InternalPerl.g:329:1: ( ruleStatementBlock EOF )
-            // InternalPerl.g:330:1: ruleStatementBlock EOF
+            // InternalPerl.g:354:1: ( ruleBlockStructure EOF )
+            // InternalPerl.g:355:1: ruleBlockStructure EOF
             {
-             before(grammarAccess.getStatementBlockRule()); 
+             before(grammarAccess.getBlockStructureRule()); 
             pushFollow(FOLLOW_1);
-            ruleStatementBlock();
+            ruleBlockStructure();
 
             state._fsp--;
 
-             after(grammarAccess.getStatementBlockRule()); 
+             after(grammarAccess.getBlockStructureRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -1268,35 +1345,35 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleStatementBlock"
+    // $ANTLR end "entryRuleBlockStructure"
 
 
-    // $ANTLR start "ruleStatementBlock"
-    // InternalPerl.g:337:1: ruleStatementBlock : ( ( rule__StatementBlock__Group__0 ) ) ;
-    public final void ruleStatementBlock() throws RecognitionException {
+    // $ANTLR start "ruleBlockStructure"
+    // InternalPerl.g:362:1: ruleBlockStructure : ( ( rule__BlockStructure__Group__0 ) ) ;
+    public final void ruleBlockStructure() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:341:2: ( ( ( rule__StatementBlock__Group__0 ) ) )
-            // InternalPerl.g:342:2: ( ( rule__StatementBlock__Group__0 ) )
+            // InternalPerl.g:366:2: ( ( ( rule__BlockStructure__Group__0 ) ) )
+            // InternalPerl.g:367:2: ( ( rule__BlockStructure__Group__0 ) )
             {
-            // InternalPerl.g:342:2: ( ( rule__StatementBlock__Group__0 ) )
-            // InternalPerl.g:343:3: ( rule__StatementBlock__Group__0 )
+            // InternalPerl.g:367:2: ( ( rule__BlockStructure__Group__0 ) )
+            // InternalPerl.g:368:3: ( rule__BlockStructure__Group__0 )
             {
-             before(grammarAccess.getStatementBlockAccess().getGroup()); 
-            // InternalPerl.g:344:3: ( rule__StatementBlock__Group__0 )
-            // InternalPerl.g:344:4: rule__StatementBlock__Group__0
+             before(grammarAccess.getBlockStructureAccess().getGroup()); 
+            // InternalPerl.g:369:3: ( rule__BlockStructure__Group__0 )
+            // InternalPerl.g:369:4: rule__BlockStructure__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__StatementBlock__Group__0();
+            rule__BlockStructure__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getStatementBlockAccess().getGroup()); 
+             after(grammarAccess.getBlockStructureAccess().getGroup()); 
 
             }
 
@@ -1315,15 +1392,15 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleStatementBlock"
+    // $ANTLR end "ruleBlockStructure"
 
 
     // $ANTLR start "entryRulePrototype"
-    // InternalPerl.g:353:1: entryRulePrototype : rulePrototype EOF ;
+    // InternalPerl.g:378:1: entryRulePrototype : rulePrototype EOF ;
     public final void entryRulePrototype() throws RecognitionException {
         try {
-            // InternalPerl.g:354:1: ( rulePrototype EOF )
-            // InternalPerl.g:355:1: rulePrototype EOF
+            // InternalPerl.g:379:1: ( rulePrototype EOF )
+            // InternalPerl.g:380:1: rulePrototype EOF
             {
              before(grammarAccess.getPrototypeRule()); 
             pushFollow(FOLLOW_1);
@@ -1349,21 +1426,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rulePrototype"
-    // InternalPerl.g:362:1: rulePrototype : ( ( rule__Prototype__Group__0 ) ) ;
+    // InternalPerl.g:387:1: rulePrototype : ( ( rule__Prototype__Group__0 ) ) ;
     public final void rulePrototype() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:366:2: ( ( ( rule__Prototype__Group__0 ) ) )
-            // InternalPerl.g:367:2: ( ( rule__Prototype__Group__0 ) )
+            // InternalPerl.g:391:2: ( ( ( rule__Prototype__Group__0 ) ) )
+            // InternalPerl.g:392:2: ( ( rule__Prototype__Group__0 ) )
             {
-            // InternalPerl.g:367:2: ( ( rule__Prototype__Group__0 ) )
-            // InternalPerl.g:368:3: ( rule__Prototype__Group__0 )
+            // InternalPerl.g:392:2: ( ( rule__Prototype__Group__0 ) )
+            // InternalPerl.g:393:3: ( rule__Prototype__Group__0 )
             {
              before(grammarAccess.getPrototypeAccess().getGroup()); 
-            // InternalPerl.g:369:3: ( rule__Prototype__Group__0 )
-            // InternalPerl.g:369:4: rule__Prototype__Group__0
+            // InternalPerl.g:394:3: ( rule__Prototype__Group__0 )
+            // InternalPerl.g:394:4: rule__Prototype__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Prototype__Group__0();
@@ -1396,11 +1473,11 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleToken"
-    // InternalPerl.g:378:1: entryRuleToken : ruleToken EOF ;
+    // InternalPerl.g:403:1: entryRuleToken : ruleToken EOF ;
     public final void entryRuleToken() throws RecognitionException {
         try {
-            // InternalPerl.g:379:1: ( ruleToken EOF )
-            // InternalPerl.g:380:1: ruleToken EOF
+            // InternalPerl.g:404:1: ( ruleToken EOF )
+            // InternalPerl.g:405:1: ruleToken EOF
             {
              before(grammarAccess.getTokenRule()); 
             pushFollow(FOLLOW_1);
@@ -1426,21 +1503,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleToken"
-    // InternalPerl.g:387:1: ruleToken : ( ( rule__Token__Alternatives ) ) ;
+    // InternalPerl.g:412:1: ruleToken : ( ( rule__Token__Alternatives ) ) ;
     public final void ruleToken() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:391:2: ( ( ( rule__Token__Alternatives ) ) )
-            // InternalPerl.g:392:2: ( ( rule__Token__Alternatives ) )
+            // InternalPerl.g:416:2: ( ( ( rule__Token__Alternatives ) ) )
+            // InternalPerl.g:417:2: ( ( rule__Token__Alternatives ) )
             {
-            // InternalPerl.g:392:2: ( ( rule__Token__Alternatives ) )
-            // InternalPerl.g:393:3: ( rule__Token__Alternatives )
+            // InternalPerl.g:417:2: ( ( rule__Token__Alternatives ) )
+            // InternalPerl.g:418:3: ( rule__Token__Alternatives )
             {
              before(grammarAccess.getTokenAccess().getAlternatives()); 
-            // InternalPerl.g:394:3: ( rule__Token__Alternatives )
-            // InternalPerl.g:394:4: rule__Token__Alternatives
+            // InternalPerl.g:419:3: ( rule__Token__Alternatives )
+            // InternalPerl.g:419:4: rule__Token__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__Token__Alternatives();
@@ -1470,83 +1547,6 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
         return ;
     }
     // $ANTLR end "ruleToken"
-
-
-    // $ANTLR start "entryRuleRegexToken"
-    // InternalPerl.g:403:1: entryRuleRegexToken : ruleRegexToken EOF ;
-    public final void entryRuleRegexToken() throws RecognitionException {
-        try {
-            // InternalPerl.g:404:1: ( ruleRegexToken EOF )
-            // InternalPerl.g:405:1: ruleRegexToken EOF
-            {
-             before(grammarAccess.getRegexTokenRule()); 
-            pushFollow(FOLLOW_1);
-            ruleRegexToken();
-
-            state._fsp--;
-
-             after(grammarAccess.getRegexTokenRule()); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleRegexToken"
-
-
-    // $ANTLR start "ruleRegexToken"
-    // InternalPerl.g:412:1: ruleRegexToken : ( ( rule__RegexToken__Group__0 ) ) ;
-    public final void ruleRegexToken() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPerl.g:416:2: ( ( ( rule__RegexToken__Group__0 ) ) )
-            // InternalPerl.g:417:2: ( ( rule__RegexToken__Group__0 ) )
-            {
-            // InternalPerl.g:417:2: ( ( rule__RegexToken__Group__0 ) )
-            // InternalPerl.g:418:3: ( rule__RegexToken__Group__0 )
-            {
-             before(grammarAccess.getRegexTokenAccess().getGroup()); 
-            // InternalPerl.g:419:3: ( rule__RegexToken__Group__0 )
-            // InternalPerl.g:419:4: rule__RegexToken__Group__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__RegexToken__Group__0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getRegexTokenAccess().getGroup()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleRegexToken"
 
 
     // $ANTLR start "entryRuleQuoteToken"
@@ -1626,12 +1626,89 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleQuoteToken"
 
 
+    // $ANTLR start "entryRuleRegexToken"
+    // InternalPerl.g:453:1: entryRuleRegexToken : ruleRegexToken EOF ;
+    public final void entryRuleRegexToken() throws RecognitionException {
+        try {
+            // InternalPerl.g:454:1: ( ruleRegexToken EOF )
+            // InternalPerl.g:455:1: ruleRegexToken EOF
+            {
+             before(grammarAccess.getRegexTokenRule()); 
+            pushFollow(FOLLOW_1);
+            ruleRegexToken();
+
+            state._fsp--;
+
+             after(grammarAccess.getRegexTokenRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleRegexToken"
+
+
+    // $ANTLR start "ruleRegexToken"
+    // InternalPerl.g:462:1: ruleRegexToken : ( ( rule__RegexToken__Group__0 ) ) ;
+    public final void ruleRegexToken() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPerl.g:466:2: ( ( ( rule__RegexToken__Group__0 ) ) )
+            // InternalPerl.g:467:2: ( ( rule__RegexToken__Group__0 ) )
+            {
+            // InternalPerl.g:467:2: ( ( rule__RegexToken__Group__0 ) )
+            // InternalPerl.g:468:3: ( rule__RegexToken__Group__0 )
+            {
+             before(grammarAccess.getRegexTokenAccess().getGroup()); 
+            // InternalPerl.g:469:3: ( rule__RegexToken__Group__0 )
+            // InternalPerl.g:469:4: rule__RegexToken__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__RegexToken__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRegexTokenAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleRegexToken"
+
+
     // $ANTLR start "entryRuleQuoteLikeToken"
-    // InternalPerl.g:453:1: entryRuleQuoteLikeToken : ruleQuoteLikeToken EOF ;
+    // InternalPerl.g:478:1: entryRuleQuoteLikeToken : ruleQuoteLikeToken EOF ;
     public final void entryRuleQuoteLikeToken() throws RecognitionException {
         try {
-            // InternalPerl.g:454:1: ( ruleQuoteLikeToken EOF )
-            // InternalPerl.g:455:1: ruleQuoteLikeToken EOF
+            // InternalPerl.g:479:1: ( ruleQuoteLikeToken EOF )
+            // InternalPerl.g:480:1: ruleQuoteLikeToken EOF
             {
              before(grammarAccess.getQuoteLikeTokenRule()); 
             pushFollow(FOLLOW_1);
@@ -1657,21 +1734,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleQuoteLikeToken"
-    // InternalPerl.g:462:1: ruleQuoteLikeToken : ( ( rule__QuoteLikeToken__Alternatives ) ) ;
+    // InternalPerl.g:487:1: ruleQuoteLikeToken : ( ( rule__QuoteLikeToken__Alternatives ) ) ;
     public final void ruleQuoteLikeToken() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:466:2: ( ( ( rule__QuoteLikeToken__Alternatives ) ) )
-            // InternalPerl.g:467:2: ( ( rule__QuoteLikeToken__Alternatives ) )
+            // InternalPerl.g:491:2: ( ( ( rule__QuoteLikeToken__Alternatives ) ) )
+            // InternalPerl.g:492:2: ( ( rule__QuoteLikeToken__Alternatives ) )
             {
-            // InternalPerl.g:467:2: ( ( rule__QuoteLikeToken__Alternatives ) )
-            // InternalPerl.g:468:3: ( rule__QuoteLikeToken__Alternatives )
+            // InternalPerl.g:492:2: ( ( rule__QuoteLikeToken__Alternatives ) )
+            // InternalPerl.g:493:3: ( rule__QuoteLikeToken__Alternatives )
             {
              before(grammarAccess.getQuoteLikeTokenAccess().getAlternatives()); 
-            // InternalPerl.g:469:3: ( rule__QuoteLikeToken__Alternatives )
-            // InternalPerl.g:469:4: rule__QuoteLikeToken__Alternatives
+            // InternalPerl.g:494:3: ( rule__QuoteLikeToken__Alternatives )
+            // InternalPerl.g:494:4: rule__QuoteLikeToken__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__QuoteLikeToken__Alternatives();
@@ -1704,11 +1781,11 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleWord"
-    // InternalPerl.g:478:1: entryRuleWord : ruleWord EOF ;
+    // InternalPerl.g:503:1: entryRuleWord : ruleWord EOF ;
     public final void entryRuleWord() throws RecognitionException {
         try {
-            // InternalPerl.g:479:1: ( ruleWord EOF )
-            // InternalPerl.g:480:1: ruleWord EOF
+            // InternalPerl.g:504:1: ( ruleWord EOF )
+            // InternalPerl.g:505:1: ruleWord EOF
             {
              before(grammarAccess.getWordRule()); 
             pushFollow(FOLLOW_1);
@@ -1734,17 +1811,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleWord"
-    // InternalPerl.g:487:1: ruleWord : ( ruleKeyword ) ;
+    // InternalPerl.g:512:1: ruleWord : ( ruleKeyword ) ;
     public final void ruleWord() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:491:2: ( ( ruleKeyword ) )
-            // InternalPerl.g:492:2: ( ruleKeyword )
+            // InternalPerl.g:516:2: ( ( ruleKeyword ) )
+            // InternalPerl.g:517:2: ( ruleKeyword )
             {
-            // InternalPerl.g:492:2: ( ruleKeyword )
-            // InternalPerl.g:493:3: ruleKeyword
+            // InternalPerl.g:517:2: ( ruleKeyword )
+            // InternalPerl.g:518:3: ruleKeyword
             {
              before(grammarAccess.getWordAccess().getKeywordParserRuleCall()); 
             pushFollow(FOLLOW_2);
@@ -1775,11 +1852,11 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleKeyword"
-    // InternalPerl.g:503:1: entryRuleKeyword : ruleKeyword EOF ;
+    // InternalPerl.g:528:1: entryRuleKeyword : ruleKeyword EOF ;
     public final void entryRuleKeyword() throws RecognitionException {
         try {
-            // InternalPerl.g:504:1: ( ruleKeyword EOF )
-            // InternalPerl.g:505:1: ruleKeyword EOF
+            // InternalPerl.g:529:1: ( ruleKeyword EOF )
+            // InternalPerl.g:530:1: ruleKeyword EOF
             {
              before(grammarAccess.getKeywordRule()); 
             pushFollow(FOLLOW_1);
@@ -1805,21 +1882,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleKeyword"
-    // InternalPerl.g:512:1: ruleKeyword : ( ( rule__Keyword__Alternatives ) ) ;
+    // InternalPerl.g:537:1: ruleKeyword : ( ( rule__Keyword__Alternatives ) ) ;
     public final void ruleKeyword() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:516:2: ( ( ( rule__Keyword__Alternatives ) ) )
-            // InternalPerl.g:517:2: ( ( rule__Keyword__Alternatives ) )
+            // InternalPerl.g:541:2: ( ( ( rule__Keyword__Alternatives ) ) )
+            // InternalPerl.g:542:2: ( ( rule__Keyword__Alternatives ) )
             {
-            // InternalPerl.g:517:2: ( ( rule__Keyword__Alternatives ) )
-            // InternalPerl.g:518:3: ( rule__Keyword__Alternatives )
+            // InternalPerl.g:542:2: ( ( rule__Keyword__Alternatives ) )
+            // InternalPerl.g:543:3: ( rule__Keyword__Alternatives )
             {
              before(grammarAccess.getKeywordAccess().getAlternatives()); 
-            // InternalPerl.g:519:3: ( rule__Keyword__Alternatives )
-            // InternalPerl.g:519:4: rule__Keyword__Alternatives
+            // InternalPerl.g:544:3: ( rule__Keyword__Alternatives )
+            // InternalPerl.g:544:4: rule__Keyword__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__Keyword__Alternatives();
@@ -1852,11 +1929,11 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleOperator"
-    // InternalPerl.g:528:1: entryRuleOperator : ruleOperator EOF ;
+    // InternalPerl.g:553:1: entryRuleOperator : ruleOperator EOF ;
     public final void entryRuleOperator() throws RecognitionException {
         try {
-            // InternalPerl.g:529:1: ( ruleOperator EOF )
-            // InternalPerl.g:530:1: ruleOperator EOF
+            // InternalPerl.g:554:1: ( ruleOperator EOF )
+            // InternalPerl.g:555:1: ruleOperator EOF
             {
              before(grammarAccess.getOperatorRule()); 
             pushFollow(FOLLOW_1);
@@ -1882,21 +1959,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleOperator"
-    // InternalPerl.g:537:1: ruleOperator : ( ( rule__Operator__Alternatives ) ) ;
+    // InternalPerl.g:562:1: ruleOperator : ( ( rule__Operator__Alternatives ) ) ;
     public final void ruleOperator() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:541:2: ( ( ( rule__Operator__Alternatives ) ) )
-            // InternalPerl.g:542:2: ( ( rule__Operator__Alternatives ) )
+            // InternalPerl.g:566:2: ( ( ( rule__Operator__Alternatives ) ) )
+            // InternalPerl.g:567:2: ( ( rule__Operator__Alternatives ) )
             {
-            // InternalPerl.g:542:2: ( ( rule__Operator__Alternatives ) )
-            // InternalPerl.g:543:3: ( rule__Operator__Alternatives )
+            // InternalPerl.g:567:2: ( ( rule__Operator__Alternatives ) )
+            // InternalPerl.g:568:3: ( rule__Operator__Alternatives )
             {
              before(grammarAccess.getOperatorAccess().getAlternatives()); 
-            // InternalPerl.g:544:3: ( rule__Operator__Alternatives )
-            // InternalPerl.g:544:4: rule__Operator__Alternatives
+            // InternalPerl.g:569:3: ( rule__Operator__Alternatives )
+            // InternalPerl.g:569:4: rule__Operator__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__Operator__Alternatives();
@@ -1929,11 +2006,11 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleFileTestOperator"
-    // InternalPerl.g:553:1: entryRuleFileTestOperator : ruleFileTestOperator EOF ;
+    // InternalPerl.g:578:1: entryRuleFileTestOperator : ruleFileTestOperator EOF ;
     public final void entryRuleFileTestOperator() throws RecognitionException {
         try {
-            // InternalPerl.g:554:1: ( ruleFileTestOperator EOF )
-            // InternalPerl.g:555:1: ruleFileTestOperator EOF
+            // InternalPerl.g:579:1: ( ruleFileTestOperator EOF )
+            // InternalPerl.g:580:1: ruleFileTestOperator EOF
             {
              before(grammarAccess.getFileTestOperatorRule()); 
             pushFollow(FOLLOW_1);
@@ -1959,21 +2036,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleFileTestOperator"
-    // InternalPerl.g:562:1: ruleFileTestOperator : ( ( rule__FileTestOperator__Alternatives ) ) ;
+    // InternalPerl.g:587:1: ruleFileTestOperator : ( ( rule__FileTestOperator__Alternatives ) ) ;
     public final void ruleFileTestOperator() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:566:2: ( ( ( rule__FileTestOperator__Alternatives ) ) )
-            // InternalPerl.g:567:2: ( ( rule__FileTestOperator__Alternatives ) )
+            // InternalPerl.g:591:2: ( ( ( rule__FileTestOperator__Alternatives ) ) )
+            // InternalPerl.g:592:2: ( ( rule__FileTestOperator__Alternatives ) )
             {
-            // InternalPerl.g:567:2: ( ( rule__FileTestOperator__Alternatives ) )
-            // InternalPerl.g:568:3: ( rule__FileTestOperator__Alternatives )
+            // InternalPerl.g:592:2: ( ( rule__FileTestOperator__Alternatives ) )
+            // InternalPerl.g:593:3: ( rule__FileTestOperator__Alternatives )
             {
              before(grammarAccess.getFileTestOperatorAccess().getAlternatives()); 
-            // InternalPerl.g:569:3: ( rule__FileTestOperator__Alternatives )
-            // InternalPerl.g:569:4: rule__FileTestOperator__Alternatives
+            // InternalPerl.g:594:3: ( rule__FileTestOperator__Alternatives )
+            // InternalPerl.g:594:4: rule__FileTestOperator__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__FileTestOperator__Alternatives();
@@ -2006,13 +2083,13 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Element__Alternatives"
-    // InternalPerl.g:577:1: rule__Element__Alternatives : ( ( ruleNode ) | ( ruleToken ) );
+    // InternalPerl.g:602:1: rule__Element__Alternatives : ( ( ruleNode ) | ( ruleToken ) );
     public final void rule__Element__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:581:1: ( ( ruleNode ) | ( ruleToken ) )
+            // InternalPerl.g:606:1: ( ( ruleNode ) | ( ruleToken ) )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -2022,7 +2099,7 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                 if ( (LA1_1==RULE_ID) ) {
                     alt1=1;
                 }
-                else if ( (LA1_1==EOF||(LA1_1>=RULE_REGEX_SUBSTITUTE && LA1_1<=RULE_LITERAL)||(LA1_1>=RULE_WORDS_QUOTE_LIKE && LA1_1<=RULE_READLINE_QUOTE)||LA1_1==30||(LA1_1>=32 && LA1_1<=342)||LA1_1==347) ) {
+                else if ( (LA1_1==EOF||(LA1_1>=RULE_STRING && LA1_1<=RULE_REGEX_MATCH)||(LA1_1>=RULE_WORDS_QUOTE_LIKE && LA1_1<=RULE_READLINE_QUOTE)||LA1_1==30||(LA1_1>=32 && LA1_1<=343)||LA1_1==347) ) {
                     alt1=2;
                 }
                 else {
@@ -2035,11 +2112,11 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
             else if ( (LA1_0==153) ) {
                 int LA1_2 = input.LA(2);
 
-                if ( (LA1_2==RULE_ID) ) {
-                    alt1=1;
-                }
-                else if ( (LA1_2==EOF||(LA1_2>=RULE_REGEX_SUBSTITUTE && LA1_2<=RULE_LITERAL)||(LA1_2>=RULE_WORDS_QUOTE_LIKE && LA1_2<=RULE_READLINE_QUOTE)||LA1_2==30||(LA1_2>=32 && LA1_2<=342)||LA1_2==347) ) {
+                if ( (LA1_2==EOF||(LA1_2>=RULE_STRING && LA1_2<=RULE_REGEX_MATCH)||(LA1_2>=RULE_WORDS_QUOTE_LIKE && LA1_2<=RULE_READLINE_QUOTE)||LA1_2==30||(LA1_2>=32 && LA1_2<=343)||LA1_2==347) ) {
                     alt1=2;
+                }
+                else if ( (LA1_2==RULE_ID) ) {
+                    alt1=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -2054,7 +2131,7 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                 if ( (LA1_3==RULE_VERSION) ) {
                     alt1=1;
                 }
-                else if ( (LA1_3==EOF||(LA1_3>=RULE_REGEX_SUBSTITUTE && LA1_3<=RULE_LITERAL)||(LA1_3>=RULE_WORDS_QUOTE_LIKE && LA1_3<=RULE_READLINE_QUOTE)||LA1_3==30||(LA1_3>=32 && LA1_3<=342)||LA1_3==347) ) {
+                else if ( (LA1_3==EOF||(LA1_3>=RULE_STRING && LA1_3<=RULE_REGEX_MATCH)||(LA1_3>=RULE_WORDS_QUOTE_LIKE && LA1_3<=RULE_READLINE_QUOTE)||LA1_3==30||(LA1_3>=32 && LA1_3<=343)||LA1_3==347) ) {
                     alt1=2;
                 }
                 else {
@@ -2067,11 +2144,11 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
             else if ( (LA1_0==243) ) {
                 int LA1_4 = input.LA(2);
 
-                if ( (LA1_4==EOF||(LA1_4>=RULE_REGEX_SUBSTITUTE && LA1_4<=RULE_LITERAL)||(LA1_4>=RULE_WORDS_QUOTE_LIKE && LA1_4<=RULE_READLINE_QUOTE)||LA1_4==30||(LA1_4>=32 && LA1_4<=342)||LA1_4==347) ) {
-                    alt1=2;
-                }
-                else if ( ((LA1_4>=RULE_ID && LA1_4<=RULE_VERSION)) ) {
+                if ( ((LA1_4>=RULE_ID && LA1_4<=RULE_VERSION)) ) {
                     alt1=1;
+                }
+                else if ( (LA1_4==EOF||(LA1_4>=RULE_STRING && LA1_4<=RULE_REGEX_MATCH)||(LA1_4>=RULE_WORDS_QUOTE_LIKE && LA1_4<=RULE_READLINE_QUOTE)||LA1_4==30||(LA1_4>=32 && LA1_4<=343)||LA1_4==347) ) {
+                    alt1=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -2080,7 +2157,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     throw nvae;
                 }
             }
-            else if ( ((LA1_0>=RULE_REGEX_SUBSTITUTE && LA1_0<=RULE_LITERAL)||(LA1_0>=RULE_WORDS_QUOTE_LIKE && LA1_0<=RULE_READLINE_QUOTE)||LA1_0==30||(LA1_0>=32 && LA1_0<=152)||(LA1_0>=154 && LA1_0<=171)||(LA1_0>=173 && LA1_0<=215)||(LA1_0>=217 && LA1_0<=242)||(LA1_0>=244 && LA1_0<=342)||LA1_0==347) ) {
+            else if ( (LA1_0==343) ) {
+                alt1=1;
+            }
+            else if ( ((LA1_0>=RULE_STRING && LA1_0<=RULE_REGEX_MATCH)||(LA1_0>=RULE_WORDS_QUOTE_LIKE && LA1_0<=RULE_READLINE_QUOTE)||LA1_0==30||(LA1_0>=32 && LA1_0<=152)||(LA1_0>=154 && LA1_0<=171)||(LA1_0>=173 && LA1_0<=215)||(LA1_0>=217 && LA1_0<=242)||(LA1_0>=244 && LA1_0<=342)||LA1_0==347) ) {
                 alt1=2;
             }
             else {
@@ -2091,10 +2171,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalPerl.g:582:2: ( ruleNode )
+                    // InternalPerl.g:607:2: ( ruleNode )
                     {
-                    // InternalPerl.g:582:2: ( ruleNode )
-                    // InternalPerl.g:583:3: ruleNode
+                    // InternalPerl.g:607:2: ( ruleNode )
+                    // InternalPerl.g:608:3: ruleNode
                     {
                      before(grammarAccess.getElementAccess().getNodeParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -2110,10 +2190,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:588:2: ( ruleToken )
+                    // InternalPerl.g:613:2: ( ruleToken )
                     {
-                    // InternalPerl.g:588:2: ( ruleToken )
-                    // InternalPerl.g:589:3: ruleToken
+                    // InternalPerl.g:613:2: ( ruleToken )
+                    // InternalPerl.g:614:3: ruleToken
                     {
                      before(grammarAccess.getElementAccess().getTokenParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -2145,21 +2225,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Element__Alternatives"
 
 
-    // $ANTLR start "rule__StatementNode__Alternatives"
-    // InternalPerl.g:598:1: rule__StatementNode__Alternatives : ( ( ruleBlockStatement ) | ( ruleExpressionStatement ) );
-    public final void rule__StatementNode__Alternatives() throws RecognitionException {
+    // $ANTLR start "rule__Node__Alternatives"
+    // InternalPerl.g:623:1: rule__Node__Alternatives : ( ( ruleStatementNode ) | ( ruleStructureNode ) );
+    public final void rule__Node__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:602:1: ( ( ruleBlockStatement ) | ( ruleExpressionStatement ) )
+            // InternalPerl.g:627:1: ( ( ruleStatementNode ) | ( ruleStructureNode ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==216) ) {
+            if ( (LA2_0==153||LA2_0==172||LA2_0==216||LA2_0==243) ) {
                 alt2=1;
             }
-            else if ( (LA2_0==153||LA2_0==172||LA2_0==243) ) {
+            else if ( (LA2_0==343) ) {
                 alt2=2;
             }
             else {
@@ -2170,10 +2250,89 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
             }
             switch (alt2) {
                 case 1 :
-                    // InternalPerl.g:603:2: ( ruleBlockStatement )
+                    // InternalPerl.g:628:2: ( ruleStatementNode )
                     {
-                    // InternalPerl.g:603:2: ( ruleBlockStatement )
-                    // InternalPerl.g:604:3: ruleBlockStatement
+                    // InternalPerl.g:628:2: ( ruleStatementNode )
+                    // InternalPerl.g:629:3: ruleStatementNode
+                    {
+                     before(grammarAccess.getNodeAccess().getStatementNodeParserRuleCall_0()); 
+                    pushFollow(FOLLOW_2);
+                    ruleStatementNode();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getNodeAccess().getStatementNodeParserRuleCall_0()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalPerl.g:634:2: ( ruleStructureNode )
+                    {
+                    // InternalPerl.g:634:2: ( ruleStructureNode )
+                    // InternalPerl.g:635:3: ruleStructureNode
+                    {
+                     before(grammarAccess.getNodeAccess().getStructureNodeParserRuleCall_1()); 
+                    pushFollow(FOLLOW_2);
+                    ruleStructureNode();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getNodeAccess().getStructureNodeParserRuleCall_1()); 
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Node__Alternatives"
+
+
+    // $ANTLR start "rule__StatementNode__Alternatives"
+    // InternalPerl.g:644:1: rule__StatementNode__Alternatives : ( ( ruleBlockStatement ) | ( ruleExpressionStatement ) );
+    public final void rule__StatementNode__Alternatives() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPerl.g:648:1: ( ( ruleBlockStatement ) | ( ruleExpressionStatement ) )
+            int alt3=2;
+            int LA3_0 = input.LA(1);
+
+            if ( (LA3_0==216) ) {
+                alt3=1;
+            }
+            else if ( (LA3_0==153||LA3_0==172||LA3_0==243) ) {
+                alt3=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 3, 0, input);
+
+                throw nvae;
+            }
+            switch (alt3) {
+                case 1 :
+                    // InternalPerl.g:649:2: ( ruleBlockStatement )
+                    {
+                    // InternalPerl.g:649:2: ( ruleBlockStatement )
+                    // InternalPerl.g:650:3: ruleBlockStatement
                     {
                      before(grammarAccess.getStatementNodeAccess().getBlockStatementParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -2189,10 +2348,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:609:2: ( ruleExpressionStatement )
+                    // InternalPerl.g:655:2: ( ruleExpressionStatement )
                     {
-                    // InternalPerl.g:609:2: ( ruleExpressionStatement )
-                    // InternalPerl.g:610:3: ruleExpressionStatement
+                    // InternalPerl.g:655:2: ( ruleExpressionStatement )
+                    // InternalPerl.g:656:3: ruleExpressionStatement
                     {
                      before(grammarAccess.getStatementNodeAccess().getExpressionStatementParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -2225,34 +2384,34 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExpressionStatement__Alternatives_0"
-    // InternalPerl.g:619:1: rule__ExpressionStatement__Alternatives_0 : ( ( rulePackageStatement ) | ( ruleIncludeStatement ) );
+    // InternalPerl.g:665:1: rule__ExpressionStatement__Alternatives_0 : ( ( rulePackageStatement ) | ( ruleIncludeStatement ) );
     public final void rule__ExpressionStatement__Alternatives_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:623:1: ( ( rulePackageStatement ) | ( ruleIncludeStatement ) )
-            int alt3=2;
-            int LA3_0 = input.LA(1);
+            // InternalPerl.g:669:1: ( ( rulePackageStatement ) | ( ruleIncludeStatement ) )
+            int alt4=2;
+            int LA4_0 = input.LA(1);
 
-            if ( (LA3_0==153) ) {
-                alt3=1;
+            if ( (LA4_0==153) ) {
+                alt4=1;
             }
-            else if ( (LA3_0==172||LA3_0==243) ) {
-                alt3=2;
+            else if ( (LA4_0==172||LA4_0==243) ) {
+                alt4=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 3, 0, input);
+                    new NoViableAltException("", 4, 0, input);
 
                 throw nvae;
             }
-            switch (alt3) {
+            switch (alt4) {
                 case 1 :
-                    // InternalPerl.g:624:2: ( rulePackageStatement )
+                    // InternalPerl.g:670:2: ( rulePackageStatement )
                     {
-                    // InternalPerl.g:624:2: ( rulePackageStatement )
-                    // InternalPerl.g:625:3: rulePackageStatement
+                    // InternalPerl.g:670:2: ( rulePackageStatement )
+                    // InternalPerl.g:671:3: rulePackageStatement
                     {
                      before(grammarAccess.getExpressionStatementAccess().getPackageStatementParserRuleCall_0_0()); 
                     pushFollow(FOLLOW_2);
@@ -2268,10 +2427,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:630:2: ( ruleIncludeStatement )
+                    // InternalPerl.g:676:2: ( ruleIncludeStatement )
                     {
-                    // InternalPerl.g:630:2: ( ruleIncludeStatement )
-                    // InternalPerl.g:631:3: ruleIncludeStatement
+                    // InternalPerl.g:676:2: ( ruleIncludeStatement )
+                    // InternalPerl.g:677:3: ruleIncludeStatement
                     {
                      before(grammarAccess.getExpressionStatementAccess().getIncludeStatementParserRuleCall_0_1()); 
                     pushFollow(FOLLOW_2);
@@ -2304,34 +2463,34 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IncludeStatement__Alternatives"
-    // InternalPerl.g:640:1: rule__IncludeStatement__Alternatives : ( ( ruleRequireInclude ) | ( ruleUseInclude ) );
+    // InternalPerl.g:686:1: rule__IncludeStatement__Alternatives : ( ( ruleRequireInclude ) | ( ruleUseInclude ) );
     public final void rule__IncludeStatement__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:644:1: ( ( ruleRequireInclude ) | ( ruleUseInclude ) )
-            int alt4=2;
-            int LA4_0 = input.LA(1);
+            // InternalPerl.g:690:1: ( ( ruleRequireInclude ) | ( ruleUseInclude ) )
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            if ( (LA4_0==172) ) {
-                alt4=1;
+            if ( (LA5_0==172) ) {
+                alt5=1;
             }
-            else if ( (LA4_0==243) ) {
-                alt4=2;
+            else if ( (LA5_0==243) ) {
+                alt5=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 4, 0, input);
+                    new NoViableAltException("", 5, 0, input);
 
                 throw nvae;
             }
-            switch (alt4) {
+            switch (alt5) {
                 case 1 :
-                    // InternalPerl.g:645:2: ( ruleRequireInclude )
+                    // InternalPerl.g:691:2: ( ruleRequireInclude )
                     {
-                    // InternalPerl.g:645:2: ( ruleRequireInclude )
-                    // InternalPerl.g:646:3: ruleRequireInclude
+                    // InternalPerl.g:691:2: ( ruleRequireInclude )
+                    // InternalPerl.g:692:3: ruleRequireInclude
                     {
                      before(grammarAccess.getIncludeStatementAccess().getRequireIncludeParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -2347,10 +2506,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:651:2: ( ruleUseInclude )
+                    // InternalPerl.g:697:2: ( ruleUseInclude )
                     {
-                    // InternalPerl.g:651:2: ( ruleUseInclude )
-                    // InternalPerl.g:652:3: ruleUseInclude
+                    // InternalPerl.g:697:2: ( ruleUseInclude )
+                    // InternalPerl.g:698:3: ruleUseInclude
                     {
                      before(grammarAccess.getIncludeStatementAccess().getUseIncludeParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -2383,38 +2542,38 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseInclude__Alternatives_2"
-    // InternalPerl.g:661:1: rule__UseInclude__Alternatives_2 : ( ( ( rule__UseInclude__VersionAssignment_2_0 ) ) | ( ( rule__UseInclude__Group_2_1__0 ) ) );
+    // InternalPerl.g:707:1: rule__UseInclude__Alternatives_2 : ( ( ( rule__UseInclude__VersionAssignment_2_0 ) ) | ( ( rule__UseInclude__Group_2_1__0 ) ) );
     public final void rule__UseInclude__Alternatives_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:665:1: ( ( ( rule__UseInclude__VersionAssignment_2_0 ) ) | ( ( rule__UseInclude__Group_2_1__0 ) ) )
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            // InternalPerl.g:711:1: ( ( ( rule__UseInclude__VersionAssignment_2_0 ) ) | ( ( rule__UseInclude__Group_2_1__0 ) ) )
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA5_0==RULE_VERSION) ) {
-                alt5=1;
+            if ( (LA6_0==RULE_VERSION) ) {
+                alt6=1;
             }
-            else if ( (LA5_0==RULE_ID) ) {
-                alt5=2;
+            else if ( (LA6_0==RULE_ID) ) {
+                alt6=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+                    new NoViableAltException("", 6, 0, input);
 
                 throw nvae;
             }
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
-                    // InternalPerl.g:666:2: ( ( rule__UseInclude__VersionAssignment_2_0 ) )
+                    // InternalPerl.g:712:2: ( ( rule__UseInclude__VersionAssignment_2_0 ) )
                     {
-                    // InternalPerl.g:666:2: ( ( rule__UseInclude__VersionAssignment_2_0 ) )
-                    // InternalPerl.g:667:3: ( rule__UseInclude__VersionAssignment_2_0 )
+                    // InternalPerl.g:712:2: ( ( rule__UseInclude__VersionAssignment_2_0 ) )
+                    // InternalPerl.g:713:3: ( rule__UseInclude__VersionAssignment_2_0 )
                     {
                      before(grammarAccess.getUseIncludeAccess().getVersionAssignment_2_0()); 
-                    // InternalPerl.g:668:3: ( rule__UseInclude__VersionAssignment_2_0 )
-                    // InternalPerl.g:668:4: rule__UseInclude__VersionAssignment_2_0
+                    // InternalPerl.g:714:3: ( rule__UseInclude__VersionAssignment_2_0 )
+                    // InternalPerl.g:714:4: rule__UseInclude__VersionAssignment_2_0
                     {
                     pushFollow(FOLLOW_2);
                     rule__UseInclude__VersionAssignment_2_0();
@@ -2432,14 +2591,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:672:2: ( ( rule__UseInclude__Group_2_1__0 ) )
+                    // InternalPerl.g:718:2: ( ( rule__UseInclude__Group_2_1__0 ) )
                     {
-                    // InternalPerl.g:672:2: ( ( rule__UseInclude__Group_2_1__0 ) )
-                    // InternalPerl.g:673:3: ( rule__UseInclude__Group_2_1__0 )
+                    // InternalPerl.g:718:2: ( ( rule__UseInclude__Group_2_1__0 ) )
+                    // InternalPerl.g:719:3: ( rule__UseInclude__Group_2_1__0 )
                     {
                      before(grammarAccess.getUseIncludeAccess().getGroup_2_1()); 
-                    // InternalPerl.g:674:3: ( rule__UseInclude__Group_2_1__0 )
-                    // InternalPerl.g:674:4: rule__UseInclude__Group_2_1__0
+                    // InternalPerl.g:720:3: ( rule__UseInclude__Group_2_1__0 )
+                    // InternalPerl.g:720:4: rule__UseInclude__Group_2_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__UseInclude__Group_2_1__0();
@@ -2474,38 +2633,38 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseInclude__Alternatives_2_1_1"
-    // InternalPerl.g:682:1: rule__UseInclude__Alternatives_2_1_1 : ( ( ( rule__UseInclude__StringArgumentAssignment_2_1_1_0 ) ) | ( ( rule__UseInclude__QwArgumentAssignment_2_1_1_1 ) ) );
+    // InternalPerl.g:728:1: rule__UseInclude__Alternatives_2_1_1 : ( ( ( rule__UseInclude__StringArgumentAssignment_2_1_1_0 ) ) | ( ( rule__UseInclude__QwArgumentAssignment_2_1_1_1 ) ) );
     public final void rule__UseInclude__Alternatives_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:686:1: ( ( ( rule__UseInclude__StringArgumentAssignment_2_1_1_0 ) ) | ( ( rule__UseInclude__QwArgumentAssignment_2_1_1_1 ) ) )
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // InternalPerl.g:732:1: ( ( ( rule__UseInclude__StringArgumentAssignment_2_1_1_0 ) ) | ( ( rule__UseInclude__QwArgumentAssignment_2_1_1_1 ) ) )
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( ((LA6_0>=RULE_STRING && LA6_0<=RULE_LITERAL)) ) {
-                alt6=1;
+            if ( ((LA7_0>=RULE_STRING && LA7_0<=RULE_LITERAL)) ) {
+                alt7=1;
             }
-            else if ( (LA6_0==RULE_WORDS_QUOTE_LIKE) ) {
-                alt6=2;
+            else if ( (LA7_0==RULE_WORDS_QUOTE_LIKE) ) {
+                alt7=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
+                    new NoViableAltException("", 7, 0, input);
 
                 throw nvae;
             }
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
-                    // InternalPerl.g:687:2: ( ( rule__UseInclude__StringArgumentAssignment_2_1_1_0 ) )
+                    // InternalPerl.g:733:2: ( ( rule__UseInclude__StringArgumentAssignment_2_1_1_0 ) )
                     {
-                    // InternalPerl.g:687:2: ( ( rule__UseInclude__StringArgumentAssignment_2_1_1_0 ) )
-                    // InternalPerl.g:688:3: ( rule__UseInclude__StringArgumentAssignment_2_1_1_0 )
+                    // InternalPerl.g:733:2: ( ( rule__UseInclude__StringArgumentAssignment_2_1_1_0 ) )
+                    // InternalPerl.g:734:3: ( rule__UseInclude__StringArgumentAssignment_2_1_1_0 )
                     {
                      before(grammarAccess.getUseIncludeAccess().getStringArgumentAssignment_2_1_1_0()); 
-                    // InternalPerl.g:689:3: ( rule__UseInclude__StringArgumentAssignment_2_1_1_0 )
-                    // InternalPerl.g:689:4: rule__UseInclude__StringArgumentAssignment_2_1_1_0
+                    // InternalPerl.g:735:3: ( rule__UseInclude__StringArgumentAssignment_2_1_1_0 )
+                    // InternalPerl.g:735:4: rule__UseInclude__StringArgumentAssignment_2_1_1_0
                     {
                     pushFollow(FOLLOW_2);
                     rule__UseInclude__StringArgumentAssignment_2_1_1_0();
@@ -2523,14 +2682,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:693:2: ( ( rule__UseInclude__QwArgumentAssignment_2_1_1_1 ) )
+                    // InternalPerl.g:739:2: ( ( rule__UseInclude__QwArgumentAssignment_2_1_1_1 ) )
                     {
-                    // InternalPerl.g:693:2: ( ( rule__UseInclude__QwArgumentAssignment_2_1_1_1 ) )
-                    // InternalPerl.g:694:3: ( rule__UseInclude__QwArgumentAssignment_2_1_1_1 )
+                    // InternalPerl.g:739:2: ( ( rule__UseInclude__QwArgumentAssignment_2_1_1_1 ) )
+                    // InternalPerl.g:740:3: ( rule__UseInclude__QwArgumentAssignment_2_1_1_1 )
                     {
                      before(grammarAccess.getUseIncludeAccess().getQwArgumentAssignment_2_1_1_1()); 
-                    // InternalPerl.g:695:3: ( rule__UseInclude__QwArgumentAssignment_2_1_1_1 )
-                    // InternalPerl.g:695:4: rule__UseInclude__QwArgumentAssignment_2_1_1_1
+                    // InternalPerl.g:741:3: ( rule__UseInclude__QwArgumentAssignment_2_1_1_1 )
+                    // InternalPerl.g:741:4: rule__UseInclude__QwArgumentAssignment_2_1_1_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__UseInclude__QwArgumentAssignment_2_1_1_1();
@@ -2565,34 +2724,34 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SubStatement__Alternatives_4"
-    // InternalPerl.g:703:1: rule__SubStatement__Alternatives_4 : ( ( ';' ) | ( ( rule__SubStatement__BlockAssignment_4_1 ) ) );
+    // InternalPerl.g:749:1: rule__SubStatement__Alternatives_4 : ( ( ';' ) | ( ( rule__SubStatement__BlockAssignment_4_1 ) ) );
     public final void rule__SubStatement__Alternatives_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:707:1: ( ( ';' ) | ( ( rule__SubStatement__BlockAssignment_4_1 ) ) )
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // InternalPerl.g:753:1: ( ( ';' ) | ( ( rule__SubStatement__BlockAssignment_4_1 ) ) )
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA7_0==28) ) {
-                alt7=1;
+            if ( (LA8_0==28) ) {
+                alt8=1;
             }
-            else if ( (LA7_0==343) ) {
-                alt7=2;
+            else if ( (LA8_0==343) ) {
+                alt8=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
-                    // InternalPerl.g:708:2: ( ';' )
+                    // InternalPerl.g:754:2: ( ';' )
                     {
-                    // InternalPerl.g:708:2: ( ';' )
-                    // InternalPerl.g:709:3: ';'
+                    // InternalPerl.g:754:2: ( ';' )
+                    // InternalPerl.g:755:3: ';'
                     {
                      before(grammarAccess.getSubStatementAccess().getSemicolonKeyword_4_0()); 
                     match(input,28,FOLLOW_2); 
@@ -2604,14 +2763,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:714:2: ( ( rule__SubStatement__BlockAssignment_4_1 ) )
+                    // InternalPerl.g:760:2: ( ( rule__SubStatement__BlockAssignment_4_1 ) )
                     {
-                    // InternalPerl.g:714:2: ( ( rule__SubStatement__BlockAssignment_4_1 ) )
-                    // InternalPerl.g:715:3: ( rule__SubStatement__BlockAssignment_4_1 )
+                    // InternalPerl.g:760:2: ( ( rule__SubStatement__BlockAssignment_4_1 ) )
+                    // InternalPerl.g:761:3: ( rule__SubStatement__BlockAssignment_4_1 )
                     {
                      before(grammarAccess.getSubStatementAccess().getBlockAssignment_4_1()); 
-                    // InternalPerl.g:716:3: ( rule__SubStatement__BlockAssignment_4_1 )
-                    // InternalPerl.g:716:4: rule__SubStatement__BlockAssignment_4_1
+                    // InternalPerl.g:762:3: ( rule__SubStatement__BlockAssignment_4_1 )
+                    // InternalPerl.g:762:4: rule__SubStatement__BlockAssignment_4_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__SubStatement__BlockAssignment_4_1();
@@ -2646,53 +2805,53 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Prototype__Alternatives_1"
-    // InternalPerl.g:724:1: rule__Prototype__Alternatives_1 : ( ( '$' ) | ( '%' ) | ( '@' ) | ( '&' ) | ( ';' ) );
+    // InternalPerl.g:770:1: rule__Prototype__Alternatives_1 : ( ( '$' ) | ( '%' ) | ( '@' ) | ( '&' ) | ( ';' ) );
     public final void rule__Prototype__Alternatives_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:728:1: ( ( '$' ) | ( '%' ) | ( '@' ) | ( '&' ) | ( ';' ) )
-            int alt8=5;
+            // InternalPerl.g:774:1: ( ( '$' ) | ( '%' ) | ( '@' ) | ( '&' ) | ( ';' ) )
+            int alt9=5;
             switch ( input.LA(1) ) {
             case 29:
                 {
-                alt8=1;
+                alt9=1;
                 }
                 break;
             case 30:
                 {
-                alt8=2;
+                alt9=2;
                 }
                 break;
             case 31:
                 {
-                alt8=3;
+                alt9=3;
                 }
                 break;
             case 32:
                 {
-                alt8=4;
+                alt9=4;
                 }
                 break;
             case 28:
                 {
-                alt8=5;
+                alt9=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 8, 0, input);
+                    new NoViableAltException("", 9, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt8) {
+            switch (alt9) {
                 case 1 :
-                    // InternalPerl.g:729:2: ( '$' )
+                    // InternalPerl.g:775:2: ( '$' )
                     {
-                    // InternalPerl.g:729:2: ( '$' )
-                    // InternalPerl.g:730:3: '$'
+                    // InternalPerl.g:775:2: ( '$' )
+                    // InternalPerl.g:776:3: '$'
                     {
                      before(grammarAccess.getPrototypeAccess().getDollarSignKeyword_1_0()); 
                     match(input,29,FOLLOW_2); 
@@ -2704,10 +2863,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:735:2: ( '%' )
+                    // InternalPerl.g:781:2: ( '%' )
                     {
-                    // InternalPerl.g:735:2: ( '%' )
-                    // InternalPerl.g:736:3: '%'
+                    // InternalPerl.g:781:2: ( '%' )
+                    // InternalPerl.g:782:3: '%'
                     {
                      before(grammarAccess.getPrototypeAccess().getPercentSignKeyword_1_1()); 
                     match(input,30,FOLLOW_2); 
@@ -2719,10 +2878,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:741:2: ( '@' )
+                    // InternalPerl.g:787:2: ( '@' )
                     {
-                    // InternalPerl.g:741:2: ( '@' )
-                    // InternalPerl.g:742:3: '@'
+                    // InternalPerl.g:787:2: ( '@' )
+                    // InternalPerl.g:788:3: '@'
                     {
                      before(grammarAccess.getPrototypeAccess().getCommercialAtKeyword_1_2()); 
                     match(input,31,FOLLOW_2); 
@@ -2734,10 +2893,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalPerl.g:747:2: ( '&' )
+                    // InternalPerl.g:793:2: ( '&' )
                     {
-                    // InternalPerl.g:747:2: ( '&' )
-                    // InternalPerl.g:748:3: '&'
+                    // InternalPerl.g:793:2: ( '&' )
+                    // InternalPerl.g:794:3: '&'
                     {
                      before(grammarAccess.getPrototypeAccess().getAmpersandKeyword_1_3()); 
                     match(input,32,FOLLOW_2); 
@@ -2749,10 +2908,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalPerl.g:753:2: ( ';' )
+                    // InternalPerl.g:799:2: ( ';' )
                     {
-                    // InternalPerl.g:753:2: ( ';' )
-                    // InternalPerl.g:754:3: ';'
+                    // InternalPerl.g:799:2: ( ';' )
+                    // InternalPerl.g:800:3: ';'
                     {
                      before(grammarAccess.getPrototypeAccess().getSemicolonKeyword_1_4()); 
                     match(input,28,FOLLOW_2); 
@@ -2781,65 +2940,65 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Alternatives"
-    // InternalPerl.g:763:1: rule__Token__Alternatives : ( ( ( rule__Token__Group_0__0 ) ) | ( ( rule__Token__Group_1__0 ) ) | ( ( rule__Token__Group_2__0 ) ) | ( ( rule__Token__Group_3__0 ) ) | ( ruleQuoteLikeToken ) | ( ( rule__Token__Group_5__0 ) ) | ( ( rule__Token__Group_6__0 ) ) | ( ruleQuoteToken ) | ( ruleRegexToken ) | ( ( rule__Token__Group_9__0 ) ) | ( ( rule__Token__Group_10__0 ) ) );
+    // InternalPerl.g:809:1: rule__Token__Alternatives : ( ( ( rule__Token__Group_0__0 ) ) | ( ( rule__Token__Group_1__0 ) ) | ( ( rule__Token__Group_2__0 ) ) | ( ( rule__Token__Group_3__0 ) ) | ( ruleQuoteLikeToken ) | ( ( rule__Token__Group_5__0 ) ) | ( ( rule__Token__Group_6__0 ) ) | ( ruleQuoteToken ) | ( ruleRegexToken ) | ( ( rule__Token__Group_9__0 ) ) | ( ( rule__Token__Group_10__0 ) ) );
     public final void rule__Token__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:767:1: ( ( ( rule__Token__Group_0__0 ) ) | ( ( rule__Token__Group_1__0 ) ) | ( ( rule__Token__Group_2__0 ) ) | ( ( rule__Token__Group_3__0 ) ) | ( ruleQuoteLikeToken ) | ( ( rule__Token__Group_5__0 ) ) | ( ( rule__Token__Group_6__0 ) ) | ( ruleQuoteToken ) | ( ruleRegexToken ) | ( ( rule__Token__Group_9__0 ) ) | ( ( rule__Token__Group_10__0 ) ) )
-            int alt9=11;
-            int LA9_0 = input.LA(1);
+            // InternalPerl.g:813:1: ( ( ( rule__Token__Group_0__0 ) ) | ( ( rule__Token__Group_1__0 ) ) | ( ( rule__Token__Group_2__0 ) ) | ( ( rule__Token__Group_3__0 ) ) | ( ruleQuoteLikeToken ) | ( ( rule__Token__Group_5__0 ) ) | ( ( rule__Token__Group_6__0 ) ) | ( ruleQuoteToken ) | ( ruleRegexToken ) | ( ( rule__Token__Group_9__0 ) ) | ( ( rule__Token__Group_10__0 ) ) )
+            int alt10=11;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA9_0==RULE_POD) ) {
-                alt9=1;
+            if ( (LA10_0==RULE_POD) ) {
+                alt10=1;
             }
-            else if ( (LA9_0==RULE_NUMBER) ) {
-                alt9=2;
+            else if ( (LA10_0==RULE_NUMBER) ) {
+                alt10=2;
             }
-            else if ( ((LA9_0>=33 && LA9_0<=254)) ) {
-                alt9=3;
+            else if ( ((LA10_0>=33 && LA10_0<=254)) ) {
+                alt10=3;
             }
-            else if ( (LA9_0==RULE_SYMBOL) ) {
-                alt9=4;
+            else if ( (LA10_0==RULE_SYMBOL) ) {
+                alt10=4;
             }
-            else if ( (LA9_0==RULE_WORDS_QUOTE_LIKE||(LA9_0>=RULE_BACKTICK_STRING && LA9_0<=RULE_READLINE_QUOTE)) ) {
-                alt9=5;
+            else if ( (LA10_0==RULE_WORDS_QUOTE_LIKE||(LA10_0>=RULE_BACKTICK_STRING && LA10_0<=RULE_READLINE_QUOTE)) ) {
+                alt10=5;
             }
-            else if ( ((LA9_0>=316 && LA9_0<=342)) ) {
-                alt9=6;
+            else if ( ((LA10_0>=316 && LA10_0<=342)) ) {
+                alt10=6;
             }
-            else if ( (LA9_0==30||LA9_0==32||(LA9_0>=255 && LA9_0<=315)||LA9_0==347) ) {
-                alt9=7;
+            else if ( (LA10_0==30||LA10_0==32||(LA10_0>=255 && LA10_0<=315)||LA10_0==347) ) {
+                alt10=7;
             }
-            else if ( ((LA9_0>=RULE_STRING && LA9_0<=RULE_LITERAL)) ) {
-                alt9=8;
+            else if ( ((LA10_0>=RULE_STRING && LA10_0<=RULE_LITERAL)) ) {
+                alt10=8;
             }
-            else if ( ((LA9_0>=RULE_REGEX_SUBSTITUTE && LA9_0<=RULE_REGEX_MATCH)) ) {
-                alt9=9;
+            else if ( ((LA10_0>=RULE_REGEX_SUBSTITUTE && LA10_0<=RULE_REGEX_MATCH)) ) {
+                alt10=9;
             }
-            else if ( (LA9_0==RULE_DATA) ) {
-                alt9=10;
+            else if ( (LA10_0==RULE_DATA) ) {
+                alt10=10;
             }
-            else if ( (LA9_0==RULE_END) ) {
-                alt9=11;
+            else if ( (LA10_0==RULE_END) ) {
+                alt10=11;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
+                    new NoViableAltException("", 10, 0, input);
 
                 throw nvae;
             }
-            switch (alt9) {
+            switch (alt10) {
                 case 1 :
-                    // InternalPerl.g:768:2: ( ( rule__Token__Group_0__0 ) )
+                    // InternalPerl.g:814:2: ( ( rule__Token__Group_0__0 ) )
                     {
-                    // InternalPerl.g:768:2: ( ( rule__Token__Group_0__0 ) )
-                    // InternalPerl.g:769:3: ( rule__Token__Group_0__0 )
+                    // InternalPerl.g:814:2: ( ( rule__Token__Group_0__0 ) )
+                    // InternalPerl.g:815:3: ( rule__Token__Group_0__0 )
                     {
                      before(grammarAccess.getTokenAccess().getGroup_0()); 
-                    // InternalPerl.g:770:3: ( rule__Token__Group_0__0 )
-                    // InternalPerl.g:770:4: rule__Token__Group_0__0
+                    // InternalPerl.g:816:3: ( rule__Token__Group_0__0 )
+                    // InternalPerl.g:816:4: rule__Token__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Token__Group_0__0();
@@ -2857,14 +3016,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:774:2: ( ( rule__Token__Group_1__0 ) )
+                    // InternalPerl.g:820:2: ( ( rule__Token__Group_1__0 ) )
                     {
-                    // InternalPerl.g:774:2: ( ( rule__Token__Group_1__0 ) )
-                    // InternalPerl.g:775:3: ( rule__Token__Group_1__0 )
+                    // InternalPerl.g:820:2: ( ( rule__Token__Group_1__0 ) )
+                    // InternalPerl.g:821:3: ( rule__Token__Group_1__0 )
                     {
                      before(grammarAccess.getTokenAccess().getGroup_1()); 
-                    // InternalPerl.g:776:3: ( rule__Token__Group_1__0 )
-                    // InternalPerl.g:776:4: rule__Token__Group_1__0
+                    // InternalPerl.g:822:3: ( rule__Token__Group_1__0 )
+                    // InternalPerl.g:822:4: rule__Token__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Token__Group_1__0();
@@ -2882,14 +3041,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:780:2: ( ( rule__Token__Group_2__0 ) )
+                    // InternalPerl.g:826:2: ( ( rule__Token__Group_2__0 ) )
                     {
-                    // InternalPerl.g:780:2: ( ( rule__Token__Group_2__0 ) )
-                    // InternalPerl.g:781:3: ( rule__Token__Group_2__0 )
+                    // InternalPerl.g:826:2: ( ( rule__Token__Group_2__0 ) )
+                    // InternalPerl.g:827:3: ( rule__Token__Group_2__0 )
                     {
                      before(grammarAccess.getTokenAccess().getGroup_2()); 
-                    // InternalPerl.g:782:3: ( rule__Token__Group_2__0 )
-                    // InternalPerl.g:782:4: rule__Token__Group_2__0
+                    // InternalPerl.g:828:3: ( rule__Token__Group_2__0 )
+                    // InternalPerl.g:828:4: rule__Token__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Token__Group_2__0();
@@ -2907,14 +3066,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalPerl.g:786:2: ( ( rule__Token__Group_3__0 ) )
+                    // InternalPerl.g:832:2: ( ( rule__Token__Group_3__0 ) )
                     {
-                    // InternalPerl.g:786:2: ( ( rule__Token__Group_3__0 ) )
-                    // InternalPerl.g:787:3: ( rule__Token__Group_3__0 )
+                    // InternalPerl.g:832:2: ( ( rule__Token__Group_3__0 ) )
+                    // InternalPerl.g:833:3: ( rule__Token__Group_3__0 )
                     {
                      before(grammarAccess.getTokenAccess().getGroup_3()); 
-                    // InternalPerl.g:788:3: ( rule__Token__Group_3__0 )
-                    // InternalPerl.g:788:4: rule__Token__Group_3__0
+                    // InternalPerl.g:834:3: ( rule__Token__Group_3__0 )
+                    // InternalPerl.g:834:4: rule__Token__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Token__Group_3__0();
@@ -2932,10 +3091,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalPerl.g:792:2: ( ruleQuoteLikeToken )
+                    // InternalPerl.g:838:2: ( ruleQuoteLikeToken )
                     {
-                    // InternalPerl.g:792:2: ( ruleQuoteLikeToken )
-                    // InternalPerl.g:793:3: ruleQuoteLikeToken
+                    // InternalPerl.g:838:2: ( ruleQuoteLikeToken )
+                    // InternalPerl.g:839:3: ruleQuoteLikeToken
                     {
                      before(grammarAccess.getTokenAccess().getQuoteLikeTokenParserRuleCall_4()); 
                     pushFollow(FOLLOW_2);
@@ -2951,14 +3110,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 6 :
-                    // InternalPerl.g:798:2: ( ( rule__Token__Group_5__0 ) )
+                    // InternalPerl.g:844:2: ( ( rule__Token__Group_5__0 ) )
                     {
-                    // InternalPerl.g:798:2: ( ( rule__Token__Group_5__0 ) )
-                    // InternalPerl.g:799:3: ( rule__Token__Group_5__0 )
+                    // InternalPerl.g:844:2: ( ( rule__Token__Group_5__0 ) )
+                    // InternalPerl.g:845:3: ( rule__Token__Group_5__0 )
                     {
                      before(grammarAccess.getTokenAccess().getGroup_5()); 
-                    // InternalPerl.g:800:3: ( rule__Token__Group_5__0 )
-                    // InternalPerl.g:800:4: rule__Token__Group_5__0
+                    // InternalPerl.g:846:3: ( rule__Token__Group_5__0 )
+                    // InternalPerl.g:846:4: rule__Token__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Token__Group_5__0();
@@ -2976,14 +3135,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 7 :
-                    // InternalPerl.g:804:2: ( ( rule__Token__Group_6__0 ) )
+                    // InternalPerl.g:850:2: ( ( rule__Token__Group_6__0 ) )
                     {
-                    // InternalPerl.g:804:2: ( ( rule__Token__Group_6__0 ) )
-                    // InternalPerl.g:805:3: ( rule__Token__Group_6__0 )
+                    // InternalPerl.g:850:2: ( ( rule__Token__Group_6__0 ) )
+                    // InternalPerl.g:851:3: ( rule__Token__Group_6__0 )
                     {
                      before(grammarAccess.getTokenAccess().getGroup_6()); 
-                    // InternalPerl.g:806:3: ( rule__Token__Group_6__0 )
-                    // InternalPerl.g:806:4: rule__Token__Group_6__0
+                    // InternalPerl.g:852:3: ( rule__Token__Group_6__0 )
+                    // InternalPerl.g:852:4: rule__Token__Group_6__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Token__Group_6__0();
@@ -3001,10 +3160,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 8 :
-                    // InternalPerl.g:810:2: ( ruleQuoteToken )
+                    // InternalPerl.g:856:2: ( ruleQuoteToken )
                     {
-                    // InternalPerl.g:810:2: ( ruleQuoteToken )
-                    // InternalPerl.g:811:3: ruleQuoteToken
+                    // InternalPerl.g:856:2: ( ruleQuoteToken )
+                    // InternalPerl.g:857:3: ruleQuoteToken
                     {
                      before(grammarAccess.getTokenAccess().getQuoteTokenParserRuleCall_7()); 
                     pushFollow(FOLLOW_2);
@@ -3020,10 +3179,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 9 :
-                    // InternalPerl.g:816:2: ( ruleRegexToken )
+                    // InternalPerl.g:862:2: ( ruleRegexToken )
                     {
-                    // InternalPerl.g:816:2: ( ruleRegexToken )
-                    // InternalPerl.g:817:3: ruleRegexToken
+                    // InternalPerl.g:862:2: ( ruleRegexToken )
+                    // InternalPerl.g:863:3: ruleRegexToken
                     {
                      before(grammarAccess.getTokenAccess().getRegexTokenParserRuleCall_8()); 
                     pushFollow(FOLLOW_2);
@@ -3039,14 +3198,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 10 :
-                    // InternalPerl.g:822:2: ( ( rule__Token__Group_9__0 ) )
+                    // InternalPerl.g:868:2: ( ( rule__Token__Group_9__0 ) )
                     {
-                    // InternalPerl.g:822:2: ( ( rule__Token__Group_9__0 ) )
-                    // InternalPerl.g:823:3: ( rule__Token__Group_9__0 )
+                    // InternalPerl.g:868:2: ( ( rule__Token__Group_9__0 ) )
+                    // InternalPerl.g:869:3: ( rule__Token__Group_9__0 )
                     {
                      before(grammarAccess.getTokenAccess().getGroup_9()); 
-                    // InternalPerl.g:824:3: ( rule__Token__Group_9__0 )
-                    // InternalPerl.g:824:4: rule__Token__Group_9__0
+                    // InternalPerl.g:870:3: ( rule__Token__Group_9__0 )
+                    // InternalPerl.g:870:4: rule__Token__Group_9__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Token__Group_9__0();
@@ -3064,14 +3223,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 11 :
-                    // InternalPerl.g:828:2: ( ( rule__Token__Group_10__0 ) )
+                    // InternalPerl.g:874:2: ( ( rule__Token__Group_10__0 ) )
                     {
-                    // InternalPerl.g:828:2: ( ( rule__Token__Group_10__0 ) )
-                    // InternalPerl.g:829:3: ( rule__Token__Group_10__0 )
+                    // InternalPerl.g:874:2: ( ( rule__Token__Group_10__0 ) )
+                    // InternalPerl.g:875:3: ( rule__Token__Group_10__0 )
                     {
                      before(grammarAccess.getTokenAccess().getGroup_10()); 
-                    // InternalPerl.g:830:3: ( rule__Token__Group_10__0 )
-                    // InternalPerl.g:830:4: rule__Token__Group_10__0
+                    // InternalPerl.g:876:3: ( rule__Token__Group_10__0 )
+                    // InternalPerl.g:876:4: rule__Token__Group_10__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Token__Group_10__0();
@@ -3105,109 +3264,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Token__Alternatives"
 
 
-    // $ANTLR start "rule__RegexToken__ContentAlternatives_1_0"
-    // InternalPerl.g:838:1: rule__RegexToken__ContentAlternatives_1_0 : ( ( RULE_REGEX_SUBSTITUTE ) | ( RULE_REGEX_TRANSLITERATE ) | ( RULE_REGEX_MATCH ) );
-    public final void rule__RegexToken__ContentAlternatives_1_0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPerl.g:842:1: ( ( RULE_REGEX_SUBSTITUTE ) | ( RULE_REGEX_TRANSLITERATE ) | ( RULE_REGEX_MATCH ) )
-            int alt10=3;
-            switch ( input.LA(1) ) {
-            case RULE_REGEX_SUBSTITUTE:
-                {
-                alt10=1;
-                }
-                break;
-            case RULE_REGEX_TRANSLITERATE:
-                {
-                alt10=2;
-                }
-                break;
-            case RULE_REGEX_MATCH:
-                {
-                alt10=3;
-                }
-                break;
-            default:
-                NoViableAltException nvae =
-                    new NoViableAltException("", 10, 0, input);
-
-                throw nvae;
-            }
-
-            switch (alt10) {
-                case 1 :
-                    // InternalPerl.g:843:2: ( RULE_REGEX_SUBSTITUTE )
-                    {
-                    // InternalPerl.g:843:2: ( RULE_REGEX_SUBSTITUTE )
-                    // InternalPerl.g:844:3: RULE_REGEX_SUBSTITUTE
-                    {
-                     before(grammarAccess.getRegexTokenAccess().getContentREGEX_SUBSTITUTETerminalRuleCall_1_0_0()); 
-                    match(input,RULE_REGEX_SUBSTITUTE,FOLLOW_2); 
-                     after(grammarAccess.getRegexTokenAccess().getContentREGEX_SUBSTITUTETerminalRuleCall_1_0_0()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // InternalPerl.g:849:2: ( RULE_REGEX_TRANSLITERATE )
-                    {
-                    // InternalPerl.g:849:2: ( RULE_REGEX_TRANSLITERATE )
-                    // InternalPerl.g:850:3: RULE_REGEX_TRANSLITERATE
-                    {
-                     before(grammarAccess.getRegexTokenAccess().getContentREGEX_TRANSLITERATETerminalRuleCall_1_0_1()); 
-                    match(input,RULE_REGEX_TRANSLITERATE,FOLLOW_2); 
-                     after(grammarAccess.getRegexTokenAccess().getContentREGEX_TRANSLITERATETerminalRuleCall_1_0_1()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 3 :
-                    // InternalPerl.g:855:2: ( RULE_REGEX_MATCH )
-                    {
-                    // InternalPerl.g:855:2: ( RULE_REGEX_MATCH )
-                    // InternalPerl.g:856:3: RULE_REGEX_MATCH
-                    {
-                     before(grammarAccess.getRegexTokenAccess().getContentREGEX_MATCHTerminalRuleCall_1_0_2()); 
-                    match(input,RULE_REGEX_MATCH,FOLLOW_2); 
-                     after(grammarAccess.getRegexTokenAccess().getContentREGEX_MATCHTerminalRuleCall_1_0_2()); 
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__RegexToken__ContentAlternatives_1_0"
-
-
     // $ANTLR start "rule__QuoteToken__ContentAlternatives_1_0"
-    // InternalPerl.g:865:1: rule__QuoteToken__ContentAlternatives_1_0 : ( ( RULE_STRING ) | ( RULE_INTERPOLATE ) | ( RULE_LITERAL ) );
+    // InternalPerl.g:884:1: rule__QuoteToken__ContentAlternatives_1_0 : ( ( RULE_STRING ) | ( RULE_INTERPOLATE ) | ( RULE_LITERAL ) );
     public final void rule__QuoteToken__ContentAlternatives_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:869:1: ( ( RULE_STRING ) | ( RULE_INTERPOLATE ) | ( RULE_LITERAL ) )
+            // InternalPerl.g:888:1: ( ( RULE_STRING ) | ( RULE_INTERPOLATE ) | ( RULE_LITERAL ) )
             int alt11=3;
             switch ( input.LA(1) ) {
             case RULE_STRING:
@@ -3234,10 +3298,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
             switch (alt11) {
                 case 1 :
-                    // InternalPerl.g:870:2: ( RULE_STRING )
+                    // InternalPerl.g:889:2: ( RULE_STRING )
                     {
-                    // InternalPerl.g:870:2: ( RULE_STRING )
-                    // InternalPerl.g:871:3: RULE_STRING
+                    // InternalPerl.g:889:2: ( RULE_STRING )
+                    // InternalPerl.g:890:3: RULE_STRING
                     {
                      before(grammarAccess.getQuoteTokenAccess().getContentSTRINGTerminalRuleCall_1_0_0()); 
                     match(input,RULE_STRING,FOLLOW_2); 
@@ -3249,10 +3313,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:876:2: ( RULE_INTERPOLATE )
+                    // InternalPerl.g:895:2: ( RULE_INTERPOLATE )
                     {
-                    // InternalPerl.g:876:2: ( RULE_INTERPOLATE )
-                    // InternalPerl.g:877:3: RULE_INTERPOLATE
+                    // InternalPerl.g:895:2: ( RULE_INTERPOLATE )
+                    // InternalPerl.g:896:3: RULE_INTERPOLATE
                     {
                      before(grammarAccess.getQuoteTokenAccess().getContentINTERPOLATETerminalRuleCall_1_0_1()); 
                     match(input,RULE_INTERPOLATE,FOLLOW_2); 
@@ -3264,10 +3328,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:882:2: ( RULE_LITERAL )
+                    // InternalPerl.g:901:2: ( RULE_LITERAL )
                     {
-                    // InternalPerl.g:882:2: ( RULE_LITERAL )
-                    // InternalPerl.g:883:3: RULE_LITERAL
+                    // InternalPerl.g:901:2: ( RULE_LITERAL )
+                    // InternalPerl.g:902:3: RULE_LITERAL
                     {
                      before(grammarAccess.getQuoteTokenAccess().getContentLITERALTerminalRuleCall_1_0_2()); 
                     match(input,RULE_LITERAL,FOLLOW_2); 
@@ -3295,39 +3359,29 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__QuoteToken__ContentAlternatives_1_0"
 
 
-    // $ANTLR start "rule__QuoteLikeToken__Alternatives"
-    // InternalPerl.g:892:1: rule__QuoteLikeToken__Alternatives : ( ( ( rule__QuoteLikeToken__Group_0__0 ) ) | ( ( rule__QuoteLikeToken__Group_1__0 ) ) | ( ( rule__QuoteLikeToken__Group_2__0 ) ) | ( ( rule__QuoteLikeToken__Group_3__0 ) ) | ( ( rule__QuoteLikeToken__Group_4__0 ) ) );
-    public final void rule__QuoteLikeToken__Alternatives() throws RecognitionException {
+    // $ANTLR start "rule__RegexToken__ContentAlternatives_1_0"
+    // InternalPerl.g:911:1: rule__RegexToken__ContentAlternatives_1_0 : ( ( RULE_REGEX_SUBSTITUTE ) | ( RULE_REGEX_TRANSLITERATE ) | ( RULE_REGEX_MATCH ) );
+    public final void rule__RegexToken__ContentAlternatives_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:896:1: ( ( ( rule__QuoteLikeToken__Group_0__0 ) ) | ( ( rule__QuoteLikeToken__Group_1__0 ) ) | ( ( rule__QuoteLikeToken__Group_2__0 ) ) | ( ( rule__QuoteLikeToken__Group_3__0 ) ) | ( ( rule__QuoteLikeToken__Group_4__0 ) ) )
-            int alt12=5;
+            // InternalPerl.g:915:1: ( ( RULE_REGEX_SUBSTITUTE ) | ( RULE_REGEX_TRANSLITERATE ) | ( RULE_REGEX_MATCH ) )
+            int alt12=3;
             switch ( input.LA(1) ) {
-            case RULE_BACKTICK_STRING:
+            case RULE_REGEX_SUBSTITUTE:
                 {
                 alt12=1;
                 }
                 break;
-            case RULE_WORDS_QUOTE_LIKE:
+            case RULE_REGEX_TRANSLITERATE:
                 {
                 alt12=2;
                 }
                 break;
-            case RULE_COMMAND_QUOTE_LIKE:
+            case RULE_REGEX_MATCH:
                 {
                 alt12=3;
-                }
-                break;
-            case RULE_REGEX_QUOTE:
-                {
-                alt12=4;
-                }
-                break;
-            case RULE_READLINE_QUOTE:
-                {
-                alt12=5;
                 }
                 break;
             default:
@@ -3339,14 +3393,119 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
             switch (alt12) {
                 case 1 :
-                    // InternalPerl.g:897:2: ( ( rule__QuoteLikeToken__Group_0__0 ) )
+                    // InternalPerl.g:916:2: ( RULE_REGEX_SUBSTITUTE )
                     {
-                    // InternalPerl.g:897:2: ( ( rule__QuoteLikeToken__Group_0__0 ) )
-                    // InternalPerl.g:898:3: ( rule__QuoteLikeToken__Group_0__0 )
+                    // InternalPerl.g:916:2: ( RULE_REGEX_SUBSTITUTE )
+                    // InternalPerl.g:917:3: RULE_REGEX_SUBSTITUTE
+                    {
+                     before(grammarAccess.getRegexTokenAccess().getContentREGEX_SUBSTITUTETerminalRuleCall_1_0_0()); 
+                    match(input,RULE_REGEX_SUBSTITUTE,FOLLOW_2); 
+                     after(grammarAccess.getRegexTokenAccess().getContentREGEX_SUBSTITUTETerminalRuleCall_1_0_0()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalPerl.g:922:2: ( RULE_REGEX_TRANSLITERATE )
+                    {
+                    // InternalPerl.g:922:2: ( RULE_REGEX_TRANSLITERATE )
+                    // InternalPerl.g:923:3: RULE_REGEX_TRANSLITERATE
+                    {
+                     before(grammarAccess.getRegexTokenAccess().getContentREGEX_TRANSLITERATETerminalRuleCall_1_0_1()); 
+                    match(input,RULE_REGEX_TRANSLITERATE,FOLLOW_2); 
+                     after(grammarAccess.getRegexTokenAccess().getContentREGEX_TRANSLITERATETerminalRuleCall_1_0_1()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalPerl.g:928:2: ( RULE_REGEX_MATCH )
+                    {
+                    // InternalPerl.g:928:2: ( RULE_REGEX_MATCH )
+                    // InternalPerl.g:929:3: RULE_REGEX_MATCH
+                    {
+                     before(grammarAccess.getRegexTokenAccess().getContentREGEX_MATCHTerminalRuleCall_1_0_2()); 
+                    match(input,RULE_REGEX_MATCH,FOLLOW_2); 
+                     after(grammarAccess.getRegexTokenAccess().getContentREGEX_MATCHTerminalRuleCall_1_0_2()); 
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RegexToken__ContentAlternatives_1_0"
+
+
+    // $ANTLR start "rule__QuoteLikeToken__Alternatives"
+    // InternalPerl.g:938:1: rule__QuoteLikeToken__Alternatives : ( ( ( rule__QuoteLikeToken__Group_0__0 ) ) | ( ( rule__QuoteLikeToken__Group_1__0 ) ) | ( ( rule__QuoteLikeToken__Group_2__0 ) ) | ( ( rule__QuoteLikeToken__Group_3__0 ) ) | ( ( rule__QuoteLikeToken__Group_4__0 ) ) );
+    public final void rule__QuoteLikeToken__Alternatives() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPerl.g:942:1: ( ( ( rule__QuoteLikeToken__Group_0__0 ) ) | ( ( rule__QuoteLikeToken__Group_1__0 ) ) | ( ( rule__QuoteLikeToken__Group_2__0 ) ) | ( ( rule__QuoteLikeToken__Group_3__0 ) ) | ( ( rule__QuoteLikeToken__Group_4__0 ) ) )
+            int alt13=5;
+            switch ( input.LA(1) ) {
+            case RULE_BACKTICK_STRING:
+                {
+                alt13=1;
+                }
+                break;
+            case RULE_WORDS_QUOTE_LIKE:
+                {
+                alt13=2;
+                }
+                break;
+            case RULE_COMMAND_QUOTE_LIKE:
+                {
+                alt13=3;
+                }
+                break;
+            case RULE_REGEX_QUOTE:
+                {
+                alt13=4;
+                }
+                break;
+            case RULE_READLINE_QUOTE:
+                {
+                alt13=5;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 13, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt13) {
+                case 1 :
+                    // InternalPerl.g:943:2: ( ( rule__QuoteLikeToken__Group_0__0 ) )
+                    {
+                    // InternalPerl.g:943:2: ( ( rule__QuoteLikeToken__Group_0__0 ) )
+                    // InternalPerl.g:944:3: ( rule__QuoteLikeToken__Group_0__0 )
                     {
                      before(grammarAccess.getQuoteLikeTokenAccess().getGroup_0()); 
-                    // InternalPerl.g:899:3: ( rule__QuoteLikeToken__Group_0__0 )
-                    // InternalPerl.g:899:4: rule__QuoteLikeToken__Group_0__0
+                    // InternalPerl.g:945:3: ( rule__QuoteLikeToken__Group_0__0 )
+                    // InternalPerl.g:945:4: rule__QuoteLikeToken__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__QuoteLikeToken__Group_0__0();
@@ -3364,14 +3523,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:903:2: ( ( rule__QuoteLikeToken__Group_1__0 ) )
+                    // InternalPerl.g:949:2: ( ( rule__QuoteLikeToken__Group_1__0 ) )
                     {
-                    // InternalPerl.g:903:2: ( ( rule__QuoteLikeToken__Group_1__0 ) )
-                    // InternalPerl.g:904:3: ( rule__QuoteLikeToken__Group_1__0 )
+                    // InternalPerl.g:949:2: ( ( rule__QuoteLikeToken__Group_1__0 ) )
+                    // InternalPerl.g:950:3: ( rule__QuoteLikeToken__Group_1__0 )
                     {
                      before(grammarAccess.getQuoteLikeTokenAccess().getGroup_1()); 
-                    // InternalPerl.g:905:3: ( rule__QuoteLikeToken__Group_1__0 )
-                    // InternalPerl.g:905:4: rule__QuoteLikeToken__Group_1__0
+                    // InternalPerl.g:951:3: ( rule__QuoteLikeToken__Group_1__0 )
+                    // InternalPerl.g:951:4: rule__QuoteLikeToken__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__QuoteLikeToken__Group_1__0();
@@ -3389,14 +3548,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:909:2: ( ( rule__QuoteLikeToken__Group_2__0 ) )
+                    // InternalPerl.g:955:2: ( ( rule__QuoteLikeToken__Group_2__0 ) )
                     {
-                    // InternalPerl.g:909:2: ( ( rule__QuoteLikeToken__Group_2__0 ) )
-                    // InternalPerl.g:910:3: ( rule__QuoteLikeToken__Group_2__0 )
+                    // InternalPerl.g:955:2: ( ( rule__QuoteLikeToken__Group_2__0 ) )
+                    // InternalPerl.g:956:3: ( rule__QuoteLikeToken__Group_2__0 )
                     {
                      before(grammarAccess.getQuoteLikeTokenAccess().getGroup_2()); 
-                    // InternalPerl.g:911:3: ( rule__QuoteLikeToken__Group_2__0 )
-                    // InternalPerl.g:911:4: rule__QuoteLikeToken__Group_2__0
+                    // InternalPerl.g:957:3: ( rule__QuoteLikeToken__Group_2__0 )
+                    // InternalPerl.g:957:4: rule__QuoteLikeToken__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__QuoteLikeToken__Group_2__0();
@@ -3414,14 +3573,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalPerl.g:915:2: ( ( rule__QuoteLikeToken__Group_3__0 ) )
+                    // InternalPerl.g:961:2: ( ( rule__QuoteLikeToken__Group_3__0 ) )
                     {
-                    // InternalPerl.g:915:2: ( ( rule__QuoteLikeToken__Group_3__0 ) )
-                    // InternalPerl.g:916:3: ( rule__QuoteLikeToken__Group_3__0 )
+                    // InternalPerl.g:961:2: ( ( rule__QuoteLikeToken__Group_3__0 ) )
+                    // InternalPerl.g:962:3: ( rule__QuoteLikeToken__Group_3__0 )
                     {
                      before(grammarAccess.getQuoteLikeTokenAccess().getGroup_3()); 
-                    // InternalPerl.g:917:3: ( rule__QuoteLikeToken__Group_3__0 )
-                    // InternalPerl.g:917:4: rule__QuoteLikeToken__Group_3__0
+                    // InternalPerl.g:963:3: ( rule__QuoteLikeToken__Group_3__0 )
+                    // InternalPerl.g:963:4: rule__QuoteLikeToken__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__QuoteLikeToken__Group_3__0();
@@ -3439,14 +3598,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalPerl.g:921:2: ( ( rule__QuoteLikeToken__Group_4__0 ) )
+                    // InternalPerl.g:967:2: ( ( rule__QuoteLikeToken__Group_4__0 ) )
                     {
-                    // InternalPerl.g:921:2: ( ( rule__QuoteLikeToken__Group_4__0 ) )
-                    // InternalPerl.g:922:3: ( rule__QuoteLikeToken__Group_4__0 )
+                    // InternalPerl.g:967:2: ( ( rule__QuoteLikeToken__Group_4__0 ) )
+                    // InternalPerl.g:968:3: ( rule__QuoteLikeToken__Group_4__0 )
                     {
                      before(grammarAccess.getQuoteLikeTokenAccess().getGroup_4()); 
-                    // InternalPerl.g:923:3: ( rule__QuoteLikeToken__Group_4__0 )
-                    // InternalPerl.g:923:4: rule__QuoteLikeToken__Group_4__0
+                    // InternalPerl.g:969:3: ( rule__QuoteLikeToken__Group_4__0 )
+                    // InternalPerl.g:969:4: rule__QuoteLikeToken__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__QuoteLikeToken__Group_4__0();
@@ -3481,1138 +3640,1138 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Keyword__Alternatives"
-    // InternalPerl.g:931:1: rule__Keyword__Alternatives : ( ( 'abs' ) | ( 'accept' ) | ( 'alarm' ) | ( 'atan2' ) | ( 'bind' ) | ( 'binmode' ) | ( 'bless' ) | ( 'break' ) | ( 'caller' ) | ( 'chdir' ) | ( 'chmod' ) | ( 'chomp' ) | ( 'chop' ) | ( 'chown' ) | ( 'chr' ) | ( 'chroot' ) | ( 'close' ) | ( 'closedir' ) | ( 'connect' ) | ( 'continue' ) | ( 'cos' ) | ( 'crypt' ) | ( 'dbmclose' ) | ( 'dbmopen' ) | ( 'default' ) | ( 'defined' ) | ( 'delete' ) | ( 'die' ) | ( 'do' ) | ( 'dump' ) | ( 'each' ) | ( 'else' ) | ( 'elsif' ) | ( 'endgrent' ) | ( 'endhostent' ) | ( 'endnetent' ) | ( 'endprotoent' ) | ( 'endpwent' ) | ( 'endservent' ) | ( 'eof' ) | ( 'eval' ) | ( 'evalbytes' ) | ( 'exec' ) | ( 'exists' ) | ( 'exit' ) | ( 'exp' ) | ( 'fc' ) | ( 'fcntl' ) | ( 'fileno' ) | ( 'flock' ) | ( 'for' ) | ( 'foreach' ) | ( 'fork' ) | ( 'format' ) | ( 'formline' ) | ( 'getc' ) | ( 'getgrent' ) | ( 'getgrgid' ) | ( 'getgrnam' ) | ( 'gethostbyaddr' ) | ( 'gethostbyname' ) | ( 'gethostent' ) | ( 'getlogin' ) | ( 'getnetbyaddr' ) | ( 'getnetbyname' ) | ( 'getnetent' ) | ( 'getpeername' ) | ( 'getpgrp' ) | ( 'getppid' ) | ( 'getpriority' ) | ( 'getprotobyname' ) | ( 'getprotobynumber' ) | ( 'getprotoent' ) | ( 'getpwent' ) | ( 'getpwnam' ) | ( 'getpwuid' ) | ( 'getservbyname' ) | ( 'getservbyport' ) | ( 'getservent' ) | ( 'getsockname' ) | ( 'getsockopt' ) | ( 'given' ) | ( 'glob' ) | ( 'gmtime' ) | ( 'goto' ) | ( 'grep' ) | ( 'hex' ) | ( 'if' ) | ( 'index' ) | ( 'int' ) | ( 'ioctl' ) | ( 'join' ) | ( 'keys' ) | ( 'kill' ) | ( 'last' ) | ( 'lc' ) | ( 'lcfirst' ) | ( 'length' ) | ( 'link' ) | ( 'listen' ) | ( 'local' ) | ( 'localtime' ) | ( 'lock' ) | ( 'log' ) | ( 'lstat' ) | ( 'map' ) | ( 'mkdir' ) | ( 'msgctl' ) | ( 'msgget' ) | ( 'msgrcv' ) | ( 'msgsnd' ) | ( 'my' ) | ( 'next' ) | ( 'no' ) | ( 'oct' ) | ( 'open' ) | ( 'opendir' ) | ( 'ord' ) | ( 'our' ) | ( 'pack' ) | ( 'package' ) | ( 'pipe' ) | ( 'pop' ) | ( 'pos' ) | ( 'print' ) | ( 'printf' ) | ( 'prototype' ) | ( 'push' ) | ( 'quotemeta' ) | ( 'rand' ) | ( 'read' ) | ( 'readdir' ) | ( 'readline' ) | ( 'readlink' ) | ( 'readpipe' ) | ( 'recv' ) | ( 'redo' ) | ( 'ref' ) | ( 'rename' ) | ( 'require' ) | ( 'reset' ) | ( 'return' ) | ( 'reverse' ) | ( 'rewinddir' ) | ( 'rindex' ) | ( 'rmdir' ) | ( 'say' ) | ( 'scalar' ) | ( 'seek' ) | ( 'seekdir' ) | ( 'select' ) | ( 'semctl' ) | ( 'semget' ) | ( 'semop' ) | ( 'send' ) | ( 'setgrent' ) | ( 'sethostent' ) | ( 'setnetent' ) | ( 'setpgrp' ) | ( 'setpriority' ) | ( 'setprotoent' ) | ( 'setpwent' ) | ( 'setservent' ) | ( 'setsockopt' ) | ( 'shift' ) | ( 'shmctl' ) | ( 'shmget' ) | ( 'shmread' ) | ( 'shmwrite' ) | ( 'shutdown' ) | ( 'sin' ) | ( 'sleep' ) | ( 'socket' ) | ( 'socketpair' ) | ( 'sort' ) | ( 'splice' ) | ( 'split' ) | ( 'sprintf' ) | ( 'sqrt' ) | ( 'srand' ) | ( 'stat' ) | ( 'state' ) | ( 'study' ) | ( 'sub' ) | ( 'substr' ) | ( 'symlink' ) | ( 'syscall' ) | ( 'sysopen' ) | ( 'sysread' ) | ( 'sysseek' ) | ( 'system' ) | ( 'syswrite' ) | ( 'tell' ) | ( 'telldir' ) | ( 'tie' ) | ( 'tied' ) | ( 'time' ) | ( 'times' ) | ( 'tr' ) | ( 'truncate' ) | ( 'uc' ) | ( 'ucfirst' ) | ( 'umask' ) | ( 'undef' ) | ( 'unless' ) | ( 'unlink' ) | ( 'unpack' ) | ( 'unshift' ) | ( 'untie' ) | ( 'until' ) | ( 'use' ) | ( 'utime' ) | ( 'values' ) | ( 'vec' ) | ( 'wait' ) | ( 'waitpid' ) | ( 'wantarray' ) | ( 'warn' ) | ( 'when' ) | ( 'while' ) | ( 'write' ) | ( 'y' ) );
+    // InternalPerl.g:977:1: rule__Keyword__Alternatives : ( ( 'abs' ) | ( 'accept' ) | ( 'alarm' ) | ( 'atan2' ) | ( 'bind' ) | ( 'binmode' ) | ( 'bless' ) | ( 'break' ) | ( 'caller' ) | ( 'chdir' ) | ( 'chmod' ) | ( 'chomp' ) | ( 'chop' ) | ( 'chown' ) | ( 'chr' ) | ( 'chroot' ) | ( 'close' ) | ( 'closedir' ) | ( 'connect' ) | ( 'continue' ) | ( 'cos' ) | ( 'crypt' ) | ( 'dbmclose' ) | ( 'dbmopen' ) | ( 'default' ) | ( 'defined' ) | ( 'delete' ) | ( 'die' ) | ( 'do' ) | ( 'dump' ) | ( 'each' ) | ( 'else' ) | ( 'elsif' ) | ( 'endgrent' ) | ( 'endhostent' ) | ( 'endnetent' ) | ( 'endprotoent' ) | ( 'endpwent' ) | ( 'endservent' ) | ( 'eof' ) | ( 'eval' ) | ( 'evalbytes' ) | ( 'exec' ) | ( 'exists' ) | ( 'exit' ) | ( 'exp' ) | ( 'fc' ) | ( 'fcntl' ) | ( 'fileno' ) | ( 'flock' ) | ( 'for' ) | ( 'foreach' ) | ( 'fork' ) | ( 'format' ) | ( 'formline' ) | ( 'getc' ) | ( 'getgrent' ) | ( 'getgrgid' ) | ( 'getgrnam' ) | ( 'gethostbyaddr' ) | ( 'gethostbyname' ) | ( 'gethostent' ) | ( 'getlogin' ) | ( 'getnetbyaddr' ) | ( 'getnetbyname' ) | ( 'getnetent' ) | ( 'getpeername' ) | ( 'getpgrp' ) | ( 'getppid' ) | ( 'getpriority' ) | ( 'getprotobyname' ) | ( 'getprotobynumber' ) | ( 'getprotoent' ) | ( 'getpwent' ) | ( 'getpwnam' ) | ( 'getpwuid' ) | ( 'getservbyname' ) | ( 'getservbyport' ) | ( 'getservent' ) | ( 'getsockname' ) | ( 'getsockopt' ) | ( 'given' ) | ( 'glob' ) | ( 'gmtime' ) | ( 'goto' ) | ( 'grep' ) | ( 'hex' ) | ( 'if' ) | ( 'index' ) | ( 'int' ) | ( 'ioctl' ) | ( 'join' ) | ( 'keys' ) | ( 'kill' ) | ( 'last' ) | ( 'lc' ) | ( 'lcfirst' ) | ( 'length' ) | ( 'link' ) | ( 'listen' ) | ( 'local' ) | ( 'localtime' ) | ( 'lock' ) | ( 'log' ) | ( 'lstat' ) | ( 'map' ) | ( 'mkdir' ) | ( 'msgctl' ) | ( 'msgget' ) | ( 'msgrcv' ) | ( 'msgsnd' ) | ( 'my' ) | ( 'next' ) | ( 'no' ) | ( 'oct' ) | ( 'open' ) | ( 'opendir' ) | ( 'ord' ) | ( 'our' ) | ( 'pack' ) | ( 'package' ) | ( 'pipe' ) | ( 'pop' ) | ( 'pos' ) | ( 'print' ) | ( 'printf' ) | ( 'prototype' ) | ( 'push' ) | ( 'quotemeta' ) | ( 'rand' ) | ( 'read' ) | ( 'readdir' ) | ( 'readline' ) | ( 'readlink' ) | ( 'readpipe' ) | ( 'recv' ) | ( 'redo' ) | ( 'ref' ) | ( 'rename' ) | ( 'require' ) | ( 'reset' ) | ( 'return' ) | ( 'reverse' ) | ( 'rewinddir' ) | ( 'rindex' ) | ( 'rmdir' ) | ( 'say' ) | ( 'scalar' ) | ( 'seek' ) | ( 'seekdir' ) | ( 'select' ) | ( 'semctl' ) | ( 'semget' ) | ( 'semop' ) | ( 'send' ) | ( 'setgrent' ) | ( 'sethostent' ) | ( 'setnetent' ) | ( 'setpgrp' ) | ( 'setpriority' ) | ( 'setprotoent' ) | ( 'setpwent' ) | ( 'setservent' ) | ( 'setsockopt' ) | ( 'shift' ) | ( 'shmctl' ) | ( 'shmget' ) | ( 'shmread' ) | ( 'shmwrite' ) | ( 'shutdown' ) | ( 'sin' ) | ( 'sleep' ) | ( 'socket' ) | ( 'socketpair' ) | ( 'sort' ) | ( 'splice' ) | ( 'split' ) | ( 'sprintf' ) | ( 'sqrt' ) | ( 'srand' ) | ( 'stat' ) | ( 'state' ) | ( 'study' ) | ( 'sub' ) | ( 'substr' ) | ( 'symlink' ) | ( 'syscall' ) | ( 'sysopen' ) | ( 'sysread' ) | ( 'sysseek' ) | ( 'system' ) | ( 'syswrite' ) | ( 'tell' ) | ( 'telldir' ) | ( 'tie' ) | ( 'tied' ) | ( 'time' ) | ( 'times' ) | ( 'tr' ) | ( 'truncate' ) | ( 'uc' ) | ( 'ucfirst' ) | ( 'umask' ) | ( 'undef' ) | ( 'unless' ) | ( 'unlink' ) | ( 'unpack' ) | ( 'unshift' ) | ( 'untie' ) | ( 'until' ) | ( 'use' ) | ( 'utime' ) | ( 'values' ) | ( 'vec' ) | ( 'wait' ) | ( 'waitpid' ) | ( 'wantarray' ) | ( 'warn' ) | ( 'when' ) | ( 'while' ) | ( 'write' ) | ( 'y' ) );
     public final void rule__Keyword__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:935:1: ( ( 'abs' ) | ( 'accept' ) | ( 'alarm' ) | ( 'atan2' ) | ( 'bind' ) | ( 'binmode' ) | ( 'bless' ) | ( 'break' ) | ( 'caller' ) | ( 'chdir' ) | ( 'chmod' ) | ( 'chomp' ) | ( 'chop' ) | ( 'chown' ) | ( 'chr' ) | ( 'chroot' ) | ( 'close' ) | ( 'closedir' ) | ( 'connect' ) | ( 'continue' ) | ( 'cos' ) | ( 'crypt' ) | ( 'dbmclose' ) | ( 'dbmopen' ) | ( 'default' ) | ( 'defined' ) | ( 'delete' ) | ( 'die' ) | ( 'do' ) | ( 'dump' ) | ( 'each' ) | ( 'else' ) | ( 'elsif' ) | ( 'endgrent' ) | ( 'endhostent' ) | ( 'endnetent' ) | ( 'endprotoent' ) | ( 'endpwent' ) | ( 'endservent' ) | ( 'eof' ) | ( 'eval' ) | ( 'evalbytes' ) | ( 'exec' ) | ( 'exists' ) | ( 'exit' ) | ( 'exp' ) | ( 'fc' ) | ( 'fcntl' ) | ( 'fileno' ) | ( 'flock' ) | ( 'for' ) | ( 'foreach' ) | ( 'fork' ) | ( 'format' ) | ( 'formline' ) | ( 'getc' ) | ( 'getgrent' ) | ( 'getgrgid' ) | ( 'getgrnam' ) | ( 'gethostbyaddr' ) | ( 'gethostbyname' ) | ( 'gethostent' ) | ( 'getlogin' ) | ( 'getnetbyaddr' ) | ( 'getnetbyname' ) | ( 'getnetent' ) | ( 'getpeername' ) | ( 'getpgrp' ) | ( 'getppid' ) | ( 'getpriority' ) | ( 'getprotobyname' ) | ( 'getprotobynumber' ) | ( 'getprotoent' ) | ( 'getpwent' ) | ( 'getpwnam' ) | ( 'getpwuid' ) | ( 'getservbyname' ) | ( 'getservbyport' ) | ( 'getservent' ) | ( 'getsockname' ) | ( 'getsockopt' ) | ( 'given' ) | ( 'glob' ) | ( 'gmtime' ) | ( 'goto' ) | ( 'grep' ) | ( 'hex' ) | ( 'if' ) | ( 'index' ) | ( 'int' ) | ( 'ioctl' ) | ( 'join' ) | ( 'keys' ) | ( 'kill' ) | ( 'last' ) | ( 'lc' ) | ( 'lcfirst' ) | ( 'length' ) | ( 'link' ) | ( 'listen' ) | ( 'local' ) | ( 'localtime' ) | ( 'lock' ) | ( 'log' ) | ( 'lstat' ) | ( 'map' ) | ( 'mkdir' ) | ( 'msgctl' ) | ( 'msgget' ) | ( 'msgrcv' ) | ( 'msgsnd' ) | ( 'my' ) | ( 'next' ) | ( 'no' ) | ( 'oct' ) | ( 'open' ) | ( 'opendir' ) | ( 'ord' ) | ( 'our' ) | ( 'pack' ) | ( 'package' ) | ( 'pipe' ) | ( 'pop' ) | ( 'pos' ) | ( 'print' ) | ( 'printf' ) | ( 'prototype' ) | ( 'push' ) | ( 'quotemeta' ) | ( 'rand' ) | ( 'read' ) | ( 'readdir' ) | ( 'readline' ) | ( 'readlink' ) | ( 'readpipe' ) | ( 'recv' ) | ( 'redo' ) | ( 'ref' ) | ( 'rename' ) | ( 'require' ) | ( 'reset' ) | ( 'return' ) | ( 'reverse' ) | ( 'rewinddir' ) | ( 'rindex' ) | ( 'rmdir' ) | ( 'say' ) | ( 'scalar' ) | ( 'seek' ) | ( 'seekdir' ) | ( 'select' ) | ( 'semctl' ) | ( 'semget' ) | ( 'semop' ) | ( 'send' ) | ( 'setgrent' ) | ( 'sethostent' ) | ( 'setnetent' ) | ( 'setpgrp' ) | ( 'setpriority' ) | ( 'setprotoent' ) | ( 'setpwent' ) | ( 'setservent' ) | ( 'setsockopt' ) | ( 'shift' ) | ( 'shmctl' ) | ( 'shmget' ) | ( 'shmread' ) | ( 'shmwrite' ) | ( 'shutdown' ) | ( 'sin' ) | ( 'sleep' ) | ( 'socket' ) | ( 'socketpair' ) | ( 'sort' ) | ( 'splice' ) | ( 'split' ) | ( 'sprintf' ) | ( 'sqrt' ) | ( 'srand' ) | ( 'stat' ) | ( 'state' ) | ( 'study' ) | ( 'sub' ) | ( 'substr' ) | ( 'symlink' ) | ( 'syscall' ) | ( 'sysopen' ) | ( 'sysread' ) | ( 'sysseek' ) | ( 'system' ) | ( 'syswrite' ) | ( 'tell' ) | ( 'telldir' ) | ( 'tie' ) | ( 'tied' ) | ( 'time' ) | ( 'times' ) | ( 'tr' ) | ( 'truncate' ) | ( 'uc' ) | ( 'ucfirst' ) | ( 'umask' ) | ( 'undef' ) | ( 'unless' ) | ( 'unlink' ) | ( 'unpack' ) | ( 'unshift' ) | ( 'untie' ) | ( 'until' ) | ( 'use' ) | ( 'utime' ) | ( 'values' ) | ( 'vec' ) | ( 'wait' ) | ( 'waitpid' ) | ( 'wantarray' ) | ( 'warn' ) | ( 'when' ) | ( 'while' ) | ( 'write' ) | ( 'y' ) )
-            int alt13=222;
+            // InternalPerl.g:981:1: ( ( 'abs' ) | ( 'accept' ) | ( 'alarm' ) | ( 'atan2' ) | ( 'bind' ) | ( 'binmode' ) | ( 'bless' ) | ( 'break' ) | ( 'caller' ) | ( 'chdir' ) | ( 'chmod' ) | ( 'chomp' ) | ( 'chop' ) | ( 'chown' ) | ( 'chr' ) | ( 'chroot' ) | ( 'close' ) | ( 'closedir' ) | ( 'connect' ) | ( 'continue' ) | ( 'cos' ) | ( 'crypt' ) | ( 'dbmclose' ) | ( 'dbmopen' ) | ( 'default' ) | ( 'defined' ) | ( 'delete' ) | ( 'die' ) | ( 'do' ) | ( 'dump' ) | ( 'each' ) | ( 'else' ) | ( 'elsif' ) | ( 'endgrent' ) | ( 'endhostent' ) | ( 'endnetent' ) | ( 'endprotoent' ) | ( 'endpwent' ) | ( 'endservent' ) | ( 'eof' ) | ( 'eval' ) | ( 'evalbytes' ) | ( 'exec' ) | ( 'exists' ) | ( 'exit' ) | ( 'exp' ) | ( 'fc' ) | ( 'fcntl' ) | ( 'fileno' ) | ( 'flock' ) | ( 'for' ) | ( 'foreach' ) | ( 'fork' ) | ( 'format' ) | ( 'formline' ) | ( 'getc' ) | ( 'getgrent' ) | ( 'getgrgid' ) | ( 'getgrnam' ) | ( 'gethostbyaddr' ) | ( 'gethostbyname' ) | ( 'gethostent' ) | ( 'getlogin' ) | ( 'getnetbyaddr' ) | ( 'getnetbyname' ) | ( 'getnetent' ) | ( 'getpeername' ) | ( 'getpgrp' ) | ( 'getppid' ) | ( 'getpriority' ) | ( 'getprotobyname' ) | ( 'getprotobynumber' ) | ( 'getprotoent' ) | ( 'getpwent' ) | ( 'getpwnam' ) | ( 'getpwuid' ) | ( 'getservbyname' ) | ( 'getservbyport' ) | ( 'getservent' ) | ( 'getsockname' ) | ( 'getsockopt' ) | ( 'given' ) | ( 'glob' ) | ( 'gmtime' ) | ( 'goto' ) | ( 'grep' ) | ( 'hex' ) | ( 'if' ) | ( 'index' ) | ( 'int' ) | ( 'ioctl' ) | ( 'join' ) | ( 'keys' ) | ( 'kill' ) | ( 'last' ) | ( 'lc' ) | ( 'lcfirst' ) | ( 'length' ) | ( 'link' ) | ( 'listen' ) | ( 'local' ) | ( 'localtime' ) | ( 'lock' ) | ( 'log' ) | ( 'lstat' ) | ( 'map' ) | ( 'mkdir' ) | ( 'msgctl' ) | ( 'msgget' ) | ( 'msgrcv' ) | ( 'msgsnd' ) | ( 'my' ) | ( 'next' ) | ( 'no' ) | ( 'oct' ) | ( 'open' ) | ( 'opendir' ) | ( 'ord' ) | ( 'our' ) | ( 'pack' ) | ( 'package' ) | ( 'pipe' ) | ( 'pop' ) | ( 'pos' ) | ( 'print' ) | ( 'printf' ) | ( 'prototype' ) | ( 'push' ) | ( 'quotemeta' ) | ( 'rand' ) | ( 'read' ) | ( 'readdir' ) | ( 'readline' ) | ( 'readlink' ) | ( 'readpipe' ) | ( 'recv' ) | ( 'redo' ) | ( 'ref' ) | ( 'rename' ) | ( 'require' ) | ( 'reset' ) | ( 'return' ) | ( 'reverse' ) | ( 'rewinddir' ) | ( 'rindex' ) | ( 'rmdir' ) | ( 'say' ) | ( 'scalar' ) | ( 'seek' ) | ( 'seekdir' ) | ( 'select' ) | ( 'semctl' ) | ( 'semget' ) | ( 'semop' ) | ( 'send' ) | ( 'setgrent' ) | ( 'sethostent' ) | ( 'setnetent' ) | ( 'setpgrp' ) | ( 'setpriority' ) | ( 'setprotoent' ) | ( 'setpwent' ) | ( 'setservent' ) | ( 'setsockopt' ) | ( 'shift' ) | ( 'shmctl' ) | ( 'shmget' ) | ( 'shmread' ) | ( 'shmwrite' ) | ( 'shutdown' ) | ( 'sin' ) | ( 'sleep' ) | ( 'socket' ) | ( 'socketpair' ) | ( 'sort' ) | ( 'splice' ) | ( 'split' ) | ( 'sprintf' ) | ( 'sqrt' ) | ( 'srand' ) | ( 'stat' ) | ( 'state' ) | ( 'study' ) | ( 'sub' ) | ( 'substr' ) | ( 'symlink' ) | ( 'syscall' ) | ( 'sysopen' ) | ( 'sysread' ) | ( 'sysseek' ) | ( 'system' ) | ( 'syswrite' ) | ( 'tell' ) | ( 'telldir' ) | ( 'tie' ) | ( 'tied' ) | ( 'time' ) | ( 'times' ) | ( 'tr' ) | ( 'truncate' ) | ( 'uc' ) | ( 'ucfirst' ) | ( 'umask' ) | ( 'undef' ) | ( 'unless' ) | ( 'unlink' ) | ( 'unpack' ) | ( 'unshift' ) | ( 'untie' ) | ( 'until' ) | ( 'use' ) | ( 'utime' ) | ( 'values' ) | ( 'vec' ) | ( 'wait' ) | ( 'waitpid' ) | ( 'wantarray' ) | ( 'warn' ) | ( 'when' ) | ( 'while' ) | ( 'write' ) | ( 'y' ) )
+            int alt14=222;
             switch ( input.LA(1) ) {
             case 33:
                 {
-                alt13=1;
+                alt14=1;
                 }
                 break;
             case 34:
                 {
-                alt13=2;
+                alt14=2;
                 }
                 break;
             case 35:
                 {
-                alt13=3;
+                alt14=3;
                 }
                 break;
             case 36:
                 {
-                alt13=4;
+                alt14=4;
                 }
                 break;
             case 37:
                 {
-                alt13=5;
+                alt14=5;
                 }
                 break;
             case 38:
                 {
-                alt13=6;
+                alt14=6;
                 }
                 break;
             case 39:
                 {
-                alt13=7;
+                alt14=7;
                 }
                 break;
             case 40:
                 {
-                alt13=8;
+                alt14=8;
                 }
                 break;
             case 41:
                 {
-                alt13=9;
+                alt14=9;
                 }
                 break;
             case 42:
                 {
-                alt13=10;
+                alt14=10;
                 }
                 break;
             case 43:
                 {
-                alt13=11;
+                alt14=11;
                 }
                 break;
             case 44:
                 {
-                alt13=12;
+                alt14=12;
                 }
                 break;
             case 45:
                 {
-                alt13=13;
+                alt14=13;
                 }
                 break;
             case 46:
                 {
-                alt13=14;
+                alt14=14;
                 }
                 break;
             case 47:
                 {
-                alt13=15;
+                alt14=15;
                 }
                 break;
             case 48:
                 {
-                alt13=16;
+                alt14=16;
                 }
                 break;
             case 49:
                 {
-                alt13=17;
+                alt14=17;
                 }
                 break;
             case 50:
                 {
-                alt13=18;
+                alt14=18;
                 }
                 break;
             case 51:
                 {
-                alt13=19;
+                alt14=19;
                 }
                 break;
             case 52:
                 {
-                alt13=20;
+                alt14=20;
                 }
                 break;
             case 53:
                 {
-                alt13=21;
+                alt14=21;
                 }
                 break;
             case 54:
                 {
-                alt13=22;
+                alt14=22;
                 }
                 break;
             case 55:
                 {
-                alt13=23;
+                alt14=23;
                 }
                 break;
             case 56:
                 {
-                alt13=24;
+                alt14=24;
                 }
                 break;
             case 57:
                 {
-                alt13=25;
+                alt14=25;
                 }
                 break;
             case 58:
                 {
-                alt13=26;
+                alt14=26;
                 }
                 break;
             case 59:
                 {
-                alt13=27;
+                alt14=27;
                 }
                 break;
             case 60:
                 {
-                alt13=28;
+                alt14=28;
                 }
                 break;
             case 61:
                 {
-                alt13=29;
+                alt14=29;
                 }
                 break;
             case 62:
                 {
-                alt13=30;
+                alt14=30;
                 }
                 break;
             case 63:
                 {
-                alt13=31;
+                alt14=31;
                 }
                 break;
             case 64:
                 {
-                alt13=32;
+                alt14=32;
                 }
                 break;
             case 65:
                 {
-                alt13=33;
+                alt14=33;
                 }
                 break;
             case 66:
                 {
-                alt13=34;
+                alt14=34;
                 }
                 break;
             case 67:
                 {
-                alt13=35;
+                alt14=35;
                 }
                 break;
             case 68:
                 {
-                alt13=36;
+                alt14=36;
                 }
                 break;
             case 69:
                 {
-                alt13=37;
+                alt14=37;
                 }
                 break;
             case 70:
                 {
-                alt13=38;
+                alt14=38;
                 }
                 break;
             case 71:
                 {
-                alt13=39;
+                alt14=39;
                 }
                 break;
             case 72:
                 {
-                alt13=40;
+                alt14=40;
                 }
                 break;
             case 73:
                 {
-                alt13=41;
+                alt14=41;
                 }
                 break;
             case 74:
                 {
-                alt13=42;
+                alt14=42;
                 }
                 break;
             case 75:
                 {
-                alt13=43;
+                alt14=43;
                 }
                 break;
             case 76:
                 {
-                alt13=44;
+                alt14=44;
                 }
                 break;
             case 77:
                 {
-                alt13=45;
+                alt14=45;
                 }
                 break;
             case 78:
                 {
-                alt13=46;
+                alt14=46;
                 }
                 break;
             case 79:
                 {
-                alt13=47;
+                alt14=47;
                 }
                 break;
             case 80:
                 {
-                alt13=48;
+                alt14=48;
                 }
                 break;
             case 81:
                 {
-                alt13=49;
+                alt14=49;
                 }
                 break;
             case 82:
                 {
-                alt13=50;
+                alt14=50;
                 }
                 break;
             case 83:
                 {
-                alt13=51;
+                alt14=51;
                 }
                 break;
             case 84:
                 {
-                alt13=52;
+                alt14=52;
                 }
                 break;
             case 85:
                 {
-                alt13=53;
+                alt14=53;
                 }
                 break;
             case 86:
                 {
-                alt13=54;
+                alt14=54;
                 }
                 break;
             case 87:
                 {
-                alt13=55;
+                alt14=55;
                 }
                 break;
             case 88:
                 {
-                alt13=56;
+                alt14=56;
                 }
                 break;
             case 89:
                 {
-                alt13=57;
+                alt14=57;
                 }
                 break;
             case 90:
                 {
-                alt13=58;
+                alt14=58;
                 }
                 break;
             case 91:
                 {
-                alt13=59;
+                alt14=59;
                 }
                 break;
             case 92:
                 {
-                alt13=60;
+                alt14=60;
                 }
                 break;
             case 93:
                 {
-                alt13=61;
+                alt14=61;
                 }
                 break;
             case 94:
                 {
-                alt13=62;
+                alt14=62;
                 }
                 break;
             case 95:
                 {
-                alt13=63;
+                alt14=63;
                 }
                 break;
             case 96:
                 {
-                alt13=64;
+                alt14=64;
                 }
                 break;
             case 97:
                 {
-                alt13=65;
+                alt14=65;
                 }
                 break;
             case 98:
                 {
-                alt13=66;
+                alt14=66;
                 }
                 break;
             case 99:
                 {
-                alt13=67;
+                alt14=67;
                 }
                 break;
             case 100:
                 {
-                alt13=68;
+                alt14=68;
                 }
                 break;
             case 101:
                 {
-                alt13=69;
+                alt14=69;
                 }
                 break;
             case 102:
                 {
-                alt13=70;
+                alt14=70;
                 }
                 break;
             case 103:
                 {
-                alt13=71;
+                alt14=71;
                 }
                 break;
             case 104:
                 {
-                alt13=72;
+                alt14=72;
                 }
                 break;
             case 105:
                 {
-                alt13=73;
+                alt14=73;
                 }
                 break;
             case 106:
                 {
-                alt13=74;
+                alt14=74;
                 }
                 break;
             case 107:
                 {
-                alt13=75;
+                alt14=75;
                 }
                 break;
             case 108:
                 {
-                alt13=76;
+                alt14=76;
                 }
                 break;
             case 109:
                 {
-                alt13=77;
+                alt14=77;
                 }
                 break;
             case 110:
                 {
-                alt13=78;
+                alt14=78;
                 }
                 break;
             case 111:
                 {
-                alt13=79;
+                alt14=79;
                 }
                 break;
             case 112:
                 {
-                alt13=80;
+                alt14=80;
                 }
                 break;
             case 113:
                 {
-                alt13=81;
+                alt14=81;
                 }
                 break;
             case 114:
                 {
-                alt13=82;
+                alt14=82;
                 }
                 break;
             case 115:
                 {
-                alt13=83;
+                alt14=83;
                 }
                 break;
             case 116:
                 {
-                alt13=84;
+                alt14=84;
                 }
                 break;
             case 117:
                 {
-                alt13=85;
+                alt14=85;
                 }
                 break;
             case 118:
                 {
-                alt13=86;
+                alt14=86;
                 }
                 break;
             case 119:
                 {
-                alt13=87;
+                alt14=87;
                 }
                 break;
             case 120:
                 {
-                alt13=88;
+                alt14=88;
                 }
                 break;
             case 121:
                 {
-                alt13=89;
+                alt14=89;
                 }
                 break;
             case 122:
                 {
-                alt13=90;
+                alt14=90;
                 }
                 break;
             case 123:
                 {
-                alt13=91;
+                alt14=91;
                 }
                 break;
             case 124:
                 {
-                alt13=92;
+                alt14=92;
                 }
                 break;
             case 125:
                 {
-                alt13=93;
+                alt14=93;
                 }
                 break;
             case 126:
                 {
-                alt13=94;
+                alt14=94;
                 }
                 break;
             case 127:
                 {
-                alt13=95;
+                alt14=95;
                 }
                 break;
             case 128:
                 {
-                alt13=96;
+                alt14=96;
                 }
                 break;
             case 129:
                 {
-                alt13=97;
+                alt14=97;
                 }
                 break;
             case 130:
                 {
-                alt13=98;
+                alt14=98;
                 }
                 break;
             case 131:
                 {
-                alt13=99;
+                alt14=99;
                 }
                 break;
             case 132:
                 {
-                alt13=100;
+                alt14=100;
                 }
                 break;
             case 133:
                 {
-                alt13=101;
+                alt14=101;
                 }
                 break;
             case 134:
                 {
-                alt13=102;
+                alt14=102;
                 }
                 break;
             case 135:
                 {
-                alt13=103;
+                alt14=103;
                 }
                 break;
             case 136:
                 {
-                alt13=104;
+                alt14=104;
                 }
                 break;
             case 137:
                 {
-                alt13=105;
+                alt14=105;
                 }
                 break;
             case 138:
                 {
-                alt13=106;
+                alt14=106;
                 }
                 break;
             case 139:
                 {
-                alt13=107;
+                alt14=107;
                 }
                 break;
             case 140:
                 {
-                alt13=108;
+                alt14=108;
                 }
                 break;
             case 141:
                 {
-                alt13=109;
+                alt14=109;
                 }
                 break;
             case 142:
                 {
-                alt13=110;
+                alt14=110;
                 }
                 break;
             case 143:
                 {
-                alt13=111;
+                alt14=111;
                 }
                 break;
             case 144:
                 {
-                alt13=112;
+                alt14=112;
                 }
                 break;
             case 145:
                 {
-                alt13=113;
+                alt14=113;
                 }
                 break;
             case 146:
                 {
-                alt13=114;
+                alt14=114;
                 }
                 break;
             case 147:
                 {
-                alt13=115;
+                alt14=115;
                 }
                 break;
             case 148:
                 {
-                alt13=116;
+                alt14=116;
                 }
                 break;
             case 149:
                 {
-                alt13=117;
+                alt14=117;
                 }
                 break;
             case 150:
                 {
-                alt13=118;
+                alt14=118;
                 }
                 break;
             case 151:
                 {
-                alt13=119;
+                alt14=119;
                 }
                 break;
             case 152:
                 {
-                alt13=120;
+                alt14=120;
                 }
                 break;
             case 153:
                 {
-                alt13=121;
+                alt14=121;
                 }
                 break;
             case 154:
                 {
-                alt13=122;
+                alt14=122;
                 }
                 break;
             case 155:
                 {
-                alt13=123;
+                alt14=123;
                 }
                 break;
             case 156:
                 {
-                alt13=124;
+                alt14=124;
                 }
                 break;
             case 157:
                 {
-                alt13=125;
+                alt14=125;
                 }
                 break;
             case 158:
                 {
-                alt13=126;
+                alt14=126;
                 }
                 break;
             case 159:
                 {
-                alt13=127;
+                alt14=127;
                 }
                 break;
             case 160:
                 {
-                alt13=128;
+                alt14=128;
                 }
                 break;
             case 161:
                 {
-                alt13=129;
+                alt14=129;
                 }
                 break;
             case 162:
                 {
-                alt13=130;
+                alt14=130;
                 }
                 break;
             case 163:
                 {
-                alt13=131;
+                alt14=131;
                 }
                 break;
             case 164:
                 {
-                alt13=132;
+                alt14=132;
                 }
                 break;
             case 165:
                 {
-                alt13=133;
+                alt14=133;
                 }
                 break;
             case 166:
                 {
-                alt13=134;
+                alt14=134;
                 }
                 break;
             case 167:
                 {
-                alt13=135;
+                alt14=135;
                 }
                 break;
             case 168:
                 {
-                alt13=136;
+                alt14=136;
                 }
                 break;
             case 169:
                 {
-                alt13=137;
+                alt14=137;
                 }
                 break;
             case 170:
                 {
-                alt13=138;
+                alt14=138;
                 }
                 break;
             case 171:
                 {
-                alt13=139;
+                alt14=139;
                 }
                 break;
             case 172:
                 {
-                alt13=140;
+                alt14=140;
                 }
                 break;
             case 173:
                 {
-                alt13=141;
+                alt14=141;
                 }
                 break;
             case 174:
                 {
-                alt13=142;
+                alt14=142;
                 }
                 break;
             case 175:
                 {
-                alt13=143;
+                alt14=143;
                 }
                 break;
             case 176:
                 {
-                alt13=144;
+                alt14=144;
                 }
                 break;
             case 177:
                 {
-                alt13=145;
+                alt14=145;
                 }
                 break;
             case 178:
                 {
-                alt13=146;
+                alt14=146;
                 }
                 break;
             case 179:
                 {
-                alt13=147;
+                alt14=147;
                 }
                 break;
             case 180:
                 {
-                alt13=148;
+                alt14=148;
                 }
                 break;
             case 181:
                 {
-                alt13=149;
+                alt14=149;
                 }
                 break;
             case 182:
                 {
-                alt13=150;
+                alt14=150;
                 }
                 break;
             case 183:
                 {
-                alt13=151;
+                alt14=151;
                 }
                 break;
             case 184:
                 {
-                alt13=152;
+                alt14=152;
                 }
                 break;
             case 185:
                 {
-                alt13=153;
+                alt14=153;
                 }
                 break;
             case 186:
                 {
-                alt13=154;
+                alt14=154;
                 }
                 break;
             case 187:
                 {
-                alt13=155;
+                alt14=155;
                 }
                 break;
             case 188:
                 {
-                alt13=156;
+                alt14=156;
                 }
                 break;
             case 189:
                 {
-                alt13=157;
+                alt14=157;
                 }
                 break;
             case 190:
                 {
-                alt13=158;
+                alt14=158;
                 }
                 break;
             case 191:
                 {
-                alt13=159;
+                alt14=159;
                 }
                 break;
             case 192:
                 {
-                alt13=160;
+                alt14=160;
                 }
                 break;
             case 193:
                 {
-                alt13=161;
+                alt14=161;
                 }
                 break;
             case 194:
                 {
-                alt13=162;
+                alt14=162;
                 }
                 break;
             case 195:
                 {
-                alt13=163;
+                alt14=163;
                 }
                 break;
             case 196:
                 {
-                alt13=164;
+                alt14=164;
                 }
                 break;
             case 197:
                 {
-                alt13=165;
+                alt14=165;
                 }
                 break;
             case 198:
                 {
-                alt13=166;
+                alt14=166;
                 }
                 break;
             case 199:
                 {
-                alt13=167;
+                alt14=167;
                 }
                 break;
             case 200:
                 {
-                alt13=168;
+                alt14=168;
                 }
                 break;
             case 201:
                 {
-                alt13=169;
+                alt14=169;
                 }
                 break;
             case 202:
                 {
-                alt13=170;
+                alt14=170;
                 }
                 break;
             case 203:
                 {
-                alt13=171;
+                alt14=171;
                 }
                 break;
             case 204:
                 {
-                alt13=172;
+                alt14=172;
                 }
                 break;
             case 205:
                 {
-                alt13=173;
+                alt14=173;
                 }
                 break;
             case 206:
                 {
-                alt13=174;
+                alt14=174;
                 }
                 break;
             case 207:
                 {
-                alt13=175;
+                alt14=175;
                 }
                 break;
             case 208:
                 {
-                alt13=176;
+                alt14=176;
                 }
                 break;
             case 209:
                 {
-                alt13=177;
+                alt14=177;
                 }
                 break;
             case 210:
                 {
-                alt13=178;
+                alt14=178;
                 }
                 break;
             case 211:
                 {
-                alt13=179;
+                alt14=179;
                 }
                 break;
             case 212:
                 {
-                alt13=180;
+                alt14=180;
                 }
                 break;
             case 213:
                 {
-                alt13=181;
+                alt14=181;
                 }
                 break;
             case 214:
                 {
-                alt13=182;
+                alt14=182;
                 }
                 break;
             case 215:
                 {
-                alt13=183;
+                alt14=183;
                 }
                 break;
             case 216:
                 {
-                alt13=184;
+                alt14=184;
                 }
                 break;
             case 217:
                 {
-                alt13=185;
+                alt14=185;
                 }
                 break;
             case 218:
                 {
-                alt13=186;
+                alt14=186;
                 }
                 break;
             case 219:
                 {
-                alt13=187;
+                alt14=187;
                 }
                 break;
             case 220:
                 {
-                alt13=188;
+                alt14=188;
                 }
                 break;
             case 221:
                 {
-                alt13=189;
+                alt14=189;
                 }
                 break;
             case 222:
                 {
-                alt13=190;
+                alt14=190;
                 }
                 break;
             case 223:
                 {
-                alt13=191;
+                alt14=191;
                 }
                 break;
             case 224:
                 {
-                alt13=192;
+                alt14=192;
                 }
                 break;
             case 225:
                 {
-                alt13=193;
+                alt14=193;
                 }
                 break;
             case 226:
                 {
-                alt13=194;
+                alt14=194;
                 }
                 break;
             case 227:
                 {
-                alt13=195;
+                alt14=195;
                 }
                 break;
             case 228:
                 {
-                alt13=196;
+                alt14=196;
                 }
                 break;
             case 229:
                 {
-                alt13=197;
+                alt14=197;
                 }
                 break;
             case 230:
                 {
-                alt13=198;
+                alt14=198;
                 }
                 break;
             case 231:
                 {
-                alt13=199;
+                alt14=199;
                 }
                 break;
             case 232:
                 {
-                alt13=200;
+                alt14=200;
                 }
                 break;
             case 233:
                 {
-                alt13=201;
+                alt14=201;
                 }
                 break;
             case 234:
                 {
-                alt13=202;
+                alt14=202;
                 }
                 break;
             case 235:
                 {
-                alt13=203;
+                alt14=203;
                 }
                 break;
             case 236:
                 {
-                alt13=204;
+                alt14=204;
                 }
                 break;
             case 237:
                 {
-                alt13=205;
+                alt14=205;
                 }
                 break;
             case 238:
                 {
-                alt13=206;
+                alt14=206;
                 }
                 break;
             case 239:
                 {
-                alt13=207;
+                alt14=207;
                 }
                 break;
             case 240:
                 {
-                alt13=208;
+                alt14=208;
                 }
                 break;
             case 241:
                 {
-                alt13=209;
+                alt14=209;
                 }
                 break;
             case 242:
                 {
-                alt13=210;
+                alt14=210;
                 }
                 break;
             case 243:
                 {
-                alt13=211;
+                alt14=211;
                 }
                 break;
             case 244:
                 {
-                alt13=212;
+                alt14=212;
                 }
                 break;
             case 245:
                 {
-                alt13=213;
+                alt14=213;
                 }
                 break;
             case 246:
                 {
-                alt13=214;
+                alt14=214;
                 }
                 break;
             case 247:
                 {
-                alt13=215;
+                alt14=215;
                 }
                 break;
             case 248:
                 {
-                alt13=216;
+                alt14=216;
                 }
                 break;
             case 249:
                 {
-                alt13=217;
+                alt14=217;
                 }
                 break;
             case 250:
                 {
-                alt13=218;
+                alt14=218;
                 }
                 break;
             case 251:
                 {
-                alt13=219;
+                alt14=219;
                 }
                 break;
             case 252:
                 {
-                alt13=220;
+                alt14=220;
                 }
                 break;
             case 253:
                 {
-                alt13=221;
+                alt14=221;
                 }
                 break;
             case 254:
                 {
-                alt13=222;
+                alt14=222;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 13, 0, input);
+                    new NoViableAltException("", 14, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt13) {
+            switch (alt14) {
                 case 1 :
-                    // InternalPerl.g:936:2: ( 'abs' )
+                    // InternalPerl.g:982:2: ( 'abs' )
                     {
-                    // InternalPerl.g:936:2: ( 'abs' )
-                    // InternalPerl.g:937:3: 'abs'
+                    // InternalPerl.g:982:2: ( 'abs' )
+                    // InternalPerl.g:983:3: 'abs'
                     {
                      before(grammarAccess.getKeywordAccess().getAbsKeyword_0()); 
                     match(input,33,FOLLOW_2); 
@@ -4624,10 +4783,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:942:2: ( 'accept' )
+                    // InternalPerl.g:988:2: ( 'accept' )
                     {
-                    // InternalPerl.g:942:2: ( 'accept' )
-                    // InternalPerl.g:943:3: 'accept'
+                    // InternalPerl.g:988:2: ( 'accept' )
+                    // InternalPerl.g:989:3: 'accept'
                     {
                      before(grammarAccess.getKeywordAccess().getAcceptKeyword_1()); 
                     match(input,34,FOLLOW_2); 
@@ -4639,10 +4798,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:948:2: ( 'alarm' )
+                    // InternalPerl.g:994:2: ( 'alarm' )
                     {
-                    // InternalPerl.g:948:2: ( 'alarm' )
-                    // InternalPerl.g:949:3: 'alarm'
+                    // InternalPerl.g:994:2: ( 'alarm' )
+                    // InternalPerl.g:995:3: 'alarm'
                     {
                      before(grammarAccess.getKeywordAccess().getAlarmKeyword_2()); 
                     match(input,35,FOLLOW_2); 
@@ -4654,10 +4813,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalPerl.g:954:2: ( 'atan2' )
+                    // InternalPerl.g:1000:2: ( 'atan2' )
                     {
-                    // InternalPerl.g:954:2: ( 'atan2' )
-                    // InternalPerl.g:955:3: 'atan2'
+                    // InternalPerl.g:1000:2: ( 'atan2' )
+                    // InternalPerl.g:1001:3: 'atan2'
                     {
                      before(grammarAccess.getKeywordAccess().getAtan2Keyword_3()); 
                     match(input,36,FOLLOW_2); 
@@ -4669,10 +4828,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalPerl.g:960:2: ( 'bind' )
+                    // InternalPerl.g:1006:2: ( 'bind' )
                     {
-                    // InternalPerl.g:960:2: ( 'bind' )
-                    // InternalPerl.g:961:3: 'bind'
+                    // InternalPerl.g:1006:2: ( 'bind' )
+                    // InternalPerl.g:1007:3: 'bind'
                     {
                      before(grammarAccess.getKeywordAccess().getBindKeyword_4()); 
                     match(input,37,FOLLOW_2); 
@@ -4684,10 +4843,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 6 :
-                    // InternalPerl.g:966:2: ( 'binmode' )
+                    // InternalPerl.g:1012:2: ( 'binmode' )
                     {
-                    // InternalPerl.g:966:2: ( 'binmode' )
-                    // InternalPerl.g:967:3: 'binmode'
+                    // InternalPerl.g:1012:2: ( 'binmode' )
+                    // InternalPerl.g:1013:3: 'binmode'
                     {
                      before(grammarAccess.getKeywordAccess().getBinmodeKeyword_5()); 
                     match(input,38,FOLLOW_2); 
@@ -4699,10 +4858,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 7 :
-                    // InternalPerl.g:972:2: ( 'bless' )
+                    // InternalPerl.g:1018:2: ( 'bless' )
                     {
-                    // InternalPerl.g:972:2: ( 'bless' )
-                    // InternalPerl.g:973:3: 'bless'
+                    // InternalPerl.g:1018:2: ( 'bless' )
+                    // InternalPerl.g:1019:3: 'bless'
                     {
                      before(grammarAccess.getKeywordAccess().getBlessKeyword_6()); 
                     match(input,39,FOLLOW_2); 
@@ -4714,10 +4873,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 8 :
-                    // InternalPerl.g:978:2: ( 'break' )
+                    // InternalPerl.g:1024:2: ( 'break' )
                     {
-                    // InternalPerl.g:978:2: ( 'break' )
-                    // InternalPerl.g:979:3: 'break'
+                    // InternalPerl.g:1024:2: ( 'break' )
+                    // InternalPerl.g:1025:3: 'break'
                     {
                      before(grammarAccess.getKeywordAccess().getBreakKeyword_7()); 
                     match(input,40,FOLLOW_2); 
@@ -4729,10 +4888,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 9 :
-                    // InternalPerl.g:984:2: ( 'caller' )
+                    // InternalPerl.g:1030:2: ( 'caller' )
                     {
-                    // InternalPerl.g:984:2: ( 'caller' )
-                    // InternalPerl.g:985:3: 'caller'
+                    // InternalPerl.g:1030:2: ( 'caller' )
+                    // InternalPerl.g:1031:3: 'caller'
                     {
                      before(grammarAccess.getKeywordAccess().getCallerKeyword_8()); 
                     match(input,41,FOLLOW_2); 
@@ -4744,10 +4903,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 10 :
-                    // InternalPerl.g:990:2: ( 'chdir' )
+                    // InternalPerl.g:1036:2: ( 'chdir' )
                     {
-                    // InternalPerl.g:990:2: ( 'chdir' )
-                    // InternalPerl.g:991:3: 'chdir'
+                    // InternalPerl.g:1036:2: ( 'chdir' )
+                    // InternalPerl.g:1037:3: 'chdir'
                     {
                      before(grammarAccess.getKeywordAccess().getChdirKeyword_9()); 
                     match(input,42,FOLLOW_2); 
@@ -4759,10 +4918,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 11 :
-                    // InternalPerl.g:996:2: ( 'chmod' )
+                    // InternalPerl.g:1042:2: ( 'chmod' )
                     {
-                    // InternalPerl.g:996:2: ( 'chmod' )
-                    // InternalPerl.g:997:3: 'chmod'
+                    // InternalPerl.g:1042:2: ( 'chmod' )
+                    // InternalPerl.g:1043:3: 'chmod'
                     {
                      before(grammarAccess.getKeywordAccess().getChmodKeyword_10()); 
                     match(input,43,FOLLOW_2); 
@@ -4774,10 +4933,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 12 :
-                    // InternalPerl.g:1002:2: ( 'chomp' )
+                    // InternalPerl.g:1048:2: ( 'chomp' )
                     {
-                    // InternalPerl.g:1002:2: ( 'chomp' )
-                    // InternalPerl.g:1003:3: 'chomp'
+                    // InternalPerl.g:1048:2: ( 'chomp' )
+                    // InternalPerl.g:1049:3: 'chomp'
                     {
                      before(grammarAccess.getKeywordAccess().getChompKeyword_11()); 
                     match(input,44,FOLLOW_2); 
@@ -4789,10 +4948,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 13 :
-                    // InternalPerl.g:1008:2: ( 'chop' )
+                    // InternalPerl.g:1054:2: ( 'chop' )
                     {
-                    // InternalPerl.g:1008:2: ( 'chop' )
-                    // InternalPerl.g:1009:3: 'chop'
+                    // InternalPerl.g:1054:2: ( 'chop' )
+                    // InternalPerl.g:1055:3: 'chop'
                     {
                      before(grammarAccess.getKeywordAccess().getChopKeyword_12()); 
                     match(input,45,FOLLOW_2); 
@@ -4804,10 +4963,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 14 :
-                    // InternalPerl.g:1014:2: ( 'chown' )
+                    // InternalPerl.g:1060:2: ( 'chown' )
                     {
-                    // InternalPerl.g:1014:2: ( 'chown' )
-                    // InternalPerl.g:1015:3: 'chown'
+                    // InternalPerl.g:1060:2: ( 'chown' )
+                    // InternalPerl.g:1061:3: 'chown'
                     {
                      before(grammarAccess.getKeywordAccess().getChownKeyword_13()); 
                     match(input,46,FOLLOW_2); 
@@ -4819,10 +4978,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 15 :
-                    // InternalPerl.g:1020:2: ( 'chr' )
+                    // InternalPerl.g:1066:2: ( 'chr' )
                     {
-                    // InternalPerl.g:1020:2: ( 'chr' )
-                    // InternalPerl.g:1021:3: 'chr'
+                    // InternalPerl.g:1066:2: ( 'chr' )
+                    // InternalPerl.g:1067:3: 'chr'
                     {
                      before(grammarAccess.getKeywordAccess().getChrKeyword_14()); 
                     match(input,47,FOLLOW_2); 
@@ -4834,10 +4993,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 16 :
-                    // InternalPerl.g:1026:2: ( 'chroot' )
+                    // InternalPerl.g:1072:2: ( 'chroot' )
                     {
-                    // InternalPerl.g:1026:2: ( 'chroot' )
-                    // InternalPerl.g:1027:3: 'chroot'
+                    // InternalPerl.g:1072:2: ( 'chroot' )
+                    // InternalPerl.g:1073:3: 'chroot'
                     {
                      before(grammarAccess.getKeywordAccess().getChrootKeyword_15()); 
                     match(input,48,FOLLOW_2); 
@@ -4849,10 +5008,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 17 :
-                    // InternalPerl.g:1032:2: ( 'close' )
+                    // InternalPerl.g:1078:2: ( 'close' )
                     {
-                    // InternalPerl.g:1032:2: ( 'close' )
-                    // InternalPerl.g:1033:3: 'close'
+                    // InternalPerl.g:1078:2: ( 'close' )
+                    // InternalPerl.g:1079:3: 'close'
                     {
                      before(grammarAccess.getKeywordAccess().getCloseKeyword_16()); 
                     match(input,49,FOLLOW_2); 
@@ -4864,10 +5023,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 18 :
-                    // InternalPerl.g:1038:2: ( 'closedir' )
+                    // InternalPerl.g:1084:2: ( 'closedir' )
                     {
-                    // InternalPerl.g:1038:2: ( 'closedir' )
-                    // InternalPerl.g:1039:3: 'closedir'
+                    // InternalPerl.g:1084:2: ( 'closedir' )
+                    // InternalPerl.g:1085:3: 'closedir'
                     {
                      before(grammarAccess.getKeywordAccess().getClosedirKeyword_17()); 
                     match(input,50,FOLLOW_2); 
@@ -4879,10 +5038,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 19 :
-                    // InternalPerl.g:1044:2: ( 'connect' )
+                    // InternalPerl.g:1090:2: ( 'connect' )
                     {
-                    // InternalPerl.g:1044:2: ( 'connect' )
-                    // InternalPerl.g:1045:3: 'connect'
+                    // InternalPerl.g:1090:2: ( 'connect' )
+                    // InternalPerl.g:1091:3: 'connect'
                     {
                      before(grammarAccess.getKeywordAccess().getConnectKeyword_18()); 
                     match(input,51,FOLLOW_2); 
@@ -4894,10 +5053,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 20 :
-                    // InternalPerl.g:1050:2: ( 'continue' )
+                    // InternalPerl.g:1096:2: ( 'continue' )
                     {
-                    // InternalPerl.g:1050:2: ( 'continue' )
-                    // InternalPerl.g:1051:3: 'continue'
+                    // InternalPerl.g:1096:2: ( 'continue' )
+                    // InternalPerl.g:1097:3: 'continue'
                     {
                      before(grammarAccess.getKeywordAccess().getContinueKeyword_19()); 
                     match(input,52,FOLLOW_2); 
@@ -4909,10 +5068,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 21 :
-                    // InternalPerl.g:1056:2: ( 'cos' )
+                    // InternalPerl.g:1102:2: ( 'cos' )
                     {
-                    // InternalPerl.g:1056:2: ( 'cos' )
-                    // InternalPerl.g:1057:3: 'cos'
+                    // InternalPerl.g:1102:2: ( 'cos' )
+                    // InternalPerl.g:1103:3: 'cos'
                     {
                      before(grammarAccess.getKeywordAccess().getCosKeyword_20()); 
                     match(input,53,FOLLOW_2); 
@@ -4924,10 +5083,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 22 :
-                    // InternalPerl.g:1062:2: ( 'crypt' )
+                    // InternalPerl.g:1108:2: ( 'crypt' )
                     {
-                    // InternalPerl.g:1062:2: ( 'crypt' )
-                    // InternalPerl.g:1063:3: 'crypt'
+                    // InternalPerl.g:1108:2: ( 'crypt' )
+                    // InternalPerl.g:1109:3: 'crypt'
                     {
                      before(grammarAccess.getKeywordAccess().getCryptKeyword_21()); 
                     match(input,54,FOLLOW_2); 
@@ -4939,10 +5098,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 23 :
-                    // InternalPerl.g:1068:2: ( 'dbmclose' )
+                    // InternalPerl.g:1114:2: ( 'dbmclose' )
                     {
-                    // InternalPerl.g:1068:2: ( 'dbmclose' )
-                    // InternalPerl.g:1069:3: 'dbmclose'
+                    // InternalPerl.g:1114:2: ( 'dbmclose' )
+                    // InternalPerl.g:1115:3: 'dbmclose'
                     {
                      before(grammarAccess.getKeywordAccess().getDbmcloseKeyword_22()); 
                     match(input,55,FOLLOW_2); 
@@ -4954,10 +5113,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 24 :
-                    // InternalPerl.g:1074:2: ( 'dbmopen' )
+                    // InternalPerl.g:1120:2: ( 'dbmopen' )
                     {
-                    // InternalPerl.g:1074:2: ( 'dbmopen' )
-                    // InternalPerl.g:1075:3: 'dbmopen'
+                    // InternalPerl.g:1120:2: ( 'dbmopen' )
+                    // InternalPerl.g:1121:3: 'dbmopen'
                     {
                      before(grammarAccess.getKeywordAccess().getDbmopenKeyword_23()); 
                     match(input,56,FOLLOW_2); 
@@ -4969,10 +5128,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 25 :
-                    // InternalPerl.g:1080:2: ( 'default' )
+                    // InternalPerl.g:1126:2: ( 'default' )
                     {
-                    // InternalPerl.g:1080:2: ( 'default' )
-                    // InternalPerl.g:1081:3: 'default'
+                    // InternalPerl.g:1126:2: ( 'default' )
+                    // InternalPerl.g:1127:3: 'default'
                     {
                      before(grammarAccess.getKeywordAccess().getDefaultKeyword_24()); 
                     match(input,57,FOLLOW_2); 
@@ -4984,10 +5143,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 26 :
-                    // InternalPerl.g:1086:2: ( 'defined' )
+                    // InternalPerl.g:1132:2: ( 'defined' )
                     {
-                    // InternalPerl.g:1086:2: ( 'defined' )
-                    // InternalPerl.g:1087:3: 'defined'
+                    // InternalPerl.g:1132:2: ( 'defined' )
+                    // InternalPerl.g:1133:3: 'defined'
                     {
                      before(grammarAccess.getKeywordAccess().getDefinedKeyword_25()); 
                     match(input,58,FOLLOW_2); 
@@ -4999,10 +5158,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 27 :
-                    // InternalPerl.g:1092:2: ( 'delete' )
+                    // InternalPerl.g:1138:2: ( 'delete' )
                     {
-                    // InternalPerl.g:1092:2: ( 'delete' )
-                    // InternalPerl.g:1093:3: 'delete'
+                    // InternalPerl.g:1138:2: ( 'delete' )
+                    // InternalPerl.g:1139:3: 'delete'
                     {
                      before(grammarAccess.getKeywordAccess().getDeleteKeyword_26()); 
                     match(input,59,FOLLOW_2); 
@@ -5014,10 +5173,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 28 :
-                    // InternalPerl.g:1098:2: ( 'die' )
+                    // InternalPerl.g:1144:2: ( 'die' )
                     {
-                    // InternalPerl.g:1098:2: ( 'die' )
-                    // InternalPerl.g:1099:3: 'die'
+                    // InternalPerl.g:1144:2: ( 'die' )
+                    // InternalPerl.g:1145:3: 'die'
                     {
                      before(grammarAccess.getKeywordAccess().getDieKeyword_27()); 
                     match(input,60,FOLLOW_2); 
@@ -5029,10 +5188,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 29 :
-                    // InternalPerl.g:1104:2: ( 'do' )
+                    // InternalPerl.g:1150:2: ( 'do' )
                     {
-                    // InternalPerl.g:1104:2: ( 'do' )
-                    // InternalPerl.g:1105:3: 'do'
+                    // InternalPerl.g:1150:2: ( 'do' )
+                    // InternalPerl.g:1151:3: 'do'
                     {
                      before(grammarAccess.getKeywordAccess().getDoKeyword_28()); 
                     match(input,61,FOLLOW_2); 
@@ -5044,10 +5203,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 30 :
-                    // InternalPerl.g:1110:2: ( 'dump' )
+                    // InternalPerl.g:1156:2: ( 'dump' )
                     {
-                    // InternalPerl.g:1110:2: ( 'dump' )
-                    // InternalPerl.g:1111:3: 'dump'
+                    // InternalPerl.g:1156:2: ( 'dump' )
+                    // InternalPerl.g:1157:3: 'dump'
                     {
                      before(grammarAccess.getKeywordAccess().getDumpKeyword_29()); 
                     match(input,62,FOLLOW_2); 
@@ -5059,10 +5218,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 31 :
-                    // InternalPerl.g:1116:2: ( 'each' )
+                    // InternalPerl.g:1162:2: ( 'each' )
                     {
-                    // InternalPerl.g:1116:2: ( 'each' )
-                    // InternalPerl.g:1117:3: 'each'
+                    // InternalPerl.g:1162:2: ( 'each' )
+                    // InternalPerl.g:1163:3: 'each'
                     {
                      before(grammarAccess.getKeywordAccess().getEachKeyword_30()); 
                     match(input,63,FOLLOW_2); 
@@ -5074,10 +5233,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 32 :
-                    // InternalPerl.g:1122:2: ( 'else' )
+                    // InternalPerl.g:1168:2: ( 'else' )
                     {
-                    // InternalPerl.g:1122:2: ( 'else' )
-                    // InternalPerl.g:1123:3: 'else'
+                    // InternalPerl.g:1168:2: ( 'else' )
+                    // InternalPerl.g:1169:3: 'else'
                     {
                      before(grammarAccess.getKeywordAccess().getElseKeyword_31()); 
                     match(input,64,FOLLOW_2); 
@@ -5089,10 +5248,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 33 :
-                    // InternalPerl.g:1128:2: ( 'elsif' )
+                    // InternalPerl.g:1174:2: ( 'elsif' )
                     {
-                    // InternalPerl.g:1128:2: ( 'elsif' )
-                    // InternalPerl.g:1129:3: 'elsif'
+                    // InternalPerl.g:1174:2: ( 'elsif' )
+                    // InternalPerl.g:1175:3: 'elsif'
                     {
                      before(grammarAccess.getKeywordAccess().getElsifKeyword_32()); 
                     match(input,65,FOLLOW_2); 
@@ -5104,10 +5263,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 34 :
-                    // InternalPerl.g:1134:2: ( 'endgrent' )
+                    // InternalPerl.g:1180:2: ( 'endgrent' )
                     {
-                    // InternalPerl.g:1134:2: ( 'endgrent' )
-                    // InternalPerl.g:1135:3: 'endgrent'
+                    // InternalPerl.g:1180:2: ( 'endgrent' )
+                    // InternalPerl.g:1181:3: 'endgrent'
                     {
                      before(grammarAccess.getKeywordAccess().getEndgrentKeyword_33()); 
                     match(input,66,FOLLOW_2); 
@@ -5119,10 +5278,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 35 :
-                    // InternalPerl.g:1140:2: ( 'endhostent' )
+                    // InternalPerl.g:1186:2: ( 'endhostent' )
                     {
-                    // InternalPerl.g:1140:2: ( 'endhostent' )
-                    // InternalPerl.g:1141:3: 'endhostent'
+                    // InternalPerl.g:1186:2: ( 'endhostent' )
+                    // InternalPerl.g:1187:3: 'endhostent'
                     {
                      before(grammarAccess.getKeywordAccess().getEndhostentKeyword_34()); 
                     match(input,67,FOLLOW_2); 
@@ -5134,10 +5293,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 36 :
-                    // InternalPerl.g:1146:2: ( 'endnetent' )
+                    // InternalPerl.g:1192:2: ( 'endnetent' )
                     {
-                    // InternalPerl.g:1146:2: ( 'endnetent' )
-                    // InternalPerl.g:1147:3: 'endnetent'
+                    // InternalPerl.g:1192:2: ( 'endnetent' )
+                    // InternalPerl.g:1193:3: 'endnetent'
                     {
                      before(grammarAccess.getKeywordAccess().getEndnetentKeyword_35()); 
                     match(input,68,FOLLOW_2); 
@@ -5149,10 +5308,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 37 :
-                    // InternalPerl.g:1152:2: ( 'endprotoent' )
+                    // InternalPerl.g:1198:2: ( 'endprotoent' )
                     {
-                    // InternalPerl.g:1152:2: ( 'endprotoent' )
-                    // InternalPerl.g:1153:3: 'endprotoent'
+                    // InternalPerl.g:1198:2: ( 'endprotoent' )
+                    // InternalPerl.g:1199:3: 'endprotoent'
                     {
                      before(grammarAccess.getKeywordAccess().getEndprotoentKeyword_36()); 
                     match(input,69,FOLLOW_2); 
@@ -5164,10 +5323,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 38 :
-                    // InternalPerl.g:1158:2: ( 'endpwent' )
+                    // InternalPerl.g:1204:2: ( 'endpwent' )
                     {
-                    // InternalPerl.g:1158:2: ( 'endpwent' )
-                    // InternalPerl.g:1159:3: 'endpwent'
+                    // InternalPerl.g:1204:2: ( 'endpwent' )
+                    // InternalPerl.g:1205:3: 'endpwent'
                     {
                      before(grammarAccess.getKeywordAccess().getEndpwentKeyword_37()); 
                     match(input,70,FOLLOW_2); 
@@ -5179,10 +5338,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 39 :
-                    // InternalPerl.g:1164:2: ( 'endservent' )
+                    // InternalPerl.g:1210:2: ( 'endservent' )
                     {
-                    // InternalPerl.g:1164:2: ( 'endservent' )
-                    // InternalPerl.g:1165:3: 'endservent'
+                    // InternalPerl.g:1210:2: ( 'endservent' )
+                    // InternalPerl.g:1211:3: 'endservent'
                     {
                      before(grammarAccess.getKeywordAccess().getEndserventKeyword_38()); 
                     match(input,71,FOLLOW_2); 
@@ -5194,10 +5353,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 40 :
-                    // InternalPerl.g:1170:2: ( 'eof' )
+                    // InternalPerl.g:1216:2: ( 'eof' )
                     {
-                    // InternalPerl.g:1170:2: ( 'eof' )
-                    // InternalPerl.g:1171:3: 'eof'
+                    // InternalPerl.g:1216:2: ( 'eof' )
+                    // InternalPerl.g:1217:3: 'eof'
                     {
                      before(grammarAccess.getKeywordAccess().getEofKeyword_39()); 
                     match(input,72,FOLLOW_2); 
@@ -5209,10 +5368,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 41 :
-                    // InternalPerl.g:1176:2: ( 'eval' )
+                    // InternalPerl.g:1222:2: ( 'eval' )
                     {
-                    // InternalPerl.g:1176:2: ( 'eval' )
-                    // InternalPerl.g:1177:3: 'eval'
+                    // InternalPerl.g:1222:2: ( 'eval' )
+                    // InternalPerl.g:1223:3: 'eval'
                     {
                      before(grammarAccess.getKeywordAccess().getEvalKeyword_40()); 
                     match(input,73,FOLLOW_2); 
@@ -5224,10 +5383,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 42 :
-                    // InternalPerl.g:1182:2: ( 'evalbytes' )
+                    // InternalPerl.g:1228:2: ( 'evalbytes' )
                     {
-                    // InternalPerl.g:1182:2: ( 'evalbytes' )
-                    // InternalPerl.g:1183:3: 'evalbytes'
+                    // InternalPerl.g:1228:2: ( 'evalbytes' )
+                    // InternalPerl.g:1229:3: 'evalbytes'
                     {
                      before(grammarAccess.getKeywordAccess().getEvalbytesKeyword_41()); 
                     match(input,74,FOLLOW_2); 
@@ -5239,10 +5398,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 43 :
-                    // InternalPerl.g:1188:2: ( 'exec' )
+                    // InternalPerl.g:1234:2: ( 'exec' )
                     {
-                    // InternalPerl.g:1188:2: ( 'exec' )
-                    // InternalPerl.g:1189:3: 'exec'
+                    // InternalPerl.g:1234:2: ( 'exec' )
+                    // InternalPerl.g:1235:3: 'exec'
                     {
                      before(grammarAccess.getKeywordAccess().getExecKeyword_42()); 
                     match(input,75,FOLLOW_2); 
@@ -5254,10 +5413,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 44 :
-                    // InternalPerl.g:1194:2: ( 'exists' )
+                    // InternalPerl.g:1240:2: ( 'exists' )
                     {
-                    // InternalPerl.g:1194:2: ( 'exists' )
-                    // InternalPerl.g:1195:3: 'exists'
+                    // InternalPerl.g:1240:2: ( 'exists' )
+                    // InternalPerl.g:1241:3: 'exists'
                     {
                      before(grammarAccess.getKeywordAccess().getExistsKeyword_43()); 
                     match(input,76,FOLLOW_2); 
@@ -5269,10 +5428,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 45 :
-                    // InternalPerl.g:1200:2: ( 'exit' )
+                    // InternalPerl.g:1246:2: ( 'exit' )
                     {
-                    // InternalPerl.g:1200:2: ( 'exit' )
-                    // InternalPerl.g:1201:3: 'exit'
+                    // InternalPerl.g:1246:2: ( 'exit' )
+                    // InternalPerl.g:1247:3: 'exit'
                     {
                      before(grammarAccess.getKeywordAccess().getExitKeyword_44()); 
                     match(input,77,FOLLOW_2); 
@@ -5284,10 +5443,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 46 :
-                    // InternalPerl.g:1206:2: ( 'exp' )
+                    // InternalPerl.g:1252:2: ( 'exp' )
                     {
-                    // InternalPerl.g:1206:2: ( 'exp' )
-                    // InternalPerl.g:1207:3: 'exp'
+                    // InternalPerl.g:1252:2: ( 'exp' )
+                    // InternalPerl.g:1253:3: 'exp'
                     {
                      before(grammarAccess.getKeywordAccess().getExpKeyword_45()); 
                     match(input,78,FOLLOW_2); 
@@ -5299,10 +5458,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 47 :
-                    // InternalPerl.g:1212:2: ( 'fc' )
+                    // InternalPerl.g:1258:2: ( 'fc' )
                     {
-                    // InternalPerl.g:1212:2: ( 'fc' )
-                    // InternalPerl.g:1213:3: 'fc'
+                    // InternalPerl.g:1258:2: ( 'fc' )
+                    // InternalPerl.g:1259:3: 'fc'
                     {
                      before(grammarAccess.getKeywordAccess().getFcKeyword_46()); 
                     match(input,79,FOLLOW_2); 
@@ -5314,10 +5473,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 48 :
-                    // InternalPerl.g:1218:2: ( 'fcntl' )
+                    // InternalPerl.g:1264:2: ( 'fcntl' )
                     {
-                    // InternalPerl.g:1218:2: ( 'fcntl' )
-                    // InternalPerl.g:1219:3: 'fcntl'
+                    // InternalPerl.g:1264:2: ( 'fcntl' )
+                    // InternalPerl.g:1265:3: 'fcntl'
                     {
                      before(grammarAccess.getKeywordAccess().getFcntlKeyword_47()); 
                     match(input,80,FOLLOW_2); 
@@ -5329,10 +5488,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 49 :
-                    // InternalPerl.g:1224:2: ( 'fileno' )
+                    // InternalPerl.g:1270:2: ( 'fileno' )
                     {
-                    // InternalPerl.g:1224:2: ( 'fileno' )
-                    // InternalPerl.g:1225:3: 'fileno'
+                    // InternalPerl.g:1270:2: ( 'fileno' )
+                    // InternalPerl.g:1271:3: 'fileno'
                     {
                      before(grammarAccess.getKeywordAccess().getFilenoKeyword_48()); 
                     match(input,81,FOLLOW_2); 
@@ -5344,10 +5503,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 50 :
-                    // InternalPerl.g:1230:2: ( 'flock' )
+                    // InternalPerl.g:1276:2: ( 'flock' )
                     {
-                    // InternalPerl.g:1230:2: ( 'flock' )
-                    // InternalPerl.g:1231:3: 'flock'
+                    // InternalPerl.g:1276:2: ( 'flock' )
+                    // InternalPerl.g:1277:3: 'flock'
                     {
                      before(grammarAccess.getKeywordAccess().getFlockKeyword_49()); 
                     match(input,82,FOLLOW_2); 
@@ -5359,10 +5518,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 51 :
-                    // InternalPerl.g:1236:2: ( 'for' )
+                    // InternalPerl.g:1282:2: ( 'for' )
                     {
-                    // InternalPerl.g:1236:2: ( 'for' )
-                    // InternalPerl.g:1237:3: 'for'
+                    // InternalPerl.g:1282:2: ( 'for' )
+                    // InternalPerl.g:1283:3: 'for'
                     {
                      before(grammarAccess.getKeywordAccess().getForKeyword_50()); 
                     match(input,83,FOLLOW_2); 
@@ -5374,10 +5533,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 52 :
-                    // InternalPerl.g:1242:2: ( 'foreach' )
+                    // InternalPerl.g:1288:2: ( 'foreach' )
                     {
-                    // InternalPerl.g:1242:2: ( 'foreach' )
-                    // InternalPerl.g:1243:3: 'foreach'
+                    // InternalPerl.g:1288:2: ( 'foreach' )
+                    // InternalPerl.g:1289:3: 'foreach'
                     {
                      before(grammarAccess.getKeywordAccess().getForeachKeyword_51()); 
                     match(input,84,FOLLOW_2); 
@@ -5389,10 +5548,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 53 :
-                    // InternalPerl.g:1248:2: ( 'fork' )
+                    // InternalPerl.g:1294:2: ( 'fork' )
                     {
-                    // InternalPerl.g:1248:2: ( 'fork' )
-                    // InternalPerl.g:1249:3: 'fork'
+                    // InternalPerl.g:1294:2: ( 'fork' )
+                    // InternalPerl.g:1295:3: 'fork'
                     {
                      before(grammarAccess.getKeywordAccess().getForkKeyword_52()); 
                     match(input,85,FOLLOW_2); 
@@ -5404,10 +5563,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 54 :
-                    // InternalPerl.g:1254:2: ( 'format' )
+                    // InternalPerl.g:1300:2: ( 'format' )
                     {
-                    // InternalPerl.g:1254:2: ( 'format' )
-                    // InternalPerl.g:1255:3: 'format'
+                    // InternalPerl.g:1300:2: ( 'format' )
+                    // InternalPerl.g:1301:3: 'format'
                     {
                      before(grammarAccess.getKeywordAccess().getFormatKeyword_53()); 
                     match(input,86,FOLLOW_2); 
@@ -5419,10 +5578,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 55 :
-                    // InternalPerl.g:1260:2: ( 'formline' )
+                    // InternalPerl.g:1306:2: ( 'formline' )
                     {
-                    // InternalPerl.g:1260:2: ( 'formline' )
-                    // InternalPerl.g:1261:3: 'formline'
+                    // InternalPerl.g:1306:2: ( 'formline' )
+                    // InternalPerl.g:1307:3: 'formline'
                     {
                      before(grammarAccess.getKeywordAccess().getFormlineKeyword_54()); 
                     match(input,87,FOLLOW_2); 
@@ -5434,10 +5593,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 56 :
-                    // InternalPerl.g:1266:2: ( 'getc' )
+                    // InternalPerl.g:1312:2: ( 'getc' )
                     {
-                    // InternalPerl.g:1266:2: ( 'getc' )
-                    // InternalPerl.g:1267:3: 'getc'
+                    // InternalPerl.g:1312:2: ( 'getc' )
+                    // InternalPerl.g:1313:3: 'getc'
                     {
                      before(grammarAccess.getKeywordAccess().getGetcKeyword_55()); 
                     match(input,88,FOLLOW_2); 
@@ -5449,10 +5608,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 57 :
-                    // InternalPerl.g:1272:2: ( 'getgrent' )
+                    // InternalPerl.g:1318:2: ( 'getgrent' )
                     {
-                    // InternalPerl.g:1272:2: ( 'getgrent' )
-                    // InternalPerl.g:1273:3: 'getgrent'
+                    // InternalPerl.g:1318:2: ( 'getgrent' )
+                    // InternalPerl.g:1319:3: 'getgrent'
                     {
                      before(grammarAccess.getKeywordAccess().getGetgrentKeyword_56()); 
                     match(input,89,FOLLOW_2); 
@@ -5464,10 +5623,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 58 :
-                    // InternalPerl.g:1278:2: ( 'getgrgid' )
+                    // InternalPerl.g:1324:2: ( 'getgrgid' )
                     {
-                    // InternalPerl.g:1278:2: ( 'getgrgid' )
-                    // InternalPerl.g:1279:3: 'getgrgid'
+                    // InternalPerl.g:1324:2: ( 'getgrgid' )
+                    // InternalPerl.g:1325:3: 'getgrgid'
                     {
                      before(grammarAccess.getKeywordAccess().getGetgrgidKeyword_57()); 
                     match(input,90,FOLLOW_2); 
@@ -5479,10 +5638,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 59 :
-                    // InternalPerl.g:1284:2: ( 'getgrnam' )
+                    // InternalPerl.g:1330:2: ( 'getgrnam' )
                     {
-                    // InternalPerl.g:1284:2: ( 'getgrnam' )
-                    // InternalPerl.g:1285:3: 'getgrnam'
+                    // InternalPerl.g:1330:2: ( 'getgrnam' )
+                    // InternalPerl.g:1331:3: 'getgrnam'
                     {
                      before(grammarAccess.getKeywordAccess().getGetgrnamKeyword_58()); 
                     match(input,91,FOLLOW_2); 
@@ -5494,10 +5653,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 60 :
-                    // InternalPerl.g:1290:2: ( 'gethostbyaddr' )
+                    // InternalPerl.g:1336:2: ( 'gethostbyaddr' )
                     {
-                    // InternalPerl.g:1290:2: ( 'gethostbyaddr' )
-                    // InternalPerl.g:1291:3: 'gethostbyaddr'
+                    // InternalPerl.g:1336:2: ( 'gethostbyaddr' )
+                    // InternalPerl.g:1337:3: 'gethostbyaddr'
                     {
                      before(grammarAccess.getKeywordAccess().getGethostbyaddrKeyword_59()); 
                     match(input,92,FOLLOW_2); 
@@ -5509,10 +5668,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 61 :
-                    // InternalPerl.g:1296:2: ( 'gethostbyname' )
+                    // InternalPerl.g:1342:2: ( 'gethostbyname' )
                     {
-                    // InternalPerl.g:1296:2: ( 'gethostbyname' )
-                    // InternalPerl.g:1297:3: 'gethostbyname'
+                    // InternalPerl.g:1342:2: ( 'gethostbyname' )
+                    // InternalPerl.g:1343:3: 'gethostbyname'
                     {
                      before(grammarAccess.getKeywordAccess().getGethostbynameKeyword_60()); 
                     match(input,93,FOLLOW_2); 
@@ -5524,10 +5683,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 62 :
-                    // InternalPerl.g:1302:2: ( 'gethostent' )
+                    // InternalPerl.g:1348:2: ( 'gethostent' )
                     {
-                    // InternalPerl.g:1302:2: ( 'gethostent' )
-                    // InternalPerl.g:1303:3: 'gethostent'
+                    // InternalPerl.g:1348:2: ( 'gethostent' )
+                    // InternalPerl.g:1349:3: 'gethostent'
                     {
                      before(grammarAccess.getKeywordAccess().getGethostentKeyword_61()); 
                     match(input,94,FOLLOW_2); 
@@ -5539,10 +5698,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 63 :
-                    // InternalPerl.g:1308:2: ( 'getlogin' )
+                    // InternalPerl.g:1354:2: ( 'getlogin' )
                     {
-                    // InternalPerl.g:1308:2: ( 'getlogin' )
-                    // InternalPerl.g:1309:3: 'getlogin'
+                    // InternalPerl.g:1354:2: ( 'getlogin' )
+                    // InternalPerl.g:1355:3: 'getlogin'
                     {
                      before(grammarAccess.getKeywordAccess().getGetloginKeyword_62()); 
                     match(input,95,FOLLOW_2); 
@@ -5554,10 +5713,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 64 :
-                    // InternalPerl.g:1314:2: ( 'getnetbyaddr' )
+                    // InternalPerl.g:1360:2: ( 'getnetbyaddr' )
                     {
-                    // InternalPerl.g:1314:2: ( 'getnetbyaddr' )
-                    // InternalPerl.g:1315:3: 'getnetbyaddr'
+                    // InternalPerl.g:1360:2: ( 'getnetbyaddr' )
+                    // InternalPerl.g:1361:3: 'getnetbyaddr'
                     {
                      before(grammarAccess.getKeywordAccess().getGetnetbyaddrKeyword_63()); 
                     match(input,96,FOLLOW_2); 
@@ -5569,10 +5728,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 65 :
-                    // InternalPerl.g:1320:2: ( 'getnetbyname' )
+                    // InternalPerl.g:1366:2: ( 'getnetbyname' )
                     {
-                    // InternalPerl.g:1320:2: ( 'getnetbyname' )
-                    // InternalPerl.g:1321:3: 'getnetbyname'
+                    // InternalPerl.g:1366:2: ( 'getnetbyname' )
+                    // InternalPerl.g:1367:3: 'getnetbyname'
                     {
                      before(grammarAccess.getKeywordAccess().getGetnetbynameKeyword_64()); 
                     match(input,97,FOLLOW_2); 
@@ -5584,10 +5743,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 66 :
-                    // InternalPerl.g:1326:2: ( 'getnetent' )
+                    // InternalPerl.g:1372:2: ( 'getnetent' )
                     {
-                    // InternalPerl.g:1326:2: ( 'getnetent' )
-                    // InternalPerl.g:1327:3: 'getnetent'
+                    // InternalPerl.g:1372:2: ( 'getnetent' )
+                    // InternalPerl.g:1373:3: 'getnetent'
                     {
                      before(grammarAccess.getKeywordAccess().getGetnetentKeyword_65()); 
                     match(input,98,FOLLOW_2); 
@@ -5599,10 +5758,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 67 :
-                    // InternalPerl.g:1332:2: ( 'getpeername' )
+                    // InternalPerl.g:1378:2: ( 'getpeername' )
                     {
-                    // InternalPerl.g:1332:2: ( 'getpeername' )
-                    // InternalPerl.g:1333:3: 'getpeername'
+                    // InternalPerl.g:1378:2: ( 'getpeername' )
+                    // InternalPerl.g:1379:3: 'getpeername'
                     {
                      before(grammarAccess.getKeywordAccess().getGetpeernameKeyword_66()); 
                     match(input,99,FOLLOW_2); 
@@ -5614,10 +5773,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 68 :
-                    // InternalPerl.g:1338:2: ( 'getpgrp' )
+                    // InternalPerl.g:1384:2: ( 'getpgrp' )
                     {
-                    // InternalPerl.g:1338:2: ( 'getpgrp' )
-                    // InternalPerl.g:1339:3: 'getpgrp'
+                    // InternalPerl.g:1384:2: ( 'getpgrp' )
+                    // InternalPerl.g:1385:3: 'getpgrp'
                     {
                      before(grammarAccess.getKeywordAccess().getGetpgrpKeyword_67()); 
                     match(input,100,FOLLOW_2); 
@@ -5629,10 +5788,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 69 :
-                    // InternalPerl.g:1344:2: ( 'getppid' )
+                    // InternalPerl.g:1390:2: ( 'getppid' )
                     {
-                    // InternalPerl.g:1344:2: ( 'getppid' )
-                    // InternalPerl.g:1345:3: 'getppid'
+                    // InternalPerl.g:1390:2: ( 'getppid' )
+                    // InternalPerl.g:1391:3: 'getppid'
                     {
                      before(grammarAccess.getKeywordAccess().getGetppidKeyword_68()); 
                     match(input,101,FOLLOW_2); 
@@ -5644,10 +5803,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 70 :
-                    // InternalPerl.g:1350:2: ( 'getpriority' )
+                    // InternalPerl.g:1396:2: ( 'getpriority' )
                     {
-                    // InternalPerl.g:1350:2: ( 'getpriority' )
-                    // InternalPerl.g:1351:3: 'getpriority'
+                    // InternalPerl.g:1396:2: ( 'getpriority' )
+                    // InternalPerl.g:1397:3: 'getpriority'
                     {
                      before(grammarAccess.getKeywordAccess().getGetpriorityKeyword_69()); 
                     match(input,102,FOLLOW_2); 
@@ -5659,10 +5818,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 71 :
-                    // InternalPerl.g:1356:2: ( 'getprotobyname' )
+                    // InternalPerl.g:1402:2: ( 'getprotobyname' )
                     {
-                    // InternalPerl.g:1356:2: ( 'getprotobyname' )
-                    // InternalPerl.g:1357:3: 'getprotobyname'
+                    // InternalPerl.g:1402:2: ( 'getprotobyname' )
+                    // InternalPerl.g:1403:3: 'getprotobyname'
                     {
                      before(grammarAccess.getKeywordAccess().getGetprotobynameKeyword_70()); 
                     match(input,103,FOLLOW_2); 
@@ -5674,10 +5833,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 72 :
-                    // InternalPerl.g:1362:2: ( 'getprotobynumber' )
+                    // InternalPerl.g:1408:2: ( 'getprotobynumber' )
                     {
-                    // InternalPerl.g:1362:2: ( 'getprotobynumber' )
-                    // InternalPerl.g:1363:3: 'getprotobynumber'
+                    // InternalPerl.g:1408:2: ( 'getprotobynumber' )
+                    // InternalPerl.g:1409:3: 'getprotobynumber'
                     {
                      before(grammarAccess.getKeywordAccess().getGetprotobynumberKeyword_71()); 
                     match(input,104,FOLLOW_2); 
@@ -5689,10 +5848,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 73 :
-                    // InternalPerl.g:1368:2: ( 'getprotoent' )
+                    // InternalPerl.g:1414:2: ( 'getprotoent' )
                     {
-                    // InternalPerl.g:1368:2: ( 'getprotoent' )
-                    // InternalPerl.g:1369:3: 'getprotoent'
+                    // InternalPerl.g:1414:2: ( 'getprotoent' )
+                    // InternalPerl.g:1415:3: 'getprotoent'
                     {
                      before(grammarAccess.getKeywordAccess().getGetprotoentKeyword_72()); 
                     match(input,105,FOLLOW_2); 
@@ -5704,10 +5863,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 74 :
-                    // InternalPerl.g:1374:2: ( 'getpwent' )
+                    // InternalPerl.g:1420:2: ( 'getpwent' )
                     {
-                    // InternalPerl.g:1374:2: ( 'getpwent' )
-                    // InternalPerl.g:1375:3: 'getpwent'
+                    // InternalPerl.g:1420:2: ( 'getpwent' )
+                    // InternalPerl.g:1421:3: 'getpwent'
                     {
                      before(grammarAccess.getKeywordAccess().getGetpwentKeyword_73()); 
                     match(input,106,FOLLOW_2); 
@@ -5719,10 +5878,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 75 :
-                    // InternalPerl.g:1380:2: ( 'getpwnam' )
+                    // InternalPerl.g:1426:2: ( 'getpwnam' )
                     {
-                    // InternalPerl.g:1380:2: ( 'getpwnam' )
-                    // InternalPerl.g:1381:3: 'getpwnam'
+                    // InternalPerl.g:1426:2: ( 'getpwnam' )
+                    // InternalPerl.g:1427:3: 'getpwnam'
                     {
                      before(grammarAccess.getKeywordAccess().getGetpwnamKeyword_74()); 
                     match(input,107,FOLLOW_2); 
@@ -5734,10 +5893,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 76 :
-                    // InternalPerl.g:1386:2: ( 'getpwuid' )
+                    // InternalPerl.g:1432:2: ( 'getpwuid' )
                     {
-                    // InternalPerl.g:1386:2: ( 'getpwuid' )
-                    // InternalPerl.g:1387:3: 'getpwuid'
+                    // InternalPerl.g:1432:2: ( 'getpwuid' )
+                    // InternalPerl.g:1433:3: 'getpwuid'
                     {
                      before(grammarAccess.getKeywordAccess().getGetpwuidKeyword_75()); 
                     match(input,108,FOLLOW_2); 
@@ -5749,10 +5908,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 77 :
-                    // InternalPerl.g:1392:2: ( 'getservbyname' )
+                    // InternalPerl.g:1438:2: ( 'getservbyname' )
                     {
-                    // InternalPerl.g:1392:2: ( 'getservbyname' )
-                    // InternalPerl.g:1393:3: 'getservbyname'
+                    // InternalPerl.g:1438:2: ( 'getservbyname' )
+                    // InternalPerl.g:1439:3: 'getservbyname'
                     {
                      before(grammarAccess.getKeywordAccess().getGetservbynameKeyword_76()); 
                     match(input,109,FOLLOW_2); 
@@ -5764,10 +5923,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 78 :
-                    // InternalPerl.g:1398:2: ( 'getservbyport' )
+                    // InternalPerl.g:1444:2: ( 'getservbyport' )
                     {
-                    // InternalPerl.g:1398:2: ( 'getservbyport' )
-                    // InternalPerl.g:1399:3: 'getservbyport'
+                    // InternalPerl.g:1444:2: ( 'getservbyport' )
+                    // InternalPerl.g:1445:3: 'getservbyport'
                     {
                      before(grammarAccess.getKeywordAccess().getGetservbyportKeyword_77()); 
                     match(input,110,FOLLOW_2); 
@@ -5779,10 +5938,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 79 :
-                    // InternalPerl.g:1404:2: ( 'getservent' )
+                    // InternalPerl.g:1450:2: ( 'getservent' )
                     {
-                    // InternalPerl.g:1404:2: ( 'getservent' )
-                    // InternalPerl.g:1405:3: 'getservent'
+                    // InternalPerl.g:1450:2: ( 'getservent' )
+                    // InternalPerl.g:1451:3: 'getservent'
                     {
                      before(grammarAccess.getKeywordAccess().getGetserventKeyword_78()); 
                     match(input,111,FOLLOW_2); 
@@ -5794,10 +5953,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 80 :
-                    // InternalPerl.g:1410:2: ( 'getsockname' )
+                    // InternalPerl.g:1456:2: ( 'getsockname' )
                     {
-                    // InternalPerl.g:1410:2: ( 'getsockname' )
-                    // InternalPerl.g:1411:3: 'getsockname'
+                    // InternalPerl.g:1456:2: ( 'getsockname' )
+                    // InternalPerl.g:1457:3: 'getsockname'
                     {
                      before(grammarAccess.getKeywordAccess().getGetsocknameKeyword_79()); 
                     match(input,112,FOLLOW_2); 
@@ -5809,10 +5968,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 81 :
-                    // InternalPerl.g:1416:2: ( 'getsockopt' )
+                    // InternalPerl.g:1462:2: ( 'getsockopt' )
                     {
-                    // InternalPerl.g:1416:2: ( 'getsockopt' )
-                    // InternalPerl.g:1417:3: 'getsockopt'
+                    // InternalPerl.g:1462:2: ( 'getsockopt' )
+                    // InternalPerl.g:1463:3: 'getsockopt'
                     {
                      before(grammarAccess.getKeywordAccess().getGetsockoptKeyword_80()); 
                     match(input,113,FOLLOW_2); 
@@ -5824,10 +5983,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 82 :
-                    // InternalPerl.g:1422:2: ( 'given' )
+                    // InternalPerl.g:1468:2: ( 'given' )
                     {
-                    // InternalPerl.g:1422:2: ( 'given' )
-                    // InternalPerl.g:1423:3: 'given'
+                    // InternalPerl.g:1468:2: ( 'given' )
+                    // InternalPerl.g:1469:3: 'given'
                     {
                      before(grammarAccess.getKeywordAccess().getGivenKeyword_81()); 
                     match(input,114,FOLLOW_2); 
@@ -5839,10 +5998,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 83 :
-                    // InternalPerl.g:1428:2: ( 'glob' )
+                    // InternalPerl.g:1474:2: ( 'glob' )
                     {
-                    // InternalPerl.g:1428:2: ( 'glob' )
-                    // InternalPerl.g:1429:3: 'glob'
+                    // InternalPerl.g:1474:2: ( 'glob' )
+                    // InternalPerl.g:1475:3: 'glob'
                     {
                      before(grammarAccess.getKeywordAccess().getGlobKeyword_82()); 
                     match(input,115,FOLLOW_2); 
@@ -5854,10 +6013,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 84 :
-                    // InternalPerl.g:1434:2: ( 'gmtime' )
+                    // InternalPerl.g:1480:2: ( 'gmtime' )
                     {
-                    // InternalPerl.g:1434:2: ( 'gmtime' )
-                    // InternalPerl.g:1435:3: 'gmtime'
+                    // InternalPerl.g:1480:2: ( 'gmtime' )
+                    // InternalPerl.g:1481:3: 'gmtime'
                     {
                      before(grammarAccess.getKeywordAccess().getGmtimeKeyword_83()); 
                     match(input,116,FOLLOW_2); 
@@ -5869,10 +6028,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 85 :
-                    // InternalPerl.g:1440:2: ( 'goto' )
+                    // InternalPerl.g:1486:2: ( 'goto' )
                     {
-                    // InternalPerl.g:1440:2: ( 'goto' )
-                    // InternalPerl.g:1441:3: 'goto'
+                    // InternalPerl.g:1486:2: ( 'goto' )
+                    // InternalPerl.g:1487:3: 'goto'
                     {
                      before(grammarAccess.getKeywordAccess().getGotoKeyword_84()); 
                     match(input,117,FOLLOW_2); 
@@ -5884,10 +6043,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 86 :
-                    // InternalPerl.g:1446:2: ( 'grep' )
+                    // InternalPerl.g:1492:2: ( 'grep' )
                     {
-                    // InternalPerl.g:1446:2: ( 'grep' )
-                    // InternalPerl.g:1447:3: 'grep'
+                    // InternalPerl.g:1492:2: ( 'grep' )
+                    // InternalPerl.g:1493:3: 'grep'
                     {
                      before(grammarAccess.getKeywordAccess().getGrepKeyword_85()); 
                     match(input,118,FOLLOW_2); 
@@ -5899,10 +6058,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 87 :
-                    // InternalPerl.g:1452:2: ( 'hex' )
+                    // InternalPerl.g:1498:2: ( 'hex' )
                     {
-                    // InternalPerl.g:1452:2: ( 'hex' )
-                    // InternalPerl.g:1453:3: 'hex'
+                    // InternalPerl.g:1498:2: ( 'hex' )
+                    // InternalPerl.g:1499:3: 'hex'
                     {
                      before(grammarAccess.getKeywordAccess().getHexKeyword_86()); 
                     match(input,119,FOLLOW_2); 
@@ -5914,10 +6073,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 88 :
-                    // InternalPerl.g:1458:2: ( 'if' )
+                    // InternalPerl.g:1504:2: ( 'if' )
                     {
-                    // InternalPerl.g:1458:2: ( 'if' )
-                    // InternalPerl.g:1459:3: 'if'
+                    // InternalPerl.g:1504:2: ( 'if' )
+                    // InternalPerl.g:1505:3: 'if'
                     {
                      before(grammarAccess.getKeywordAccess().getIfKeyword_87()); 
                     match(input,120,FOLLOW_2); 
@@ -5929,10 +6088,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 89 :
-                    // InternalPerl.g:1464:2: ( 'index' )
+                    // InternalPerl.g:1510:2: ( 'index' )
                     {
-                    // InternalPerl.g:1464:2: ( 'index' )
-                    // InternalPerl.g:1465:3: 'index'
+                    // InternalPerl.g:1510:2: ( 'index' )
+                    // InternalPerl.g:1511:3: 'index'
                     {
                      before(grammarAccess.getKeywordAccess().getIndexKeyword_88()); 
                     match(input,121,FOLLOW_2); 
@@ -5944,10 +6103,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 90 :
-                    // InternalPerl.g:1470:2: ( 'int' )
+                    // InternalPerl.g:1516:2: ( 'int' )
                     {
-                    // InternalPerl.g:1470:2: ( 'int' )
-                    // InternalPerl.g:1471:3: 'int'
+                    // InternalPerl.g:1516:2: ( 'int' )
+                    // InternalPerl.g:1517:3: 'int'
                     {
                      before(grammarAccess.getKeywordAccess().getIntKeyword_89()); 
                     match(input,122,FOLLOW_2); 
@@ -5959,10 +6118,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 91 :
-                    // InternalPerl.g:1476:2: ( 'ioctl' )
+                    // InternalPerl.g:1522:2: ( 'ioctl' )
                     {
-                    // InternalPerl.g:1476:2: ( 'ioctl' )
-                    // InternalPerl.g:1477:3: 'ioctl'
+                    // InternalPerl.g:1522:2: ( 'ioctl' )
+                    // InternalPerl.g:1523:3: 'ioctl'
                     {
                      before(grammarAccess.getKeywordAccess().getIoctlKeyword_90()); 
                     match(input,123,FOLLOW_2); 
@@ -5974,10 +6133,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 92 :
-                    // InternalPerl.g:1482:2: ( 'join' )
+                    // InternalPerl.g:1528:2: ( 'join' )
                     {
-                    // InternalPerl.g:1482:2: ( 'join' )
-                    // InternalPerl.g:1483:3: 'join'
+                    // InternalPerl.g:1528:2: ( 'join' )
+                    // InternalPerl.g:1529:3: 'join'
                     {
                      before(grammarAccess.getKeywordAccess().getJoinKeyword_91()); 
                     match(input,124,FOLLOW_2); 
@@ -5989,10 +6148,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 93 :
-                    // InternalPerl.g:1488:2: ( 'keys' )
+                    // InternalPerl.g:1534:2: ( 'keys' )
                     {
-                    // InternalPerl.g:1488:2: ( 'keys' )
-                    // InternalPerl.g:1489:3: 'keys'
+                    // InternalPerl.g:1534:2: ( 'keys' )
+                    // InternalPerl.g:1535:3: 'keys'
                     {
                      before(grammarAccess.getKeywordAccess().getKeysKeyword_92()); 
                     match(input,125,FOLLOW_2); 
@@ -6004,10 +6163,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 94 :
-                    // InternalPerl.g:1494:2: ( 'kill' )
+                    // InternalPerl.g:1540:2: ( 'kill' )
                     {
-                    // InternalPerl.g:1494:2: ( 'kill' )
-                    // InternalPerl.g:1495:3: 'kill'
+                    // InternalPerl.g:1540:2: ( 'kill' )
+                    // InternalPerl.g:1541:3: 'kill'
                     {
                      before(grammarAccess.getKeywordAccess().getKillKeyword_93()); 
                     match(input,126,FOLLOW_2); 
@@ -6019,10 +6178,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 95 :
-                    // InternalPerl.g:1500:2: ( 'last' )
+                    // InternalPerl.g:1546:2: ( 'last' )
                     {
-                    // InternalPerl.g:1500:2: ( 'last' )
-                    // InternalPerl.g:1501:3: 'last'
+                    // InternalPerl.g:1546:2: ( 'last' )
+                    // InternalPerl.g:1547:3: 'last'
                     {
                      before(grammarAccess.getKeywordAccess().getLastKeyword_94()); 
                     match(input,127,FOLLOW_2); 
@@ -6034,10 +6193,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 96 :
-                    // InternalPerl.g:1506:2: ( 'lc' )
+                    // InternalPerl.g:1552:2: ( 'lc' )
                     {
-                    // InternalPerl.g:1506:2: ( 'lc' )
-                    // InternalPerl.g:1507:3: 'lc'
+                    // InternalPerl.g:1552:2: ( 'lc' )
+                    // InternalPerl.g:1553:3: 'lc'
                     {
                      before(grammarAccess.getKeywordAccess().getLcKeyword_95()); 
                     match(input,128,FOLLOW_2); 
@@ -6049,10 +6208,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 97 :
-                    // InternalPerl.g:1512:2: ( 'lcfirst' )
+                    // InternalPerl.g:1558:2: ( 'lcfirst' )
                     {
-                    // InternalPerl.g:1512:2: ( 'lcfirst' )
-                    // InternalPerl.g:1513:3: 'lcfirst'
+                    // InternalPerl.g:1558:2: ( 'lcfirst' )
+                    // InternalPerl.g:1559:3: 'lcfirst'
                     {
                      before(grammarAccess.getKeywordAccess().getLcfirstKeyword_96()); 
                     match(input,129,FOLLOW_2); 
@@ -6064,10 +6223,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 98 :
-                    // InternalPerl.g:1518:2: ( 'length' )
+                    // InternalPerl.g:1564:2: ( 'length' )
                     {
-                    // InternalPerl.g:1518:2: ( 'length' )
-                    // InternalPerl.g:1519:3: 'length'
+                    // InternalPerl.g:1564:2: ( 'length' )
+                    // InternalPerl.g:1565:3: 'length'
                     {
                      before(grammarAccess.getKeywordAccess().getLengthKeyword_97()); 
                     match(input,130,FOLLOW_2); 
@@ -6079,10 +6238,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 99 :
-                    // InternalPerl.g:1524:2: ( 'link' )
+                    // InternalPerl.g:1570:2: ( 'link' )
                     {
-                    // InternalPerl.g:1524:2: ( 'link' )
-                    // InternalPerl.g:1525:3: 'link'
+                    // InternalPerl.g:1570:2: ( 'link' )
+                    // InternalPerl.g:1571:3: 'link'
                     {
                      before(grammarAccess.getKeywordAccess().getLinkKeyword_98()); 
                     match(input,131,FOLLOW_2); 
@@ -6094,10 +6253,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 100 :
-                    // InternalPerl.g:1530:2: ( 'listen' )
+                    // InternalPerl.g:1576:2: ( 'listen' )
                     {
-                    // InternalPerl.g:1530:2: ( 'listen' )
-                    // InternalPerl.g:1531:3: 'listen'
+                    // InternalPerl.g:1576:2: ( 'listen' )
+                    // InternalPerl.g:1577:3: 'listen'
                     {
                      before(grammarAccess.getKeywordAccess().getListenKeyword_99()); 
                     match(input,132,FOLLOW_2); 
@@ -6109,10 +6268,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 101 :
-                    // InternalPerl.g:1536:2: ( 'local' )
+                    // InternalPerl.g:1582:2: ( 'local' )
                     {
-                    // InternalPerl.g:1536:2: ( 'local' )
-                    // InternalPerl.g:1537:3: 'local'
+                    // InternalPerl.g:1582:2: ( 'local' )
+                    // InternalPerl.g:1583:3: 'local'
                     {
                      before(grammarAccess.getKeywordAccess().getLocalKeyword_100()); 
                     match(input,133,FOLLOW_2); 
@@ -6124,10 +6283,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 102 :
-                    // InternalPerl.g:1542:2: ( 'localtime' )
+                    // InternalPerl.g:1588:2: ( 'localtime' )
                     {
-                    // InternalPerl.g:1542:2: ( 'localtime' )
-                    // InternalPerl.g:1543:3: 'localtime'
+                    // InternalPerl.g:1588:2: ( 'localtime' )
+                    // InternalPerl.g:1589:3: 'localtime'
                     {
                      before(grammarAccess.getKeywordAccess().getLocaltimeKeyword_101()); 
                     match(input,134,FOLLOW_2); 
@@ -6139,10 +6298,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 103 :
-                    // InternalPerl.g:1548:2: ( 'lock' )
+                    // InternalPerl.g:1594:2: ( 'lock' )
                     {
-                    // InternalPerl.g:1548:2: ( 'lock' )
-                    // InternalPerl.g:1549:3: 'lock'
+                    // InternalPerl.g:1594:2: ( 'lock' )
+                    // InternalPerl.g:1595:3: 'lock'
                     {
                      before(grammarAccess.getKeywordAccess().getLockKeyword_102()); 
                     match(input,135,FOLLOW_2); 
@@ -6154,10 +6313,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 104 :
-                    // InternalPerl.g:1554:2: ( 'log' )
+                    // InternalPerl.g:1600:2: ( 'log' )
                     {
-                    // InternalPerl.g:1554:2: ( 'log' )
-                    // InternalPerl.g:1555:3: 'log'
+                    // InternalPerl.g:1600:2: ( 'log' )
+                    // InternalPerl.g:1601:3: 'log'
                     {
                      before(grammarAccess.getKeywordAccess().getLogKeyword_103()); 
                     match(input,136,FOLLOW_2); 
@@ -6169,10 +6328,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 105 :
-                    // InternalPerl.g:1560:2: ( 'lstat' )
+                    // InternalPerl.g:1606:2: ( 'lstat' )
                     {
-                    // InternalPerl.g:1560:2: ( 'lstat' )
-                    // InternalPerl.g:1561:3: 'lstat'
+                    // InternalPerl.g:1606:2: ( 'lstat' )
+                    // InternalPerl.g:1607:3: 'lstat'
                     {
                      before(grammarAccess.getKeywordAccess().getLstatKeyword_104()); 
                     match(input,137,FOLLOW_2); 
@@ -6184,10 +6343,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 106 :
-                    // InternalPerl.g:1566:2: ( 'map' )
+                    // InternalPerl.g:1612:2: ( 'map' )
                     {
-                    // InternalPerl.g:1566:2: ( 'map' )
-                    // InternalPerl.g:1567:3: 'map'
+                    // InternalPerl.g:1612:2: ( 'map' )
+                    // InternalPerl.g:1613:3: 'map'
                     {
                      before(grammarAccess.getKeywordAccess().getMapKeyword_105()); 
                     match(input,138,FOLLOW_2); 
@@ -6199,10 +6358,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 107 :
-                    // InternalPerl.g:1572:2: ( 'mkdir' )
+                    // InternalPerl.g:1618:2: ( 'mkdir' )
                     {
-                    // InternalPerl.g:1572:2: ( 'mkdir' )
-                    // InternalPerl.g:1573:3: 'mkdir'
+                    // InternalPerl.g:1618:2: ( 'mkdir' )
+                    // InternalPerl.g:1619:3: 'mkdir'
                     {
                      before(grammarAccess.getKeywordAccess().getMkdirKeyword_106()); 
                     match(input,139,FOLLOW_2); 
@@ -6214,10 +6373,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 108 :
-                    // InternalPerl.g:1578:2: ( 'msgctl' )
+                    // InternalPerl.g:1624:2: ( 'msgctl' )
                     {
-                    // InternalPerl.g:1578:2: ( 'msgctl' )
-                    // InternalPerl.g:1579:3: 'msgctl'
+                    // InternalPerl.g:1624:2: ( 'msgctl' )
+                    // InternalPerl.g:1625:3: 'msgctl'
                     {
                      before(grammarAccess.getKeywordAccess().getMsgctlKeyword_107()); 
                     match(input,140,FOLLOW_2); 
@@ -6229,10 +6388,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 109 :
-                    // InternalPerl.g:1584:2: ( 'msgget' )
+                    // InternalPerl.g:1630:2: ( 'msgget' )
                     {
-                    // InternalPerl.g:1584:2: ( 'msgget' )
-                    // InternalPerl.g:1585:3: 'msgget'
+                    // InternalPerl.g:1630:2: ( 'msgget' )
+                    // InternalPerl.g:1631:3: 'msgget'
                     {
                      before(grammarAccess.getKeywordAccess().getMsggetKeyword_108()); 
                     match(input,141,FOLLOW_2); 
@@ -6244,10 +6403,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 110 :
-                    // InternalPerl.g:1590:2: ( 'msgrcv' )
+                    // InternalPerl.g:1636:2: ( 'msgrcv' )
                     {
-                    // InternalPerl.g:1590:2: ( 'msgrcv' )
-                    // InternalPerl.g:1591:3: 'msgrcv'
+                    // InternalPerl.g:1636:2: ( 'msgrcv' )
+                    // InternalPerl.g:1637:3: 'msgrcv'
                     {
                      before(grammarAccess.getKeywordAccess().getMsgrcvKeyword_109()); 
                     match(input,142,FOLLOW_2); 
@@ -6259,10 +6418,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 111 :
-                    // InternalPerl.g:1596:2: ( 'msgsnd' )
+                    // InternalPerl.g:1642:2: ( 'msgsnd' )
                     {
-                    // InternalPerl.g:1596:2: ( 'msgsnd' )
-                    // InternalPerl.g:1597:3: 'msgsnd'
+                    // InternalPerl.g:1642:2: ( 'msgsnd' )
+                    // InternalPerl.g:1643:3: 'msgsnd'
                     {
                      before(grammarAccess.getKeywordAccess().getMsgsndKeyword_110()); 
                     match(input,143,FOLLOW_2); 
@@ -6274,10 +6433,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 112 :
-                    // InternalPerl.g:1602:2: ( 'my' )
+                    // InternalPerl.g:1648:2: ( 'my' )
                     {
-                    // InternalPerl.g:1602:2: ( 'my' )
-                    // InternalPerl.g:1603:3: 'my'
+                    // InternalPerl.g:1648:2: ( 'my' )
+                    // InternalPerl.g:1649:3: 'my'
                     {
                      before(grammarAccess.getKeywordAccess().getMyKeyword_111()); 
                     match(input,144,FOLLOW_2); 
@@ -6289,10 +6448,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 113 :
-                    // InternalPerl.g:1608:2: ( 'next' )
+                    // InternalPerl.g:1654:2: ( 'next' )
                     {
-                    // InternalPerl.g:1608:2: ( 'next' )
-                    // InternalPerl.g:1609:3: 'next'
+                    // InternalPerl.g:1654:2: ( 'next' )
+                    // InternalPerl.g:1655:3: 'next'
                     {
                      before(grammarAccess.getKeywordAccess().getNextKeyword_112()); 
                     match(input,145,FOLLOW_2); 
@@ -6304,10 +6463,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 114 :
-                    // InternalPerl.g:1614:2: ( 'no' )
+                    // InternalPerl.g:1660:2: ( 'no' )
                     {
-                    // InternalPerl.g:1614:2: ( 'no' )
-                    // InternalPerl.g:1615:3: 'no'
+                    // InternalPerl.g:1660:2: ( 'no' )
+                    // InternalPerl.g:1661:3: 'no'
                     {
                      before(grammarAccess.getKeywordAccess().getNoKeyword_113()); 
                     match(input,146,FOLLOW_2); 
@@ -6319,10 +6478,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 115 :
-                    // InternalPerl.g:1620:2: ( 'oct' )
+                    // InternalPerl.g:1666:2: ( 'oct' )
                     {
-                    // InternalPerl.g:1620:2: ( 'oct' )
-                    // InternalPerl.g:1621:3: 'oct'
+                    // InternalPerl.g:1666:2: ( 'oct' )
+                    // InternalPerl.g:1667:3: 'oct'
                     {
                      before(grammarAccess.getKeywordAccess().getOctKeyword_114()); 
                     match(input,147,FOLLOW_2); 
@@ -6334,10 +6493,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 116 :
-                    // InternalPerl.g:1626:2: ( 'open' )
+                    // InternalPerl.g:1672:2: ( 'open' )
                     {
-                    // InternalPerl.g:1626:2: ( 'open' )
-                    // InternalPerl.g:1627:3: 'open'
+                    // InternalPerl.g:1672:2: ( 'open' )
+                    // InternalPerl.g:1673:3: 'open'
                     {
                      before(grammarAccess.getKeywordAccess().getOpenKeyword_115()); 
                     match(input,148,FOLLOW_2); 
@@ -6349,10 +6508,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 117 :
-                    // InternalPerl.g:1632:2: ( 'opendir' )
+                    // InternalPerl.g:1678:2: ( 'opendir' )
                     {
-                    // InternalPerl.g:1632:2: ( 'opendir' )
-                    // InternalPerl.g:1633:3: 'opendir'
+                    // InternalPerl.g:1678:2: ( 'opendir' )
+                    // InternalPerl.g:1679:3: 'opendir'
                     {
                      before(grammarAccess.getKeywordAccess().getOpendirKeyword_116()); 
                     match(input,149,FOLLOW_2); 
@@ -6364,10 +6523,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 118 :
-                    // InternalPerl.g:1638:2: ( 'ord' )
+                    // InternalPerl.g:1684:2: ( 'ord' )
                     {
-                    // InternalPerl.g:1638:2: ( 'ord' )
-                    // InternalPerl.g:1639:3: 'ord'
+                    // InternalPerl.g:1684:2: ( 'ord' )
+                    // InternalPerl.g:1685:3: 'ord'
                     {
                      before(grammarAccess.getKeywordAccess().getOrdKeyword_117()); 
                     match(input,150,FOLLOW_2); 
@@ -6379,10 +6538,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 119 :
-                    // InternalPerl.g:1644:2: ( 'our' )
+                    // InternalPerl.g:1690:2: ( 'our' )
                     {
-                    // InternalPerl.g:1644:2: ( 'our' )
-                    // InternalPerl.g:1645:3: 'our'
+                    // InternalPerl.g:1690:2: ( 'our' )
+                    // InternalPerl.g:1691:3: 'our'
                     {
                      before(grammarAccess.getKeywordAccess().getOurKeyword_118()); 
                     match(input,151,FOLLOW_2); 
@@ -6394,10 +6553,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 120 :
-                    // InternalPerl.g:1650:2: ( 'pack' )
+                    // InternalPerl.g:1696:2: ( 'pack' )
                     {
-                    // InternalPerl.g:1650:2: ( 'pack' )
-                    // InternalPerl.g:1651:3: 'pack'
+                    // InternalPerl.g:1696:2: ( 'pack' )
+                    // InternalPerl.g:1697:3: 'pack'
                     {
                      before(grammarAccess.getKeywordAccess().getPackKeyword_119()); 
                     match(input,152,FOLLOW_2); 
@@ -6409,10 +6568,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 121 :
-                    // InternalPerl.g:1656:2: ( 'package' )
+                    // InternalPerl.g:1702:2: ( 'package' )
                     {
-                    // InternalPerl.g:1656:2: ( 'package' )
-                    // InternalPerl.g:1657:3: 'package'
+                    // InternalPerl.g:1702:2: ( 'package' )
+                    // InternalPerl.g:1703:3: 'package'
                     {
                      before(grammarAccess.getKeywordAccess().getPackageKeyword_120()); 
                     match(input,153,FOLLOW_2); 
@@ -6424,10 +6583,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 122 :
-                    // InternalPerl.g:1662:2: ( 'pipe' )
+                    // InternalPerl.g:1708:2: ( 'pipe' )
                     {
-                    // InternalPerl.g:1662:2: ( 'pipe' )
-                    // InternalPerl.g:1663:3: 'pipe'
+                    // InternalPerl.g:1708:2: ( 'pipe' )
+                    // InternalPerl.g:1709:3: 'pipe'
                     {
                      before(grammarAccess.getKeywordAccess().getPipeKeyword_121()); 
                     match(input,154,FOLLOW_2); 
@@ -6439,10 +6598,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 123 :
-                    // InternalPerl.g:1668:2: ( 'pop' )
+                    // InternalPerl.g:1714:2: ( 'pop' )
                     {
-                    // InternalPerl.g:1668:2: ( 'pop' )
-                    // InternalPerl.g:1669:3: 'pop'
+                    // InternalPerl.g:1714:2: ( 'pop' )
+                    // InternalPerl.g:1715:3: 'pop'
                     {
                      before(grammarAccess.getKeywordAccess().getPopKeyword_122()); 
                     match(input,155,FOLLOW_2); 
@@ -6454,10 +6613,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 124 :
-                    // InternalPerl.g:1674:2: ( 'pos' )
+                    // InternalPerl.g:1720:2: ( 'pos' )
                     {
-                    // InternalPerl.g:1674:2: ( 'pos' )
-                    // InternalPerl.g:1675:3: 'pos'
+                    // InternalPerl.g:1720:2: ( 'pos' )
+                    // InternalPerl.g:1721:3: 'pos'
                     {
                      before(grammarAccess.getKeywordAccess().getPosKeyword_123()); 
                     match(input,156,FOLLOW_2); 
@@ -6469,10 +6628,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 125 :
-                    // InternalPerl.g:1680:2: ( 'print' )
+                    // InternalPerl.g:1726:2: ( 'print' )
                     {
-                    // InternalPerl.g:1680:2: ( 'print' )
-                    // InternalPerl.g:1681:3: 'print'
+                    // InternalPerl.g:1726:2: ( 'print' )
+                    // InternalPerl.g:1727:3: 'print'
                     {
                      before(grammarAccess.getKeywordAccess().getPrintKeyword_124()); 
                     match(input,157,FOLLOW_2); 
@@ -6484,10 +6643,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 126 :
-                    // InternalPerl.g:1686:2: ( 'printf' )
+                    // InternalPerl.g:1732:2: ( 'printf' )
                     {
-                    // InternalPerl.g:1686:2: ( 'printf' )
-                    // InternalPerl.g:1687:3: 'printf'
+                    // InternalPerl.g:1732:2: ( 'printf' )
+                    // InternalPerl.g:1733:3: 'printf'
                     {
                      before(grammarAccess.getKeywordAccess().getPrintfKeyword_125()); 
                     match(input,158,FOLLOW_2); 
@@ -6499,10 +6658,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 127 :
-                    // InternalPerl.g:1692:2: ( 'prototype' )
+                    // InternalPerl.g:1738:2: ( 'prototype' )
                     {
-                    // InternalPerl.g:1692:2: ( 'prototype' )
-                    // InternalPerl.g:1693:3: 'prototype'
+                    // InternalPerl.g:1738:2: ( 'prototype' )
+                    // InternalPerl.g:1739:3: 'prototype'
                     {
                      before(grammarAccess.getKeywordAccess().getPrototypeKeyword_126()); 
                     match(input,159,FOLLOW_2); 
@@ -6514,10 +6673,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 128 :
-                    // InternalPerl.g:1698:2: ( 'push' )
+                    // InternalPerl.g:1744:2: ( 'push' )
                     {
-                    // InternalPerl.g:1698:2: ( 'push' )
-                    // InternalPerl.g:1699:3: 'push'
+                    // InternalPerl.g:1744:2: ( 'push' )
+                    // InternalPerl.g:1745:3: 'push'
                     {
                      before(grammarAccess.getKeywordAccess().getPushKeyword_127()); 
                     match(input,160,FOLLOW_2); 
@@ -6529,10 +6688,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 129 :
-                    // InternalPerl.g:1704:2: ( 'quotemeta' )
+                    // InternalPerl.g:1750:2: ( 'quotemeta' )
                     {
-                    // InternalPerl.g:1704:2: ( 'quotemeta' )
-                    // InternalPerl.g:1705:3: 'quotemeta'
+                    // InternalPerl.g:1750:2: ( 'quotemeta' )
+                    // InternalPerl.g:1751:3: 'quotemeta'
                     {
                      before(grammarAccess.getKeywordAccess().getQuotemetaKeyword_128()); 
                     match(input,161,FOLLOW_2); 
@@ -6544,10 +6703,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 130 :
-                    // InternalPerl.g:1710:2: ( 'rand' )
+                    // InternalPerl.g:1756:2: ( 'rand' )
                     {
-                    // InternalPerl.g:1710:2: ( 'rand' )
-                    // InternalPerl.g:1711:3: 'rand'
+                    // InternalPerl.g:1756:2: ( 'rand' )
+                    // InternalPerl.g:1757:3: 'rand'
                     {
                      before(grammarAccess.getKeywordAccess().getRandKeyword_129()); 
                     match(input,162,FOLLOW_2); 
@@ -6559,10 +6718,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 131 :
-                    // InternalPerl.g:1716:2: ( 'read' )
+                    // InternalPerl.g:1762:2: ( 'read' )
                     {
-                    // InternalPerl.g:1716:2: ( 'read' )
-                    // InternalPerl.g:1717:3: 'read'
+                    // InternalPerl.g:1762:2: ( 'read' )
+                    // InternalPerl.g:1763:3: 'read'
                     {
                      before(grammarAccess.getKeywordAccess().getReadKeyword_130()); 
                     match(input,163,FOLLOW_2); 
@@ -6574,10 +6733,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 132 :
-                    // InternalPerl.g:1722:2: ( 'readdir' )
+                    // InternalPerl.g:1768:2: ( 'readdir' )
                     {
-                    // InternalPerl.g:1722:2: ( 'readdir' )
-                    // InternalPerl.g:1723:3: 'readdir'
+                    // InternalPerl.g:1768:2: ( 'readdir' )
+                    // InternalPerl.g:1769:3: 'readdir'
                     {
                      before(grammarAccess.getKeywordAccess().getReaddirKeyword_131()); 
                     match(input,164,FOLLOW_2); 
@@ -6589,10 +6748,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 133 :
-                    // InternalPerl.g:1728:2: ( 'readline' )
+                    // InternalPerl.g:1774:2: ( 'readline' )
                     {
-                    // InternalPerl.g:1728:2: ( 'readline' )
-                    // InternalPerl.g:1729:3: 'readline'
+                    // InternalPerl.g:1774:2: ( 'readline' )
+                    // InternalPerl.g:1775:3: 'readline'
                     {
                      before(grammarAccess.getKeywordAccess().getReadlineKeyword_132()); 
                     match(input,165,FOLLOW_2); 
@@ -6604,10 +6763,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 134 :
-                    // InternalPerl.g:1734:2: ( 'readlink' )
+                    // InternalPerl.g:1780:2: ( 'readlink' )
                     {
-                    // InternalPerl.g:1734:2: ( 'readlink' )
-                    // InternalPerl.g:1735:3: 'readlink'
+                    // InternalPerl.g:1780:2: ( 'readlink' )
+                    // InternalPerl.g:1781:3: 'readlink'
                     {
                      before(grammarAccess.getKeywordAccess().getReadlinkKeyword_133()); 
                     match(input,166,FOLLOW_2); 
@@ -6619,10 +6778,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 135 :
-                    // InternalPerl.g:1740:2: ( 'readpipe' )
+                    // InternalPerl.g:1786:2: ( 'readpipe' )
                     {
-                    // InternalPerl.g:1740:2: ( 'readpipe' )
-                    // InternalPerl.g:1741:3: 'readpipe'
+                    // InternalPerl.g:1786:2: ( 'readpipe' )
+                    // InternalPerl.g:1787:3: 'readpipe'
                     {
                      before(grammarAccess.getKeywordAccess().getReadpipeKeyword_134()); 
                     match(input,167,FOLLOW_2); 
@@ -6634,10 +6793,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 136 :
-                    // InternalPerl.g:1746:2: ( 'recv' )
+                    // InternalPerl.g:1792:2: ( 'recv' )
                     {
-                    // InternalPerl.g:1746:2: ( 'recv' )
-                    // InternalPerl.g:1747:3: 'recv'
+                    // InternalPerl.g:1792:2: ( 'recv' )
+                    // InternalPerl.g:1793:3: 'recv'
                     {
                      before(grammarAccess.getKeywordAccess().getRecvKeyword_135()); 
                     match(input,168,FOLLOW_2); 
@@ -6649,10 +6808,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 137 :
-                    // InternalPerl.g:1752:2: ( 'redo' )
+                    // InternalPerl.g:1798:2: ( 'redo' )
                     {
-                    // InternalPerl.g:1752:2: ( 'redo' )
-                    // InternalPerl.g:1753:3: 'redo'
+                    // InternalPerl.g:1798:2: ( 'redo' )
+                    // InternalPerl.g:1799:3: 'redo'
                     {
                      before(grammarAccess.getKeywordAccess().getRedoKeyword_136()); 
                     match(input,169,FOLLOW_2); 
@@ -6664,10 +6823,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 138 :
-                    // InternalPerl.g:1758:2: ( 'ref' )
+                    // InternalPerl.g:1804:2: ( 'ref' )
                     {
-                    // InternalPerl.g:1758:2: ( 'ref' )
-                    // InternalPerl.g:1759:3: 'ref'
+                    // InternalPerl.g:1804:2: ( 'ref' )
+                    // InternalPerl.g:1805:3: 'ref'
                     {
                      before(grammarAccess.getKeywordAccess().getRefKeyword_137()); 
                     match(input,170,FOLLOW_2); 
@@ -6679,10 +6838,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 139 :
-                    // InternalPerl.g:1764:2: ( 'rename' )
+                    // InternalPerl.g:1810:2: ( 'rename' )
                     {
-                    // InternalPerl.g:1764:2: ( 'rename' )
-                    // InternalPerl.g:1765:3: 'rename'
+                    // InternalPerl.g:1810:2: ( 'rename' )
+                    // InternalPerl.g:1811:3: 'rename'
                     {
                      before(grammarAccess.getKeywordAccess().getRenameKeyword_138()); 
                     match(input,171,FOLLOW_2); 
@@ -6694,10 +6853,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 140 :
-                    // InternalPerl.g:1770:2: ( 'require' )
+                    // InternalPerl.g:1816:2: ( 'require' )
                     {
-                    // InternalPerl.g:1770:2: ( 'require' )
-                    // InternalPerl.g:1771:3: 'require'
+                    // InternalPerl.g:1816:2: ( 'require' )
+                    // InternalPerl.g:1817:3: 'require'
                     {
                      before(grammarAccess.getKeywordAccess().getRequireKeyword_139()); 
                     match(input,172,FOLLOW_2); 
@@ -6709,10 +6868,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 141 :
-                    // InternalPerl.g:1776:2: ( 'reset' )
+                    // InternalPerl.g:1822:2: ( 'reset' )
                     {
-                    // InternalPerl.g:1776:2: ( 'reset' )
-                    // InternalPerl.g:1777:3: 'reset'
+                    // InternalPerl.g:1822:2: ( 'reset' )
+                    // InternalPerl.g:1823:3: 'reset'
                     {
                      before(grammarAccess.getKeywordAccess().getResetKeyword_140()); 
                     match(input,173,FOLLOW_2); 
@@ -6724,10 +6883,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 142 :
-                    // InternalPerl.g:1782:2: ( 'return' )
+                    // InternalPerl.g:1828:2: ( 'return' )
                     {
-                    // InternalPerl.g:1782:2: ( 'return' )
-                    // InternalPerl.g:1783:3: 'return'
+                    // InternalPerl.g:1828:2: ( 'return' )
+                    // InternalPerl.g:1829:3: 'return'
                     {
                      before(grammarAccess.getKeywordAccess().getReturnKeyword_141()); 
                     match(input,174,FOLLOW_2); 
@@ -6739,10 +6898,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 143 :
-                    // InternalPerl.g:1788:2: ( 'reverse' )
+                    // InternalPerl.g:1834:2: ( 'reverse' )
                     {
-                    // InternalPerl.g:1788:2: ( 'reverse' )
-                    // InternalPerl.g:1789:3: 'reverse'
+                    // InternalPerl.g:1834:2: ( 'reverse' )
+                    // InternalPerl.g:1835:3: 'reverse'
                     {
                      before(grammarAccess.getKeywordAccess().getReverseKeyword_142()); 
                     match(input,175,FOLLOW_2); 
@@ -6754,10 +6913,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 144 :
-                    // InternalPerl.g:1794:2: ( 'rewinddir' )
+                    // InternalPerl.g:1840:2: ( 'rewinddir' )
                     {
-                    // InternalPerl.g:1794:2: ( 'rewinddir' )
-                    // InternalPerl.g:1795:3: 'rewinddir'
+                    // InternalPerl.g:1840:2: ( 'rewinddir' )
+                    // InternalPerl.g:1841:3: 'rewinddir'
                     {
                      before(grammarAccess.getKeywordAccess().getRewinddirKeyword_143()); 
                     match(input,176,FOLLOW_2); 
@@ -6769,10 +6928,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 145 :
-                    // InternalPerl.g:1800:2: ( 'rindex' )
+                    // InternalPerl.g:1846:2: ( 'rindex' )
                     {
-                    // InternalPerl.g:1800:2: ( 'rindex' )
-                    // InternalPerl.g:1801:3: 'rindex'
+                    // InternalPerl.g:1846:2: ( 'rindex' )
+                    // InternalPerl.g:1847:3: 'rindex'
                     {
                      before(grammarAccess.getKeywordAccess().getRindexKeyword_144()); 
                     match(input,177,FOLLOW_2); 
@@ -6784,10 +6943,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 146 :
-                    // InternalPerl.g:1806:2: ( 'rmdir' )
+                    // InternalPerl.g:1852:2: ( 'rmdir' )
                     {
-                    // InternalPerl.g:1806:2: ( 'rmdir' )
-                    // InternalPerl.g:1807:3: 'rmdir'
+                    // InternalPerl.g:1852:2: ( 'rmdir' )
+                    // InternalPerl.g:1853:3: 'rmdir'
                     {
                      before(grammarAccess.getKeywordAccess().getRmdirKeyword_145()); 
                     match(input,178,FOLLOW_2); 
@@ -6799,10 +6958,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 147 :
-                    // InternalPerl.g:1812:2: ( 'say' )
+                    // InternalPerl.g:1858:2: ( 'say' )
                     {
-                    // InternalPerl.g:1812:2: ( 'say' )
-                    // InternalPerl.g:1813:3: 'say'
+                    // InternalPerl.g:1858:2: ( 'say' )
+                    // InternalPerl.g:1859:3: 'say'
                     {
                      before(grammarAccess.getKeywordAccess().getSayKeyword_146()); 
                     match(input,179,FOLLOW_2); 
@@ -6814,10 +6973,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 148 :
-                    // InternalPerl.g:1818:2: ( 'scalar' )
+                    // InternalPerl.g:1864:2: ( 'scalar' )
                     {
-                    // InternalPerl.g:1818:2: ( 'scalar' )
-                    // InternalPerl.g:1819:3: 'scalar'
+                    // InternalPerl.g:1864:2: ( 'scalar' )
+                    // InternalPerl.g:1865:3: 'scalar'
                     {
                      before(grammarAccess.getKeywordAccess().getScalarKeyword_147()); 
                     match(input,180,FOLLOW_2); 
@@ -6829,10 +6988,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 149 :
-                    // InternalPerl.g:1824:2: ( 'seek' )
+                    // InternalPerl.g:1870:2: ( 'seek' )
                     {
-                    // InternalPerl.g:1824:2: ( 'seek' )
-                    // InternalPerl.g:1825:3: 'seek'
+                    // InternalPerl.g:1870:2: ( 'seek' )
+                    // InternalPerl.g:1871:3: 'seek'
                     {
                      before(grammarAccess.getKeywordAccess().getSeekKeyword_148()); 
                     match(input,181,FOLLOW_2); 
@@ -6844,10 +7003,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 150 :
-                    // InternalPerl.g:1830:2: ( 'seekdir' )
+                    // InternalPerl.g:1876:2: ( 'seekdir' )
                     {
-                    // InternalPerl.g:1830:2: ( 'seekdir' )
-                    // InternalPerl.g:1831:3: 'seekdir'
+                    // InternalPerl.g:1876:2: ( 'seekdir' )
+                    // InternalPerl.g:1877:3: 'seekdir'
                     {
                      before(grammarAccess.getKeywordAccess().getSeekdirKeyword_149()); 
                     match(input,182,FOLLOW_2); 
@@ -6859,10 +7018,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 151 :
-                    // InternalPerl.g:1836:2: ( 'select' )
+                    // InternalPerl.g:1882:2: ( 'select' )
                     {
-                    // InternalPerl.g:1836:2: ( 'select' )
-                    // InternalPerl.g:1837:3: 'select'
+                    // InternalPerl.g:1882:2: ( 'select' )
+                    // InternalPerl.g:1883:3: 'select'
                     {
                      before(grammarAccess.getKeywordAccess().getSelectKeyword_150()); 
                     match(input,183,FOLLOW_2); 
@@ -6874,10 +7033,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 152 :
-                    // InternalPerl.g:1842:2: ( 'semctl' )
+                    // InternalPerl.g:1888:2: ( 'semctl' )
                     {
-                    // InternalPerl.g:1842:2: ( 'semctl' )
-                    // InternalPerl.g:1843:3: 'semctl'
+                    // InternalPerl.g:1888:2: ( 'semctl' )
+                    // InternalPerl.g:1889:3: 'semctl'
                     {
                      before(grammarAccess.getKeywordAccess().getSemctlKeyword_151()); 
                     match(input,184,FOLLOW_2); 
@@ -6889,10 +7048,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 153 :
-                    // InternalPerl.g:1848:2: ( 'semget' )
+                    // InternalPerl.g:1894:2: ( 'semget' )
                     {
-                    // InternalPerl.g:1848:2: ( 'semget' )
-                    // InternalPerl.g:1849:3: 'semget'
+                    // InternalPerl.g:1894:2: ( 'semget' )
+                    // InternalPerl.g:1895:3: 'semget'
                     {
                      before(grammarAccess.getKeywordAccess().getSemgetKeyword_152()); 
                     match(input,185,FOLLOW_2); 
@@ -6904,10 +7063,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 154 :
-                    // InternalPerl.g:1854:2: ( 'semop' )
+                    // InternalPerl.g:1900:2: ( 'semop' )
                     {
-                    // InternalPerl.g:1854:2: ( 'semop' )
-                    // InternalPerl.g:1855:3: 'semop'
+                    // InternalPerl.g:1900:2: ( 'semop' )
+                    // InternalPerl.g:1901:3: 'semop'
                     {
                      before(grammarAccess.getKeywordAccess().getSemopKeyword_153()); 
                     match(input,186,FOLLOW_2); 
@@ -6919,10 +7078,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 155 :
-                    // InternalPerl.g:1860:2: ( 'send' )
+                    // InternalPerl.g:1906:2: ( 'send' )
                     {
-                    // InternalPerl.g:1860:2: ( 'send' )
-                    // InternalPerl.g:1861:3: 'send'
+                    // InternalPerl.g:1906:2: ( 'send' )
+                    // InternalPerl.g:1907:3: 'send'
                     {
                      before(grammarAccess.getKeywordAccess().getSendKeyword_154()); 
                     match(input,187,FOLLOW_2); 
@@ -6934,10 +7093,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 156 :
-                    // InternalPerl.g:1866:2: ( 'setgrent' )
+                    // InternalPerl.g:1912:2: ( 'setgrent' )
                     {
-                    // InternalPerl.g:1866:2: ( 'setgrent' )
-                    // InternalPerl.g:1867:3: 'setgrent'
+                    // InternalPerl.g:1912:2: ( 'setgrent' )
+                    // InternalPerl.g:1913:3: 'setgrent'
                     {
                      before(grammarAccess.getKeywordAccess().getSetgrentKeyword_155()); 
                     match(input,188,FOLLOW_2); 
@@ -6949,10 +7108,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 157 :
-                    // InternalPerl.g:1872:2: ( 'sethostent' )
+                    // InternalPerl.g:1918:2: ( 'sethostent' )
                     {
-                    // InternalPerl.g:1872:2: ( 'sethostent' )
-                    // InternalPerl.g:1873:3: 'sethostent'
+                    // InternalPerl.g:1918:2: ( 'sethostent' )
+                    // InternalPerl.g:1919:3: 'sethostent'
                     {
                      before(grammarAccess.getKeywordAccess().getSethostentKeyword_156()); 
                     match(input,189,FOLLOW_2); 
@@ -6964,10 +7123,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 158 :
-                    // InternalPerl.g:1878:2: ( 'setnetent' )
+                    // InternalPerl.g:1924:2: ( 'setnetent' )
                     {
-                    // InternalPerl.g:1878:2: ( 'setnetent' )
-                    // InternalPerl.g:1879:3: 'setnetent'
+                    // InternalPerl.g:1924:2: ( 'setnetent' )
+                    // InternalPerl.g:1925:3: 'setnetent'
                     {
                      before(grammarAccess.getKeywordAccess().getSetnetentKeyword_157()); 
                     match(input,190,FOLLOW_2); 
@@ -6979,10 +7138,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 159 :
-                    // InternalPerl.g:1884:2: ( 'setpgrp' )
+                    // InternalPerl.g:1930:2: ( 'setpgrp' )
                     {
-                    // InternalPerl.g:1884:2: ( 'setpgrp' )
-                    // InternalPerl.g:1885:3: 'setpgrp'
+                    // InternalPerl.g:1930:2: ( 'setpgrp' )
+                    // InternalPerl.g:1931:3: 'setpgrp'
                     {
                      before(grammarAccess.getKeywordAccess().getSetpgrpKeyword_158()); 
                     match(input,191,FOLLOW_2); 
@@ -6994,10 +7153,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 160 :
-                    // InternalPerl.g:1890:2: ( 'setpriority' )
+                    // InternalPerl.g:1936:2: ( 'setpriority' )
                     {
-                    // InternalPerl.g:1890:2: ( 'setpriority' )
-                    // InternalPerl.g:1891:3: 'setpriority'
+                    // InternalPerl.g:1936:2: ( 'setpriority' )
+                    // InternalPerl.g:1937:3: 'setpriority'
                     {
                      before(grammarAccess.getKeywordAccess().getSetpriorityKeyword_159()); 
                     match(input,192,FOLLOW_2); 
@@ -7009,10 +7168,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 161 :
-                    // InternalPerl.g:1896:2: ( 'setprotoent' )
+                    // InternalPerl.g:1942:2: ( 'setprotoent' )
                     {
-                    // InternalPerl.g:1896:2: ( 'setprotoent' )
-                    // InternalPerl.g:1897:3: 'setprotoent'
+                    // InternalPerl.g:1942:2: ( 'setprotoent' )
+                    // InternalPerl.g:1943:3: 'setprotoent'
                     {
                      before(grammarAccess.getKeywordAccess().getSetprotoentKeyword_160()); 
                     match(input,193,FOLLOW_2); 
@@ -7024,10 +7183,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 162 :
-                    // InternalPerl.g:1902:2: ( 'setpwent' )
+                    // InternalPerl.g:1948:2: ( 'setpwent' )
                     {
-                    // InternalPerl.g:1902:2: ( 'setpwent' )
-                    // InternalPerl.g:1903:3: 'setpwent'
+                    // InternalPerl.g:1948:2: ( 'setpwent' )
+                    // InternalPerl.g:1949:3: 'setpwent'
                     {
                      before(grammarAccess.getKeywordAccess().getSetpwentKeyword_161()); 
                     match(input,194,FOLLOW_2); 
@@ -7039,10 +7198,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 163 :
-                    // InternalPerl.g:1908:2: ( 'setservent' )
+                    // InternalPerl.g:1954:2: ( 'setservent' )
                     {
-                    // InternalPerl.g:1908:2: ( 'setservent' )
-                    // InternalPerl.g:1909:3: 'setservent'
+                    // InternalPerl.g:1954:2: ( 'setservent' )
+                    // InternalPerl.g:1955:3: 'setservent'
                     {
                      before(grammarAccess.getKeywordAccess().getSetserventKeyword_162()); 
                     match(input,195,FOLLOW_2); 
@@ -7054,10 +7213,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 164 :
-                    // InternalPerl.g:1914:2: ( 'setsockopt' )
+                    // InternalPerl.g:1960:2: ( 'setsockopt' )
                     {
-                    // InternalPerl.g:1914:2: ( 'setsockopt' )
-                    // InternalPerl.g:1915:3: 'setsockopt'
+                    // InternalPerl.g:1960:2: ( 'setsockopt' )
+                    // InternalPerl.g:1961:3: 'setsockopt'
                     {
                      before(grammarAccess.getKeywordAccess().getSetsockoptKeyword_163()); 
                     match(input,196,FOLLOW_2); 
@@ -7069,10 +7228,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 165 :
-                    // InternalPerl.g:1920:2: ( 'shift' )
+                    // InternalPerl.g:1966:2: ( 'shift' )
                     {
-                    // InternalPerl.g:1920:2: ( 'shift' )
-                    // InternalPerl.g:1921:3: 'shift'
+                    // InternalPerl.g:1966:2: ( 'shift' )
+                    // InternalPerl.g:1967:3: 'shift'
                     {
                      before(grammarAccess.getKeywordAccess().getShiftKeyword_164()); 
                     match(input,197,FOLLOW_2); 
@@ -7084,10 +7243,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 166 :
-                    // InternalPerl.g:1926:2: ( 'shmctl' )
+                    // InternalPerl.g:1972:2: ( 'shmctl' )
                     {
-                    // InternalPerl.g:1926:2: ( 'shmctl' )
-                    // InternalPerl.g:1927:3: 'shmctl'
+                    // InternalPerl.g:1972:2: ( 'shmctl' )
+                    // InternalPerl.g:1973:3: 'shmctl'
                     {
                      before(grammarAccess.getKeywordAccess().getShmctlKeyword_165()); 
                     match(input,198,FOLLOW_2); 
@@ -7099,10 +7258,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 167 :
-                    // InternalPerl.g:1932:2: ( 'shmget' )
+                    // InternalPerl.g:1978:2: ( 'shmget' )
                     {
-                    // InternalPerl.g:1932:2: ( 'shmget' )
-                    // InternalPerl.g:1933:3: 'shmget'
+                    // InternalPerl.g:1978:2: ( 'shmget' )
+                    // InternalPerl.g:1979:3: 'shmget'
                     {
                      before(grammarAccess.getKeywordAccess().getShmgetKeyword_166()); 
                     match(input,199,FOLLOW_2); 
@@ -7114,10 +7273,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 168 :
-                    // InternalPerl.g:1938:2: ( 'shmread' )
+                    // InternalPerl.g:1984:2: ( 'shmread' )
                     {
-                    // InternalPerl.g:1938:2: ( 'shmread' )
-                    // InternalPerl.g:1939:3: 'shmread'
+                    // InternalPerl.g:1984:2: ( 'shmread' )
+                    // InternalPerl.g:1985:3: 'shmread'
                     {
                      before(grammarAccess.getKeywordAccess().getShmreadKeyword_167()); 
                     match(input,200,FOLLOW_2); 
@@ -7129,10 +7288,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 169 :
-                    // InternalPerl.g:1944:2: ( 'shmwrite' )
+                    // InternalPerl.g:1990:2: ( 'shmwrite' )
                     {
-                    // InternalPerl.g:1944:2: ( 'shmwrite' )
-                    // InternalPerl.g:1945:3: 'shmwrite'
+                    // InternalPerl.g:1990:2: ( 'shmwrite' )
+                    // InternalPerl.g:1991:3: 'shmwrite'
                     {
                      before(grammarAccess.getKeywordAccess().getShmwriteKeyword_168()); 
                     match(input,201,FOLLOW_2); 
@@ -7144,10 +7303,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 170 :
-                    // InternalPerl.g:1950:2: ( 'shutdown' )
+                    // InternalPerl.g:1996:2: ( 'shutdown' )
                     {
-                    // InternalPerl.g:1950:2: ( 'shutdown' )
-                    // InternalPerl.g:1951:3: 'shutdown'
+                    // InternalPerl.g:1996:2: ( 'shutdown' )
+                    // InternalPerl.g:1997:3: 'shutdown'
                     {
                      before(grammarAccess.getKeywordAccess().getShutdownKeyword_169()); 
                     match(input,202,FOLLOW_2); 
@@ -7159,10 +7318,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 171 :
-                    // InternalPerl.g:1956:2: ( 'sin' )
+                    // InternalPerl.g:2002:2: ( 'sin' )
                     {
-                    // InternalPerl.g:1956:2: ( 'sin' )
-                    // InternalPerl.g:1957:3: 'sin'
+                    // InternalPerl.g:2002:2: ( 'sin' )
+                    // InternalPerl.g:2003:3: 'sin'
                     {
                      before(grammarAccess.getKeywordAccess().getSinKeyword_170()); 
                     match(input,203,FOLLOW_2); 
@@ -7174,10 +7333,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 172 :
-                    // InternalPerl.g:1962:2: ( 'sleep' )
+                    // InternalPerl.g:2008:2: ( 'sleep' )
                     {
-                    // InternalPerl.g:1962:2: ( 'sleep' )
-                    // InternalPerl.g:1963:3: 'sleep'
+                    // InternalPerl.g:2008:2: ( 'sleep' )
+                    // InternalPerl.g:2009:3: 'sleep'
                     {
                      before(grammarAccess.getKeywordAccess().getSleepKeyword_171()); 
                     match(input,204,FOLLOW_2); 
@@ -7189,10 +7348,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 173 :
-                    // InternalPerl.g:1968:2: ( 'socket' )
+                    // InternalPerl.g:2014:2: ( 'socket' )
                     {
-                    // InternalPerl.g:1968:2: ( 'socket' )
-                    // InternalPerl.g:1969:3: 'socket'
+                    // InternalPerl.g:2014:2: ( 'socket' )
+                    // InternalPerl.g:2015:3: 'socket'
                     {
                      before(grammarAccess.getKeywordAccess().getSocketKeyword_172()); 
                     match(input,205,FOLLOW_2); 
@@ -7204,10 +7363,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 174 :
-                    // InternalPerl.g:1974:2: ( 'socketpair' )
+                    // InternalPerl.g:2020:2: ( 'socketpair' )
                     {
-                    // InternalPerl.g:1974:2: ( 'socketpair' )
-                    // InternalPerl.g:1975:3: 'socketpair'
+                    // InternalPerl.g:2020:2: ( 'socketpair' )
+                    // InternalPerl.g:2021:3: 'socketpair'
                     {
                      before(grammarAccess.getKeywordAccess().getSocketpairKeyword_173()); 
                     match(input,206,FOLLOW_2); 
@@ -7219,10 +7378,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 175 :
-                    // InternalPerl.g:1980:2: ( 'sort' )
+                    // InternalPerl.g:2026:2: ( 'sort' )
                     {
-                    // InternalPerl.g:1980:2: ( 'sort' )
-                    // InternalPerl.g:1981:3: 'sort'
+                    // InternalPerl.g:2026:2: ( 'sort' )
+                    // InternalPerl.g:2027:3: 'sort'
                     {
                      before(grammarAccess.getKeywordAccess().getSortKeyword_174()); 
                     match(input,207,FOLLOW_2); 
@@ -7234,10 +7393,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 176 :
-                    // InternalPerl.g:1986:2: ( 'splice' )
+                    // InternalPerl.g:2032:2: ( 'splice' )
                     {
-                    // InternalPerl.g:1986:2: ( 'splice' )
-                    // InternalPerl.g:1987:3: 'splice'
+                    // InternalPerl.g:2032:2: ( 'splice' )
+                    // InternalPerl.g:2033:3: 'splice'
                     {
                      before(grammarAccess.getKeywordAccess().getSpliceKeyword_175()); 
                     match(input,208,FOLLOW_2); 
@@ -7249,10 +7408,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 177 :
-                    // InternalPerl.g:1992:2: ( 'split' )
+                    // InternalPerl.g:2038:2: ( 'split' )
                     {
-                    // InternalPerl.g:1992:2: ( 'split' )
-                    // InternalPerl.g:1993:3: 'split'
+                    // InternalPerl.g:2038:2: ( 'split' )
+                    // InternalPerl.g:2039:3: 'split'
                     {
                      before(grammarAccess.getKeywordAccess().getSplitKeyword_176()); 
                     match(input,209,FOLLOW_2); 
@@ -7264,10 +7423,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 178 :
-                    // InternalPerl.g:1998:2: ( 'sprintf' )
+                    // InternalPerl.g:2044:2: ( 'sprintf' )
                     {
-                    // InternalPerl.g:1998:2: ( 'sprintf' )
-                    // InternalPerl.g:1999:3: 'sprintf'
+                    // InternalPerl.g:2044:2: ( 'sprintf' )
+                    // InternalPerl.g:2045:3: 'sprintf'
                     {
                      before(grammarAccess.getKeywordAccess().getSprintfKeyword_177()); 
                     match(input,210,FOLLOW_2); 
@@ -7279,10 +7438,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 179 :
-                    // InternalPerl.g:2004:2: ( 'sqrt' )
+                    // InternalPerl.g:2050:2: ( 'sqrt' )
                     {
-                    // InternalPerl.g:2004:2: ( 'sqrt' )
-                    // InternalPerl.g:2005:3: 'sqrt'
+                    // InternalPerl.g:2050:2: ( 'sqrt' )
+                    // InternalPerl.g:2051:3: 'sqrt'
                     {
                      before(grammarAccess.getKeywordAccess().getSqrtKeyword_178()); 
                     match(input,211,FOLLOW_2); 
@@ -7294,10 +7453,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 180 :
-                    // InternalPerl.g:2010:2: ( 'srand' )
+                    // InternalPerl.g:2056:2: ( 'srand' )
                     {
-                    // InternalPerl.g:2010:2: ( 'srand' )
-                    // InternalPerl.g:2011:3: 'srand'
+                    // InternalPerl.g:2056:2: ( 'srand' )
+                    // InternalPerl.g:2057:3: 'srand'
                     {
                      before(grammarAccess.getKeywordAccess().getSrandKeyword_179()); 
                     match(input,212,FOLLOW_2); 
@@ -7309,10 +7468,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 181 :
-                    // InternalPerl.g:2016:2: ( 'stat' )
+                    // InternalPerl.g:2062:2: ( 'stat' )
                     {
-                    // InternalPerl.g:2016:2: ( 'stat' )
-                    // InternalPerl.g:2017:3: 'stat'
+                    // InternalPerl.g:2062:2: ( 'stat' )
+                    // InternalPerl.g:2063:3: 'stat'
                     {
                      before(grammarAccess.getKeywordAccess().getStatKeyword_180()); 
                     match(input,213,FOLLOW_2); 
@@ -7324,10 +7483,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 182 :
-                    // InternalPerl.g:2022:2: ( 'state' )
+                    // InternalPerl.g:2068:2: ( 'state' )
                     {
-                    // InternalPerl.g:2022:2: ( 'state' )
-                    // InternalPerl.g:2023:3: 'state'
+                    // InternalPerl.g:2068:2: ( 'state' )
+                    // InternalPerl.g:2069:3: 'state'
                     {
                      before(grammarAccess.getKeywordAccess().getStateKeyword_181()); 
                     match(input,214,FOLLOW_2); 
@@ -7339,10 +7498,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 183 :
-                    // InternalPerl.g:2028:2: ( 'study' )
+                    // InternalPerl.g:2074:2: ( 'study' )
                     {
-                    // InternalPerl.g:2028:2: ( 'study' )
-                    // InternalPerl.g:2029:3: 'study'
+                    // InternalPerl.g:2074:2: ( 'study' )
+                    // InternalPerl.g:2075:3: 'study'
                     {
                      before(grammarAccess.getKeywordAccess().getStudyKeyword_182()); 
                     match(input,215,FOLLOW_2); 
@@ -7354,10 +7513,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 184 :
-                    // InternalPerl.g:2034:2: ( 'sub' )
+                    // InternalPerl.g:2080:2: ( 'sub' )
                     {
-                    // InternalPerl.g:2034:2: ( 'sub' )
-                    // InternalPerl.g:2035:3: 'sub'
+                    // InternalPerl.g:2080:2: ( 'sub' )
+                    // InternalPerl.g:2081:3: 'sub'
                     {
                      before(grammarAccess.getKeywordAccess().getSubKeyword_183()); 
                     match(input,216,FOLLOW_2); 
@@ -7369,10 +7528,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 185 :
-                    // InternalPerl.g:2040:2: ( 'substr' )
+                    // InternalPerl.g:2086:2: ( 'substr' )
                     {
-                    // InternalPerl.g:2040:2: ( 'substr' )
-                    // InternalPerl.g:2041:3: 'substr'
+                    // InternalPerl.g:2086:2: ( 'substr' )
+                    // InternalPerl.g:2087:3: 'substr'
                     {
                      before(grammarAccess.getKeywordAccess().getSubstrKeyword_184()); 
                     match(input,217,FOLLOW_2); 
@@ -7384,10 +7543,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 186 :
-                    // InternalPerl.g:2046:2: ( 'symlink' )
+                    // InternalPerl.g:2092:2: ( 'symlink' )
                     {
-                    // InternalPerl.g:2046:2: ( 'symlink' )
-                    // InternalPerl.g:2047:3: 'symlink'
+                    // InternalPerl.g:2092:2: ( 'symlink' )
+                    // InternalPerl.g:2093:3: 'symlink'
                     {
                      before(grammarAccess.getKeywordAccess().getSymlinkKeyword_185()); 
                     match(input,218,FOLLOW_2); 
@@ -7399,10 +7558,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 187 :
-                    // InternalPerl.g:2052:2: ( 'syscall' )
+                    // InternalPerl.g:2098:2: ( 'syscall' )
                     {
-                    // InternalPerl.g:2052:2: ( 'syscall' )
-                    // InternalPerl.g:2053:3: 'syscall'
+                    // InternalPerl.g:2098:2: ( 'syscall' )
+                    // InternalPerl.g:2099:3: 'syscall'
                     {
                      before(grammarAccess.getKeywordAccess().getSyscallKeyword_186()); 
                     match(input,219,FOLLOW_2); 
@@ -7414,10 +7573,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 188 :
-                    // InternalPerl.g:2058:2: ( 'sysopen' )
+                    // InternalPerl.g:2104:2: ( 'sysopen' )
                     {
-                    // InternalPerl.g:2058:2: ( 'sysopen' )
-                    // InternalPerl.g:2059:3: 'sysopen'
+                    // InternalPerl.g:2104:2: ( 'sysopen' )
+                    // InternalPerl.g:2105:3: 'sysopen'
                     {
                      before(grammarAccess.getKeywordAccess().getSysopenKeyword_187()); 
                     match(input,220,FOLLOW_2); 
@@ -7429,10 +7588,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 189 :
-                    // InternalPerl.g:2064:2: ( 'sysread' )
+                    // InternalPerl.g:2110:2: ( 'sysread' )
                     {
-                    // InternalPerl.g:2064:2: ( 'sysread' )
-                    // InternalPerl.g:2065:3: 'sysread'
+                    // InternalPerl.g:2110:2: ( 'sysread' )
+                    // InternalPerl.g:2111:3: 'sysread'
                     {
                      before(grammarAccess.getKeywordAccess().getSysreadKeyword_188()); 
                     match(input,221,FOLLOW_2); 
@@ -7444,10 +7603,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 190 :
-                    // InternalPerl.g:2070:2: ( 'sysseek' )
+                    // InternalPerl.g:2116:2: ( 'sysseek' )
                     {
-                    // InternalPerl.g:2070:2: ( 'sysseek' )
-                    // InternalPerl.g:2071:3: 'sysseek'
+                    // InternalPerl.g:2116:2: ( 'sysseek' )
+                    // InternalPerl.g:2117:3: 'sysseek'
                     {
                      before(grammarAccess.getKeywordAccess().getSysseekKeyword_189()); 
                     match(input,222,FOLLOW_2); 
@@ -7459,10 +7618,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 191 :
-                    // InternalPerl.g:2076:2: ( 'system' )
+                    // InternalPerl.g:2122:2: ( 'system' )
                     {
-                    // InternalPerl.g:2076:2: ( 'system' )
-                    // InternalPerl.g:2077:3: 'system'
+                    // InternalPerl.g:2122:2: ( 'system' )
+                    // InternalPerl.g:2123:3: 'system'
                     {
                      before(grammarAccess.getKeywordAccess().getSystemKeyword_190()); 
                     match(input,223,FOLLOW_2); 
@@ -7474,10 +7633,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 192 :
-                    // InternalPerl.g:2082:2: ( 'syswrite' )
+                    // InternalPerl.g:2128:2: ( 'syswrite' )
                     {
-                    // InternalPerl.g:2082:2: ( 'syswrite' )
-                    // InternalPerl.g:2083:3: 'syswrite'
+                    // InternalPerl.g:2128:2: ( 'syswrite' )
+                    // InternalPerl.g:2129:3: 'syswrite'
                     {
                      before(grammarAccess.getKeywordAccess().getSyswriteKeyword_191()); 
                     match(input,224,FOLLOW_2); 
@@ -7489,10 +7648,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 193 :
-                    // InternalPerl.g:2088:2: ( 'tell' )
+                    // InternalPerl.g:2134:2: ( 'tell' )
                     {
-                    // InternalPerl.g:2088:2: ( 'tell' )
-                    // InternalPerl.g:2089:3: 'tell'
+                    // InternalPerl.g:2134:2: ( 'tell' )
+                    // InternalPerl.g:2135:3: 'tell'
                     {
                      before(grammarAccess.getKeywordAccess().getTellKeyword_192()); 
                     match(input,225,FOLLOW_2); 
@@ -7504,10 +7663,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 194 :
-                    // InternalPerl.g:2094:2: ( 'telldir' )
+                    // InternalPerl.g:2140:2: ( 'telldir' )
                     {
-                    // InternalPerl.g:2094:2: ( 'telldir' )
-                    // InternalPerl.g:2095:3: 'telldir'
+                    // InternalPerl.g:2140:2: ( 'telldir' )
+                    // InternalPerl.g:2141:3: 'telldir'
                     {
                      before(grammarAccess.getKeywordAccess().getTelldirKeyword_193()); 
                     match(input,226,FOLLOW_2); 
@@ -7519,10 +7678,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 195 :
-                    // InternalPerl.g:2100:2: ( 'tie' )
+                    // InternalPerl.g:2146:2: ( 'tie' )
                     {
-                    // InternalPerl.g:2100:2: ( 'tie' )
-                    // InternalPerl.g:2101:3: 'tie'
+                    // InternalPerl.g:2146:2: ( 'tie' )
+                    // InternalPerl.g:2147:3: 'tie'
                     {
                      before(grammarAccess.getKeywordAccess().getTieKeyword_194()); 
                     match(input,227,FOLLOW_2); 
@@ -7534,10 +7693,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 196 :
-                    // InternalPerl.g:2106:2: ( 'tied' )
+                    // InternalPerl.g:2152:2: ( 'tied' )
                     {
-                    // InternalPerl.g:2106:2: ( 'tied' )
-                    // InternalPerl.g:2107:3: 'tied'
+                    // InternalPerl.g:2152:2: ( 'tied' )
+                    // InternalPerl.g:2153:3: 'tied'
                     {
                      before(grammarAccess.getKeywordAccess().getTiedKeyword_195()); 
                     match(input,228,FOLLOW_2); 
@@ -7549,10 +7708,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 197 :
-                    // InternalPerl.g:2112:2: ( 'time' )
+                    // InternalPerl.g:2158:2: ( 'time' )
                     {
-                    // InternalPerl.g:2112:2: ( 'time' )
-                    // InternalPerl.g:2113:3: 'time'
+                    // InternalPerl.g:2158:2: ( 'time' )
+                    // InternalPerl.g:2159:3: 'time'
                     {
                      before(grammarAccess.getKeywordAccess().getTimeKeyword_196()); 
                     match(input,229,FOLLOW_2); 
@@ -7564,10 +7723,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 198 :
-                    // InternalPerl.g:2118:2: ( 'times' )
+                    // InternalPerl.g:2164:2: ( 'times' )
                     {
-                    // InternalPerl.g:2118:2: ( 'times' )
-                    // InternalPerl.g:2119:3: 'times'
+                    // InternalPerl.g:2164:2: ( 'times' )
+                    // InternalPerl.g:2165:3: 'times'
                     {
                      before(grammarAccess.getKeywordAccess().getTimesKeyword_197()); 
                     match(input,230,FOLLOW_2); 
@@ -7579,10 +7738,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 199 :
-                    // InternalPerl.g:2124:2: ( 'tr' )
+                    // InternalPerl.g:2170:2: ( 'tr' )
                     {
-                    // InternalPerl.g:2124:2: ( 'tr' )
-                    // InternalPerl.g:2125:3: 'tr'
+                    // InternalPerl.g:2170:2: ( 'tr' )
+                    // InternalPerl.g:2171:3: 'tr'
                     {
                      before(grammarAccess.getKeywordAccess().getTrKeyword_198()); 
                     match(input,231,FOLLOW_2); 
@@ -7594,10 +7753,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 200 :
-                    // InternalPerl.g:2130:2: ( 'truncate' )
+                    // InternalPerl.g:2176:2: ( 'truncate' )
                     {
-                    // InternalPerl.g:2130:2: ( 'truncate' )
-                    // InternalPerl.g:2131:3: 'truncate'
+                    // InternalPerl.g:2176:2: ( 'truncate' )
+                    // InternalPerl.g:2177:3: 'truncate'
                     {
                      before(grammarAccess.getKeywordAccess().getTruncateKeyword_199()); 
                     match(input,232,FOLLOW_2); 
@@ -7609,10 +7768,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 201 :
-                    // InternalPerl.g:2136:2: ( 'uc' )
+                    // InternalPerl.g:2182:2: ( 'uc' )
                     {
-                    // InternalPerl.g:2136:2: ( 'uc' )
-                    // InternalPerl.g:2137:3: 'uc'
+                    // InternalPerl.g:2182:2: ( 'uc' )
+                    // InternalPerl.g:2183:3: 'uc'
                     {
                      before(grammarAccess.getKeywordAccess().getUcKeyword_200()); 
                     match(input,233,FOLLOW_2); 
@@ -7624,10 +7783,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 202 :
-                    // InternalPerl.g:2142:2: ( 'ucfirst' )
+                    // InternalPerl.g:2188:2: ( 'ucfirst' )
                     {
-                    // InternalPerl.g:2142:2: ( 'ucfirst' )
-                    // InternalPerl.g:2143:3: 'ucfirst'
+                    // InternalPerl.g:2188:2: ( 'ucfirst' )
+                    // InternalPerl.g:2189:3: 'ucfirst'
                     {
                      before(grammarAccess.getKeywordAccess().getUcfirstKeyword_201()); 
                     match(input,234,FOLLOW_2); 
@@ -7639,10 +7798,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 203 :
-                    // InternalPerl.g:2148:2: ( 'umask' )
+                    // InternalPerl.g:2194:2: ( 'umask' )
                     {
-                    // InternalPerl.g:2148:2: ( 'umask' )
-                    // InternalPerl.g:2149:3: 'umask'
+                    // InternalPerl.g:2194:2: ( 'umask' )
+                    // InternalPerl.g:2195:3: 'umask'
                     {
                      before(grammarAccess.getKeywordAccess().getUmaskKeyword_202()); 
                     match(input,235,FOLLOW_2); 
@@ -7654,10 +7813,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 204 :
-                    // InternalPerl.g:2154:2: ( 'undef' )
+                    // InternalPerl.g:2200:2: ( 'undef' )
                     {
-                    // InternalPerl.g:2154:2: ( 'undef' )
-                    // InternalPerl.g:2155:3: 'undef'
+                    // InternalPerl.g:2200:2: ( 'undef' )
+                    // InternalPerl.g:2201:3: 'undef'
                     {
                      before(grammarAccess.getKeywordAccess().getUndefKeyword_203()); 
                     match(input,236,FOLLOW_2); 
@@ -7669,10 +7828,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 205 :
-                    // InternalPerl.g:2160:2: ( 'unless' )
+                    // InternalPerl.g:2206:2: ( 'unless' )
                     {
-                    // InternalPerl.g:2160:2: ( 'unless' )
-                    // InternalPerl.g:2161:3: 'unless'
+                    // InternalPerl.g:2206:2: ( 'unless' )
+                    // InternalPerl.g:2207:3: 'unless'
                     {
                      before(grammarAccess.getKeywordAccess().getUnlessKeyword_204()); 
                     match(input,237,FOLLOW_2); 
@@ -7684,10 +7843,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 206 :
-                    // InternalPerl.g:2166:2: ( 'unlink' )
+                    // InternalPerl.g:2212:2: ( 'unlink' )
                     {
-                    // InternalPerl.g:2166:2: ( 'unlink' )
-                    // InternalPerl.g:2167:3: 'unlink'
+                    // InternalPerl.g:2212:2: ( 'unlink' )
+                    // InternalPerl.g:2213:3: 'unlink'
                     {
                      before(grammarAccess.getKeywordAccess().getUnlinkKeyword_205()); 
                     match(input,238,FOLLOW_2); 
@@ -7699,10 +7858,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 207 :
-                    // InternalPerl.g:2172:2: ( 'unpack' )
+                    // InternalPerl.g:2218:2: ( 'unpack' )
                     {
-                    // InternalPerl.g:2172:2: ( 'unpack' )
-                    // InternalPerl.g:2173:3: 'unpack'
+                    // InternalPerl.g:2218:2: ( 'unpack' )
+                    // InternalPerl.g:2219:3: 'unpack'
                     {
                      before(grammarAccess.getKeywordAccess().getUnpackKeyword_206()); 
                     match(input,239,FOLLOW_2); 
@@ -7714,10 +7873,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 208 :
-                    // InternalPerl.g:2178:2: ( 'unshift' )
+                    // InternalPerl.g:2224:2: ( 'unshift' )
                     {
-                    // InternalPerl.g:2178:2: ( 'unshift' )
-                    // InternalPerl.g:2179:3: 'unshift'
+                    // InternalPerl.g:2224:2: ( 'unshift' )
+                    // InternalPerl.g:2225:3: 'unshift'
                     {
                      before(grammarAccess.getKeywordAccess().getUnshiftKeyword_207()); 
                     match(input,240,FOLLOW_2); 
@@ -7729,10 +7888,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 209 :
-                    // InternalPerl.g:2184:2: ( 'untie' )
+                    // InternalPerl.g:2230:2: ( 'untie' )
                     {
-                    // InternalPerl.g:2184:2: ( 'untie' )
-                    // InternalPerl.g:2185:3: 'untie'
+                    // InternalPerl.g:2230:2: ( 'untie' )
+                    // InternalPerl.g:2231:3: 'untie'
                     {
                      before(grammarAccess.getKeywordAccess().getUntieKeyword_208()); 
                     match(input,241,FOLLOW_2); 
@@ -7744,10 +7903,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 210 :
-                    // InternalPerl.g:2190:2: ( 'until' )
+                    // InternalPerl.g:2236:2: ( 'until' )
                     {
-                    // InternalPerl.g:2190:2: ( 'until' )
-                    // InternalPerl.g:2191:3: 'until'
+                    // InternalPerl.g:2236:2: ( 'until' )
+                    // InternalPerl.g:2237:3: 'until'
                     {
                      before(grammarAccess.getKeywordAccess().getUntilKeyword_209()); 
                     match(input,242,FOLLOW_2); 
@@ -7759,10 +7918,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 211 :
-                    // InternalPerl.g:2196:2: ( 'use' )
+                    // InternalPerl.g:2242:2: ( 'use' )
                     {
-                    // InternalPerl.g:2196:2: ( 'use' )
-                    // InternalPerl.g:2197:3: 'use'
+                    // InternalPerl.g:2242:2: ( 'use' )
+                    // InternalPerl.g:2243:3: 'use'
                     {
                      before(grammarAccess.getKeywordAccess().getUseKeyword_210()); 
                     match(input,243,FOLLOW_2); 
@@ -7774,10 +7933,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 212 :
-                    // InternalPerl.g:2202:2: ( 'utime' )
+                    // InternalPerl.g:2248:2: ( 'utime' )
                     {
-                    // InternalPerl.g:2202:2: ( 'utime' )
-                    // InternalPerl.g:2203:3: 'utime'
+                    // InternalPerl.g:2248:2: ( 'utime' )
+                    // InternalPerl.g:2249:3: 'utime'
                     {
                      before(grammarAccess.getKeywordAccess().getUtimeKeyword_211()); 
                     match(input,244,FOLLOW_2); 
@@ -7789,10 +7948,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 213 :
-                    // InternalPerl.g:2208:2: ( 'values' )
+                    // InternalPerl.g:2254:2: ( 'values' )
                     {
-                    // InternalPerl.g:2208:2: ( 'values' )
-                    // InternalPerl.g:2209:3: 'values'
+                    // InternalPerl.g:2254:2: ( 'values' )
+                    // InternalPerl.g:2255:3: 'values'
                     {
                      before(grammarAccess.getKeywordAccess().getValuesKeyword_212()); 
                     match(input,245,FOLLOW_2); 
@@ -7804,10 +7963,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 214 :
-                    // InternalPerl.g:2214:2: ( 'vec' )
+                    // InternalPerl.g:2260:2: ( 'vec' )
                     {
-                    // InternalPerl.g:2214:2: ( 'vec' )
-                    // InternalPerl.g:2215:3: 'vec'
+                    // InternalPerl.g:2260:2: ( 'vec' )
+                    // InternalPerl.g:2261:3: 'vec'
                     {
                      before(grammarAccess.getKeywordAccess().getVecKeyword_213()); 
                     match(input,246,FOLLOW_2); 
@@ -7819,10 +7978,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 215 :
-                    // InternalPerl.g:2220:2: ( 'wait' )
+                    // InternalPerl.g:2266:2: ( 'wait' )
                     {
-                    // InternalPerl.g:2220:2: ( 'wait' )
-                    // InternalPerl.g:2221:3: 'wait'
+                    // InternalPerl.g:2266:2: ( 'wait' )
+                    // InternalPerl.g:2267:3: 'wait'
                     {
                      before(grammarAccess.getKeywordAccess().getWaitKeyword_214()); 
                     match(input,247,FOLLOW_2); 
@@ -7834,10 +7993,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 216 :
-                    // InternalPerl.g:2226:2: ( 'waitpid' )
+                    // InternalPerl.g:2272:2: ( 'waitpid' )
                     {
-                    // InternalPerl.g:2226:2: ( 'waitpid' )
-                    // InternalPerl.g:2227:3: 'waitpid'
+                    // InternalPerl.g:2272:2: ( 'waitpid' )
+                    // InternalPerl.g:2273:3: 'waitpid'
                     {
                      before(grammarAccess.getKeywordAccess().getWaitpidKeyword_215()); 
                     match(input,248,FOLLOW_2); 
@@ -7849,10 +8008,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 217 :
-                    // InternalPerl.g:2232:2: ( 'wantarray' )
+                    // InternalPerl.g:2278:2: ( 'wantarray' )
                     {
-                    // InternalPerl.g:2232:2: ( 'wantarray' )
-                    // InternalPerl.g:2233:3: 'wantarray'
+                    // InternalPerl.g:2278:2: ( 'wantarray' )
+                    // InternalPerl.g:2279:3: 'wantarray'
                     {
                      before(grammarAccess.getKeywordAccess().getWantarrayKeyword_216()); 
                     match(input,249,FOLLOW_2); 
@@ -7864,10 +8023,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 218 :
-                    // InternalPerl.g:2238:2: ( 'warn' )
+                    // InternalPerl.g:2284:2: ( 'warn' )
                     {
-                    // InternalPerl.g:2238:2: ( 'warn' )
-                    // InternalPerl.g:2239:3: 'warn'
+                    // InternalPerl.g:2284:2: ( 'warn' )
+                    // InternalPerl.g:2285:3: 'warn'
                     {
                      before(grammarAccess.getKeywordAccess().getWarnKeyword_217()); 
                     match(input,250,FOLLOW_2); 
@@ -7879,10 +8038,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 219 :
-                    // InternalPerl.g:2244:2: ( 'when' )
+                    // InternalPerl.g:2290:2: ( 'when' )
                     {
-                    // InternalPerl.g:2244:2: ( 'when' )
-                    // InternalPerl.g:2245:3: 'when'
+                    // InternalPerl.g:2290:2: ( 'when' )
+                    // InternalPerl.g:2291:3: 'when'
                     {
                      before(grammarAccess.getKeywordAccess().getWhenKeyword_218()); 
                     match(input,251,FOLLOW_2); 
@@ -7894,10 +8053,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 220 :
-                    // InternalPerl.g:2250:2: ( 'while' )
+                    // InternalPerl.g:2296:2: ( 'while' )
                     {
-                    // InternalPerl.g:2250:2: ( 'while' )
-                    // InternalPerl.g:2251:3: 'while'
+                    // InternalPerl.g:2296:2: ( 'while' )
+                    // InternalPerl.g:2297:3: 'while'
                     {
                      before(grammarAccess.getKeywordAccess().getWhileKeyword_219()); 
                     match(input,252,FOLLOW_2); 
@@ -7909,10 +8068,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 221 :
-                    // InternalPerl.g:2256:2: ( 'write' )
+                    // InternalPerl.g:2302:2: ( 'write' )
                     {
-                    // InternalPerl.g:2256:2: ( 'write' )
-                    // InternalPerl.g:2257:3: 'write'
+                    // InternalPerl.g:2302:2: ( 'write' )
+                    // InternalPerl.g:2303:3: 'write'
                     {
                      before(grammarAccess.getKeywordAccess().getWriteKeyword_220()); 
                     match(input,253,FOLLOW_2); 
@@ -7924,10 +8083,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 222 :
-                    // InternalPerl.g:2262:2: ( 'y' )
+                    // InternalPerl.g:2308:2: ( 'y' )
                     {
-                    // InternalPerl.g:2262:2: ( 'y' )
-                    // InternalPerl.g:2263:3: 'y'
+                    // InternalPerl.g:2308:2: ( 'y' )
+                    // InternalPerl.g:2309:3: 'y'
                     {
                      before(grammarAccess.getKeywordAccess().getYKeyword_221()); 
                     match(input,254,FOLLOW_2); 
@@ -7956,348 +8115,348 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operator__Alternatives"
-    // InternalPerl.g:2272:1: rule__Operator__Alternatives : ( ( '++' ) | ( '--' ) | ( '**' ) | ( '!' ) | ( '~' ) | ( '+' ) | ( '-' ) | ( '=~' ) | ( '!~' ) | ( '*' ) | ( '/' ) | ( '%' ) | ( 'x' ) | ( '<<' ) | ( '>>' ) | ( 'lt' ) | ( 'gt' ) | ( 'le' ) | ( 'ge' ) | ( 'cmp' ) | ( '~~' ) | ( '==' ) | ( '!=' ) | ( ( rule__Operator__Group_23__0 ) ) | ( '..' ) | ( '...' ) | ( ',' ) | ( '&' ) | ( '|' ) | ( '^' ) | ( '&&' ) | ( '||' ) | ( '//' ) | ( '?' ) | ( ':' ) | ( '**=' ) | ( '+=' ) | ( '-=' ) | ( '.=' ) | ( '*=' ) | ( '/=' ) | ( '%=' ) | ( 'x=' ) | ( '&=' ) | ( '|=' ) | ( '^=' ) | ( '<<=' ) | ( '>>=' ) | ( '&&=' ) | ( '||=' ) | ( '//=' ) | ( '<' ) | ( '>' ) | ( '<=' ) | ( '>=' ) | ( '<>' ) | ( '=>' ) | ( '->' ) | ( 'and' ) | ( 'or' ) | ( 'xor' ) | ( 'not' ) | ( 'eq' ) | ( 'ne' ) );
+    // InternalPerl.g:2318:1: rule__Operator__Alternatives : ( ( '++' ) | ( '--' ) | ( '**' ) | ( '!' ) | ( '~' ) | ( '+' ) | ( '-' ) | ( '=~' ) | ( '!~' ) | ( '*' ) | ( '/' ) | ( '%' ) | ( 'x' ) | ( '<<' ) | ( '>>' ) | ( 'lt' ) | ( 'gt' ) | ( 'le' ) | ( 'ge' ) | ( 'cmp' ) | ( '~~' ) | ( '==' ) | ( '!=' ) | ( ( rule__Operator__Group_23__0 ) ) | ( '..' ) | ( '...' ) | ( ',' ) | ( '&' ) | ( '|' ) | ( '^' ) | ( '&&' ) | ( '||' ) | ( '//' ) | ( '?' ) | ( ':' ) | ( '**=' ) | ( '+=' ) | ( '-=' ) | ( '.=' ) | ( '*=' ) | ( '/=' ) | ( '%=' ) | ( 'x=' ) | ( '&=' ) | ( '|=' ) | ( '^=' ) | ( '<<=' ) | ( '>>=' ) | ( '&&=' ) | ( '||=' ) | ( '//=' ) | ( '<' ) | ( '>' ) | ( '<=' ) | ( '>=' ) | ( '<>' ) | ( '=>' ) | ( '->' ) | ( 'and' ) | ( 'or' ) | ( 'xor' ) | ( 'not' ) | ( 'eq' ) | ( 'ne' ) );
     public final void rule__Operator__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:2276:1: ( ( '++' ) | ( '--' ) | ( '**' ) | ( '!' ) | ( '~' ) | ( '+' ) | ( '-' ) | ( '=~' ) | ( '!~' ) | ( '*' ) | ( '/' ) | ( '%' ) | ( 'x' ) | ( '<<' ) | ( '>>' ) | ( 'lt' ) | ( 'gt' ) | ( 'le' ) | ( 'ge' ) | ( 'cmp' ) | ( '~~' ) | ( '==' ) | ( '!=' ) | ( ( rule__Operator__Group_23__0 ) ) | ( '..' ) | ( '...' ) | ( ',' ) | ( '&' ) | ( '|' ) | ( '^' ) | ( '&&' ) | ( '||' ) | ( '//' ) | ( '?' ) | ( ':' ) | ( '**=' ) | ( '+=' ) | ( '-=' ) | ( '.=' ) | ( '*=' ) | ( '/=' ) | ( '%=' ) | ( 'x=' ) | ( '&=' ) | ( '|=' ) | ( '^=' ) | ( '<<=' ) | ( '>>=' ) | ( '&&=' ) | ( '||=' ) | ( '//=' ) | ( '<' ) | ( '>' ) | ( '<=' ) | ( '>=' ) | ( '<>' ) | ( '=>' ) | ( '->' ) | ( 'and' ) | ( 'or' ) | ( 'xor' ) | ( 'not' ) | ( 'eq' ) | ( 'ne' ) )
-            int alt14=64;
+            // InternalPerl.g:2322:1: ( ( '++' ) | ( '--' ) | ( '**' ) | ( '!' ) | ( '~' ) | ( '+' ) | ( '-' ) | ( '=~' ) | ( '!~' ) | ( '*' ) | ( '/' ) | ( '%' ) | ( 'x' ) | ( '<<' ) | ( '>>' ) | ( 'lt' ) | ( 'gt' ) | ( 'le' ) | ( 'ge' ) | ( 'cmp' ) | ( '~~' ) | ( '==' ) | ( '!=' ) | ( ( rule__Operator__Group_23__0 ) ) | ( '..' ) | ( '...' ) | ( ',' ) | ( '&' ) | ( '|' ) | ( '^' ) | ( '&&' ) | ( '||' ) | ( '//' ) | ( '?' ) | ( ':' ) | ( '**=' ) | ( '+=' ) | ( '-=' ) | ( '.=' ) | ( '*=' ) | ( '/=' ) | ( '%=' ) | ( 'x=' ) | ( '&=' ) | ( '|=' ) | ( '^=' ) | ( '<<=' ) | ( '>>=' ) | ( '&&=' ) | ( '||=' ) | ( '//=' ) | ( '<' ) | ( '>' ) | ( '<=' ) | ( '>=' ) | ( '<>' ) | ( '=>' ) | ( '->' ) | ( 'and' ) | ( 'or' ) | ( 'xor' ) | ( 'not' ) | ( 'eq' ) | ( 'ne' ) )
+            int alt15=64;
             switch ( input.LA(1) ) {
             case 255:
                 {
-                alt14=1;
+                alt15=1;
                 }
                 break;
             case 256:
                 {
-                alt14=2;
+                alt15=2;
                 }
                 break;
             case 257:
                 {
-                alt14=3;
+                alt15=3;
                 }
                 break;
             case 258:
                 {
-                alt14=4;
+                alt15=4;
                 }
                 break;
             case 259:
                 {
-                alt14=5;
+                alt15=5;
                 }
                 break;
             case 260:
                 {
-                alt14=6;
+                alt15=6;
                 }
                 break;
             case 261:
                 {
-                alt14=7;
+                alt15=7;
                 }
                 break;
             case 262:
                 {
-                alt14=8;
+                alt15=8;
                 }
                 break;
             case 263:
                 {
-                alt14=9;
+                alt15=9;
                 }
                 break;
             case 264:
                 {
-                alt14=10;
+                alt15=10;
                 }
                 break;
             case 265:
                 {
-                alt14=11;
+                alt15=11;
                 }
                 break;
             case 30:
                 {
-                alt14=12;
+                alt15=12;
                 }
                 break;
             case 266:
                 {
-                alt14=13;
+                alt15=13;
                 }
                 break;
             case 267:
                 {
-                alt14=14;
+                alt15=14;
                 }
                 break;
             case 268:
                 {
-                alt14=15;
+                alt15=15;
                 }
                 break;
             case 269:
                 {
-                alt14=16;
+                alt15=16;
                 }
                 break;
             case 270:
                 {
-                alt14=17;
+                alt15=17;
                 }
                 break;
             case 271:
                 {
-                alt14=18;
+                alt15=18;
                 }
                 break;
             case 272:
                 {
-                alt14=19;
+                alt15=19;
                 }
                 break;
             case 273:
                 {
-                alt14=20;
+                alt15=20;
                 }
                 break;
             case 274:
                 {
-                alt14=21;
+                alt15=21;
                 }
                 break;
             case 275:
                 {
-                alt14=22;
+                alt15=22;
                 }
                 break;
             case 276:
                 {
-                alt14=23;
+                alt15=23;
                 }
                 break;
             case 347:
                 {
-                alt14=24;
+                alt15=24;
                 }
                 break;
             case 277:
                 {
-                alt14=25;
+                alt15=25;
                 }
                 break;
             case 278:
                 {
-                alt14=26;
+                alt15=26;
                 }
                 break;
             case 279:
                 {
-                alt14=27;
+                alt15=27;
                 }
                 break;
             case 32:
                 {
-                alt14=28;
+                alt15=28;
                 }
                 break;
             case 280:
                 {
-                alt14=29;
+                alt15=29;
                 }
                 break;
             case 281:
                 {
-                alt14=30;
+                alt15=30;
                 }
                 break;
             case 282:
                 {
-                alt14=31;
+                alt15=31;
                 }
                 break;
             case 283:
                 {
-                alt14=32;
+                alt15=32;
                 }
                 break;
             case 284:
                 {
-                alt14=33;
+                alt15=33;
                 }
                 break;
             case 285:
                 {
-                alt14=34;
+                alt15=34;
                 }
                 break;
             case 286:
                 {
-                alt14=35;
+                alt15=35;
                 }
                 break;
             case 287:
                 {
-                alt14=36;
+                alt15=36;
                 }
                 break;
             case 288:
                 {
-                alt14=37;
+                alt15=37;
                 }
                 break;
             case 289:
                 {
-                alt14=38;
+                alt15=38;
                 }
                 break;
             case 290:
                 {
-                alt14=39;
+                alt15=39;
                 }
                 break;
             case 291:
                 {
-                alt14=40;
+                alt15=40;
                 }
                 break;
             case 292:
                 {
-                alt14=41;
+                alt15=41;
                 }
                 break;
             case 293:
                 {
-                alt14=42;
+                alt15=42;
                 }
                 break;
             case 294:
                 {
-                alt14=43;
+                alt15=43;
                 }
                 break;
             case 295:
                 {
-                alt14=44;
+                alt15=44;
                 }
                 break;
             case 296:
                 {
-                alt14=45;
+                alt15=45;
                 }
                 break;
             case 297:
                 {
-                alt14=46;
+                alt15=46;
                 }
                 break;
             case 298:
                 {
-                alt14=47;
+                alt15=47;
                 }
                 break;
             case 299:
                 {
-                alt14=48;
+                alt15=48;
                 }
                 break;
             case 300:
                 {
-                alt14=49;
+                alt15=49;
                 }
                 break;
             case 301:
                 {
-                alt14=50;
+                alt15=50;
                 }
                 break;
             case 302:
                 {
-                alt14=51;
+                alt15=51;
                 }
                 break;
             case 303:
                 {
-                alt14=52;
+                alt15=52;
                 }
                 break;
             case 304:
                 {
-                alt14=53;
+                alt15=53;
                 }
                 break;
             case 305:
                 {
-                alt14=54;
+                alt15=54;
                 }
                 break;
             case 306:
                 {
-                alt14=55;
+                alt15=55;
                 }
                 break;
             case 307:
                 {
-                alt14=56;
+                alt15=56;
                 }
                 break;
             case 308:
                 {
-                alt14=57;
+                alt15=57;
                 }
                 break;
             case 309:
                 {
-                alt14=58;
+                alt15=58;
                 }
                 break;
             case 310:
                 {
-                alt14=59;
+                alt15=59;
                 }
                 break;
             case 311:
                 {
-                alt14=60;
+                alt15=60;
                 }
                 break;
             case 312:
                 {
-                alt14=61;
+                alt15=61;
                 }
                 break;
             case 313:
                 {
-                alt14=62;
+                alt15=62;
                 }
                 break;
             case 314:
                 {
-                alt14=63;
+                alt15=63;
                 }
                 break;
             case 315:
                 {
-                alt14=64;
+                alt15=64;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 14, 0, input);
+                    new NoViableAltException("", 15, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt14) {
+            switch (alt15) {
                 case 1 :
-                    // InternalPerl.g:2277:2: ( '++' )
+                    // InternalPerl.g:2323:2: ( '++' )
                     {
-                    // InternalPerl.g:2277:2: ( '++' )
-                    // InternalPerl.g:2278:3: '++'
+                    // InternalPerl.g:2323:2: ( '++' )
+                    // InternalPerl.g:2324:3: '++'
                     {
                      before(grammarAccess.getOperatorAccess().getPlusSignPlusSignKeyword_0()); 
                     match(input,255,FOLLOW_2); 
@@ -8309,10 +8468,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:2283:2: ( '--' )
+                    // InternalPerl.g:2329:2: ( '--' )
                     {
-                    // InternalPerl.g:2283:2: ( '--' )
-                    // InternalPerl.g:2284:3: '--'
+                    // InternalPerl.g:2329:2: ( '--' )
+                    // InternalPerl.g:2330:3: '--'
                     {
                      before(grammarAccess.getOperatorAccess().getHyphenMinusHyphenMinusKeyword_1()); 
                     match(input,256,FOLLOW_2); 
@@ -8324,10 +8483,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:2289:2: ( '**' )
+                    // InternalPerl.g:2335:2: ( '**' )
                     {
-                    // InternalPerl.g:2289:2: ( '**' )
-                    // InternalPerl.g:2290:3: '**'
+                    // InternalPerl.g:2335:2: ( '**' )
+                    // InternalPerl.g:2336:3: '**'
                     {
                      before(grammarAccess.getOperatorAccess().getAsteriskAsteriskKeyword_2()); 
                     match(input,257,FOLLOW_2); 
@@ -8339,10 +8498,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalPerl.g:2295:2: ( '!' )
+                    // InternalPerl.g:2341:2: ( '!' )
                     {
-                    // InternalPerl.g:2295:2: ( '!' )
-                    // InternalPerl.g:2296:3: '!'
+                    // InternalPerl.g:2341:2: ( '!' )
+                    // InternalPerl.g:2342:3: '!'
                     {
                      before(grammarAccess.getOperatorAccess().getExclamationMarkKeyword_3()); 
                     match(input,258,FOLLOW_2); 
@@ -8354,10 +8513,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalPerl.g:2301:2: ( '~' )
+                    // InternalPerl.g:2347:2: ( '~' )
                     {
-                    // InternalPerl.g:2301:2: ( '~' )
-                    // InternalPerl.g:2302:3: '~'
+                    // InternalPerl.g:2347:2: ( '~' )
+                    // InternalPerl.g:2348:3: '~'
                     {
                      before(grammarAccess.getOperatorAccess().getTildeKeyword_4()); 
                     match(input,259,FOLLOW_2); 
@@ -8369,10 +8528,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 6 :
-                    // InternalPerl.g:2307:2: ( '+' )
+                    // InternalPerl.g:2353:2: ( '+' )
                     {
-                    // InternalPerl.g:2307:2: ( '+' )
-                    // InternalPerl.g:2308:3: '+'
+                    // InternalPerl.g:2353:2: ( '+' )
+                    // InternalPerl.g:2354:3: '+'
                     {
                      before(grammarAccess.getOperatorAccess().getPlusSignKeyword_5()); 
                     match(input,260,FOLLOW_2); 
@@ -8384,10 +8543,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 7 :
-                    // InternalPerl.g:2313:2: ( '-' )
+                    // InternalPerl.g:2359:2: ( '-' )
                     {
-                    // InternalPerl.g:2313:2: ( '-' )
-                    // InternalPerl.g:2314:3: '-'
+                    // InternalPerl.g:2359:2: ( '-' )
+                    // InternalPerl.g:2360:3: '-'
                     {
                      before(grammarAccess.getOperatorAccess().getHyphenMinusKeyword_6()); 
                     match(input,261,FOLLOW_2); 
@@ -8399,10 +8558,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 8 :
-                    // InternalPerl.g:2319:2: ( '=~' )
+                    // InternalPerl.g:2365:2: ( '=~' )
                     {
-                    // InternalPerl.g:2319:2: ( '=~' )
-                    // InternalPerl.g:2320:3: '=~'
+                    // InternalPerl.g:2365:2: ( '=~' )
+                    // InternalPerl.g:2366:3: '=~'
                     {
                      before(grammarAccess.getOperatorAccess().getEqualsSignTildeKeyword_7()); 
                     match(input,262,FOLLOW_2); 
@@ -8414,10 +8573,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 9 :
-                    // InternalPerl.g:2325:2: ( '!~' )
+                    // InternalPerl.g:2371:2: ( '!~' )
                     {
-                    // InternalPerl.g:2325:2: ( '!~' )
-                    // InternalPerl.g:2326:3: '!~'
+                    // InternalPerl.g:2371:2: ( '!~' )
+                    // InternalPerl.g:2372:3: '!~'
                     {
                      before(grammarAccess.getOperatorAccess().getExclamationMarkTildeKeyword_8()); 
                     match(input,263,FOLLOW_2); 
@@ -8429,10 +8588,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 10 :
-                    // InternalPerl.g:2331:2: ( '*' )
+                    // InternalPerl.g:2377:2: ( '*' )
                     {
-                    // InternalPerl.g:2331:2: ( '*' )
-                    // InternalPerl.g:2332:3: '*'
+                    // InternalPerl.g:2377:2: ( '*' )
+                    // InternalPerl.g:2378:3: '*'
                     {
                      before(grammarAccess.getOperatorAccess().getAsteriskKeyword_9()); 
                     match(input,264,FOLLOW_2); 
@@ -8444,10 +8603,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 11 :
-                    // InternalPerl.g:2337:2: ( '/' )
+                    // InternalPerl.g:2383:2: ( '/' )
                     {
-                    // InternalPerl.g:2337:2: ( '/' )
-                    // InternalPerl.g:2338:3: '/'
+                    // InternalPerl.g:2383:2: ( '/' )
+                    // InternalPerl.g:2384:3: '/'
                     {
                      before(grammarAccess.getOperatorAccess().getSolidusKeyword_10()); 
                     match(input,265,FOLLOW_2); 
@@ -8459,10 +8618,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 12 :
-                    // InternalPerl.g:2343:2: ( '%' )
+                    // InternalPerl.g:2389:2: ( '%' )
                     {
-                    // InternalPerl.g:2343:2: ( '%' )
-                    // InternalPerl.g:2344:3: '%'
+                    // InternalPerl.g:2389:2: ( '%' )
+                    // InternalPerl.g:2390:3: '%'
                     {
                      before(grammarAccess.getOperatorAccess().getPercentSignKeyword_11()); 
                     match(input,30,FOLLOW_2); 
@@ -8474,10 +8633,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 13 :
-                    // InternalPerl.g:2349:2: ( 'x' )
+                    // InternalPerl.g:2395:2: ( 'x' )
                     {
-                    // InternalPerl.g:2349:2: ( 'x' )
-                    // InternalPerl.g:2350:3: 'x'
+                    // InternalPerl.g:2395:2: ( 'x' )
+                    // InternalPerl.g:2396:3: 'x'
                     {
                      before(grammarAccess.getOperatorAccess().getXKeyword_12()); 
                     match(input,266,FOLLOW_2); 
@@ -8489,10 +8648,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 14 :
-                    // InternalPerl.g:2355:2: ( '<<' )
+                    // InternalPerl.g:2401:2: ( '<<' )
                     {
-                    // InternalPerl.g:2355:2: ( '<<' )
-                    // InternalPerl.g:2356:3: '<<'
+                    // InternalPerl.g:2401:2: ( '<<' )
+                    // InternalPerl.g:2402:3: '<<'
                     {
                      before(grammarAccess.getOperatorAccess().getLessThanSignLessThanSignKeyword_13()); 
                     match(input,267,FOLLOW_2); 
@@ -8504,10 +8663,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 15 :
-                    // InternalPerl.g:2361:2: ( '>>' )
+                    // InternalPerl.g:2407:2: ( '>>' )
                     {
-                    // InternalPerl.g:2361:2: ( '>>' )
-                    // InternalPerl.g:2362:3: '>>'
+                    // InternalPerl.g:2407:2: ( '>>' )
+                    // InternalPerl.g:2408:3: '>>'
                     {
                      before(grammarAccess.getOperatorAccess().getGreaterThanSignGreaterThanSignKeyword_14()); 
                     match(input,268,FOLLOW_2); 
@@ -8519,10 +8678,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 16 :
-                    // InternalPerl.g:2367:2: ( 'lt' )
+                    // InternalPerl.g:2413:2: ( 'lt' )
                     {
-                    // InternalPerl.g:2367:2: ( 'lt' )
-                    // InternalPerl.g:2368:3: 'lt'
+                    // InternalPerl.g:2413:2: ( 'lt' )
+                    // InternalPerl.g:2414:3: 'lt'
                     {
                      before(grammarAccess.getOperatorAccess().getLtKeyword_15()); 
                     match(input,269,FOLLOW_2); 
@@ -8534,10 +8693,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 17 :
-                    // InternalPerl.g:2373:2: ( 'gt' )
+                    // InternalPerl.g:2419:2: ( 'gt' )
                     {
-                    // InternalPerl.g:2373:2: ( 'gt' )
-                    // InternalPerl.g:2374:3: 'gt'
+                    // InternalPerl.g:2419:2: ( 'gt' )
+                    // InternalPerl.g:2420:3: 'gt'
                     {
                      before(grammarAccess.getOperatorAccess().getGtKeyword_16()); 
                     match(input,270,FOLLOW_2); 
@@ -8549,10 +8708,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 18 :
-                    // InternalPerl.g:2379:2: ( 'le' )
+                    // InternalPerl.g:2425:2: ( 'le' )
                     {
-                    // InternalPerl.g:2379:2: ( 'le' )
-                    // InternalPerl.g:2380:3: 'le'
+                    // InternalPerl.g:2425:2: ( 'le' )
+                    // InternalPerl.g:2426:3: 'le'
                     {
                      before(grammarAccess.getOperatorAccess().getLeKeyword_17()); 
                     match(input,271,FOLLOW_2); 
@@ -8564,10 +8723,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 19 :
-                    // InternalPerl.g:2385:2: ( 'ge' )
+                    // InternalPerl.g:2431:2: ( 'ge' )
                     {
-                    // InternalPerl.g:2385:2: ( 'ge' )
-                    // InternalPerl.g:2386:3: 'ge'
+                    // InternalPerl.g:2431:2: ( 'ge' )
+                    // InternalPerl.g:2432:3: 'ge'
                     {
                      before(grammarAccess.getOperatorAccess().getGeKeyword_18()); 
                     match(input,272,FOLLOW_2); 
@@ -8579,10 +8738,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 20 :
-                    // InternalPerl.g:2391:2: ( 'cmp' )
+                    // InternalPerl.g:2437:2: ( 'cmp' )
                     {
-                    // InternalPerl.g:2391:2: ( 'cmp' )
-                    // InternalPerl.g:2392:3: 'cmp'
+                    // InternalPerl.g:2437:2: ( 'cmp' )
+                    // InternalPerl.g:2438:3: 'cmp'
                     {
                      before(grammarAccess.getOperatorAccess().getCmpKeyword_19()); 
                     match(input,273,FOLLOW_2); 
@@ -8594,10 +8753,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 21 :
-                    // InternalPerl.g:2397:2: ( '~~' )
+                    // InternalPerl.g:2443:2: ( '~~' )
                     {
-                    // InternalPerl.g:2397:2: ( '~~' )
-                    // InternalPerl.g:2398:3: '~~'
+                    // InternalPerl.g:2443:2: ( '~~' )
+                    // InternalPerl.g:2444:3: '~~'
                     {
                      before(grammarAccess.getOperatorAccess().getTildeTildeKeyword_20()); 
                     match(input,274,FOLLOW_2); 
@@ -8609,10 +8768,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 22 :
-                    // InternalPerl.g:2403:2: ( '==' )
+                    // InternalPerl.g:2449:2: ( '==' )
                     {
-                    // InternalPerl.g:2403:2: ( '==' )
-                    // InternalPerl.g:2404:3: '=='
+                    // InternalPerl.g:2449:2: ( '==' )
+                    // InternalPerl.g:2450:3: '=='
                     {
                      before(grammarAccess.getOperatorAccess().getEqualsSignEqualsSignKeyword_21()); 
                     match(input,275,FOLLOW_2); 
@@ -8624,10 +8783,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 23 :
-                    // InternalPerl.g:2409:2: ( '!=' )
+                    // InternalPerl.g:2455:2: ( '!=' )
                     {
-                    // InternalPerl.g:2409:2: ( '!=' )
-                    // InternalPerl.g:2410:3: '!='
+                    // InternalPerl.g:2455:2: ( '!=' )
+                    // InternalPerl.g:2456:3: '!='
                     {
                      before(grammarAccess.getOperatorAccess().getExclamationMarkEqualsSignKeyword_22()); 
                     match(input,276,FOLLOW_2); 
@@ -8639,14 +8798,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 24 :
-                    // InternalPerl.g:2415:2: ( ( rule__Operator__Group_23__0 ) )
+                    // InternalPerl.g:2461:2: ( ( rule__Operator__Group_23__0 ) )
                     {
-                    // InternalPerl.g:2415:2: ( ( rule__Operator__Group_23__0 ) )
-                    // InternalPerl.g:2416:3: ( rule__Operator__Group_23__0 )
+                    // InternalPerl.g:2461:2: ( ( rule__Operator__Group_23__0 ) )
+                    // InternalPerl.g:2462:3: ( rule__Operator__Group_23__0 )
                     {
                      before(grammarAccess.getOperatorAccess().getGroup_23()); 
-                    // InternalPerl.g:2417:3: ( rule__Operator__Group_23__0 )
-                    // InternalPerl.g:2417:4: rule__Operator__Group_23__0
+                    // InternalPerl.g:2463:3: ( rule__Operator__Group_23__0 )
+                    // InternalPerl.g:2463:4: rule__Operator__Group_23__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Operator__Group_23__0();
@@ -8664,10 +8823,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 25 :
-                    // InternalPerl.g:2421:2: ( '..' )
+                    // InternalPerl.g:2467:2: ( '..' )
                     {
-                    // InternalPerl.g:2421:2: ( '..' )
-                    // InternalPerl.g:2422:3: '..'
+                    // InternalPerl.g:2467:2: ( '..' )
+                    // InternalPerl.g:2468:3: '..'
                     {
                      before(grammarAccess.getOperatorAccess().getFullStopFullStopKeyword_24()); 
                     match(input,277,FOLLOW_2); 
@@ -8679,10 +8838,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 26 :
-                    // InternalPerl.g:2427:2: ( '...' )
+                    // InternalPerl.g:2473:2: ( '...' )
                     {
-                    // InternalPerl.g:2427:2: ( '...' )
-                    // InternalPerl.g:2428:3: '...'
+                    // InternalPerl.g:2473:2: ( '...' )
+                    // InternalPerl.g:2474:3: '...'
                     {
                      before(grammarAccess.getOperatorAccess().getFullStopFullStopFullStopKeyword_25()); 
                     match(input,278,FOLLOW_2); 
@@ -8694,10 +8853,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 27 :
-                    // InternalPerl.g:2433:2: ( ',' )
+                    // InternalPerl.g:2479:2: ( ',' )
                     {
-                    // InternalPerl.g:2433:2: ( ',' )
-                    // InternalPerl.g:2434:3: ','
+                    // InternalPerl.g:2479:2: ( ',' )
+                    // InternalPerl.g:2480:3: ','
                     {
                      before(grammarAccess.getOperatorAccess().getCommaKeyword_26()); 
                     match(input,279,FOLLOW_2); 
@@ -8709,10 +8868,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 28 :
-                    // InternalPerl.g:2439:2: ( '&' )
+                    // InternalPerl.g:2485:2: ( '&' )
                     {
-                    // InternalPerl.g:2439:2: ( '&' )
-                    // InternalPerl.g:2440:3: '&'
+                    // InternalPerl.g:2485:2: ( '&' )
+                    // InternalPerl.g:2486:3: '&'
                     {
                      before(grammarAccess.getOperatorAccess().getAmpersandKeyword_27()); 
                     match(input,32,FOLLOW_2); 
@@ -8724,10 +8883,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 29 :
-                    // InternalPerl.g:2445:2: ( '|' )
+                    // InternalPerl.g:2491:2: ( '|' )
                     {
-                    // InternalPerl.g:2445:2: ( '|' )
-                    // InternalPerl.g:2446:3: '|'
+                    // InternalPerl.g:2491:2: ( '|' )
+                    // InternalPerl.g:2492:3: '|'
                     {
                      before(grammarAccess.getOperatorAccess().getVerticalLineKeyword_28()); 
                     match(input,280,FOLLOW_2); 
@@ -8739,10 +8898,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 30 :
-                    // InternalPerl.g:2451:2: ( '^' )
+                    // InternalPerl.g:2497:2: ( '^' )
                     {
-                    // InternalPerl.g:2451:2: ( '^' )
-                    // InternalPerl.g:2452:3: '^'
+                    // InternalPerl.g:2497:2: ( '^' )
+                    // InternalPerl.g:2498:3: '^'
                     {
                      before(grammarAccess.getOperatorAccess().getCircumflexAccentKeyword_29()); 
                     match(input,281,FOLLOW_2); 
@@ -8754,10 +8913,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 31 :
-                    // InternalPerl.g:2457:2: ( '&&' )
+                    // InternalPerl.g:2503:2: ( '&&' )
                     {
-                    // InternalPerl.g:2457:2: ( '&&' )
-                    // InternalPerl.g:2458:3: '&&'
+                    // InternalPerl.g:2503:2: ( '&&' )
+                    // InternalPerl.g:2504:3: '&&'
                     {
                      before(grammarAccess.getOperatorAccess().getAmpersandAmpersandKeyword_30()); 
                     match(input,282,FOLLOW_2); 
@@ -8769,10 +8928,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 32 :
-                    // InternalPerl.g:2463:2: ( '||' )
+                    // InternalPerl.g:2509:2: ( '||' )
                     {
-                    // InternalPerl.g:2463:2: ( '||' )
-                    // InternalPerl.g:2464:3: '||'
+                    // InternalPerl.g:2509:2: ( '||' )
+                    // InternalPerl.g:2510:3: '||'
                     {
                      before(grammarAccess.getOperatorAccess().getVerticalLineVerticalLineKeyword_31()); 
                     match(input,283,FOLLOW_2); 
@@ -8784,10 +8943,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 33 :
-                    // InternalPerl.g:2469:2: ( '//' )
+                    // InternalPerl.g:2515:2: ( '//' )
                     {
-                    // InternalPerl.g:2469:2: ( '//' )
-                    // InternalPerl.g:2470:3: '//'
+                    // InternalPerl.g:2515:2: ( '//' )
+                    // InternalPerl.g:2516:3: '//'
                     {
                      before(grammarAccess.getOperatorAccess().getSolidusSolidusKeyword_32()); 
                     match(input,284,FOLLOW_2); 
@@ -8799,10 +8958,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 34 :
-                    // InternalPerl.g:2475:2: ( '?' )
+                    // InternalPerl.g:2521:2: ( '?' )
                     {
-                    // InternalPerl.g:2475:2: ( '?' )
-                    // InternalPerl.g:2476:3: '?'
+                    // InternalPerl.g:2521:2: ( '?' )
+                    // InternalPerl.g:2522:3: '?'
                     {
                      before(grammarAccess.getOperatorAccess().getQuestionMarkKeyword_33()); 
                     match(input,285,FOLLOW_2); 
@@ -8814,10 +8973,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 35 :
-                    // InternalPerl.g:2481:2: ( ':' )
+                    // InternalPerl.g:2527:2: ( ':' )
                     {
-                    // InternalPerl.g:2481:2: ( ':' )
-                    // InternalPerl.g:2482:3: ':'
+                    // InternalPerl.g:2527:2: ( ':' )
+                    // InternalPerl.g:2528:3: ':'
                     {
                      before(grammarAccess.getOperatorAccess().getColonKeyword_34()); 
                     match(input,286,FOLLOW_2); 
@@ -8829,10 +8988,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 36 :
-                    // InternalPerl.g:2487:2: ( '**=' )
+                    // InternalPerl.g:2533:2: ( '**=' )
                     {
-                    // InternalPerl.g:2487:2: ( '**=' )
-                    // InternalPerl.g:2488:3: '**='
+                    // InternalPerl.g:2533:2: ( '**=' )
+                    // InternalPerl.g:2534:3: '**='
                     {
                      before(grammarAccess.getOperatorAccess().getAsteriskAsteriskEqualsSignKeyword_35()); 
                     match(input,287,FOLLOW_2); 
@@ -8844,10 +9003,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 37 :
-                    // InternalPerl.g:2493:2: ( '+=' )
+                    // InternalPerl.g:2539:2: ( '+=' )
                     {
-                    // InternalPerl.g:2493:2: ( '+=' )
-                    // InternalPerl.g:2494:3: '+='
+                    // InternalPerl.g:2539:2: ( '+=' )
+                    // InternalPerl.g:2540:3: '+='
                     {
                      before(grammarAccess.getOperatorAccess().getPlusSignEqualsSignKeyword_36()); 
                     match(input,288,FOLLOW_2); 
@@ -8859,10 +9018,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 38 :
-                    // InternalPerl.g:2499:2: ( '-=' )
+                    // InternalPerl.g:2545:2: ( '-=' )
                     {
-                    // InternalPerl.g:2499:2: ( '-=' )
-                    // InternalPerl.g:2500:3: '-='
+                    // InternalPerl.g:2545:2: ( '-=' )
+                    // InternalPerl.g:2546:3: '-='
                     {
                      before(grammarAccess.getOperatorAccess().getHyphenMinusEqualsSignKeyword_37()); 
                     match(input,289,FOLLOW_2); 
@@ -8874,10 +9033,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 39 :
-                    // InternalPerl.g:2505:2: ( '.=' )
+                    // InternalPerl.g:2551:2: ( '.=' )
                     {
-                    // InternalPerl.g:2505:2: ( '.=' )
-                    // InternalPerl.g:2506:3: '.='
+                    // InternalPerl.g:2551:2: ( '.=' )
+                    // InternalPerl.g:2552:3: '.='
                     {
                      before(grammarAccess.getOperatorAccess().getFullStopEqualsSignKeyword_38()); 
                     match(input,290,FOLLOW_2); 
@@ -8889,10 +9048,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 40 :
-                    // InternalPerl.g:2511:2: ( '*=' )
+                    // InternalPerl.g:2557:2: ( '*=' )
                     {
-                    // InternalPerl.g:2511:2: ( '*=' )
-                    // InternalPerl.g:2512:3: '*='
+                    // InternalPerl.g:2557:2: ( '*=' )
+                    // InternalPerl.g:2558:3: '*='
                     {
                      before(grammarAccess.getOperatorAccess().getAsteriskEqualsSignKeyword_39()); 
                     match(input,291,FOLLOW_2); 
@@ -8904,10 +9063,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 41 :
-                    // InternalPerl.g:2517:2: ( '/=' )
+                    // InternalPerl.g:2563:2: ( '/=' )
                     {
-                    // InternalPerl.g:2517:2: ( '/=' )
-                    // InternalPerl.g:2518:3: '/='
+                    // InternalPerl.g:2563:2: ( '/=' )
+                    // InternalPerl.g:2564:3: '/='
                     {
                      before(grammarAccess.getOperatorAccess().getSolidusEqualsSignKeyword_40()); 
                     match(input,292,FOLLOW_2); 
@@ -8919,10 +9078,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 42 :
-                    // InternalPerl.g:2523:2: ( '%=' )
+                    // InternalPerl.g:2569:2: ( '%=' )
                     {
-                    // InternalPerl.g:2523:2: ( '%=' )
-                    // InternalPerl.g:2524:3: '%='
+                    // InternalPerl.g:2569:2: ( '%=' )
+                    // InternalPerl.g:2570:3: '%='
                     {
                      before(grammarAccess.getOperatorAccess().getPercentSignEqualsSignKeyword_41()); 
                     match(input,293,FOLLOW_2); 
@@ -8934,10 +9093,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 43 :
-                    // InternalPerl.g:2529:2: ( 'x=' )
+                    // InternalPerl.g:2575:2: ( 'x=' )
                     {
-                    // InternalPerl.g:2529:2: ( 'x=' )
-                    // InternalPerl.g:2530:3: 'x='
+                    // InternalPerl.g:2575:2: ( 'x=' )
+                    // InternalPerl.g:2576:3: 'x='
                     {
                      before(grammarAccess.getOperatorAccess().getXKeyword_42()); 
                     match(input,294,FOLLOW_2); 
@@ -8949,10 +9108,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 44 :
-                    // InternalPerl.g:2535:2: ( '&=' )
+                    // InternalPerl.g:2581:2: ( '&=' )
                     {
-                    // InternalPerl.g:2535:2: ( '&=' )
-                    // InternalPerl.g:2536:3: '&='
+                    // InternalPerl.g:2581:2: ( '&=' )
+                    // InternalPerl.g:2582:3: '&='
                     {
                      before(grammarAccess.getOperatorAccess().getAmpersandEqualsSignKeyword_43()); 
                     match(input,295,FOLLOW_2); 
@@ -8964,10 +9123,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 45 :
-                    // InternalPerl.g:2541:2: ( '|=' )
+                    // InternalPerl.g:2587:2: ( '|=' )
                     {
-                    // InternalPerl.g:2541:2: ( '|=' )
-                    // InternalPerl.g:2542:3: '|='
+                    // InternalPerl.g:2587:2: ( '|=' )
+                    // InternalPerl.g:2588:3: '|='
                     {
                      before(grammarAccess.getOperatorAccess().getVerticalLineEqualsSignKeyword_44()); 
                     match(input,296,FOLLOW_2); 
@@ -8979,10 +9138,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 46 :
-                    // InternalPerl.g:2547:2: ( '^=' )
+                    // InternalPerl.g:2593:2: ( '^=' )
                     {
-                    // InternalPerl.g:2547:2: ( '^=' )
-                    // InternalPerl.g:2548:3: '^='
+                    // InternalPerl.g:2593:2: ( '^=' )
+                    // InternalPerl.g:2594:3: '^='
                     {
                      before(grammarAccess.getOperatorAccess().getCircumflexAccentEqualsSignKeyword_45()); 
                     match(input,297,FOLLOW_2); 
@@ -8994,10 +9153,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 47 :
-                    // InternalPerl.g:2553:2: ( '<<=' )
+                    // InternalPerl.g:2599:2: ( '<<=' )
                     {
-                    // InternalPerl.g:2553:2: ( '<<=' )
-                    // InternalPerl.g:2554:3: '<<='
+                    // InternalPerl.g:2599:2: ( '<<=' )
+                    // InternalPerl.g:2600:3: '<<='
                     {
                      before(grammarAccess.getOperatorAccess().getLessThanSignLessThanSignEqualsSignKeyword_46()); 
                     match(input,298,FOLLOW_2); 
@@ -9009,10 +9168,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 48 :
-                    // InternalPerl.g:2559:2: ( '>>=' )
+                    // InternalPerl.g:2605:2: ( '>>=' )
                     {
-                    // InternalPerl.g:2559:2: ( '>>=' )
-                    // InternalPerl.g:2560:3: '>>='
+                    // InternalPerl.g:2605:2: ( '>>=' )
+                    // InternalPerl.g:2606:3: '>>='
                     {
                      before(grammarAccess.getOperatorAccess().getGreaterThanSignGreaterThanSignEqualsSignKeyword_47()); 
                     match(input,299,FOLLOW_2); 
@@ -9024,10 +9183,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 49 :
-                    // InternalPerl.g:2565:2: ( '&&=' )
+                    // InternalPerl.g:2611:2: ( '&&=' )
                     {
-                    // InternalPerl.g:2565:2: ( '&&=' )
-                    // InternalPerl.g:2566:3: '&&='
+                    // InternalPerl.g:2611:2: ( '&&=' )
+                    // InternalPerl.g:2612:3: '&&='
                     {
                      before(grammarAccess.getOperatorAccess().getAmpersandAmpersandEqualsSignKeyword_48()); 
                     match(input,300,FOLLOW_2); 
@@ -9039,10 +9198,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 50 :
-                    // InternalPerl.g:2571:2: ( '||=' )
+                    // InternalPerl.g:2617:2: ( '||=' )
                     {
-                    // InternalPerl.g:2571:2: ( '||=' )
-                    // InternalPerl.g:2572:3: '||='
+                    // InternalPerl.g:2617:2: ( '||=' )
+                    // InternalPerl.g:2618:3: '||='
                     {
                      before(grammarAccess.getOperatorAccess().getVerticalLineVerticalLineEqualsSignKeyword_49()); 
                     match(input,301,FOLLOW_2); 
@@ -9054,10 +9213,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 51 :
-                    // InternalPerl.g:2577:2: ( '//=' )
+                    // InternalPerl.g:2623:2: ( '//=' )
                     {
-                    // InternalPerl.g:2577:2: ( '//=' )
-                    // InternalPerl.g:2578:3: '//='
+                    // InternalPerl.g:2623:2: ( '//=' )
+                    // InternalPerl.g:2624:3: '//='
                     {
                      before(grammarAccess.getOperatorAccess().getSolidusSolidusEqualsSignKeyword_50()); 
                     match(input,302,FOLLOW_2); 
@@ -9069,10 +9228,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 52 :
-                    // InternalPerl.g:2583:2: ( '<' )
+                    // InternalPerl.g:2629:2: ( '<' )
                     {
-                    // InternalPerl.g:2583:2: ( '<' )
-                    // InternalPerl.g:2584:3: '<'
+                    // InternalPerl.g:2629:2: ( '<' )
+                    // InternalPerl.g:2630:3: '<'
                     {
                      before(grammarAccess.getOperatorAccess().getLessThanSignKeyword_51()); 
                     match(input,303,FOLLOW_2); 
@@ -9084,10 +9243,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 53 :
-                    // InternalPerl.g:2589:2: ( '>' )
+                    // InternalPerl.g:2635:2: ( '>' )
                     {
-                    // InternalPerl.g:2589:2: ( '>' )
-                    // InternalPerl.g:2590:3: '>'
+                    // InternalPerl.g:2635:2: ( '>' )
+                    // InternalPerl.g:2636:3: '>'
                     {
                      before(grammarAccess.getOperatorAccess().getGreaterThanSignKeyword_52()); 
                     match(input,304,FOLLOW_2); 
@@ -9099,10 +9258,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 54 :
-                    // InternalPerl.g:2595:2: ( '<=' )
+                    // InternalPerl.g:2641:2: ( '<=' )
                     {
-                    // InternalPerl.g:2595:2: ( '<=' )
-                    // InternalPerl.g:2596:3: '<='
+                    // InternalPerl.g:2641:2: ( '<=' )
+                    // InternalPerl.g:2642:3: '<='
                     {
                      before(grammarAccess.getOperatorAccess().getLessThanSignEqualsSignKeyword_53()); 
                     match(input,305,FOLLOW_2); 
@@ -9114,10 +9273,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 55 :
-                    // InternalPerl.g:2601:2: ( '>=' )
+                    // InternalPerl.g:2647:2: ( '>=' )
                     {
-                    // InternalPerl.g:2601:2: ( '>=' )
-                    // InternalPerl.g:2602:3: '>='
+                    // InternalPerl.g:2647:2: ( '>=' )
+                    // InternalPerl.g:2648:3: '>='
                     {
                      before(grammarAccess.getOperatorAccess().getGreaterThanSignEqualsSignKeyword_54()); 
                     match(input,306,FOLLOW_2); 
@@ -9129,10 +9288,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 56 :
-                    // InternalPerl.g:2607:2: ( '<>' )
+                    // InternalPerl.g:2653:2: ( '<>' )
                     {
-                    // InternalPerl.g:2607:2: ( '<>' )
-                    // InternalPerl.g:2608:3: '<>'
+                    // InternalPerl.g:2653:2: ( '<>' )
+                    // InternalPerl.g:2654:3: '<>'
                     {
                      before(grammarAccess.getOperatorAccess().getLessThanSignGreaterThanSignKeyword_55()); 
                     match(input,307,FOLLOW_2); 
@@ -9144,10 +9303,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 57 :
-                    // InternalPerl.g:2613:2: ( '=>' )
+                    // InternalPerl.g:2659:2: ( '=>' )
                     {
-                    // InternalPerl.g:2613:2: ( '=>' )
-                    // InternalPerl.g:2614:3: '=>'
+                    // InternalPerl.g:2659:2: ( '=>' )
+                    // InternalPerl.g:2660:3: '=>'
                     {
                      before(grammarAccess.getOperatorAccess().getEqualsSignGreaterThanSignKeyword_56()); 
                     match(input,308,FOLLOW_2); 
@@ -9159,10 +9318,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 58 :
-                    // InternalPerl.g:2619:2: ( '->' )
+                    // InternalPerl.g:2665:2: ( '->' )
                     {
-                    // InternalPerl.g:2619:2: ( '->' )
-                    // InternalPerl.g:2620:3: '->'
+                    // InternalPerl.g:2665:2: ( '->' )
+                    // InternalPerl.g:2666:3: '->'
                     {
                      before(grammarAccess.getOperatorAccess().getHyphenMinusGreaterThanSignKeyword_57()); 
                     match(input,309,FOLLOW_2); 
@@ -9174,10 +9333,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 59 :
-                    // InternalPerl.g:2625:2: ( 'and' )
+                    // InternalPerl.g:2671:2: ( 'and' )
                     {
-                    // InternalPerl.g:2625:2: ( 'and' )
-                    // InternalPerl.g:2626:3: 'and'
+                    // InternalPerl.g:2671:2: ( 'and' )
+                    // InternalPerl.g:2672:3: 'and'
                     {
                      before(grammarAccess.getOperatorAccess().getAndKeyword_58()); 
                     match(input,310,FOLLOW_2); 
@@ -9189,10 +9348,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 60 :
-                    // InternalPerl.g:2631:2: ( 'or' )
+                    // InternalPerl.g:2677:2: ( 'or' )
                     {
-                    // InternalPerl.g:2631:2: ( 'or' )
-                    // InternalPerl.g:2632:3: 'or'
+                    // InternalPerl.g:2677:2: ( 'or' )
+                    // InternalPerl.g:2678:3: 'or'
                     {
                      before(grammarAccess.getOperatorAccess().getOrKeyword_59()); 
                     match(input,311,FOLLOW_2); 
@@ -9204,10 +9363,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 61 :
-                    // InternalPerl.g:2637:2: ( 'xor' )
+                    // InternalPerl.g:2683:2: ( 'xor' )
                     {
-                    // InternalPerl.g:2637:2: ( 'xor' )
-                    // InternalPerl.g:2638:3: 'xor'
+                    // InternalPerl.g:2683:2: ( 'xor' )
+                    // InternalPerl.g:2684:3: 'xor'
                     {
                      before(grammarAccess.getOperatorAccess().getXorKeyword_60()); 
                     match(input,312,FOLLOW_2); 
@@ -9219,10 +9378,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 62 :
-                    // InternalPerl.g:2643:2: ( 'not' )
+                    // InternalPerl.g:2689:2: ( 'not' )
                     {
-                    // InternalPerl.g:2643:2: ( 'not' )
-                    // InternalPerl.g:2644:3: 'not'
+                    // InternalPerl.g:2689:2: ( 'not' )
+                    // InternalPerl.g:2690:3: 'not'
                     {
                      before(grammarAccess.getOperatorAccess().getNotKeyword_61()); 
                     match(input,313,FOLLOW_2); 
@@ -9234,10 +9393,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 63 :
-                    // InternalPerl.g:2649:2: ( 'eq' )
+                    // InternalPerl.g:2695:2: ( 'eq' )
                     {
-                    // InternalPerl.g:2649:2: ( 'eq' )
-                    // InternalPerl.g:2650:3: 'eq'
+                    // InternalPerl.g:2695:2: ( 'eq' )
+                    // InternalPerl.g:2696:3: 'eq'
                     {
                      before(grammarAccess.getOperatorAccess().getEqKeyword_62()); 
                     match(input,314,FOLLOW_2); 
@@ -9249,10 +9408,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 64 :
-                    // InternalPerl.g:2655:2: ( 'ne' )
+                    // InternalPerl.g:2701:2: ( 'ne' )
                     {
-                    // InternalPerl.g:2655:2: ( 'ne' )
-                    // InternalPerl.g:2656:3: 'ne'
+                    // InternalPerl.g:2701:2: ( 'ne' )
+                    // InternalPerl.g:2702:3: 'ne'
                     {
                      before(grammarAccess.getOperatorAccess().getNeKeyword_63()); 
                     match(input,315,FOLLOW_2); 
@@ -9281,163 +9440,163 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FileTestOperator__Alternatives"
-    // InternalPerl.g:2665:1: rule__FileTestOperator__Alternatives : ( ( '-r' ) | ( '-w' ) | ( '-x' ) | ( '-o' ) | ( '-R' ) | ( '-W' ) | ( '-X' ) | ( '-O' ) | ( '-e' ) | ( '-z' ) | ( '-s' ) | ( '-f' ) | ( '-d' ) | ( '-l' ) | ( '-p' ) | ( '-S' ) | ( '-b' ) | ( '-c' ) | ( '-t' ) | ( '-u' ) | ( '-g' ) | ( '-k' ) | ( '-T' ) | ( '-B' ) | ( '-M' ) | ( '-A' ) | ( '-C' ) );
+    // InternalPerl.g:2711:1: rule__FileTestOperator__Alternatives : ( ( '-r' ) | ( '-w' ) | ( '-x' ) | ( '-o' ) | ( '-R' ) | ( '-W' ) | ( '-X' ) | ( '-O' ) | ( '-e' ) | ( '-z' ) | ( '-s' ) | ( '-f' ) | ( '-d' ) | ( '-l' ) | ( '-p' ) | ( '-S' ) | ( '-b' ) | ( '-c' ) | ( '-t' ) | ( '-u' ) | ( '-g' ) | ( '-k' ) | ( '-T' ) | ( '-B' ) | ( '-M' ) | ( '-A' ) | ( '-C' ) );
     public final void rule__FileTestOperator__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:2669:1: ( ( '-r' ) | ( '-w' ) | ( '-x' ) | ( '-o' ) | ( '-R' ) | ( '-W' ) | ( '-X' ) | ( '-O' ) | ( '-e' ) | ( '-z' ) | ( '-s' ) | ( '-f' ) | ( '-d' ) | ( '-l' ) | ( '-p' ) | ( '-S' ) | ( '-b' ) | ( '-c' ) | ( '-t' ) | ( '-u' ) | ( '-g' ) | ( '-k' ) | ( '-T' ) | ( '-B' ) | ( '-M' ) | ( '-A' ) | ( '-C' ) )
-            int alt15=27;
+            // InternalPerl.g:2715:1: ( ( '-r' ) | ( '-w' ) | ( '-x' ) | ( '-o' ) | ( '-R' ) | ( '-W' ) | ( '-X' ) | ( '-O' ) | ( '-e' ) | ( '-z' ) | ( '-s' ) | ( '-f' ) | ( '-d' ) | ( '-l' ) | ( '-p' ) | ( '-S' ) | ( '-b' ) | ( '-c' ) | ( '-t' ) | ( '-u' ) | ( '-g' ) | ( '-k' ) | ( '-T' ) | ( '-B' ) | ( '-M' ) | ( '-A' ) | ( '-C' ) )
+            int alt16=27;
             switch ( input.LA(1) ) {
             case 316:
                 {
-                alt15=1;
+                alt16=1;
                 }
                 break;
             case 317:
                 {
-                alt15=2;
+                alt16=2;
                 }
                 break;
             case 318:
                 {
-                alt15=3;
+                alt16=3;
                 }
                 break;
             case 319:
                 {
-                alt15=4;
+                alt16=4;
                 }
                 break;
             case 320:
                 {
-                alt15=5;
+                alt16=5;
                 }
                 break;
             case 321:
                 {
-                alt15=6;
+                alt16=6;
                 }
                 break;
             case 322:
                 {
-                alt15=7;
+                alt16=7;
                 }
                 break;
             case 323:
                 {
-                alt15=8;
+                alt16=8;
                 }
                 break;
             case 324:
                 {
-                alt15=9;
+                alt16=9;
                 }
                 break;
             case 325:
                 {
-                alt15=10;
+                alt16=10;
                 }
                 break;
             case 326:
                 {
-                alt15=11;
+                alt16=11;
                 }
                 break;
             case 327:
                 {
-                alt15=12;
+                alt16=12;
                 }
                 break;
             case 328:
                 {
-                alt15=13;
+                alt16=13;
                 }
                 break;
             case 329:
                 {
-                alt15=14;
+                alt16=14;
                 }
                 break;
             case 330:
                 {
-                alt15=15;
+                alt16=15;
                 }
                 break;
             case 331:
                 {
-                alt15=16;
+                alt16=16;
                 }
                 break;
             case 332:
                 {
-                alt15=17;
+                alt16=17;
                 }
                 break;
             case 333:
                 {
-                alt15=18;
+                alt16=18;
                 }
                 break;
             case 334:
                 {
-                alt15=19;
+                alt16=19;
                 }
                 break;
             case 335:
                 {
-                alt15=20;
+                alt16=20;
                 }
                 break;
             case 336:
                 {
-                alt15=21;
+                alt16=21;
                 }
                 break;
             case 337:
                 {
-                alt15=22;
+                alt16=22;
                 }
                 break;
             case 338:
                 {
-                alt15=23;
+                alt16=23;
                 }
                 break;
             case 339:
                 {
-                alt15=24;
+                alt16=24;
                 }
                 break;
             case 340:
                 {
-                alt15=25;
+                alt16=25;
                 }
                 break;
             case 341:
                 {
-                alt15=26;
+                alt16=26;
                 }
                 break;
             case 342:
                 {
-                alt15=27;
+                alt16=27;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 15, 0, input);
+                    new NoViableAltException("", 16, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt15) {
+            switch (alt16) {
                 case 1 :
-                    // InternalPerl.g:2670:2: ( '-r' )
+                    // InternalPerl.g:2716:2: ( '-r' )
                     {
-                    // InternalPerl.g:2670:2: ( '-r' )
-                    // InternalPerl.g:2671:3: '-r'
+                    // InternalPerl.g:2716:2: ( '-r' )
+                    // InternalPerl.g:2717:3: '-r'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getRKeyword_0()); 
                     match(input,316,FOLLOW_2); 
@@ -9449,10 +9608,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalPerl.g:2676:2: ( '-w' )
+                    // InternalPerl.g:2722:2: ( '-w' )
                     {
-                    // InternalPerl.g:2676:2: ( '-w' )
-                    // InternalPerl.g:2677:3: '-w'
+                    // InternalPerl.g:2722:2: ( '-w' )
+                    // InternalPerl.g:2723:3: '-w'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getWKeyword_1()); 
                     match(input,317,FOLLOW_2); 
@@ -9464,10 +9623,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalPerl.g:2682:2: ( '-x' )
+                    // InternalPerl.g:2728:2: ( '-x' )
                     {
-                    // InternalPerl.g:2682:2: ( '-x' )
-                    // InternalPerl.g:2683:3: '-x'
+                    // InternalPerl.g:2728:2: ( '-x' )
+                    // InternalPerl.g:2729:3: '-x'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getXKeyword_2()); 
                     match(input,318,FOLLOW_2); 
@@ -9479,10 +9638,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalPerl.g:2688:2: ( '-o' )
+                    // InternalPerl.g:2734:2: ( '-o' )
                     {
-                    // InternalPerl.g:2688:2: ( '-o' )
-                    // InternalPerl.g:2689:3: '-o'
+                    // InternalPerl.g:2734:2: ( '-o' )
+                    // InternalPerl.g:2735:3: '-o'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getOKeyword_3()); 
                     match(input,319,FOLLOW_2); 
@@ -9494,10 +9653,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalPerl.g:2694:2: ( '-R' )
+                    // InternalPerl.g:2740:2: ( '-R' )
                     {
-                    // InternalPerl.g:2694:2: ( '-R' )
-                    // InternalPerl.g:2695:3: '-R'
+                    // InternalPerl.g:2740:2: ( '-R' )
+                    // InternalPerl.g:2741:3: '-R'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getRKeyword_4()); 
                     match(input,320,FOLLOW_2); 
@@ -9509,10 +9668,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 6 :
-                    // InternalPerl.g:2700:2: ( '-W' )
+                    // InternalPerl.g:2746:2: ( '-W' )
                     {
-                    // InternalPerl.g:2700:2: ( '-W' )
-                    // InternalPerl.g:2701:3: '-W'
+                    // InternalPerl.g:2746:2: ( '-W' )
+                    // InternalPerl.g:2747:3: '-W'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getWKeyword_5()); 
                     match(input,321,FOLLOW_2); 
@@ -9524,10 +9683,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 7 :
-                    // InternalPerl.g:2706:2: ( '-X' )
+                    // InternalPerl.g:2752:2: ( '-X' )
                     {
-                    // InternalPerl.g:2706:2: ( '-X' )
-                    // InternalPerl.g:2707:3: '-X'
+                    // InternalPerl.g:2752:2: ( '-X' )
+                    // InternalPerl.g:2753:3: '-X'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getXKeyword_6()); 
                     match(input,322,FOLLOW_2); 
@@ -9539,10 +9698,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 8 :
-                    // InternalPerl.g:2712:2: ( '-O' )
+                    // InternalPerl.g:2758:2: ( '-O' )
                     {
-                    // InternalPerl.g:2712:2: ( '-O' )
-                    // InternalPerl.g:2713:3: '-O'
+                    // InternalPerl.g:2758:2: ( '-O' )
+                    // InternalPerl.g:2759:3: '-O'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getOKeyword_7()); 
                     match(input,323,FOLLOW_2); 
@@ -9554,10 +9713,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 9 :
-                    // InternalPerl.g:2718:2: ( '-e' )
+                    // InternalPerl.g:2764:2: ( '-e' )
                     {
-                    // InternalPerl.g:2718:2: ( '-e' )
-                    // InternalPerl.g:2719:3: '-e'
+                    // InternalPerl.g:2764:2: ( '-e' )
+                    // InternalPerl.g:2765:3: '-e'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getEKeyword_8()); 
                     match(input,324,FOLLOW_2); 
@@ -9569,10 +9728,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 10 :
-                    // InternalPerl.g:2724:2: ( '-z' )
+                    // InternalPerl.g:2770:2: ( '-z' )
                     {
-                    // InternalPerl.g:2724:2: ( '-z' )
-                    // InternalPerl.g:2725:3: '-z'
+                    // InternalPerl.g:2770:2: ( '-z' )
+                    // InternalPerl.g:2771:3: '-z'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getZKeyword_9()); 
                     match(input,325,FOLLOW_2); 
@@ -9584,10 +9743,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 11 :
-                    // InternalPerl.g:2730:2: ( '-s' )
+                    // InternalPerl.g:2776:2: ( '-s' )
                     {
-                    // InternalPerl.g:2730:2: ( '-s' )
-                    // InternalPerl.g:2731:3: '-s'
+                    // InternalPerl.g:2776:2: ( '-s' )
+                    // InternalPerl.g:2777:3: '-s'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getSKeyword_10()); 
                     match(input,326,FOLLOW_2); 
@@ -9599,10 +9758,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 12 :
-                    // InternalPerl.g:2736:2: ( '-f' )
+                    // InternalPerl.g:2782:2: ( '-f' )
                     {
-                    // InternalPerl.g:2736:2: ( '-f' )
-                    // InternalPerl.g:2737:3: '-f'
+                    // InternalPerl.g:2782:2: ( '-f' )
+                    // InternalPerl.g:2783:3: '-f'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getFKeyword_11()); 
                     match(input,327,FOLLOW_2); 
@@ -9614,10 +9773,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 13 :
-                    // InternalPerl.g:2742:2: ( '-d' )
+                    // InternalPerl.g:2788:2: ( '-d' )
                     {
-                    // InternalPerl.g:2742:2: ( '-d' )
-                    // InternalPerl.g:2743:3: '-d'
+                    // InternalPerl.g:2788:2: ( '-d' )
+                    // InternalPerl.g:2789:3: '-d'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getDKeyword_12()); 
                     match(input,328,FOLLOW_2); 
@@ -9629,10 +9788,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 14 :
-                    // InternalPerl.g:2748:2: ( '-l' )
+                    // InternalPerl.g:2794:2: ( '-l' )
                     {
-                    // InternalPerl.g:2748:2: ( '-l' )
-                    // InternalPerl.g:2749:3: '-l'
+                    // InternalPerl.g:2794:2: ( '-l' )
+                    // InternalPerl.g:2795:3: '-l'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getLKeyword_13()); 
                     match(input,329,FOLLOW_2); 
@@ -9644,10 +9803,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 15 :
-                    // InternalPerl.g:2754:2: ( '-p' )
+                    // InternalPerl.g:2800:2: ( '-p' )
                     {
-                    // InternalPerl.g:2754:2: ( '-p' )
-                    // InternalPerl.g:2755:3: '-p'
+                    // InternalPerl.g:2800:2: ( '-p' )
+                    // InternalPerl.g:2801:3: '-p'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getPKeyword_14()); 
                     match(input,330,FOLLOW_2); 
@@ -9659,10 +9818,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 16 :
-                    // InternalPerl.g:2760:2: ( '-S' )
+                    // InternalPerl.g:2806:2: ( '-S' )
                     {
-                    // InternalPerl.g:2760:2: ( '-S' )
-                    // InternalPerl.g:2761:3: '-S'
+                    // InternalPerl.g:2806:2: ( '-S' )
+                    // InternalPerl.g:2807:3: '-S'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getSKeyword_15()); 
                     match(input,331,FOLLOW_2); 
@@ -9674,10 +9833,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 17 :
-                    // InternalPerl.g:2766:2: ( '-b' )
+                    // InternalPerl.g:2812:2: ( '-b' )
                     {
-                    // InternalPerl.g:2766:2: ( '-b' )
-                    // InternalPerl.g:2767:3: '-b'
+                    // InternalPerl.g:2812:2: ( '-b' )
+                    // InternalPerl.g:2813:3: '-b'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getBKeyword_16()); 
                     match(input,332,FOLLOW_2); 
@@ -9689,10 +9848,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 18 :
-                    // InternalPerl.g:2772:2: ( '-c' )
+                    // InternalPerl.g:2818:2: ( '-c' )
                     {
-                    // InternalPerl.g:2772:2: ( '-c' )
-                    // InternalPerl.g:2773:3: '-c'
+                    // InternalPerl.g:2818:2: ( '-c' )
+                    // InternalPerl.g:2819:3: '-c'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getCKeyword_17()); 
                     match(input,333,FOLLOW_2); 
@@ -9704,10 +9863,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 19 :
-                    // InternalPerl.g:2778:2: ( '-t' )
+                    // InternalPerl.g:2824:2: ( '-t' )
                     {
-                    // InternalPerl.g:2778:2: ( '-t' )
-                    // InternalPerl.g:2779:3: '-t'
+                    // InternalPerl.g:2824:2: ( '-t' )
+                    // InternalPerl.g:2825:3: '-t'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getTKeyword_18()); 
                     match(input,334,FOLLOW_2); 
@@ -9719,10 +9878,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 20 :
-                    // InternalPerl.g:2784:2: ( '-u' )
+                    // InternalPerl.g:2830:2: ( '-u' )
                     {
-                    // InternalPerl.g:2784:2: ( '-u' )
-                    // InternalPerl.g:2785:3: '-u'
+                    // InternalPerl.g:2830:2: ( '-u' )
+                    // InternalPerl.g:2831:3: '-u'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getUKeyword_19()); 
                     match(input,335,FOLLOW_2); 
@@ -9734,10 +9893,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 21 :
-                    // InternalPerl.g:2790:2: ( '-g' )
+                    // InternalPerl.g:2836:2: ( '-g' )
                     {
-                    // InternalPerl.g:2790:2: ( '-g' )
-                    // InternalPerl.g:2791:3: '-g'
+                    // InternalPerl.g:2836:2: ( '-g' )
+                    // InternalPerl.g:2837:3: '-g'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getGKeyword_20()); 
                     match(input,336,FOLLOW_2); 
@@ -9749,10 +9908,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 22 :
-                    // InternalPerl.g:2796:2: ( '-k' )
+                    // InternalPerl.g:2842:2: ( '-k' )
                     {
-                    // InternalPerl.g:2796:2: ( '-k' )
-                    // InternalPerl.g:2797:3: '-k'
+                    // InternalPerl.g:2842:2: ( '-k' )
+                    // InternalPerl.g:2843:3: '-k'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getKKeyword_21()); 
                     match(input,337,FOLLOW_2); 
@@ -9764,10 +9923,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 23 :
-                    // InternalPerl.g:2802:2: ( '-T' )
+                    // InternalPerl.g:2848:2: ( '-T' )
                     {
-                    // InternalPerl.g:2802:2: ( '-T' )
-                    // InternalPerl.g:2803:3: '-T'
+                    // InternalPerl.g:2848:2: ( '-T' )
+                    // InternalPerl.g:2849:3: '-T'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getTKeyword_22()); 
                     match(input,338,FOLLOW_2); 
@@ -9779,10 +9938,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 24 :
-                    // InternalPerl.g:2808:2: ( '-B' )
+                    // InternalPerl.g:2854:2: ( '-B' )
                     {
-                    // InternalPerl.g:2808:2: ( '-B' )
-                    // InternalPerl.g:2809:3: '-B'
+                    // InternalPerl.g:2854:2: ( '-B' )
+                    // InternalPerl.g:2855:3: '-B'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getBKeyword_23()); 
                     match(input,339,FOLLOW_2); 
@@ -9794,10 +9953,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 25 :
-                    // InternalPerl.g:2814:2: ( '-M' )
+                    // InternalPerl.g:2860:2: ( '-M' )
                     {
-                    // InternalPerl.g:2814:2: ( '-M' )
-                    // InternalPerl.g:2815:3: '-M'
+                    // InternalPerl.g:2860:2: ( '-M' )
+                    // InternalPerl.g:2861:3: '-M'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getMKeyword_24()); 
                     match(input,340,FOLLOW_2); 
@@ -9809,10 +9968,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 26 :
-                    // InternalPerl.g:2820:2: ( '-A' )
+                    // InternalPerl.g:2866:2: ( '-A' )
                     {
-                    // InternalPerl.g:2820:2: ( '-A' )
-                    // InternalPerl.g:2821:3: '-A'
+                    // InternalPerl.g:2866:2: ( '-A' )
+                    // InternalPerl.g:2867:3: '-A'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getAKeyword_25()); 
                     match(input,341,FOLLOW_2); 
@@ -9824,10 +9983,10 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 27 :
-                    // InternalPerl.g:2826:2: ( '-C' )
+                    // InternalPerl.g:2872:2: ( '-C' )
                     {
-                    // InternalPerl.g:2826:2: ( '-C' )
-                    // InternalPerl.g:2827:3: '-C'
+                    // InternalPerl.g:2872:2: ( '-C' )
+                    // InternalPerl.g:2873:3: '-C'
                     {
                      before(grammarAccess.getFileTestOperatorAccess().getCKeyword_26()); 
                     match(input,342,FOLLOW_2); 
@@ -9856,14 +10015,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PerlDocument__Group__0"
-    // InternalPerl.g:2836:1: rule__PerlDocument__Group__0 : rule__PerlDocument__Group__0__Impl rule__PerlDocument__Group__1 ;
+    // InternalPerl.g:2882:1: rule__PerlDocument__Group__0 : rule__PerlDocument__Group__0__Impl rule__PerlDocument__Group__1 ;
     public final void rule__PerlDocument__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:2840:1: ( rule__PerlDocument__Group__0__Impl rule__PerlDocument__Group__1 )
-            // InternalPerl.g:2841:2: rule__PerlDocument__Group__0__Impl rule__PerlDocument__Group__1
+            // InternalPerl.g:2886:1: ( rule__PerlDocument__Group__0__Impl rule__PerlDocument__Group__1 )
+            // InternalPerl.g:2887:2: rule__PerlDocument__Group__0__Impl rule__PerlDocument__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__PerlDocument__Group__0__Impl();
@@ -9894,21 +10053,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PerlDocument__Group__0__Impl"
-    // InternalPerl.g:2848:1: rule__PerlDocument__Group__0__Impl : ( () ) ;
+    // InternalPerl.g:2894:1: rule__PerlDocument__Group__0__Impl : ( () ) ;
     public final void rule__PerlDocument__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:2852:1: ( ( () ) )
-            // InternalPerl.g:2853:1: ( () )
+            // InternalPerl.g:2898:1: ( ( () ) )
+            // InternalPerl.g:2899:1: ( () )
             {
-            // InternalPerl.g:2853:1: ( () )
-            // InternalPerl.g:2854:2: ()
+            // InternalPerl.g:2899:1: ( () )
+            // InternalPerl.g:2900:2: ()
             {
              before(grammarAccess.getPerlDocumentAccess().getPerlDocumentAction_0()); 
-            // InternalPerl.g:2855:2: ()
-            // InternalPerl.g:2855:3: 
+            // InternalPerl.g:2901:2: ()
+            // InternalPerl.g:2901:3: 
             {
             }
 
@@ -9931,14 +10090,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PerlDocument__Group__1"
-    // InternalPerl.g:2863:1: rule__PerlDocument__Group__1 : rule__PerlDocument__Group__1__Impl ;
+    // InternalPerl.g:2909:1: rule__PerlDocument__Group__1 : rule__PerlDocument__Group__1__Impl ;
     public final void rule__PerlDocument__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:2867:1: ( rule__PerlDocument__Group__1__Impl )
-            // InternalPerl.g:2868:2: rule__PerlDocument__Group__1__Impl
+            // InternalPerl.g:2913:1: ( rule__PerlDocument__Group__1__Impl )
+            // InternalPerl.g:2914:2: rule__PerlDocument__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PerlDocument__Group__1__Impl();
@@ -9964,33 +10123,33 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PerlDocument__Group__1__Impl"
-    // InternalPerl.g:2874:1: rule__PerlDocument__Group__1__Impl : ( ( rule__PerlDocument__ElementsAssignment_1 )* ) ;
+    // InternalPerl.g:2920:1: rule__PerlDocument__Group__1__Impl : ( ( rule__PerlDocument__ElementsAssignment_1 )* ) ;
     public final void rule__PerlDocument__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:2878:1: ( ( ( rule__PerlDocument__ElementsAssignment_1 )* ) )
-            // InternalPerl.g:2879:1: ( ( rule__PerlDocument__ElementsAssignment_1 )* )
+            // InternalPerl.g:2924:1: ( ( ( rule__PerlDocument__ElementsAssignment_1 )* ) )
+            // InternalPerl.g:2925:1: ( ( rule__PerlDocument__ElementsAssignment_1 )* )
             {
-            // InternalPerl.g:2879:1: ( ( rule__PerlDocument__ElementsAssignment_1 )* )
-            // InternalPerl.g:2880:2: ( rule__PerlDocument__ElementsAssignment_1 )*
+            // InternalPerl.g:2925:1: ( ( rule__PerlDocument__ElementsAssignment_1 )* )
+            // InternalPerl.g:2926:2: ( rule__PerlDocument__ElementsAssignment_1 )*
             {
              before(grammarAccess.getPerlDocumentAccess().getElementsAssignment_1()); 
-            // InternalPerl.g:2881:2: ( rule__PerlDocument__ElementsAssignment_1 )*
-            loop16:
+            // InternalPerl.g:2927:2: ( rule__PerlDocument__ElementsAssignment_1 )*
+            loop17:
             do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
+                int alt17=2;
+                int LA17_0 = input.LA(1);
 
-                if ( ((LA16_0>=RULE_REGEX_SUBSTITUTE && LA16_0<=RULE_LITERAL)||(LA16_0>=RULE_WORDS_QUOTE_LIKE && LA16_0<=RULE_READLINE_QUOTE)||LA16_0==30||(LA16_0>=32 && LA16_0<=342)||LA16_0==347) ) {
-                    alt16=1;
+                if ( ((LA17_0>=RULE_STRING && LA17_0<=RULE_REGEX_MATCH)||(LA17_0>=RULE_WORDS_QUOTE_LIKE && LA17_0<=RULE_READLINE_QUOTE)||LA17_0==30||(LA17_0>=32 && LA17_0<=343)||LA17_0==347) ) {
+                    alt17=1;
                 }
 
 
-                switch (alt16) {
+                switch (alt17) {
             	case 1 :
-            	    // InternalPerl.g:2881:3: rule__PerlDocument__ElementsAssignment_1
+            	    // InternalPerl.g:2927:3: rule__PerlDocument__ElementsAssignment_1
             	    {
             	    pushFollow(FOLLOW_4);
             	    rule__PerlDocument__ElementsAssignment_1();
@@ -10002,7 +10161,7 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop16;
+            	    break loop17;
                 }
             } while (true);
 
@@ -10029,14 +10188,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExpressionStatement__Group__0"
-    // InternalPerl.g:2890:1: rule__ExpressionStatement__Group__0 : rule__ExpressionStatement__Group__0__Impl rule__ExpressionStatement__Group__1 ;
+    // InternalPerl.g:2936:1: rule__ExpressionStatement__Group__0 : rule__ExpressionStatement__Group__0__Impl rule__ExpressionStatement__Group__1 ;
     public final void rule__ExpressionStatement__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:2894:1: ( rule__ExpressionStatement__Group__0__Impl rule__ExpressionStatement__Group__1 )
-            // InternalPerl.g:2895:2: rule__ExpressionStatement__Group__0__Impl rule__ExpressionStatement__Group__1
+            // InternalPerl.g:2940:1: ( rule__ExpressionStatement__Group__0__Impl rule__ExpressionStatement__Group__1 )
+            // InternalPerl.g:2941:2: rule__ExpressionStatement__Group__0__Impl rule__ExpressionStatement__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__ExpressionStatement__Group__0__Impl();
@@ -10067,21 +10226,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExpressionStatement__Group__0__Impl"
-    // InternalPerl.g:2902:1: rule__ExpressionStatement__Group__0__Impl : ( ( rule__ExpressionStatement__Alternatives_0 ) ) ;
+    // InternalPerl.g:2948:1: rule__ExpressionStatement__Group__0__Impl : ( ( rule__ExpressionStatement__Alternatives_0 ) ) ;
     public final void rule__ExpressionStatement__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:2906:1: ( ( ( rule__ExpressionStatement__Alternatives_0 ) ) )
-            // InternalPerl.g:2907:1: ( ( rule__ExpressionStatement__Alternatives_0 ) )
+            // InternalPerl.g:2952:1: ( ( ( rule__ExpressionStatement__Alternatives_0 ) ) )
+            // InternalPerl.g:2953:1: ( ( rule__ExpressionStatement__Alternatives_0 ) )
             {
-            // InternalPerl.g:2907:1: ( ( rule__ExpressionStatement__Alternatives_0 ) )
-            // InternalPerl.g:2908:2: ( rule__ExpressionStatement__Alternatives_0 )
+            // InternalPerl.g:2953:1: ( ( rule__ExpressionStatement__Alternatives_0 ) )
+            // InternalPerl.g:2954:2: ( rule__ExpressionStatement__Alternatives_0 )
             {
              before(grammarAccess.getExpressionStatementAccess().getAlternatives_0()); 
-            // InternalPerl.g:2909:2: ( rule__ExpressionStatement__Alternatives_0 )
-            // InternalPerl.g:2909:3: rule__ExpressionStatement__Alternatives_0
+            // InternalPerl.g:2955:2: ( rule__ExpressionStatement__Alternatives_0 )
+            // InternalPerl.g:2955:3: rule__ExpressionStatement__Alternatives_0
             {
             pushFollow(FOLLOW_2);
             rule__ExpressionStatement__Alternatives_0();
@@ -10114,14 +10273,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExpressionStatement__Group__1"
-    // InternalPerl.g:2917:1: rule__ExpressionStatement__Group__1 : rule__ExpressionStatement__Group__1__Impl ;
+    // InternalPerl.g:2963:1: rule__ExpressionStatement__Group__1 : rule__ExpressionStatement__Group__1__Impl ;
     public final void rule__ExpressionStatement__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:2921:1: ( rule__ExpressionStatement__Group__1__Impl )
-            // InternalPerl.g:2922:2: rule__ExpressionStatement__Group__1__Impl
+            // InternalPerl.g:2967:1: ( rule__ExpressionStatement__Group__1__Impl )
+            // InternalPerl.g:2968:2: rule__ExpressionStatement__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ExpressionStatement__Group__1__Impl();
@@ -10147,17 +10306,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExpressionStatement__Group__1__Impl"
-    // InternalPerl.g:2928:1: rule__ExpressionStatement__Group__1__Impl : ( ';' ) ;
+    // InternalPerl.g:2974:1: rule__ExpressionStatement__Group__1__Impl : ( ';' ) ;
     public final void rule__ExpressionStatement__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:2932:1: ( ( ';' ) )
-            // InternalPerl.g:2933:1: ( ';' )
+            // InternalPerl.g:2978:1: ( ( ';' ) )
+            // InternalPerl.g:2979:1: ( ';' )
             {
-            // InternalPerl.g:2933:1: ( ';' )
-            // InternalPerl.g:2934:2: ';'
+            // InternalPerl.g:2979:1: ( ';' )
+            // InternalPerl.g:2980:2: ';'
             {
              before(grammarAccess.getExpressionStatementAccess().getSemicolonKeyword_1()); 
             match(input,28,FOLLOW_2); 
@@ -10184,14 +10343,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PackageStatement__Group__0"
-    // InternalPerl.g:2944:1: rule__PackageStatement__Group__0 : rule__PackageStatement__Group__0__Impl rule__PackageStatement__Group__1 ;
+    // InternalPerl.g:2990:1: rule__PackageStatement__Group__0 : rule__PackageStatement__Group__0__Impl rule__PackageStatement__Group__1 ;
     public final void rule__PackageStatement__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:2948:1: ( rule__PackageStatement__Group__0__Impl rule__PackageStatement__Group__1 )
-            // InternalPerl.g:2949:2: rule__PackageStatement__Group__0__Impl rule__PackageStatement__Group__1
+            // InternalPerl.g:2994:1: ( rule__PackageStatement__Group__0__Impl rule__PackageStatement__Group__1 )
+            // InternalPerl.g:2995:2: rule__PackageStatement__Group__0__Impl rule__PackageStatement__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__PackageStatement__Group__0__Impl();
@@ -10222,21 +10381,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PackageStatement__Group__0__Impl"
-    // InternalPerl.g:2956:1: rule__PackageStatement__Group__0__Impl : ( () ) ;
+    // InternalPerl.g:3002:1: rule__PackageStatement__Group__0__Impl : ( () ) ;
     public final void rule__PackageStatement__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:2960:1: ( ( () ) )
-            // InternalPerl.g:2961:1: ( () )
+            // InternalPerl.g:3006:1: ( ( () ) )
+            // InternalPerl.g:3007:1: ( () )
             {
-            // InternalPerl.g:2961:1: ( () )
-            // InternalPerl.g:2962:2: ()
+            // InternalPerl.g:3007:1: ( () )
+            // InternalPerl.g:3008:2: ()
             {
              before(grammarAccess.getPackageStatementAccess().getPackageStatementAction_0()); 
-            // InternalPerl.g:2963:2: ()
-            // InternalPerl.g:2963:3: 
+            // InternalPerl.g:3009:2: ()
+            // InternalPerl.g:3009:3: 
             {
             }
 
@@ -10259,14 +10418,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PackageStatement__Group__1"
-    // InternalPerl.g:2971:1: rule__PackageStatement__Group__1 : rule__PackageStatement__Group__1__Impl rule__PackageStatement__Group__2 ;
+    // InternalPerl.g:3017:1: rule__PackageStatement__Group__1 : rule__PackageStatement__Group__1__Impl rule__PackageStatement__Group__2 ;
     public final void rule__PackageStatement__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:2975:1: ( rule__PackageStatement__Group__1__Impl rule__PackageStatement__Group__2 )
-            // InternalPerl.g:2976:2: rule__PackageStatement__Group__1__Impl rule__PackageStatement__Group__2
+            // InternalPerl.g:3021:1: ( rule__PackageStatement__Group__1__Impl rule__PackageStatement__Group__2 )
+            // InternalPerl.g:3022:2: rule__PackageStatement__Group__1__Impl rule__PackageStatement__Group__2
             {
             pushFollow(FOLLOW_7);
             rule__PackageStatement__Group__1__Impl();
@@ -10297,17 +10456,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PackageStatement__Group__1__Impl"
-    // InternalPerl.g:2983:1: rule__PackageStatement__Group__1__Impl : ( 'package' ) ;
+    // InternalPerl.g:3029:1: rule__PackageStatement__Group__1__Impl : ( 'package' ) ;
     public final void rule__PackageStatement__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:2987:1: ( ( 'package' ) )
-            // InternalPerl.g:2988:1: ( 'package' )
+            // InternalPerl.g:3033:1: ( ( 'package' ) )
+            // InternalPerl.g:3034:1: ( 'package' )
             {
-            // InternalPerl.g:2988:1: ( 'package' )
-            // InternalPerl.g:2989:2: 'package'
+            // InternalPerl.g:3034:1: ( 'package' )
+            // InternalPerl.g:3035:2: 'package'
             {
              before(grammarAccess.getPackageStatementAccess().getPackageKeyword_1()); 
             match(input,153,FOLLOW_2); 
@@ -10334,14 +10493,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PackageStatement__Group__2"
-    // InternalPerl.g:2998:1: rule__PackageStatement__Group__2 : rule__PackageStatement__Group__2__Impl rule__PackageStatement__Group__3 ;
+    // InternalPerl.g:3044:1: rule__PackageStatement__Group__2 : rule__PackageStatement__Group__2__Impl rule__PackageStatement__Group__3 ;
     public final void rule__PackageStatement__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3002:1: ( rule__PackageStatement__Group__2__Impl rule__PackageStatement__Group__3 )
-            // InternalPerl.g:3003:2: rule__PackageStatement__Group__2__Impl rule__PackageStatement__Group__3
+            // InternalPerl.g:3048:1: ( rule__PackageStatement__Group__2__Impl rule__PackageStatement__Group__3 )
+            // InternalPerl.g:3049:2: rule__PackageStatement__Group__2__Impl rule__PackageStatement__Group__3
             {
             pushFollow(FOLLOW_8);
             rule__PackageStatement__Group__2__Impl();
@@ -10372,21 +10531,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PackageStatement__Group__2__Impl"
-    // InternalPerl.g:3010:1: rule__PackageStatement__Group__2__Impl : ( ( rule__PackageStatement__NameAssignment_2 ) ) ;
+    // InternalPerl.g:3056:1: rule__PackageStatement__Group__2__Impl : ( ( rule__PackageStatement__NameAssignment_2 ) ) ;
     public final void rule__PackageStatement__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3014:1: ( ( ( rule__PackageStatement__NameAssignment_2 ) ) )
-            // InternalPerl.g:3015:1: ( ( rule__PackageStatement__NameAssignment_2 ) )
+            // InternalPerl.g:3060:1: ( ( ( rule__PackageStatement__NameAssignment_2 ) ) )
+            // InternalPerl.g:3061:1: ( ( rule__PackageStatement__NameAssignment_2 ) )
             {
-            // InternalPerl.g:3015:1: ( ( rule__PackageStatement__NameAssignment_2 ) )
-            // InternalPerl.g:3016:2: ( rule__PackageStatement__NameAssignment_2 )
+            // InternalPerl.g:3061:1: ( ( rule__PackageStatement__NameAssignment_2 ) )
+            // InternalPerl.g:3062:2: ( rule__PackageStatement__NameAssignment_2 )
             {
              before(grammarAccess.getPackageStatementAccess().getNameAssignment_2()); 
-            // InternalPerl.g:3017:2: ( rule__PackageStatement__NameAssignment_2 )
-            // InternalPerl.g:3017:3: rule__PackageStatement__NameAssignment_2
+            // InternalPerl.g:3063:2: ( rule__PackageStatement__NameAssignment_2 )
+            // InternalPerl.g:3063:3: rule__PackageStatement__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__PackageStatement__NameAssignment_2();
@@ -10419,14 +10578,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PackageStatement__Group__3"
-    // InternalPerl.g:3025:1: rule__PackageStatement__Group__3 : rule__PackageStatement__Group__3__Impl ;
+    // InternalPerl.g:3071:1: rule__PackageStatement__Group__3 : rule__PackageStatement__Group__3__Impl ;
     public final void rule__PackageStatement__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3029:1: ( rule__PackageStatement__Group__3__Impl )
-            // InternalPerl.g:3030:2: rule__PackageStatement__Group__3__Impl
+            // InternalPerl.g:3075:1: ( rule__PackageStatement__Group__3__Impl )
+            // InternalPerl.g:3076:2: rule__PackageStatement__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PackageStatement__Group__3__Impl();
@@ -10452,29 +10611,29 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PackageStatement__Group__3__Impl"
-    // InternalPerl.g:3036:1: rule__PackageStatement__Group__3__Impl : ( ( rule__PackageStatement__VersionAssignment_3 )? ) ;
+    // InternalPerl.g:3082:1: rule__PackageStatement__Group__3__Impl : ( ( rule__PackageStatement__VersionAssignment_3 )? ) ;
     public final void rule__PackageStatement__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3040:1: ( ( ( rule__PackageStatement__VersionAssignment_3 )? ) )
-            // InternalPerl.g:3041:1: ( ( rule__PackageStatement__VersionAssignment_3 )? )
+            // InternalPerl.g:3086:1: ( ( ( rule__PackageStatement__VersionAssignment_3 )? ) )
+            // InternalPerl.g:3087:1: ( ( rule__PackageStatement__VersionAssignment_3 )? )
             {
-            // InternalPerl.g:3041:1: ( ( rule__PackageStatement__VersionAssignment_3 )? )
-            // InternalPerl.g:3042:2: ( rule__PackageStatement__VersionAssignment_3 )?
+            // InternalPerl.g:3087:1: ( ( rule__PackageStatement__VersionAssignment_3 )? )
+            // InternalPerl.g:3088:2: ( rule__PackageStatement__VersionAssignment_3 )?
             {
              before(grammarAccess.getPackageStatementAccess().getVersionAssignment_3()); 
-            // InternalPerl.g:3043:2: ( rule__PackageStatement__VersionAssignment_3 )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            // InternalPerl.g:3089:2: ( rule__PackageStatement__VersionAssignment_3 )?
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA17_0==RULE_VERSION) ) {
-                alt17=1;
+            if ( (LA18_0==RULE_VERSION) ) {
+                alt18=1;
             }
-            switch (alt17) {
+            switch (alt18) {
                 case 1 :
-                    // InternalPerl.g:3043:3: rule__PackageStatement__VersionAssignment_3
+                    // InternalPerl.g:3089:3: rule__PackageStatement__VersionAssignment_3
                     {
                     pushFollow(FOLLOW_2);
                     rule__PackageStatement__VersionAssignment_3();
@@ -10510,14 +10669,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RequireInclude__Group__0"
-    // InternalPerl.g:3052:1: rule__RequireInclude__Group__0 : rule__RequireInclude__Group__0__Impl rule__RequireInclude__Group__1 ;
+    // InternalPerl.g:3098:1: rule__RequireInclude__Group__0 : rule__RequireInclude__Group__0__Impl rule__RequireInclude__Group__1 ;
     public final void rule__RequireInclude__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3056:1: ( rule__RequireInclude__Group__0__Impl rule__RequireInclude__Group__1 )
-            // InternalPerl.g:3057:2: rule__RequireInclude__Group__0__Impl rule__RequireInclude__Group__1
+            // InternalPerl.g:3102:1: ( rule__RequireInclude__Group__0__Impl rule__RequireInclude__Group__1 )
+            // InternalPerl.g:3103:2: rule__RequireInclude__Group__0__Impl rule__RequireInclude__Group__1
             {
             pushFollow(FOLLOW_8);
             rule__RequireInclude__Group__0__Impl();
@@ -10548,17 +10707,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RequireInclude__Group__0__Impl"
-    // InternalPerl.g:3064:1: rule__RequireInclude__Group__0__Impl : ( 'require' ) ;
+    // InternalPerl.g:3110:1: rule__RequireInclude__Group__0__Impl : ( 'require' ) ;
     public final void rule__RequireInclude__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3068:1: ( ( 'require' ) )
-            // InternalPerl.g:3069:1: ( 'require' )
+            // InternalPerl.g:3114:1: ( ( 'require' ) )
+            // InternalPerl.g:3115:1: ( 'require' )
             {
-            // InternalPerl.g:3069:1: ( 'require' )
-            // InternalPerl.g:3070:2: 'require'
+            // InternalPerl.g:3115:1: ( 'require' )
+            // InternalPerl.g:3116:2: 'require'
             {
              before(grammarAccess.getRequireIncludeAccess().getRequireKeyword_0()); 
             match(input,172,FOLLOW_2); 
@@ -10585,14 +10744,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RequireInclude__Group__1"
-    // InternalPerl.g:3079:1: rule__RequireInclude__Group__1 : rule__RequireInclude__Group__1__Impl ;
+    // InternalPerl.g:3125:1: rule__RequireInclude__Group__1 : rule__RequireInclude__Group__1__Impl ;
     public final void rule__RequireInclude__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3083:1: ( rule__RequireInclude__Group__1__Impl )
-            // InternalPerl.g:3084:2: rule__RequireInclude__Group__1__Impl
+            // InternalPerl.g:3129:1: ( rule__RequireInclude__Group__1__Impl )
+            // InternalPerl.g:3130:2: rule__RequireInclude__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__RequireInclude__Group__1__Impl();
@@ -10618,21 +10777,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RequireInclude__Group__1__Impl"
-    // InternalPerl.g:3090:1: rule__RequireInclude__Group__1__Impl : ( ( rule__RequireInclude__VersionAssignment_1 ) ) ;
+    // InternalPerl.g:3136:1: rule__RequireInclude__Group__1__Impl : ( ( rule__RequireInclude__VersionAssignment_1 ) ) ;
     public final void rule__RequireInclude__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3094:1: ( ( ( rule__RequireInclude__VersionAssignment_1 ) ) )
-            // InternalPerl.g:3095:1: ( ( rule__RequireInclude__VersionAssignment_1 ) )
+            // InternalPerl.g:3140:1: ( ( ( rule__RequireInclude__VersionAssignment_1 ) ) )
+            // InternalPerl.g:3141:1: ( ( rule__RequireInclude__VersionAssignment_1 ) )
             {
-            // InternalPerl.g:3095:1: ( ( rule__RequireInclude__VersionAssignment_1 ) )
-            // InternalPerl.g:3096:2: ( rule__RequireInclude__VersionAssignment_1 )
+            // InternalPerl.g:3141:1: ( ( rule__RequireInclude__VersionAssignment_1 ) )
+            // InternalPerl.g:3142:2: ( rule__RequireInclude__VersionAssignment_1 )
             {
              before(grammarAccess.getRequireIncludeAccess().getVersionAssignment_1()); 
-            // InternalPerl.g:3097:2: ( rule__RequireInclude__VersionAssignment_1 )
-            // InternalPerl.g:3097:3: rule__RequireInclude__VersionAssignment_1
+            // InternalPerl.g:3143:2: ( rule__RequireInclude__VersionAssignment_1 )
+            // InternalPerl.g:3143:3: rule__RequireInclude__VersionAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__RequireInclude__VersionAssignment_1();
@@ -10665,14 +10824,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseInclude__Group__0"
-    // InternalPerl.g:3106:1: rule__UseInclude__Group__0 : rule__UseInclude__Group__0__Impl rule__UseInclude__Group__1 ;
+    // InternalPerl.g:3152:1: rule__UseInclude__Group__0 : rule__UseInclude__Group__0__Impl rule__UseInclude__Group__1 ;
     public final void rule__UseInclude__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3110:1: ( rule__UseInclude__Group__0__Impl rule__UseInclude__Group__1 )
-            // InternalPerl.g:3111:2: rule__UseInclude__Group__0__Impl rule__UseInclude__Group__1
+            // InternalPerl.g:3156:1: ( rule__UseInclude__Group__0__Impl rule__UseInclude__Group__1 )
+            // InternalPerl.g:3157:2: rule__UseInclude__Group__0__Impl rule__UseInclude__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__UseInclude__Group__0__Impl();
@@ -10703,21 +10862,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseInclude__Group__0__Impl"
-    // InternalPerl.g:3118:1: rule__UseInclude__Group__0__Impl : ( () ) ;
+    // InternalPerl.g:3164:1: rule__UseInclude__Group__0__Impl : ( () ) ;
     public final void rule__UseInclude__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3122:1: ( ( () ) )
-            // InternalPerl.g:3123:1: ( () )
+            // InternalPerl.g:3168:1: ( ( () ) )
+            // InternalPerl.g:3169:1: ( () )
             {
-            // InternalPerl.g:3123:1: ( () )
-            // InternalPerl.g:3124:2: ()
+            // InternalPerl.g:3169:1: ( () )
+            // InternalPerl.g:3170:2: ()
             {
              before(grammarAccess.getUseIncludeAccess().getUseIncludeAction_0()); 
-            // InternalPerl.g:3125:2: ()
-            // InternalPerl.g:3125:3: 
+            // InternalPerl.g:3171:2: ()
+            // InternalPerl.g:3171:3: 
             {
             }
 
@@ -10740,14 +10899,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseInclude__Group__1"
-    // InternalPerl.g:3133:1: rule__UseInclude__Group__1 : rule__UseInclude__Group__1__Impl rule__UseInclude__Group__2 ;
+    // InternalPerl.g:3179:1: rule__UseInclude__Group__1 : rule__UseInclude__Group__1__Impl rule__UseInclude__Group__2 ;
     public final void rule__UseInclude__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3137:1: ( rule__UseInclude__Group__1__Impl rule__UseInclude__Group__2 )
-            // InternalPerl.g:3138:2: rule__UseInclude__Group__1__Impl rule__UseInclude__Group__2
+            // InternalPerl.g:3183:1: ( rule__UseInclude__Group__1__Impl rule__UseInclude__Group__2 )
+            // InternalPerl.g:3184:2: rule__UseInclude__Group__1__Impl rule__UseInclude__Group__2
             {
             pushFollow(FOLLOW_10);
             rule__UseInclude__Group__1__Impl();
@@ -10778,17 +10937,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseInclude__Group__1__Impl"
-    // InternalPerl.g:3145:1: rule__UseInclude__Group__1__Impl : ( 'use' ) ;
+    // InternalPerl.g:3191:1: rule__UseInclude__Group__1__Impl : ( 'use' ) ;
     public final void rule__UseInclude__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3149:1: ( ( 'use' ) )
-            // InternalPerl.g:3150:1: ( 'use' )
+            // InternalPerl.g:3195:1: ( ( 'use' ) )
+            // InternalPerl.g:3196:1: ( 'use' )
             {
-            // InternalPerl.g:3150:1: ( 'use' )
-            // InternalPerl.g:3151:2: 'use'
+            // InternalPerl.g:3196:1: ( 'use' )
+            // InternalPerl.g:3197:2: 'use'
             {
              before(grammarAccess.getUseIncludeAccess().getUseKeyword_1()); 
             match(input,243,FOLLOW_2); 
@@ -10815,14 +10974,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseInclude__Group__2"
-    // InternalPerl.g:3160:1: rule__UseInclude__Group__2 : rule__UseInclude__Group__2__Impl ;
+    // InternalPerl.g:3206:1: rule__UseInclude__Group__2 : rule__UseInclude__Group__2__Impl ;
     public final void rule__UseInclude__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3164:1: ( rule__UseInclude__Group__2__Impl )
-            // InternalPerl.g:3165:2: rule__UseInclude__Group__2__Impl
+            // InternalPerl.g:3210:1: ( rule__UseInclude__Group__2__Impl )
+            // InternalPerl.g:3211:2: rule__UseInclude__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__UseInclude__Group__2__Impl();
@@ -10848,21 +11007,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseInclude__Group__2__Impl"
-    // InternalPerl.g:3171:1: rule__UseInclude__Group__2__Impl : ( ( rule__UseInclude__Alternatives_2 ) ) ;
+    // InternalPerl.g:3217:1: rule__UseInclude__Group__2__Impl : ( ( rule__UseInclude__Alternatives_2 ) ) ;
     public final void rule__UseInclude__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3175:1: ( ( ( rule__UseInclude__Alternatives_2 ) ) )
-            // InternalPerl.g:3176:1: ( ( rule__UseInclude__Alternatives_2 ) )
+            // InternalPerl.g:3221:1: ( ( ( rule__UseInclude__Alternatives_2 ) ) )
+            // InternalPerl.g:3222:1: ( ( rule__UseInclude__Alternatives_2 ) )
             {
-            // InternalPerl.g:3176:1: ( ( rule__UseInclude__Alternatives_2 ) )
-            // InternalPerl.g:3177:2: ( rule__UseInclude__Alternatives_2 )
+            // InternalPerl.g:3222:1: ( ( rule__UseInclude__Alternatives_2 ) )
+            // InternalPerl.g:3223:2: ( rule__UseInclude__Alternatives_2 )
             {
              before(grammarAccess.getUseIncludeAccess().getAlternatives_2()); 
-            // InternalPerl.g:3178:2: ( rule__UseInclude__Alternatives_2 )
-            // InternalPerl.g:3178:3: rule__UseInclude__Alternatives_2
+            // InternalPerl.g:3224:2: ( rule__UseInclude__Alternatives_2 )
+            // InternalPerl.g:3224:3: rule__UseInclude__Alternatives_2
             {
             pushFollow(FOLLOW_2);
             rule__UseInclude__Alternatives_2();
@@ -10895,14 +11054,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseInclude__Group_2_1__0"
-    // InternalPerl.g:3187:1: rule__UseInclude__Group_2_1__0 : rule__UseInclude__Group_2_1__0__Impl rule__UseInclude__Group_2_1__1 ;
+    // InternalPerl.g:3233:1: rule__UseInclude__Group_2_1__0 : rule__UseInclude__Group_2_1__0__Impl rule__UseInclude__Group_2_1__1 ;
     public final void rule__UseInclude__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3191:1: ( rule__UseInclude__Group_2_1__0__Impl rule__UseInclude__Group_2_1__1 )
-            // InternalPerl.g:3192:2: rule__UseInclude__Group_2_1__0__Impl rule__UseInclude__Group_2_1__1
+            // InternalPerl.g:3237:1: ( rule__UseInclude__Group_2_1__0__Impl rule__UseInclude__Group_2_1__1 )
+            // InternalPerl.g:3238:2: rule__UseInclude__Group_2_1__0__Impl rule__UseInclude__Group_2_1__1
             {
             pushFollow(FOLLOW_11);
             rule__UseInclude__Group_2_1__0__Impl();
@@ -10933,21 +11092,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseInclude__Group_2_1__0__Impl"
-    // InternalPerl.g:3199:1: rule__UseInclude__Group_2_1__0__Impl : ( ( rule__UseInclude__PragmaOrPackageAssignment_2_1_0 ) ) ;
+    // InternalPerl.g:3245:1: rule__UseInclude__Group_2_1__0__Impl : ( ( rule__UseInclude__PragmaOrPackageAssignment_2_1_0 ) ) ;
     public final void rule__UseInclude__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3203:1: ( ( ( rule__UseInclude__PragmaOrPackageAssignment_2_1_0 ) ) )
-            // InternalPerl.g:3204:1: ( ( rule__UseInclude__PragmaOrPackageAssignment_2_1_0 ) )
+            // InternalPerl.g:3249:1: ( ( ( rule__UseInclude__PragmaOrPackageAssignment_2_1_0 ) ) )
+            // InternalPerl.g:3250:1: ( ( rule__UseInclude__PragmaOrPackageAssignment_2_1_0 ) )
             {
-            // InternalPerl.g:3204:1: ( ( rule__UseInclude__PragmaOrPackageAssignment_2_1_0 ) )
-            // InternalPerl.g:3205:2: ( rule__UseInclude__PragmaOrPackageAssignment_2_1_0 )
+            // InternalPerl.g:3250:1: ( ( rule__UseInclude__PragmaOrPackageAssignment_2_1_0 ) )
+            // InternalPerl.g:3251:2: ( rule__UseInclude__PragmaOrPackageAssignment_2_1_0 )
             {
              before(grammarAccess.getUseIncludeAccess().getPragmaOrPackageAssignment_2_1_0()); 
-            // InternalPerl.g:3206:2: ( rule__UseInclude__PragmaOrPackageAssignment_2_1_0 )
-            // InternalPerl.g:3206:3: rule__UseInclude__PragmaOrPackageAssignment_2_1_0
+            // InternalPerl.g:3252:2: ( rule__UseInclude__PragmaOrPackageAssignment_2_1_0 )
+            // InternalPerl.g:3252:3: rule__UseInclude__PragmaOrPackageAssignment_2_1_0
             {
             pushFollow(FOLLOW_2);
             rule__UseInclude__PragmaOrPackageAssignment_2_1_0();
@@ -10980,14 +11139,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseInclude__Group_2_1__1"
-    // InternalPerl.g:3214:1: rule__UseInclude__Group_2_1__1 : rule__UseInclude__Group_2_1__1__Impl ;
+    // InternalPerl.g:3260:1: rule__UseInclude__Group_2_1__1 : rule__UseInclude__Group_2_1__1__Impl ;
     public final void rule__UseInclude__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3218:1: ( rule__UseInclude__Group_2_1__1__Impl )
-            // InternalPerl.g:3219:2: rule__UseInclude__Group_2_1__1__Impl
+            // InternalPerl.g:3264:1: ( rule__UseInclude__Group_2_1__1__Impl )
+            // InternalPerl.g:3265:2: rule__UseInclude__Group_2_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__UseInclude__Group_2_1__1__Impl();
@@ -11013,29 +11172,29 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseInclude__Group_2_1__1__Impl"
-    // InternalPerl.g:3225:1: rule__UseInclude__Group_2_1__1__Impl : ( ( rule__UseInclude__Alternatives_2_1_1 )? ) ;
+    // InternalPerl.g:3271:1: rule__UseInclude__Group_2_1__1__Impl : ( ( rule__UseInclude__Alternatives_2_1_1 )? ) ;
     public final void rule__UseInclude__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3229:1: ( ( ( rule__UseInclude__Alternatives_2_1_1 )? ) )
-            // InternalPerl.g:3230:1: ( ( rule__UseInclude__Alternatives_2_1_1 )? )
+            // InternalPerl.g:3275:1: ( ( ( rule__UseInclude__Alternatives_2_1_1 )? ) )
+            // InternalPerl.g:3276:1: ( ( rule__UseInclude__Alternatives_2_1_1 )? )
             {
-            // InternalPerl.g:3230:1: ( ( rule__UseInclude__Alternatives_2_1_1 )? )
-            // InternalPerl.g:3231:2: ( rule__UseInclude__Alternatives_2_1_1 )?
+            // InternalPerl.g:3276:1: ( ( rule__UseInclude__Alternatives_2_1_1 )? )
+            // InternalPerl.g:3277:2: ( rule__UseInclude__Alternatives_2_1_1 )?
             {
              before(grammarAccess.getUseIncludeAccess().getAlternatives_2_1_1()); 
-            // InternalPerl.g:3232:2: ( rule__UseInclude__Alternatives_2_1_1 )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // InternalPerl.g:3278:2: ( rule__UseInclude__Alternatives_2_1_1 )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( ((LA18_0>=RULE_STRING && LA18_0<=RULE_LITERAL)||LA18_0==RULE_WORDS_QUOTE_LIKE) ) {
-                alt18=1;
+            if ( ((LA19_0>=RULE_STRING && LA19_0<=RULE_LITERAL)||LA19_0==RULE_WORDS_QUOTE_LIKE) ) {
+                alt19=1;
             }
-            switch (alt18) {
+            switch (alt19) {
                 case 1 :
-                    // InternalPerl.g:3232:3: rule__UseInclude__Alternatives_2_1_1
+                    // InternalPerl.g:3278:3: rule__UseInclude__Alternatives_2_1_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__UseInclude__Alternatives_2_1_1();
@@ -11071,14 +11230,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SubStatement__Group__0"
-    // InternalPerl.g:3241:1: rule__SubStatement__Group__0 : rule__SubStatement__Group__0__Impl rule__SubStatement__Group__1 ;
+    // InternalPerl.g:3287:1: rule__SubStatement__Group__0 : rule__SubStatement__Group__0__Impl rule__SubStatement__Group__1 ;
     public final void rule__SubStatement__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3245:1: ( rule__SubStatement__Group__0__Impl rule__SubStatement__Group__1 )
-            // InternalPerl.g:3246:2: rule__SubStatement__Group__0__Impl rule__SubStatement__Group__1
+            // InternalPerl.g:3291:1: ( rule__SubStatement__Group__0__Impl rule__SubStatement__Group__1 )
+            // InternalPerl.g:3292:2: rule__SubStatement__Group__0__Impl rule__SubStatement__Group__1
             {
             pushFollow(FOLLOW_12);
             rule__SubStatement__Group__0__Impl();
@@ -11109,21 +11268,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SubStatement__Group__0__Impl"
-    // InternalPerl.g:3253:1: rule__SubStatement__Group__0__Impl : ( () ) ;
+    // InternalPerl.g:3299:1: rule__SubStatement__Group__0__Impl : ( () ) ;
     public final void rule__SubStatement__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3257:1: ( ( () ) )
-            // InternalPerl.g:3258:1: ( () )
+            // InternalPerl.g:3303:1: ( ( () ) )
+            // InternalPerl.g:3304:1: ( () )
             {
-            // InternalPerl.g:3258:1: ( () )
-            // InternalPerl.g:3259:2: ()
+            // InternalPerl.g:3304:1: ( () )
+            // InternalPerl.g:3305:2: ()
             {
              before(grammarAccess.getSubStatementAccess().getSubStatementAction_0()); 
-            // InternalPerl.g:3260:2: ()
-            // InternalPerl.g:3260:3: 
+            // InternalPerl.g:3306:2: ()
+            // InternalPerl.g:3306:3: 
             {
             }
 
@@ -11146,14 +11305,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SubStatement__Group__1"
-    // InternalPerl.g:3268:1: rule__SubStatement__Group__1 : rule__SubStatement__Group__1__Impl rule__SubStatement__Group__2 ;
+    // InternalPerl.g:3314:1: rule__SubStatement__Group__1 : rule__SubStatement__Group__1__Impl rule__SubStatement__Group__2 ;
     public final void rule__SubStatement__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3272:1: ( rule__SubStatement__Group__1__Impl rule__SubStatement__Group__2 )
-            // InternalPerl.g:3273:2: rule__SubStatement__Group__1__Impl rule__SubStatement__Group__2
+            // InternalPerl.g:3318:1: ( rule__SubStatement__Group__1__Impl rule__SubStatement__Group__2 )
+            // InternalPerl.g:3319:2: rule__SubStatement__Group__1__Impl rule__SubStatement__Group__2
             {
             pushFollow(FOLLOW_7);
             rule__SubStatement__Group__1__Impl();
@@ -11184,17 +11343,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SubStatement__Group__1__Impl"
-    // InternalPerl.g:3280:1: rule__SubStatement__Group__1__Impl : ( 'sub' ) ;
+    // InternalPerl.g:3326:1: rule__SubStatement__Group__1__Impl : ( 'sub' ) ;
     public final void rule__SubStatement__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3284:1: ( ( 'sub' ) )
-            // InternalPerl.g:3285:1: ( 'sub' )
+            // InternalPerl.g:3330:1: ( ( 'sub' ) )
+            // InternalPerl.g:3331:1: ( 'sub' )
             {
-            // InternalPerl.g:3285:1: ( 'sub' )
-            // InternalPerl.g:3286:2: 'sub'
+            // InternalPerl.g:3331:1: ( 'sub' )
+            // InternalPerl.g:3332:2: 'sub'
             {
              before(grammarAccess.getSubStatementAccess().getSubKeyword_1()); 
             match(input,216,FOLLOW_2); 
@@ -11221,14 +11380,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SubStatement__Group__2"
-    // InternalPerl.g:3295:1: rule__SubStatement__Group__2 : rule__SubStatement__Group__2__Impl rule__SubStatement__Group__3 ;
+    // InternalPerl.g:3341:1: rule__SubStatement__Group__2 : rule__SubStatement__Group__2__Impl rule__SubStatement__Group__3 ;
     public final void rule__SubStatement__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3299:1: ( rule__SubStatement__Group__2__Impl rule__SubStatement__Group__3 )
-            // InternalPerl.g:3300:2: rule__SubStatement__Group__2__Impl rule__SubStatement__Group__3
+            // InternalPerl.g:3345:1: ( rule__SubStatement__Group__2__Impl rule__SubStatement__Group__3 )
+            // InternalPerl.g:3346:2: rule__SubStatement__Group__2__Impl rule__SubStatement__Group__3
             {
             pushFollow(FOLLOW_13);
             rule__SubStatement__Group__2__Impl();
@@ -11259,21 +11418,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SubStatement__Group__2__Impl"
-    // InternalPerl.g:3307:1: rule__SubStatement__Group__2__Impl : ( ( rule__SubStatement__NameAssignment_2 ) ) ;
+    // InternalPerl.g:3353:1: rule__SubStatement__Group__2__Impl : ( ( rule__SubStatement__NameAssignment_2 ) ) ;
     public final void rule__SubStatement__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3311:1: ( ( ( rule__SubStatement__NameAssignment_2 ) ) )
-            // InternalPerl.g:3312:1: ( ( rule__SubStatement__NameAssignment_2 ) )
+            // InternalPerl.g:3357:1: ( ( ( rule__SubStatement__NameAssignment_2 ) ) )
+            // InternalPerl.g:3358:1: ( ( rule__SubStatement__NameAssignment_2 ) )
             {
-            // InternalPerl.g:3312:1: ( ( rule__SubStatement__NameAssignment_2 ) )
-            // InternalPerl.g:3313:2: ( rule__SubStatement__NameAssignment_2 )
+            // InternalPerl.g:3358:1: ( ( rule__SubStatement__NameAssignment_2 ) )
+            // InternalPerl.g:3359:2: ( rule__SubStatement__NameAssignment_2 )
             {
              before(grammarAccess.getSubStatementAccess().getNameAssignment_2()); 
-            // InternalPerl.g:3314:2: ( rule__SubStatement__NameAssignment_2 )
-            // InternalPerl.g:3314:3: rule__SubStatement__NameAssignment_2
+            // InternalPerl.g:3360:2: ( rule__SubStatement__NameAssignment_2 )
+            // InternalPerl.g:3360:3: rule__SubStatement__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__SubStatement__NameAssignment_2();
@@ -11306,14 +11465,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SubStatement__Group__3"
-    // InternalPerl.g:3322:1: rule__SubStatement__Group__3 : rule__SubStatement__Group__3__Impl rule__SubStatement__Group__4 ;
+    // InternalPerl.g:3368:1: rule__SubStatement__Group__3 : rule__SubStatement__Group__3__Impl rule__SubStatement__Group__4 ;
     public final void rule__SubStatement__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3326:1: ( rule__SubStatement__Group__3__Impl rule__SubStatement__Group__4 )
-            // InternalPerl.g:3327:2: rule__SubStatement__Group__3__Impl rule__SubStatement__Group__4
+            // InternalPerl.g:3372:1: ( rule__SubStatement__Group__3__Impl rule__SubStatement__Group__4 )
+            // InternalPerl.g:3373:2: rule__SubStatement__Group__3__Impl rule__SubStatement__Group__4
             {
             pushFollow(FOLLOW_13);
             rule__SubStatement__Group__3__Impl();
@@ -11344,29 +11503,29 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SubStatement__Group__3__Impl"
-    // InternalPerl.g:3334:1: rule__SubStatement__Group__3__Impl : ( ( rule__SubStatement__PrototypeAssignment_3 )? ) ;
+    // InternalPerl.g:3380:1: rule__SubStatement__Group__3__Impl : ( ( rule__SubStatement__PrototypeAssignment_3 )? ) ;
     public final void rule__SubStatement__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3338:1: ( ( ( rule__SubStatement__PrototypeAssignment_3 )? ) )
-            // InternalPerl.g:3339:1: ( ( rule__SubStatement__PrototypeAssignment_3 )? )
+            // InternalPerl.g:3384:1: ( ( ( rule__SubStatement__PrototypeAssignment_3 )? ) )
+            // InternalPerl.g:3385:1: ( ( rule__SubStatement__PrototypeAssignment_3 )? )
             {
-            // InternalPerl.g:3339:1: ( ( rule__SubStatement__PrototypeAssignment_3 )? )
-            // InternalPerl.g:3340:2: ( rule__SubStatement__PrototypeAssignment_3 )?
+            // InternalPerl.g:3385:1: ( ( rule__SubStatement__PrototypeAssignment_3 )? )
+            // InternalPerl.g:3386:2: ( rule__SubStatement__PrototypeAssignment_3 )?
             {
              before(grammarAccess.getSubStatementAccess().getPrototypeAssignment_3()); 
-            // InternalPerl.g:3341:2: ( rule__SubStatement__PrototypeAssignment_3 )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // InternalPerl.g:3387:2: ( rule__SubStatement__PrototypeAssignment_3 )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA19_0==345) ) {
-                alt19=1;
+            if ( (LA20_0==345) ) {
+                alt20=1;
             }
-            switch (alt19) {
+            switch (alt20) {
                 case 1 :
-                    // InternalPerl.g:3341:3: rule__SubStatement__PrototypeAssignment_3
+                    // InternalPerl.g:3387:3: rule__SubStatement__PrototypeAssignment_3
                     {
                     pushFollow(FOLLOW_2);
                     rule__SubStatement__PrototypeAssignment_3();
@@ -11402,14 +11561,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SubStatement__Group__4"
-    // InternalPerl.g:3349:1: rule__SubStatement__Group__4 : rule__SubStatement__Group__4__Impl ;
+    // InternalPerl.g:3395:1: rule__SubStatement__Group__4 : rule__SubStatement__Group__4__Impl ;
     public final void rule__SubStatement__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3353:1: ( rule__SubStatement__Group__4__Impl )
-            // InternalPerl.g:3354:2: rule__SubStatement__Group__4__Impl
+            // InternalPerl.g:3399:1: ( rule__SubStatement__Group__4__Impl )
+            // InternalPerl.g:3400:2: rule__SubStatement__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SubStatement__Group__4__Impl();
@@ -11435,21 +11594,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SubStatement__Group__4__Impl"
-    // InternalPerl.g:3360:1: rule__SubStatement__Group__4__Impl : ( ( rule__SubStatement__Alternatives_4 ) ) ;
+    // InternalPerl.g:3406:1: rule__SubStatement__Group__4__Impl : ( ( rule__SubStatement__Alternatives_4 ) ) ;
     public final void rule__SubStatement__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3364:1: ( ( ( rule__SubStatement__Alternatives_4 ) ) )
-            // InternalPerl.g:3365:1: ( ( rule__SubStatement__Alternatives_4 ) )
+            // InternalPerl.g:3410:1: ( ( ( rule__SubStatement__Alternatives_4 ) ) )
+            // InternalPerl.g:3411:1: ( ( rule__SubStatement__Alternatives_4 ) )
             {
-            // InternalPerl.g:3365:1: ( ( rule__SubStatement__Alternatives_4 ) )
-            // InternalPerl.g:3366:2: ( rule__SubStatement__Alternatives_4 )
+            // InternalPerl.g:3411:1: ( ( rule__SubStatement__Alternatives_4 ) )
+            // InternalPerl.g:3412:2: ( rule__SubStatement__Alternatives_4 )
             {
              before(grammarAccess.getSubStatementAccess().getAlternatives_4()); 
-            // InternalPerl.g:3367:2: ( rule__SubStatement__Alternatives_4 )
-            // InternalPerl.g:3367:3: rule__SubStatement__Alternatives_4
+            // InternalPerl.g:3413:2: ( rule__SubStatement__Alternatives_4 )
+            // InternalPerl.g:3413:3: rule__SubStatement__Alternatives_4
             {
             pushFollow(FOLLOW_2);
             rule__SubStatement__Alternatives_4();
@@ -11481,98 +11640,23 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__SubStatement__Group__4__Impl"
 
 
-    // $ANTLR start "rule__StatementBlock__Group__0"
-    // InternalPerl.g:3376:1: rule__StatementBlock__Group__0 : rule__StatementBlock__Group__0__Impl rule__StatementBlock__Group__1 ;
-    public final void rule__StatementBlock__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__BlockStructure__Group__0"
+    // InternalPerl.g:3422:1: rule__BlockStructure__Group__0 : rule__BlockStructure__Group__0__Impl rule__BlockStructure__Group__1 ;
+    public final void rule__BlockStructure__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3380:1: ( rule__StatementBlock__Group__0__Impl rule__StatementBlock__Group__1 )
-            // InternalPerl.g:3381:2: rule__StatementBlock__Group__0__Impl rule__StatementBlock__Group__1
-            {
-            pushFollow(FOLLOW_13);
-            rule__StatementBlock__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__StatementBlock__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__StatementBlock__Group__0"
-
-
-    // $ANTLR start "rule__StatementBlock__Group__0__Impl"
-    // InternalPerl.g:3388:1: rule__StatementBlock__Group__0__Impl : ( () ) ;
-    public final void rule__StatementBlock__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPerl.g:3392:1: ( ( () ) )
-            // InternalPerl.g:3393:1: ( () )
-            {
-            // InternalPerl.g:3393:1: ( () )
-            // InternalPerl.g:3394:2: ()
-            {
-             before(grammarAccess.getStatementBlockAccess().getStatementBlockAction_0()); 
-            // InternalPerl.g:3395:2: ()
-            // InternalPerl.g:3395:3: 
-            {
-            }
-
-             after(grammarAccess.getStatementBlockAccess().getStatementBlockAction_0()); 
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__StatementBlock__Group__0__Impl"
-
-
-    // $ANTLR start "rule__StatementBlock__Group__1"
-    // InternalPerl.g:3403:1: rule__StatementBlock__Group__1 : rule__StatementBlock__Group__1__Impl rule__StatementBlock__Group__2 ;
-    public final void rule__StatementBlock__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPerl.g:3407:1: ( rule__StatementBlock__Group__1__Impl rule__StatementBlock__Group__2 )
-            // InternalPerl.g:3408:2: rule__StatementBlock__Group__1__Impl rule__StatementBlock__Group__2
+            // InternalPerl.g:3426:1: ( rule__BlockStructure__Group__0__Impl rule__BlockStructure__Group__1 )
+            // InternalPerl.g:3427:2: rule__BlockStructure__Group__0__Impl rule__BlockStructure__Group__1
             {
             pushFollow(FOLLOW_14);
-            rule__StatementBlock__Group__1__Impl();
+            rule__BlockStructure__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__StatementBlock__Group__2();
+            rule__BlockStructure__Group__1();
 
             state._fsp--;
 
@@ -11591,25 +11675,100 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__StatementBlock__Group__1"
+    // $ANTLR end "rule__BlockStructure__Group__0"
 
 
-    // $ANTLR start "rule__StatementBlock__Group__1__Impl"
-    // InternalPerl.g:3415:1: rule__StatementBlock__Group__1__Impl : ( '{' ) ;
-    public final void rule__StatementBlock__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__BlockStructure__Group__0__Impl"
+    // InternalPerl.g:3434:1: rule__BlockStructure__Group__0__Impl : ( () ) ;
+    public final void rule__BlockStructure__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3419:1: ( ( '{' ) )
-            // InternalPerl.g:3420:1: ( '{' )
+            // InternalPerl.g:3438:1: ( ( () ) )
+            // InternalPerl.g:3439:1: ( () )
             {
-            // InternalPerl.g:3420:1: ( '{' )
-            // InternalPerl.g:3421:2: '{'
+            // InternalPerl.g:3439:1: ( () )
+            // InternalPerl.g:3440:2: ()
             {
-             before(grammarAccess.getStatementBlockAccess().getLeftCurlyBracketKeyword_1()); 
+             before(grammarAccess.getBlockStructureAccess().getBlockStructureAction_0()); 
+            // InternalPerl.g:3441:2: ()
+            // InternalPerl.g:3441:3: 
+            {
+            }
+
+             after(grammarAccess.getBlockStructureAccess().getBlockStructureAction_0()); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__BlockStructure__Group__0__Impl"
+
+
+    // $ANTLR start "rule__BlockStructure__Group__1"
+    // InternalPerl.g:3449:1: rule__BlockStructure__Group__1 : rule__BlockStructure__Group__1__Impl rule__BlockStructure__Group__2 ;
+    public final void rule__BlockStructure__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPerl.g:3453:1: ( rule__BlockStructure__Group__1__Impl rule__BlockStructure__Group__2 )
+            // InternalPerl.g:3454:2: rule__BlockStructure__Group__1__Impl rule__BlockStructure__Group__2
+            {
+            pushFollow(FOLLOW_15);
+            rule__BlockStructure__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__BlockStructure__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__BlockStructure__Group__1"
+
+
+    // $ANTLR start "rule__BlockStructure__Group__1__Impl"
+    // InternalPerl.g:3461:1: rule__BlockStructure__Group__1__Impl : ( '{' ) ;
+    public final void rule__BlockStructure__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPerl.g:3465:1: ( ( '{' ) )
+            // InternalPerl.g:3466:1: ( '{' )
+            {
+            // InternalPerl.g:3466:1: ( '{' )
+            // InternalPerl.g:3467:2: '{'
+            {
+             before(grammarAccess.getBlockStructureAccess().getLeftCurlyBracketKeyword_1()); 
             match(input,343,FOLLOW_2); 
-             after(grammarAccess.getStatementBlockAccess().getLeftCurlyBracketKeyword_1()); 
+             after(grammarAccess.getBlockStructureAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
 
@@ -11628,26 +11787,26 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__StatementBlock__Group__1__Impl"
+    // $ANTLR end "rule__BlockStructure__Group__1__Impl"
 
 
-    // $ANTLR start "rule__StatementBlock__Group__2"
-    // InternalPerl.g:3430:1: rule__StatementBlock__Group__2 : rule__StatementBlock__Group__2__Impl rule__StatementBlock__Group__3 ;
-    public final void rule__StatementBlock__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__BlockStructure__Group__2"
+    // InternalPerl.g:3476:1: rule__BlockStructure__Group__2 : rule__BlockStructure__Group__2__Impl rule__BlockStructure__Group__3 ;
+    public final void rule__BlockStructure__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3434:1: ( rule__StatementBlock__Group__2__Impl rule__StatementBlock__Group__3 )
-            // InternalPerl.g:3435:2: rule__StatementBlock__Group__2__Impl rule__StatementBlock__Group__3
+            // InternalPerl.g:3480:1: ( rule__BlockStructure__Group__2__Impl rule__BlockStructure__Group__3 )
+            // InternalPerl.g:3481:2: rule__BlockStructure__Group__2__Impl rule__BlockStructure__Group__3
             {
-            pushFollow(FOLLOW_14);
-            rule__StatementBlock__Group__2__Impl();
+            pushFollow(FOLLOW_15);
+            rule__BlockStructure__Group__2__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__StatementBlock__Group__3();
+            rule__BlockStructure__Group__3();
 
             state._fsp--;
 
@@ -11666,40 +11825,40 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__StatementBlock__Group__2"
+    // $ANTLR end "rule__BlockStructure__Group__2"
 
 
-    // $ANTLR start "rule__StatementBlock__Group__2__Impl"
-    // InternalPerl.g:3442:1: rule__StatementBlock__Group__2__Impl : ( ( rule__StatementBlock__StatementsAssignment_2 )* ) ;
-    public final void rule__StatementBlock__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__BlockStructure__Group__2__Impl"
+    // InternalPerl.g:3488:1: rule__BlockStructure__Group__2__Impl : ( ( rule__BlockStructure__StatementsAssignment_2 )* ) ;
+    public final void rule__BlockStructure__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3446:1: ( ( ( rule__StatementBlock__StatementsAssignment_2 )* ) )
-            // InternalPerl.g:3447:1: ( ( rule__StatementBlock__StatementsAssignment_2 )* )
+            // InternalPerl.g:3492:1: ( ( ( rule__BlockStructure__StatementsAssignment_2 )* ) )
+            // InternalPerl.g:3493:1: ( ( rule__BlockStructure__StatementsAssignment_2 )* )
             {
-            // InternalPerl.g:3447:1: ( ( rule__StatementBlock__StatementsAssignment_2 )* )
-            // InternalPerl.g:3448:2: ( rule__StatementBlock__StatementsAssignment_2 )*
+            // InternalPerl.g:3493:1: ( ( rule__BlockStructure__StatementsAssignment_2 )* )
+            // InternalPerl.g:3494:2: ( rule__BlockStructure__StatementsAssignment_2 )*
             {
-             before(grammarAccess.getStatementBlockAccess().getStatementsAssignment_2()); 
-            // InternalPerl.g:3449:2: ( rule__StatementBlock__StatementsAssignment_2 )*
-            loop20:
+             before(grammarAccess.getBlockStructureAccess().getStatementsAssignment_2()); 
+            // InternalPerl.g:3495:2: ( rule__BlockStructure__StatementsAssignment_2 )*
+            loop21:
             do {
-                int alt20=2;
-                int LA20_0 = input.LA(1);
+                int alt21=2;
+                int LA21_0 = input.LA(1);
 
-                if ( (LA20_0==153||LA20_0==172||LA20_0==216||LA20_0==243) ) {
-                    alt20=1;
+                if ( (LA21_0==153||LA21_0==172||LA21_0==216||LA21_0==243) ) {
+                    alt21=1;
                 }
 
 
-                switch (alt20) {
+                switch (alt21) {
             	case 1 :
-            	    // InternalPerl.g:3449:3: rule__StatementBlock__StatementsAssignment_2
+            	    // InternalPerl.g:3495:3: rule__BlockStructure__StatementsAssignment_2
             	    {
-            	    pushFollow(FOLLOW_15);
-            	    rule__StatementBlock__StatementsAssignment_2();
+            	    pushFollow(FOLLOW_16);
+            	    rule__BlockStructure__StatementsAssignment_2();
 
             	    state._fsp--;
 
@@ -11708,11 +11867,11 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop20;
+            	    break loop21;
                 }
             } while (true);
 
-             after(grammarAccess.getStatementBlockAccess().getStatementsAssignment_2()); 
+             after(grammarAccess.getBlockStructureAccess().getStatementsAssignment_2()); 
 
             }
 
@@ -11731,21 +11890,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__StatementBlock__Group__2__Impl"
+    // $ANTLR end "rule__BlockStructure__Group__2__Impl"
 
 
-    // $ANTLR start "rule__StatementBlock__Group__3"
-    // InternalPerl.g:3457:1: rule__StatementBlock__Group__3 : rule__StatementBlock__Group__3__Impl ;
-    public final void rule__StatementBlock__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__BlockStructure__Group__3"
+    // InternalPerl.g:3503:1: rule__BlockStructure__Group__3 : rule__BlockStructure__Group__3__Impl ;
+    public final void rule__BlockStructure__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3461:1: ( rule__StatementBlock__Group__3__Impl )
-            // InternalPerl.g:3462:2: rule__StatementBlock__Group__3__Impl
+            // InternalPerl.g:3507:1: ( rule__BlockStructure__Group__3__Impl )
+            // InternalPerl.g:3508:2: rule__BlockStructure__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__StatementBlock__Group__3__Impl();
+            rule__BlockStructure__Group__3__Impl();
 
             state._fsp--;
 
@@ -11764,25 +11923,25 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__StatementBlock__Group__3"
+    // $ANTLR end "rule__BlockStructure__Group__3"
 
 
-    // $ANTLR start "rule__StatementBlock__Group__3__Impl"
-    // InternalPerl.g:3468:1: rule__StatementBlock__Group__3__Impl : ( '}' ) ;
-    public final void rule__StatementBlock__Group__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__BlockStructure__Group__3__Impl"
+    // InternalPerl.g:3514:1: rule__BlockStructure__Group__3__Impl : ( '}' ) ;
+    public final void rule__BlockStructure__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3472:1: ( ( '}' ) )
-            // InternalPerl.g:3473:1: ( '}' )
+            // InternalPerl.g:3518:1: ( ( '}' ) )
+            // InternalPerl.g:3519:1: ( '}' )
             {
-            // InternalPerl.g:3473:1: ( '}' )
-            // InternalPerl.g:3474:2: '}'
+            // InternalPerl.g:3519:1: ( '}' )
+            // InternalPerl.g:3520:2: '}'
             {
-             before(grammarAccess.getStatementBlockAccess().getRightCurlyBracketKeyword_3()); 
+             before(grammarAccess.getBlockStructureAccess().getRightCurlyBracketKeyword_3()); 
             match(input,344,FOLLOW_2); 
-             after(grammarAccess.getStatementBlockAccess().getRightCurlyBracketKeyword_3()); 
+             after(grammarAccess.getBlockStructureAccess().getRightCurlyBracketKeyword_3()); 
 
             }
 
@@ -11801,20 +11960,20 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__StatementBlock__Group__3__Impl"
+    // $ANTLR end "rule__BlockStructure__Group__3__Impl"
 
 
     // $ANTLR start "rule__Prototype__Group__0"
-    // InternalPerl.g:3484:1: rule__Prototype__Group__0 : rule__Prototype__Group__0__Impl rule__Prototype__Group__1 ;
+    // InternalPerl.g:3530:1: rule__Prototype__Group__0 : rule__Prototype__Group__0__Impl rule__Prototype__Group__1 ;
     public final void rule__Prototype__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3488:1: ( rule__Prototype__Group__0__Impl rule__Prototype__Group__1 )
-            // InternalPerl.g:3489:2: rule__Prototype__Group__0__Impl rule__Prototype__Group__1
+            // InternalPerl.g:3534:1: ( rule__Prototype__Group__0__Impl rule__Prototype__Group__1 )
+            // InternalPerl.g:3535:2: rule__Prototype__Group__0__Impl rule__Prototype__Group__1
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_17);
             rule__Prototype__Group__0__Impl();
 
             state._fsp--;
@@ -11843,17 +12002,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Prototype__Group__0__Impl"
-    // InternalPerl.g:3496:1: rule__Prototype__Group__0__Impl : ( '(' ) ;
+    // InternalPerl.g:3542:1: rule__Prototype__Group__0__Impl : ( '(' ) ;
     public final void rule__Prototype__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3500:1: ( ( '(' ) )
-            // InternalPerl.g:3501:1: ( '(' )
+            // InternalPerl.g:3546:1: ( ( '(' ) )
+            // InternalPerl.g:3547:1: ( '(' )
             {
-            // InternalPerl.g:3501:1: ( '(' )
-            // InternalPerl.g:3502:2: '('
+            // InternalPerl.g:3547:1: ( '(' )
+            // InternalPerl.g:3548:2: '('
             {
              before(grammarAccess.getPrototypeAccess().getLeftParenthesisKeyword_0()); 
             match(input,345,FOLLOW_2); 
@@ -11880,16 +12039,16 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Prototype__Group__1"
-    // InternalPerl.g:3511:1: rule__Prototype__Group__1 : rule__Prototype__Group__1__Impl rule__Prototype__Group__2 ;
+    // InternalPerl.g:3557:1: rule__Prototype__Group__1 : rule__Prototype__Group__1__Impl rule__Prototype__Group__2 ;
     public final void rule__Prototype__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3515:1: ( rule__Prototype__Group__1__Impl rule__Prototype__Group__2 )
-            // InternalPerl.g:3516:2: rule__Prototype__Group__1__Impl rule__Prototype__Group__2
+            // InternalPerl.g:3561:1: ( rule__Prototype__Group__1__Impl rule__Prototype__Group__2 )
+            // InternalPerl.g:3562:2: rule__Prototype__Group__1__Impl rule__Prototype__Group__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_17);
             rule__Prototype__Group__1__Impl();
 
             state._fsp--;
@@ -11918,35 +12077,35 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Prototype__Group__1__Impl"
-    // InternalPerl.g:3523:1: rule__Prototype__Group__1__Impl : ( ( rule__Prototype__Alternatives_1 )* ) ;
+    // InternalPerl.g:3569:1: rule__Prototype__Group__1__Impl : ( ( rule__Prototype__Alternatives_1 )* ) ;
     public final void rule__Prototype__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3527:1: ( ( ( rule__Prototype__Alternatives_1 )* ) )
-            // InternalPerl.g:3528:1: ( ( rule__Prototype__Alternatives_1 )* )
+            // InternalPerl.g:3573:1: ( ( ( rule__Prototype__Alternatives_1 )* ) )
+            // InternalPerl.g:3574:1: ( ( rule__Prototype__Alternatives_1 )* )
             {
-            // InternalPerl.g:3528:1: ( ( rule__Prototype__Alternatives_1 )* )
-            // InternalPerl.g:3529:2: ( rule__Prototype__Alternatives_1 )*
+            // InternalPerl.g:3574:1: ( ( rule__Prototype__Alternatives_1 )* )
+            // InternalPerl.g:3575:2: ( rule__Prototype__Alternatives_1 )*
             {
              before(grammarAccess.getPrototypeAccess().getAlternatives_1()); 
-            // InternalPerl.g:3530:2: ( rule__Prototype__Alternatives_1 )*
-            loop21:
+            // InternalPerl.g:3576:2: ( rule__Prototype__Alternatives_1 )*
+            loop22:
             do {
-                int alt21=2;
-                int LA21_0 = input.LA(1);
+                int alt22=2;
+                int LA22_0 = input.LA(1);
 
-                if ( ((LA21_0>=28 && LA21_0<=32)) ) {
-                    alt21=1;
+                if ( ((LA22_0>=28 && LA22_0<=32)) ) {
+                    alt22=1;
                 }
 
 
-                switch (alt21) {
+                switch (alt22) {
             	case 1 :
-            	    // InternalPerl.g:3530:3: rule__Prototype__Alternatives_1
+            	    // InternalPerl.g:3576:3: rule__Prototype__Alternatives_1
             	    {
-            	    pushFollow(FOLLOW_17);
+            	    pushFollow(FOLLOW_18);
             	    rule__Prototype__Alternatives_1();
 
             	    state._fsp--;
@@ -11956,7 +12115,7 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop21;
+            	    break loop22;
                 }
             } while (true);
 
@@ -11983,14 +12142,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Prototype__Group__2"
-    // InternalPerl.g:3538:1: rule__Prototype__Group__2 : rule__Prototype__Group__2__Impl ;
+    // InternalPerl.g:3584:1: rule__Prototype__Group__2 : rule__Prototype__Group__2__Impl ;
     public final void rule__Prototype__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3542:1: ( rule__Prototype__Group__2__Impl )
-            // InternalPerl.g:3543:2: rule__Prototype__Group__2__Impl
+            // InternalPerl.g:3588:1: ( rule__Prototype__Group__2__Impl )
+            // InternalPerl.g:3589:2: rule__Prototype__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Prototype__Group__2__Impl();
@@ -12016,17 +12175,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Prototype__Group__2__Impl"
-    // InternalPerl.g:3549:1: rule__Prototype__Group__2__Impl : ( ')' ) ;
+    // InternalPerl.g:3595:1: rule__Prototype__Group__2__Impl : ( ')' ) ;
     public final void rule__Prototype__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3553:1: ( ( ')' ) )
-            // InternalPerl.g:3554:1: ( ')' )
+            // InternalPerl.g:3599:1: ( ( ')' ) )
+            // InternalPerl.g:3600:1: ( ')' )
             {
-            // InternalPerl.g:3554:1: ( ')' )
-            // InternalPerl.g:3555:2: ')'
+            // InternalPerl.g:3600:1: ( ')' )
+            // InternalPerl.g:3601:2: ')'
             {
              before(grammarAccess.getPrototypeAccess().getRightParenthesisKeyword_2()); 
             match(input,346,FOLLOW_2); 
@@ -12053,16 +12212,16 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_0__0"
-    // InternalPerl.g:3565:1: rule__Token__Group_0__0 : rule__Token__Group_0__0__Impl rule__Token__Group_0__1 ;
+    // InternalPerl.g:3611:1: rule__Token__Group_0__0 : rule__Token__Group_0__0__Impl rule__Token__Group_0__1 ;
     public final void rule__Token__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3569:1: ( rule__Token__Group_0__0__Impl rule__Token__Group_0__1 )
-            // InternalPerl.g:3570:2: rule__Token__Group_0__0__Impl rule__Token__Group_0__1
+            // InternalPerl.g:3615:1: ( rule__Token__Group_0__0__Impl rule__Token__Group_0__1 )
+            // InternalPerl.g:3616:2: rule__Token__Group_0__0__Impl rule__Token__Group_0__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_19);
             rule__Token__Group_0__0__Impl();
 
             state._fsp--;
@@ -12091,21 +12250,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_0__0__Impl"
-    // InternalPerl.g:3577:1: rule__Token__Group_0__0__Impl : ( () ) ;
+    // InternalPerl.g:3623:1: rule__Token__Group_0__0__Impl : ( () ) ;
     public final void rule__Token__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3581:1: ( ( () ) )
-            // InternalPerl.g:3582:1: ( () )
+            // InternalPerl.g:3627:1: ( ( () ) )
+            // InternalPerl.g:3628:1: ( () )
             {
-            // InternalPerl.g:3582:1: ( () )
-            // InternalPerl.g:3583:2: ()
+            // InternalPerl.g:3628:1: ( () )
+            // InternalPerl.g:3629:2: ()
             {
              before(grammarAccess.getTokenAccess().getPodTokenAction_0_0()); 
-            // InternalPerl.g:3584:2: ()
-            // InternalPerl.g:3584:3: 
+            // InternalPerl.g:3630:2: ()
+            // InternalPerl.g:3630:3: 
             {
             }
 
@@ -12128,14 +12287,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_0__1"
-    // InternalPerl.g:3592:1: rule__Token__Group_0__1 : rule__Token__Group_0__1__Impl ;
+    // InternalPerl.g:3638:1: rule__Token__Group_0__1 : rule__Token__Group_0__1__Impl ;
     public final void rule__Token__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3596:1: ( rule__Token__Group_0__1__Impl )
-            // InternalPerl.g:3597:2: rule__Token__Group_0__1__Impl
+            // InternalPerl.g:3642:1: ( rule__Token__Group_0__1__Impl )
+            // InternalPerl.g:3643:2: rule__Token__Group_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Token__Group_0__1__Impl();
@@ -12161,21 +12320,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_0__1__Impl"
-    // InternalPerl.g:3603:1: rule__Token__Group_0__1__Impl : ( ( rule__Token__ContentAssignment_0_1 ) ) ;
+    // InternalPerl.g:3649:1: rule__Token__Group_0__1__Impl : ( ( rule__Token__ContentAssignment_0_1 ) ) ;
     public final void rule__Token__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3607:1: ( ( ( rule__Token__ContentAssignment_0_1 ) ) )
-            // InternalPerl.g:3608:1: ( ( rule__Token__ContentAssignment_0_1 ) )
+            // InternalPerl.g:3653:1: ( ( ( rule__Token__ContentAssignment_0_1 ) ) )
+            // InternalPerl.g:3654:1: ( ( rule__Token__ContentAssignment_0_1 ) )
             {
-            // InternalPerl.g:3608:1: ( ( rule__Token__ContentAssignment_0_1 ) )
-            // InternalPerl.g:3609:2: ( rule__Token__ContentAssignment_0_1 )
+            // InternalPerl.g:3654:1: ( ( rule__Token__ContentAssignment_0_1 ) )
+            // InternalPerl.g:3655:2: ( rule__Token__ContentAssignment_0_1 )
             {
              before(grammarAccess.getTokenAccess().getContentAssignment_0_1()); 
-            // InternalPerl.g:3610:2: ( rule__Token__ContentAssignment_0_1 )
-            // InternalPerl.g:3610:3: rule__Token__ContentAssignment_0_1
+            // InternalPerl.g:3656:2: ( rule__Token__ContentAssignment_0_1 )
+            // InternalPerl.g:3656:3: rule__Token__ContentAssignment_0_1
             {
             pushFollow(FOLLOW_2);
             rule__Token__ContentAssignment_0_1();
@@ -12208,16 +12367,16 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_1__0"
-    // InternalPerl.g:3619:1: rule__Token__Group_1__0 : rule__Token__Group_1__0__Impl rule__Token__Group_1__1 ;
+    // InternalPerl.g:3665:1: rule__Token__Group_1__0 : rule__Token__Group_1__0__Impl rule__Token__Group_1__1 ;
     public final void rule__Token__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3623:1: ( rule__Token__Group_1__0__Impl rule__Token__Group_1__1 )
-            // InternalPerl.g:3624:2: rule__Token__Group_1__0__Impl rule__Token__Group_1__1
+            // InternalPerl.g:3669:1: ( rule__Token__Group_1__0__Impl rule__Token__Group_1__1 )
+            // InternalPerl.g:3670:2: rule__Token__Group_1__0__Impl rule__Token__Group_1__1
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_20);
             rule__Token__Group_1__0__Impl();
 
             state._fsp--;
@@ -12246,21 +12405,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_1__0__Impl"
-    // InternalPerl.g:3631:1: rule__Token__Group_1__0__Impl : ( () ) ;
+    // InternalPerl.g:3677:1: rule__Token__Group_1__0__Impl : ( () ) ;
     public final void rule__Token__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3635:1: ( ( () ) )
-            // InternalPerl.g:3636:1: ( () )
+            // InternalPerl.g:3681:1: ( ( () ) )
+            // InternalPerl.g:3682:1: ( () )
             {
-            // InternalPerl.g:3636:1: ( () )
-            // InternalPerl.g:3637:2: ()
+            // InternalPerl.g:3682:1: ( () )
+            // InternalPerl.g:3683:2: ()
             {
              before(grammarAccess.getTokenAccess().getNumberTokenAction_1_0()); 
-            // InternalPerl.g:3638:2: ()
-            // InternalPerl.g:3638:3: 
+            // InternalPerl.g:3684:2: ()
+            // InternalPerl.g:3684:3: 
             {
             }
 
@@ -12283,14 +12442,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_1__1"
-    // InternalPerl.g:3646:1: rule__Token__Group_1__1 : rule__Token__Group_1__1__Impl ;
+    // InternalPerl.g:3692:1: rule__Token__Group_1__1 : rule__Token__Group_1__1__Impl ;
     public final void rule__Token__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3650:1: ( rule__Token__Group_1__1__Impl )
-            // InternalPerl.g:3651:2: rule__Token__Group_1__1__Impl
+            // InternalPerl.g:3696:1: ( rule__Token__Group_1__1__Impl )
+            // InternalPerl.g:3697:2: rule__Token__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Token__Group_1__1__Impl();
@@ -12316,21 +12475,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_1__1__Impl"
-    // InternalPerl.g:3657:1: rule__Token__Group_1__1__Impl : ( ( rule__Token__ContentAssignment_1_1 ) ) ;
+    // InternalPerl.g:3703:1: rule__Token__Group_1__1__Impl : ( ( rule__Token__ContentAssignment_1_1 ) ) ;
     public final void rule__Token__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3661:1: ( ( ( rule__Token__ContentAssignment_1_1 ) ) )
-            // InternalPerl.g:3662:1: ( ( rule__Token__ContentAssignment_1_1 ) )
+            // InternalPerl.g:3707:1: ( ( ( rule__Token__ContentAssignment_1_1 ) ) )
+            // InternalPerl.g:3708:1: ( ( rule__Token__ContentAssignment_1_1 ) )
             {
-            // InternalPerl.g:3662:1: ( ( rule__Token__ContentAssignment_1_1 ) )
-            // InternalPerl.g:3663:2: ( rule__Token__ContentAssignment_1_1 )
+            // InternalPerl.g:3708:1: ( ( rule__Token__ContentAssignment_1_1 ) )
+            // InternalPerl.g:3709:2: ( rule__Token__ContentAssignment_1_1 )
             {
              before(grammarAccess.getTokenAccess().getContentAssignment_1_1()); 
-            // InternalPerl.g:3664:2: ( rule__Token__ContentAssignment_1_1 )
-            // InternalPerl.g:3664:3: rule__Token__ContentAssignment_1_1
+            // InternalPerl.g:3710:2: ( rule__Token__ContentAssignment_1_1 )
+            // InternalPerl.g:3710:3: rule__Token__ContentAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Token__ContentAssignment_1_1();
@@ -12363,16 +12522,16 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_2__0"
-    // InternalPerl.g:3673:1: rule__Token__Group_2__0 : rule__Token__Group_2__0__Impl rule__Token__Group_2__1 ;
+    // InternalPerl.g:3719:1: rule__Token__Group_2__0 : rule__Token__Group_2__0__Impl rule__Token__Group_2__1 ;
     public final void rule__Token__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3677:1: ( rule__Token__Group_2__0__Impl rule__Token__Group_2__1 )
-            // InternalPerl.g:3678:2: rule__Token__Group_2__0__Impl rule__Token__Group_2__1
+            // InternalPerl.g:3723:1: ( rule__Token__Group_2__0__Impl rule__Token__Group_2__1 )
+            // InternalPerl.g:3724:2: rule__Token__Group_2__0__Impl rule__Token__Group_2__1
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_21);
             rule__Token__Group_2__0__Impl();
 
             state._fsp--;
@@ -12401,21 +12560,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_2__0__Impl"
-    // InternalPerl.g:3685:1: rule__Token__Group_2__0__Impl : ( () ) ;
+    // InternalPerl.g:3731:1: rule__Token__Group_2__0__Impl : ( () ) ;
     public final void rule__Token__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3689:1: ( ( () ) )
-            // InternalPerl.g:3690:1: ( () )
+            // InternalPerl.g:3735:1: ( ( () ) )
+            // InternalPerl.g:3736:1: ( () )
             {
-            // InternalPerl.g:3690:1: ( () )
-            // InternalPerl.g:3691:2: ()
+            // InternalPerl.g:3736:1: ( () )
+            // InternalPerl.g:3737:2: ()
             {
              before(grammarAccess.getTokenAccess().getWordTokenAction_2_0()); 
-            // InternalPerl.g:3692:2: ()
-            // InternalPerl.g:3692:3: 
+            // InternalPerl.g:3738:2: ()
+            // InternalPerl.g:3738:3: 
             {
             }
 
@@ -12438,14 +12597,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_2__1"
-    // InternalPerl.g:3700:1: rule__Token__Group_2__1 : rule__Token__Group_2__1__Impl ;
+    // InternalPerl.g:3746:1: rule__Token__Group_2__1 : rule__Token__Group_2__1__Impl ;
     public final void rule__Token__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3704:1: ( rule__Token__Group_2__1__Impl )
-            // InternalPerl.g:3705:2: rule__Token__Group_2__1__Impl
+            // InternalPerl.g:3750:1: ( rule__Token__Group_2__1__Impl )
+            // InternalPerl.g:3751:2: rule__Token__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Token__Group_2__1__Impl();
@@ -12471,21 +12630,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_2__1__Impl"
-    // InternalPerl.g:3711:1: rule__Token__Group_2__1__Impl : ( ( rule__Token__ContentAssignment_2_1 ) ) ;
+    // InternalPerl.g:3757:1: rule__Token__Group_2__1__Impl : ( ( rule__Token__ContentAssignment_2_1 ) ) ;
     public final void rule__Token__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3715:1: ( ( ( rule__Token__ContentAssignment_2_1 ) ) )
-            // InternalPerl.g:3716:1: ( ( rule__Token__ContentAssignment_2_1 ) )
+            // InternalPerl.g:3761:1: ( ( ( rule__Token__ContentAssignment_2_1 ) ) )
+            // InternalPerl.g:3762:1: ( ( rule__Token__ContentAssignment_2_1 ) )
             {
-            // InternalPerl.g:3716:1: ( ( rule__Token__ContentAssignment_2_1 ) )
-            // InternalPerl.g:3717:2: ( rule__Token__ContentAssignment_2_1 )
+            // InternalPerl.g:3762:1: ( ( rule__Token__ContentAssignment_2_1 ) )
+            // InternalPerl.g:3763:2: ( rule__Token__ContentAssignment_2_1 )
             {
              before(grammarAccess.getTokenAccess().getContentAssignment_2_1()); 
-            // InternalPerl.g:3718:2: ( rule__Token__ContentAssignment_2_1 )
-            // InternalPerl.g:3718:3: rule__Token__ContentAssignment_2_1
+            // InternalPerl.g:3764:2: ( rule__Token__ContentAssignment_2_1 )
+            // InternalPerl.g:3764:3: rule__Token__ContentAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__Token__ContentAssignment_2_1();
@@ -12518,16 +12677,16 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_3__0"
-    // InternalPerl.g:3727:1: rule__Token__Group_3__0 : rule__Token__Group_3__0__Impl rule__Token__Group_3__1 ;
+    // InternalPerl.g:3773:1: rule__Token__Group_3__0 : rule__Token__Group_3__0__Impl rule__Token__Group_3__1 ;
     public final void rule__Token__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3731:1: ( rule__Token__Group_3__0__Impl rule__Token__Group_3__1 )
-            // InternalPerl.g:3732:2: rule__Token__Group_3__0__Impl rule__Token__Group_3__1
+            // InternalPerl.g:3777:1: ( rule__Token__Group_3__0__Impl rule__Token__Group_3__1 )
+            // InternalPerl.g:3778:2: rule__Token__Group_3__0__Impl rule__Token__Group_3__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_22);
             rule__Token__Group_3__0__Impl();
 
             state._fsp--;
@@ -12556,21 +12715,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_3__0__Impl"
-    // InternalPerl.g:3739:1: rule__Token__Group_3__0__Impl : ( () ) ;
+    // InternalPerl.g:3785:1: rule__Token__Group_3__0__Impl : ( () ) ;
     public final void rule__Token__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3743:1: ( ( () ) )
-            // InternalPerl.g:3744:1: ( () )
+            // InternalPerl.g:3789:1: ( ( () ) )
+            // InternalPerl.g:3790:1: ( () )
             {
-            // InternalPerl.g:3744:1: ( () )
-            // InternalPerl.g:3745:2: ()
+            // InternalPerl.g:3790:1: ( () )
+            // InternalPerl.g:3791:2: ()
             {
              before(grammarAccess.getTokenAccess().getSymbolTokenAction_3_0()); 
-            // InternalPerl.g:3746:2: ()
-            // InternalPerl.g:3746:3: 
+            // InternalPerl.g:3792:2: ()
+            // InternalPerl.g:3792:3: 
             {
             }
 
@@ -12593,14 +12752,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_3__1"
-    // InternalPerl.g:3754:1: rule__Token__Group_3__1 : rule__Token__Group_3__1__Impl ;
+    // InternalPerl.g:3800:1: rule__Token__Group_3__1 : rule__Token__Group_3__1__Impl ;
     public final void rule__Token__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3758:1: ( rule__Token__Group_3__1__Impl )
-            // InternalPerl.g:3759:2: rule__Token__Group_3__1__Impl
+            // InternalPerl.g:3804:1: ( rule__Token__Group_3__1__Impl )
+            // InternalPerl.g:3805:2: rule__Token__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Token__Group_3__1__Impl();
@@ -12626,21 +12785,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_3__1__Impl"
-    // InternalPerl.g:3765:1: rule__Token__Group_3__1__Impl : ( ( rule__Token__ContentAssignment_3_1 ) ) ;
+    // InternalPerl.g:3811:1: rule__Token__Group_3__1__Impl : ( ( rule__Token__ContentAssignment_3_1 ) ) ;
     public final void rule__Token__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3769:1: ( ( ( rule__Token__ContentAssignment_3_1 ) ) )
-            // InternalPerl.g:3770:1: ( ( rule__Token__ContentAssignment_3_1 ) )
+            // InternalPerl.g:3815:1: ( ( ( rule__Token__ContentAssignment_3_1 ) ) )
+            // InternalPerl.g:3816:1: ( ( rule__Token__ContentAssignment_3_1 ) )
             {
-            // InternalPerl.g:3770:1: ( ( rule__Token__ContentAssignment_3_1 ) )
-            // InternalPerl.g:3771:2: ( rule__Token__ContentAssignment_3_1 )
+            // InternalPerl.g:3816:1: ( ( rule__Token__ContentAssignment_3_1 ) )
+            // InternalPerl.g:3817:2: ( rule__Token__ContentAssignment_3_1 )
             {
              before(grammarAccess.getTokenAccess().getContentAssignment_3_1()); 
-            // InternalPerl.g:3772:2: ( rule__Token__ContentAssignment_3_1 )
-            // InternalPerl.g:3772:3: rule__Token__ContentAssignment_3_1
+            // InternalPerl.g:3818:2: ( rule__Token__ContentAssignment_3_1 )
+            // InternalPerl.g:3818:3: rule__Token__ContentAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__Token__ContentAssignment_3_1();
@@ -12673,16 +12832,16 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_5__0"
-    // InternalPerl.g:3781:1: rule__Token__Group_5__0 : rule__Token__Group_5__0__Impl rule__Token__Group_5__1 ;
+    // InternalPerl.g:3827:1: rule__Token__Group_5__0 : rule__Token__Group_5__0__Impl rule__Token__Group_5__1 ;
     public final void rule__Token__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3785:1: ( rule__Token__Group_5__0__Impl rule__Token__Group_5__1 )
-            // InternalPerl.g:3786:2: rule__Token__Group_5__0__Impl rule__Token__Group_5__1
+            // InternalPerl.g:3831:1: ( rule__Token__Group_5__0__Impl rule__Token__Group_5__1 )
+            // InternalPerl.g:3832:2: rule__Token__Group_5__0__Impl rule__Token__Group_5__1
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_23);
             rule__Token__Group_5__0__Impl();
 
             state._fsp--;
@@ -12711,21 +12870,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_5__0__Impl"
-    // InternalPerl.g:3793:1: rule__Token__Group_5__0__Impl : ( () ) ;
+    // InternalPerl.g:3839:1: rule__Token__Group_5__0__Impl : ( () ) ;
     public final void rule__Token__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3797:1: ( ( () ) )
-            // InternalPerl.g:3798:1: ( () )
+            // InternalPerl.g:3843:1: ( ( () ) )
+            // InternalPerl.g:3844:1: ( () )
             {
-            // InternalPerl.g:3798:1: ( () )
-            // InternalPerl.g:3799:2: ()
+            // InternalPerl.g:3844:1: ( () )
+            // InternalPerl.g:3845:2: ()
             {
              before(grammarAccess.getTokenAccess().getOperatorTokenAction_5_0()); 
-            // InternalPerl.g:3800:2: ()
-            // InternalPerl.g:3800:3: 
+            // InternalPerl.g:3846:2: ()
+            // InternalPerl.g:3846:3: 
             {
             }
 
@@ -12748,14 +12907,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_5__1"
-    // InternalPerl.g:3808:1: rule__Token__Group_5__1 : rule__Token__Group_5__1__Impl ;
+    // InternalPerl.g:3854:1: rule__Token__Group_5__1 : rule__Token__Group_5__1__Impl ;
     public final void rule__Token__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3812:1: ( rule__Token__Group_5__1__Impl )
-            // InternalPerl.g:3813:2: rule__Token__Group_5__1__Impl
+            // InternalPerl.g:3858:1: ( rule__Token__Group_5__1__Impl )
+            // InternalPerl.g:3859:2: rule__Token__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Token__Group_5__1__Impl();
@@ -12781,21 +12940,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_5__1__Impl"
-    // InternalPerl.g:3819:1: rule__Token__Group_5__1__Impl : ( ( rule__Token__ContentAssignment_5_1 ) ) ;
+    // InternalPerl.g:3865:1: rule__Token__Group_5__1__Impl : ( ( rule__Token__ContentAssignment_5_1 ) ) ;
     public final void rule__Token__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3823:1: ( ( ( rule__Token__ContentAssignment_5_1 ) ) )
-            // InternalPerl.g:3824:1: ( ( rule__Token__ContentAssignment_5_1 ) )
+            // InternalPerl.g:3869:1: ( ( ( rule__Token__ContentAssignment_5_1 ) ) )
+            // InternalPerl.g:3870:1: ( ( rule__Token__ContentAssignment_5_1 ) )
             {
-            // InternalPerl.g:3824:1: ( ( rule__Token__ContentAssignment_5_1 ) )
-            // InternalPerl.g:3825:2: ( rule__Token__ContentAssignment_5_1 )
+            // InternalPerl.g:3870:1: ( ( rule__Token__ContentAssignment_5_1 ) )
+            // InternalPerl.g:3871:2: ( rule__Token__ContentAssignment_5_1 )
             {
              before(grammarAccess.getTokenAccess().getContentAssignment_5_1()); 
-            // InternalPerl.g:3826:2: ( rule__Token__ContentAssignment_5_1 )
-            // InternalPerl.g:3826:3: rule__Token__ContentAssignment_5_1
+            // InternalPerl.g:3872:2: ( rule__Token__ContentAssignment_5_1 )
+            // InternalPerl.g:3872:3: rule__Token__ContentAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__Token__ContentAssignment_5_1();
@@ -12828,16 +12987,16 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_6__0"
-    // InternalPerl.g:3835:1: rule__Token__Group_6__0 : rule__Token__Group_6__0__Impl rule__Token__Group_6__1 ;
+    // InternalPerl.g:3881:1: rule__Token__Group_6__0 : rule__Token__Group_6__0__Impl rule__Token__Group_6__1 ;
     public final void rule__Token__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3839:1: ( rule__Token__Group_6__0__Impl rule__Token__Group_6__1 )
-            // InternalPerl.g:3840:2: rule__Token__Group_6__0__Impl rule__Token__Group_6__1
+            // InternalPerl.g:3885:1: ( rule__Token__Group_6__0__Impl rule__Token__Group_6__1 )
+            // InternalPerl.g:3886:2: rule__Token__Group_6__0__Impl rule__Token__Group_6__1
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_24);
             rule__Token__Group_6__0__Impl();
 
             state._fsp--;
@@ -12866,21 +13025,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_6__0__Impl"
-    // InternalPerl.g:3847:1: rule__Token__Group_6__0__Impl : ( () ) ;
+    // InternalPerl.g:3893:1: rule__Token__Group_6__0__Impl : ( () ) ;
     public final void rule__Token__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3851:1: ( ( () ) )
-            // InternalPerl.g:3852:1: ( () )
+            // InternalPerl.g:3897:1: ( ( () ) )
+            // InternalPerl.g:3898:1: ( () )
             {
-            // InternalPerl.g:3852:1: ( () )
-            // InternalPerl.g:3853:2: ()
+            // InternalPerl.g:3898:1: ( () )
+            // InternalPerl.g:3899:2: ()
             {
              before(grammarAccess.getTokenAccess().getOperatorTokenAction_6_0()); 
-            // InternalPerl.g:3854:2: ()
-            // InternalPerl.g:3854:3: 
+            // InternalPerl.g:3900:2: ()
+            // InternalPerl.g:3900:3: 
             {
             }
 
@@ -12903,14 +13062,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_6__1"
-    // InternalPerl.g:3862:1: rule__Token__Group_6__1 : rule__Token__Group_6__1__Impl ;
+    // InternalPerl.g:3908:1: rule__Token__Group_6__1 : rule__Token__Group_6__1__Impl ;
     public final void rule__Token__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3866:1: ( rule__Token__Group_6__1__Impl )
-            // InternalPerl.g:3867:2: rule__Token__Group_6__1__Impl
+            // InternalPerl.g:3912:1: ( rule__Token__Group_6__1__Impl )
+            // InternalPerl.g:3913:2: rule__Token__Group_6__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Token__Group_6__1__Impl();
@@ -12936,21 +13095,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_6__1__Impl"
-    // InternalPerl.g:3873:1: rule__Token__Group_6__1__Impl : ( ( rule__Token__ContentAssignment_6_1 ) ) ;
+    // InternalPerl.g:3919:1: rule__Token__Group_6__1__Impl : ( ( rule__Token__ContentAssignment_6_1 ) ) ;
     public final void rule__Token__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3877:1: ( ( ( rule__Token__ContentAssignment_6_1 ) ) )
-            // InternalPerl.g:3878:1: ( ( rule__Token__ContentAssignment_6_1 ) )
+            // InternalPerl.g:3923:1: ( ( ( rule__Token__ContentAssignment_6_1 ) ) )
+            // InternalPerl.g:3924:1: ( ( rule__Token__ContentAssignment_6_1 ) )
             {
-            // InternalPerl.g:3878:1: ( ( rule__Token__ContentAssignment_6_1 ) )
-            // InternalPerl.g:3879:2: ( rule__Token__ContentAssignment_6_1 )
+            // InternalPerl.g:3924:1: ( ( rule__Token__ContentAssignment_6_1 ) )
+            // InternalPerl.g:3925:2: ( rule__Token__ContentAssignment_6_1 )
             {
              before(grammarAccess.getTokenAccess().getContentAssignment_6_1()); 
-            // InternalPerl.g:3880:2: ( rule__Token__ContentAssignment_6_1 )
-            // InternalPerl.g:3880:3: rule__Token__ContentAssignment_6_1
+            // InternalPerl.g:3926:2: ( rule__Token__ContentAssignment_6_1 )
+            // InternalPerl.g:3926:3: rule__Token__ContentAssignment_6_1
             {
             pushFollow(FOLLOW_2);
             rule__Token__ContentAssignment_6_1();
@@ -12983,16 +13142,16 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_9__0"
-    // InternalPerl.g:3889:1: rule__Token__Group_9__0 : rule__Token__Group_9__0__Impl rule__Token__Group_9__1 ;
+    // InternalPerl.g:3935:1: rule__Token__Group_9__0 : rule__Token__Group_9__0__Impl rule__Token__Group_9__1 ;
     public final void rule__Token__Group_9__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3893:1: ( rule__Token__Group_9__0__Impl rule__Token__Group_9__1 )
-            // InternalPerl.g:3894:2: rule__Token__Group_9__0__Impl rule__Token__Group_9__1
+            // InternalPerl.g:3939:1: ( rule__Token__Group_9__0__Impl rule__Token__Group_9__1 )
+            // InternalPerl.g:3940:2: rule__Token__Group_9__0__Impl rule__Token__Group_9__1
             {
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_25);
             rule__Token__Group_9__0__Impl();
 
             state._fsp--;
@@ -13021,21 +13180,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_9__0__Impl"
-    // InternalPerl.g:3901:1: rule__Token__Group_9__0__Impl : ( () ) ;
+    // InternalPerl.g:3947:1: rule__Token__Group_9__0__Impl : ( () ) ;
     public final void rule__Token__Group_9__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3905:1: ( ( () ) )
-            // InternalPerl.g:3906:1: ( () )
+            // InternalPerl.g:3951:1: ( ( () ) )
+            // InternalPerl.g:3952:1: ( () )
             {
-            // InternalPerl.g:3906:1: ( () )
-            // InternalPerl.g:3907:2: ()
+            // InternalPerl.g:3952:1: ( () )
+            // InternalPerl.g:3953:2: ()
             {
              before(grammarAccess.getTokenAccess().getDataTokenAction_9_0()); 
-            // InternalPerl.g:3908:2: ()
-            // InternalPerl.g:3908:3: 
+            // InternalPerl.g:3954:2: ()
+            // InternalPerl.g:3954:3: 
             {
             }
 
@@ -13058,14 +13217,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_9__1"
-    // InternalPerl.g:3916:1: rule__Token__Group_9__1 : rule__Token__Group_9__1__Impl ;
+    // InternalPerl.g:3962:1: rule__Token__Group_9__1 : rule__Token__Group_9__1__Impl ;
     public final void rule__Token__Group_9__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3920:1: ( rule__Token__Group_9__1__Impl )
-            // InternalPerl.g:3921:2: rule__Token__Group_9__1__Impl
+            // InternalPerl.g:3966:1: ( rule__Token__Group_9__1__Impl )
+            // InternalPerl.g:3967:2: rule__Token__Group_9__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Token__Group_9__1__Impl();
@@ -13091,21 +13250,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_9__1__Impl"
-    // InternalPerl.g:3927:1: rule__Token__Group_9__1__Impl : ( ( rule__Token__ContentAssignment_9_1 ) ) ;
+    // InternalPerl.g:3973:1: rule__Token__Group_9__1__Impl : ( ( rule__Token__ContentAssignment_9_1 ) ) ;
     public final void rule__Token__Group_9__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3931:1: ( ( ( rule__Token__ContentAssignment_9_1 ) ) )
-            // InternalPerl.g:3932:1: ( ( rule__Token__ContentAssignment_9_1 ) )
+            // InternalPerl.g:3977:1: ( ( ( rule__Token__ContentAssignment_9_1 ) ) )
+            // InternalPerl.g:3978:1: ( ( rule__Token__ContentAssignment_9_1 ) )
             {
-            // InternalPerl.g:3932:1: ( ( rule__Token__ContentAssignment_9_1 ) )
-            // InternalPerl.g:3933:2: ( rule__Token__ContentAssignment_9_1 )
+            // InternalPerl.g:3978:1: ( ( rule__Token__ContentAssignment_9_1 ) )
+            // InternalPerl.g:3979:2: ( rule__Token__ContentAssignment_9_1 )
             {
              before(grammarAccess.getTokenAccess().getContentAssignment_9_1()); 
-            // InternalPerl.g:3934:2: ( rule__Token__ContentAssignment_9_1 )
-            // InternalPerl.g:3934:3: rule__Token__ContentAssignment_9_1
+            // InternalPerl.g:3980:2: ( rule__Token__ContentAssignment_9_1 )
+            // InternalPerl.g:3980:3: rule__Token__ContentAssignment_9_1
             {
             pushFollow(FOLLOW_2);
             rule__Token__ContentAssignment_9_1();
@@ -13138,14 +13297,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_10__0"
-    // InternalPerl.g:3943:1: rule__Token__Group_10__0 : rule__Token__Group_10__0__Impl rule__Token__Group_10__1 ;
+    // InternalPerl.g:3989:1: rule__Token__Group_10__0 : rule__Token__Group_10__0__Impl rule__Token__Group_10__1 ;
     public final void rule__Token__Group_10__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3947:1: ( rule__Token__Group_10__0__Impl rule__Token__Group_10__1 )
-            // InternalPerl.g:3948:2: rule__Token__Group_10__0__Impl rule__Token__Group_10__1
+            // InternalPerl.g:3993:1: ( rule__Token__Group_10__0__Impl rule__Token__Group_10__1 )
+            // InternalPerl.g:3994:2: rule__Token__Group_10__0__Impl rule__Token__Group_10__1
             {
             pushFollow(FOLLOW_3);
             rule__Token__Group_10__0__Impl();
@@ -13176,21 +13335,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_10__0__Impl"
-    // InternalPerl.g:3955:1: rule__Token__Group_10__0__Impl : ( () ) ;
+    // InternalPerl.g:4001:1: rule__Token__Group_10__0__Impl : ( () ) ;
     public final void rule__Token__Group_10__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3959:1: ( ( () ) )
-            // InternalPerl.g:3960:1: ( () )
+            // InternalPerl.g:4005:1: ( ( () ) )
+            // InternalPerl.g:4006:1: ( () )
             {
-            // InternalPerl.g:3960:1: ( () )
-            // InternalPerl.g:3961:2: ()
+            // InternalPerl.g:4006:1: ( () )
+            // InternalPerl.g:4007:2: ()
             {
              before(grammarAccess.getTokenAccess().getEndTokenAction_10_0()); 
-            // InternalPerl.g:3962:2: ()
-            // InternalPerl.g:3962:3: 
+            // InternalPerl.g:4008:2: ()
+            // InternalPerl.g:4008:3: 
             {
             }
 
@@ -13213,14 +13372,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_10__1"
-    // InternalPerl.g:3970:1: rule__Token__Group_10__1 : rule__Token__Group_10__1__Impl ;
+    // InternalPerl.g:4016:1: rule__Token__Group_10__1 : rule__Token__Group_10__1__Impl ;
     public final void rule__Token__Group_10__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3974:1: ( rule__Token__Group_10__1__Impl )
-            // InternalPerl.g:3975:2: rule__Token__Group_10__1__Impl
+            // InternalPerl.g:4020:1: ( rule__Token__Group_10__1__Impl )
+            // InternalPerl.g:4021:2: rule__Token__Group_10__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Token__Group_10__1__Impl();
@@ -13246,21 +13405,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__Group_10__1__Impl"
-    // InternalPerl.g:3981:1: rule__Token__Group_10__1__Impl : ( ( rule__Token__ContentAssignment_10_1 ) ) ;
+    // InternalPerl.g:4027:1: rule__Token__Group_10__1__Impl : ( ( rule__Token__ContentAssignment_10_1 ) ) ;
     public final void rule__Token__Group_10__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:3985:1: ( ( ( rule__Token__ContentAssignment_10_1 ) ) )
-            // InternalPerl.g:3986:1: ( ( rule__Token__ContentAssignment_10_1 ) )
+            // InternalPerl.g:4031:1: ( ( ( rule__Token__ContentAssignment_10_1 ) ) )
+            // InternalPerl.g:4032:1: ( ( rule__Token__ContentAssignment_10_1 ) )
             {
-            // InternalPerl.g:3986:1: ( ( rule__Token__ContentAssignment_10_1 ) )
-            // InternalPerl.g:3987:2: ( rule__Token__ContentAssignment_10_1 )
+            // InternalPerl.g:4032:1: ( ( rule__Token__ContentAssignment_10_1 ) )
+            // InternalPerl.g:4033:2: ( rule__Token__ContentAssignment_10_1 )
             {
              before(grammarAccess.getTokenAccess().getContentAssignment_10_1()); 
-            // InternalPerl.g:3988:2: ( rule__Token__ContentAssignment_10_1 )
-            // InternalPerl.g:3988:3: rule__Token__ContentAssignment_10_1
+            // InternalPerl.g:4034:2: ( rule__Token__ContentAssignment_10_1 )
+            // InternalPerl.g:4034:3: rule__Token__ContentAssignment_10_1
             {
             pushFollow(FOLLOW_2);
             rule__Token__ContentAssignment_10_1();
@@ -13292,170 +13451,15 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Token__Group_10__1__Impl"
 
 
-    // $ANTLR start "rule__RegexToken__Group__0"
-    // InternalPerl.g:3997:1: rule__RegexToken__Group__0 : rule__RegexToken__Group__0__Impl rule__RegexToken__Group__1 ;
-    public final void rule__RegexToken__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPerl.g:4001:1: ( rule__RegexToken__Group__0__Impl rule__RegexToken__Group__1 )
-            // InternalPerl.g:4002:2: rule__RegexToken__Group__0__Impl rule__RegexToken__Group__1
-            {
-            pushFollow(FOLLOW_25);
-            rule__RegexToken__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__RegexToken__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__RegexToken__Group__0"
-
-
-    // $ANTLR start "rule__RegexToken__Group__0__Impl"
-    // InternalPerl.g:4009:1: rule__RegexToken__Group__0__Impl : ( () ) ;
-    public final void rule__RegexToken__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPerl.g:4013:1: ( ( () ) )
-            // InternalPerl.g:4014:1: ( () )
-            {
-            // InternalPerl.g:4014:1: ( () )
-            // InternalPerl.g:4015:2: ()
-            {
-             before(grammarAccess.getRegexTokenAccess().getRegexTokenAction_0()); 
-            // InternalPerl.g:4016:2: ()
-            // InternalPerl.g:4016:3: 
-            {
-            }
-
-             after(grammarAccess.getRegexTokenAccess().getRegexTokenAction_0()); 
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__RegexToken__Group__0__Impl"
-
-
-    // $ANTLR start "rule__RegexToken__Group__1"
-    // InternalPerl.g:4024:1: rule__RegexToken__Group__1 : rule__RegexToken__Group__1__Impl ;
-    public final void rule__RegexToken__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPerl.g:4028:1: ( rule__RegexToken__Group__1__Impl )
-            // InternalPerl.g:4029:2: rule__RegexToken__Group__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__RegexToken__Group__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__RegexToken__Group__1"
-
-
-    // $ANTLR start "rule__RegexToken__Group__1__Impl"
-    // InternalPerl.g:4035:1: rule__RegexToken__Group__1__Impl : ( ( rule__RegexToken__ContentAssignment_1 ) ) ;
-    public final void rule__RegexToken__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPerl.g:4039:1: ( ( ( rule__RegexToken__ContentAssignment_1 ) ) )
-            // InternalPerl.g:4040:1: ( ( rule__RegexToken__ContentAssignment_1 ) )
-            {
-            // InternalPerl.g:4040:1: ( ( rule__RegexToken__ContentAssignment_1 ) )
-            // InternalPerl.g:4041:2: ( rule__RegexToken__ContentAssignment_1 )
-            {
-             before(grammarAccess.getRegexTokenAccess().getContentAssignment_1()); 
-            // InternalPerl.g:4042:2: ( rule__RegexToken__ContentAssignment_1 )
-            // InternalPerl.g:4042:3: rule__RegexToken__ContentAssignment_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__RegexToken__ContentAssignment_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getRegexTokenAccess().getContentAssignment_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__RegexToken__Group__1__Impl"
-
-
     // $ANTLR start "rule__QuoteToken__Group__0"
-    // InternalPerl.g:4051:1: rule__QuoteToken__Group__0 : rule__QuoteToken__Group__0__Impl rule__QuoteToken__Group__1 ;
+    // InternalPerl.g:4043:1: rule__QuoteToken__Group__0 : rule__QuoteToken__Group__0__Impl rule__QuoteToken__Group__1 ;
     public final void rule__QuoteToken__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4055:1: ( rule__QuoteToken__Group__0__Impl rule__QuoteToken__Group__1 )
-            // InternalPerl.g:4056:2: rule__QuoteToken__Group__0__Impl rule__QuoteToken__Group__1
+            // InternalPerl.g:4047:1: ( rule__QuoteToken__Group__0__Impl rule__QuoteToken__Group__1 )
+            // InternalPerl.g:4048:2: rule__QuoteToken__Group__0__Impl rule__QuoteToken__Group__1
             {
             pushFollow(FOLLOW_26);
             rule__QuoteToken__Group__0__Impl();
@@ -13486,21 +13490,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteToken__Group__0__Impl"
-    // InternalPerl.g:4063:1: rule__QuoteToken__Group__0__Impl : ( () ) ;
+    // InternalPerl.g:4055:1: rule__QuoteToken__Group__0__Impl : ( () ) ;
     public final void rule__QuoteToken__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4067:1: ( ( () ) )
-            // InternalPerl.g:4068:1: ( () )
+            // InternalPerl.g:4059:1: ( ( () ) )
+            // InternalPerl.g:4060:1: ( () )
             {
-            // InternalPerl.g:4068:1: ( () )
-            // InternalPerl.g:4069:2: ()
+            // InternalPerl.g:4060:1: ( () )
+            // InternalPerl.g:4061:2: ()
             {
              before(grammarAccess.getQuoteTokenAccess().getQuoteTokenAction_0()); 
-            // InternalPerl.g:4070:2: ()
-            // InternalPerl.g:4070:3: 
+            // InternalPerl.g:4062:2: ()
+            // InternalPerl.g:4062:3: 
             {
             }
 
@@ -13523,14 +13527,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteToken__Group__1"
-    // InternalPerl.g:4078:1: rule__QuoteToken__Group__1 : rule__QuoteToken__Group__1__Impl ;
+    // InternalPerl.g:4070:1: rule__QuoteToken__Group__1 : rule__QuoteToken__Group__1__Impl ;
     public final void rule__QuoteToken__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4082:1: ( rule__QuoteToken__Group__1__Impl )
-            // InternalPerl.g:4083:2: rule__QuoteToken__Group__1__Impl
+            // InternalPerl.g:4074:1: ( rule__QuoteToken__Group__1__Impl )
+            // InternalPerl.g:4075:2: rule__QuoteToken__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QuoteToken__Group__1__Impl();
@@ -13556,21 +13560,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteToken__Group__1__Impl"
-    // InternalPerl.g:4089:1: rule__QuoteToken__Group__1__Impl : ( ( rule__QuoteToken__ContentAssignment_1 ) ) ;
+    // InternalPerl.g:4081:1: rule__QuoteToken__Group__1__Impl : ( ( rule__QuoteToken__ContentAssignment_1 ) ) ;
     public final void rule__QuoteToken__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4093:1: ( ( ( rule__QuoteToken__ContentAssignment_1 ) ) )
-            // InternalPerl.g:4094:1: ( ( rule__QuoteToken__ContentAssignment_1 ) )
+            // InternalPerl.g:4085:1: ( ( ( rule__QuoteToken__ContentAssignment_1 ) ) )
+            // InternalPerl.g:4086:1: ( ( rule__QuoteToken__ContentAssignment_1 ) )
             {
-            // InternalPerl.g:4094:1: ( ( rule__QuoteToken__ContentAssignment_1 ) )
-            // InternalPerl.g:4095:2: ( rule__QuoteToken__ContentAssignment_1 )
+            // InternalPerl.g:4086:1: ( ( rule__QuoteToken__ContentAssignment_1 ) )
+            // InternalPerl.g:4087:2: ( rule__QuoteToken__ContentAssignment_1 )
             {
              before(grammarAccess.getQuoteTokenAccess().getContentAssignment_1()); 
-            // InternalPerl.g:4096:2: ( rule__QuoteToken__ContentAssignment_1 )
-            // InternalPerl.g:4096:3: rule__QuoteToken__ContentAssignment_1
+            // InternalPerl.g:4088:2: ( rule__QuoteToken__ContentAssignment_1 )
+            // InternalPerl.g:4088:3: rule__QuoteToken__ContentAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__QuoteToken__ContentAssignment_1();
@@ -13602,17 +13606,172 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__QuoteToken__Group__1__Impl"
 
 
+    // $ANTLR start "rule__RegexToken__Group__0"
+    // InternalPerl.g:4097:1: rule__RegexToken__Group__0 : rule__RegexToken__Group__0__Impl rule__RegexToken__Group__1 ;
+    public final void rule__RegexToken__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPerl.g:4101:1: ( rule__RegexToken__Group__0__Impl rule__RegexToken__Group__1 )
+            // InternalPerl.g:4102:2: rule__RegexToken__Group__0__Impl rule__RegexToken__Group__1
+            {
+            pushFollow(FOLLOW_27);
+            rule__RegexToken__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RegexToken__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RegexToken__Group__0"
+
+
+    // $ANTLR start "rule__RegexToken__Group__0__Impl"
+    // InternalPerl.g:4109:1: rule__RegexToken__Group__0__Impl : ( () ) ;
+    public final void rule__RegexToken__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPerl.g:4113:1: ( ( () ) )
+            // InternalPerl.g:4114:1: ( () )
+            {
+            // InternalPerl.g:4114:1: ( () )
+            // InternalPerl.g:4115:2: ()
+            {
+             before(grammarAccess.getRegexTokenAccess().getRegexTokenAction_0()); 
+            // InternalPerl.g:4116:2: ()
+            // InternalPerl.g:4116:3: 
+            {
+            }
+
+             after(grammarAccess.getRegexTokenAccess().getRegexTokenAction_0()); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RegexToken__Group__0__Impl"
+
+
+    // $ANTLR start "rule__RegexToken__Group__1"
+    // InternalPerl.g:4124:1: rule__RegexToken__Group__1 : rule__RegexToken__Group__1__Impl ;
+    public final void rule__RegexToken__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPerl.g:4128:1: ( rule__RegexToken__Group__1__Impl )
+            // InternalPerl.g:4129:2: rule__RegexToken__Group__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__RegexToken__Group__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RegexToken__Group__1"
+
+
+    // $ANTLR start "rule__RegexToken__Group__1__Impl"
+    // InternalPerl.g:4135:1: rule__RegexToken__Group__1__Impl : ( ( rule__RegexToken__ContentAssignment_1 ) ) ;
+    public final void rule__RegexToken__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPerl.g:4139:1: ( ( ( rule__RegexToken__ContentAssignment_1 ) ) )
+            // InternalPerl.g:4140:1: ( ( rule__RegexToken__ContentAssignment_1 ) )
+            {
+            // InternalPerl.g:4140:1: ( ( rule__RegexToken__ContentAssignment_1 ) )
+            // InternalPerl.g:4141:2: ( rule__RegexToken__ContentAssignment_1 )
+            {
+             before(grammarAccess.getRegexTokenAccess().getContentAssignment_1()); 
+            // InternalPerl.g:4142:2: ( rule__RegexToken__ContentAssignment_1 )
+            // InternalPerl.g:4142:3: rule__RegexToken__ContentAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__RegexToken__ContentAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRegexTokenAccess().getContentAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RegexToken__Group__1__Impl"
+
+
     // $ANTLR start "rule__QuoteLikeToken__Group_0__0"
-    // InternalPerl.g:4105:1: rule__QuoteLikeToken__Group_0__0 : rule__QuoteLikeToken__Group_0__0__Impl rule__QuoteLikeToken__Group_0__1 ;
+    // InternalPerl.g:4151:1: rule__QuoteLikeToken__Group_0__0 : rule__QuoteLikeToken__Group_0__0__Impl rule__QuoteLikeToken__Group_0__1 ;
     public final void rule__QuoteLikeToken__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4109:1: ( rule__QuoteLikeToken__Group_0__0__Impl rule__QuoteLikeToken__Group_0__1 )
-            // InternalPerl.g:4110:2: rule__QuoteLikeToken__Group_0__0__Impl rule__QuoteLikeToken__Group_0__1
+            // InternalPerl.g:4155:1: ( rule__QuoteLikeToken__Group_0__0__Impl rule__QuoteLikeToken__Group_0__1 )
+            // InternalPerl.g:4156:2: rule__QuoteLikeToken__Group_0__0__Impl rule__QuoteLikeToken__Group_0__1
             {
-            pushFollow(FOLLOW_27);
+            pushFollow(FOLLOW_28);
             rule__QuoteLikeToken__Group_0__0__Impl();
 
             state._fsp--;
@@ -13641,21 +13800,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_0__0__Impl"
-    // InternalPerl.g:4117:1: rule__QuoteLikeToken__Group_0__0__Impl : ( () ) ;
+    // InternalPerl.g:4163:1: rule__QuoteLikeToken__Group_0__0__Impl : ( () ) ;
     public final void rule__QuoteLikeToken__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4121:1: ( ( () ) )
-            // InternalPerl.g:4122:1: ( () )
+            // InternalPerl.g:4167:1: ( ( () ) )
+            // InternalPerl.g:4168:1: ( () )
             {
-            // InternalPerl.g:4122:1: ( () )
-            // InternalPerl.g:4123:2: ()
+            // InternalPerl.g:4168:1: ( () )
+            // InternalPerl.g:4169:2: ()
             {
              before(grammarAccess.getQuoteLikeTokenAccess().getBacktickQuoteLikeTokenAction_0_0()); 
-            // InternalPerl.g:4124:2: ()
-            // InternalPerl.g:4124:3: 
+            // InternalPerl.g:4170:2: ()
+            // InternalPerl.g:4170:3: 
             {
             }
 
@@ -13678,14 +13837,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_0__1"
-    // InternalPerl.g:4132:1: rule__QuoteLikeToken__Group_0__1 : rule__QuoteLikeToken__Group_0__1__Impl ;
+    // InternalPerl.g:4178:1: rule__QuoteLikeToken__Group_0__1 : rule__QuoteLikeToken__Group_0__1__Impl ;
     public final void rule__QuoteLikeToken__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4136:1: ( rule__QuoteLikeToken__Group_0__1__Impl )
-            // InternalPerl.g:4137:2: rule__QuoteLikeToken__Group_0__1__Impl
+            // InternalPerl.g:4182:1: ( rule__QuoteLikeToken__Group_0__1__Impl )
+            // InternalPerl.g:4183:2: rule__QuoteLikeToken__Group_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QuoteLikeToken__Group_0__1__Impl();
@@ -13711,21 +13870,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_0__1__Impl"
-    // InternalPerl.g:4143:1: rule__QuoteLikeToken__Group_0__1__Impl : ( ( rule__QuoteLikeToken__ContentAssignment_0_1 ) ) ;
+    // InternalPerl.g:4189:1: rule__QuoteLikeToken__Group_0__1__Impl : ( ( rule__QuoteLikeToken__ContentAssignment_0_1 ) ) ;
     public final void rule__QuoteLikeToken__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4147:1: ( ( ( rule__QuoteLikeToken__ContentAssignment_0_1 ) ) )
-            // InternalPerl.g:4148:1: ( ( rule__QuoteLikeToken__ContentAssignment_0_1 ) )
+            // InternalPerl.g:4193:1: ( ( ( rule__QuoteLikeToken__ContentAssignment_0_1 ) ) )
+            // InternalPerl.g:4194:1: ( ( rule__QuoteLikeToken__ContentAssignment_0_1 ) )
             {
-            // InternalPerl.g:4148:1: ( ( rule__QuoteLikeToken__ContentAssignment_0_1 ) )
-            // InternalPerl.g:4149:2: ( rule__QuoteLikeToken__ContentAssignment_0_1 )
+            // InternalPerl.g:4194:1: ( ( rule__QuoteLikeToken__ContentAssignment_0_1 ) )
+            // InternalPerl.g:4195:2: ( rule__QuoteLikeToken__ContentAssignment_0_1 )
             {
              before(grammarAccess.getQuoteLikeTokenAccess().getContentAssignment_0_1()); 
-            // InternalPerl.g:4150:2: ( rule__QuoteLikeToken__ContentAssignment_0_1 )
-            // InternalPerl.g:4150:3: rule__QuoteLikeToken__ContentAssignment_0_1
+            // InternalPerl.g:4196:2: ( rule__QuoteLikeToken__ContentAssignment_0_1 )
+            // InternalPerl.g:4196:3: rule__QuoteLikeToken__ContentAssignment_0_1
             {
             pushFollow(FOLLOW_2);
             rule__QuoteLikeToken__ContentAssignment_0_1();
@@ -13758,16 +13917,16 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_1__0"
-    // InternalPerl.g:4159:1: rule__QuoteLikeToken__Group_1__0 : rule__QuoteLikeToken__Group_1__0__Impl rule__QuoteLikeToken__Group_1__1 ;
+    // InternalPerl.g:4205:1: rule__QuoteLikeToken__Group_1__0 : rule__QuoteLikeToken__Group_1__0__Impl rule__QuoteLikeToken__Group_1__1 ;
     public final void rule__QuoteLikeToken__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4163:1: ( rule__QuoteLikeToken__Group_1__0__Impl rule__QuoteLikeToken__Group_1__1 )
-            // InternalPerl.g:4164:2: rule__QuoteLikeToken__Group_1__0__Impl rule__QuoteLikeToken__Group_1__1
+            // InternalPerl.g:4209:1: ( rule__QuoteLikeToken__Group_1__0__Impl rule__QuoteLikeToken__Group_1__1 )
+            // InternalPerl.g:4210:2: rule__QuoteLikeToken__Group_1__0__Impl rule__QuoteLikeToken__Group_1__1
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_29);
             rule__QuoteLikeToken__Group_1__0__Impl();
 
             state._fsp--;
@@ -13796,21 +13955,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_1__0__Impl"
-    // InternalPerl.g:4171:1: rule__QuoteLikeToken__Group_1__0__Impl : ( () ) ;
+    // InternalPerl.g:4217:1: rule__QuoteLikeToken__Group_1__0__Impl : ( () ) ;
     public final void rule__QuoteLikeToken__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4175:1: ( ( () ) )
-            // InternalPerl.g:4176:1: ( () )
+            // InternalPerl.g:4221:1: ( ( () ) )
+            // InternalPerl.g:4222:1: ( () )
             {
-            // InternalPerl.g:4176:1: ( () )
-            // InternalPerl.g:4177:2: ()
+            // InternalPerl.g:4222:1: ( () )
+            // InternalPerl.g:4223:2: ()
             {
              before(grammarAccess.getQuoteLikeTokenAccess().getWordsQuoteLikeTokenAction_1_0()); 
-            // InternalPerl.g:4178:2: ()
-            // InternalPerl.g:4178:3: 
+            // InternalPerl.g:4224:2: ()
+            // InternalPerl.g:4224:3: 
             {
             }
 
@@ -13833,14 +13992,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_1__1"
-    // InternalPerl.g:4186:1: rule__QuoteLikeToken__Group_1__1 : rule__QuoteLikeToken__Group_1__1__Impl ;
+    // InternalPerl.g:4232:1: rule__QuoteLikeToken__Group_1__1 : rule__QuoteLikeToken__Group_1__1__Impl ;
     public final void rule__QuoteLikeToken__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4190:1: ( rule__QuoteLikeToken__Group_1__1__Impl )
-            // InternalPerl.g:4191:2: rule__QuoteLikeToken__Group_1__1__Impl
+            // InternalPerl.g:4236:1: ( rule__QuoteLikeToken__Group_1__1__Impl )
+            // InternalPerl.g:4237:2: rule__QuoteLikeToken__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QuoteLikeToken__Group_1__1__Impl();
@@ -13866,21 +14025,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_1__1__Impl"
-    // InternalPerl.g:4197:1: rule__QuoteLikeToken__Group_1__1__Impl : ( ( rule__QuoteLikeToken__ContentAssignment_1_1 ) ) ;
+    // InternalPerl.g:4243:1: rule__QuoteLikeToken__Group_1__1__Impl : ( ( rule__QuoteLikeToken__ContentAssignment_1_1 ) ) ;
     public final void rule__QuoteLikeToken__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4201:1: ( ( ( rule__QuoteLikeToken__ContentAssignment_1_1 ) ) )
-            // InternalPerl.g:4202:1: ( ( rule__QuoteLikeToken__ContentAssignment_1_1 ) )
+            // InternalPerl.g:4247:1: ( ( ( rule__QuoteLikeToken__ContentAssignment_1_1 ) ) )
+            // InternalPerl.g:4248:1: ( ( rule__QuoteLikeToken__ContentAssignment_1_1 ) )
             {
-            // InternalPerl.g:4202:1: ( ( rule__QuoteLikeToken__ContentAssignment_1_1 ) )
-            // InternalPerl.g:4203:2: ( rule__QuoteLikeToken__ContentAssignment_1_1 )
+            // InternalPerl.g:4248:1: ( ( rule__QuoteLikeToken__ContentAssignment_1_1 ) )
+            // InternalPerl.g:4249:2: ( rule__QuoteLikeToken__ContentAssignment_1_1 )
             {
              before(grammarAccess.getQuoteLikeTokenAccess().getContentAssignment_1_1()); 
-            // InternalPerl.g:4204:2: ( rule__QuoteLikeToken__ContentAssignment_1_1 )
-            // InternalPerl.g:4204:3: rule__QuoteLikeToken__ContentAssignment_1_1
+            // InternalPerl.g:4250:2: ( rule__QuoteLikeToken__ContentAssignment_1_1 )
+            // InternalPerl.g:4250:3: rule__QuoteLikeToken__ContentAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__QuoteLikeToken__ContentAssignment_1_1();
@@ -13913,16 +14072,16 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_2__0"
-    // InternalPerl.g:4213:1: rule__QuoteLikeToken__Group_2__0 : rule__QuoteLikeToken__Group_2__0__Impl rule__QuoteLikeToken__Group_2__1 ;
+    // InternalPerl.g:4259:1: rule__QuoteLikeToken__Group_2__0 : rule__QuoteLikeToken__Group_2__0__Impl rule__QuoteLikeToken__Group_2__1 ;
     public final void rule__QuoteLikeToken__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4217:1: ( rule__QuoteLikeToken__Group_2__0__Impl rule__QuoteLikeToken__Group_2__1 )
-            // InternalPerl.g:4218:2: rule__QuoteLikeToken__Group_2__0__Impl rule__QuoteLikeToken__Group_2__1
+            // InternalPerl.g:4263:1: ( rule__QuoteLikeToken__Group_2__0__Impl rule__QuoteLikeToken__Group_2__1 )
+            // InternalPerl.g:4264:2: rule__QuoteLikeToken__Group_2__0__Impl rule__QuoteLikeToken__Group_2__1
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_30);
             rule__QuoteLikeToken__Group_2__0__Impl();
 
             state._fsp--;
@@ -13951,21 +14110,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_2__0__Impl"
-    // InternalPerl.g:4225:1: rule__QuoteLikeToken__Group_2__0__Impl : ( () ) ;
+    // InternalPerl.g:4271:1: rule__QuoteLikeToken__Group_2__0__Impl : ( () ) ;
     public final void rule__QuoteLikeToken__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4229:1: ( ( () ) )
-            // InternalPerl.g:4230:1: ( () )
+            // InternalPerl.g:4275:1: ( ( () ) )
+            // InternalPerl.g:4276:1: ( () )
             {
-            // InternalPerl.g:4230:1: ( () )
-            // InternalPerl.g:4231:2: ()
+            // InternalPerl.g:4276:1: ( () )
+            // InternalPerl.g:4277:2: ()
             {
              before(grammarAccess.getQuoteLikeTokenAccess().getCommandQuoteLikeTokenAction_2_0()); 
-            // InternalPerl.g:4232:2: ()
-            // InternalPerl.g:4232:3: 
+            // InternalPerl.g:4278:2: ()
+            // InternalPerl.g:4278:3: 
             {
             }
 
@@ -13988,14 +14147,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_2__1"
-    // InternalPerl.g:4240:1: rule__QuoteLikeToken__Group_2__1 : rule__QuoteLikeToken__Group_2__1__Impl ;
+    // InternalPerl.g:4286:1: rule__QuoteLikeToken__Group_2__1 : rule__QuoteLikeToken__Group_2__1__Impl ;
     public final void rule__QuoteLikeToken__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4244:1: ( rule__QuoteLikeToken__Group_2__1__Impl )
-            // InternalPerl.g:4245:2: rule__QuoteLikeToken__Group_2__1__Impl
+            // InternalPerl.g:4290:1: ( rule__QuoteLikeToken__Group_2__1__Impl )
+            // InternalPerl.g:4291:2: rule__QuoteLikeToken__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QuoteLikeToken__Group_2__1__Impl();
@@ -14021,21 +14180,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_2__1__Impl"
-    // InternalPerl.g:4251:1: rule__QuoteLikeToken__Group_2__1__Impl : ( ( rule__QuoteLikeToken__ContentAssignment_2_1 ) ) ;
+    // InternalPerl.g:4297:1: rule__QuoteLikeToken__Group_2__1__Impl : ( ( rule__QuoteLikeToken__ContentAssignment_2_1 ) ) ;
     public final void rule__QuoteLikeToken__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4255:1: ( ( ( rule__QuoteLikeToken__ContentAssignment_2_1 ) ) )
-            // InternalPerl.g:4256:1: ( ( rule__QuoteLikeToken__ContentAssignment_2_1 ) )
+            // InternalPerl.g:4301:1: ( ( ( rule__QuoteLikeToken__ContentAssignment_2_1 ) ) )
+            // InternalPerl.g:4302:1: ( ( rule__QuoteLikeToken__ContentAssignment_2_1 ) )
             {
-            // InternalPerl.g:4256:1: ( ( rule__QuoteLikeToken__ContentAssignment_2_1 ) )
-            // InternalPerl.g:4257:2: ( rule__QuoteLikeToken__ContentAssignment_2_1 )
+            // InternalPerl.g:4302:1: ( ( rule__QuoteLikeToken__ContentAssignment_2_1 ) )
+            // InternalPerl.g:4303:2: ( rule__QuoteLikeToken__ContentAssignment_2_1 )
             {
              before(grammarAccess.getQuoteLikeTokenAccess().getContentAssignment_2_1()); 
-            // InternalPerl.g:4258:2: ( rule__QuoteLikeToken__ContentAssignment_2_1 )
-            // InternalPerl.g:4258:3: rule__QuoteLikeToken__ContentAssignment_2_1
+            // InternalPerl.g:4304:2: ( rule__QuoteLikeToken__ContentAssignment_2_1 )
+            // InternalPerl.g:4304:3: rule__QuoteLikeToken__ContentAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__QuoteLikeToken__ContentAssignment_2_1();
@@ -14068,16 +14227,16 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_3__0"
-    // InternalPerl.g:4267:1: rule__QuoteLikeToken__Group_3__0 : rule__QuoteLikeToken__Group_3__0__Impl rule__QuoteLikeToken__Group_3__1 ;
+    // InternalPerl.g:4313:1: rule__QuoteLikeToken__Group_3__0 : rule__QuoteLikeToken__Group_3__0__Impl rule__QuoteLikeToken__Group_3__1 ;
     public final void rule__QuoteLikeToken__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4271:1: ( rule__QuoteLikeToken__Group_3__0__Impl rule__QuoteLikeToken__Group_3__1 )
-            // InternalPerl.g:4272:2: rule__QuoteLikeToken__Group_3__0__Impl rule__QuoteLikeToken__Group_3__1
+            // InternalPerl.g:4317:1: ( rule__QuoteLikeToken__Group_3__0__Impl rule__QuoteLikeToken__Group_3__1 )
+            // InternalPerl.g:4318:2: rule__QuoteLikeToken__Group_3__0__Impl rule__QuoteLikeToken__Group_3__1
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__QuoteLikeToken__Group_3__0__Impl();
 
             state._fsp--;
@@ -14106,21 +14265,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_3__0__Impl"
-    // InternalPerl.g:4279:1: rule__QuoteLikeToken__Group_3__0__Impl : ( () ) ;
+    // InternalPerl.g:4325:1: rule__QuoteLikeToken__Group_3__0__Impl : ( () ) ;
     public final void rule__QuoteLikeToken__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4283:1: ( ( () ) )
-            // InternalPerl.g:4284:1: ( () )
+            // InternalPerl.g:4329:1: ( ( () ) )
+            // InternalPerl.g:4330:1: ( () )
             {
-            // InternalPerl.g:4284:1: ( () )
-            // InternalPerl.g:4285:2: ()
+            // InternalPerl.g:4330:1: ( () )
+            // InternalPerl.g:4331:2: ()
             {
              before(grammarAccess.getQuoteLikeTokenAccess().getRegexpQuoteLikeTokenAction_3_0()); 
-            // InternalPerl.g:4286:2: ()
-            // InternalPerl.g:4286:3: 
+            // InternalPerl.g:4332:2: ()
+            // InternalPerl.g:4332:3: 
             {
             }
 
@@ -14143,14 +14302,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_3__1"
-    // InternalPerl.g:4294:1: rule__QuoteLikeToken__Group_3__1 : rule__QuoteLikeToken__Group_3__1__Impl ;
+    // InternalPerl.g:4340:1: rule__QuoteLikeToken__Group_3__1 : rule__QuoteLikeToken__Group_3__1__Impl ;
     public final void rule__QuoteLikeToken__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4298:1: ( rule__QuoteLikeToken__Group_3__1__Impl )
-            // InternalPerl.g:4299:2: rule__QuoteLikeToken__Group_3__1__Impl
+            // InternalPerl.g:4344:1: ( rule__QuoteLikeToken__Group_3__1__Impl )
+            // InternalPerl.g:4345:2: rule__QuoteLikeToken__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QuoteLikeToken__Group_3__1__Impl();
@@ -14176,21 +14335,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_3__1__Impl"
-    // InternalPerl.g:4305:1: rule__QuoteLikeToken__Group_3__1__Impl : ( ( rule__QuoteLikeToken__ContentAssignment_3_1 ) ) ;
+    // InternalPerl.g:4351:1: rule__QuoteLikeToken__Group_3__1__Impl : ( ( rule__QuoteLikeToken__ContentAssignment_3_1 ) ) ;
     public final void rule__QuoteLikeToken__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4309:1: ( ( ( rule__QuoteLikeToken__ContentAssignment_3_1 ) ) )
-            // InternalPerl.g:4310:1: ( ( rule__QuoteLikeToken__ContentAssignment_3_1 ) )
+            // InternalPerl.g:4355:1: ( ( ( rule__QuoteLikeToken__ContentAssignment_3_1 ) ) )
+            // InternalPerl.g:4356:1: ( ( rule__QuoteLikeToken__ContentAssignment_3_1 ) )
             {
-            // InternalPerl.g:4310:1: ( ( rule__QuoteLikeToken__ContentAssignment_3_1 ) )
-            // InternalPerl.g:4311:2: ( rule__QuoteLikeToken__ContentAssignment_3_1 )
+            // InternalPerl.g:4356:1: ( ( rule__QuoteLikeToken__ContentAssignment_3_1 ) )
+            // InternalPerl.g:4357:2: ( rule__QuoteLikeToken__ContentAssignment_3_1 )
             {
              before(grammarAccess.getQuoteLikeTokenAccess().getContentAssignment_3_1()); 
-            // InternalPerl.g:4312:2: ( rule__QuoteLikeToken__ContentAssignment_3_1 )
-            // InternalPerl.g:4312:3: rule__QuoteLikeToken__ContentAssignment_3_1
+            // InternalPerl.g:4358:2: ( rule__QuoteLikeToken__ContentAssignment_3_1 )
+            // InternalPerl.g:4358:3: rule__QuoteLikeToken__ContentAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__QuoteLikeToken__ContentAssignment_3_1();
@@ -14223,16 +14382,16 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_4__0"
-    // InternalPerl.g:4321:1: rule__QuoteLikeToken__Group_4__0 : rule__QuoteLikeToken__Group_4__0__Impl rule__QuoteLikeToken__Group_4__1 ;
+    // InternalPerl.g:4367:1: rule__QuoteLikeToken__Group_4__0 : rule__QuoteLikeToken__Group_4__0__Impl rule__QuoteLikeToken__Group_4__1 ;
     public final void rule__QuoteLikeToken__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4325:1: ( rule__QuoteLikeToken__Group_4__0__Impl rule__QuoteLikeToken__Group_4__1 )
-            // InternalPerl.g:4326:2: rule__QuoteLikeToken__Group_4__0__Impl rule__QuoteLikeToken__Group_4__1
+            // InternalPerl.g:4371:1: ( rule__QuoteLikeToken__Group_4__0__Impl rule__QuoteLikeToken__Group_4__1 )
+            // InternalPerl.g:4372:2: rule__QuoteLikeToken__Group_4__0__Impl rule__QuoteLikeToken__Group_4__1
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_32);
             rule__QuoteLikeToken__Group_4__0__Impl();
 
             state._fsp--;
@@ -14261,21 +14420,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_4__0__Impl"
-    // InternalPerl.g:4333:1: rule__QuoteLikeToken__Group_4__0__Impl : ( () ) ;
+    // InternalPerl.g:4379:1: rule__QuoteLikeToken__Group_4__0__Impl : ( () ) ;
     public final void rule__QuoteLikeToken__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4337:1: ( ( () ) )
-            // InternalPerl.g:4338:1: ( () )
+            // InternalPerl.g:4383:1: ( ( () ) )
+            // InternalPerl.g:4384:1: ( () )
             {
-            // InternalPerl.g:4338:1: ( () )
-            // InternalPerl.g:4339:2: ()
+            // InternalPerl.g:4384:1: ( () )
+            // InternalPerl.g:4385:2: ()
             {
              before(grammarAccess.getQuoteLikeTokenAccess().getReadLineQuoteLikeTokenAction_4_0()); 
-            // InternalPerl.g:4340:2: ()
-            // InternalPerl.g:4340:3: 
+            // InternalPerl.g:4386:2: ()
+            // InternalPerl.g:4386:3: 
             {
             }
 
@@ -14298,14 +14457,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_4__1"
-    // InternalPerl.g:4348:1: rule__QuoteLikeToken__Group_4__1 : rule__QuoteLikeToken__Group_4__1__Impl ;
+    // InternalPerl.g:4394:1: rule__QuoteLikeToken__Group_4__1 : rule__QuoteLikeToken__Group_4__1__Impl ;
     public final void rule__QuoteLikeToken__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4352:1: ( rule__QuoteLikeToken__Group_4__1__Impl )
-            // InternalPerl.g:4353:2: rule__QuoteLikeToken__Group_4__1__Impl
+            // InternalPerl.g:4398:1: ( rule__QuoteLikeToken__Group_4__1__Impl )
+            // InternalPerl.g:4399:2: rule__QuoteLikeToken__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QuoteLikeToken__Group_4__1__Impl();
@@ -14331,21 +14490,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__Group_4__1__Impl"
-    // InternalPerl.g:4359:1: rule__QuoteLikeToken__Group_4__1__Impl : ( ( rule__QuoteLikeToken__ContentAssignment_4_1 ) ) ;
+    // InternalPerl.g:4405:1: rule__QuoteLikeToken__Group_4__1__Impl : ( ( rule__QuoteLikeToken__ContentAssignment_4_1 ) ) ;
     public final void rule__QuoteLikeToken__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4363:1: ( ( ( rule__QuoteLikeToken__ContentAssignment_4_1 ) ) )
-            // InternalPerl.g:4364:1: ( ( rule__QuoteLikeToken__ContentAssignment_4_1 ) )
+            // InternalPerl.g:4409:1: ( ( ( rule__QuoteLikeToken__ContentAssignment_4_1 ) ) )
+            // InternalPerl.g:4410:1: ( ( rule__QuoteLikeToken__ContentAssignment_4_1 ) )
             {
-            // InternalPerl.g:4364:1: ( ( rule__QuoteLikeToken__ContentAssignment_4_1 ) )
-            // InternalPerl.g:4365:2: ( rule__QuoteLikeToken__ContentAssignment_4_1 )
+            // InternalPerl.g:4410:1: ( ( rule__QuoteLikeToken__ContentAssignment_4_1 ) )
+            // InternalPerl.g:4411:2: ( rule__QuoteLikeToken__ContentAssignment_4_1 )
             {
              before(grammarAccess.getQuoteLikeTokenAccess().getContentAssignment_4_1()); 
-            // InternalPerl.g:4366:2: ( rule__QuoteLikeToken__ContentAssignment_4_1 )
-            // InternalPerl.g:4366:3: rule__QuoteLikeToken__ContentAssignment_4_1
+            // InternalPerl.g:4412:2: ( rule__QuoteLikeToken__ContentAssignment_4_1 )
+            // InternalPerl.g:4412:3: rule__QuoteLikeToken__ContentAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__QuoteLikeToken__ContentAssignment_4_1();
@@ -14378,16 +14537,16 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operator__Group_23__0"
-    // InternalPerl.g:4375:1: rule__Operator__Group_23__0 : rule__Operator__Group_23__0__Impl rule__Operator__Group_23__1 ;
+    // InternalPerl.g:4421:1: rule__Operator__Group_23__0 : rule__Operator__Group_23__0__Impl rule__Operator__Group_23__1 ;
     public final void rule__Operator__Group_23__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4379:1: ( rule__Operator__Group_23__0__Impl rule__Operator__Group_23__1 )
-            // InternalPerl.g:4380:2: rule__Operator__Group_23__0__Impl rule__Operator__Group_23__1
+            // InternalPerl.g:4425:1: ( rule__Operator__Group_23__0__Impl rule__Operator__Group_23__1 )
+            // InternalPerl.g:4426:2: rule__Operator__Group_23__0__Impl rule__Operator__Group_23__1
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_33);
             rule__Operator__Group_23__0__Impl();
 
             state._fsp--;
@@ -14416,17 +14575,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operator__Group_23__0__Impl"
-    // InternalPerl.g:4387:1: rule__Operator__Group_23__0__Impl : ( '<=>' ) ;
+    // InternalPerl.g:4433:1: rule__Operator__Group_23__0__Impl : ( '<=>' ) ;
     public final void rule__Operator__Group_23__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4391:1: ( ( '<=>' ) )
-            // InternalPerl.g:4392:1: ( '<=>' )
+            // InternalPerl.g:4437:1: ( ( '<=>' ) )
+            // InternalPerl.g:4438:1: ( '<=>' )
             {
-            // InternalPerl.g:4392:1: ( '<=>' )
-            // InternalPerl.g:4393:2: '<=>'
+            // InternalPerl.g:4438:1: ( '<=>' )
+            // InternalPerl.g:4439:2: '<=>'
             {
              before(grammarAccess.getOperatorAccess().getLessThanSignEqualsSignGreaterThanSignKeyword_23_0()); 
             match(input,347,FOLLOW_2); 
@@ -14453,14 +14612,14 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operator__Group_23__1"
-    // InternalPerl.g:4402:1: rule__Operator__Group_23__1 : rule__Operator__Group_23__1__Impl ;
+    // InternalPerl.g:4448:1: rule__Operator__Group_23__1 : rule__Operator__Group_23__1__Impl ;
     public final void rule__Operator__Group_23__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4406:1: ( rule__Operator__Group_23__1__Impl )
-            // InternalPerl.g:4407:2: rule__Operator__Group_23__1__Impl
+            // InternalPerl.g:4452:1: ( rule__Operator__Group_23__1__Impl )
+            // InternalPerl.g:4453:2: rule__Operator__Group_23__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Operator__Group_23__1__Impl();
@@ -14486,17 +14645,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operator__Group_23__1__Impl"
-    // InternalPerl.g:4413:1: rule__Operator__Group_23__1__Impl : ( '.' ) ;
+    // InternalPerl.g:4459:1: rule__Operator__Group_23__1__Impl : ( '.' ) ;
     public final void rule__Operator__Group_23__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4417:1: ( ( '.' ) )
-            // InternalPerl.g:4418:1: ( '.' )
+            // InternalPerl.g:4463:1: ( ( '.' ) )
+            // InternalPerl.g:4464:1: ( '.' )
             {
-            // InternalPerl.g:4418:1: ( '.' )
-            // InternalPerl.g:4419:2: '.'
+            // InternalPerl.g:4464:1: ( '.' )
+            // InternalPerl.g:4465:2: '.'
             {
              before(grammarAccess.getOperatorAccess().getFullStopKeyword_23_1()); 
             match(input,348,FOLLOW_2); 
@@ -14523,17 +14682,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PerlDocument__ElementsAssignment_1"
-    // InternalPerl.g:4429:1: rule__PerlDocument__ElementsAssignment_1 : ( ruleElement ) ;
+    // InternalPerl.g:4475:1: rule__PerlDocument__ElementsAssignment_1 : ( ruleElement ) ;
     public final void rule__PerlDocument__ElementsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4433:1: ( ( ruleElement ) )
-            // InternalPerl.g:4434:2: ( ruleElement )
+            // InternalPerl.g:4479:1: ( ( ruleElement ) )
+            // InternalPerl.g:4480:2: ( ruleElement )
             {
-            // InternalPerl.g:4434:2: ( ruleElement )
-            // InternalPerl.g:4435:3: ruleElement
+            // InternalPerl.g:4480:2: ( ruleElement )
+            // InternalPerl.g:4481:3: ruleElement
             {
              before(grammarAccess.getPerlDocumentAccess().getElementsElementParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -14564,17 +14723,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PackageStatement__NameAssignment_2"
-    // InternalPerl.g:4444:1: rule__PackageStatement__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalPerl.g:4490:1: rule__PackageStatement__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__PackageStatement__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4448:1: ( ( RULE_ID ) )
-            // InternalPerl.g:4449:2: ( RULE_ID )
+            // InternalPerl.g:4494:1: ( ( RULE_ID ) )
+            // InternalPerl.g:4495:2: ( RULE_ID )
             {
-            // InternalPerl.g:4449:2: ( RULE_ID )
-            // InternalPerl.g:4450:3: RULE_ID
+            // InternalPerl.g:4495:2: ( RULE_ID )
+            // InternalPerl.g:4496:3: RULE_ID
             {
              before(grammarAccess.getPackageStatementAccess().getNameIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -14601,17 +14760,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PackageStatement__VersionAssignment_3"
-    // InternalPerl.g:4459:1: rule__PackageStatement__VersionAssignment_3 : ( RULE_VERSION ) ;
+    // InternalPerl.g:4505:1: rule__PackageStatement__VersionAssignment_3 : ( RULE_VERSION ) ;
     public final void rule__PackageStatement__VersionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4463:1: ( ( RULE_VERSION ) )
-            // InternalPerl.g:4464:2: ( RULE_VERSION )
+            // InternalPerl.g:4509:1: ( ( RULE_VERSION ) )
+            // InternalPerl.g:4510:2: ( RULE_VERSION )
             {
-            // InternalPerl.g:4464:2: ( RULE_VERSION )
-            // InternalPerl.g:4465:3: RULE_VERSION
+            // InternalPerl.g:4510:2: ( RULE_VERSION )
+            // InternalPerl.g:4511:3: RULE_VERSION
             {
              before(grammarAccess.getPackageStatementAccess().getVersionVERSIONTerminalRuleCall_3_0()); 
             match(input,RULE_VERSION,FOLLOW_2); 
@@ -14638,17 +14797,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RequireInclude__VersionAssignment_1"
-    // InternalPerl.g:4474:1: rule__RequireInclude__VersionAssignment_1 : ( RULE_VERSION ) ;
+    // InternalPerl.g:4520:1: rule__RequireInclude__VersionAssignment_1 : ( RULE_VERSION ) ;
     public final void rule__RequireInclude__VersionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4478:1: ( ( RULE_VERSION ) )
-            // InternalPerl.g:4479:2: ( RULE_VERSION )
+            // InternalPerl.g:4524:1: ( ( RULE_VERSION ) )
+            // InternalPerl.g:4525:2: ( RULE_VERSION )
             {
-            // InternalPerl.g:4479:2: ( RULE_VERSION )
-            // InternalPerl.g:4480:3: RULE_VERSION
+            // InternalPerl.g:4525:2: ( RULE_VERSION )
+            // InternalPerl.g:4526:3: RULE_VERSION
             {
              before(grammarAccess.getRequireIncludeAccess().getVersionVERSIONTerminalRuleCall_1_0()); 
             match(input,RULE_VERSION,FOLLOW_2); 
@@ -14675,17 +14834,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseInclude__VersionAssignment_2_0"
-    // InternalPerl.g:4489:1: rule__UseInclude__VersionAssignment_2_0 : ( RULE_VERSION ) ;
+    // InternalPerl.g:4535:1: rule__UseInclude__VersionAssignment_2_0 : ( RULE_VERSION ) ;
     public final void rule__UseInclude__VersionAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4493:1: ( ( RULE_VERSION ) )
-            // InternalPerl.g:4494:2: ( RULE_VERSION )
+            // InternalPerl.g:4539:1: ( ( RULE_VERSION ) )
+            // InternalPerl.g:4540:2: ( RULE_VERSION )
             {
-            // InternalPerl.g:4494:2: ( RULE_VERSION )
-            // InternalPerl.g:4495:3: RULE_VERSION
+            // InternalPerl.g:4540:2: ( RULE_VERSION )
+            // InternalPerl.g:4541:3: RULE_VERSION
             {
              before(grammarAccess.getUseIncludeAccess().getVersionVERSIONTerminalRuleCall_2_0_0()); 
             match(input,RULE_VERSION,FOLLOW_2); 
@@ -14712,17 +14871,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseInclude__PragmaOrPackageAssignment_2_1_0"
-    // InternalPerl.g:4504:1: rule__UseInclude__PragmaOrPackageAssignment_2_1_0 : ( RULE_ID ) ;
+    // InternalPerl.g:4550:1: rule__UseInclude__PragmaOrPackageAssignment_2_1_0 : ( RULE_ID ) ;
     public final void rule__UseInclude__PragmaOrPackageAssignment_2_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4508:1: ( ( RULE_ID ) )
-            // InternalPerl.g:4509:2: ( RULE_ID )
+            // InternalPerl.g:4554:1: ( ( RULE_ID ) )
+            // InternalPerl.g:4555:2: ( RULE_ID )
             {
-            // InternalPerl.g:4509:2: ( RULE_ID )
-            // InternalPerl.g:4510:3: RULE_ID
+            // InternalPerl.g:4555:2: ( RULE_ID )
+            // InternalPerl.g:4556:3: RULE_ID
             {
              before(grammarAccess.getUseIncludeAccess().getPragmaOrPackageIDTerminalRuleCall_2_1_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -14749,17 +14908,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseInclude__StringArgumentAssignment_2_1_1_0"
-    // InternalPerl.g:4519:1: rule__UseInclude__StringArgumentAssignment_2_1_1_0 : ( ruleQuoteToken ) ;
+    // InternalPerl.g:4565:1: rule__UseInclude__StringArgumentAssignment_2_1_1_0 : ( ruleQuoteToken ) ;
     public final void rule__UseInclude__StringArgumentAssignment_2_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4523:1: ( ( ruleQuoteToken ) )
-            // InternalPerl.g:4524:2: ( ruleQuoteToken )
+            // InternalPerl.g:4569:1: ( ( ruleQuoteToken ) )
+            // InternalPerl.g:4570:2: ( ruleQuoteToken )
             {
-            // InternalPerl.g:4524:2: ( ruleQuoteToken )
-            // InternalPerl.g:4525:3: ruleQuoteToken
+            // InternalPerl.g:4570:2: ( ruleQuoteToken )
+            // InternalPerl.g:4571:3: ruleQuoteToken
             {
              before(grammarAccess.getUseIncludeAccess().getStringArgumentQuoteTokenParserRuleCall_2_1_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -14790,17 +14949,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseInclude__QwArgumentAssignment_2_1_1_1"
-    // InternalPerl.g:4534:1: rule__UseInclude__QwArgumentAssignment_2_1_1_1 : ( RULE_WORDS_QUOTE_LIKE ) ;
+    // InternalPerl.g:4580:1: rule__UseInclude__QwArgumentAssignment_2_1_1_1 : ( RULE_WORDS_QUOTE_LIKE ) ;
     public final void rule__UseInclude__QwArgumentAssignment_2_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4538:1: ( ( RULE_WORDS_QUOTE_LIKE ) )
-            // InternalPerl.g:4539:2: ( RULE_WORDS_QUOTE_LIKE )
+            // InternalPerl.g:4584:1: ( ( RULE_WORDS_QUOTE_LIKE ) )
+            // InternalPerl.g:4585:2: ( RULE_WORDS_QUOTE_LIKE )
             {
-            // InternalPerl.g:4539:2: ( RULE_WORDS_QUOTE_LIKE )
-            // InternalPerl.g:4540:3: RULE_WORDS_QUOTE_LIKE
+            // InternalPerl.g:4585:2: ( RULE_WORDS_QUOTE_LIKE )
+            // InternalPerl.g:4586:3: RULE_WORDS_QUOTE_LIKE
             {
              before(grammarAccess.getUseIncludeAccess().getQwArgumentWORDS_QUOTE_LIKETerminalRuleCall_2_1_1_1_0()); 
             match(input,RULE_WORDS_QUOTE_LIKE,FOLLOW_2); 
@@ -14827,17 +14986,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SubStatement__NameAssignment_2"
-    // InternalPerl.g:4549:1: rule__SubStatement__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalPerl.g:4595:1: rule__SubStatement__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__SubStatement__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4553:1: ( ( RULE_ID ) )
-            // InternalPerl.g:4554:2: ( RULE_ID )
+            // InternalPerl.g:4599:1: ( ( RULE_ID ) )
+            // InternalPerl.g:4600:2: ( RULE_ID )
             {
-            // InternalPerl.g:4554:2: ( RULE_ID )
-            // InternalPerl.g:4555:3: RULE_ID
+            // InternalPerl.g:4600:2: ( RULE_ID )
+            // InternalPerl.g:4601:3: RULE_ID
             {
              before(grammarAccess.getSubStatementAccess().getNameIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -14864,17 +15023,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SubStatement__PrototypeAssignment_3"
-    // InternalPerl.g:4564:1: rule__SubStatement__PrototypeAssignment_3 : ( rulePrototype ) ;
+    // InternalPerl.g:4610:1: rule__SubStatement__PrototypeAssignment_3 : ( rulePrototype ) ;
     public final void rule__SubStatement__PrototypeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4568:1: ( ( rulePrototype ) )
-            // InternalPerl.g:4569:2: ( rulePrototype )
+            // InternalPerl.g:4614:1: ( ( rulePrototype ) )
+            // InternalPerl.g:4615:2: ( rulePrototype )
             {
-            // InternalPerl.g:4569:2: ( rulePrototype )
-            // InternalPerl.g:4570:3: rulePrototype
+            // InternalPerl.g:4615:2: ( rulePrototype )
+            // InternalPerl.g:4616:3: rulePrototype
             {
              before(grammarAccess.getSubStatementAccess().getPrototypePrototypeParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -14905,25 +15064,25 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SubStatement__BlockAssignment_4_1"
-    // InternalPerl.g:4579:1: rule__SubStatement__BlockAssignment_4_1 : ( ruleStatementBlock ) ;
+    // InternalPerl.g:4625:1: rule__SubStatement__BlockAssignment_4_1 : ( ruleBlockStructure ) ;
     public final void rule__SubStatement__BlockAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4583:1: ( ( ruleStatementBlock ) )
-            // InternalPerl.g:4584:2: ( ruleStatementBlock )
+            // InternalPerl.g:4629:1: ( ( ruleBlockStructure ) )
+            // InternalPerl.g:4630:2: ( ruleBlockStructure )
             {
-            // InternalPerl.g:4584:2: ( ruleStatementBlock )
-            // InternalPerl.g:4585:3: ruleStatementBlock
+            // InternalPerl.g:4630:2: ( ruleBlockStructure )
+            // InternalPerl.g:4631:3: ruleBlockStructure
             {
-             before(grammarAccess.getSubStatementAccess().getBlockStatementBlockParserRuleCall_4_1_0()); 
+             before(grammarAccess.getSubStatementAccess().getBlockBlockStructureParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
-            ruleStatementBlock();
+            ruleBlockStructure();
 
             state._fsp--;
 
-             after(grammarAccess.getSubStatementAccess().getBlockStatementBlockParserRuleCall_4_1_0()); 
+             after(grammarAccess.getSubStatementAccess().getBlockBlockStructureParserRuleCall_4_1_0()); 
 
             }
 
@@ -14945,26 +15104,26 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__SubStatement__BlockAssignment_4_1"
 
 
-    // $ANTLR start "rule__StatementBlock__StatementsAssignment_2"
-    // InternalPerl.g:4594:1: rule__StatementBlock__StatementsAssignment_2 : ( ruleStatementNode ) ;
-    public final void rule__StatementBlock__StatementsAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__BlockStructure__StatementsAssignment_2"
+    // InternalPerl.g:4640:1: rule__BlockStructure__StatementsAssignment_2 : ( ruleStatementNode ) ;
+    public final void rule__BlockStructure__StatementsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4598:1: ( ( ruleStatementNode ) )
-            // InternalPerl.g:4599:2: ( ruleStatementNode )
+            // InternalPerl.g:4644:1: ( ( ruleStatementNode ) )
+            // InternalPerl.g:4645:2: ( ruleStatementNode )
             {
-            // InternalPerl.g:4599:2: ( ruleStatementNode )
-            // InternalPerl.g:4600:3: ruleStatementNode
+            // InternalPerl.g:4645:2: ( ruleStatementNode )
+            // InternalPerl.g:4646:3: ruleStatementNode
             {
-             before(grammarAccess.getStatementBlockAccess().getStatementsStatementNodeParserRuleCall_2_0()); 
+             before(grammarAccess.getBlockStructureAccess().getStatementsStatementNodeParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
             ruleStatementNode();
 
             state._fsp--;
 
-             after(grammarAccess.getStatementBlockAccess().getStatementsStatementNodeParserRuleCall_2_0()); 
+             after(grammarAccess.getBlockStructureAccess().getStatementsStatementNodeParserRuleCall_2_0()); 
 
             }
 
@@ -14983,21 +15142,21 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__StatementBlock__StatementsAssignment_2"
+    // $ANTLR end "rule__BlockStructure__StatementsAssignment_2"
 
 
     // $ANTLR start "rule__Token__ContentAssignment_0_1"
-    // InternalPerl.g:4609:1: rule__Token__ContentAssignment_0_1 : ( RULE_POD ) ;
+    // InternalPerl.g:4655:1: rule__Token__ContentAssignment_0_1 : ( RULE_POD ) ;
     public final void rule__Token__ContentAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4613:1: ( ( RULE_POD ) )
-            // InternalPerl.g:4614:2: ( RULE_POD )
+            // InternalPerl.g:4659:1: ( ( RULE_POD ) )
+            // InternalPerl.g:4660:2: ( RULE_POD )
             {
-            // InternalPerl.g:4614:2: ( RULE_POD )
-            // InternalPerl.g:4615:3: RULE_POD
+            // InternalPerl.g:4660:2: ( RULE_POD )
+            // InternalPerl.g:4661:3: RULE_POD
             {
              before(grammarAccess.getTokenAccess().getContentPODTerminalRuleCall_0_1_0()); 
             match(input,RULE_POD,FOLLOW_2); 
@@ -15024,17 +15183,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__ContentAssignment_1_1"
-    // InternalPerl.g:4624:1: rule__Token__ContentAssignment_1_1 : ( RULE_NUMBER ) ;
+    // InternalPerl.g:4670:1: rule__Token__ContentAssignment_1_1 : ( RULE_NUMBER ) ;
     public final void rule__Token__ContentAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4628:1: ( ( RULE_NUMBER ) )
-            // InternalPerl.g:4629:2: ( RULE_NUMBER )
+            // InternalPerl.g:4674:1: ( ( RULE_NUMBER ) )
+            // InternalPerl.g:4675:2: ( RULE_NUMBER )
             {
-            // InternalPerl.g:4629:2: ( RULE_NUMBER )
-            // InternalPerl.g:4630:3: RULE_NUMBER
+            // InternalPerl.g:4675:2: ( RULE_NUMBER )
+            // InternalPerl.g:4676:3: RULE_NUMBER
             {
              before(grammarAccess.getTokenAccess().getContentNUMBERTerminalRuleCall_1_1_0()); 
             match(input,RULE_NUMBER,FOLLOW_2); 
@@ -15061,17 +15220,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__ContentAssignment_2_1"
-    // InternalPerl.g:4639:1: rule__Token__ContentAssignment_2_1 : ( ruleWord ) ;
+    // InternalPerl.g:4685:1: rule__Token__ContentAssignment_2_1 : ( ruleWord ) ;
     public final void rule__Token__ContentAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4643:1: ( ( ruleWord ) )
-            // InternalPerl.g:4644:2: ( ruleWord )
+            // InternalPerl.g:4689:1: ( ( ruleWord ) )
+            // InternalPerl.g:4690:2: ( ruleWord )
             {
-            // InternalPerl.g:4644:2: ( ruleWord )
-            // InternalPerl.g:4645:3: ruleWord
+            // InternalPerl.g:4690:2: ( ruleWord )
+            // InternalPerl.g:4691:3: ruleWord
             {
              before(grammarAccess.getTokenAccess().getContentWordParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -15102,17 +15261,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__ContentAssignment_3_1"
-    // InternalPerl.g:4654:1: rule__Token__ContentAssignment_3_1 : ( RULE_SYMBOL ) ;
+    // InternalPerl.g:4700:1: rule__Token__ContentAssignment_3_1 : ( RULE_SYMBOL ) ;
     public final void rule__Token__ContentAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4658:1: ( ( RULE_SYMBOL ) )
-            // InternalPerl.g:4659:2: ( RULE_SYMBOL )
+            // InternalPerl.g:4704:1: ( ( RULE_SYMBOL ) )
+            // InternalPerl.g:4705:2: ( RULE_SYMBOL )
             {
-            // InternalPerl.g:4659:2: ( RULE_SYMBOL )
-            // InternalPerl.g:4660:3: RULE_SYMBOL
+            // InternalPerl.g:4705:2: ( RULE_SYMBOL )
+            // InternalPerl.g:4706:3: RULE_SYMBOL
             {
              before(grammarAccess.getTokenAccess().getContentSYMBOLTerminalRuleCall_3_1_0()); 
             match(input,RULE_SYMBOL,FOLLOW_2); 
@@ -15139,17 +15298,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__ContentAssignment_5_1"
-    // InternalPerl.g:4669:1: rule__Token__ContentAssignment_5_1 : ( ruleFileTestOperator ) ;
+    // InternalPerl.g:4715:1: rule__Token__ContentAssignment_5_1 : ( ruleFileTestOperator ) ;
     public final void rule__Token__ContentAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4673:1: ( ( ruleFileTestOperator ) )
-            // InternalPerl.g:4674:2: ( ruleFileTestOperator )
+            // InternalPerl.g:4719:1: ( ( ruleFileTestOperator ) )
+            // InternalPerl.g:4720:2: ( ruleFileTestOperator )
             {
-            // InternalPerl.g:4674:2: ( ruleFileTestOperator )
-            // InternalPerl.g:4675:3: ruleFileTestOperator
+            // InternalPerl.g:4720:2: ( ruleFileTestOperator )
+            // InternalPerl.g:4721:3: ruleFileTestOperator
             {
              before(grammarAccess.getTokenAccess().getContentFileTestOperatorParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -15180,17 +15339,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__ContentAssignment_6_1"
-    // InternalPerl.g:4684:1: rule__Token__ContentAssignment_6_1 : ( ruleOperator ) ;
+    // InternalPerl.g:4730:1: rule__Token__ContentAssignment_6_1 : ( ruleOperator ) ;
     public final void rule__Token__ContentAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4688:1: ( ( ruleOperator ) )
-            // InternalPerl.g:4689:2: ( ruleOperator )
+            // InternalPerl.g:4734:1: ( ( ruleOperator ) )
+            // InternalPerl.g:4735:2: ( ruleOperator )
             {
-            // InternalPerl.g:4689:2: ( ruleOperator )
-            // InternalPerl.g:4690:3: ruleOperator
+            // InternalPerl.g:4735:2: ( ruleOperator )
+            // InternalPerl.g:4736:3: ruleOperator
             {
              before(grammarAccess.getTokenAccess().getContentOperatorParserRuleCall_6_1_0()); 
             pushFollow(FOLLOW_2);
@@ -15221,17 +15380,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__ContentAssignment_9_1"
-    // InternalPerl.g:4699:1: rule__Token__ContentAssignment_9_1 : ( RULE_DATA ) ;
+    // InternalPerl.g:4745:1: rule__Token__ContentAssignment_9_1 : ( RULE_DATA ) ;
     public final void rule__Token__ContentAssignment_9_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4703:1: ( ( RULE_DATA ) )
-            // InternalPerl.g:4704:2: ( RULE_DATA )
+            // InternalPerl.g:4749:1: ( ( RULE_DATA ) )
+            // InternalPerl.g:4750:2: ( RULE_DATA )
             {
-            // InternalPerl.g:4704:2: ( RULE_DATA )
-            // InternalPerl.g:4705:3: RULE_DATA
+            // InternalPerl.g:4750:2: ( RULE_DATA )
+            // InternalPerl.g:4751:3: RULE_DATA
             {
              before(grammarAccess.getTokenAccess().getContentDATATerminalRuleCall_9_1_0()); 
             match(input,RULE_DATA,FOLLOW_2); 
@@ -15258,17 +15417,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Token__ContentAssignment_10_1"
-    // InternalPerl.g:4714:1: rule__Token__ContentAssignment_10_1 : ( RULE_END ) ;
+    // InternalPerl.g:4760:1: rule__Token__ContentAssignment_10_1 : ( RULE_END ) ;
     public final void rule__Token__ContentAssignment_10_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4718:1: ( ( RULE_END ) )
-            // InternalPerl.g:4719:2: ( RULE_END )
+            // InternalPerl.g:4764:1: ( ( RULE_END ) )
+            // InternalPerl.g:4765:2: ( RULE_END )
             {
-            // InternalPerl.g:4719:2: ( RULE_END )
-            // InternalPerl.g:4720:3: RULE_END
+            // InternalPerl.g:4765:2: ( RULE_END )
+            // InternalPerl.g:4766:3: RULE_END
             {
              before(grammarAccess.getTokenAccess().getContentENDTerminalRuleCall_10_1_0()); 
             match(input,RULE_END,FOLLOW_2); 
@@ -15294,69 +15453,22 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Token__ContentAssignment_10_1"
 
 
-    // $ANTLR start "rule__RegexToken__ContentAssignment_1"
-    // InternalPerl.g:4729:1: rule__RegexToken__ContentAssignment_1 : ( ( rule__RegexToken__ContentAlternatives_1_0 ) ) ;
-    public final void rule__RegexToken__ContentAssignment_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPerl.g:4733:1: ( ( ( rule__RegexToken__ContentAlternatives_1_0 ) ) )
-            // InternalPerl.g:4734:2: ( ( rule__RegexToken__ContentAlternatives_1_0 ) )
-            {
-            // InternalPerl.g:4734:2: ( ( rule__RegexToken__ContentAlternatives_1_0 ) )
-            // InternalPerl.g:4735:3: ( rule__RegexToken__ContentAlternatives_1_0 )
-            {
-             before(grammarAccess.getRegexTokenAccess().getContentAlternatives_1_0()); 
-            // InternalPerl.g:4736:3: ( rule__RegexToken__ContentAlternatives_1_0 )
-            // InternalPerl.g:4736:4: rule__RegexToken__ContentAlternatives_1_0
-            {
-            pushFollow(FOLLOW_2);
-            rule__RegexToken__ContentAlternatives_1_0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getRegexTokenAccess().getContentAlternatives_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__RegexToken__ContentAssignment_1"
-
-
     // $ANTLR start "rule__QuoteToken__ContentAssignment_1"
-    // InternalPerl.g:4744:1: rule__QuoteToken__ContentAssignment_1 : ( ( rule__QuoteToken__ContentAlternatives_1_0 ) ) ;
+    // InternalPerl.g:4775:1: rule__QuoteToken__ContentAssignment_1 : ( ( rule__QuoteToken__ContentAlternatives_1_0 ) ) ;
     public final void rule__QuoteToken__ContentAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4748:1: ( ( ( rule__QuoteToken__ContentAlternatives_1_0 ) ) )
-            // InternalPerl.g:4749:2: ( ( rule__QuoteToken__ContentAlternatives_1_0 ) )
+            // InternalPerl.g:4779:1: ( ( ( rule__QuoteToken__ContentAlternatives_1_0 ) ) )
+            // InternalPerl.g:4780:2: ( ( rule__QuoteToken__ContentAlternatives_1_0 ) )
             {
-            // InternalPerl.g:4749:2: ( ( rule__QuoteToken__ContentAlternatives_1_0 ) )
-            // InternalPerl.g:4750:3: ( rule__QuoteToken__ContentAlternatives_1_0 )
+            // InternalPerl.g:4780:2: ( ( rule__QuoteToken__ContentAlternatives_1_0 ) )
+            // InternalPerl.g:4781:3: ( rule__QuoteToken__ContentAlternatives_1_0 )
             {
              before(grammarAccess.getQuoteTokenAccess().getContentAlternatives_1_0()); 
-            // InternalPerl.g:4751:3: ( rule__QuoteToken__ContentAlternatives_1_0 )
-            // InternalPerl.g:4751:4: rule__QuoteToken__ContentAlternatives_1_0
+            // InternalPerl.g:4782:3: ( rule__QuoteToken__ContentAlternatives_1_0 )
+            // InternalPerl.g:4782:4: rule__QuoteToken__ContentAlternatives_1_0
             {
             pushFollow(FOLLOW_2);
             rule__QuoteToken__ContentAlternatives_1_0();
@@ -15388,18 +15500,65 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__QuoteToken__ContentAssignment_1"
 
 
+    // $ANTLR start "rule__RegexToken__ContentAssignment_1"
+    // InternalPerl.g:4790:1: rule__RegexToken__ContentAssignment_1 : ( ( rule__RegexToken__ContentAlternatives_1_0 ) ) ;
+    public final void rule__RegexToken__ContentAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPerl.g:4794:1: ( ( ( rule__RegexToken__ContentAlternatives_1_0 ) ) )
+            // InternalPerl.g:4795:2: ( ( rule__RegexToken__ContentAlternatives_1_0 ) )
+            {
+            // InternalPerl.g:4795:2: ( ( rule__RegexToken__ContentAlternatives_1_0 ) )
+            // InternalPerl.g:4796:3: ( rule__RegexToken__ContentAlternatives_1_0 )
+            {
+             before(grammarAccess.getRegexTokenAccess().getContentAlternatives_1_0()); 
+            // InternalPerl.g:4797:3: ( rule__RegexToken__ContentAlternatives_1_0 )
+            // InternalPerl.g:4797:4: rule__RegexToken__ContentAlternatives_1_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__RegexToken__ContentAlternatives_1_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRegexTokenAccess().getContentAlternatives_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RegexToken__ContentAssignment_1"
+
+
     // $ANTLR start "rule__QuoteLikeToken__ContentAssignment_0_1"
-    // InternalPerl.g:4759:1: rule__QuoteLikeToken__ContentAssignment_0_1 : ( RULE_BACKTICK_STRING ) ;
+    // InternalPerl.g:4805:1: rule__QuoteLikeToken__ContentAssignment_0_1 : ( RULE_BACKTICK_STRING ) ;
     public final void rule__QuoteLikeToken__ContentAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4763:1: ( ( RULE_BACKTICK_STRING ) )
-            // InternalPerl.g:4764:2: ( RULE_BACKTICK_STRING )
+            // InternalPerl.g:4809:1: ( ( RULE_BACKTICK_STRING ) )
+            // InternalPerl.g:4810:2: ( RULE_BACKTICK_STRING )
             {
-            // InternalPerl.g:4764:2: ( RULE_BACKTICK_STRING )
-            // InternalPerl.g:4765:3: RULE_BACKTICK_STRING
+            // InternalPerl.g:4810:2: ( RULE_BACKTICK_STRING )
+            // InternalPerl.g:4811:3: RULE_BACKTICK_STRING
             {
              before(grammarAccess.getQuoteLikeTokenAccess().getContentBACKTICK_STRINGTerminalRuleCall_0_1_0()); 
             match(input,RULE_BACKTICK_STRING,FOLLOW_2); 
@@ -15426,17 +15585,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__ContentAssignment_1_1"
-    // InternalPerl.g:4774:1: rule__QuoteLikeToken__ContentAssignment_1_1 : ( RULE_WORDS_QUOTE_LIKE ) ;
+    // InternalPerl.g:4820:1: rule__QuoteLikeToken__ContentAssignment_1_1 : ( RULE_WORDS_QUOTE_LIKE ) ;
     public final void rule__QuoteLikeToken__ContentAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4778:1: ( ( RULE_WORDS_QUOTE_LIKE ) )
-            // InternalPerl.g:4779:2: ( RULE_WORDS_QUOTE_LIKE )
+            // InternalPerl.g:4824:1: ( ( RULE_WORDS_QUOTE_LIKE ) )
+            // InternalPerl.g:4825:2: ( RULE_WORDS_QUOTE_LIKE )
             {
-            // InternalPerl.g:4779:2: ( RULE_WORDS_QUOTE_LIKE )
-            // InternalPerl.g:4780:3: RULE_WORDS_QUOTE_LIKE
+            // InternalPerl.g:4825:2: ( RULE_WORDS_QUOTE_LIKE )
+            // InternalPerl.g:4826:3: RULE_WORDS_QUOTE_LIKE
             {
              before(grammarAccess.getQuoteLikeTokenAccess().getContentWORDS_QUOTE_LIKETerminalRuleCall_1_1_0()); 
             match(input,RULE_WORDS_QUOTE_LIKE,FOLLOW_2); 
@@ -15463,17 +15622,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__ContentAssignment_2_1"
-    // InternalPerl.g:4789:1: rule__QuoteLikeToken__ContentAssignment_2_1 : ( RULE_COMMAND_QUOTE_LIKE ) ;
+    // InternalPerl.g:4835:1: rule__QuoteLikeToken__ContentAssignment_2_1 : ( RULE_COMMAND_QUOTE_LIKE ) ;
     public final void rule__QuoteLikeToken__ContentAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4793:1: ( ( RULE_COMMAND_QUOTE_LIKE ) )
-            // InternalPerl.g:4794:2: ( RULE_COMMAND_QUOTE_LIKE )
+            // InternalPerl.g:4839:1: ( ( RULE_COMMAND_QUOTE_LIKE ) )
+            // InternalPerl.g:4840:2: ( RULE_COMMAND_QUOTE_LIKE )
             {
-            // InternalPerl.g:4794:2: ( RULE_COMMAND_QUOTE_LIKE )
-            // InternalPerl.g:4795:3: RULE_COMMAND_QUOTE_LIKE
+            // InternalPerl.g:4840:2: ( RULE_COMMAND_QUOTE_LIKE )
+            // InternalPerl.g:4841:3: RULE_COMMAND_QUOTE_LIKE
             {
              before(grammarAccess.getQuoteLikeTokenAccess().getContentCOMMAND_QUOTE_LIKETerminalRuleCall_2_1_0()); 
             match(input,RULE_COMMAND_QUOTE_LIKE,FOLLOW_2); 
@@ -15500,17 +15659,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__ContentAssignment_3_1"
-    // InternalPerl.g:4804:1: rule__QuoteLikeToken__ContentAssignment_3_1 : ( RULE_REGEX_QUOTE ) ;
+    // InternalPerl.g:4850:1: rule__QuoteLikeToken__ContentAssignment_3_1 : ( RULE_REGEX_QUOTE ) ;
     public final void rule__QuoteLikeToken__ContentAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4808:1: ( ( RULE_REGEX_QUOTE ) )
-            // InternalPerl.g:4809:2: ( RULE_REGEX_QUOTE )
+            // InternalPerl.g:4854:1: ( ( RULE_REGEX_QUOTE ) )
+            // InternalPerl.g:4855:2: ( RULE_REGEX_QUOTE )
             {
-            // InternalPerl.g:4809:2: ( RULE_REGEX_QUOTE )
-            // InternalPerl.g:4810:3: RULE_REGEX_QUOTE
+            // InternalPerl.g:4855:2: ( RULE_REGEX_QUOTE )
+            // InternalPerl.g:4856:3: RULE_REGEX_QUOTE
             {
              before(grammarAccess.getQuoteLikeTokenAccess().getContentREGEX_QUOTETerminalRuleCall_3_1_0()); 
             match(input,RULE_REGEX_QUOTE,FOLLOW_2); 
@@ -15537,17 +15696,17 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuoteLikeToken__ContentAssignment_4_1"
-    // InternalPerl.g:4819:1: rule__QuoteLikeToken__ContentAssignment_4_1 : ( RULE_READLINE_QUOTE ) ;
+    // InternalPerl.g:4865:1: rule__QuoteLikeToken__ContentAssignment_4_1 : ( RULE_READLINE_QUOTE ) ;
     public final void rule__QuoteLikeToken__ContentAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPerl.g:4823:1: ( ( RULE_READLINE_QUOTE ) )
-            // InternalPerl.g:4824:2: ( RULE_READLINE_QUOTE )
+            // InternalPerl.g:4869:1: ( ( RULE_READLINE_QUOTE ) )
+            // InternalPerl.g:4870:2: ( RULE_READLINE_QUOTE )
             {
-            // InternalPerl.g:4824:2: ( RULE_READLINE_QUOTE )
-            // InternalPerl.g:4825:3: RULE_READLINE_QUOTE
+            // InternalPerl.g:4870:2: ( RULE_READLINE_QUOTE )
+            // InternalPerl.g:4871:3: RULE_READLINE_QUOTE
             {
              before(grammarAccess.getQuoteLikeTokenAccess().getContentREADLINE_QUOTETerminalRuleCall_4_1_0()); 
             match(input,RULE_READLINE_QUOTE,FOLLOW_2); 
@@ -15579,35 +15738,36 @@ public class InternalPerlParser extends AbstractInternalContentAssistParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0xFFFFFFFF403FF3F0L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x00000000087FFFFFL});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0xFFFFFFFF403FF3F2L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x00000000087FFFFFL});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0xFFFFFFFF403FF3F0L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x0000000008FFFFFFL});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0xFFFFFFFF403FF3F2L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x0000000008FFFFFFL});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000010000000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000002000000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000400L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000800L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000100002000000L,0x0008000001000000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000C00L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000001380L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000001070L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000010000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000002800000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000100002000000L,0x0008000001000000L,0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000100002000000L,0x0008000001000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x00000001F0000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000004000000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x00000001F0000002L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0xFFFFFFFE00000000L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x7FFFFFFFFFFFFFFFL});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0xF000000000000000L,0x00000000007FFFFFL});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000140000000L,0x0000000000000000L,0x0000000000000000L,0x8000000000000000L,0x0FFFFFFFFFFFFFFFL,0x0000000008000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000000070L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000000380L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x00000000003C1000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000010000000L,0x0000000000000000L,0x0000100002000000L,0x0008000001000000L,0x0000000000000000L,0x0000000002800000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000100002000000L,0x0008000001000000L,0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000100002000000L,0x0008000001000000L,0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000100002000000L,0x0008000001000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x00000001F0000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000004000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x00000001F0000002L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0xFFFFFFFE00000000L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x7FFFFFFFFFFFFFFFL});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0xF000000000000000L,0x00000000007FFFFFL});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000140000000L,0x0000000000000000L,0x0000000000000000L,0x8000000000000000L,0x0FFFFFFFFFFFFFFFL,0x0000000008000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000000070L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000000380L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x00000000003C1000L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000010000000L});
 
 }

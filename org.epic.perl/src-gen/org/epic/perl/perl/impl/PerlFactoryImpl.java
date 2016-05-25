@@ -71,15 +71,16 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
       case PerlPackage.STATEMENT_NODE: return createStatementNode();
       case PerlPackage.BLOCK_STATEMENT: return createBlockStatement();
       case PerlPackage.EXPRESSION_STATEMENT: return createExpressionStatement();
+      case PerlPackage.STRUCTURE_NODE: return createStructureNode();
       case PerlPackage.PACKAGE_STATEMENT: return createPackageStatement();
       case PerlPackage.INCLUDE_STATEMENT: return createIncludeStatement();
       case PerlPackage.REQUIRE_INCLUDE: return createRequireInclude();
       case PerlPackage.USE_INCLUDE: return createUseInclude();
       case PerlPackage.SUB_STATEMENT: return createSubStatement();
-      case PerlPackage.STATEMENT_BLOCK: return createStatementBlock();
+      case PerlPackage.BLOCK_STRUCTURE: return createBlockStructure();
       case PerlPackage.TOKEN: return createToken();
-      case PerlPackage.REGEX_TOKEN: return createRegexToken();
       case PerlPackage.QUOTE_TOKEN: return createQuoteToken();
+      case PerlPackage.REGEX_TOKEN: return createRegexToken();
       case PerlPackage.QUOTE_LIKE_TOKEN: return createQuoteLikeToken();
       case PerlPackage.POD_TOKEN: return createPodToken();
       case PerlPackage.NUMBER_TOKEN: return createNumberToken();
@@ -169,6 +170,17 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public StructureNode createStructureNode()
+  {
+    StructureNodeImpl structureNode = new StructureNodeImpl();
+    return structureNode;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public PackageStatement createPackageStatement()
   {
     PackageStatementImpl packageStatement = new PackageStatementImpl();
@@ -224,10 +236,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public StatementBlock createStatementBlock()
+  public BlockStructure createBlockStructure()
   {
-    StatementBlockImpl statementBlock = new StatementBlockImpl();
-    return statementBlock;
+    BlockStructureImpl blockStructure = new BlockStructureImpl();
+    return blockStructure;
   }
 
   /**
@@ -246,10 +258,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public RegexToken createRegexToken()
+  public QuoteToken createQuoteToken()
   {
-    RegexTokenImpl regexToken = new RegexTokenImpl();
-    return regexToken;
+    QuoteTokenImpl quoteToken = new QuoteTokenImpl();
+    return quoteToken;
   }
 
   /**
@@ -257,10 +269,10 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public QuoteToken createQuoteToken()
+  public RegexToken createRegexToken()
   {
-    QuoteTokenImpl quoteToken = new QuoteTokenImpl();
-    return quoteToken;
+    RegexTokenImpl regexToken = new RegexTokenImpl();
+    return regexToken;
   }
 
   /**

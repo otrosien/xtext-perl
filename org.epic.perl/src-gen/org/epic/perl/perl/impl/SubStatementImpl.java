@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.epic.perl.perl.BlockStructure;
 import org.epic.perl.perl.PerlPackage;
-import org.epic.perl.perl.StatementBlock;
 import org.epic.perl.perl.SubStatement;
 
 /**
@@ -80,7 +80,7 @@ public class SubStatementImpl extends BlockStatementImpl implements SubStatement
    * @generated
    * @ordered
    */
-  protected StatementBlock block;
+  protected BlockStructure block;
 
   /**
    * <!-- begin-user-doc -->
@@ -154,7 +154,7 @@ public class SubStatementImpl extends BlockStatementImpl implements SubStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public StatementBlock getBlock()
+  public BlockStructure getBlock()
   {
     return block;
   }
@@ -164,9 +164,9 @@ public class SubStatementImpl extends BlockStatementImpl implements SubStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBlock(StatementBlock newBlock, NotificationChain msgs)
+  public NotificationChain basicSetBlock(BlockStructure newBlock, NotificationChain msgs)
   {
-    StatementBlock oldBlock = block;
+    BlockStructure oldBlock = block;
     block = newBlock;
     if (eNotificationRequired())
     {
@@ -181,7 +181,7 @@ public class SubStatementImpl extends BlockStatementImpl implements SubStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBlock(StatementBlock newBlock)
+  public void setBlock(BlockStructure newBlock)
   {
     if (newBlock != block)
     {
@@ -250,7 +250,7 @@ public class SubStatementImpl extends BlockStatementImpl implements SubStatement
         setPrototype((String)newValue);
         return;
       case PerlPackage.SUB_STATEMENT__BLOCK:
-        setBlock((StatementBlock)newValue);
+        setBlock((BlockStructure)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -273,7 +273,7 @@ public class SubStatementImpl extends BlockStatementImpl implements SubStatement
         setPrototype(PROTOTYPE_EDEFAULT);
         return;
       case PerlPackage.SUB_STATEMENT__BLOCK:
-        setBlock((StatementBlock)null);
+        setBlock((BlockStructure)null);
         return;
     }
     super.eUnset(featureID);

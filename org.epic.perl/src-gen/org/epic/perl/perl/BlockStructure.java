@@ -5,25 +5,23 @@ package org.epic.perl.perl;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Statement Block</b></em>'.
+ * A representation of the model object '<em><b>Block Structure</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.epic.perl.perl.StatementBlock#getStatements <em>Statements</em>}</li>
+ *   <li>{@link org.epic.perl.perl.BlockStructure#getStatements <em>Statements</em>}</li>
  * </ul>
  *
- * @see org.epic.perl.perl.PerlPackage#getStatementBlock()
+ * @see org.epic.perl.perl.PerlPackage#getBlockStructure()
  * @model
  * @generated
  */
-public interface StatementBlock extends EObject
+public interface BlockStructure extends StructureNode
 {
   /**
    * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
@@ -35,10 +33,10 @@ public interface StatementBlock extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Statements</em>' containment reference list.
-   * @see org.epic.perl.perl.PerlPackage#getStatementBlock_Statements()
+   * @see org.epic.perl.perl.PerlPackage#getBlockStructure_Statements()
    * @model containment="true"
    * @generated
    */
   EList<StatementNode> getStatements();
 
-} // StatementBlock
+} // BlockStructure

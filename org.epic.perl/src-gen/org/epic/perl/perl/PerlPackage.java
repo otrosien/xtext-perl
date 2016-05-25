@@ -190,6 +190,25 @@ public interface PerlPackage extends EPackage
   int EXPRESSION_STATEMENT_FEATURE_COUNT = STATEMENT_NODE_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.StructureNodeImpl <em>Structure Node</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.StructureNodeImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getStructureNode()
+   * @generated
+   */
+  int STRUCTURE_NODE = 6;
+
+  /**
+   * The number of structural features of the '<em>Structure Node</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCTURE_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link org.epic.perl.perl.impl.PackageStatementImpl <em>Package Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -197,7 +216,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getPackageStatement()
    * @generated
    */
-  int PACKAGE_STATEMENT = 6;
+  int PACKAGE_STATEMENT = 7;
 
   /**
    * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -234,7 +253,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getIncludeStatement()
    * @generated
    */
-  int INCLUDE_STATEMENT = 7;
+  int INCLUDE_STATEMENT = 8;
 
   /**
    * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -262,7 +281,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getRequireInclude()
    * @generated
    */
-  int REQUIRE_INCLUDE = 8;
+  int REQUIRE_INCLUDE = 9;
 
   /**
    * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -290,7 +309,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getUseInclude()
    * @generated
    */
-  int USE_INCLUDE = 9;
+  int USE_INCLUDE = 10;
 
   /**
    * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -345,7 +364,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getSubStatement()
    * @generated
    */
-  int SUB_STATEMENT = 10;
+  int SUB_STATEMENT = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -384,14 +403,14 @@ public interface PerlPackage extends EPackage
   int SUB_STATEMENT_FEATURE_COUNT = BLOCK_STATEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.StatementBlockImpl <em>Statement Block</em>}' class.
+   * The meta object id for the '{@link org.epic.perl.perl.impl.BlockStructureImpl <em>Block Structure</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.StatementBlockImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getStatementBlock()
+   * @see org.epic.perl.perl.impl.BlockStructureImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getBlockStructure()
    * @generated
    */
-  int STATEMENT_BLOCK = 11;
+  int BLOCK_STRUCTURE = 12;
 
   /**
    * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -400,16 +419,16 @@ public interface PerlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT_BLOCK__STATEMENTS = 0;
+  int BLOCK_STRUCTURE__STATEMENTS = STRUCTURE_NODE_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Statement Block</em>' class.
+   * The number of structural features of the '<em>Block Structure</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT_BLOCK_FEATURE_COUNT = 1;
+  int BLOCK_STRUCTURE_FEATURE_COUNT = STRUCTURE_NODE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.epic.perl.perl.impl.TokenImpl <em>Token</em>}' class.
@@ -419,7 +438,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getToken()
    * @generated
    */
-  int TOKEN = 12;
+  int TOKEN = 13;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -438,34 +457,6 @@ public interface PerlPackage extends EPackage
    * @ordered
    */
   int TOKEN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.epic.perl.perl.impl.RegexTokenImpl <em>Regex Token</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.epic.perl.perl.impl.RegexTokenImpl
-   * @see org.epic.perl.perl.impl.PerlPackageImpl#getRegexToken()
-   * @generated
-   */
-  int REGEX_TOKEN = 13;
-
-  /**
-   * The feature id for the '<em><b>Content</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REGEX_TOKEN__CONTENT = TOKEN__CONTENT;
-
-  /**
-   * The number of structural features of the '<em>Regex Token</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REGEX_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.epic.perl.perl.impl.QuoteTokenImpl <em>Quote Token</em>}' class.
@@ -496,6 +487,34 @@ public interface PerlPackage extends EPackage
   int QUOTE_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link org.epic.perl.perl.impl.RegexTokenImpl <em>Regex Token</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.epic.perl.perl.impl.RegexTokenImpl
+   * @see org.epic.perl.perl.impl.PerlPackageImpl#getRegexToken()
+   * @generated
+   */
+  int REGEX_TOKEN = 15;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REGEX_TOKEN__CONTENT = TOKEN__CONTENT;
+
+  /**
+   * The number of structural features of the '<em>Regex Token</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REGEX_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link org.epic.perl.perl.impl.QuoteLikeTokenImpl <em>Quote Like Token</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -503,7 +522,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getQuoteLikeToken()
    * @generated
    */
-  int QUOTE_LIKE_TOKEN = 15;
+  int QUOTE_LIKE_TOKEN = 16;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -531,7 +550,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getPodToken()
    * @generated
    */
-  int POD_TOKEN = 16;
+  int POD_TOKEN = 17;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -559,7 +578,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getNumberToken()
    * @generated
    */
-  int NUMBER_TOKEN = 17;
+  int NUMBER_TOKEN = 18;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -587,7 +606,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getWordToken()
    * @generated
    */
-  int WORD_TOKEN = 18;
+  int WORD_TOKEN = 19;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -615,7 +634,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getSymbolToken()
    * @generated
    */
-  int SYMBOL_TOKEN = 19;
+  int SYMBOL_TOKEN = 20;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -643,7 +662,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getOperatorToken()
    * @generated
    */
-  int OPERATOR_TOKEN = 20;
+  int OPERATOR_TOKEN = 21;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -671,7 +690,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getDataToken()
    * @generated
    */
-  int DATA_TOKEN = 21;
+  int DATA_TOKEN = 22;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -699,7 +718,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getEndToken()
    * @generated
    */
-  int END_TOKEN = 22;
+  int END_TOKEN = 23;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -727,7 +746,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getBacktickQuoteLikeToken()
    * @generated
    */
-  int BACKTICK_QUOTE_LIKE_TOKEN = 23;
+  int BACKTICK_QUOTE_LIKE_TOKEN = 24;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -755,7 +774,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getWordsQuoteLikeToken()
    * @generated
    */
-  int WORDS_QUOTE_LIKE_TOKEN = 24;
+  int WORDS_QUOTE_LIKE_TOKEN = 25;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -783,7 +802,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getCommandQuoteLikeToken()
    * @generated
    */
-  int COMMAND_QUOTE_LIKE_TOKEN = 25;
+  int COMMAND_QUOTE_LIKE_TOKEN = 26;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -811,7 +830,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getRegexpQuoteLikeToken()
    * @generated
    */
-  int REGEXP_QUOTE_LIKE_TOKEN = 26;
+  int REGEXP_QUOTE_LIKE_TOKEN = 27;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -839,7 +858,7 @@ public interface PerlPackage extends EPackage
    * @see org.epic.perl.perl.impl.PerlPackageImpl#getReadLineQuoteLikeToken()
    * @generated
    */
-  int READ_LINE_QUOTE_LIKE_TOKEN = 27;
+  int READ_LINE_QUOTE_LIKE_TOKEN = 28;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -941,6 +960,16 @@ public interface PerlPackage extends EPackage
    * @generated
    */
   EAttribute getExpressionStatement_Version();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.StructureNode <em>Structure Node</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Structure Node</em>'.
+   * @see org.epic.perl.perl.StructureNode
+   * @generated
+   */
+  EClass getStructureNode();
 
   /**
    * Returns the meta object for class '{@link org.epic.perl.perl.PackageStatement <em>Package Statement</em>}'.
@@ -1070,25 +1099,25 @@ public interface PerlPackage extends EPackage
   EReference getSubStatement_Block();
 
   /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.StatementBlock <em>Statement Block</em>}'.
+   * Returns the meta object for class '{@link org.epic.perl.perl.BlockStructure <em>Block Structure</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Statement Block</em>'.
-   * @see org.epic.perl.perl.StatementBlock
+   * @return the meta object for class '<em>Block Structure</em>'.
+   * @see org.epic.perl.perl.BlockStructure
    * @generated
    */
-  EClass getStatementBlock();
+  EClass getBlockStructure();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.epic.perl.perl.StatementBlock#getStatements <em>Statements</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.epic.perl.perl.BlockStructure#getStatements <em>Statements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Statements</em>'.
-   * @see org.epic.perl.perl.StatementBlock#getStatements()
-   * @see #getStatementBlock()
+   * @see org.epic.perl.perl.BlockStructure#getStatements()
+   * @see #getBlockStructure()
    * @generated
    */
-  EReference getStatementBlock_Statements();
+  EReference getBlockStructure_Statements();
 
   /**
    * Returns the meta object for class '{@link org.epic.perl.perl.Token <em>Token</em>}'.
@@ -1112,16 +1141,6 @@ public interface PerlPackage extends EPackage
   EAttribute getToken_Content();
 
   /**
-   * Returns the meta object for class '{@link org.epic.perl.perl.RegexToken <em>Regex Token</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Regex Token</em>'.
-   * @see org.epic.perl.perl.RegexToken
-   * @generated
-   */
-  EClass getRegexToken();
-
-  /**
    * Returns the meta object for class '{@link org.epic.perl.perl.QuoteToken <em>Quote Token</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1130,6 +1149,16 @@ public interface PerlPackage extends EPackage
    * @generated
    */
   EClass getQuoteToken();
+
+  /**
+   * Returns the meta object for class '{@link org.epic.perl.perl.RegexToken <em>Regex Token</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Regex Token</em>'.
+   * @see org.epic.perl.perl.RegexToken
+   * @generated
+   */
+  EClass getRegexToken();
 
   /**
    * Returns the meta object for class '{@link org.epic.perl.perl.QuoteLikeToken <em>Quote Like Token</em>}'.
@@ -1361,6 +1390,16 @@ public interface PerlPackage extends EPackage
     EAttribute EXPRESSION_STATEMENT__VERSION = eINSTANCE.getExpressionStatement_Version();
 
     /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.StructureNodeImpl <em>Structure Node</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.StructureNodeImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getStructureNode()
+     * @generated
+     */
+    EClass STRUCTURE_NODE = eINSTANCE.getStructureNode();
+
+    /**
      * The meta object literal for the '{@link org.epic.perl.perl.impl.PackageStatementImpl <em>Package Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1467,14 +1506,14 @@ public interface PerlPackage extends EPackage
     EReference SUB_STATEMENT__BLOCK = eINSTANCE.getSubStatement_Block();
 
     /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.StatementBlockImpl <em>Statement Block</em>}' class.
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.BlockStructureImpl <em>Block Structure</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.StatementBlockImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getStatementBlock()
+     * @see org.epic.perl.perl.impl.BlockStructureImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getBlockStructure()
      * @generated
      */
-    EClass STATEMENT_BLOCK = eINSTANCE.getStatementBlock();
+    EClass BLOCK_STRUCTURE = eINSTANCE.getBlockStructure();
 
     /**
      * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
@@ -1482,7 +1521,7 @@ public interface PerlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STATEMENT_BLOCK__STATEMENTS = eINSTANCE.getStatementBlock_Statements();
+    EReference BLOCK_STRUCTURE__STATEMENTS = eINSTANCE.getBlockStructure_Statements();
 
     /**
      * The meta object literal for the '{@link org.epic.perl.perl.impl.TokenImpl <em>Token</em>}' class.
@@ -1503,16 +1542,6 @@ public interface PerlPackage extends EPackage
     EAttribute TOKEN__CONTENT = eINSTANCE.getToken_Content();
 
     /**
-     * The meta object literal for the '{@link org.epic.perl.perl.impl.RegexTokenImpl <em>Regex Token</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.epic.perl.perl.impl.RegexTokenImpl
-     * @see org.epic.perl.perl.impl.PerlPackageImpl#getRegexToken()
-     * @generated
-     */
-    EClass REGEX_TOKEN = eINSTANCE.getRegexToken();
-
-    /**
      * The meta object literal for the '{@link org.epic.perl.perl.impl.QuoteTokenImpl <em>Quote Token</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1521,6 +1550,16 @@ public interface PerlPackage extends EPackage
      * @generated
      */
     EClass QUOTE_TOKEN = eINSTANCE.getQuoteToken();
+
+    /**
+     * The meta object literal for the '{@link org.epic.perl.perl.impl.RegexTokenImpl <em>Regex Token</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.epic.perl.perl.impl.RegexTokenImpl
+     * @see org.epic.perl.perl.impl.PerlPackageImpl#getRegexToken()
+     * @generated
+     */
+    EClass REGEX_TOKEN = eINSTANCE.getRegexToken();
 
     /**
      * The meta object literal for the '{@link org.epic.perl.perl.impl.QuoteLikeTokenImpl <em>Quote Like Token</em>}' class.

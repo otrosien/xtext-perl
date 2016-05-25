@@ -124,6 +124,15 @@ public class PerlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case PerlPackage.STRUCTURE_NODE:
+      {
+        StructureNode structureNode = (StructureNode)theEObject;
+        T result = caseStructureNode(structureNode);
+        if (result == null) result = caseNode(structureNode);
+        if (result == null) result = caseElement(structureNode);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case PerlPackage.PACKAGE_STATEMENT:
       {
         PackageStatement packageStatement = (PackageStatement)theEObject;
@@ -181,10 +190,13 @@ public class PerlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PerlPackage.STATEMENT_BLOCK:
+      case PerlPackage.BLOCK_STRUCTURE:
       {
-        StatementBlock statementBlock = (StatementBlock)theEObject;
-        T result = caseStatementBlock(statementBlock);
+        BlockStructure blockStructure = (BlockStructure)theEObject;
+        T result = caseBlockStructure(blockStructure);
+        if (result == null) result = caseStructureNode(blockStructure);
+        if (result == null) result = caseNode(blockStructure);
+        if (result == null) result = caseElement(blockStructure);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -196,21 +208,21 @@ public class PerlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PerlPackage.REGEX_TOKEN:
-      {
-        RegexToken regexToken = (RegexToken)theEObject;
-        T result = caseRegexToken(regexToken);
-        if (result == null) result = caseToken(regexToken);
-        if (result == null) result = caseElement(regexToken);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case PerlPackage.QUOTE_TOKEN:
       {
         QuoteToken quoteToken = (QuoteToken)theEObject;
         T result = caseQuoteToken(quoteToken);
         if (result == null) result = caseToken(quoteToken);
         if (result == null) result = caseElement(quoteToken);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.REGEX_TOKEN:
+      {
+        RegexToken regexToken = (RegexToken)theEObject;
+        T result = caseRegexToken(regexToken);
+        if (result == null) result = caseToken(regexToken);
+        if (result == null) result = caseElement(regexToken);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -437,6 +449,22 @@ public class PerlSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Structure Node</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Structure Node</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStructureNode(StructureNode object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Package Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -517,17 +545,17 @@ public class PerlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Statement Block</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Block Structure</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Statement Block</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Block Structure</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseStatementBlock(StatementBlock object)
+  public T caseBlockStructure(BlockStructure object)
   {
     return null;
   }
@@ -549,22 +577,6 @@ public class PerlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Regex Token</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Regex Token</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRegexToken(RegexToken object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Quote Token</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -576,6 +588,22 @@ public class PerlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseQuoteToken(QuoteToken object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Regex Token</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Regex Token</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRegexToken(RegexToken object)
   {
     return null;
   }

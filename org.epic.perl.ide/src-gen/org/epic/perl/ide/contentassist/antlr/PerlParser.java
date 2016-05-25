@@ -36,6 +36,7 @@ public class PerlParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getElementAccess().getAlternatives(), "rule__Element__Alternatives");
+					put(grammarAccess.getNodeAccess().getAlternatives(), "rule__Node__Alternatives");
 					put(grammarAccess.getStatementNodeAccess().getAlternatives(), "rule__StatementNode__Alternatives");
 					put(grammarAccess.getExpressionStatementAccess().getAlternatives_0(), "rule__ExpressionStatement__Alternatives_0");
 					put(grammarAccess.getIncludeStatementAccess().getAlternatives(), "rule__IncludeStatement__Alternatives");
@@ -44,8 +45,8 @@ public class PerlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSubStatementAccess().getAlternatives_4(), "rule__SubStatement__Alternatives_4");
 					put(grammarAccess.getPrototypeAccess().getAlternatives_1(), "rule__Prototype__Alternatives_1");
 					put(grammarAccess.getTokenAccess().getAlternatives(), "rule__Token__Alternatives");
-					put(grammarAccess.getRegexTokenAccess().getContentAlternatives_1_0(), "rule__RegexToken__ContentAlternatives_1_0");
 					put(grammarAccess.getQuoteTokenAccess().getContentAlternatives_1_0(), "rule__QuoteToken__ContentAlternatives_1_0");
+					put(grammarAccess.getRegexTokenAccess().getContentAlternatives_1_0(), "rule__RegexToken__ContentAlternatives_1_0");
 					put(grammarAccess.getQuoteLikeTokenAccess().getAlternatives(), "rule__QuoteLikeToken__Alternatives");
 					put(grammarAccess.getKeywordAccess().getAlternatives(), "rule__Keyword__Alternatives");
 					put(grammarAccess.getOperatorAccess().getAlternatives(), "rule__Operator__Alternatives");
@@ -57,7 +58,7 @@ public class PerlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUseIncludeAccess().getGroup(), "rule__UseInclude__Group__0");
 					put(grammarAccess.getUseIncludeAccess().getGroup_2_1(), "rule__UseInclude__Group_2_1__0");
 					put(grammarAccess.getSubStatementAccess().getGroup(), "rule__SubStatement__Group__0");
-					put(grammarAccess.getStatementBlockAccess().getGroup(), "rule__StatementBlock__Group__0");
+					put(grammarAccess.getBlockStructureAccess().getGroup(), "rule__BlockStructure__Group__0");
 					put(grammarAccess.getPrototypeAccess().getGroup(), "rule__Prototype__Group__0");
 					put(grammarAccess.getTokenAccess().getGroup_0(), "rule__Token__Group_0__0");
 					put(grammarAccess.getTokenAccess().getGroup_1(), "rule__Token__Group_1__0");
@@ -67,8 +68,8 @@ public class PerlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTokenAccess().getGroup_6(), "rule__Token__Group_6__0");
 					put(grammarAccess.getTokenAccess().getGroup_9(), "rule__Token__Group_9__0");
 					put(grammarAccess.getTokenAccess().getGroup_10(), "rule__Token__Group_10__0");
-					put(grammarAccess.getRegexTokenAccess().getGroup(), "rule__RegexToken__Group__0");
 					put(grammarAccess.getQuoteTokenAccess().getGroup(), "rule__QuoteToken__Group__0");
+					put(grammarAccess.getRegexTokenAccess().getGroup(), "rule__RegexToken__Group__0");
 					put(grammarAccess.getQuoteLikeTokenAccess().getGroup_0(), "rule__QuoteLikeToken__Group_0__0");
 					put(grammarAccess.getQuoteLikeTokenAccess().getGroup_1(), "rule__QuoteLikeToken__Group_1__0");
 					put(grammarAccess.getQuoteLikeTokenAccess().getGroup_2(), "rule__QuoteLikeToken__Group_2__0");
@@ -86,7 +87,7 @@ public class PerlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSubStatementAccess().getNameAssignment_2(), "rule__SubStatement__NameAssignment_2");
 					put(grammarAccess.getSubStatementAccess().getPrototypeAssignment_3(), "rule__SubStatement__PrototypeAssignment_3");
 					put(grammarAccess.getSubStatementAccess().getBlockAssignment_4_1(), "rule__SubStatement__BlockAssignment_4_1");
-					put(grammarAccess.getStatementBlockAccess().getStatementsAssignment_2(), "rule__StatementBlock__StatementsAssignment_2");
+					put(grammarAccess.getBlockStructureAccess().getStatementsAssignment_2(), "rule__BlockStructure__StatementsAssignment_2");
 					put(grammarAccess.getTokenAccess().getContentAssignment_0_1(), "rule__Token__ContentAssignment_0_1");
 					put(grammarAccess.getTokenAccess().getContentAssignment_1_1(), "rule__Token__ContentAssignment_1_1");
 					put(grammarAccess.getTokenAccess().getContentAssignment_2_1(), "rule__Token__ContentAssignment_2_1");
@@ -95,8 +96,8 @@ public class PerlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTokenAccess().getContentAssignment_6_1(), "rule__Token__ContentAssignment_6_1");
 					put(grammarAccess.getTokenAccess().getContentAssignment_9_1(), "rule__Token__ContentAssignment_9_1");
 					put(grammarAccess.getTokenAccess().getContentAssignment_10_1(), "rule__Token__ContentAssignment_10_1");
-					put(grammarAccess.getRegexTokenAccess().getContentAssignment_1(), "rule__RegexToken__ContentAssignment_1");
 					put(grammarAccess.getQuoteTokenAccess().getContentAssignment_1(), "rule__QuoteToken__ContentAssignment_1");
+					put(grammarAccess.getRegexTokenAccess().getContentAssignment_1(), "rule__RegexToken__ContentAssignment_1");
 					put(grammarAccess.getQuoteLikeTokenAccess().getContentAssignment_0_1(), "rule__QuoteLikeToken__ContentAssignment_0_1");
 					put(grammarAccess.getQuoteLikeTokenAccess().getContentAssignment_1_1(), "rule__QuoteLikeToken__ContentAssignment_1_1");
 					put(grammarAccess.getQuoteLikeTokenAccess().getContentAssignment_2_1(), "rule__QuoteLikeToken__ContentAssignment_2_1");

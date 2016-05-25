@@ -106,6 +106,11 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
         return createExpressionStatementAdapter();
       }
       @Override
+      public Adapter caseStructureNode(StructureNode object)
+      {
+        return createStructureNodeAdapter();
+      }
+      @Override
       public Adapter casePackageStatement(PackageStatement object)
       {
         return createPackageStatementAdapter();
@@ -131,9 +136,9 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
         return createSubStatementAdapter();
       }
       @Override
-      public Adapter caseStatementBlock(StatementBlock object)
+      public Adapter caseBlockStructure(BlockStructure object)
       {
-        return createStatementBlockAdapter();
+        return createBlockStructureAdapter();
       }
       @Override
       public Adapter caseToken(Token object)
@@ -141,14 +146,14 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
         return createTokenAdapter();
       }
       @Override
-      public Adapter caseRegexToken(RegexToken object)
-      {
-        return createRegexTokenAdapter();
-      }
-      @Override
       public Adapter caseQuoteToken(QuoteToken object)
       {
         return createQuoteTokenAdapter();
+      }
+      @Override
+      public Adapter caseRegexToken(RegexToken object)
+      {
+        return createRegexTokenAdapter();
       }
       @Override
       public Adapter caseQuoteLikeToken(QuoteLikeToken object)
@@ -328,6 +333,21 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.StructureNode <em>Structure Node</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.StructureNode
+   * @generated
+   */
+  public Adapter createStructureNodeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PackageStatement <em>Package Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -403,16 +423,16 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.StatementBlock <em>Statement Block</em>}'.
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.BlockStructure <em>Block Structure</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.epic.perl.perl.StatementBlock
+   * @see org.epic.perl.perl.BlockStructure
    * @generated
    */
-  public Adapter createStatementBlockAdapter()
+  public Adapter createBlockStructureAdapter()
   {
     return null;
   }
@@ -433,21 +453,6 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.RegexToken <em>Regex Token</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.epic.perl.perl.RegexToken
-   * @generated
-   */
-  public Adapter createRegexTokenAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.epic.perl.perl.QuoteToken <em>Quote Token</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -458,6 +463,21 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createQuoteTokenAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.RegexToken <em>Regex Token</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.RegexToken
+   * @generated
+   */
+  public Adapter createRegexTokenAdapter()
   {
     return null;
   }

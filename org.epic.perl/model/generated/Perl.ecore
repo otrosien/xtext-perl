@@ -12,6 +12,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ExpressionStatement" eSuperTypes="#//StatementNode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StructureNode" eSuperTypes="#//Node"/>
   <eClassifiers xsi:type="ecore:EClass" name="PackageStatement" eSuperTypes="#//ExpressionStatement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -26,18 +27,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="SubStatement" eSuperTypes="#//BlockStatement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prototype" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//StatementBlock"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//BlockStructure"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StatementBlock">
+  <eClassifiers xsi:type="ecore:EClass" name="BlockStructure" eSuperTypes="#//StructureNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
         eType="#//StatementNode" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Token" eSuperTypes="#//Element">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RegexToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="QuoteToken" eSuperTypes="#//Token"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RegexToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="QuoteLikeToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="PodToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="NumberToken" eSuperTypes="#//Token"/>
