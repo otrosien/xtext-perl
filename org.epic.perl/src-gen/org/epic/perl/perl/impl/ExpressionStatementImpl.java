@@ -9,50 +9,50 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.epic.perl.perl.PackageStatement;
+import org.epic.perl.perl.ExpressionStatement;
 import org.epic.perl.perl.PerlPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Package Statement</b></em>'.
+ * An implementation of the model object '<em><b>Expression Statement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.epic.perl.perl.impl.PackageStatementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.epic.perl.perl.impl.ExpressionStatementImpl#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PackageStatementImpl extends ExpressionStatementImpl implements PackageStatement
+public class ExpressionStatementImpl extends StatementNodeImpl implements ExpressionStatement
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getVersion()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String VERSION_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getVersion()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String version = VERSION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected PackageStatementImpl()
+  protected ExpressionStatementImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class PackageStatementImpl extends ExpressionStatementImpl implements Pac
   @Override
   protected EClass eStaticClass()
   {
-    return PerlPackage.Literals.PACKAGE_STATEMENT;
+    return PerlPackage.Literals.EXPRESSION_STATEMENT;
   }
 
   /**
@@ -73,9 +73,9 @@ public class PackageStatementImpl extends ExpressionStatementImpl implements Pac
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public String getVersion()
   {
-    return name;
+    return version;
   }
 
   /**
@@ -83,12 +83,12 @@ public class PackageStatementImpl extends ExpressionStatementImpl implements Pac
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setVersion(String newVersion)
   {
-    String oldName = name;
-    name = newName;
+    String oldVersion = version;
+    version = newVersion;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PerlPackage.PACKAGE_STATEMENT__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, PerlPackage.EXPRESSION_STATEMENT__VERSION, oldVersion, version));
   }
 
   /**
@@ -101,8 +101,8 @@ public class PackageStatementImpl extends ExpressionStatementImpl implements Pac
   {
     switch (featureID)
     {
-      case PerlPackage.PACKAGE_STATEMENT__NAME:
-        return getName();
+      case PerlPackage.EXPRESSION_STATEMENT__VERSION:
+        return getVersion();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +117,8 @@ public class PackageStatementImpl extends ExpressionStatementImpl implements Pac
   {
     switch (featureID)
     {
-      case PerlPackage.PACKAGE_STATEMENT__NAME:
-        setName((String)newValue);
+      case PerlPackage.EXPRESSION_STATEMENT__VERSION:
+        setVersion((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +134,8 @@ public class PackageStatementImpl extends ExpressionStatementImpl implements Pac
   {
     switch (featureID)
     {
-      case PerlPackage.PACKAGE_STATEMENT__NAME:
-        setName(NAME_EDEFAULT);
+      case PerlPackage.EXPRESSION_STATEMENT__VERSION:
+        setVersion(VERSION_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +151,8 @@ public class PackageStatementImpl extends ExpressionStatementImpl implements Pac
   {
     switch (featureID)
     {
-      case PerlPackage.PACKAGE_STATEMENT__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case PerlPackage.EXPRESSION_STATEMENT__VERSION:
+        return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
     }
     return super.eIsSet(featureID);
   }
@@ -168,10 +168,10 @@ public class PackageStatementImpl extends ExpressionStatementImpl implements Pac
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (version: ");
+    result.append(version);
     result.append(')');
     return result.toString();
   }
 
-} //PackageStatementImpl
+} //ExpressionStatementImpl

@@ -11,75 +11,103 @@ import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.epic.perl.perl.UseInclude
+import org.epic.perl.perl.SubStatement
 
 @RunWith(XtextRunner)
 @InjectWith(PerlInjectorProvider)
 class StructureParserTest {
 
-	@Inject
-	extension ParseHelper<PerlDocument>
+    @Inject
+    extension ParseHelper<PerlDocument>
 
-	@Inject
-	extension ValidationTestHelper
+    @Inject
+    extension ValidationTestHelper
 
-	@Inject
-	extension DumpUtil
+    @Inject
+    extension DumpUtil
 
-	@Test
-	def void packageStruct() {
-		val token = _parseDocument('''
-			package My::Module::Test;
-		''').elements.head as PackageStatement
-		Assert.assertEquals('My::Module::Test', token.name)
-	}
+    @Test
+    def void packageStruct() {
+        val token = _parseDocument('''
+            package My::Module::Test;
+        ''').elements.head as PackageStatement
+        Assert.assertEquals('My::Module::Test', token.name)
+    }
 
-	@Test
-	def void packageWithVersionStruct() {
-		val token = _parseDocument('''
-			package My::Module::Test v4.12.0;
-		''').elements.head as PackageStatement
-		Assert.assertEquals('v4.12.0', token.version)
-	}
+    @Test
+    def void packageWithVersionStruct() {
+        val token = _parseDocument('''
+            package My::Module::Test v4.12.0;
+        ''').elements.head as PackageStatement
+        Assert.assertEquals('v4.12.0', token.version)
+    }
 
-	@Test
-	def void useVersion() {
-		val token = _parseDocument('''
-			use v5.12.0;
-		''').elements.head as UseInclude
-		Assert.assertEquals('v5.12.0', token.version)
-	}
+    @Test
+    def void useVersion() {
+        val token = _parseDocument('''
+            use v5.12.0;
+        ''').elements.head as UseInclude
+        Assert.assertEquals('v5.12.0', token.version)
+    }
 
-	@Test
-	def void usePragma() {
-		val token = _parseDocument('''
-			use feature 'say';
-		''').elements.head as UseInclude
-		Assert.assertEquals('feature', token.pragmaOrPackage)
-		Assert.assertEquals('say', token.stringArgument.content)
-	}
-	
-	@Test
-	def void useModule() {
-		val token = _parseDocument('''
-			use URI::URL;
-		''').elements.head as UseInclude
-		Assert.assertEquals('URI::URL', token.pragmaOrPackage)
-	}
-	
-	@Test
-	def void useModuleWithQuoteWords() {
-		val token = _parseDocument('''
-			use URI::URL qw( test );
-		''').elements.head as UseInclude
-		Assert.assertEquals('URI::URL', token.pragmaOrPackage)
-		Assert.assertEquals('qw( test )', token.qwArgument)
-	}
-	
-	private def PerlDocument _parseDocument(String str) {
-		val result = parse(str)
-		result.assertNoErrors
-		println(result.dump)
-		Assert.assertTrue(result.class.name, result instanceof PerlDocument)
-		return result
-	}
+    @Test
+    def void usePragma() {
+        val token = _parseDocument('''
+            use feature 'say';
+        ''').elements.head as UseInclude
+        Assert.assertEquals('feature', token.pragmaOrPackage)
+        Assert.assertEquals('say', token.stringArgument.content)
+    }
+
+    @Test
+    def void useModule() {
+        val token = _parseDocument('''
+            use URI::URL;
+        ''').elements.head as UseInclude
+        Assert.assertEquals('URI::URL', token.pragmaOrPackage)
+    }
+
+    @Test
+    def void useModuleWithQuoteWords() {
+        val token = _parseDocument('''
+            use URI::URL qw( test );
+        ''').elements.head as UseInclude
+        Assert.assertEquals('URI::URL', token.pragmaOrPackage)
+        Assert.assertEquals('qw( test )', token.qwArgument)
+    }
+
+    @Test
+    def void emptySub() {
+        val token = _parseDocument('''
+            sub abc {}
+        ''').elements.head as SubStatement
+        Assert.assertEquals('abc', token.name)
+        Assert.assertEquals(0, token.block.statements.size)
+    }
+
+    @Test
+    def void subWithPrototype() {
+        val token = _parseDocument('''
+            sub someFunc($$;@) {}
+        ''').elements.head as SubStatement
+        Assert.assertEquals('someFunc', token.name)
+        Assert.assertEquals('($$;@)', token.prototype)
+    }
+
+    @Test
+    def void subForwardDeclaration() {
+        val token = _parseDocument('''
+            sub someFunc($$;@);
+        ''').elements.head as SubStatement
+        Assert.assertEquals('someFunc', token.name)
+        Assert.assertNull(token.block)
+    }
+
+    private def PerlDocument _parseDocument(String str) {
+        val result = parse(str)
+        result.assertNoErrors
+        println(result.dump)
+        Assert.assertTrue(result.class.name, result instanceof PerlDocument)
+        return result
+    }
 }

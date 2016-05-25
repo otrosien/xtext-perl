@@ -60,6 +60,24 @@ public interface PerlFactory extends EFactory
   StatementNode createStatementNode();
 
   /**
+   * Returns a new object of class '<em>Block Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Block Statement</em>'.
+   * @generated
+   */
+  BlockStatement createBlockStatement();
+
+  /**
+   * Returns a new object of class '<em>Expression Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression Statement</em>'.
+   * @generated
+   */
+  ExpressionStatement createExpressionStatement();
+
+  /**
    * Returns a new object of class '<em>Package Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -94,6 +112,24 @@ public interface PerlFactory extends EFactory
    * @generated
    */
   UseInclude createUseInclude();
+
+  /**
+   * Returns a new object of class '<em>Sub Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sub Statement</em>'.
+   * @generated
+   */
+  SubStatement createSubStatement();
+
+  /**
+   * Returns a new object of class '<em>Statement Block</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Statement Block</em>'.
+   * @generated
+   */
+  StatementBlock createStatementBlock();
 
   /**
    * Returns a new object of class '<em>Token</em>'.

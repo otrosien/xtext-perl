@@ -182,9 +182,70 @@ ruleStatementNode returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		{
+			newCompositeNode(grammarAccess.getStatementNodeAccess().getBlockStatementParserRuleCall_0());
+		}
+		this_BlockStatement_0=ruleBlockStatement
+		{
+			$current = $this_BlockStatement_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getStatementNodeAccess().getExpressionStatementParserRuleCall_1());
+		}
+		this_ExpressionStatement_1=ruleExpressionStatement
+		{
+			$current = $this_ExpressionStatement_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleBlockStatement
+entryRuleBlockStatement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getBlockStatementRule()); }
+	iv_ruleBlockStatement=ruleBlockStatement
+	{ $current=$iv_ruleBlockStatement.current; }
+	EOF;
+
+// Rule BlockStatement
+ruleBlockStatement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	{
+		newCompositeNode(grammarAccess.getBlockStatementAccess().getSubStatementParserRuleCall());
+	}
+	this_SubStatement_0=ruleSubStatement
+	{
+		$current = $this_SubStatement_0.current;
+		afterParserOrEnumRuleCall();
+	}
+;
+
+// Entry rule entryRuleExpressionStatement
+entryRuleExpressionStatement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpressionStatementRule()); }
+	iv_ruleExpressionStatement=ruleExpressionStatement
+	{ $current=$iv_ruleExpressionStatement.current; }
+	EOF;
+
+// Rule ExpressionStatement
+ruleExpressionStatement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
 		(
 			{
-				newCompositeNode(grammarAccess.getStatementNodeAccess().getPackageStatementParserRuleCall_0_0());
+				newCompositeNode(grammarAccess.getExpressionStatementAccess().getPackageStatementParserRuleCall_0_0());
 			}
 			this_PackageStatement_0=rulePackageStatement
 			{
@@ -193,7 +254,7 @@ ruleStatementNode returns [EObject current=null]
 			}
 			    |
 			{
-				newCompositeNode(grammarAccess.getStatementNodeAccess().getIncludeStatementParserRuleCall_0_1());
+				newCompositeNode(grammarAccess.getExpressionStatementAccess().getIncludeStatementParserRuleCall_0_1());
 			}
 			this_IncludeStatement_1=ruleIncludeStatement
 			{
@@ -203,7 +264,7 @@ ruleStatementNode returns [EObject current=null]
 		)
 		otherlv_2=';'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getStatementNodeAccess().getSemicolonKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getExpressionStatementAccess().getSemicolonKeyword_1());
 		}
 	)
 ;
@@ -459,6 +520,212 @@ ruleUseInclude returns [EObject current=null]
 				)?
 			)
 		)
+	)
+;
+
+// Entry rule entryRuleSubStatement
+entryRuleSubStatement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSubStatementRule()); }
+	iv_ruleSubStatement=ruleSubStatement
+	{ $current=$iv_ruleSubStatement.current; }
+	EOF;
+
+// Rule SubStatement
+ruleSubStatement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getSubStatementAccess().getSubStatementAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='sub'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getSubStatementAccess().getSubKeyword_1());
+		}
+		(
+			(
+				lv_name_2_0=RULE_ID
+				{
+					newLeafNode(lv_name_2_0, grammarAccess.getSubStatementAccess().getNameIDTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSubStatementRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_2_0,
+						"org.epic.perl.Perl.ID");
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSubStatementAccess().getPrototypePrototypeParserRuleCall_3_0());
+				}
+				lv_prototype_3_0=rulePrototype
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSubStatementRule());
+					}
+					set(
+						$current,
+						"prototype",
+						lv_prototype_3_0,
+						"org.epic.perl.Perl.Prototype");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			otherlv_4=';'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getSubStatementAccess().getSemicolonKeyword_4_0());
+			}
+			    |
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSubStatementAccess().getBlockStatementBlockParserRuleCall_4_1_0());
+					}
+					lv_block_5_0=ruleStatementBlock
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSubStatementRule());
+						}
+						set(
+							$current,
+							"block",
+							lv_block_5_0,
+							"org.epic.perl.Perl.StatementBlock");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleStatementBlock
+entryRuleStatementBlock returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getStatementBlockRule()); }
+	iv_ruleStatementBlock=ruleStatementBlock
+	{ $current=$iv_ruleStatementBlock.current; }
+	EOF;
+
+// Rule StatementBlock
+ruleStatementBlock returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getStatementBlockAccess().getStatementBlockAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='{'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getStatementBlockAccess().getLeftCurlyBracketKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getStatementBlockAccess().getStatementsStatementNodeParserRuleCall_2_0());
+				}
+				lv_statements_2_0=ruleStatementNode
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getStatementBlockRule());
+					}
+					add(
+						$current,
+						"statements",
+						lv_statements_2_0,
+						"org.epic.perl.Perl.StatementNode");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_3='}'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getStatementBlockAccess().getRightCurlyBracketKeyword_3());
+		}
+	)
+;
+
+// Entry rule entryRulePrototype
+entryRulePrototype returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getPrototypeRule()); }
+	iv_rulePrototype=rulePrototype
+	{ $current=$iv_rulePrototype.current.getText(); }
+	EOF;
+
+// Rule Prototype
+rulePrototype returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='('
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getPrototypeAccess().getLeftParenthesisKeyword_0());
+		}
+		(
+			kw='$'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getPrototypeAccess().getDollarSignKeyword_1_0());
+			}
+			    |
+			kw='%'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getPrototypeAccess().getPercentSignKeyword_1_1());
+			}
+			    |
+			kw='@'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getPrototypeAccess().getCommercialAtKeyword_1_2());
+			}
+			    |
+			kw='&'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getPrototypeAccess().getAmpersandKeyword_1_3());
+			}
+			    |
+			kw=';'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getPrototypeAccess().getSemicolonKeyword_1_4());
+			}
+		)*
+		kw=')'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getPrototypeAccess().getRightParenthesisKeyword_2());
+		}
 	)
 ;
 
@@ -2952,6 +3219,10 @@ RULE_WORDS_QUOTE_LIKE : 'qw' RULE_WS? ('{' ( options {greedy=false;} : . )*'}'|'
 RULE_COMMAND_QUOTE_LIKE : 'qx' RULE_WS? ('{' ( options {greedy=false;} : . )*'}'|'(' ( options {greedy=false;} : . )*')'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
 
 RULE_REGEX_QUOTE : 'qr' RULE_WS? ('{' ( options {greedy=false;} : . )*'}'|'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/'|'<' ( options {greedy=false;} : . )*'>');
+
+RULE_REGEX_SUBSTITUTE : 's' RULE_WS? ('|' ( options {greedy=false;} : . )*'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/' ( options {greedy=false;} : . )*'/');
+
+RULE_REGEX_TRANSLITERATE : 'tr' RULE_WS? ('|' ( options {greedy=false;} : . )*'|' ( options {greedy=false;} : . )*'|'|'/' ( options {greedy=false;} : . )*'/' ( options {greedy=false;} : . )*'/');
 
 RULE_READLINE_QUOTE : '<' (RULE_ID|RULE_SYMBOL) '>';
 

@@ -20,9 +20,17 @@ Node:
 ;
 
 StatementNode:
+		BlockStatement
+	|   ExpressionStatement
+;
+
+BlockStatement:
+	SubStatement
+;
+
+ExpressionStatement:
 	( PackageStatement
 	| IncludeStatement
-//	| SubStatement
 //	| CompoundStatement
 //	| BreakStatement
 //	| GivenStatement
@@ -54,7 +62,7 @@ StatementNode:
 
 PackageStatement:
 	{PackageStatement}
-	'package' name=ID version=VERSION ?
+	'package' name=ID version=VERSION?
 ;
 
 IncludeStatement:
@@ -69,6 +77,21 @@ RequireInclude:
 UseInclude:
 	{UseInclude}
 	'use' (version=VERSION | ( pragmaOrPackage=ID (stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE )?))
+;
+
+SubStatement:
+	{SubStatement}
+	'sub' name=ID prototype=Prototype? (';' | block=StatementBlock)
+;
+
+StatementBlock:
+	{StatementBlock} '{'
+		statements += StatementNode*
+	'}'
+;
+
+Prototype:
+	'(' ('$'|'%'|'@'|'&'|';')* ')'
 ;
 
 Token:
@@ -239,6 +262,21 @@ terminal REGEX_QUOTE:
 		('|' -> '|') |
 		('/' -> '/') |
 		('<' -> '>')
+	)
+;
+
+
+terminal REGEX_SUBSTITUTE:
+	's' WS? (
+		('|' -> '|' -> '|') |
+		('/' -> '/' -> '/')
+	)
+;
+
+terminal REGEX_TRANSLITERATE:
+	'tr' WS? (
+		('|' -> '|' -> '|') |
+		('/' -> '/' -> '/')
 	)
 ;
 

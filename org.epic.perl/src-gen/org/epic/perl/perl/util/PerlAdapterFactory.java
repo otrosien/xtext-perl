@@ -96,6 +96,16 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
         return createStatementNodeAdapter();
       }
       @Override
+      public Adapter caseBlockStatement(BlockStatement object)
+      {
+        return createBlockStatementAdapter();
+      }
+      @Override
+      public Adapter caseExpressionStatement(ExpressionStatement object)
+      {
+        return createExpressionStatementAdapter();
+      }
+      @Override
       public Adapter casePackageStatement(PackageStatement object)
       {
         return createPackageStatementAdapter();
@@ -114,6 +124,16 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
       public Adapter caseUseInclude(UseInclude object)
       {
         return createUseIncludeAdapter();
+      }
+      @Override
+      public Adapter caseSubStatement(SubStatement object)
+      {
+        return createSubStatementAdapter();
+      }
+      @Override
+      public Adapter caseStatementBlock(StatementBlock object)
+      {
+        return createStatementBlockAdapter();
       }
       @Override
       public Adapter caseToken(Token object)
@@ -273,6 +293,36 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.BlockStatement <em>Block Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.BlockStatement
+   * @generated
+   */
+  public Adapter createBlockStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.ExpressionStatement <em>Expression Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.ExpressionStatement
+   * @generated
+   */
+  public Adapter createExpressionStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.epic.perl.perl.PackageStatement <em>Package Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -328,6 +378,36 @@ public class PerlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createUseIncludeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.SubStatement <em>Sub Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.SubStatement
+   * @generated
+   */
+  public Adapter createSubStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.epic.perl.perl.StatementBlock <em>Statement Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.epic.perl.perl.StatementBlock
+   * @generated
+   */
+  public Adapter createStatementBlockAdapter()
   {
     return null;
   }

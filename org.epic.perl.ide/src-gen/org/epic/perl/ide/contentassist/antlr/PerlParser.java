@@ -36,10 +36,13 @@ public class PerlParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getElementAccess().getAlternatives(), "rule__Element__Alternatives");
-					put(grammarAccess.getStatementNodeAccess().getAlternatives_0(), "rule__StatementNode__Alternatives_0");
+					put(grammarAccess.getStatementNodeAccess().getAlternatives(), "rule__StatementNode__Alternatives");
+					put(grammarAccess.getExpressionStatementAccess().getAlternatives_0(), "rule__ExpressionStatement__Alternatives_0");
 					put(grammarAccess.getIncludeStatementAccess().getAlternatives(), "rule__IncludeStatement__Alternatives");
 					put(grammarAccess.getUseIncludeAccess().getAlternatives_2(), "rule__UseInclude__Alternatives_2");
 					put(grammarAccess.getUseIncludeAccess().getAlternatives_2_1_1(), "rule__UseInclude__Alternatives_2_1_1");
+					put(grammarAccess.getSubStatementAccess().getAlternatives_4(), "rule__SubStatement__Alternatives_4");
+					put(grammarAccess.getPrototypeAccess().getAlternatives_1(), "rule__Prototype__Alternatives_1");
 					put(grammarAccess.getTokenAccess().getAlternatives(), "rule__Token__Alternatives");
 					put(grammarAccess.getQuoteTokenAccess().getContentAlternatives_1_0(), "rule__QuoteToken__ContentAlternatives_1_0");
 					put(grammarAccess.getQuoteLikeTokenAccess().getAlternatives(), "rule__QuoteLikeToken__Alternatives");
@@ -47,11 +50,14 @@ public class PerlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getOperatorAccess().getAlternatives(), "rule__Operator__Alternatives");
 					put(grammarAccess.getFileTestOperatorAccess().getAlternatives(), "rule__FileTestOperator__Alternatives");
 					put(grammarAccess.getPerlDocumentAccess().getGroup(), "rule__PerlDocument__Group__0");
-					put(grammarAccess.getStatementNodeAccess().getGroup(), "rule__StatementNode__Group__0");
+					put(grammarAccess.getExpressionStatementAccess().getGroup(), "rule__ExpressionStatement__Group__0");
 					put(grammarAccess.getPackageStatementAccess().getGroup(), "rule__PackageStatement__Group__0");
 					put(grammarAccess.getRequireIncludeAccess().getGroup(), "rule__RequireInclude__Group__0");
 					put(grammarAccess.getUseIncludeAccess().getGroup(), "rule__UseInclude__Group__0");
 					put(grammarAccess.getUseIncludeAccess().getGroup_2_1(), "rule__UseInclude__Group_2_1__0");
+					put(grammarAccess.getSubStatementAccess().getGroup(), "rule__SubStatement__Group__0");
+					put(grammarAccess.getStatementBlockAccess().getGroup(), "rule__StatementBlock__Group__0");
+					put(grammarAccess.getPrototypeAccess().getGroup(), "rule__Prototype__Group__0");
 					put(grammarAccess.getTokenAccess().getGroup_0(), "rule__Token__Group_0__0");
 					put(grammarAccess.getTokenAccess().getGroup_1(), "rule__Token__Group_1__0");
 					put(grammarAccess.getTokenAccess().getGroup_2(), "rule__Token__Group_2__0");
@@ -75,6 +81,10 @@ public class PerlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUseIncludeAccess().getPragmaOrPackageAssignment_2_1_0(), "rule__UseInclude__PragmaOrPackageAssignment_2_1_0");
 					put(grammarAccess.getUseIncludeAccess().getStringArgumentAssignment_2_1_1_0(), "rule__UseInclude__StringArgumentAssignment_2_1_1_0");
 					put(grammarAccess.getUseIncludeAccess().getQwArgumentAssignment_2_1_1_1(), "rule__UseInclude__QwArgumentAssignment_2_1_1_1");
+					put(grammarAccess.getSubStatementAccess().getNameAssignment_2(), "rule__SubStatement__NameAssignment_2");
+					put(grammarAccess.getSubStatementAccess().getPrototypeAssignment_3(), "rule__SubStatement__PrototypeAssignment_3");
+					put(grammarAccess.getSubStatementAccess().getBlockAssignment_4_1(), "rule__SubStatement__BlockAssignment_4_1");
+					put(grammarAccess.getStatementBlockAccess().getStatementsAssignment_2(), "rule__StatementBlock__StatementsAssignment_2");
 					put(grammarAccess.getTokenAccess().getContentAssignment_0_1(), "rule__Token__ContentAssignment_0_1");
 					put(grammarAccess.getTokenAccess().getContentAssignment_1_1(), "rule__Token__ContentAssignment_1_1");
 					put(grammarAccess.getTokenAccess().getContentAssignment_2_1(), "rule__Token__ContentAssignment_2_1");

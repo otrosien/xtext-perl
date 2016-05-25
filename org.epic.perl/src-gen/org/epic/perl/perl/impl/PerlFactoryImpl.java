@@ -69,10 +69,14 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
       case PerlPackage.ELEMENT: return createElement();
       case PerlPackage.NODE: return createNode();
       case PerlPackage.STATEMENT_NODE: return createStatementNode();
+      case PerlPackage.BLOCK_STATEMENT: return createBlockStatement();
+      case PerlPackage.EXPRESSION_STATEMENT: return createExpressionStatement();
       case PerlPackage.PACKAGE_STATEMENT: return createPackageStatement();
       case PerlPackage.INCLUDE_STATEMENT: return createIncludeStatement();
       case PerlPackage.REQUIRE_INCLUDE: return createRequireInclude();
       case PerlPackage.USE_INCLUDE: return createUseInclude();
+      case PerlPackage.SUB_STATEMENT: return createSubStatement();
+      case PerlPackage.STATEMENT_BLOCK: return createStatementBlock();
       case PerlPackage.TOKEN: return createToken();
       case PerlPackage.QUOTE_TOKEN: return createQuoteToken();
       case PerlPackage.QUOTE_LIKE_TOKEN: return createQuoteLikeToken();
@@ -142,6 +146,28 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public BlockStatement createBlockStatement()
+  {
+    BlockStatementImpl blockStatement = new BlockStatementImpl();
+    return blockStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExpressionStatement createExpressionStatement()
+  {
+    ExpressionStatementImpl expressionStatement = new ExpressionStatementImpl();
+    return expressionStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public PackageStatement createPackageStatement()
   {
     PackageStatementImpl packageStatement = new PackageStatementImpl();
@@ -179,6 +205,28 @@ public class PerlFactoryImpl extends EFactoryImpl implements PerlFactory
   {
     UseIncludeImpl useInclude = new UseIncludeImpl();
     return useInclude;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SubStatement createSubStatement()
+  {
+    SubStatementImpl subStatement = new SubStatementImpl();
+    return subStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StatementBlock createStatementBlock()
+  {
+    StatementBlockImpl statementBlock = new StatementBlockImpl();
+    return statementBlock;
   }
 
   /**

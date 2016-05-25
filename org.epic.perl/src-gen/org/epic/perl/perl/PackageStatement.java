@@ -20,7 +20,7 @@ package org.epic.perl.perl;
  * @model
  * @generated
  */
-public interface PackageStatement extends StatementNode
+public interface PackageStatement extends ExpressionStatement
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

@@ -28,6 +28,8 @@ import org.epic.perl.perl.QuoteToken;
 import org.epic.perl.perl.ReadLineQuoteLikeToken;
 import org.epic.perl.perl.RegexpQuoteLikeToken;
 import org.epic.perl.perl.RequireInclude;
+import org.epic.perl.perl.StatementBlock;
+import org.epic.perl.perl.SubStatement;
 import org.epic.perl.perl.SymbolToken;
 import org.epic.perl.perl.UseInclude;
 import org.epic.perl.perl.WordToken;
@@ -87,6 +89,12 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case PerlPackage.REQUIRE_INCLUDE:
 				sequence_RequireInclude(context, (RequireInclude) semanticObject); 
 				return; 
+			case PerlPackage.STATEMENT_BLOCK:
+				sequence_StatementBlock(context, (StatementBlock) semanticObject); 
+				return; 
+			case PerlPackage.SUB_STATEMENT:
+				sequence_SubStatement(context, (SubStatement) semanticObject); 
+				return; 
 			case PerlPackage.SYMBOL_TOKEN:
 				sequence_Token(context, (SymbolToken) semanticObject); 
 				return; 
@@ -109,6 +117,7 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Element returns PackageStatement
 	 *     Node returns PackageStatement
 	 *     StatementNode returns PackageStatement
+	 *     ExpressionStatement returns PackageStatement
 	 *     PackageStatement returns PackageStatement
 	 *
 	 * Constraint:
@@ -250,6 +259,7 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Element returns RequireInclude
 	 *     Node returns RequireInclude
 	 *     StatementNode returns RequireInclude
+	 *     ExpressionStatement returns RequireInclude
 	 *     IncludeStatement returns RequireInclude
 	 *     RequireInclude returns RequireInclude
 	 *
@@ -258,12 +268,40 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_RequireInclude(ISerializationContext context, RequireInclude semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.STATEMENT_NODE__VERSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.STATEMENT_NODE__VERSION));
+			if (transientValues.isValueTransient(semanticObject, PerlPackage.Literals.EXPRESSION_STATEMENT__VERSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PerlPackage.Literals.EXPRESSION_STATEMENT__VERSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getRequireIncludeAccess().getVersionVERSIONTerminalRuleCall_1_0(), semanticObject.getVersion());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     StatementBlock returns StatementBlock
+	 *
+	 * Constraint:
+	 *     statements+=StatementNode*
+	 */
+	protected void sequence_StatementBlock(ISerializationContext context, StatementBlock semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Element returns SubStatement
+	 *     Node returns SubStatement
+	 *     StatementNode returns SubStatement
+	 *     BlockStatement returns SubStatement
+	 *     SubStatement returns SubStatement
+	 *
+	 * Constraint:
+	 *     (name=ID prototype=Prototype? block=StatementBlock?)
+	 */
+	protected void sequence_SubStatement(ISerializationContext context, SubStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -399,6 +437,7 @@ public class PerlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Element returns UseInclude
 	 *     Node returns UseInclude
 	 *     StatementNode returns UseInclude
+	 *     ExpressionStatement returns UseInclude
 	 *     IncludeStatement returns UseInclude
 	 *     UseInclude returns UseInclude
 	 *

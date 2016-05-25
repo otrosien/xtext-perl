@@ -14,6 +14,6 @@ package org.epic.perl.perl;
  * @model
  * @generated
  */
-public interface IncludeStatement extends StatementNode
+public interface IncludeStatement extends ExpressionStatement
 {
 } // IncludeStatement

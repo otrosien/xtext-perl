@@ -5,24 +5,24 @@ package org.epic.perl.perl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.epic.perl.perl.BlockStatement;
 import org.epic.perl.perl.PerlPackage;
-import org.epic.perl.perl.StatementNode;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Statement Node</b></em>'.
+ * An implementation of the model object '<em><b>Block Statement</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class StatementNodeImpl extends NodeImpl implements StatementNode
+public class BlockStatementImpl extends StatementNodeImpl implements BlockStatement
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StatementNodeImpl()
+  protected BlockStatementImpl()
   {
     super();
   }
@@ -35,7 +35,7 @@ public class StatementNodeImpl extends NodeImpl implements StatementNode
   @Override
   protected EClass eStaticClass()
   {
-    return PerlPackage.Literals.STATEMENT_NODE;
+    return PerlPackage.Literals.BLOCK_STATEMENT;
   }
 
-} //StatementNodeImpl
+} //BlockStatementImpl

@@ -15,7 +15,7 @@ import org.epic.perl.perl.PerlPackage;
  *
  * @generated
  */
-public class IncludeStatementImpl extends StatementNodeImpl implements IncludeStatement
+public class IncludeStatementImpl extends ExpressionStatementImpl implements IncludeStatement
 {
   /**
    * <!-- begin-user-doc -->

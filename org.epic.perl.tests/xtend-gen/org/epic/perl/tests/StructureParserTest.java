@@ -15,6 +15,9 @@ import org.epic.perl.perl.Element;
 import org.epic.perl.perl.PackageStatement;
 import org.epic.perl.perl.PerlDocument;
 import org.epic.perl.perl.QuoteToken;
+import org.epic.perl.perl.StatementBlock;
+import org.epic.perl.perl.StatementNode;
+import org.epic.perl.perl.SubStatement;
 import org.epic.perl.perl.UseInclude;
 import org.epic.perl.tests.DumpUtil;
 import org.epic.perl.tests.PerlInjectorProvider;
@@ -119,6 +122,53 @@ public class StructureParserTest {
     Assert.assertEquals("URI::URL", _pragmaOrPackage);
     String _qwArgument = token.getQwArgument();
     Assert.assertEquals("qw( test )", _qwArgument);
+  }
+  
+  @Test
+  public void emptySub() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("sub abc {}");
+    _builder.newLine();
+    PerlDocument __parseDocument = this._parseDocument(_builder.toString());
+    EList<Element> _elements = __parseDocument.getElements();
+    Element _head = IterableExtensions.<Element>head(_elements);
+    final SubStatement token = ((SubStatement) _head);
+    String _name = token.getName();
+    Assert.assertEquals("abc", _name);
+    StatementBlock _block = token.getBlock();
+    EList<StatementNode> _statements = _block.getStatements();
+    int _size = _statements.size();
+    Assert.assertEquals(0, _size);
+  }
+  
+  @Test
+  public void subWithPrototype() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("sub someFunc($$;@) {}");
+    _builder.newLine();
+    PerlDocument __parseDocument = this._parseDocument(_builder.toString());
+    EList<Element> _elements = __parseDocument.getElements();
+    Element _head = IterableExtensions.<Element>head(_elements);
+    final SubStatement token = ((SubStatement) _head);
+    String _name = token.getName();
+    Assert.assertEquals("someFunc", _name);
+    String _prototype = token.getPrototype();
+    Assert.assertEquals("($$;@)", _prototype);
+  }
+  
+  @Test
+  public void subForwardDeclaration() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("sub someFunc($$;@);");
+    _builder.newLine();
+    PerlDocument __parseDocument = this._parseDocument(_builder.toString());
+    EList<Element> _elements = __parseDocument.getElements();
+    Element _head = IterableExtensions.<Element>head(_elements);
+    final SubStatement token = ((SubStatement) _head);
+    String _name = token.getName();
+    Assert.assertEquals("someFunc", _name);
+    StatementBlock _block = token.getBlock();
+    Assert.assertNull(_block);
   }
   
   private PerlDocument _parseDocument(final String str) {

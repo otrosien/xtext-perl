@@ -11,8 +11,10 @@
     </genClasses>
     <genClasses ecoreClass="Perl.ecore#//Element"/>
     <genClasses ecoreClass="Perl.ecore#//Node"/>
-    <genClasses ecoreClass="Perl.ecore#//StatementNode">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//StatementNode/version"/>
+    <genClasses ecoreClass="Perl.ecore#//StatementNode"/>
+    <genClasses ecoreClass="Perl.ecore#//BlockStatement"/>
+    <genClasses ecoreClass="Perl.ecore#//ExpressionStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//ExpressionStatement/version"/>
     </genClasses>
     <genClasses ecoreClass="Perl.ecore#//PackageStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PackageStatement/name"/>
@@ -23,6 +25,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//UseInclude/pragmaOrPackage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//UseInclude/stringArgument"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//UseInclude/qwArgument"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//SubStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//SubStatement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//SubStatement/prototype"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//SubStatement/block"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//StatementBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//StatementBlock/statements"/>
     </genClasses>
     <genClasses ecoreClass="Perl.ecore#//Token">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//Token/content"/>

@@ -104,10 +104,31 @@ public class PerlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case PerlPackage.BLOCK_STATEMENT:
+      {
+        BlockStatement blockStatement = (BlockStatement)theEObject;
+        T result = caseBlockStatement(blockStatement);
+        if (result == null) result = caseStatementNode(blockStatement);
+        if (result == null) result = caseNode(blockStatement);
+        if (result == null) result = caseElement(blockStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.EXPRESSION_STATEMENT:
+      {
+        ExpressionStatement expressionStatement = (ExpressionStatement)theEObject;
+        T result = caseExpressionStatement(expressionStatement);
+        if (result == null) result = caseStatementNode(expressionStatement);
+        if (result == null) result = caseNode(expressionStatement);
+        if (result == null) result = caseElement(expressionStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case PerlPackage.PACKAGE_STATEMENT:
       {
         PackageStatement packageStatement = (PackageStatement)theEObject;
         T result = casePackageStatement(packageStatement);
+        if (result == null) result = caseExpressionStatement(packageStatement);
         if (result == null) result = caseStatementNode(packageStatement);
         if (result == null) result = caseNode(packageStatement);
         if (result == null) result = caseElement(packageStatement);
@@ -118,6 +139,7 @@ public class PerlSwitch<T> extends Switch<T>
       {
         IncludeStatement includeStatement = (IncludeStatement)theEObject;
         T result = caseIncludeStatement(includeStatement);
+        if (result == null) result = caseExpressionStatement(includeStatement);
         if (result == null) result = caseStatementNode(includeStatement);
         if (result == null) result = caseNode(includeStatement);
         if (result == null) result = caseElement(includeStatement);
@@ -129,6 +151,7 @@ public class PerlSwitch<T> extends Switch<T>
         RequireInclude requireInclude = (RequireInclude)theEObject;
         T result = caseRequireInclude(requireInclude);
         if (result == null) result = caseIncludeStatement(requireInclude);
+        if (result == null) result = caseExpressionStatement(requireInclude);
         if (result == null) result = caseStatementNode(requireInclude);
         if (result == null) result = caseNode(requireInclude);
         if (result == null) result = caseElement(requireInclude);
@@ -140,9 +163,28 @@ public class PerlSwitch<T> extends Switch<T>
         UseInclude useInclude = (UseInclude)theEObject;
         T result = caseUseInclude(useInclude);
         if (result == null) result = caseIncludeStatement(useInclude);
+        if (result == null) result = caseExpressionStatement(useInclude);
         if (result == null) result = caseStatementNode(useInclude);
         if (result == null) result = caseNode(useInclude);
         if (result == null) result = caseElement(useInclude);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.SUB_STATEMENT:
+      {
+        SubStatement subStatement = (SubStatement)theEObject;
+        T result = caseSubStatement(subStatement);
+        if (result == null) result = caseBlockStatement(subStatement);
+        if (result == null) result = caseStatementNode(subStatement);
+        if (result == null) result = caseNode(subStatement);
+        if (result == null) result = caseElement(subStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PerlPackage.STATEMENT_BLOCK:
+      {
+        StatementBlock statementBlock = (StatementBlock)theEObject;
+        T result = caseStatementBlock(statementBlock);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -354,6 +396,38 @@ public class PerlSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Block Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Block Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBlockStatement(BlockStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpressionStatement(ExpressionStatement object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Package Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -413,6 +487,38 @@ public class PerlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseUseInclude(UseInclude object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Sub Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sub Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSubStatement(SubStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Statement Block</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Statement Block</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStatementBlock(StatementBlock object)
   {
     return null;
   }
