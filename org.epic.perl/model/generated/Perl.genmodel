@@ -56,6 +56,9 @@
     <genClasses ecoreClass="Perl.ecore#//BlockStructure">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//BlockStructure/elements"/>
     </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//ConstructorStructure">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//ConstructorStructure/elements"/>
+    </genClasses>
     <genClasses ecoreClass="Perl.ecore#//Token">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//Token/content"/>
     </genClasses>

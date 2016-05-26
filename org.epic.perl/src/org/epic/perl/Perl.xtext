@@ -49,7 +49,7 @@ ExpressionStatement:
 StructureNode:
     BlockStructure
 //    | SubscriptStructure
-//    | ConstructorStructure
+    | ConstructorStructure
 //    | ConditionStructure
 //    | ListStructure
 //    | ForStructure
@@ -161,6 +161,10 @@ BlockStructure:
     {BlockStructure} '{'
         elements += Element*
     '}'
+;
+
+ConstructorStructure:
+    '[' (elements += Token ((','|'=>') elements += Token )*) ']'
 ;
 
 //ConditionStructure:

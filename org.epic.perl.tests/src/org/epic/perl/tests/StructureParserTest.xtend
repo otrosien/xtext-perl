@@ -16,6 +16,8 @@ import org.epic.perl.perl.NoPragmaInclude
 import org.epic.perl.perl.LabelBlock
 import org.epic.perl.perl.BreakExpression
 import org.epic.perl.perl.VariableExpression
+import org.epic.perl.perl.ConstructorStructure
+import org.epic.perl.perl.QuoteToken
 
 @RunWith(XtextRunner)
 @InjectWith(PerlInjectorProvider)
@@ -146,6 +148,14 @@ class StructureParserTest {
         Assert.assertEquals('$a', token.variables.get(0).name)
         Assert.assertEquals('$b', token.variables.get(1).name)
         Assert.assertEquals('our', token.type)
+    }
+
+    @Test
+    def void arrayRefDeclaration() {
+        val token = _parseDocument('''
+            [ 'a' => 10, $b => $d ]
+        ''').elements.head as ConstructorStructure
+        Assert.assertEquals('a', (token.elements.head as QuoteToken).content)
     }
 
     private def PerlDocument _parseDocument(String str) {
