@@ -9,18 +9,26 @@
   <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//Element"/>
   <eClassifiers xsi:type="ecore:EClass" name="StatementNode" eSuperTypes="#//Node"/>
   <eClassifiers xsi:type="ecore:EClass" name="BlockStatement" eSuperTypes="#//StatementNode"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ExpressionStatement" eSuperTypes="#//StatementNode">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpressionStatement" eSuperTypes="#//StatementNode"/>
   <eClassifiers xsi:type="ecore:EClass" name="StructureNode" eSuperTypes="#//Node"/>
   <eClassifiers xsi:type="ecore:EClass" name="PackageStatement" eSuperTypes="#//ExpressionStatement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IncludeStatement" eSuperTypes="#//ExpressionStatement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RequireInclude" eSuperTypes="#//IncludeStatement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RequireInclude" eSuperTypes="#//IncludeStatement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UseInclude" eSuperTypes="#//IncludeStatement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pragma" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Package" eType="#//PackageStatement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stringArgument" eType="#//QuoteToken"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qwArgument" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NoPragmaInclude" eSuperTypes="#//IncludeStatement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pragma" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stringArgument" eType="#//QuoteToken"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="qwArgument" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

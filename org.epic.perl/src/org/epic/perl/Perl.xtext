@@ -68,6 +68,7 @@ PackageStatement:
 IncludeStatement:
     RequireInclude
     | UseInclude
+    | NoPragmaInclude
 ;
 
 RequireInclude:
@@ -79,9 +80,13 @@ UseInclude:
     'use' (version=VERSION | (pragma=Pragma | Package=[PackageStatement|QUALIFIED_ID]) (stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE )?)
 ;
 
+NoPragmaInclude:
+    {NoPragmaInclude}
+    'no' pragma=Pragma (stringArgument=QuoteToken | qwArgument=WORDS_QUOTE_LIKE )?
+;
+
 /*
  * 
-
     attributes - get/set subroutine or variable attributes
     autodie - Replace functions with ones that succeed or die with lexical scope
     autouse - postpone load of modules until a function is used
@@ -149,7 +154,6 @@ Token:
 //      {CommentToken}   content=SL_COMMENT
       {PodToken}       content=POD 
     | {NumberToken}    content=NUMBER
-//    | {VersionToken}   content=VERSION
     | {WordToken}      content=Word 
 //    | DashedWord 
     | {SymbolToken}    content=SYMBOL
@@ -252,11 +256,6 @@ terminal NUMBER:
 terminal ID:
     ( 'a'..'z' | 'A'..'Z' | '_'  ) ( 'a'..'z' | 'A'..'Z' | '0'..'9' | '_' )*
 ;
-
-//terminal PRAGMA:
-//    ('a'..'z' )+ ('0'..'9')*
-//;
-
 
 terminal SYMBOL:
     ('$'|'%'|'@') ('a'..'z' | 'A'..'Z' | '_')+ (('::'|"'") ('a'..'z' | 'A'..'Z' | '_')+ )*

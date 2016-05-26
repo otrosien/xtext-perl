@@ -12,6 +12,7 @@ import org.epic.perl.perl.UseInclude
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.epic.perl.perl.NoPragmaInclude
 
 @RunWith(XtextRunner)
 @InjectWith(PerlInjectorProvider)
@@ -57,6 +58,14 @@ class StructureParserTest {
         ''').elements.head as UseInclude
         Assert.assertEquals('feature', token.pragma)
         Assert.assertEquals('say', token.stringArgument.content)
+    }
+
+    @Test
+    def void noPragma() {
+        val token = _parseDocument('''
+            no warnings;
+        ''').elements.head as NoPragmaInclude
+        Assert.assertEquals('warnings', token.pragma)
     }
 
     @Test
