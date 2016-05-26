@@ -18,6 +18,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="IncludeExpression" eSuperTypes="#//ExpressionStatement"/>
   <eClassifiers xsi:type="ecore:EClass" name="RequireInclude" eSuperTypes="#//IncludeExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="file" eType="#//QuoteToken"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UseInclude" eSuperTypes="#//IncludeExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -68,6 +70,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="QuoteToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="RegexToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EClass" name="QuoteLikeToken" eSuperTypes="#//Token"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EndExpression" eSuperTypes="#//ExpressionStatement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NullExpression" eSuperTypes="#//ExpressionStatement"/>
   <eClassifiers xsi:type="ecore:EClass" name="PackageStatement" eSuperTypes="#//PackageExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

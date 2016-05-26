@@ -37,10 +37,9 @@ ExpressionStatement:
     | BreakExpression
 //    | GivenExpression
 //    | WhenExpression
-//    | DataExpression
-//    | EndExpression
+    | {EndExpression} content=END
 //    | ExpressionExpression
-//    | NullExpression
+    | {NullExpression} ';'
 //    | UnmatchedBraceExpression
 //    | UnknownExpression
     ) ';'
@@ -74,7 +73,7 @@ IncludeExpression:
 ;
 
 RequireInclude:
-    'require' version=VERSION
+    'require' (version=VERSION | file=QuoteToken )
 ;
 
 UseInclude:
@@ -144,6 +143,7 @@ Variable:
     name=SYMBOL
 ;
 
+// TODO: label can also be of type expression.
 BreakExpression:
     statement=('redo' | 'goto' | 'next' | 'last' | 'return') label=[LabelBlock]?
 ;
@@ -191,13 +191,13 @@ Token:
     | {OperatorToken} content=Operator
     | QuoteToken
     | RegexToken
+    | {DataToken}     content=DATA
+    | {EndToken}      content=END
 //    | HereDoc 
 //    | Cast 
 //    | Structure 
 //    | {LabelToken}    content=LABEL
 //    | Separator
-    | {DataToken} content=DATA
-    | {EndToken}  content=END
 //    | Prototype
 //    | Attribute 
 //    | UnknownToken
@@ -381,11 +381,12 @@ terminal REGEX_MATCH:
 ;
 
 terminal READLINE_QUOTE:
-    '<' ( ID | SYMBOL ) '>'    
+    '<' ( ID | SYMBOL ) '>'
 ;
 
+// TODO: POD sections can start with any character after "=".
 terminal POD:
-    '=pod' -> '=cut'
+    '=pod' -> '=cut' !('\n'|'\r')* ('\r'? '\n')?
 ;
 
 terminal DATA:

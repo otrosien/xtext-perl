@@ -142,7 +142,7 @@ class TokenParserTest {
         
         Test POD
         
-        =cut'''.toString, token.content)
+        =cut'''.toString, token.content.trim)
     }
 
     @Test

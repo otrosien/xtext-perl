@@ -5,19 +5,21 @@ import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.junit4.XtextRunner
 import org.eclipse.xtext.junit4.util.ParseHelper
 import org.eclipse.xtext.junit4.validation.ValidationTestHelper
+import org.epic.perl.perl.BreakExpression
+import org.epic.perl.perl.ConstructorStructure
+import org.epic.perl.perl.DataToken
+import org.epic.perl.perl.LabelBlock
+import org.epic.perl.perl.NoPragmaInclude
 import org.epic.perl.perl.PackageStatement
 import org.epic.perl.perl.PerlDocument
+import org.epic.perl.perl.QuoteToken
+import org.epic.perl.perl.RequireInclude
 import org.epic.perl.perl.SubBlock
 import org.epic.perl.perl.UseInclude
+import org.epic.perl.perl.VariableExpression
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.epic.perl.perl.NoPragmaInclude
-import org.epic.perl.perl.LabelBlock
-import org.epic.perl.perl.BreakExpression
-import org.epic.perl.perl.VariableExpression
-import org.epic.perl.perl.ConstructorStructure
-import org.epic.perl.perl.QuoteToken
 
 @RunWith(XtextRunner)
 @InjectWith(PerlInjectorProvider)
@@ -93,6 +95,14 @@ class StructureParserTest {
     }
 
     @Test
+    def void requireExternalFile() {
+        val token = _parseDocument('''
+            require 'Some/File.pm';
+        ''').elements.head as RequireInclude
+        Assert.assertEquals('Some/File.pm', token.file.content)
+    }
+
+    @Test
     def void emptySub() {
         val token = _parseDocument('''
             sub abc {}
@@ -156,6 +166,17 @@ class StructureParserTest {
             [ 'a' => 10, $b => $d ]
         ''').elements.head as ConstructorStructure
         Assert.assertEquals('a', (token.elements.head as QuoteToken).content)
+    }
+
+    @Test
+    def void dataSection() {
+        val token = _parseDocument('''
+            package A::B;
+            __DATA__
+            some data, not important for the parser.
+        ''').elements.get(1) as DataToken
+        Assert.assertEquals('''__DATA__
+some data, not important for the parser.'''.toString,token.content.trim)
     }
 
     private def PerlDocument _parseDocument(String str) {

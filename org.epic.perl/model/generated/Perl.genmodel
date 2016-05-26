@@ -21,6 +21,7 @@
     <genClasses ecoreClass="Perl.ecore#//IncludeExpression"/>
     <genClasses ecoreClass="Perl.ecore#//RequireInclude">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//RequireInclude/version"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//RequireInclude/file"/>
     </genClasses>
     <genClasses ecoreClass="Perl.ecore#//UseInclude">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//UseInclude/version"/>
@@ -65,6 +66,10 @@
     <genClasses ecoreClass="Perl.ecore#//QuoteToken"/>
     <genClasses ecoreClass="Perl.ecore#//RegexToken"/>
     <genClasses ecoreClass="Perl.ecore#//QuoteLikeToken"/>
+    <genClasses ecoreClass="Perl.ecore#//EndExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//EndExpression/content"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//NullExpression"/>
     <genClasses ecoreClass="Perl.ecore#//PackageStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PackageStatement/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PackageStatement/version"/>
