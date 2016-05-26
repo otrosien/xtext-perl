@@ -1,0 +1,24 @@
+sudo: false
+
+language: java
+
+os:
+  - linux
+  - osx
+
+cache:
+  directories:
+  - $HOME/.m2
+
+env: DISPLAY=:99.0
+
+install: true
+
+before_install:
+ - echo "MAVEN_OPTS='-Xmx2048m -XX:MaxPermSize=512m'" > ~/.mavenrc
+ - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export JAVA_HOME=$(/usr/libexec/java_home); fi
+ - echo $JAVA_HOME
+
+before_script:
+ - sh -e ./before_script.sh
+
