@@ -25,22 +25,23 @@ StatementNode:
 ;
 
 BlockStatement:
-    SubStatement
+    SubBlock
+    | LabelBlock
 ;
 
 ExpressionStatement:
-    ( PackageStatement
-    | IncludeStatement
-//    | CompoundStatement
-//    | BreakStatement
-//    | GivenStatement
-//    | WhenStatement
-//    | DataStatement
-//    | EndStatement
-//    | ExpressionStatement
-//    | NullStatement
-//    | UnmatchedBraceStatement
-//    | UnknownStatement
+    ( PackageExpression
+    | IncludeExpression
+//    | CompoundExpression
+    | BreakExpression
+//    | GivenExpression
+//    | WhenExpression
+//    | DataExpression
+//    | EndExpression
+//    | ExpressionExpression
+//    | NullExpression
+//    | UnmatchedBraceExpression
+//    | UnknownExpression
     ) ';'
 ;
 
@@ -60,12 +61,12 @@ StructureNode:
 //    VariableExpression
 //;
 
-PackageStatement:
+PackageExpression:
     {PackageStatement}
     'package' name=QUALIFIED_ID version=VERSION?
 ;
 
-IncludeStatement:
+IncludeExpression:
     RequireInclude
     | UseInclude
     | NoPragmaInclude
@@ -134,14 +135,22 @@ Pragma:
     'sort' | 'strict' | 'subs' | 'threads::shared' | 'threads' | 'utf8' | 'vars' | 'vmsish' | 'warnings::register' | 'warnings' 
 ;
 
-SubStatement:
-    {SubStatement}
+BreakExpression:
+    statement=('redo' | 'goto' | 'next' | 'last' | 'return') label=[LabelBlock]?
+;
+
+SubBlock:
+    {SubBlock}
     'sub' name=ID prototype=Prototype? (block=BlockStructure | ';')
+;
+
+LabelBlock:
+    label=ID ':' block=BlockStructure
 ;
 
 BlockStructure:
     {BlockStructure} '{'
-        statements += StatementNode*
+        elements += Element*
     '}'
 ;
 
@@ -150,11 +159,9 @@ Prototype:
 ;
 
 Token:
-    // hidden:
-//      {CommentToken}   content=SL_COMMENT
       {PodToken}       content=POD 
     | {NumberToken}    content=NUMBER
-    | {WordToken}      content=Word 
+    | {WordToken}      content=Word
 //    | DashedWord 
     | {SymbolToken}    content=SYMBOL
 //    | ArrayIndex 
@@ -166,7 +173,7 @@ Token:
 //    | HereDoc 
 //    | Cast 
 //    | Structure 
-//    | Label
+//    | {LabelToken}    content=LABEL
 //    | Separator
     | {DataToken} content=DATA
     | {EndToken}  content=END
@@ -204,17 +211,17 @@ Keyword:
 'format' | 'formline' | 'getc' | 'getgrent' | 'getgrgid' | 'getgrnam' | 'gethostbyaddr' | 'gethostbyname' |
 'gethostent' | 'getlogin' | 'getnetbyaddr' | 'getnetbyname' | 'getnetent' | 'getpeername' | 'getpgrp' | 'getppid' |
 'getpriority' | 'getprotobyname' | 'getprotobynumber' | 'getprotoent' | 'getpwent' | 'getpwnam' | 'getpwuid' |
-'getservbyname' | 'getservbyport' | 'getservent' | 'getsockname' | 'getsockopt' | 'given' | 'glob' | 'gmtime' | 'goto'
-| 'grep' | 'hex' | 'if' | 'index' | 'int' | 'ioctl' | 'join' | 'keys' | 'kill' | 'last' | 'lc' | 'lcfirst' |
+'getservbyname' | 'getservbyport' | 'getservent' | 'getsockname' | 'getsockopt' | 'given' | 'glob' | 'gmtime' 
+| 'grep' | 'hex' | 'if' | 'index' | 'int' | 'ioctl' | 'join' | 'keys' | 'kill' | 'lc' | 'lcfirst' |
 'length' | 'link' | 'listen' | 'local' | 'localtime' | 'lock' | 'log' | 'lstat' | 'map' | 'mkdir' |
-'msgctl' | 'msgget' | 'msgrcv' | 'msgsnd' | 'my' | 'next' | 'no' | 'oct' | 'open' | 'opendir' |
+'msgctl' | 'msgget' | 'msgrcv' | 'msgsnd' | 'my' | 'no' | 'oct' | 'open' | 'opendir' |
 'ord' | 'our' | 'pack' | 'package' | 'pipe' | 'pop' | 'pos' | 'print' | 'printf' | 'prototype' | 'push' |
-'quotemeta' | 'rand' | 'read' | 'readdir' | 'readline' | 'readlink' | 'readpipe' | 'recv' | 'redo'
+'quotemeta' | 'rand' | 'read' | 'readdir' | 'readline' | 'readlink' | 'readpipe' | 'recv' 
 | 'ref' | 'rename' | 'require' | 'reset' | 'return' | 'reverse' | 'rewinddir' | 'rindex' | 'rmdir' | 'say' |
 'scalar' | 'seek' | 'seekdir' | 'select' | 'semctl' | 'semget' | 'semop' | 'send' | 'setgrent' | 'sethostent' |
 'setnetent' | 'setpgrp' | 'setpriority' | 'setprotoent' | 'setpwent' | 'setservent' | 'setsockopt' | 'shift' | 'shmctl'
 | 'shmget' | 'shmread' | 'shmwrite' | 'shutdown' | 'sin' | 'sleep' | 'socket' | 'socketpair' | 'sort' | 'splice' |
-'split' | 'sprintf' | 'sqrt' | 'srand' | 'stat' | 'state' | 'study' | 'sub' | 'substr' | 'symlink' | 'syscall' |
+'split' | 'sprintf' | 'sqrt' | 'srand' | 'stat' | 'state' | 'study' | 'substr' | 'symlink' | 'syscall' |
 'sysopen' | 'sysread' | 'sysseek' | 'system' | 'syswrite' | 'tell' | 'telldir' | 'tie' | 'tied' | 'time' | 'times' |
 'tr' | 'truncate' | 'uc' | 'ucfirst' | 'umask' | 'undef' | 'unless' | 'unlink' | 'unpack' | 'unshift' | 'untie' |
 'until' | 'use' | 'utime' | 'values' | 'vec' | 'wait' | 'waitpid' | 'wantarray' | 'warn' | 'when' | 'while' | 'write' |
@@ -248,6 +255,7 @@ FileTestOperator:
 QUALIFIED_ID:
     ID (('::'|"'") ID)*
 ;
+
 
 terminal NUMBER:
     (HEX | BIN | INT) ('.' INT)?

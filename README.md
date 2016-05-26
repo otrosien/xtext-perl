@@ -11,6 +11,7 @@ Statements:
 * subs
 * package declaration
 * includes (use,require,pragmas)
+* labels ('LINE:')
 
 Structure:
 * blocks ('{' .... '}')

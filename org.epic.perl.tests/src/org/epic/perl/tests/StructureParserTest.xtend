@@ -7,12 +7,14 @@ import org.eclipse.xtext.junit4.util.ParseHelper
 import org.eclipse.xtext.junit4.validation.ValidationTestHelper
 import org.epic.perl.perl.PackageStatement
 import org.epic.perl.perl.PerlDocument
-import org.epic.perl.perl.SubStatement
+import org.epic.perl.perl.SubBlock
 import org.epic.perl.perl.UseInclude
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.epic.perl.perl.NoPragmaInclude
+import org.epic.perl.perl.LabelBlock
+import org.epic.perl.perl.BreakExpression
 
 @RunWith(XtextRunner)
 @InjectWith(PerlInjectorProvider)
@@ -91,16 +93,16 @@ class StructureParserTest {
     def void emptySub() {
         val token = _parseDocument('''
             sub abc {}
-        ''').elements.head as SubStatement
+        ''').elements.head as SubBlock
         Assert.assertEquals('abc', token.name)
-        Assert.assertEquals(0, token.block.statements.size)
+        Assert.assertEquals(0, token.block.elements.size)
     }
 
     @Test
     def void subWithPrototype() {
         val token = _parseDocument('''
             sub someFunc($$;@) {}
-        ''').elements.head as SubStatement
+        ''').elements.head as SubBlock
         Assert.assertEquals('someFunc', token.name)
         Assert.assertEquals('($$;@)', token.prototype)
     }
@@ -109,9 +111,21 @@ class StructureParserTest {
     def void subForwardDeclaration() {
         val token = _parseDocument('''
             sub someFunc($$;@);
-        ''').elements.head as SubStatement
+        ''').elements.head as SubBlock
         Assert.assertEquals('someFunc', token.name)
         Assert.assertNull(token.block)
+    }
+
+    @Test
+    def void labelDeclaration() {
+        val token = _parseDocument('''
+            SKIP: {
+                last;
+            }
+        ''').elements.head as LabelBlock
+        Assert.assertEquals('SKIP', token.label)
+        Assert.assertNotNull(token.block)
+        Assert.assertEquals('last', (token.block.elements.head as BreakExpression).statement)
     }
 
     private def PerlDocument _parseDocument(String str) {
