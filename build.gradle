@@ -3,7 +3,7 @@ plugins {
 }
 
 subprojects {
-	ext.xtextVersion = '2.9.2'
+	ext.xtextVersion = '2.10.0'
 	repositories {
 		jcenter()
 	}
