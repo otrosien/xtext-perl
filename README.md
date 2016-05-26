@@ -24,7 +24,7 @@ Token:
 * Quotelike (q,qq,qx..)
 * Backticks
 * Regex (s,m,tr)... 
-* __DATA__ / __END__
+* DATA / END
 * POD
 
 Known issues:
