@@ -14,17 +14,18 @@ import org.junit.runner.RunWith
 
 @RunWith(XtextRunner)
 @InjectWith(PerlInjectorProvider)
-class PerlParsingTest{
+class PerlParsingTest {
 
-	@Inject
-	ParseHelper<PerlDocument> parseHelper
+    @Inject
+    ParseHelper<PerlDocument> parseHelper
 
-	@Test 
-	def void loadModel() {
-		val result = parseHelper.parse('''
-			#!/usr/bin/perl
-		''')
-		Assert.assertNotNull(result)
-	}
+    // Empty test, basically to make code generation happy.
+    @Test
+    def void loadModel() {
+        val result = parseHelper.parse('''
+            #!/usr/bin/perl
+        ''')
+        Assert.assertNotNull(result)
+    }
 
 }
