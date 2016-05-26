@@ -1,7 +1,6 @@
 dependencies {
 	compile project(':org.epic.perl')
 	compile "org.eclipse.xtext:org.eclipse.xtext.ide:${xtextVersion}"
-	compile "org.eclipse.xtext:org.eclipse.xtext.xbase.ide:${xtextVersion}"
 }
 //this is an eclipse plugin project
 eclipseClasspath.enabled=false
