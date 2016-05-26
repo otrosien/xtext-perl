@@ -15,6 +15,7 @@ import org.junit.runner.RunWith
 import org.epic.perl.perl.NoPragmaInclude
 import org.epic.perl.perl.LabelBlock
 import org.epic.perl.perl.BreakExpression
+import org.epic.perl.perl.VariableExpression
 
 @RunWith(XtextRunner)
 @InjectWith(PerlInjectorProvider)
@@ -126,6 +127,25 @@ class StructureParserTest {
         Assert.assertEquals('SKIP', token.label)
         Assert.assertNotNull(token.block)
         Assert.assertEquals('last', (token.block.elements.head as BreakExpression).statement)
+    }
+
+    @Test
+    def void variableDeclaration() {
+        val token = _parseDocument('''
+            my $token;
+        ''').elements.head as VariableExpression
+        Assert.assertEquals('$token', token.variable.name)
+        Assert.assertEquals('my', token.type)
+    }
+
+    @Test
+    def void variableListDeclaration() {
+        val token = _parseDocument('''
+            our ($a,$b);
+        ''').elements.head as VariableExpression
+        Assert.assertEquals('$a', token.variables.get(0).name)
+        Assert.assertEquals('$b', token.variables.get(1).name)
+        Assert.assertEquals('our', token.type)
     }
 
     private def PerlDocument _parseDocument(String str) {

@@ -32,6 +32,7 @@ BlockStatement:
 ExpressionStatement:
     ( PackageExpression
     | IncludeExpression
+    | VariableExpression
 //    | CompoundExpression
     | BreakExpression
 //    | GivenExpression
@@ -58,7 +59,7 @@ StructureNode:
 ;
 
 //ExpressionStatement:
-//    VariableExpression
+//    
 //;
 
 PackageExpression:
@@ -135,6 +136,14 @@ Pragma:
     'sort' | 'strict' | 'subs' | 'threads::shared' | 'threads' | 'utf8' | 'vars' | 'vmsish' | 'warnings::register' | 'warnings' 
 ;
 
+VariableExpression:
+    type=('my'|'our'|'local'|'state') (variable=Variable | '(' variables+=Variable (',' variables+=Variable)* ')' )
+;
+
+Variable:
+    name=SYMBOL
+;
+
 BreakExpression:
     statement=('redo' | 'goto' | 'next' | 'last' | 'return') label=[LabelBlock]?
 ;
@@ -153,6 +162,14 @@ BlockStructure:
         elements += Element*
     '}'
 ;
+
+//ConditionStructure:
+//    {ConditionStructure} '(' condition=ExpressionExpression ')'
+//;
+//
+//ExpressionExpression:
+//    
+//;
 
 Prototype:
     '(' ('$'|'%'|'@'|'&'|';')* ')'
