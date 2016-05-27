@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/otrosien/xtext-perl.svg)](https://travis-ci.org/otrosien/xtext-perl)
+
 # parsing perl with xtext
 
 Demo of how much of perl can be parsed using xtext.
