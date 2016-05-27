@@ -20,6 +20,7 @@ import org.epic.perl.perl.VariableExpression
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.epic.perl.perl.CastToken
 
 @RunWith(XtextRunner)
 @InjectWith(PerlInjectorProvider)

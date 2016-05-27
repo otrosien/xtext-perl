@@ -60,12 +60,19 @@
     <genClasses ecoreClass="Perl.ecore#//ConstructorStructure">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Perl.ecore#//ConstructorStructure/elements"/>
     </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//Token">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//Token/content"/>
+    <genClasses ecoreClass="Perl.ecore#//Token"/>
+    <genClasses ecoreClass="Perl.ecore#//QuoteToken">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//QuoteToken/content"/>
     </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//QuoteToken"/>
-    <genClasses ecoreClass="Perl.ecore#//RegexToken"/>
-    <genClasses ecoreClass="Perl.ecore#//QuoteLikeToken"/>
+    <genClasses ecoreClass="Perl.ecore#//RegexToken">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//RegexToken/content"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//CastToken">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//CastToken/symbol"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//QuoteLikeToken">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//QuoteLikeToken/content"/>
+    </genClasses>
     <genClasses ecoreClass="Perl.ecore#//EndExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//EndExpression/content"/>
     </genClasses>
@@ -74,13 +81,27 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PackageStatement/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PackageStatement/version"/>
     </genClasses>
-    <genClasses ecoreClass="Perl.ecore#//PodToken"/>
-    <genClasses ecoreClass="Perl.ecore#//NumberToken"/>
-    <genClasses ecoreClass="Perl.ecore#//WordToken"/>
-    <genClasses ecoreClass="Perl.ecore#//SymbolToken"/>
-    <genClasses ecoreClass="Perl.ecore#//OperatorToken"/>
-    <genClasses ecoreClass="Perl.ecore#//DataToken"/>
-    <genClasses ecoreClass="Perl.ecore#//EndToken"/>
+    <genClasses ecoreClass="Perl.ecore#//PodToken">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//PodToken/content"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//NumberToken">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//NumberToken/content"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//WordToken">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//WordToken/content"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//SymbolToken">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//SymbolToken/content"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//OperatorToken">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//OperatorToken/content"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//DataToken">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//DataToken/content"/>
+    </genClasses>
+    <genClasses ecoreClass="Perl.ecore#//EndToken">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Perl.ecore#//EndToken/content"/>
+    </genClasses>
     <genClasses ecoreClass="Perl.ecore#//BacktickQuoteLikeToken"/>
     <genClasses ecoreClass="Perl.ecore#//WordsQuoteLikeToken"/>
     <genClasses ecoreClass="Perl.ecore#//CommandQuoteLikeToken"/>

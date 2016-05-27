@@ -194,7 +194,7 @@ Token:
     | {DataToken}     content=DATA
     | {EndToken}      content=END
 //    | HereDoc 
-//    | Cast 
+    | CastToken
 //    | Structure 
 //    | {LabelToken}    content=LABEL
 //    | Separator
@@ -209,6 +209,10 @@ QuoteToken:
 
 RegexToken:
     {RegexToken} content=(REGEX_SUBSTITUTE | REGEX_TRANSLITERATE | REGEX_MATCH)
+;
+
+CastToken:
+    '@' ('{' symbol=SYMBOL '}' | symbol=SYMBOL )
 ;
 
 QuoteLikeToken:

@@ -19,6 +19,7 @@ import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.epic.perl.perl.RegexToken
+import org.epic.perl.perl.CastToken
 
 @RunWith(XtextRunner)
 @InjectWith(PerlInjectorProvider)
@@ -175,6 +176,14 @@ class TokenParserTest {
             m/.*?/
         ''').elements.head as RegexToken
         Assert.assertEquals('m/.*?/', token.content)
+    }
+
+    @Test
+    def void arrayDeref() {
+        val token = _parseDocument('''
+            @{$foo}
+        ''').elements.head as CastToken
+        Assert.assertEquals('$foo',token.symbol)
     }
 
     private def PerlDocument _parseDocument(String str) {

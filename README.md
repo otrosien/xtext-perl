@@ -26,6 +26,7 @@ Token:
 * Regex (s,m,tr)... 
 * DATA / END
 * POD
+* Array-Deref (@{$...})
 
 Known issues:
 
