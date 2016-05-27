@@ -2,7 +2,7 @@
 
 # parsing perl with xtext
 
-Demo of how much of perl can be parsed using xtext.
+Only perl can parse perl? Let's see.. Demo of how much of perl can be parsed using xtext.
 
 # What's the state?
 
